@@ -55,6 +55,21 @@ $$
 \frac{1}{n}\sum\limits_{i=1}^{n}(\hat{x}_i-x_i)^2 
 $$
 
+```
+带有一段话的 LaTeX $$\frac{1}{n}\sum\limits_{i=1}^{n}(\hat{x}_i-x_i)^2$$
+
+带有一段话的 LaTeX ver.2 $$ \frac{1}{n}\sum\limits_{i=1}^{n}(\hat{x}_i-x_i)^2 $$
+```
+
+带有一段话的 LaTeX $$\frac{1}{n}\sum\limits_{i=1}^{n}(\hat{x}_i-x_i)^2$$
+
+带有一段话的 LaTeX ver.2 $$ \frac{1}{n}\sum\limits_{i=1}^{n}(\hat{x}_i-x_i)^2 $$
+
+>[!note]+ 带有一段话的 LaTeX
+>带有一段话的 $\LaTeX$ ， $$\frac{1}{n}\sum\limits_{i=1}^{n}(\hat{x}_i-x_i)^2$$
+>带有一段话的 $\LaTeX$ ver.2 $$ \frac{1}{n}\sum\limits_{i=1}^{n}(\hat{x}_i-x_i)^2 $$
+
+
 ## Hello World!
 
 The `index.md` in the `/docs` folder is the homepage you see here.
