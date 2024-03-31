@@ -1,4 +1,4 @@
-site_name: obsidian-mkdocs template
+site_name: zoeminus
 
 theme:
     name: 'material'
@@ -25,6 +25,9 @@ theme:
 # Extensions
 markdown_extensions:
   - footnotes
+  - meta
+  - nl2br
+  - admonition
   # - attr_list
   - pymdownx.arithmatex:
       generic: true
@@ -50,6 +53,8 @@ markdown_extensions:
 
 plugins:
   - search
+  - callouts # converting obsidian callouts
+  - tags
   - roamlinks
   - blog
   - rss:
