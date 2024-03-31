@@ -1,6 +1,6 @@
-# Obsidian Notes
+# 更新
 
-Publish your public notes with MkDocs
+- Mar 31 ：添加 MATH ， 
 
 ## Hello World!
 
