@@ -106,6 +106,18 @@ $$
 >Obsdiain 中的不严格 Markdown 不能再用了.
 >$$ \begin{aligned} &\text{Weak Rendering}\\ &\text{Strick Language}\\ &\text{How to fix?} \end{aligned} $$
 
+但这样是正常的：
+
+```
+>[!note]- LaTeX aligned in Callouts
+>Obsdiain 中的不严格 Markdown 不能再用了.
+>$$ \begin{aligned} &\text{Weak Rendering}\\\\ &\text{Strick Language}\\\\ &\text{How to fix?} \end{aligned} $$
+```
+
+>[!note]- LaTeX aligned in Callouts
+>Obsdiain 中的不严格 Markdown 不能再用了.
+>$$ \begin{aligned} &\text{Weak Rendering}\\\\ &\text{Strick Language}\\\\ &\text{How to fix?} \end{aligned} $$
+
 ## Hello World!
 
 The `index.md` in the `/docs` folder is the homepage you see here.
