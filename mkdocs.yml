@@ -81,7 +81,8 @@ extra_css:
   - css/katex.css
   - css/theme.css
   # 霓虹文楷
-  - https://cdn.jsdelivr.net/npm/lxgw-wenkai-webfont@1.1.0/style.css
+  - https://cdn.jsdelivr.net/npm/@callmebill/lxgw-wenkai-web@latest/style.css
+  # - https://cdn.jsdelivr.net/npm/lxgw-wenkai-webfont@1.1.0/style.css
   # - https://cdn.jsdelivr.net/npm/lxgw-wenkai-lite-webfont@1.1.0/style.css
   # - https://cdn.jsdelivr.net/npm/lxgw-wenkai-tc-webfont@1.0.0/style.css
   # - https://cdn.jsdelivr.net/npm/lxgw-wenkai-screen-webfont@1.1.0/style.css
