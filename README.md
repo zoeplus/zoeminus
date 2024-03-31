@@ -1,6 +1,10 @@
 
 [网站地址](https://zoeplus.github.io/zoeminus/)
 
+在 `zeomius/.github/workflows/ci.yml` 中修改 Github Actions ，主要是装 `mkdocs` 的依赖.
+
+CSS 和 JavaScripts 放在 `docs` 下.
+
 # Publish your Obsidian Notes
 
 (MkDocs template)

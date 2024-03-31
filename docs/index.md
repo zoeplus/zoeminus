@@ -37,6 +37,8 @@
 
 ## 公式
 
+内联的 LaTeX 公式只能用单 `$` 渲染，块形的随意.
+
 `$$\frac{1}{n}\sum\limits_{i=1}^{n}(\hat{x}_i-x_i)^2$$`
 
 $$\frac{1}{n}\sum\limits_{i=1}^{n}(\hat{x}_i-x_i)^2$$
@@ -69,6 +71,29 @@ $$
 >带有一段话的 $\LaTeX$ ， $$\frac{1}{n}\sum\limits_{i=1}^{n}(\hat{x}_i-x_i)^2$$
 >带有一段话的 $\LaTeX$ ver.2 $$ \frac{1}{n}\sum\limits_{i=1}^{n}(\hat{x}_i-x_i)^2 $$
 
+```
+>[!note]- LaTeX aligned in Callouts
+>Obsdiain 中的不严格 Markdown 不能再用了.
+>$$
+>\begin{aligned}
+>&\text{Weak Rendering}\\
+>&\text{Strick Language}\\
+>&\text{How to fix?}
+>\end{aligned}
+>$$
+> #issue
+```
+
+>[!note]+ LaTeX aligned in Callouts
+>Obsdiain 中的不严格 Markdown 不能再用了.
+>$$
+>\begin{aligned}
+>&\text{Weak Rendering}\\
+>&\text{Strick Language}\\
+>&\text{How to fix?}
+>\end{aligned}
+>$$
+> #issue
 
 ## Hello World!
 
