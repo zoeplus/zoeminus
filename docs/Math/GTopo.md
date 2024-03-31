@@ -32,10 +32,7 @@ Prerequisites：[集合论](Set.md)，[实数理论](R.md)
 此外还有：
 
 >[!note]- 离散度量.
->$$d(x,y)=\left\{\begin{aligned}
-&0,x=y\\
-&1,x\neq y
-\end{aligned}\right.$$
+>$$d(x,y)=\left\{\begin{aligned} &0,x=y \\\\ &1,x\neq y \end{aligned}\right.$$
 
 ## 在度量空间上建立的概念
 
