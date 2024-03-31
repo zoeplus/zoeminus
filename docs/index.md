@@ -93,7 +93,18 @@ $$
 >&\text{How to fix?}
 >\end{aligned}
 >$$
-> #issue
+
+似乎是唯一可行的方法：
+
+```
+>[!note]- LaTeX aligned in Callouts
+>Obsdiain 中的不严格 Markdown 不能再用了.
+>$$ \begin{aligned} &\text{Weak Rendering}\\ &\text{Strick Language}\\ &\text{How to fix?} \end{aligned} $$
+```
+
+>[!note]- LaTeX aligned in Callouts
+>Obsdiain 中的不严格 Markdown 不能再用了.
+>$$ \begin{aligned} &\text{Weak Rendering}\\ &\text{Strick Language}\\ &\text{How to fix?} \end{aligned} $$
 
 ## Hello World!
 

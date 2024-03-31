@@ -77,5 +77,6 @@ extra_javascript:
   - javascripts/katex.js    # katex
 
 extra_css:
-extra_css:
   - https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css
+  - css/katex.css
+
