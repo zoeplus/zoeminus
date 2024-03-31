@@ -77,7 +77,7 @@ $$
 >$$
 >\begin{aligned}
 >&\text{Weak Rendering}\\
->&\text{Strick Language}\\
+>&\text{Strict Language}\\
 >&\text{How to fix?}
 >\end{aligned}
 >$$
@@ -89,7 +89,7 @@ $$
 >$$
 >\begin{aligned}
 >&\text{Weak Rendering}\\
->&\text{Strick Language}\\
+>&\text{Strict Language}\\
 >&\text{How to fix?}
 >\end{aligned}
 >$$
@@ -117,6 +117,8 @@ $$
 >[!note]- LaTeX aligned in Callouts
 >Obsdiain 中的不严格 Markdown 不能再用了.
 >$$ \begin{aligned} &\text{Weak Rendering}\\\\ &\text{Strick Language}\\\\ &\text{How to fix?} \end{aligned} $$
+
+如何将 `$$...$$` 修改为行内块形式，或者块形式，需要修改[[katex.js]]，目前不知道怎么实现（似乎只能够用 `$$` 表示块或者行间的一种形式.
 
 ## Hello World!
 
