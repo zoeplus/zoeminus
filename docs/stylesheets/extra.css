@@ -1,0 +1,92 @@
+/* Lite version */
+@import '/node_modules/lxgw-wenkai-lite-webfont/style.css';
+body {
+  /* Lite version */
+  font-family: "LXGW WenKai Lite", sans-serif;
+}
+
+/*
+.md-typeset {
+    font-size: 2.0em;
+}
+*/
+
+/* 提示框内的字体大小 */
+.md-typeset .admonition,
+.md-typeset details {
+  font-size: 21px
+}
+
+.md-typeset p {
+  /* paragraphs */
+  font-size: 21px
+}
+
+.md-typeset ul {
+  /* unordered lists */
+  font-size: 21px
+}
+
+.md-typeset ol {
+  /* ordered lists */
+  font-size: 21px
+}
+
+.md-typeset code {
+  /* inline code */
+  font-size: 18px
+}
+
+.md-typeset pre {
+  /* code blocks */
+  font-size: 18px
+}
+
+.md-typeset pre code {
+  /* code blocks within pre tags */
+  font-size: 18px
+}
+
+strong {
+    color: orange; /* Change 'blue' to any color you prefer */
+}
+
+
+.md-grid {
+  max-width: 95%;
+}
+
+@media (min-width: 1220px) {
+  .md-main__inner {
+    margin-top: 0;
+  }
+  .md-sidebar {
+    height: auto;
+  }
+  .md-sidebar--primary {
+    border-right: 1px solid var(--md-default-fg-color--lightest);
+  }
+  .md-nav {
+    font-size: 16px;
+  }
+  .md-nav .md-nav__title {
+    display: none;
+  }
+  .md-nav__icon {
+    width: 1.2rem;
+    height: 1.2rem;
+    margin-top: -.1rem;
+  }
+}
+
+/* Adjust font size of KaTeX inline equations */
+.katex {
+  font-size: 20px; /* You can adjust this value */
+}
+
+.katex-display {
+  margin-top: -1px;
+  margin-bottom: -1px;
+  font-size: 20px;
+}
+

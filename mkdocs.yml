@@ -1,27 +1,14 @@
 site_name: zoeminus
+repo_url: https://github.com/zoeplus/zoeminus
+repo_name: zoeminus
 
-theme:
-    name: 'material'
-    palette:
-
-    # Light mode
-    - media: "(prefers-color-scheme: light)"
-      scheme: default
-      primary: blue
-      accent: teal
-      toggle:
-        icon: material/toggle-switch-off-outline
-        name: Switch to dark mode
-
-    # Dark mode
-    - media: "(prefers-color-scheme: dark)"
-      scheme: slate
-      primary: blue
-      accent: cyan
-      toggle:
-        icon: material/toggle-switch
-        name: Switch to light mode
-
+plugins:
+  - search
+  - git-revision-date
+  - callouts # converting obsidian callouts
+  - tags
+  - roamlinks
+        
 # Extensions
 markdown_extensions:
   - footnotes
@@ -50,20 +37,32 @@ markdown_extensions:
 
   - toc:
       permalink: true
+      baselevel: 2
 
-plugins:
-  - search
-  - callouts # converting obsidian callouts
-  - tags
-  - roamlinks
-  - blog
-  - rss:
-      match_path: blog/posts/.* 
-      date_from_meta:
-        as_creation: date
-      categories:
-        - categories
-        - tags
+theme:
+  name: material
+  locale: en
+  font:
+    code: Roboto Mono
+  features:
+    - revision.date
+    - navigation.tabs
+    - navigation.path
+  palette:
+  
+    # Palette toggle for light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+
+    # Palette toggle for dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
 
 extra_javascript:
   # the following mathjax is not rendering normally
@@ -78,12 +77,4 @@ extra_javascript:
 
 extra_css:
   - https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css
-  - https://cdn.jsdelivr.net/npm/@callmebill/lxgw-wenkai-web@latest/style.css
-  - css/katex.css
-  - css/theme.css
-  # 霓虹文楷
-  # - https://cdn.jsdelivr.net/npm/lxgw-wenkai-webfont@1.1.0/style.css
-  # - https://cdn.jsdelivr.net/npm/lxgw-wenkai-lite-webfont@1.1.0/style.css
-  # - https://cdn.jsdelivr.net/npm/lxgw-wenkai-tc-webfont@1.0.0/style.css
-  # - https://cdn.jsdelivr.net/npm/lxgw-wenkai-screen-webfont@1.1.0/style.css
-
+  - stylesheets/extra.css
