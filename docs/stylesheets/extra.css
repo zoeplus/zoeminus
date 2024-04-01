@@ -2,7 +2,11 @@
 @import '/node_modules/lxgw-wenkai-lite-webfont/style.css';
 body {
   /* Lite version */
-  font-family: "LXGW WenKai Lite", sans-serif;
+  font-family: "LXGW WenKai Lite";
+}
+
+:root {
+    --md-text-font: "LXGW Wenkai Lite";
 }
 
 /*
