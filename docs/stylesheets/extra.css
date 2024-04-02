@@ -8,9 +8,9 @@ body {
 
 @font-face {
   font-family: "Wenkai";
-  src: url("/assets/fonts/LXGWWenKai-Regular.ttf") format("truetype"),
-       url("/assets/fonts/LXGWWenKai-Regular.woff") format("woff"),
-       url("/assets/fonts/LXGWWenKai-Regular.woff2") format("woff2");
+  src: url("LXGWWenKai-Regular.ttf") format("truetype"),
+       url("LXGWWenKai-Regular.woff") format("woff"),
+       url("LXGWWenKai-Regular.woff2") format("woff2");
 }
 
 
