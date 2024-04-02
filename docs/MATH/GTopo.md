@@ -743,3 +743,45 @@ $\{(a,+\infty):a\in \mathbb{R}\cup\{-\infty\}\}\cup\emptyset$ ；
 
 $\emptyset\cup\{\mathbb{R}\backslash F:F=F\text{ 为有限集}\}$ .
 
+### Surgenfrey 平面
+
+## 基
+
+注意到， $\mathbb{R}$ 中的每个开集都可以写成一族端点为有理数的开区间的并. 下面考虑对于一般的拓扑空间.
+
+设 $(X,\Omega)$ 为拓扑空间， $\mathcal{B}$ 为一族开集，如果 $(X,\mathcal{O})$ 中的每一个开集都可以表示为 $\mathcal{B}$ 中的一些元素的并，则称 $\mathcal{B}$ 为 $\mathcal{O}$ 的一个**基**（basis）. 
+
+基有如下等价定义：
+
+>[!note]- 设 $(X,\mathcal{O})$ 是拓扑空间， $\mathcal{B}$ 为一组开集，则 $\mathcal{B}$ 是 $\mathcal{O}$ 的基当且仅当给开集 $U$ 以及 $x\in U$ ，存在 $B_x\in \mathcal{B}:x\in B_x\subset U$ .
+
+设 $(X,\mathcal{O})$ 为拓扑空间， $\mathcal{B}$ 是一族开集，如果开集族 
+
+$$\{X\}\cup\{U_1\cap U_2\cap \cdots\cap U_n:U_i\in \mathcal{B},n\geq1\}$$ 
+是 $\mathcal{O}$ 的一个基，则称 $\mathcal{B}$ 为 $\mathcal{O}$ 的一个**子基**（subbasis）.
+
+设 $X$ 为拓扑空间， $x\in X$ ， $\mathcal{A}$ 为 $x$ 的一族邻域. 若任给 $x$ 的邻域 $U$ ，存在 $A\in \mathcal{A}$ 使得 $A\subset U$ ，则称 $\mathcal{A}$ 为 $x$ 的一个**邻域基**.
+
+称 $X$ **第一可数**或者有**可数邻域基**，如果 $X$ 的每一个点都有一个可数的邻域基；称 $X$ **第二可数**，若 $X$ 有一个可数的基；
+
+>[!note]- 第二可数空间的开连续像第二可数；第一可数空间的开连续像第一可数.
+>证明：设 $X$ 为第二可数空间，设 $f$ 为 $X$ 上的开连续函数，则对于 $f(X)$ 上的任意开集 $V$ ， $f^{-1}(V)$ 是开集，设 $\mathcal{B}=\{B_n\}_{n\geq1}$ 是 $X$ 的可数基，则存在 $I\subset \mathbb{N}$ 使得 $f^{-1}(V)\subset \bigcup_{i\in I}B_i$ ，所以 $V=f(f^{-1}(V))\subset f\left(\bigcup_{i\in I}B_i\right)=\bigcup_{i\in I}f(B_i)$ . 并且 $f(B_i)$ 为开集，则 $\{f(B_n)\}_{n\geq1}$ 是 $f(X)$ 的一个开集.
+>
+>设 $X$ 为第二可数空间，考虑 $f(x)\in f(X)$ ，任给 $f(x)$ 的邻域 $A$ ，则存在开集 $U$ 满足 $f(x)\in U\subset A$ ，并且 $x\in f^{-1}(U)\subset f^{-1}(A)$ ，其中 $f^{-1}(U)$ 为开集，则 $f^{-1}(A)$ 是 $x$ 的邻域，设 $x$ 的邻域基为 $\mathcal{N}$ ，则存在 $N\in \mathcal{N}$ 使得 $x\in N\subset f^{-1}(A)$ ，所以 $f(x)\in f(N)\subset A$ ，取 $\{f(N)\}_{N\in \mathcal{N}}$ ，即为 $f(x)$ 的邻域基.
+
+>[!note]- 设 $\{\mathcal{O}_i\}_{i\in I}$ 是 $X$ 上的一族拓扑， $I\neq\emptyset$ 证明：
+
+1) $\bigcap_{i\in I}\mathcal{O}_i$ 是 $X$ 上的拓扑，并且是比每个 $O_i$ 都粗的最细的拓扑；
+2) 以 $\bigcup_{i\in I}\mathcal{O}_i$ 为子基生成的拓扑是比每个 $O_i$ 都细的最粗的拓扑；
+
+证明：
+
+1) 因为 $\mathcal{O}_i$ 是 $X$ 上的拓扑（ $i\in I$ ），所以 $\emptyset,X\in \mathcal{O}_i,\forall i \in I$ ，所以 $\cap_{i\in I}\mathcal{O}_i\ni \emptyset,X$ ，对于 $V,U\in \bigcap_{i\in I}\mathcal{O}_i$ ，可知 $V\cap U\in \mathcal{O_i},\forall i\in I$ ，所以 $V\cap U\in \bigcap_{i\in I}\mathcal{O_i}$ ，同理可证对于 $\Omega\subset \bigcap_{i\in I}\mathcal{O}_i$ ， $\bigcup \Omega\subset \bigcap_{i\in I}\mathcal{O}_i$ . 所以 $\bigcap_{i\in I}\mathcal{O}_i$ 是 $X$ 上的拓扑. 因为 $\bigcap_{i\in I}\mathcal{O}_i\subset \mathcal{O}_i,\forall i\in I$ ，所以 $\bigcap_{i\in I}\mathcal{O}_i$ 比任何一个 $\mathcal{O}_i$ 都要粗. 此外对于任意的比每个 $\mathcal{O_i}$ 都要粗的拓扑 $\mathcal{W}$ ，其包含于 $\bigcap_{i\in I}\mathcal{O}_i$ ，所以 $\bigcap_{i\in I}\mathcal{O}_i$ .... 
+
+2) 设 $\mathcal{W}$ 为以 $\bigcup_{i\in I}\mathcal{O}_i$ 为子基生成的拓扑. 则开集族： $\{X\}\cup\{U_1\cap U_2\cap \cdots\cap U_n:U_i\in \bigcap_{i\in I}\mathcal{O}_i,n\geq1\}$ 是 $\mathcal{W}$ 的一个子基. 所以对于 $\mathcal{O}_i$ 中的任何一个开集 $U$ ，其
+
+>[!note]- 设 $X$ 为第一可数空间，映射 $f:X\rightarrow Y$ 保持序列的极限，即任给 $X$ 的序列 $\{x_n\}_{n\geq1}$ ，如果 $\{x_n\}_{n}$ 收敛于 $x$ ，则 $\{f(x_n)\}_n$ 收敛于 $f(x)$ . 证明 $f$ 连续.
+>证明：任取 $A\subset X$ ，取 $x\in \bar{A}$ ，由 $X$ 为第一可数空间，根据命题 4.4.2 存在 $\{x_n\}_{n\geq1}\subset A,x_n\rightarrow x(n\rightarrow \infty)$ . 所以 $f(x_n)\rightarrow f(x)(n\rightarrow \infty)$ . 所以 $f(x)\in \overline{f(A)}$ . 所以 $f(\bar{A})\subset \overline{f(A)}$ . 所以 $f$ 为连续映射.
+
+>[!note]- 设 $X$ 为第一可数空间， $\{x_n\}_n$ 是 $X$ 的序列，证明若 $x$ 为 $\{x_n\}$ 的聚点，则 $\{x_n\}_n$ 有子列收敛于 $x$ .
+>由 $x$ 为 $\{x_n\}_n$ 的聚点可知， $\{x_n\}_n$ 常在 $x$ 的每个邻域，设 $\mathcal{B}=\{B_n\}_n$ 为 $X$ 的可数邻域基，考虑 $V_n=\cap_{1\leq i\leq n} B_i$ ，则存在 $x_{n_i}\in V_i$ ，所以 $\{x_{n_i}\}_i$ 收敛于 $x$ .

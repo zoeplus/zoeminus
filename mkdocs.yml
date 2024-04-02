@@ -42,7 +42,8 @@ markdown_extensions:
 theme:
   name: material
   locale: en
-  font: false
+  font:
+    text: Inria Serif
   features:
     - revision.date
     - navigation.tabs

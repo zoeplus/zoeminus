@@ -1,10 +1,11 @@
 /* Lite version */
 
+/*
 @import '/lxgw-wenkai-lite-webfont/style.css';
 body {
   font-family: "LXGW WenKai Lite";
 } 
-
+*/
 
 /*
 @font-face {
@@ -22,37 +23,38 @@ body {
 /* 提示框内的字体大小 */
 .md-typeset .admonition,
 .md-typeset details {
-  font-size: 21px
+  font-size: 18px;
+  font-weight: normal;
 }
 
 .md-typeset p {
   /* paragraphs */
-  font-size: 21px
+  font-size: 18px
 }
 
 .md-typeset ul {
   /* unordered lists */
-  font-size: 21px
+  font-size: 18px
 }
 
 .md-typeset ol {
   /* ordered lists */
-  font-size: 21px
+  font-size: 18px
 }
 
 .md-typeset code {
   /* inline code */
-  font-size: 18px
+  font-size: 16px
 }
 
 .md-typeset pre {
   /* code blocks */
-  font-size: 18px
+  font-size: 16px
 }
 
 .md-typeset pre code {
   /* code blocks within pre tags */
-  font-size: 18px
+  font-size: 16px
 }
 
 strong {
@@ -89,17 +91,19 @@ strong {
 
 /* Adjust font size of KaTeX inline equations */
 .katex {
-  font-size: 20px; /* You can adjust this value */
+  font-size: 18px; /* You can adjust this value */
 }
 
 .katex-display {
   margin-top: -1px;
   margin-bottom: -1px;
-  font-size: 20px;
+  font-size: 18px;
 }
 
+/*
 :root {
     --md-text-font: "Wenkai";
 }
+*/
 
 
