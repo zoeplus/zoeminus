@@ -1,17 +1,18 @@
-/* Lite version */
-
-
+/*
 @import '/lxgw-wenkai-lite-webfont/style.css';
 body {
   font-family: "LXGW WenKai Lite";
 } 
+*/
 
-/*
+
 @font-face {
   font-family: "Wenkai";
-  src: url("/assets/fonts/LXGWWenKai-Regular.ttf") format("truetype");
+  src: url("/assets/fonts/LXGWWenKai-Regular.ttf") format("truetype"),
+       url("/assets/fonts/LXGWWenKai-Regular.woff") format("woff"),
+       url("/assets/fonts/LXGWWenKai-Regular.woff2") format("woff2");
 }
-*/
+
 
 /*
 .md-typeset {
@@ -28,6 +29,7 @@ body {
 
 .md-typeset p {
   /* paragraphs */
+  font-family: "Wenkai";
   font-size: 18px
 }
 
@@ -99,10 +101,10 @@ strong {
   font-size: 18px;
 }
 
-/*
+
 :root {
     --md-text-font: "Wenkai";
 }
-*/
+
 
 
