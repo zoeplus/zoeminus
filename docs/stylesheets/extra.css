@@ -1,13 +1,15 @@
 /* Lite version */
-@import '/node_modules/lxgw-wenkai-lite-webfont/style.css';
+
+@import '/lxgw-wenkai-lite-webfont/style.css';
 body {
   font-family: "LXGW WenKai Lite";
 } 
 
+
 /*
 @font-face {
   font-family: "Wenkai";
-  src: url("/assets/fonts/LXGWWenKai-Regular.ttf"));
+  src: url("/assets/fonts/LXGWWenKai-Regular.ttf") format("truetype");
 }
 */
 
