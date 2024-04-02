@@ -1,13 +1,15 @@
 /* Lite version */
 @import '/node_modules/lxgw-wenkai-lite-webfont/style.css';
 body {
-  /* Lite version */
   font-family: "LXGW WenKai Lite";
-}
+} 
 
-:root {
-    --md-text-font: "LXGW Wenkai Lite";
+/*
+@font-face {
+  font-family: "Wenkai";
+  src: url("/assets/fonts/LXGWWenKai-Regular.ttf"));
 }
+*/
 
 /*
 .md-typeset {
@@ -93,4 +95,9 @@ strong {
   margin-bottom: -1px;
   font-size: 20px;
 }
+
+:root {
+    --md-text-font: "Wenkai";
+}
+
 

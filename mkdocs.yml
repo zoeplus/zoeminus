@@ -42,8 +42,7 @@ markdown_extensions:
 theme:
   name: material
   locale: en
-  font:
-    code: Roboto Mono
+  font: false
   features:
     - revision.date
     - navigation.tabs
