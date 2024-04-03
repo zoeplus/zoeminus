@@ -30,7 +30,8 @@ body {
 
 .md-typeset p {
   /* paragraphs */
-  font-size: 18px
+  font-size: 18px;
+  font-family: "LXGW WenKai Lite"
 }
 
 .md-typeset ul {
