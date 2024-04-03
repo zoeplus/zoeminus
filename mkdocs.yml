@@ -1,6 +1,7 @@
 site_name: zoeminus
 repo_url: https://github.com/zoeplus/zoeminus
 repo_name: zoeminus
+edit_uri: 'edit/main/docs/'
 
 plugins:
   - search
@@ -46,6 +47,9 @@ theme:
     - revision.date
     - navigation.tabs
     - navigation.path
+    - content.action.edit
+    - content.code.copy
+    - header.autohide
   palette:
   
     # Palette toggle for light mode
