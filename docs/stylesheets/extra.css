@@ -1,17 +1,18 @@
-/*
-@import '/lxgw-wenkai-lite-webfont/style.css';
+
+@import 'lxgw-wenkai-lite-webfont/style.css';
 body {
   font-family: "LXGW WenKai Lite";
 } 
-*/
 
 
+/*
 @font-face {
   font-family: "Wenkai";
   src: url("LXGWWenKai-Regular.ttf") format("truetype"),
        url("LXGWWenKai-Regular.woff") format("woff"),
        url("LXGWWenKai-Regular.woff2") format("woff2");
 }
+*/
 
 
 /*
@@ -101,10 +102,11 @@ strong {
   font-size: 18px;
 }
 
-
+/*
 :root {
     --md-text-font: "Wenkai";
 }
+*/
 
 
 
