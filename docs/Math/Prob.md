@@ -1,12 +1,8 @@
-概率论
-
-# 讨论对象
-
-## 三要素
+# 概率论讨论对象
 
 概率论中的三个要素： $(\Omega,\mathcal{F},P)$ 其中 $\Omega$ 称为**样本空间**（sample space）由（一个随机过程中出现的）所有可能结果构成， $\mathcal{F}$ 为 $\Omega$ 的<u>一些</u>子集组成的一个集合，称为**事件集**（set of events）， $P:\mathcal{F}\rightarrow[0,1]$ 称为**概率函数**或者**概率测度**.
 
-### 样本空间
+## 样本空间
 
 $\omega\in \Omega$ 称为**样本点**，$A\subset \mathcal{F}$ 称为**事件**，事件是对随机过程结果的一个抽象.
 
@@ -27,7 +23,7 @@ $\omega\in \Omega$ 称为**样本点**，$A\subset \mathcal{F}$ 称为**事件**
 
 $A=B$ 的含义解释为 $A$ 发生则 $B$ 发生，反之也成立.
 
-### $\sigma-$ 事件域
+## $\sigma-$ 事件域
 
 $\mathcal{F}$ 必须是 $\sigma-$ 域（**sigma-field**，或者称 $\sigma-$ 代数，sigma-algebra，或称 $\sigma-$ 事件域）其满足下面三个条件：
 
@@ -41,7 +37,9 @@ $\mathcal{F}$ 必须是 $\sigma-$ 域（**sigma-field**，或者称 $\sigma-$ �
 
 根据定义可知，最小的 $\sigma$ 代数为 $\{\emptyset,\Omega\}$ ，最大的 $\sigma$ 代数为 $\mathcal{P}(\Omega)$ ；包含 $A$ 的最小 $\sigma$ 代数为 $\mathcal{F}=\{\emptyset,\Omega,A,\bar{A}\}$ .
 
-### 概率公理
+## 概率公理
+
+%%这东西就叫概率公理%%
 
 对于概率函数，其需要满足下面三个条件：
 
@@ -143,6 +141,8 @@ $\mathcal{F}$ 必须是 $\sigma-$ 域（**sigma-field**，或者称 $\sigma-$ �
 
 >[!note]- 若 $A\supset B$ ，则 $\mathcal{P}(A\backslash B)=\mathcal{P}(A)-\mathcal{P}(B)$ . 若 $A,B$ 没有包含关系，则 $\mathcal{P}(A\backslash B)=\mathcal{P}(A)-\mathcal{P}(A\cap B)$ .
 
+# 简单概率模型
+
 ## 古典概率模型
 
 - $\lvert \Omega\rvert$ 有限；
@@ -154,7 +154,7 @@ $\mathcal{F}$ 必须是 $\sigma-$ 域（**sigma-field**，或者称 $\sigma-$ �
 >[!example]- 不是古典概率模型举例. #issue 
 >课堂上举的例子 $\{1,2,2,3,3,3\}$ 有问题.
 
-计算古典概率模型需要用到[排列](DS.md#排列)和[组合](DS.md#组合)分析. 一般对于古典概型问题中直观上的相同元素（例如，同色小球）按照不同进行处理.
+计算古典概率模型需要用到[排列](DSA.md#排列)和[组合](DSA.md#组合)分析. 一般对于古典概型问题中直观上的相同元素（例如，同色小球）按照不同进行处理.
 
 >[!note]- 从 $n$ 个小球中抽取 $r(r\leq n)$ 个小球. 考虑有无放回和有无顺序.
 >- 有放回有顺序： $n^r$ ；
@@ -326,17 +326,30 @@ $\mathcal{F}$ 必须是 $\sigma-$ 域（**sigma-field**，或者称 $\sigma-$ �
 
 >[!note]- 巴拿赫火柴盒：左右口袋各放有一个装有 $N$ 个火柴的火柴盒，每次任取一根，在发现一盒用光时，另一盒中有 $r$ 根的概率为？并证明恒等式 $\sum\limits_{k=0}^{N}\binom{N+k}{k}\frac{1}{2^k}=2^N$ .
 
-
-
 ## 伯努利随机试验
 
-**Bernoulli** 随机试验的事件域为 $\mathcal{F}=\{\emptyset,\Omega,A,\bar{A}\}$ . 每一次随机试验仅有两种可能： $A$ 或 $\bar{A}$ . **n 重 Bernoulli 随机试验**需要满足：1. 每次试验都是 Bernoulli 随机试验，进行 $n$ 次；2. 每一次实验 $\mathcal{P}(A)$ 不改变（良定义）；3. Bernoulli 试验之间相互独立.
+**Bernoulli** 随机试验的事件域为 $\mathcal{F}=\{\emptyset,\Omega,A,\bar{A}\}$ . 每一次随机试验仅有两种可能： $A$ 或 $\bar{A}$ . **n 重 Bernoulli 随机试验**需要满足：1. 每次试验都是 Bernoulli 随机试验，进行 $n$ 次；2. 每一次实验 $\mathcal{P}(A)$ 不改变；3. Bernoulli 试验之间相互独立.
 
-Bernoulli 随机试验还可以进行推广：每一次随机试验有 $r$ 种可能： $A_1,\cdots,A_r$ ，对应的概率分别为 $p_1,\cdots,p_r$ ；推广的 $n$ 重 Bernoulli 随机试验需要满足：每一次都是 Bernoulli 随机试验，进行 $n$ 次； $p_1,\cdots,p_r$ 恒定； Bernoulli 试验之间相互独立. 不难计算得出，经过 $n$ 重 Bernoulli 随机试验之后 $A_1$ 出现 $k_1$ 次，... $A_r$ 出现 $k_r$ 次的概率为： $$p=\binom{n}{k_1k_2\cdots k_r}p_1^{k_1}\cdots p_n^{k_n}$$ 
+记 $\mathcal{P}(A)=p$ ， $\beta$ 表示一次 Bernoulli 随机试验中 $A$ 事件出现的次数（只能取 $0,1$ ） 则 $\mathcal{P}(\beta=k)\overset{def }{=}b_k=p^kq^{1-k},k=0,1$ . 称 $\mathcal{P}(\beta=k)$ 为 **Bernoulli 分布** / **两点分布**.
+
+Bernoulli 随机试验还可以进行推广：每一次随机试验有 $r$ 种可能： $A_1,\cdots,A_r$ ，对应的概率分别为 $p_1,\cdots,p_r$ ；推广的 $n$ 重 Bernoulli 随机试验需要满足：每一次都是 Bernoulli 随机试验，进行 $n$ 次； $p_1,\cdots,p_r$ 恒定； Bernoulli 试验之间相互独立. 不难计算得出，经过 $n$ 重 Bernoulli 随机试验之后 $A_1$ 出现 $k_1$ 次，... $A_r$ 出现 $k_r$ 次的概率为： 
+
+$$p=\binom{n}{k_1k_2\cdots k_r}p_1^{k_1}\cdots p_n^{k_n}$$
 
 ### 二项分布
 
-考虑 $n$ 重 Bernoulli 试验中事件 $A$ 发生（注意不要求恰好） $k$ 次（记事件为 $B_k$ ）的概率，已知每一次事件发生的概率为 $p$ . 从而有 $$\mathcal{P}(B_k)=\mathcal{P}\left(\bigcup_{1\leq i_1<\cdots<i_k\leq n}A_{i_1}\cdots A_{i_k}\bar{A}_{j_1}\cdots\bar{A}_{j_{n-k}}\right)$$ 显然事件两两不相容，从而可得：$$\mathcal{P}(B_k)=\sum\limits_{1\leq i_1<\cdots<i_k\leq n}^{}\mathcal{P}(A_{i_1}\cdots A_{i_k}\bar{A}_{j_1}\cdots\bar{A}_{j_{n-k}})$$ 然后再由 Bernoulli 试验之间独立的性质，可得 $$\mathcal{P}(B_k)=C_n^kp^k(1-p)^{n-k}$$ $\mathcal{P}(B_k)$ 即为 $(q+ps)^n,q=1-p$ 中 $s^k$ 的系数. 称 $$b(k;n,p)=\mathcal{P}(B_k),k=0,1,\cdots,n$$ 为**二项分布**（binomial distribution）. 显然有 $\sum\limits_{k=0}^{n}b(k;n,p)=1$ .
+考虑 $n$ 重 Bernoulli 试验中事件 $A$ 发生（注意不要求恰好） $k$ 次（记事件为 $B_k$ ）的概率，已知每一次事件发生的概率为 $p$ . 从而有 
+
+$$\mathcal{P}(B_k)=\mathcal{P}\left(\bigcup_{1\leq i_1<\cdots<i_k\leq n}A_{i_1}\cdots A_{i_k}\bar{A}_{j_1}\cdots\bar{A}_{j_{n-k}}\right)$$
+
+显然事件两两不相容，从而可得：
+
+$$\mathcal{P}(B_k)=\sum\limits_{1\leq i_1<\cdots<i_k\leq n}^{}\mathcal{P}(A_{i_1}\cdots A_{i_k}\bar{A}_{j_1}\cdots\bar{A}_{j_{n-k}})$$ 
+然后再由 Bernoulli 试验之间独立的性质，可得 $\mathcal{P}(B_k)=C_n^kp^k(1-p)^{n-k}$ ， $\mathcal{P}(B_k)$ 即为 $(q+ps)^n,q=1-p$ 中 $s^k$ 的系数. 用 $\mu$ 表示事件 $A$ 发生的次数，称 
+
+$$\mathcal{P}(\mu=k)=\mathcal{P}(B_k)\overset{def}{=}b(k;n,p),k=0,1,\cdots,n$$
+
+为**二项分布**（binomial distribution）. 显然有 $\sum\limits_{k=0}^{n}b(k;n,p)=1$ .
 
 已知 $\mathcal{P}$ 在由 $A_1,\cdots,A_n,\emptyset,\Omega$ 组成的事件域 $\mathcal{F}$ 上符合概率函数定义，下面所证明的是 $\mathcal{P}$ 在 $\mathcal{F}$ 的某个限制上仍然符合概率函数定义.
 
@@ -411,7 +424,82 @@ $\mathcal{P}$ 是由 $W_1,W_2,\cdots,W_k,\emptyset,\Omega$ 组成的事件域 $\
 
 # 随机变量
 
-[随机变量](https://en.wikipedia.org/wiki/Random_variable)是一个从 $\Omega$ 映射到可测空间 $E$ 的函数. #issue .
+[随机变量](https://en.wikipedia.org/wiki/Random_variable)是一个将样本空间 $\Omega$ 映射到可测空间 $E$ 的函数. 称映射 $\xi:(\Omega,\mathcal{F},\mathcal{P})\rightarrow \mathbb{R}$ 为**随机变量**，如果 $\forall x\in \mathbb{R},\{\omega\in \Omega:\xi(\omega)<x\}\overset{def}{=}\{\xi<x\}\in\mathcal{F}$ ，换言之 $\{\xi<x\}$ 是一个事件，并记 $F(x)=\mathcal{P}(\xi<x)$ 是随机变量 $\xi$ 的**分布函数** / 概率分布.
+
+随机变量还有如下的等价定义：设 $\xi:(\Omega,\mathcal{F},\mathcal{P})\rightarrow \mathbb{R}$ ，若对于任一 Borel 集（[[RF#Borel $ sigma-$ 代数]]） $B$ ， $\{\omega\in \Omega:\xi(\omega)\in B\}\in \mathcal{F}$ ，则称 $\xi$ 是随机变量.
+
+>[!note]- 两种对于随机变量的定义是等价的.
+>分别记为第一定义和第二定义. 
+>
+>当第一定义成立时，注意到 $\{\omega\in \Omega:\xi(w)<x\}=\{\omega\in \Omega:\xi(w)\in(-\infty,x)\}$ 并且 $\mathcal{F}$ 是 $\sigma-$ 代数，所以 $\{\omega\in \Omega:\xi(\omega)\in (a,b)\}\in \mathcal{F}$ ，进一步可以推得 $\{\omega\in \Omega:\xi(\omega)\in W: W\in \mathcal{W}\}\in \mathcal{F}$ ，其中 $\mathcal{W}$ 为包含所有开区间的一个 $\sigma-$ 代数，从而由 $\mathcal{B}\subset \mathcal{W}$ 可得第二定义；当第二定义成立时，因为 $(-\infty,x)$ 也是 Borel 集，可知有第一定义. #imcomplete-whatever %%感觉写得不透彻，从 $\mathcal{F}$ 到 $\mathcal{W}$ 这块%%
+
+下面均使用随机变量的第一定义.
+
+下面讨论更一般的分布函数：
+
+-  $\mathcal{P}(a\leq \xi<b)=\mathcal{P}(\xi<b)-\mathcal{P}(\xi<a)=F(b)-F(a)$ （ $\mathcal{P}(\xi<b)=\mathcal{P}(\xi<a)+\mathcal{P}(a\leq \xi<b)$ 其中 $\{a\leq \xi<b\}=\{\xi<a\}-\{\xi<b\}\in \mathcal{F}$）；
+
+可以将分布函数进一步推广，首先分析 $F$ 的性质：
+
+1. 单调性： $\forall a<b,F(a)\leq F(b)$ ；
+2. 标准型： $\lim_{a\rightarrow -\infty}F(a)=0,\lim_{b\rightarrow +\infty}=1$ ；
+3. 左连续性： $\lim_{x_n\rightarrow x^-}F(x_n)\overset{def}{=}F(x-0)=F(x)$ . （如果在对 $\xi$ 的定义中改为 $\leq$ 时，这里的性质是右连续性）
+
+其中对于左连续性，考虑 $x_0<x_1<\cdots<x_k<\cdots,\forall n\geq1(x_n<x_0)$ ，
+
+$$\begin{aligned}
+F(x)-F(x_0)&=\mathcal{P}(x_0\leq \xi<x)\\
+&=\mathcal{P}\left(\bigcup_{n\geq1}\{x_{n-1}\leq\xi<x_n\}\right)\\
+&=\sum\limits_{n\geq1}^{}\mathcal{P}(\{x_{n-1}\leq \xi<x_n\})\\
+&=\sum\limits_{n\geq1}^{}(F(x_n)-F(x_{n-1}))\\
+&=\lim_{n\rightarrow \infty}F(x_n)-F(x_0)
+\end{aligned}$$ 
+从而可得结论.
+
+- $\mathcal{P}(\xi\leq a)=F(a+0)$ （和上面说明左连续性的思路类似，但要取一个补，首先不妨取单调列 $\{a+1/n\}_{n\geq1}$ ，因为 $\mathcal{P}(\xi\leq a)=\mathcal{P}\left(\bigcap_{1\leq n}\{\xi<a+1/n\}\right)$ ，所以 $1-\mathcal{P}(\xi\leq a)=\mathcal{P}\left(\bigcup_{1\leq n}\{\xi\geq a+1/n\}\right)$ 右式进一步可以写为： $\mathcal{P}(\xi>a+1)+F(a+1)-\lim_{n\rightarrow \infty}F(a+1/(n+1))$ ，从而可以得到结论. ）；
+- $\mathcal{P}(\xi>a)=1-F(a+0)$ ；
+- $\mathcal{P}(\xi\geq a)=1-F(a)$ .
+
+进而可以得到：
+
+- $\mathcal{P}(\mathcal{a\leq \xi\leq b})=F(b+0)-F(a)$ ；
+- $\mathcal{P}(a<\xi\leq b)=F(b+0)-F(a+0)$ ；
+- $\mathcal{P}(a<\xi<b)=F(b)-F(a+0)$ ；
+- $\mathcal{P}(\xi=x_0)=F(x_0+0)-F(x_0)$ ；
+
+>[!example]- 假设 $\xi$ 只能取值 $-1,0,1$ ，并且 $\mathcal{P}(\xi=-1)=p,\mathcal{P}(\xi=0)=q,\mathcal{P}(\xi=1)=r$ ，$p+q+r=1$ ，则 $F(x)$ ？
+>$$F(x)=\left\{\begin{aligned}&p,x\leq -1\\&p+q,-1<x\leq 0\\&1,0<x\end{aligned}\right.$$
+
+## 离散型随机变量
+
+设 $\{x_n\}_{n\geq1}$ 为 $\xi$ 的所有可能取值，并记 $\mathcal{P}(\xi=x_i)=p(x_i),i\geq1$ ，称 $\{p(x_i):i\geq1\}$ 为随机变量 $\xi$ 的**分布列**，满足 $p(x_i)\geq0,\forall i\geq1,\sum\limits_{n\geq1}^{}p(x_n)=1$ .
+
+分布列也可以表示为：
+
+$$\xi\sim\begin{bmatrix}x_1 & x_2 & \cdots & x_n &\cdots \\ p_1 & p_2 & \cdots & p_n & \cdots\end{bmatrix}$$
+
+分布函数可以和分布列相互表示： $F(x)=\mathcal{P}(\xi<x)=\sum\limits_{x_k<x}^{}p(x_k)$ ， $p(x_k)=\text{lastmin}\{F(x):x>x_k\}-\text{lastmax}\{F(x):x<x_k\}$ .
+
+更一般的，有**退化分布** / 单点分布，随机变量 $\alpha\equiv c$ ，此时 $F(x)=\left\{\begin{aligned}&0,x\leq c\\&1,x>c\end{aligned}\right.$  . #issue %%这能否推出 $\mathcal{F}=\{\emptyset,\Omega\}$ ?%%
+
+### 离散型概率分布
+
+之前已经接触了很多离散随机分布. 
+
+[Bernoulli 分布](#伯努利随机试验)：随机变量 $\beta$ 只取两个值 $k=0,1$ ；
+
+[二项分布](#二项分布)：随机变量 $\mu$ 可以取多个值 $k=0,1,\cdots,n,n<\infty$ ；一般用 $\mu\sim B(n,q)$ 表示随机变量 $\mu$ 的分布列为二项分布；
+
+几何分布：用 $\eta$ 表示多次 Bernoulli 试验首次成功时进行的试验次数，随机变量 $\eta$ 可以取 $1,\cdots,n,\cdots$（和几何概率模型没有关系）则 $\mathcal{P}(\eta=k)\overset{def}{=}g(k;p)=q^{k-1}p,k\geq1$ ，几何分布是具有**无记忆性**，即 $\forall m,k\geq1$ ， $\mathcal{P}(\xi=m+k \,|\,\xi>m)=\mathcal{P}(\xi=k)$ ，由： 
+
+$$\frac{\mathcal{P}(\xi=m+k)}{\mathcal{P}(\xi>m)}=\frac{q^{m+k-1}p}{\sum\limits_{i=m+1}^{\infty}q^{i-1}p}=q^{k-1}p$$
+
+反之，有如下结论：
+
+>[!note]- 如果离散随机变量的取值为自然数，并且其概率分布具有无记忆性，则其一定为几何分布. 
+
+证明：
+
 
 **简单随机变量**的形式可以写作 $X(w)=\sum\limits_{i=1}^{n}a_iI_{A_i}(w)$ 其中 $I_{A_i},1\leq i\leq n$ 为指示函数， $A_i,1\leq i\leq n$ 则组成了 $\Omega$ 的一个不相交划分. #issue [Check](https://www.oreilly.com/library/view/probability-random-variables/9781118393956/OEBPS/c05-sec1-0004.htm#:~:text=A%20simple%20random%20variable%20is%20a%20generalization%20of,of%20%CE%A9%20are%20mapped%20to%20N%20values%20in.)
 

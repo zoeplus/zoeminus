@@ -8,11 +8,11 @@ Prerequisites：[集合论](Set.md)，[实数理论](R.md)
 
 $$d:X\times X\rightarrow \mathbb{R}$$
 
-满足以下条件： 
+度量满足以下条件： 
 
 $$\begin{aligned}
 &\forall x,y,z\in X\\
-&1)\ d(x,y)\geq0,\ d(x,y)=0\Leftrightarrow x=y\\
+&1)\ d(x,y)\geq0,\quad d(x,y)=0\Leftrightarrow x=y\\
 &2)\ d(x,y)=d(y,x)\\
 &3)\ d(x,y)+d(y,z)\geq d(x,z)
 \end{aligned}$$
@@ -59,7 +59,7 @@ $$\begin{aligned}
 >[!note]- 若 $A$ 为开集当且仅当 $A=A^c$ .
 >证明：直接由第一定义.
 
-下面定义**极限**（收敛）的概念，称 $\lim_{n\rightarrow \infty}x_n=x$ ，如果 $\forall \epsilon>0,\exists N,n>N,d(x,x_n)<\epsilon$ . 以及**终在**这一概念（极限概念的减弱）： $\{x_n\}$ 终在集合 $U$ 中，如果 $\exists N,n>N,x_n\in U$ .
+下面定义**极限**（收敛）的概念，称 $\lim_{n\rightarrow \infty}x_n=x$ ，如果 $\forall \epsilon>0,\exists N,n>N,d(x,x_n)<\epsilon$ . 以及**终在**这一概念（极限概念的减弱）： $\{x_n\}$ 终在集合 $U$ 中，如果 $\exists N,n>N,x_n\in U$ . ^Limit
 
 开集和极限都是借助度量定义的. 两者也可以互相定义.
 
@@ -89,7 +89,7 @@ $$\begin{aligned}
 >$\Rightarrow$ ： 反证：如 $x\notin O$ ，则存在开球 $B_d(x,\epsilon_0)\subset O^c$ ，又 $\lim_{n\rightarrow \infty}x_n=x$ ，则当 $n$ 充分大时 $x_n\in O^c$ 矛盾.
 >$\Leftarrow$ ： 反证：假设 $O^c$ 不是开集，则存在 $x\in O^c$ ，对于任意 $\epsilon>0$ ， $B_d(x,\epsilon)$ 不包含于 $O^c$ ，从而可以取 $\{x_n\}_{n\geq1}\rightarrow x$ 且 $\{x_n\}_{n\geq1}\rightarrow x\in O$ 矛盾！所以 $O$ 为闭集.
 
-引入最小闭集的概念：称 $\bar{A}=\bigcap\{C:A\subset C,C\ \text{为闭集}\}$ 为 $A$ 的**闭包**. 闭包同样有等价定义：对于集合 $A$ ，称 $x$ 为 $A$ 的**附着点**，如果对于 $x$ 的任何一个邻域 $U$ ， $U\cap A\neq\emptyset$ . 闭包即为 $A$ 的附着点全体. 注：分别记为第一定义和第二定义.
+引入最小闭集的概念：称 $\bar{A}=\bigcap\{C:A\subset C,C\ \text{为闭集}\}$ 为 $A$ 的**闭包**. 闭包同样有等价定义：对于集合 $A$ ，称 $x$ 为 $A$ 的**附着点**，如果对于 $x$ 的任何一个邻域 $U$ ， $U\cap A\neq\emptyset$ . 闭包即为 $A$ 的附着点全体. 注：分别记为第一定义和第二定义. ^Closure
 
 >[!note]- 上述两种对于闭包的定义等价.
 >证明：设两种定义对应的集合分别为 $A_1,A_2$ ， $\forall x\in A_1$ ，不妨设 $x\notin A$ ， 如果存在 $x$ 的一个邻域 $U$ 使得 $U\cap A=\emptyset$ ，则 $A\subset U^c$ ，设 $x\in A_1$ ， $A_1$ 为包含 $A$ 的闭集，则 $U^c\cap A_1$ 仍然为包含 $A$ 的闭集，并且 $x\notin U^c\cap A_1$ ，这与 $A_1$ 的定义矛盾！
@@ -292,12 +292,11 @@ $(X,d)$ 为度量空间， $f:X\rightarrow X,$ 是**压缩映射**，如果 $\ex
 &\frac{3}{4}h(3x-2)
 \end{aligned}\right.$$ 下面证明 $h$ 处处不可导，对于任意 $x\in[0,1]$ ，存在包含长度为 $\frac{1}{3^n}$ 的区间 $I_n$ 包含 $x$ ， $\forall x'\in I_n$ ， $|f(x')-f(x)|\leq \frac{1}{2^n}$ 因此 $\left\lvert \frac{f(x')-f(x)}{x'-x}\right\rvert>\left(\frac{3}{2}\right)^n\rightarrow \infty(n\rightarrow \infty)$ ，所以不可导.
 
-
 ### Baire 纲定理
 
-#### 稠与疏
+#### 疏、稠
 
-可以将所有集合分为**第一纲集**（sets of first category, 稀疏集）和**第二纲集**（sets of second category，非稀疏集）. 需要说明的是：稠、无处稠等概念都是相对于具体的度量空间而言，e.g. $E\subset X$ 是是稠子集的意思是 $E$ 是 $X$ 的稠子集. 具体定义如下：
+可以将所有集合分为**第一纲集**（sets of first category, 稀疏集）和**第二纲集**（sets of second category，非稀疏集）. 需要说明的是：稠、无处稠等概念都是相对于具体的度量空间而言，e.g. $E\subset X$ 是稠子集的意思是 $E$ 是 $X$ 的稠子集. 具体定义如下：
 
 $E\subset X$ ， $\forall$ 非空开集 $G\subset X$ ，如果存在非空开集 $V\subset G$ 使得 $V\cap E=\emptyset$ ，则称 $E$ 为**疏集**（或者 $E$ 在 $X$ 中**无处稠密**（nowhere dense），或称 $E$ 为 $X$ 的**无处稠子集**），或者说任何与 $E$ 相交的开集都不包含在 $E$ 中. 疏集有以下等价刻画：
 
@@ -445,116 +444,13 @@ $E\subset X$ ，如果对于任意的非空开集 $G\subset X$ ， $G\cap E\neq\
 >
 >$\Leftarrow$ ：因为 $(\gamma X,\rho)$ 序列紧，所以 $\gamma X$ 全有界，则 $\rho(X)\subset \gamma X$ 为全有界集，并且由 $\rho$ 是等距映射可知 $(X,d)$ 也全有界.
 
-## $\mathbb{R}$ 与 $\mathbb{R}^n$上的度量空间
-
-### 构成区间
-
-下面讨论 $\mathbb{R}$ 上开集，首先定义**构成区间**：设 $E\subset \mathbb{R}$ 为开集，则若 $(a,b)\subset E$ 并且 $a,b\neq E$ ，则称 $(a,b)$ 为 $E$ 的构成区间.
-
->[!note]- 设 $X\subset \mathbb{R}$ 为开集， $\forall x\in X$ ，存在包含 $x$ 的 $E$ 的构成区间.
->证明：由 $E$ 为开集，可设 $a=\inf\{a':a'<x,(a',x)\subset E\}$ ， $b=\sup\{b':b'>x,(x,b')\subset b'\}$ . $\forall y\in (a,x)$ 由 $a$ 的定义可知 $(y,x)\subset E$ ，从而可知 $(a,x)\subset E$ ，同理可证 $(x,b)\subset E$ ，因此 $(a,b)\subset E$ ，如果 $a\in E$ ，则 $\exists \delta>0,(a-\delta,a+\delta)\subset E$ ，从而 $a-\frac{\delta}{2}\in E$ ，与 $a$ 的定义矛盾. 所以 $a\notin E$ ，同理可得 $b\notin E$ ，因此 $(a,b)$ 为 $E$ 的构造区间.
-
->[!note]- 任何一开集都可以表示为至多可数个<u>两两不交</u>的开区间的并.
->设 $E$ 为开集，对于任意 $x\in E$ ，存在构造区间 $I_x\ni x$ ，由构造区间的定义可知 $E=\cup_{x\in E}I_x$ . 而对于任意两个构造区间 $I_x=(a,b),I_y=(c,d),x\neq y$ ，若 $I_x\neq I_y$ ，则不妨设 $b<d$ 则 $b\leq c$ ，否则 $b\in (c,d)\subset E$ ，矛盾，因此两个构造区间要么不交要么重合. 下面说明构造区间的并为至多可数个：在每一个构造区间中取一有理数 $r_x\in I_x$ （重合的构造区间算作一个），进而得到一有理数集合 $\{r_x\}_{x\in I'}$ ，该有理数集合可以与可数集 $\mathbb{Q}\times \mathbb{Q}$ 的一个子集建立双射（还需要将每个有理数 $r_x$ 映射为 $(m,n):(m,n)=1$ ），从而至多可数. 从而得证.
-
-设 $f:X\rightarrow \mathbb{R}$ .
-$$\begin{aligned}
-&\limsup_{x\rightarrow x_0}f(x)=\lim_{\epsilon\rightarrow 0}\sup\{f(x):x\in X\cap B(x_0,\epsilon)\backslash\{x_0\}\}\\
-&\liminf_{x\rightarrow x_0}f(x)=\lim_{\epsilon\rightarrow 0}\inf\{f(x):x\in X\cap B(x_0,\epsilon)\backslash\{x_0\}\}
-\end{aligned}$$
-
-### 半连续（semi-continuity）
-
-[check](https://en.wikipedia.org/wiki/Semi-continuity)
-
-**半连续性**：针对实值函数而言，考虑 $f:X\rightarrow \bar{\mathbb{R}}=\{-\infty,\infty\}\cup \mathbb{R}$ ，对 $x_0\in X$ ，如果 $\forall \epsilon>0$ ，存在开集 $U\ni x$ ， $\forall x\in U$ ， $f(x)< f(x_0)+\epsilon$ ，即 $\varlimsup_{x\rightarrow x_0}f(x)\leq f(x_0)$ ，则称 $f$ 在 $x_0$ 处**上半连续**；若 $\forall \epsilon>0$ ，存在开集 $U\ni x$ ， $\forall x\in U$ ， $f(x)>f(x_0)-\epsilon$ ，即 $\varliminf_{x\rightarrow x_0}f(x)\geq f(x_0)$  ，则称 $f$ 在 $x_0$ 处**下半连续**. 类似可以定义函数在定义域上半连续或者下半连续. 
-
-直观上理解，半连续性即为 $f(x_0)$ 在经过恒正或者恒负的扰动之后，将大于（小于） $x_0$ 某一邻域内的所有 $f(x)$ . 或者，半连续性只需简单地理解为只满足极限定义的一半.
-
-半连续性有如下等价条件：
-
->[!note]- 下列命题等价： 1) $f$ 下半连续； 2) 任给 $\{x_n\}\rightarrow x:f(x)\leq\liminf_{n\rightarrow \infty}f(x_n)$ ； 3) $f$ 的**上镜图**（epgraph） $\{(x,y):y\geq f(x)\}$ 是闭集.
->证明：
->$1)\Rightarrow 2):$ $$\liminf_{n\rightarrow \infty}f(x_n)=\lim_{n\rightarrow \infty}\inf\{f(x_k):k\geq n\}$$ 又因为 $f$ 下半连续并且 $\{x_n\}$ 终在 $x$ 的任一邻域中，所以 $\forall \epsilon>0$ ，存在 $n_\epsilon\in \mathbb{N}$ ，当 $n>n_\epsilon$ 时，有 $f(x_n)>f(x)-\epsilon$ ，因此 $\inf\{f(x_k):k\geq n\}>f(x)-\epsilon$ ，又由 $\epsilon$ 的任意性可以得到 $\inf\{f(x_k):k\geq n\}\geq f(x)$ ，从而可以得到结论.
->
->$2)\Rightarrow 3):$ 考虑该集合中任一收敛序列 $(x_n,y_n):y_n\geq f(x_n)$ ，收敛到 $(x,y)$ ，由 2) 可知 $f(x)\leq \liminf_{n\rightarrow \infty}f(x_n)\leq y$ ，从而 $(x,y)\in \{(x,y):y\geq f(x)\}$ 为闭集.
->
->$3)\Rightarrow 1):$ 因为 $\{(x,y):y\geq f(x)\}$ 是闭集，假设存在 $x_0\in \text{dom}(f)$ ， 存在 $\epsilon>0$ ，对于任意包含 $x_0$ 的开集 $U$ ：存在 $x\in U$ 使得 $f(x)\leq f(x_0)-\epsilon$ ，则取开集 $B(x_0,\frac{1}{n})$ 可以得到一个收敛于 $x_0$ 的序列， $(x_n,f(x_0)-\epsilon)$ 为闭集，并且收敛于 $(x_0,f(x_0)-\epsilon)$ ，所以 $f(x_0)-\epsilon>f(x_0)$ 显然矛盾.
->
->综上三者等价.
-
-注意到下半连续的定义也可以写为 $\forall c<f(x_0),\exists$ 开集 $U\ni x$ 满足 $\forall x\in U,f(x)>c$ . 因此下半连续还有等价条件：
-
->[!note]- $f$ 在 $x_0$ 下半连续的充分必要条件为 $\forall c<f(x_0)$ ，集合 $f^{-1}[(c,+\infty)]=\{x:f(x)>c\}$ 为开集. 进而： $f$ 在 $X$ 下半连续的充分必要条件为 $\forall c\in \mathbb{R}$ ，集合 $f^{-1}[(c,+\infty)]=\{x:f(x)>c\}$ 为开集.
-
-同理有：
-
->[!note]- 下列命题等价： 1) $f$ 上半连续； 2) 任给 $\{x_n\}\rightarrow x:f(x)\geq\limsup_{n\rightarrow \infty}f(x_n)$ ； 3) $f$ 的**下镜图**（hypograph） $\{(x,y):y\leq f(x)\}$ 是闭集. #imcomplete-whatever 4) $\forall c\in \mathbb{R}$ ，集合 $f^{-1}[(-\infty,c)]=\{x:f(x)<c\}$ 为开集.
-
-借助以上等价条件：可以证明半连续性的函数具有如下的运算性质：
-
->[!note]-  1)$f,g$ 下半连续，则 $f+g$ 下半连续；2) 若 $f,g$ 下半连续并且 $f,g>0,\forall x\in \text{dom }f\cap \text{dom }g$ ，则 $fg$ 下半连续；3) 若 $f$ 下半连续， $g$ 连续，则 $f\circ g$ 下半连续；4) 若 $\{f_k(x)\}_{k\geq1}$ 下半连续，则 $g=\sup_{k\geq1}f_k(x)$ 下半连续；若 $\{f_k(x)\}_{1\leq k\leq n}$ 下半连续，则 $g=\min_{1\leq k\leq n}f_k(x)$ 下半连续.
->证明多数可以借助下半连续函数 $f$ 诱导的集合 $\{x:f(x)>c\},\forall c$ 为开集，将问题转化为证明集合相等.
->1) $f,g$ 下半连续，注意到 $\forall c\in \mathbb{R}:$ $$\{x:(f+g)(x)>c\}=\cup_{d\in \mathbb{R}}\{x:(f(x)>c-d)\cap(g(x)>d)\}$$ 由开集的定义和 $f,g$ 下半连续的等价条件知 $\{x:(f(x)>c-d)\cap(g(x)>d)\}$ 为开集. 任意个开集之并仍然为开集. 从而可知 $f+g$ 下半连续；
->2) $\{x:fg>c\}=\bigcup_{d\in \mathbb{R}^+}\{x:f>d^{-1}c\cap g>d\}$ ；
->3) 对于任意的 $x\in \{f\circ g(x)>c\}$ ，因为 $f$ 为下半连续函数，所以 $\exists$ 开集 $U\ni g(x)$ ，对于任意的 $g(x')\in U:g(x')>c$ . 又因为 $g$ 是连续函数，所以存在 $U'\ni x$ ，从而 $\{x:f\circ g>c\}$ 为开集. 证毕.
->4) 证明： $\{x:g>c\}=\cup_{k\geq1}\{x:f_k(x)>c\}$ ， $\{x:g>c\}=\cap_{1\leq k\leq n}\{x:f_k(x)>c\}$ .
-
->[!example]- 设 $\lVert \cdot\rVert_{l_0}=\#\{i:x_i\neq0\}$ ，则 $\lVert \cdot\rVert_{l_0}:\mathbb{R}^n\rightarrow \mathbb{R}$ 是下半连续函数.
-
->[!example]- 矩阵的秩函数 $\text{rank}:\mathbb{R}^{m\times n}\rightarrow \mathbb{R}$ 是下半连续的.
->证明： $c\in \mathbb{R}$ ，注意到 $$\{A:\text{rank}(A)>c\}=\bigcup_{r>c,r\in \mathbb{N}}\{A:\text{rank}(A)\geq r\}$$ 
->
->下面证明 $\{A:\text{rank}(A)\geq r\}$ 为开集，取矩阵范数 $\lVert A\rVert_{\max}=\max\{\lvert a_{ij}\rvert\}$ ，证明对于任意的 $A_0\in\{A:\text{rank}(A)\geq r\}$ ， 存在 $\delta>0$ ，对于任意的 $A'\in\{A:\text{rank}(A)\geq r\}:\lVert A-A'\rVert<\delta$ ，有 $\text{rank}(A')\geq r$ . 
->
->当 $\text{rank}(A_0)=0\geq r$ 时，上述条件显然成立；当 $\text{rank}(A_0)\geq r_0>0$ 时，可知存在 $A_0$ 的子矩阵，记为 $A_0^{r_0\times r_0}$ ，满足 $\det(A_0^{r_0\times r_0})$ ，因为 $\det$ 是连续函数，所以存在 $\delta>0$ ，使得 $\lVert B^{r_0\times r_0}-A^{r_0\times r_0}\rVert<\delta$ 时， $\det(B^{r_0\times r_0})\neq0$ . 因此 $\forall C\in \{A:\text{rank}(A)\geq r>0\}$ ，当 $\lVert C-A\rVert<\delta$ 时， $\lVert C^{r_0\times r_0}-A^{r_0\times r_0}\rVert<\lVert C-A\rVert<\delta$ ，因此也就可以得到 $\text{rank}(C)\geq\text{rank}(C)^{r_0\times r_0}\geq r_0$ ，从而得证.
-
-### 完备
-
-定义**聚点**： $x\in E$ ，对于任意 $x$ 的邻域 $U$ ，若 $(U-\{x\})\cap E\neq\emptyset$ ，则称 $x$ 为 $E$ 的聚点. 显然聚点一定是附着点. 称聚点的全体为**导集**，记为 $E'$ . 定义非聚点的点为**孤立点**. 根据之前对于闭包的第二定义， $\bar{E}=E\cup E'$ .
-
-根据聚点的定义有等价定义：若 $x$ 为 $E$ 的聚点，则 $\exists\{x_n\}_{n\geq1},x_n\neq x,x_n\rightarrow x(n\rightarrow \infty)$ .
-
->[!note]- 对于任意 $\mathbb{R}^n$ 中的集合 $E$ ， $E'$ 为闭集.
->证明：说明 $E'^c$ 为开集即可.
-
-定义**完备集**：没有孤立点的闭集. 显然完备集有以下等价定义：
-
->[!note]- $E$ 是完备集等价于 $E=E'$ .
-
-$\mathbb{R}$ 上的完备集有以下等价刻画：
-
->[!note]- $F\subset \mathbb{R}$ 为完备集的充分必要条件为 $F^c$ 为至多可数个两两<u>没有公共端点</u>的开区间之并.
->证明：
->$\Rightarrow$ ： $F^c$ 为开集，从而可以表示为至多可数个两两不相交的开区间的并（见下面的[[#构成区间]]，假设有公共端点，则 $F^c$ 中将会出现孤立点，矛盾！
->
->$\Leftarrow$ ：显然 $F$ 为闭集，并且若存在孤立点 $x\in F$ ，则存在 $U\ni x:U\backslash\{x\}\cap F^c=\emptyset$ ，从而 $x$ 为两个开区间的端点，矛盾！
-
-### $\mathbb{R}^n$ 的性质
-
-下面将 $\mathbb{R}$ 上的一些性质推广到 $\mathbb{R}^n$ 上.
-
-首先证明一个引理：
-
->[!note]-  列紧集有界.
->假设 $A$ 为列紧集， $A$ 无界，任取 $a\in A$ ，则对于任意的 $n\in \mathbb{N}$ 存在 $a_n\in A:d(a,a_n)\geq n$ . 对于序列 $\{a_n\}_{n\geq1}$ ，由 $A$ 列紧，存在子列 $\{a_{n_k}\}_{k\geq1}$ ， $\{a_{n_k}\}\rightarrow b(k\rightarrow \infty)$ ，从而 $$d(a,b)\geq d(a,a_{a_k})-d(a_{n_k},b)\geq n_k-d(a_{n_k},b)\leq n-d(a_{n_k},b),\forall n\in \mathbb{N}$$ ，当 $k$ 足够大时， $d(a_{n_k},b)<1$ ，从而有 $d(a,b)\geq n-1,\forall n\in \mathbb{N}$ ，则 $d(a,b)=+\infty$ ，而 $d(a,b)\in \mathbb{R}$ 应为一确定实数，矛盾！所以列紧集 $A$ 有界.
-
-下面这个定理类似于 Weierstrass Bounded 和 Weierstrass extreame value 定理.
-
->[!note]- Weierstrass 定理： $S\subset \mathbb{R}^n$ ， $S$ 有界. $f:\mathbb{R}^n\rightarrow \mathbb{R}$ 为连续函数. 则有以下结论：取 $y\in S$ ， 1) 如果 $T=\{x\in S:f(x)\geq f(y)\}$ 是列紧集，则 $f$ 在 $S$ 上取得上确界. 2) 如果 $T=\{x\in S:f(x)\leq f(y)\}$ 是列紧的，则 $f$ 在 $S$ 上取得下确界. 3) 如果 $S$ 是列紧的，则 $f$ 在S 上取得上、下确界.
->证明：1,2 问都需要说明 $f(S)$ 是有上（下）界的，这点可以参考上面证明列紧集是有界集，利用反证法证之.
->1) 取 $u=\sup f(S)=\sup f(T)$ ，则存在 $\{x_n\}_{n\geq1}\subset T:f(x_n)>u-\frac{1}{n}$ ，因为 $T$ 列紧，所以存在子列 $\{x_{n_k}\}_{k\geq1}$ ，收敛于 $z\in T\subset S$ ，从而由 $f$ 为连续函数： $f(x_{n_k})>u-\frac{1}{n_k}$ ，取 $k\rightarrow \infty$ 可得 $f(z)\geq u$ ，所以 $f(z)=u$ . 则 $f$ 在 $S$ 上可以取得上确界.
->2) 取 $u=\inf f(X)=\inf f(T)$ ，则存在 $\{x_n\}_{n\geq1}\subset T:f(x_n)<u+\frac{1}{n}$ ，因为 $T$ 列紧，所以存在子列 $\{x_{n_k}\}_{k\geq1}$ ，收敛于 $z\in T\subset S$  ，从而由 $f$ 为连续函数： $f(x_{n_k})<u+\frac{1}{n_k}$ ，取 $k\rightarrow \infty$ 可得 $f(z)\leq u$ ，从而 $f(z)=u$ .
->3) 因为 $S$ 为列紧集，所以 $S$ 为有界集，则存在 $u=\sup S$ ，可取得数列 $\{x_n\}_{n\geq1}:f(x_n)>u-\frac{1}{n}$ ，由 $S$ 为列紧集可以取 $\{x_{n_k}\}\rightarrow z$ ，从而有 $f(z)=u$ ，取得下界同理.
-
 ## 其他集合上的度量空间
 
 ### 二元数列
 
-集合 $S=\{0,1\}^\mathbb{N}\overset{def}{=}2^{\mathbb{N}}$ . 定义度量 $$d(x,y)=\left\{\begin{aligned}
-&0,x=y\\
-&2^{-n},n=\min\{i:x_i\neq y_i\}
-\end{aligned}\right.$$
+集合 $S=\{0,1\}^\mathbb{N}\overset{def}{=}2^{\mathbb{N}}$ . 定义度量 
+
+$$d(x,y)=\left\{\begin{aligned}&0,x=y\\&2^{-n},n=\min\{i:x_i\neq y_i\}\end{aligned}\right.$$
 
 ### $\mathbb{Z}$
 
@@ -589,24 +485,27 @@ $C([0,1])$ 表示 $[0,1]$ 上所有的连续函数的集合.
 
 **Cantor集** / 三分集：对于集合 $[0,1]$ 三等分之后取 $[0,\frac{1}{3}],[\frac{2}{3},1]$ ，对剩下的集合重复操作. 记 Cantor 集为 $C$ ， $G=[0,1]\backslash C$ .
 
-或可以将 $G$ 表示为： $$\bigcup_{n=1}^\infty\bigcup_{k=1}^{2^{n-1}}I_n^k$$ 其中 $I_n^k$ 表示第 $n$ 次三分之后，第 $k$ 个开区间.
+或可以将 Cantor 集的构造视为三分之后首先取中间的开区间，记 $G=\bigcup_{n=1}^\infty\bigcup_{k=1}^{2^{n-1}}I_n^k$ 其中 $I_n^k$ 表示第 $n$ 次三分之后，第 $k$ 个开区间. 然后取 $C=[0,1]\backslash G$ .
 
 >[!note]- $G$ 在 $[0,1]$ 中[稠密](#^Dense).
->反证：假设 $\exists x\in [0,1]\backslash \bar{G}$ ，则 $\exists V(x,\epsilon)\cap \bar{G}=\emptyset$ ，而对于 $\epsilon$ 可以取得 $n$ 使得 $\frac{1}{3^n}<\epsilon$ . 
+>反证：假设 $\exists x\in [0,1]\backslash \bar{G}$ ，因为 $\bar{G}$ 是闭集，所以 $[0,1]\backslash G$ 为开集，则 $\exists V(x,\epsilon)\cap \bar{G}=\emptyset$ ，而对于 $\epsilon$ 可以取得 $n$ 使得 $\frac{1}{3^n}<\epsilon$ . 
 >这说明 $V(x,\epsilon)$ 一定会包含一个长度为 $\frac{1}{3^{n+1}}$ 的 $G$ 中的区间. 从而与 $V(x,\epsilon)\cap \bar{G}=\emptyset$ 矛盾！
-
->[!note]- $G$ 的[[#构成区间]]的长度和为 $1$ .
->由 $G$ 的定义即可直接得到. 计算 $$\sum\limits_{n=1}^{\infty}\frac{2^{n-1}}{3^n}=1$$ 
 
 可以证明 Cantor集具有以下性质：
 
 >[!note]- Cantor 集为 1) 有界闭集； 2）不包含任何开区间（也就没有内点，从而不是开集）； 3) 不可数.
->1) 注意到 Cantor 集可以表示为 $$C=\cap_{i=1}^\infty(F^i_1\cap\cdots\cap F^i_{2^i})$$ 从而 $C$ 为闭集，并且有界 $[0,1]$ . 或者由 $C=[0,1]-G$ 得.
->2) 不妨设 $C$ 包含开区间 $(a,b)$ ，第 $i$ 层（划分）对应的闭区间的长度为 $\frac{1}{3^i}$ ，显然当 $i$ 足够大时， $\frac{1}{3^i}<\lvert b-a\rvert$ ，因此 Cantor 集不可能包含任何一个开区间.
->3) 对于 Cantor 集中的任何一个点，都可以按照其构造方法将其对应到一个二元数列（比如，第 $i$ 层划分若该点位于左侧，则其对应数列的 $x_i=0$ ，位于右侧则 $x_i=1$ ），这是一个双射，又全体二元数列不可数，所以 Cantor集不可数.
+>注意到 Cantor 集可以表示为 
+>
+>$$C=\cap_{i=1}^\infty(F^i_1\cap\cdots\cap F^i_{2^i})$$
+>
+>从而 $C$ 为闭集，并且有界 $[0,1]$ . 或者由 $C=[0,1]-G$ 得.
+>
+>不妨设 $C$ 包含开区间 $(a,b)$ ，第 $i$ 层（划分）对应的闭区间的长度为 $\frac{1}{3^i}$ ，显然当 $i$ 足够大时， $\frac{1}{3^i}<\lvert b-a\rvert$ ，因此 Cantor 集不可能包含任何一个开区间.
+>
+>对于 Cantor 集中的任何一个点，都可以按照其构造方法将其对应到一个二元数列（比如，第 $i$ 层划分若该点位于左侧，则其对应数列的 $x_i=0$ ，位于右侧则 $x_i=1$ ），这是一个双射，又全体二元数列不可数，所以 Cantor集不可数.
 
 >[!note]- Cantor 集是完备疏集.
->证明：已经证明 Cantor 集是闭集，要证明其完备性借助[[#$ mathbb{R}$ 上的完备集]]中的刻画，由 $C$ 的定义即可得到.
+>证明：显然 Cantor 集是闭集，要证明其完备性考虑 Cauchy 列 $\{x_n\}_{n\geq1}\subset C$ #imcomplete ；由 $C$ 的定义即可得到. #issue %% [[RF#完备]] 和 [[#完备度量空间]] 是一回事吗？%%
 >对于 $C$ 是疏集的证明：因为上面已经证明了 $C$ 中没有内点，所以 $\bar{C}^\circ=C^\circ=\emptyset$ . 综上 $C$ 是完备疏集.
 
 >[!note]- Cantor集与 $2^{\mathbb{N}}$ 同胚. 从而 $C$ 具有连续统势.
@@ -626,11 +525,20 @@ $C([0,1])$ 表示 $[0,1]$ 上所有的连续函数的集合.
 
 >[!note]- 存在 Cantor 集到闭区间的连续满映射 $f:C\rightarrow[0,1]$ . #imcomplete 
 
-下面讨论定义在 $G$ 上的 **Cantor 函数** ： $$f(x)=\frac{2k-1}{2^n},x\in I_n^k,1\leq k\leq 2^{n-1}$$ 并且可以证明 $f$ 在 $G$ 上是单调递增的函数.  
+下面讨论定义在 $G$ 上的 **Cantor 函数** ： 
+
+$$f(x)=\frac{2k-1}{2^n},x\in I_n^k,1\leq k\leq 2^{n-1}$$
+
+补充 $f(0)=0,f(1)=1$ ，将 $f$ 延拓为 $[0,1]$ 上的函数. 则 $f$ 在 $[0,1]$ 上的单调递增且连续.
+
+>[!hint]- $\mathbb{R}$ 上稠子集与连续的关系.
+>假设 $g([a,b])$ 是 $[a,b]$ 的稠子集. 则对于任意 $x\in[a,b]$ ，对于任意开区间 $U\ni g(x)$ ， $U\cap[a,b]\neq \emptyset$ . 所以可取开区间 $V\subset U\cap [a,b],V\ni x$ ，使得对于任意 $x'\in V,g(x')\in U$ ，因此 $g$ 在 $[a,b]$ 上连续.
+>
+>注意到 $f([0,1])$ 为 $[0,1]$ 的稠子集，所以 $f$ 在 $[0,1]$ 上连续.
 
 # 拓扑
 
-## 从多个角度刻画拓扑
+## 子集族、算子刻画拓扑
 
 集合 $X$ 上的**拓扑** $\mathcal{O}$ 指的是满足下列条件的 $X$ 的子集族：
 
@@ -673,35 +581,29 @@ $C([0,1])$ 表示 $[0,1]$ 上所有的连续函数的集合.
 
 在借助集合族对于拓扑进行刻画时定义仍保持一致. 若 $A$ 的闭包是全集，则称 $A$ 为 $X$ 的稠子集.
 
-设 $X$ 为拓扑空间，定义 $X$ 的**闭包算子**： $$\text{cl}:\mathcal{P}(X)\rightarrow \mathcal{P}(X),A\mapsto \bar{A}$$ 则不难验证闭包算子有如下性质： $$\begin{aligned}
-&(\text{cl}1)\ \text{cl}(\emptyset)=\emptyset\\
-&(\text{cl}2)\ \text{cl}(A)\supset A\\
-&(\text{cl}3)\ \text{cl}(A\cup B)=\text{cl}(A)\cup \text{cl}(B)\\
-&(\text{cl}4)\ \text{cl}(\text{cl}(A))=\text{cl}(A)
-\end{aligned}$$ 下面的定理说明满足闭包算子的这四条性质的映射可以定义唯一一个 $X$ 上的拓扑，使得 $\text{cl}(A)$ 即为 $A$ 在该拓扑中的闭包， $\forall A\subset X$ .
+设 $X$ 为拓扑空间，定义 $X$ 的**闭包算子**： $\text{cl}:\mathcal{P}(X)\rightarrow \mathcal{P}(X),A\mapsto \bar{A}$ 则不难验证闭包算子有如下性质： 
+
+$$\begin{aligned}&(\text{cl}1)\ \text{cl}(\emptyset)=\emptyset\\&(\text{cl}2)\ \text{cl}(A)\supset A\\&(\text{cl}3)\ \text{cl}(A\cup B)=\text{cl}(A)\cup \text{cl}(B)\\&(\text{cl}4)\ \text{cl}(\text{cl}(A))=\text{cl}(A)\end{aligned}$$
+
+下面的定理说明满足闭包算子的这四条性质的映射可以定义唯一一个 $X$ 上的拓扑，使得 $\text{cl}(A)$ 即为 $A$ 在该拓扑中的闭包， $\forall A\subset X$ .
 
 >[!note]- Kuratowski 闭包算子定理. #imcomplete 
 
-类似地可以定义**内部算子**： $$\text{int}:\mathcal{P}(X)\rightarrow \mathcal{P}(X),A\mapsto A^\circ$$ 其具有如下性质 $$\begin{aligned}
-&(\text{int}1)\ \text{int}(X)=X\\
-&(\text{int}2)\ \text{int}(X)\subset A\\
-&(\text{int}3)\ \text{int}(A\cap B)=\text{int}(A)\cap \text{int}(B)\\
-&(\text{int}4)\ \text{int}(\text{int}(A))=\text{int}(A)\\
-\end{aligned}$$ 并且对于满足以上四条内部算子性质的映射 $\text{int}$ ，存在唯一一个 $X$ 上的拓扑空间，使得 $\text{int}(A)=A^\circ,\forall A\subset X$ .
+类似地可以定义**内部算子**： $\text{int}:\mathcal{P}(X)\rightarrow \mathcal{P}(X),A\mapsto A^\circ$ 其具有如下性质 
+
+$$\begin{aligned}&(\text{int}1)\ \text{int}(X)=X\\&(\text{int}2)\ \text{int}(X)\subset A\\&(\text{int}3)\ \text{int}(A\cap B)=\text{int}(A)\cap \text{int}(B)\\&(\text{int}4)\ \text{int}(\text{int}(A))=\text{int}(A)\\\end{aligned}$$
+
+并且对于满足以上四条内部算子性质的映射 $\text{int}$ ，存在唯一一个 $X$ 上的拓扑空间，使得 $\text{int}(A)=A^\circ,\forall A\subset X$ .
 
 到目前为止已经用度量、开集族、闭集族、特殊映射刻画拓扑，此外还可以用 $X$ 的子集族刻画 $X$ 上的拓扑.
 
-定义拓扑空间 $X$ 上的**邻域系**： $x\in X$ ，子集族 $$\mathcal{N}(x)=\{V\subset X:x\in V^\circ\}$$ 称为 $X$ 的邻域系. 由之前对于[邻域](#^Neighborhood)的定义， $\mathcal{N}(x)$ 即为 $x$ 的邻域全体. 邻域系具有如下性质： $$\begin{aligned}
-&(\text{N}1)\ X\in \mathcal{N}(x),\forall x\in X\\
-&(\text{N}2)\ \forall U\in \mathcal{N}(x),x\in U\\
-&(\text{N}3)\ U\in \mathcal{N}(x),U\subset V\rightarrow V\in \mathcal{N}(x)\\
-&(\text{N}4)\ U,V\in \mathcal{N}(x)\rightarrow U\cap V\in \mathcal{N}(x)\\
-&(\text{N}5)\ U\in \mathcal{N}(x),\exists V\in \mathcal{N}(x),U\in \mathcal{y},\forall y\in V\\
-\end{aligned}$$
+定义拓扑空间 $X$ 上的**邻域系**： $x\in X$ ，子集族 $\mathcal{N}(x)=\{V\subset X:x\in V^\circ\}$ 称为 $X$ 的邻域系. 由之前对于[邻域](#^Neighborhood)的定义， $\mathcal{N}(x)$ 即为 $x$ 的邻域全体. 邻域系具有如下性质： 
+
+$$\begin{aligned}&(\text{N}1)\ X\in \mathcal{N}(x),\forall x\in X\\&(\text{N}2)\ \forall U\in \mathcal{N}(x),x\in U\\&(\text{N}3)\ U\in \mathcal{N}(x),U\subset V\rightarrow V\in \mathcal{N}(x)\\&(\text{N}4)\ U,V\in \mathcal{N}(x)\rightarrow U\cap V\in \mathcal{N}(x)\\&(\text{N}5)\ U\in \mathcal{N}(x),\exists V\in \mathcal{N}(x),U\in \mathcal{y},\forall y\in V\\\end{aligned}$$
 
 >[!note]- 邻域系刻画拓扑：设 $X$ 为一集合， $\mathcal{N}(x)$ 为 $X$ 的一个子集族，如果 $\{\mathcal{N}(x)\}_{x\in X}$ 满足 $(N1)\sim(N5)$ ，则存在 $X$ 上唯一拓扑 $\mathcal{O}$ ，使得对于任意 $x\in X$ ， $\mathcal{N}(x)$ 均为 $x$ 的邻域系.
 
-设 $(X,\mathcal{O})$ 为拓扑空间， $Y\subset X$ ，则 $Y$ 的子集族 $$\mathcal{O}|Y=\{U\cap Y:U\in \mathcal{O}\}$$ 也为一个拓扑，称 $(Y,\mathcal{O}| Y)$ 为 $(X,\mathcal{O})$ 上的一个**子空间**. 如果 $Y$ 是 $X$ 的开（闭）集，则称 $(Y,\mathcal{O}|Y)$ 是 $(X,\mathcal{O})$ 的一个开（闭）子空间.
+设 $(X,\mathcal{O})$ 为拓扑空间， $Y\subset X$ ，则 $Y$ 的子集族 $\mathcal{O}|Y=\{U\cap Y:U\in \mathcal{O}\}$ 也为一个拓扑，称 $(Y,\mathcal{O}| Y)$ 为 $(X,\mathcal{O})$ 上的一个**子空间**. 如果 $Y$ 是 $X$ 的开（闭）集，则称 $(Y,\mathcal{O}|Y)$ 是 $(X,\mathcal{O})$ 的一个开（闭）子空间.
 
 >[!note]- 闭集拼接定理：
 
@@ -713,47 +615,26 @@ $C([0,1])$ 表示 $[0,1]$ 上所有的连续函数的集合.
 
 定义**开映射**：任给 $X$ 的开集 $U$ ， $f(U)$ 为开集；**闭映射**：任给 $X$ 的闭集 $F$ ， $f(F)$ 为闭集.
 
-## $\mathbb{R}$ 上拓扑
-
-$\mathbb{R}$ 上有八大拓扑.
-
-### 平凡拓扑
-
-开集最少的拓扑（最小 / 粗 / 弱的拓扑）： $\{\emptyset, \mathbb{R}\}$ . 由 $\emptyset,\mathbb{R}$ 既是开集也是闭集，可以得到 $\bar{\emptyset}=\emptyset,\bar{\mathbb{R}}=\mathbb{R},\emptyset^\circ=\emptyset,\mathbb{R}^\circ=\mathbb{R}$ .
-
-### 离散拓扑
-
-形如 $(X,\mathcal{P}(X))$ 的拓扑空间称为**离散空间**（discrete space）.
-
-最大 / 细 / 强的拓扑，离散拓扑可以由离散度量定义（只有完全相同的两个元素距离才为 $1$ ，其余皆为 $0$ ）： $\mathcal{P}(\mathbb{R})$ .
-
-### 欧式拓扑
-
-由欧式度量给出.
-
-### 左拓扑
-
-$\{(-\infty,a):a\in \mathbb{R}\cup\{+\infty\}\}\cup\emptyset$ ；
-
-### 右拓扑
-
-$\{(a,+\infty):a\in \mathbb{R}\cup\{-\infty\}\}\cup\emptyset$ ；
-
-### 余有限拓扑
-
-$\emptyset\cup\{\mathbb{R}\backslash F:F=F\text{ 为有限集}\}$ .
-
-### Surgenfrey 平面
-
-## 基
+## 基刻画拓扑
 
 注意到， $\mathbb{R}$ 中的每个开集都可以写成一族端点为有理数的开区间的并. 下面考虑对于一般的拓扑空间.
 
-设 $(X,\Omega)$ 为拓扑空间， $\mathcal{B}$ 为一族开集，如果 $(X,\mathcal{O})$ 中的每一个开集都可以表示为 $\mathcal{B}$ 中的一些元素的并，则称 $\mathcal{B}$ 为 $\mathcal{O}$ 的一个**基**（basis）. 
+设 $(X,\Omega)$ 为拓扑空间， $\mathcal{B}$ 为一族开集，若其满足： $(X,\mathcal{O})$ 中的每一个开集都可以表示为 $\mathcal{B}$ 中的一些元素的并，则称 $\mathcal{B}$ 为 $\mathcal{O}$ 的一个**基**（basis）. 
 
 基有如下等价定义：
 
 >[!note]- 设 $(X,\mathcal{O})$ 是拓扑空间， $\mathcal{B}$ 为一组开集，则 $\mathcal{B}$ 是 $\mathcal{O}$ 的基当且仅当给开集 $U$ 以及 $x\in U$ ，存在 $B_x\in \mathcal{B}:x\in B_x\subset U$ .
+
+基具有如下性质：
+
+$$\begin{aligned}
+&1.\ X=\bigcup \mathcal{B}\\
+&2.\ \forall B_1,B_2\in \mathcal{B},x\in B_1, B_2\rightarrow \exists B_3\in \mathcal{B},x\in B_3\subset B_1\cap B_2
+\end{aligned}$$
+
+>[!note]- 对于 $X$ 如果其子集族 $\mathcal{B}$ 满足上面两条性质，则存在唯一一个 $X$ 上的拓扑 $\mathcal{O}$ ，其以 $\mathcal{B}$ 为基. 称 $\mathcal{O}$ 为 $X$ 上以 $\mathcal{B}$ 为基生成的拓扑.
+>构造 $\mathcal{O}=\{U\subset X:\forall x\in U,\exists B_x\in \mathcal{B}, x\in B_x\subset U\}$ .
+>存在性显然，唯一性由定义即可得.
 
 设 $(X,\mathcal{O})$ 为拓扑空间， $\mathcal{B}$ 是一族开集，如果开集族 
 
@@ -785,3 +666,152 @@ $$\{X\}\cup\{U_1\cap U_2\cap \cdots\cap U_n:U_i\in \mathcal{B},n\geq1\}$$
 
 >[!note]- 设 $X$ 为第一可数空间， $\{x_n\}_n$ 是 $X$ 的序列，证明若 $x$ 为 $\{x_n\}$ 的聚点，则 $\{x_n\}_n$ 有子列收敛于 $x$ .
 >由 $x$ 为 $\{x_n\}_n$ 的聚点可知， $\{x_n\}_n$ 常在 $x$ 的每个邻域，设 $\mathcal{B}=\{B_n\}_n$ 为 $X$ 的可数邻域基，考虑 $V_n=\cap_{1\leq i\leq n} B_i$ ，则存在 $x_{n_i}\in V_i$ ，所以 $\{x_{n_i}\}_i$ 收敛于 $x$ .
+
+## 收敛刻画拓扑
+
+与度量空间中定义[收敛](#^Limit)类似，设 $\{x_n\}_{n\geq1}\subset X$ ，称 $\{x_n\}_{n\geq1}$ 收敛到 $x$ ，如果 $\{x_n\}_{n\geq1}$ 终在 $x$ 的任何一个邻域中. （等价定义：终在包含 $x$ 的任何一个开集中），称 $x$ 为 $\{x_n\}_{n\geq1}$ 的极限，并记 $\lim x_n$ 为 $\{x_n\}_{n\geq1}$ 的极限全体.
+
+>[!warning]- 同一 $X$ 上的序列在不同的拓扑空间上的极限不同，且可能不唯一.
+
+在之前刻画度量空间上的闭包时用到了收敛作为等价定义 [check](#^NotAlone) ，而在一般的拓扑空间上收敛没有这样的性质.
+
+>[!note]- 设 $X$ 为第一可数拓扑空间，则 $x\in \bar{A}$ 当且仅当 $A$ 中有序列收敛于 $x$ .
+>证明： 首先度量空间中闭包的[第二定义](#^Closure)在一般的拓扑空间中仍然等价与闭包的定义. 
+>
+> $\Rightarrow$ ：考虑 $x$ 的一个可数邻域基 $\{B_n(x)\}_{n\geq1}$ ，则对于任意的 $B_n'(x)=\bigcap_{k=1}^nB_k(x),\exists U\subset B'_n(x)$ （这里利用了邻域基的第二个性质以证明 $U$ 的存在性）， $U\cap A\neq \emptyset$ ，从而存在 $x_n\in U\cap A\subset B_n(x)$ $\{x_n\}_{n\geq1}$ ，并且显然 $\{B'(x)\}$ 仍然是 $x$ 的一个邻域基，进入对于 $x$ 的任何一个邻域 $B$ ，存在 $x_i\in B_i'(x)\in B$ ，并且因为 $\{B_n'(x)\}$ 单调递减可知当 $n\geq i$ 时， $x_n\in B$ ，所以 $\{x_n\}_{n\geq1}$ 收敛于 $x$ .
+>
+>$\Leftarrow$ ：对于包含 $x$ 的任何一个开集 $U$ ，存在邻域基中的一个元素 $B_x\in U$ ，因为 $\{x_n\}_{n\geq1}$ 收敛于 $x$ 所以一定存在 $x_i\in B_x$ ，进而 $U\cap A\neq\emptyset$ . 所以 $x\in \bar{A}$ .
+
+### 网收敛
+
+序列收敛不能完全刻画拓扑空间中（的闭集），引入**网收敛**以刻画拓扑.
+
+首先定义**预序**的概念：设 $\sqsubseteq$ 为集合 $D$ 上的一个二元关系，其满足： 1) 自反性 $\forall d\in D,d\sqsubseteq d$ ；2) 传递性 $\forall d_1,d_2,d_2\in D,d_1\sqsubseteq d_2,d_2\sqsubseteq d_3\rightarrow d_1\sqsubseteq d_3$ ，则称 $\sqsubseteq$ 为 $D$ 上的预序.
+
+定义**定向集**（directive set）：设集合 $D$ ， $\sqsubseteq$ 为 $D$ 上的预序，并且 $\forall d_1,d_2\in D,\exists d_3\in D,s.t.$ $d_1\sqsubseteq d_3,d_2\sqsubseteq d_3$ ，则称 $(D,\sqsubseteq)$ 为定向集.
+
+定向集的概念类似于序列 $\{x_n\}_{n\geq1}$ 的指标集 $I=\mathbb{N}$ ，但比后者要广泛许多（定向集并不要求 $d$ 中两个元素一定存在序 / 不要求全序）. 
+
+下面这个定向集在收敛理论中很有用：
+
+>[!example]- $(\mathcal{N}(x),\supset)$ 是定向集，其中 $\supset$ 是集合的包含关系，也称为**信息序**.
+
+定向集的概念可以描述这种“信息大小”的差异，例如下面这个例子，比较划分的细度：
+
+>[!example]- 设 $D$ 为 $[0,1]$ 上的划分全体（e.g. $P=\{x_1,\cdots,x_n:a<x_1<\cdots<x_n<b\}$ ，要求 $P\in D$ 为有限集）. 定义预序 $\sqsubseteq: P\sqsubseteq Q\Leftrightarrow l(P)\geq l(Q)$ ，其中 $l(P)=\max\{x_i-x_{i-1}:1\leq i\leq n+1,x_0=a,x_{n+1}=b\}$ . $(D,\sqsubseteq)$ 为定向集.
+>取 $P\cap Q$ 以满足条件.
+
+设<u>集合</u> $X$ 的一个定向集为 $(D,\sqsubseteq)$ ，称映射 $\xi:(D,\sqsubseteq)\rightarrow X$ 为 $X$ 的一个**网**（net）. 或可以用 $\{\xi(d)\}_{d\in D}$ 表示网.
+
+下面定义**网**的终在和收敛（这里最好就将网视作一个序列 $\{\xi(d)\}_{d\in D}$ ，和 $\{x_n\}_{n\geq1}$ 保持一致，原先的 $\forall n>N$ 平行地置换为 $\forall e\sqsupseteq d$ .）
+
+设 $\xi:(D,\sqsubseteq)\rightarrow X$ ， $A\subset X,x\in X$ ，如果存在 $d\in D,\forall e\sqsupseteq d,\xi(e)\in A$ ，则称 $\xi$ （或者 $\{\xi(d)\}_{d\in D}$ ）**终在** $A$ 中；如果 $\xi$ 终在 $x$ 的任何一个邻域中，则称 $\xi$ **收敛**于 $x$ ，用 $\lim \xi$ 表示 $\xi$ 的所有极限组成的集合.
+
+>[!warning]- $\lim \xi\neq \emptyset$ 则称 $\xi$ 收敛.
+
+下面来讨论几个网的收敛，注意只要求存在一个点是网的极限即可.
+
+>[!example]- 定向集 $(\mathbb{R}\{0\},\sqsubseteq)$ 其中 $x\sqsupseteq y\Leftrightarrow \lvert x\rvert\leq \lvert y\rvert$ ，设网 $\xi:(\mathbb{R},\sqsubseteq)\rightarrow \mathbb{R},x\mapsto f(x),f:\mathbb{R}\rightarrow \mathbb{R}$ . 则网 $\xi$ 收敛的充分必要条件是 $\lim_{z\rightarrow 0}f(z)$ 存在.
+>假设 $x$ 为 $\xi$ 的极限，则考虑 $x$ 的邻域基 $\left\{\left(-\frac{1}{n}+x,x+\frac{1}{n}\right)\right\}_{n\geq1}$ ，易证 $\xi$ 收敛到 $x$ 的充要条件为 $\xi$ 收敛到 $x$ 的邻域基中的任何一个元素，等价于对于任意的 $n\geq1$ ，存在 $y\in \mathbb{R},\forall \lvert z\rvert\leq \lvert y\rvert$ 都有 $f(z)\in \left(-\frac{1}{n}+x,x+\frac{1}{n}\right)$ ，所以 $\lim_{z\rightarrow 0}f(z)=x$ ，因此网 $\xi$ 收敛的充分必要条件为存在 $h\in \mathbb{R}$ $\lim_{z\rightarrow 0}f(z)=h$ 等价于 $\lim_{z\rightarrow0}f(z)$ 存在.
+
+>[!example]- 考虑定向集 $(\mathcal{N}(x),\supset)$ ，建立收敛到 $x$ 的网.
+>设 $\xi:(\mathcal{N}(x),\supset)\rightarrow X$ ，对于 $x$ 的任何邻域 $U$ ，存在 $V\in \mathcal{N}(X),\forall W\subset V$ ， $\xi(W)\in U$ ，不妨构造满足 $\xi(U)\in U$ 的映射，令 $V=U$ ，对于任意的 $W\subset U$ ， $\xi(W)\in W\subset U$ ，从而可知 $\xi$ 为收敛到 $x$ 的网.
+
+还可以用网收敛刻画积分. #imcomplete 
+
+从以上几个例子可以看出，基于定向集定义的网收敛实际上一种推广的极限.
+
+下面说明网收敛可以刻画拓扑，只需要说明网收敛与之前定义的等价拓扑等价即可.
+
+>[!note]- 设 $X$ 为拓扑空间， $A\subset X,x\in X$ 则 $x\in \bar{A}$ 等价于 $A$ 中有网 $\{\xi(d):d\in D,\xi(d)\in A\}$ 收敛于 $x$ .
+
+证明：
+
+## $\mathbb{R}$ 上拓扑
+
+$\mathbb{R}$ 上有八大拓扑. 对照上面介绍的拓扑的刻画分别进行分析：
+
+1. 拓扑（开集族）；
+2. 闭集族；
+3. 邻域系；
+4. 第一可数；
+5. 基；
+6. 第二可数；
+7. 收敛.
+
+### 平凡拓扑
+
+| 拓扑  | 闭集族 | 邻域系 | 第一可数 | 基   | 第二可数 | 收敛  |
+| --- | --- | --- | ---- | --- | ---- | --- |
+|     |     |     |      |     |      | ✅   |
+
+开集最少的拓扑（最小 / 粗 / 弱的拓扑）： $\{\emptyset, \mathbb{R}\}$ . 由 $\emptyset,\mathbb{R}$ 既是开集也是闭集，可以得到 $\bar{\emptyset}=\emptyset,\bar{\mathbb{R}}=\mathbb{R},\emptyset^\circ=\emptyset,\mathbb{R}^\circ=\mathbb{R}$ .
+
+平凡拓扑上对任意 $x$ ，任意 $\{x_n\}_{n\geq1}$ 都收敛于 $x$ .
+
+### 离散拓扑
+
+| 拓扑  | 闭集族 | 邻域系 | 第一可数 | 基   | 第二可数 | 收敛  |
+| --- | --- | --- | ---- | --- | ---- | --- |
+|     |     |     |      |     |      | ✅   |
+
+形如 $(X,\mathcal{P}(X))$ 的拓扑空间称为**离散空间**（discrete space）.
+
+最大 / 细 / 强的拓扑，离散拓扑可以由离散度量定义（只有完全相同的两个元素距离才为 $1$ ，其余皆为 $0$ ）： $\mathcal{P}(\mathbb{R})$ .
+
+离散拓扑中的收敛： $x_n\rightarrow x$ 当且仅当存在 $N,n>N$ 时 $x_n=x$ .
+
+### 欧式拓扑
+
+| 拓扑  | 闭集族 | 邻域系 | 第一可数 | 第二可数 | 基   | 收敛  |
+| --- | --- | --- | ---- | ---- | --- | --- |
+|     |     |     |      | ✅    | ✅   |     |
+
+由欧式度量给出.
+
+欧式拓扑中的开集都能够写为一族端点为有理数 / 无理数的开区间的并. 而 $\mathcal{B}=\{(r,R):r<R,r,R\in \mathbb{Q}\}\subset \mathbb{Q}\times \mathbb{Q}$ 可数，所以欧式拓扑第二可数. 
+
+### 左拓扑
+
+| 拓扑  | 闭集族 | 邻域系 | 第一可数 | 基   | 第二可数 | 收敛  |
+| --- | --- | --- | ---- | --- | ---- | --- |
+| ✅   | ✅   | ✅   | ✅ 是  |     |      |     |
+
+$\{(-\infty,a):a\in \mathbb{R}\cup\{+\infty\}\}\cup\emptyset$ ，以下记为 $L\mathbb{R}$ ；
+
+>[!note]- 左拓扑与右拓扑同胚.
+>证明：考虑映射 $f: L\mathbb{R}\rightarrow R\mathbb{R}, (-\infty,-a)\rightarrow (a,+\infty)$ . 则 $f$ 为双射并且连续. 所以左右拓扑同胚.
+
+### 右拓扑
+
+| 拓扑  | 闭集族 | 邻域系 | 邻域基 | 第一可数 | 基   | 第二可数 | 收敛  |
+| --- | --- | --- | --- | ---- | --- | ---- | --- |
+| ✅   | ✅   | ✅   | ✅   | ✅ 是  |     |      |     |
+
+$\{(a,+\infty):a\in \mathbb{R}\}\cup\emptyset$ ；右拓扑的闭集族则为 $\{(-\infty,b): b\in \mathbb{R}\}\cup\emptyset$ .
+
+右拓扑中每一个点 $x$ 的邻域系 $\mathcal{N}(x)=\{(y,+\infty):y<x\}$ .
+
+$x$ 的一个邻域基可以写为： $\{\left(x-\frac{1}{n},+\infty\right)\}_{n\geq1}$ ，所以右拓扑第一可数.
+
+### 余有限拓扑
+
+| 拓扑  | 闭集族 | 邻域系 | 第一可数 | 基   | 第二可数 | 收敛  |
+| --- | --- | --- | ---- | --- | ---- | --- |
+|     |     |     |      |     |      |     |
+
+$\emptyset\cup\{\mathbb{R}\backslash F:F=F\text{ 为有限集}\}$ .
+
+### Sorgenfrey 拓扑
+
+S<u>o</u>rgenfrey 直线是由 $\mathcal{B}=\{[a,b):a,b\in \mathbb{R},a<b\}$ 为基生成的拓扑.
+
+| 基   | 第二可数 | 拓扑  | 闭集族 | 邻域基 | 第一可数 | 收敛  |
+| --- | ---- | --- | --- | --- | ---- | --- |
+| ✅   | ✅ 否  |     |     | ✅   | ✅ 是  | ✅   |
+
+下面借助基的等价定义说明 Sorgenfrey 第二可数：对于任意的包含 $x$ 的开集 $U$ ，存在 $B_x\in \mathcal{B}$ 使得 $x\in B_x\subset U$ ，因为 $[x,+\infty)$ 也是包含 $x$ 的开集，所以存在 $B_x'\in \mathcal{B}$ ： $B_x'=[x,a')\subset [x,+\infty]$ ，进而建立起 $\mathbb{R}$ 和 $\mathcal{B}$ 之间的一个双射. 所以 Sorgenfrey 直线第二可数. 类似地， Sorgenfrey 拓扑均非第二可数. [ste](https://math.stackexchange.com/questions/1135993/mathbbr-with-the-lower-limit-topology-is-not-second-countable)
+
+对 $x\in X$ ， $x$ 的邻域系：； $x$ 的一个邻域基为 $\left\{\left[x,x+\frac{1}{n})\right)\right\}_{n\geq1}$ ，所以 Sorgenfrey 直线第一可数.
+
+下面讨论 Sorgenfrey 直线上的收敛： $\{x_n\}_{n\geq1}$ 收敛到 $x$ 的充分必要条件为 $\{x_n\}_{n\geq1}$ 终在 $x$ 的任意邻域基中的任何一个元素. 考虑上面的邻域基， $\{x_n\}_{n\geq1}$ 收敛到 $x$ 的充分必要条件为对任意 $m\geq1,\exists N\in \mathbb{N},\forall n\geq N$ ， $x_n\geq1 x,x_n-x<\frac{1}{m}$ . 对于其他 Sorgenfrey 拓扑，例如 Sorgenfrey 平面，每一个坐标对应的序列都向左逼近 $x$ 的相应坐标.

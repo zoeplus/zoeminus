@@ -96,7 +96,7 @@ $$F=\{x:c_i(x)=0,i=1,\cdots,m,c_j(x)\geq0,j=m+1,\cdots,p\}$$
 下面定义凸集的**分离**：设 $D_1,D_2\subset \mathbb{R}^n$ 是两个凸集，如果存在 $\alpha\in \mathbb{R}^n,\alpha\neq0,\beta\in \mathbb{R}$ ，使得 $$\begin{aligned}
 &D_1\subset H^+=\{x\in \mathbb{R}^n:\alpha^Tx\geq \beta\}\\
 &D_2\subset H^-=\{x\in \mathbb{R}^n:\alpha^Tx\leq \beta\}
-\end{aligned}$$ 则称**超平面** $H=\{x\in \mathbb{R}^n:\alpha^Tx=\beta\}$ 为 $D_1,D_2$ 的**分离**. 若 $D_1,D_2$ 中取 $>,<$ 则称 $H$ 为 $D_1,D_2$ 的**严格分离**.
+\end{aligned}$$ 则称**超平面** $H=\{x\in \mathbb{R}^n:\alpha^Tx=\beta\}$ 为 $D_1,D_2$ 的**分离**. 若 $D_1,D_2$ 中取 $>,<$ 则称 $H$ 为 $D_1,D_2$ 的**严格分离**. ^SeperateHyperplane
 
 类似于二维或者三维上的凸集，有下面的存在唯一最近点定理：
 

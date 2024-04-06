@@ -1,7 +1,33 @@
 site_name: zoeminus
 repo_url: https://github.com/zoeplus/zoeminus
 repo_name: zoeminus
-edit_uri: 'edit/main/docs/'
+edit_uri: 'blob/main/docs/'
+
+nav:
+  - 源: 'index.md'
+  - 溪:
+    - '集合论': 'Math/Set.md'
+    - '实数理论': 'Math/R.md'
+    - '一般拓扑学': 'Math/GTopo.md'
+    - '实变函数': 'Math/RF.md'
+    - '矩阵代数': 'Math/MAlg.md'
+  - 池:
+    - '概率论': 'Math/Prob.md'
+    - '数理统计': 'Math/Stat.md'
+    - '最优化理论': 'Math/Opt.md'
+    - '数据结构与算法': 'Math/DSA.md'
+    - '计算学习理论': 'Math/CLT.md'
+  - 洼:
+    - '数据挖掘': 'Math/DM.md'
+    - '统计学习': 'Math/SL.md'
+    - '深度学习': 'Math/DL.md'
+  - 锄: 
+    - 'C++': 'Coding/CPP.md'
+  - 厨:
+    - 'PyTorch': 'Cookbooks/DLCB.md'
+    - 'Python DM & ML': 'Cookbooks/PyDCB.md'
+  - 摘:
+    - '遥望': 'Likes/WordsLoved.md'
 
 plugins:
   - search
@@ -14,12 +40,14 @@ plugins:
 markdown_extensions:
   - footnotes
   - meta
-  - nl2br # for callouts
-  - admonition # for callouts
-  - pymdownx.superfences # for callouts
-  - pymdownx.details # for callouts
-  # - pymdownx.magiclink
-  # - attr_list
+  - nl2br # callouts 
+  - admonition # callouts
+  - pymdownx.superfences # callouts
+  - pymdownx.tabbed: # tabbed blocks
+      alternate_style: true
+  - pymdownx.details # callouts
+  - attr_list # annotations
+  - md_in_html # annotations
   - pymdownx.arithmatex:
       generic: true
   - pymdownx.tasklist:
@@ -42,29 +70,33 @@ markdown_extensions:
 
 theme:
   name: material
+  language: zh
   locale: en
+  icon:
+    annotation: material/alpha-z-circle
   features:
-    - revision.date
-    - navigation.tabs
-    - navigation.path
-    - content.action.edit
-    - content.code.copy
     - header.autohide
+    - revision.date
+    - navigation.path
+    - navigation.top
+    - content.action.edit
+    - content.action.view
+    - content.code.copy
   palette:
-  
     # Palette toggle for light mode
     - media: "(prefers-color-scheme: light)"
       scheme: default
+      primary: amber
       toggle:
-        icon: material/brightness-7
-        name: Switch to dark mode
-
+        icon: material/lightbulb
+        name: 切暗色
     # Palette toggle for dark mode
     - media: "(prefers-color-scheme: dark)"
       scheme: slate
+      primary: amber
       toggle:
-        icon: material/brightness-4
-        name: Switch to light mode
+        icon: material/lightbulb-outline
+        name: 切亮色
 
 extra_javascript:
   # the following mathjax is not rendering normally

@@ -1,129 +1,17 @@
-# 更新
 
-- Mar 31 ：添加 MATH.
+| 门类  | 父               | 子     | 状态  | 备注              | 下一个目标 | 截止    |
+| --- | --------------- | ----- | --- | --------------- | ----- | ----- |
+| 溪   | [一般拓扑学](GTopo)  |       | ⏳   | Cache & Details |       | Feb 6 |
+| 溪   | [实变函数](RF)      |       | ⏳   | Cache & Details |       | Feb 6 |
+| 池   | [统计学习](SL)      |       | ⏳   |                 |       |       |
+| 池   | 网络流优化           | 网络流分类 | 🍼  |                 |       |       |
+| 厨   | [PyTorch](DLCB) |       | 🍼  |                 |       |       |
 
-[仓库地址](https://github.com/zoeplus/zoeminus)，[网站地址](https://zoeplus.github.io/zoeminus/)
+---
 
-# 渲染
+ [<font color="#a5a5a5">仓库地址</font>](https://github.com/zoeplus/zoeminus) <font color="#a5a5a5">|</font> [<font color="#a5a5a5">网站地址</font>](https://zoeplus.github.io/zoeminus/)
 
-## Obsidian Callouts
+<font color="#a5a5a5" size="1">These days I feel a little bit (1) meaningless :)</font>  
+{ .annotate } 
 
->[!note]- Note Callout
->- This is a piece.
-
->[!note]+ Unfolded Callout
->You can see me.
-
-## 分行
-
-```
-不严格分行或者是
-严格分行
-```
-
-不严格分行或者是
-严格分行
-
-```
-不严格分行或者是
-
-严格分行
-```
-
-
-不严格分行或者是
-
-严格分行
-
-## 公式
-
-内联的 LaTeX 公式只能用单 `$` 渲染，块形的随意.
-
-`$$\frac{1}{n}\sum\limits_{i=1}^{n}(\hat{x}_i-x_i)^2$$`
-
-$$\frac{1}{n}\sum\limits_{i=1}^{n}(\hat{x}_i-x_i)^2$$
-
-`$$ \frac{1}{n}\sum\limits_{i=1}^{n}(\hat{x}_i-x_i)^2 $$`
-
-$$ \frac{1}{n}\sum\limits_{i=1}^{n}(\hat{x}_i-x_i)^2 $$
-
-```
-$$ 
-\frac{1}{n}\sum\limits_{i=1}^{n}(\hat{x}_i-x_i)^2 
-$$
-```
-
-$$ 
-\frac{1}{n}\sum\limits_{i=1}^{n}(\hat{x}_i-x_i)^2 
-$$
-
-```
-带有一段话的 LaTeX $$\frac{1}{n}\sum\limits_{i=1}^{n}(\hat{x}_i-x_i)^2$$
-
-带有一段话的 LaTeX ver.2 $$ \frac{1}{n}\sum\limits_{i=1}^{n}(\hat{x}_i-x_i)^2 $$
-```
-
-带有一段话的 LaTeX $$\frac{1}{n}\sum\limits_{i=1}^{n}(\hat{x}_i-x_i)^2$$
-
-带有一段话的 LaTeX ver.2 $$ \frac{1}{n}\sum\limits_{i=1}^{n}(\hat{x}_i-x_i)^2 $$
-
->[!note]+ 带有一段话的 LaTeX
->带有一段话的 $\LaTeX$ ， $$\frac{1}{n}\sum\limits_{i=1}^{n}(\hat{x}_i-x_i)^2$$
->带有一段话的 $\LaTeX$ ver.2 $$ \frac{1}{n}\sum\limits_{i=1}^{n}(\hat{x}_i-x_i)^2 $$
-
-```
->[!note]- LaTeX aligned in Callouts
->Obsdiain 中的不严格 Markdown 不能再用了.
->$$
->\begin{aligned}
->&\text{Weak Rendering}\\
->&\text{Strict Language}\\
->&\text{How to fix?}
->\end{aligned}
->$$
-> #issue
-```
-
->[!note]+ LaTeX aligned in Callouts
->Obsdiain 中的不严格 Markdown 不能再用了.
->$$
->\begin{aligned}
->&\text{Weak Rendering}\\
->&\text{Strict Language}\\
->&\text{How to fix?}
->\end{aligned}
->$$
-
-似乎是唯一可行的方法：
-
-```
->[!note]- LaTeX aligned in Callouts
->Obsdiain 中的不严格 Markdown 不能再用了.
->$$ \begin{aligned} &\text{Weak Rendering}\\ &\text{Strick Language}\\ &\text{How to fix?} \end{aligned} $$
-```
-
->[!note]- LaTeX aligned in Callouts
->Obsdiain 中的不严格 Markdown 不能再用了.
->$$ \begin{aligned} &\text{Weak Rendering}\\ &\text{Strick Language}\\ &\text{How to fix?} \end{aligned} $$
-
-但这样是正常的：
-
-```
->[!note]- LaTeX aligned in Callouts
->Obsdiain 中的不严格 Markdown 不能再用了.
->$$ \begin{aligned} &\text{Weak Rendering}\\\\ &\text{Strick Language}\\\\ &\text{How to fix?} \end{aligned} $$
-```
-
->[!note]- LaTeX aligned in Callouts
->Obsdiain 中的不严格 Markdown 不能再用了.
->$$ \begin{aligned} &\text{Weak Rendering}\\\\ &\text{Strick Language}\\\\ &\text{How to fix?} \end{aligned} $$
-
-如何将 `$$...$$` 修改为行内块形式，或者块形式，需要修改[[katex.js]]，目前不知道怎么实现（似乎只能够用 `$$` 表示块或者行间的一种形式.
-
-## Hello World!
-
-The `index.md` in the `/docs` folder is the homepage you see here.
-
-The folders in `/docs` appear as the main sections on the navigation bar.
-
-The notes appear as pages within these sections. For example, [[Note 1]] in `Topic 1`
+1. <font color="#d83931" size="1">FUCKING:) FUCKING:) FUCKING:) FUCKING:) FUCKING:) FUCKING:) FUCKING:) FUCKING:) FUCKING:) FUCKING:) FUCKING:) FUCKING:) FUCKING:) FUCKING:) FUCKING:) FUCKING:) FUCKING:) FUCKING:) FUCKING:) FUCKING:) FUCKING:) FUCKING:) FUCKING:) FUCKING:) FUCKING:) FUCKING:) FUCKING:) FUCKING:) FUCKING:) FUCKING:) </font>

@@ -1,21 +1,19 @@
-从浅显的角度上来说，神经网络是复合映射，可以认为每一个神经网络层为一映射，多个映射复合，对输入值进行多次线性和非线性处理，最终得到输出. 
+Dependencies: [统计学习](SL.md)
 
-以网络的角度看有很多层，因此称为“深度”；根据数据集，以某指标为方向通过优化方法不断更新神经网络的模型参数，称为“学习”.
+从浅显的角度上来说，神经网络是复合映射，可认为每一个神经网络层为一映射，多个网络层对输入值进行多次线性和非线性映射，最终得到输出. 
 
->[!cite]- GAN中的一句话
+以网络的角度看有很多层，因此称为“深度”；根据数据集，以某指标为方向以某种优化方法不断更新神经网络的模型参数，称为“学习”.
+
+>[!cite]- GAN中的一句话，深度学习是**表示学习**（representation learning）
 >The promise of deep learning is to discover rich, hierachical models that represent probability distributions over the kinds of data encountered in artificial intelligence applications.
-
-本部分主要是学习笔记，所以按照顺序逐渐引入概念，对于PyTorch的使用以代码块的形式穿插在其中，并同时有[[DLCB]]记录PyTorch的使用和概念理解.
 
 # 线性神经网络
 
-深度学习在监督学习、无监督学习和强化学习中都有重要应用，这里首先关注[监督学习](SL#监督学习假设及概念)中预测的两个场景：**回归**和**分类**.
+首先关注[监督学习](SL.md#监督学习假设及概念)中预测的两个场景：**回归**和**分类**. 
 
 ## 线性神经网络用于回归
 
-**预测器**：神经网络中的预测器是网络，由层和块构成. 其中层（layer）、块（module，由层和块构成）或者网络（net，各种层和块构成）中包含模型参数，分为两种：
-
->[!note]- 交叉验证
+**预测器**：神经网络中的预测器是网络，由层和块构成. 其中层（layer）、块（module，由层和块构成）或者网络（net，各种层和块构成）中包含模型参数.
 
 >[!note]- PyTorch：加载数据集并将其分割为训练集、验证集和测试集
 >读取一个数组对象作为数据集. [Check here](DLCB.md#^TensorDataset)
@@ -156,7 +154,7 @@
 
 >[!note]- PyTorch: SGD [Check Here](DLCB.md#^SGD)
 >我们在上面已经介绍了PyTorch中的均方损失函数，PyTorch中可以使用`torch.optim.SGD`来实现随机梯度下降方法，下面给出的一个例子使用一个函数生成了一个噪声玩具数据集，然后用SGD对真实函数进行学习.
->```Python
+>```Python 
 >def true_function(input):
 >    return torch.matmul(input,torch.tensor([3., 4.]))
 >
