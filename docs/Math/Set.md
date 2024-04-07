@@ -18,22 +18,32 @@
 
 并可以将乘积推广到多个集合，**直积**： $$\Pi_{k=1}^n A_k=\{(x_1,x_2,\cdots,x_n):x_i\in A_i,i=1,2,\cdots,n\}$$
 
-**对称差**： $$A\Delta B=(A\backslash B)\cup(B\backslash A)$$ 其具有性质： $$\begin{aligned}
-&i)\ A\Delta B=(A\cup B)\backslash(A\cap B)\\
-&ii)\ A\Delta B=B\Delta A
-	\end{aligned}$$ （ #imcomplete i) 的证明画 Venn 图就能理解，如果写成析取和合取形式的话是有公式可以推出吗? ) 
+**对称差**： $A\Delta B=(A\backslash B)\cup(B\backslash A)$ 其具有性质： 
 
-**分配律**： $$\begin{aligned}
+$$\begin{aligned}
+&1)\ A\Delta B=(A\cup B)\backslash(A\cap B)\\
+&2)\ A\Delta B=B\Delta A
+\end{aligned}$$
+
+（ #imcomplete i) 的证明画 Venn 图就能理解，如果写成析取和合取形式的话是有公式可以推出吗? ) 
+
+**分配律**： 
+
+$$\begin{aligned}
 &A\cap\left(\bigcup_{i\in I}B_i\right)=\bigcup_{i\in I}\left(A\cap B_i\right)\\
 &A\cup\left(\bigcap_{i\in I}B_i\right)=\bigcap_{i\in I}(A\cup B_i)
 \end{aligned}$$
 
-**De Morgan律**： $$\begin{aligned}
+**De Morgan律**： 
+
+$$\begin{aligned}
 &A\backslash\left(\bigcup_{i\in I}B_i\right)=\bigcap_{i\in I}\left(A\backslash B_i\right)\\
 &A\backslash\left(\bigcap_{i\in I}B_i\right)=\bigcup_{i\in I}(A\backslash B_i)
 \end{aligned}$$ 
 
-**积的分配律**： $$\begin{aligned}
+**积的分配律**： 
+
+$$\begin{aligned}
 &A\times\left(\bigcup_{i\in I}B_i\right)=\bigcup_{i\in I}(A\times B_i)\\
 &A\times\left(\bigcap_{i\in I}B_i\right)=\bigcap_{i\in I}(A\times B_i)
 \end{aligned}$$
@@ -44,6 +54,10 @@
 >反之，考虑 $y\in \bigcap_{r=1}^\infty\bigcup_{n=1}^\infty\bigcap_{k=n}^\infty\{x:\lvert f_k(x)-f(x)\rvert<\frac{1}{r}\}$ ，对于任意的 $\epsilon>0$ ，存在 $r\geq1:\frac{1}{r}<\epsilon$ ，由该集合的性质： $\exists N\in \mathbb{N}$ ，当 $k>N$ 时， $\lvert f_k(x)-f(x)\rvert<\frac{1}{r}<\epsilon$ ，从而可得 $\lim_{n\rightarrow \infty}f_n(x)=f(x)$ . 
 >
 >综上，等式成立.
+
+>[!note]- $A\times B-C\times D=[(A-C)\times B]\cup[A\times (B-D)]$ .
+>证明：若 $(x,y)\in A\times B-C\times D$ ，则 $\cancel{x\in A-C,y\in B-D}$ $(x,y)\in A\times B,(x,y)\notin C\times D\rightarrow x\notin C\land y\in D$ 或者 $x\in C\land y\notin D$ 或者 $x\notin C\land y\notin D$ . 并且从而可知 $(x,y)\in[(A-C)\times B]\cup[A\times (B-D)]$ . 若 $(x,y)\in [(A-C)\times B]\cup[A\times (B-D)]$ ，则 $x\in (A-C),y\in B$ 或者 $x\in A,y\in (B-D)$ ，两者都可以得出 $(x,y)\in A\times B-C\times D$ .
+>^ProductMinus
 
 
 # 集族
@@ -61,14 +75,16 @@
 
 # 集合极限
 
-考虑集合序列 $\{A_n\}_{n\geq1}$ . 称 $$A_1\subset A_2\subset \cdots\subset A_n\subset \cdots$$ 为单调递增， $$A_1\supset A_2\supset \cdots\supset A_n\supset \cdots$$ 为单调递减.
+考虑集合序列 $\{A_n\}_{n\geq1}$ . 称 $A_1\subset A_2\subset \cdots\subset A_n\subset \cdots$ 为单调递增， $A_1\supset A_2\supset \cdots\supset A_n\supset \cdots$ 为单调递减.
 
 >[!example]- 假设 $\{A_n\}_{n\geq1}$ 单调递减，则 $A_1=\left(\bigcap_{n=1}^\infty A_n\right)\bigcup\left(\bigcup_{n=1}^\infty(A_n-A_{n+1})\right)$ .
 >证明：对于任意的 $x\in A_1$ ，注意到 $\bigcup_{n=1}^\infty(A_n-A_{n+1})=A_1-A_{n+1}$ ，假设 $\forall n\geq1,x\notin (A_1-A_{n+1})$ ，则 $x\in A_{n+1}$ ，从而可以得到 $x\in \bigcap_{n=1}^\infty A_n$ ，从而可以得到 $A_1\subset \left(\bigcap_{n=1}^\infty A_n\right)\bigcup\left(\bigcup_{n=1}^\infty(A_n-A_{n+1})\right)$ ；
 >
 >另一方面的包含是显然的，从而等式成立.
 
-对于一个集合序列 $\{A_n\}_{n\geq1}$ 构造递减序列 $\{B_n\}_{n\geq1},B_k=\cup_{n\geq k}A_n$ 构造递增序列 $C_k=\cap_{n\geq k}A_n$ . 记： $$\begin{aligned}
+对于一个集合序列 $\{A_n\}_{n\geq1}$ 构造递减序列 $\{B_n\}_{n\geq1},B_k=\cup_{n\geq k}A_n$ 构造递增序列 $C_k=\cap_{n\geq k}A_n$ . 记： 
+
+$$\begin{aligned}
 &\varlimsup_{n\rightarrow \infty}A_n=\bigcap_{k=1}^{\infty}B_k\\
 &\varliminf_{n\rightarrow \infty}A_n=\bigcup_{k=1}^{\infty}C_k
 \end{aligned}$$
@@ -99,7 +115,6 @@
 &\bigcup_{n=1}^\infty A_n,A_n\text{ 单调递增}\\
 &\bigcap_{n=1}^\infty A_n,A_n\text{ 单调递减}
 \end{aligned}\right.$$
-
 
 # 关系
 

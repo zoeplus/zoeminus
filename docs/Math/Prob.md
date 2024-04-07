@@ -488,18 +488,40 @@ $$\xi\sim\begin{bmatrix}x_1 & x_2 & \cdots & x_n &\cdots \\ p_1 & p_2 & \cdots &
 
 [Bernoulli 分布](#伯努利随机试验)：随机变量 $\beta$ 只取两个值 $k=0,1$ ；
 
+---
+
 [二项分布](#二项分布)：随机变量 $\mu$ 可以取多个值 $k=0,1,\cdots,n,n<\infty$ ；一般用 $\mu\sim B(n,q)$ 表示随机变量 $\mu$ 的分布列为二项分布；
 
-几何分布：用 $\eta$ 表示多次 Bernoulli 试验首次成功时进行的试验次数，随机变量 $\eta$ 可以取 $1,\cdots,n,\cdots$（和几何概率模型没有关系）则 $\mathcal{P}(\eta=k)\overset{def}{=}g(k;p)=q^{k-1}p,k\geq1$ ，几何分布是具有**无记忆性**，即 $\forall m,k\geq1$ ， $\mathcal{P}(\xi=m+k \,|\,\xi>m)=\mathcal{P}(\xi=k)$ ，由： 
+---
 
-$$\frac{\mathcal{P}(\xi=m+k)}{\mathcal{P}(\xi>m)}=\frac{q^{m+k-1}p}{\sum\limits_{i=m+1}^{\infty}q^{i-1}p}=q^{k-1}p$$
+几何分布：用 $\eta$ 表示多次 Bernoulli 试验首次成功时进行的试验次数，随机变量 $\eta$ 可以取 $1,\cdots,n,\cdots$（和几何概率模型没有关系）则 $\mathcal{P}(\eta=k)\overset{def}{=}g(k;p)=q^{k-1}p,k\geq1$ ，几何分布具有**无记忆性**，即 $\forall m,k\geq1$ ， $\mathcal{P}(\eta=m+k \,|\,\eta>m)=\mathcal{P}(\eta=k)$ ，由： 
+
+$$\frac{\mathcal{P}(\eta=m+k)}{\mathcal{P}(\eta>m)}=\frac{q^{m+k-1}p}{\sum\limits_{i=m+1}^{\infty}q^{i-1}p}=q^{k-1}p$$
 
 反之，有如下结论：
 
 >[!note]- 如果离散随机变量的取值为自然数，并且其概率分布具有无记忆性，则其一定为几何分布. 
+>证明：若 $\mathcal{P}(\xi=m+k \,|\,\xi>m)=\mathcal{P}(\xi=k)=\frac{\mathcal{P}(\xi=m+k)}{\mathcal{P}(\xi>m)}$ . 则：
+>
+>$$\mathcal{P}(\xi=k)=\mathcal{P}(\xi=k-1)\mathcal{P}(\xi>1)=\mathcal{P}(\xi>1)^{k-1}\mathcal{P}(\xi=1)$$
+>
+>并且由 $\xi$ 只能取自然数可知 $\mathcal{P}(\xi>1)+\mathcal{P}(\xi=1)=1$ .
+>
+>另一种证明：记 $p=\mathcal{P}(\xi=k+1 \,|\,\xi>k)$ （由无记忆性） ，记 $q_k=\mathcal{P}(\xi=k)$ ， $p_k=\mathcal{P}(\xi>k)$ ，从而 $q_{k+1}=\mathcal{P}(\xi=k+1)=p_{k}-p_{k+1}$ ，从而有： $\frac{p_k-p_{k+1}}{p_k}=p$ ，所以 $\frac{p_{k+1}}{p_k}=1-p$ ，因此 $p_k=(1-p)^{k}p_0$ . 而 $p_0=1$ ，所以 $q_k=p_{k-1}-p_{k}=(1-p)^{k-1}-(1-p)^{k}=(1-p)^{k-1}p$ ，即为几何分布.
 
-证明：
+---
 
+超几何分布
+
+---
+
+Pascal 分布
+
+---
+
+泊松分布 $P(\xi=k)=\frac{\lambda^k}{k!}e^{-\lambda},\lambda>0$ ；记分布列为泊松分布的随机变量 $\xi\sim \mathcal{P}(\lambda)$ .
+
+---
 
 **简单随机变量**的形式可以写作 $X(w)=\sum\limits_{i=1}^{n}a_iI_{A_i}(w)$ 其中 $I_{A_i},1\leq i\leq n$ 为指示函数， $A_i,1\leq i\leq n$ 则组成了 $\Omega$ 的一个不相交划分. #issue [Check](https://www.oreilly.com/library/view/probability-random-variables/9781118393956/OEBPS/c05-sec1-0004.htm#:~:text=A%20simple%20random%20variable%20is%20a%20generalization%20of,of%20%CE%A9%20are%20mapped%20to%20N%20values%20in.)
 
