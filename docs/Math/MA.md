@@ -1,6 +1,11 @@
-数学分析
 
 # 极限
+
+## 连续
+
+>[!note]- 柯西：若 $f$ 为连续函数或者单调函数，并且对于任意 $x,y\in \mathbb{R}$ 有 $f(x+y)=f(x)f(y)$ 则存在 $\alpha\geq0$ ， $f(x)=\alpha^x$ .
+>证明：首先注意到 $f(x)=f(x/2)^2,\forall x\in \mathbb{R}$ ，所以 $f\geq0$ ， $f(1)=[f(1/n)]^n,\forall n\geq1$ ，设 $\alpha=f(1)\geq0$ ，从而 $f(1/n)=\alpha^{1/n}$ ，从而对于任意的有理数 $\frac{m}{n},m,n\in \mathbb{N}$ ， $f\left(\frac{m}{n}\right)=\alpha^{\frac{m}{n}}$ ，并且由 $f$ 的连续性 / 单调 #imcomplete %%单调怎么推出结论，上界收敛%% 可得 $f(x)=\alpha^x,\forall x\in \mathbb{R}$ .
+>^CauchyExp
 
 ## 半连续
 

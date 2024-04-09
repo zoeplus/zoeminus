@@ -130,6 +130,7 @@ $$m^*(E)=\inf\left\{\sum\limits_{n=1}^{\infty}l(I_n):E\subset \bigcup_{n=1}^\inf
 
 >[!note]- 对任意至多可数点列 $E=\{x_n\}_{n\geq1}\subset \mathbb{R}$ ， $m^*(E)=0$ . 进一步可得 $\mathbb{R}$ 中任何至多可数集的外测度为 $0$ .
 >证明：对于任意的 $\epsilon>0$ ，对任意 $x_n$ 存在区间 $I_n=\left(x_n-\frac{\epsilon}{2^{n+1}},x_n+\frac{\epsilon}{2^{n+1}}\right)\ni x_n$ ，并且 $\sum\limits_{n=1}^{\infty}l(I_n)=\epsilon$ ，从而可得 $m^*(E)\leq \epsilon$ ，由 $\epsilon$ 的任意性，结合 $m^*(E)\geq0$ 可得 $m^*(E)=0$ .
+>^AtMostZero
 
 >[!note]- 单调性：若 $E_1\subset E_2$ ，则 $m^*(E_1)\leq m^*(E_2)$ .
 >证明：对任意 $E_2$ 的开覆盖 $\{I_n\}_{n\geq1}$ 显然其也为 $E_1$ 的开覆盖，因此有： $$m^*(E_1)\leq \sum\limits_{n=1}^{\infty}l(I_n)$$ 由有开覆盖的任意性，取下确界可得 $m^*(E_1)\leq m^*(E_2)$ .
@@ -157,32 +158,71 @@ $$m^*(E)=\inf\left\{\sum\limits_{n=1}^{\infty}l(I_n):E\subset \bigcup_{n=1}^\inf
 
 Lebesgue 测度具有可数可加性 $m3)$ .
 
+
+
+
 >[!note]- 设可测集列 $\{E_n\}_{n\geq1}$ ，若该集列单增或者 单减且 $m(E_1)<\infty$ ，则有 $\lim_{n\rightarrow \infty}m(E_n)=m(\lim_{n\rightarrow \infty}E_n)$
->证明：若 $\{E_n\}_{n\geq1}$ 单增，注意到 $m(\lim_{n\rightarrow \infty}E_n)\geq m(E_k),\forall k\geq1$ ，因此不妨设 $m(\lim_{n\rightarrow \infty}E_n)<\infty$ ，则：
->
-> $$\begin{aligned}
->m(\lim_{n\rightarrow \infty}E_n)&=m\left(\bigcup_{n\geq1}E_n\right)\\
->&=m\left(\bigcup_{n\geq1}(E_n-E_{n-1})\cup E_0\right)\\
->&=\sum\limits_{n\geq1}^{}m(E_n-E_{n-1})+m(E_0)\\
->&=\lim_{n\rightarrow \infty}m(E_n)
->\end{aligned}$$
->
->其中 $E_0=\emptyset$ .
->
->若 $\{E_n\}_{n\geq1}$ 单调递减，则 $\{E_1-E_n\}_{n\geq1}$ 单调递增，所以 
+
+证明：若 $\{E_n\}_{n\geq1}$ 单增，注意到 $m(\lim_{n\rightarrow \infty}E_n)\geq m(E_k),\forall k\geq1$ ，因此不妨设 $m(\lim_{n\rightarrow \infty}E_n)<\infty$ ，则：
+
+$$\begin{aligned}
+m(\lim_{n\rightarrow \infty}E_n)&=m\left(\bigcup_{n\geq1}E_n\right)\\
+&=m\left(\bigcup_{n\geq1}(E_n-E_{n-1})\cup E_0\right)\\
+&=\sum\limits_{n\geq1}^{}m(E_n-E_{n-1})+m(E_0)\\
+&=\lim_{n\rightarrow \infty}m(E_n)
+\end{aligned}$$
+
+其中 $E_0=\emptyset$ .
+
+若 $\{E_n\}_{n\geq1}$ 单调递减，则 $\{E_1-E_n\}_{n\geq1}$ 单调递增，所以 
+
+$$\begin{aligned}
+m(\lim_{n\rightarrow \infty}(E_1-E_n))
+&=m(E_1-\cap_{n\geq1}E_n)\\
+&=m(E_1)-m(\cap_{n\geq1}E_n)\\
+&=\lim_{n\rightarrow \infty}m(E_1-E_n)\\
+&=m(E_1)-\lim_{n\rightarrow \infty}m(E_n)
+\end{aligned}$$
+
+并且因为 $m(E_1)<\infty$ ，所以 $\lim_{n\rightarrow \infty}m(E_n)=m(\cap_{n\geq1}E_n)=m(\lim_{n\rightarrow \infty}E_n)$ .
+^MonotonousLimit
+
+## 可测集的变换
+
+设 $E\subset \mathbb{R},y\in \mathbb{R}$ 称 $E_y=\{x+y:x\in E\}$ 为 $E$ 关于 $y$ 的**平移**.
+
+容易得到 $E\cap F_y=(E_{-y}\cap F)_y$ ， $(E^c)_y=(E_y)^c$ .
+
+注意到对于区间 $I_y$ ， $l(I_y)=l(I)$ ，平移的一个非常重要的性质是不改变外测度.
+
+>[!note]- $m^*(E)=m^*(E_y)$ .
+>证明：对于任意的 $\epsilon>0$ ，存在开区间列 $\{I_n\}_{n\geq1}$ ， $\bigcup_{n\geq1}I_n\supset E\Rightarrow\bigcup_{n\geq1}(I_n)_y\supset E_y$ ，从而 $m^*(E_y)\leq \sum\limits_{n\geq1}^{}l(I_n)<m^*(E)+\epsilon$ ，所以 $m^*(E_y)\leq m^*(E)$ ，同理可得 $m^*(E)\leq m^*(E_y)$ .
+
+在此基础上可以证明测度也保持平移不变：
+
+>[!note]- 设 $E$ 是可测集，则 $\forall y\in \mathbb{R},E_y$ 也可测并且 $m(E)=m(E_y)$ .
+>证明：对任意的 $A\subset \mathbb{R},y\in \mathbb{R}$ ， 
 >
 >$$\begin{aligned}
->m(\lim_{n\rightarrow \infty}(E_1-E_n))
->&=m(E_1-\cap_{n\geq1}E_n)\\
->&=m(E_1)-m(\cap_{n\geq1}E_n)\\
->&=\lim_{n\rightarrow \infty}m(E_1-E_n)\\
->&=m(E_1)-\lim_{n\rightarrow \infty}m(E_n)
+>m^*(A)&=m^*(A_{-y})\\
+>&\geq m^*(A_{-y}\cap E)+m^*(A_{-y}\cap E^c)\\
+>&\overset{*}{=}m^*(A\cap E_y)+m^*(A\cap E_u^c)
 >\end{aligned}$$
 >
->并且因为 $m(E_1)<\infty$ ，所以 $\lim_{n\rightarrow \infty}m(E_n)=m(\cap_{n\geq1}E_n)=m(\lim_{n\rightarrow \infty}E_n)$ .
->^MonotonousLimit
+>$\overset{*}{=}$ 依赖于平移的两个性质. 所以 $E_y$ 也可测. $m(E_y)=m^*(E_y)=m^*(E)=m(E)$ .
 
-## 平移
+对于仿射变换也有这一结论：
+
+>[!note]- $E\subset \mathbb{R}$ 可测，则 $\forall a,b\in \mathbb{R},F=aE+b$ 也可测，并且 $m(F)=\lvert a\rvert m(E)$ .
+>证明：为证明 $F$ 可测只需要证明 $G=aE$ 可测. 首先讨论 $m^*(aA)$ ，对于任意的 $A\subset \mathbb{R},a\in \mathbb{R}$ ，对于任意 $\epsilon>0$ ，存在开区间列 $\{I_n\}_{n\geq1}$ ，使得 $\bigcup_{n\geq1}aI_n\supset aA$ ， $\sum\limits_{n\geq1}^{}\lvert a\rvert l(I_n)=\sum\limits_{n\geq1}^{}l(aI_n)<\lvert a\rvert m^*(A)+\lvert a\rvert\epsilon$ ，从而可得 $m^*(aA)<\lvert a\rvert m^*(A)+\epsilon \lvert a\rvert$ ，进而由 $\epsilon$ 的任意性的 $m^*(aA)\leq \lvert a\rvert m^*(A)$ ；并且 $m^*(A)=m^*(a^{-1}aA)\leq \lvert a\rvert^{-1}m^*(aA)$ 从而可得 $m^*(aA)=\lvert a\rvert m^*(A)$ .
+>
+>$$\begin{aligned}
+>m^*(a^{-1}A)&\geq m^*(a^{-1}A\cap E)+m^*(a^{-1}A\cap E^c)\\
+>&=m^*(a^{-1}(A\cap aE))+m^*(a^{-1}(A\cap aE^c))\\
+>&=\lvert a\rvert^{-1}m^*(A\cap aE)+\lvert a\rvert^{-1}m^*(A\cap aE^c)
+>\end{aligned}$$
+>
+>从而可得结论.
 
 下面来说明可测集的子集并不一定可测，首先引入 **Vitali 集**的概念： $E(x)=\{y\in[0,1]:\exists x,y-x\in \mathbb{R}\}$ . 显然 $[0,1]=\bigcup_{x\in [0,1]}E(x)$ ，并且对于任意的 $x_1\neq x_2$ ， $E(x_1)=E(x_2)$ 或者 $E(x_1)\cap E(x_2)=\emptyset$ . 因此可以构造 $F\subset [0,1]$ ， $\forall f_1,f_2\in F$ ， $E(f_1)\cap E(f_2)=\emptyset$ . 下面证明 $F$ 是 $[0,1]$ 的不可测子集，利用可测集的可数可加性进行反证.
 
@@ -195,7 +235,6 @@ Lebesgue 测度具有可数可加性 $m3)$ .
 >[!note]- 测度集为正测当且仅当其存在不可测子集. 
 
 证明： $\Rightarrow$ ：假设 $G$ 是正测集，考虑 Vatali 集 $E(x)$ ，则 $\mathbb{R}=\bigcup_{x\in \mathbb{R}}E(x)$ ，同样存在 $F\subset \mathbb{R}$ 使得 $\mathbb{R}=\bigcup_{x\in F}E(x)$ 并且 $F$ 中任意两个集合
-
 
 ## 开闭集逼近可测集
 
@@ -263,40 +302,72 @@ $$m(g(C))=m(g([0,1]-\cup_{n,k}I_{n,k}))=m(g[0,1])-m(g(\cup _{n,k}I_{n,k}))=1$$
 
 因为 $g(C)$ 是正测度集，所以可以构造 $g(C)$ 的不可测子集 $E$ ， $g^{-1}(E)\subset C$ . 而 $m^*(g^{-1}(E))\leq m^*(C)=0$ ，所以 $g^{-1}(E)$ 可测. 如果 $g^{-1}(E)$ 是 Borel 集，则由 $g$ 是严格单调连续递增函数， $E=g(g^{-1}(E))$ 也是 Borel 集，矛盾！
 
-## $\mathbb{R}^n$ 中的可测集
+## $\mathbb{R}^n$ 中的 Lebesgue 测度和可测集
 
 下面这个命题符合直观上的面积概念.
 
->[!note]- 设 $p\subset \mathbb{r}^n,q\subset \mathbb{r}^m$ ，若 $p,q$ 可测，则 $p\times q$ 可测，并且 $m(p\times q)=m(p)m(q)$.
->证明：1) 若 $p,q$ 为 $\mathbb{r}^n,\mathbb{r}^m$ 中的长方体，则 $p\times q$ 可测，并且 $m(p\times q)=m(p)m(q)$ ；2) 若 $p,q$ 分别为 $\mathbb{r}^n,\mathbb{r}^m$ 中的开集，则存在长方体集族 $\{i_n^p\}_{n\geq1},\{i_n^q\}_{n\geq1}$  其中 $\{i_n^p\}_{n\geq1},\{i_n^q\}_{n\geq1}$ 中的元素分别两两不交， $p\times q=\bigcup_{n\geq1}i_n^p\times \bigcup_{n\geq1}i_n^q=\bigcup_{m\geq1}\bigcup_{n\geq1}i_m^p\times i_n^q$ 可测，并且 $m(p\times q)=\sum\limits_{m,n\geq1}^{}m(i_m^p\times i_n^q)=\sum\limits_{m\geq1}^{}m(i_m^p)\sum\limits_{n\geq1}^{}m(i_n^p)$ 从而可得结论；3) 若 $p,q$ 为一般可测集并且有限，为了证明 $p\times q$ ，试图说明对于任意的 $\epsilon>0$ 存在 $g_p\times g_q\supset p\times q\supset f_p\times f_q$ ，其中 $g_p\times g_q,f_p\times f_q$ 分别为开、闭集，满足 $m(g_p\times g_q-f_p\times f_q)<\epsilon$ ，利用 [[set#^productminus]] 中的结论有：
+>[!note]- 设 $P\subset \mathbb{R}^n,Q\subset \mathbb{R}^m$ ，若 $P,Q$ 可测，则 $P\times Q$ 可测，并且 $m(P\times Q)=m(P)m(Q)$.
+>证明：1) 若 $P,Q$ 为 $\mathbb{R}^n,\mathbb{R}^m$ 中的长方体，则 $P\times Q$ 可测，并且 $m(P\times Q)=m(P)m(Q)$ ；2) 若 $P,Q$ 分别为 $\mathbb{R}^n,\mathbb{R}^m$ 中的开集，则存在长方体集族 $\{I_n^p\}_{n\geq1},\{I_n^q\}_{n\geq1}$  其中 $\{I_n^p\}_{n\geq1},\{I_n^q\}_{n\geq1}$ 中的元素分别两两不交， $P\times Q=\bigcup_{n\geq1}I_n^p\times \bigcup_{n\geq1}I_n^q=\bigcup_{m\geq1}\bigcup_{n\geq1}I_m^p\times I_n^q$ 可测，并且 $m(P\times Q)=\sum\limits_{m,n\geq1}^{}m(I_m^p\times I_n^q)=\sum\limits_{m\geq1}^{}m(I_m^p)\sum\limits_{n\geq1}^{}m(I_n^p)$ 从而可得结论；3) 若 $P,Q$ 为一般可测集并且有限，为了证明 $P\times Q$ ，试图说明对于任意的 $\epsilon>0$ 存在 $G_p\times G_q\supset P\times Q\supset F_p\times F_q$ ，其中 $G_p\times G_q,F_p\times F_q$ 分别为开、闭集，满足 $m(G_p\times G_q-F_p\times F_q)<\epsilon$ ，利用 [[Set#^ProductMinus]] 中的结论有：
 >
-> $$\begin{aligned}
->m(g_p\times g_q-f_p\times f_q)&=m((g_p-f_p)\times g_q\cup(g_q-f_q)\times g_p)\\
->&\leq m((g_p-f_p)\times g_q)+m((g_q-f_q)\times g_p)\\
->\end{aligned}$$
->
->而因为因为 $p,q$ 是可测集，所以对于任意的 $\epsilon>0$ 存在 $g_p\supset p\supset f_p,g_q\supset q\supset f_q$ ，使得 $m(g_p\backslash f_p)<\epsilon,m(g_q\backslash f_q)<\epsilon$ $m(g_p)<m(p)+\epsilon_1,m(g_q)<m(q)+\epsilon$ ，并且 $g_p\backslash f_p,g_q\backslash f_q$ 均为开集，从而由 2) 的结论可得： 
 >$$\begin{aligned}
->m(g_p\times g_q-f_p\times f_q)\leq \epsilon(m(p)+m(q)+2\epsilon)
+>m(G_p\times G_q-F_p\times F_q)&=m((G_p-F_p)\times G_q\cup(G_q-F_q)\times G_p)\\
+>&\leq m((G_p-F_p)\times G_q)+m((G_q-F_q)\times G_p)\\
 >\end{aligned}$$
 >
->由 $\epsilon$ 的任意性，并且 $m(p),m(q)<\infty$ ，可得 $p\times q$ 可测. 由上面得到的结论，对于任意的 $\epsilon>0$ 存在 $g_p,g_q$ ， $m(g_p\times g_q)-m(p\times q)\leq \epsilon$ ，从而：
+>而因为因为 $P,Q$ 是可测集，所以对于任意的 $\epsilon>0$ 存在 $G_p\supset P\supset F_p,G_q\supset Q\supset F_q$ ，使得 $m(G_p\backslash F_p)<\epsilon,m(G_q\backslash F_q)<\epsilon$ $m(G_p)<m(P)+\epsilon_1,m(G_q)<m(Q)+\epsilon$ ，并且 $G_p\backslash F_p,G_q\backslash F_q$ 均为开集，从而由 2) 的结论可得： 
+>
+>$$\begin{aligned}
+>m(G_p\times G_q-F_p\times F_q)\leq \epsilon(m(P)+m(Q)+2\epsilon)
+>\end{aligned}$$
+>
+>由 $\epsilon$ 的任意性，并且 $m(P),m(Q)<\infty$ ，可得 $P\times Q$ 可测. 由上面得到的结论，对于任意的 $\epsilon>0$ 存在 $G_p,G_q$ ， $m(G_p\times G_q)-m(P\times Q)\leq \epsilon$ ，从而：
 > 
 >$$\begin{aligned}
->m(p)m(q)-\epsilon &\leq m(g_p)m(g_q)-\epsilon\\
->&=m(g_p\times g_q)-\epsilon\\
->&\leq m(p\times q)\leq m(g_p\times g_q)\\
->&= m(g_p)m(g_q)\\
->&<(m(p)+\epsilon)(m(q)+\epsilon)
+>m(P)m(Q)-\epsilon &\leq m(G_p)m(G_q)-\epsilon\\
+>&=m(G_p\times G_q)-\epsilon\\
+>&\leq m(P\times Q)\leq m(G_p\times G_q)\\
+>&= m(G_p)m(G_q)\\
+>&<(m(P)+\epsilon)(m(Q)+\epsilon)
 >\end{aligned}$$
 >
->再由 $\epsilon$ 的任意性可得 $m(p)m(q)=m(p\times q)$ ；4) 对于一般的可测集采取截断法：注意到 $p=\bigcup_{k\geq1}p\cap[-k,k]^n\overset{def}{=}\bigcup_{k\geq1}p_k$ ，并且 $m(p_k)<\infty$ 从而可得：> >
+>再由 $\epsilon$ 的任意性可得 $m(P)m(Q)=m(P\times Q)$ ；4) 对于一般的可测集采取截断法：注意到 $P=\bigcup_{k\geq1}P\cap[-k,k]^n\overset{def}{=}\bigcup_{k\geq1}P_k$ ，并且 $m(P_k)<\infty$ 从而可得：> >
 >$$\begin{aligned}
->m(p\times q)&=m\left(\bigcup_{n\geq1}p_n\times q_n\right)\\
->&\overset{*}{=}\lim_{n\rightarrow \infty}m(p_n\times q_n)\\
->&=\lim_{n\rightarrow \infty}m(p_n) m(q_n)\\
->&\overset{*}{=}m(p)m(q)
+>m(P\times Q)&=m\left(\bigcup_{n\geq1}P_n\times Q_n\right)\\
+>&\overset{*}{=}\lim_{n\rightarrow \infty}m(P_n\times Q_n)\\
+>&=\lim_{n\rightarrow \infty}m(P_n) m(Q_n)\\
+>&\overset{*}{=}m(P)m(Q)
 >\end{aligned}$$
 >
->其中 $\overset{*}{=}$ 的成立是因为 $\{p_n\}_{n\geq1},\{q_n\}_{n\geq1},\{p_n\times q_n\}_{n\geq1}$ 是单调递增的有限可测集. [[rf#^monotonouslimit]] .
+>其中 $\overset{*}{=}$ 的成立是因为 $\{P_n\}_{n\geq1},\{Q_n\}_{n\geq1},\{P_n\times Q_n\}_{n\geq1}$ 是单调递增的有限可测集. [[RF#^MonotonousLimit]] .
 
+# 可测函数
+
+设 $f:\mathbb{R}\rightarrow \mathbb{R}$ 的定义域为 $D$ ， $D$ 为可测集，如果 $\forall \alpha\in \mathbb{R},\{x\in D:f(x)>\alpha\}\overset{def}{=}\{f>\alpha\}$ 是可测集，则称 $f$ 为定义在 $D$ 上的可测函数.
+
+>[!example] 常值函数是可测函数，若 $f(x)\equiv c,\text{dom}(f)=D$ ，则 $\{f>\alpha\}=\left\{\begin{aligned}&\emptyset,\alpha\geq c\\&D,\alpha<c\end{aligned}\right.$
+
+>[!example]+ 定义在区间 $D$ 上的连续函数是可测函数.
+>证明：当 $D$ 是开区间时，因为 $f$ 连续，所以 $\{f>\alpha\}=f^{-1}((\alpha,+\infty))$ 是开集，所以 $\{f>\alpha\}$ 可测；对于一般的区间 $D$ 注意到 $\{x\in D^\circ:f(x)>\alpha\}$ 是可测的，并且 $D\backslash D^\circ$ 至多只有两个点，因此也是可测的（[[RF#^AtMostZero]]），所以 $D$ 可测.
+
+>[!example] 可测集的特征函数 $\chi_D$ 可测. $\{\chi_D>\alpha\}=\left\{\begin{aligned}&\emptyset,\alpha\geq1\\&D,0\leq \alpha<1\\&\mathbb{R},\alpha<0\end{aligned}\right.$
+
+可测函数的定义不是唯一的，有下列等价：
+
+>[!note]- 等价命题： 1) $f$ 在 $D$ 上可测；2) $\{f\geq \alpha\}$ 可测；3) $\{f<\alpha\}$ 可测；4) $\{f\leq \alpha\}$ 可测.
+>证明： $1)\rightarrow 2)$ $\{f\geq \alpha\}=\bigcap_{n\geq1}\{f>\alpha-\frac{1}{n}\}$ 可测； $2)\rightarrow 3)$ $\{f<\alpha\}=D-\{f\geq \alpha\}$ 可测； $3)\rightarrow4)$ $\{f\leq \alpha\}=\bigcap_{n\geq1}\{f<\alpha+\frac{1}{n}\}$ 可测； $4)\rightarrow 1)$ $\{f>\alpha\}=D-\{f\leq \alpha\}$ 可测.
+
+据此可得若 $f$ 为可测函数，则 $-f$ 也为可测函数.
+
+进一步有以下集合也可测：
+
+- $\{f=\lambda\}=\{f\geq \lambda\}-\{f>\lambda\},\lambda\in \mathbb{R}$ ，以及 $\{f=-\infty\}=\cup_{n\geq1}\{f<-n\},\{f=\infty\}$ ；
+- $\{\alpha<(\leq)f<(\leq)\beta\}$ ；
+
+若 $f,g$ 均为 $D$ 上的可测函数，则下列集合为可测集，记 $\mathbb{Q}=\{r_n\}_{n\geq1}$ ：
+
+- $\{f>g\}$ ：因为 $\{f>g\}=\bigcup_{n\geq1}(\{f>r_n\}\cap \{g<r_n\})$ ，以及 $\{f\geq g\}$；
+- $\{f=g\},\{f<(\leq)g\}$ ；
+
+$f+g,f-g$ 也是 $D'$ 上的可测函数：由 $\{f+g>\alpha\}=\bigcup_{n=1}^\infty\{f>r_n\}\cap \{g>\alpha-r_n\}$ ，注意此处 $f+g$ 的定义域为 $D-$；
+
+以及 $\{\sup_{n\geq1}f_n>\alpha\}=\bigcup_{n=1}^\infty\{f_n>\alpha\}$ ， $\{\inf_{n\geq1}f_n<\alpha\}=\bigcup_{n=1}^\infty \{f_n<\alpha\}$ ； $\varlimsup_{n\rightarrow \infty}f_n(x)=\inf_{n\geq1}\sup_{k\geq n}f_k(x)$ ， $\varliminf_{n\rightarrow \infty}f_n(x)=\sup_{n\geq1}\inf_{n\geq n}f_k(x)$ $\sup f_n,\inf f_n,\varlimsup f_n,\varliminf f_n$ 均为可测函数. 若 $\{f_n\}$ 存在极限，则 $\lim_{n\rightarrow \infty}f_n$ 也为可测函数.

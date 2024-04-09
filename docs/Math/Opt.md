@@ -1,16 +1,10 @@
-最优化方法（简）
-
-## 常用符号说明
-
-闭包： $\text{cl}(D)$ ，内部： $\text{int}(D)$ ，边界 $\partial{D}$ .
-
-## Pre 和简介
+# Pre
 
 对于范数和矩阵理论的[介绍](MAlg.md#范数).
 
-最优化方法主要分为两个步骤：**优化建模**和**求解**. 优化建模与特定的专业领域有关，本篇专述求解.
+最优化方法主要分为两个步骤：**优化建模**和**求解**. 优化建模与特定的专业领域有关，本篇专述求解（算法）.
 
-最优化方法的分类：**离散** & **连续**；**有限维** & **无限维**（泛函优化 / 极值问题，采取变分方法 #imcomplete-whatever ）. 这里主要考虑的是 $\mathbb{R}^n$ 上的连续有限维优化.
+最优化方法的分类：**离散** & **连续**；**有限维** & **无限维**. 本篇考虑的是 $\mathbb{R}^n$ 上的连续有限维优化.
 
 $\mathbb{R}^n$ 中的优化问题. 通常记**标准内积** $x,y\in \mathbb{R}^n,\langle x,y \rangle=\sum\limits_{i=1}^{n}x_iy_i$ ，若给定一个[正定](LAlg.md#正定矩阵)对称矩阵 $P$ ，记 $\langle x,y \rangle_P=x^TPy$ . 并可以定义**矩阵内积** $A,B\in \mathbb{R}^{m\times n}, \langle A,B \rangle=\sum\limits_{i=1}^{m}\sum\limits_{j=1}^{n}a_{ij}b_{ij}=\text{tr}(A^TB)=\text{tr}(B^TA)$ .
 
@@ -18,7 +12,7 @@ $\mathbb{R}^n$ 中的优化问题. 通常记**标准内积** $x,y\in \mathbb{R}^
 
 $$\begin{aligned}
 &\min_{x} f(x)\\
-&\left\{\begin{aligned}
+&s.t.\left\{\begin{aligned}
 &c_i(x)=0,i=1,\cdots,m\\
 &c_j(x)\geq0,j=m+1,\cdots,p
 \end{aligned}\right.
@@ -28,7 +22,9 @@ $$\begin{aligned}
 
 $$F=\{x:c_i(x)=0,i=1,\cdots,m,c_j(x)\geq0,j=m+1,\cdots,p\}$$
 
-对于任意 $x\in F$ ，定义**指标集合**： $\mathcal{A}(x)=\{1,2,\cdots ,n\}\backslash \{k:c_k(x)>0\}=\{1,\cdots,m\}\cup\{k:c_k(x)\leq 0\}$ 为 $x$ 的**积极约束**， $\{1,2,\cdots,n\}\backslash \mathcal{A}(x)$ 称为 $x$ 的**非积极约束**. （此处的积极，指的是对于 $x$ 进行轻微绕动之后是否影响约束条件，一般来说对于 $c_{i}(x)>0$ 约束，不会产生变化，因此称为非积极）. 定义**整体最优解** $x^*$ ，如果 $\forall x\in F,f(x^*)\leq f(x)$ ；并可以定义**严格整体最优解** $x^*$ ： $\forall x\in F,x\neq x^*,f(x^*)<f(x)$ . **局部最优解**则为：对于 $x^*$ ，存在某一邻域 $N$ ， $\forall x\in N\cap F,x\neq x^*,f(x^*)\leq f(x)$ ，**严格局部最优解**类似.
+对于任意 $x\in F$ ，定义**指标集合**： 
+
+$\mathcal{A}(x)=\{1,2,\cdots ,n\}\backslash \{k:c_k(x)>0\}=\{1,\cdots,m\}\cup\{k:c_k(x)\leq 0\}$ 为 $x$ 的**积极约束**， $\{1,2,\cdots,n\}\backslash \mathcal{A}(x)$ 称为 $x$ 的**非积极约束**. （此处的积极，指的是对于 $x$ 进行轻微绕动之后是否影响约束条件，一般来说对于 $c_{i}(x)>0$ 约束，不会产生变化，因此称为非积极）. 定义**整体最优解** $x^*$ ，如果 $\forall x\in F,f(x^*)\leq f(x)$ ；并可以定义**严格整体最优解** $x^*$ ： $\forall x\in F,x\neq x^*,f(x^*)<f(x)$ . **局部最优解**则为：对于 $x^*$ ，存在某一邻域 $N$ ， $\forall x\in N\cap F,x\neq x^*,f(x^*)\leq f(x)$ ，**严格局部最优解**类似.
 
 按照可行集可以将优化问题划分为**凸优化**和**非凸优化**，多数情况下凸优化简单，凸优化情形下局部最优即为整体最优.
 
@@ -156,3 +152,48 @@ $$F=\{x:c_i(x)=0,i=1,\cdots,m,c_j(x)\geq0,j=m+1,\cdots,p\}$$
 >证明：令 $D=D_1-D_2$ 则 $D$ 为并且 $0\neq D$ ，从而存在 $\alpha\in \mathbb{R}^n$ 使得： $$\alpha^T(x-y)\leq \alpha^T0=0,\forall x\in D_1,y\in D_2$$ 从而可得 $\alpha^Tx\leq \alpha^Ty$ （这里因为 $D\subset \bar{D}$ ，所以可以直接这样写） 令 $\beta=\sup\{\alpha^Tx:x\in D_1\}$ ，从而可得 $$\alpha^Tx\leq \beta\leq \alpha^Ty,\forall x,y\in D_1,D_2$$ 注意到 $f(x)=\alpha^Tx$ 是连续函数，所以 $$\alpha^Tx\leq \beta\leq \alpha^Ty,\forall x,y\in D_1,D_2$$ 否则若 $\alpha^Tx_0>\beta,x_0\in \bar{D_1}-D_1$ ，则存在 $x_0$ 的一个最够小的邻域仍然满足，并且与 $D_1$ 有交点，矛盾！
 
 之前已经介绍了[Farkas 引理](#^Farkas)，下面介绍的引理
+
+# 线性规划
+
+**线性规划**（linear programming ，LP）的标准形式为：
+
+$$\begin{aligned}
+&\min\ a_1x_1+\cdots+a_nx_n\\
+&s.t. \ a_{i_1}x_1+\cdots+a_{i_n}x_n=b_i\\
+&\quad\ i=1,\cdots,m,x_j\geq0,j=1,\cdots,n
+\end{aligned}$$
+
+矩阵形式：
+
+$$\begin{aligned}
+&\min\ c^Tx\\
+&s.t.\ Ax=b\\
+&\quad\quad x\geq0
+\end{aligned}$$
+
+一般设 $\text{rank}(A)=m,b\geq0$ ，并且 $m\leq n$ . 
+
+线性规划的可行域是一个**多面体**.
+
+可以通过引入变量的方式以将非标准形式的线性规划转化为标准形式. #imcomplete-lack-examples .
+
+由 $\text{rank}(A)=m$ ，设 $A=(B\ N)$ ， $B$ 为 $m$ 阶非奇异矩阵，相应地令 $x=\begin{bmatrix}x_B & x_N\end{bmatrix}$ 从而可得 $Ax=Bx_B+Nx_N=b$ ，从而 $x_B=B^{-1}b-B^{-1}Nx_N$ ，所以 $Ax=b$ 有一解 $\begin{bmatrix}B^{-1}b\\ 0\end{bmatrix}$ ，称为**基本解**；如果 $B^{-1}b\geq0$ ，则 $\begin{bmatrix}B^{-1}b\\ 0\end{bmatrix}$ 即为该线性规划问题的解，称为**基本可行解**. （ $A$ 中的 $m$ 阶非奇异矩阵可能有多个，所以可能有多个基本可行解，此外注意，将 $A$ 写作 $(B,N)$ 只是方便表示，实际计算时，只需要确定 $A$ 中的 $m$ 个线性无关列对应的列索引（基指标）即可，下面的所有表示都是如此）
+
+在处理简单的二维线性规划问题时，极值一般都在多边形（多面体）的顶点处取得，在线性规划中也有这一结论.
+
+定义**顶点**（极点）：设 $S\subset \mathbb{R}^n$ 是凸集，如果对于任意的 $\lambda\in(0,1),y,z\in S$ ， $x=\lambda y+(1-\lambda)z\Rightarrow x=y=z$ .  
+
+>[!example]- 闭球体 $S:\{x:x^Tx=1\}$ 的顶点全体为 $\partial{S}$ .
+
+>[!example]- $\{x:x_1+x_2+x_3\leq1,x_i\geq0,i=1,2,3\}$ 的顶点为 $(1,0,0)^T,(0,1,0)^T,(0,0,1)^T$ .
+
+>[!note]- $x$ 是可行域 $F=\{x:Ax=b,x\geq0\}$ 的一个顶点的充要条件是 $x$ 是 LP 标准形式的一个基本可行解 $\begin{bmatrix}B^{-1}b\\ 0\end{bmatrix}$ .  #imcomplete-lack-proofs 
+
+由上结论，依据 $B^{-1}$ 为从 $A$ 的线性无关列中选取而组成的可知，线性规划的可行域 $F$ 的顶点有限.
+
+>[!note]- 若 $F$ 有界，则 $F=\{F\text{ 的顶点的凸组合}\}$ . #imcomplete-lack-proofs 
+
+>[!note]- 若 $F$ 无界，则任一可行域中的点 $x$ 都可以表示为 $x=\sum\limits_{i=1}^{k}\alpha_iv_i+\alpha d$ ，其中 $\sum\limits_{i=1}^{k}\alpha_i=1,\alpha_i\geq0$ ， $v_i$ 为 $F$ 的顶点， $\alpha\geq0$ ， $d$ 为 $F$ 的一个方向.
+
+
+

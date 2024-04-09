@@ -4,29 +4,29 @@ repo_name: zoeminus
 edit_uri: 'blob/main/docs/'
 
 nav:
-  - 源: 'index.md'
-  - 溪:
+  - 主页: 'index.md'
+  - 一:
     - '集合论': 'Math/Set.md'
     - '实数理论': 'Math/R.md'
     - '一般拓扑学': 'Math/GTopo.md'
     - '实变函数': 'Math/RF.md'
     - '矩阵代数': 'Math/MAlg.md'
-  - 池:
+  - 九:
     - '概率论': 'Math/Prob.md'
     - '数理统计': 'Math/Stat.md'
     - '最优化理论': 'Math/Opt.md'
     - '数据结构与算法': 'Math/DSA.md'
     - '计算学习理论': 'Math/CLT.md'
-  - 洼:
+  - 二十二:
     - '数据挖掘': 'Math/DM.md'
     - '统计学习': 'Math/SL.md'
     - '深度学习': 'Math/DL.md'
-  - 锄: 
+  - 二十: 
     - 'C++': 'Coding/CPP.md'
-  - 厨:
+  - 十九:
     - 'PyTorch': 'Cookbooks/DLCB.md'
     - 'Python DM & ML': 'Cookbooks/PyDCB.md'
-  - 摘:
+  - 零零五五:
     - '遥望': 'Likes/WordsLoved.md'
 
 plugins:

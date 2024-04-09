@@ -1,18 +1,10 @@
-# 编译器（compilers）
+# 编译器
 
 用高级语言编写好的程序称为**源代码**（source code），需要编译成可执行程序，即机器语言指令.
-
-[gnu](https://gcc.gnu.org/)
 
 **the development toolchain** : a compiler and its linker.
 
 **Compilers** / interpreters / assemblers : translating high level language to **machine language** ; 
-
-查看库文件： 
-
-```shell
-idconfig -p # 查看linux系统上的头文件.
-```
 
 ### g++ command
 
@@ -20,7 +12,7 @@ idconfig -p # 查看linux系统上的头文件.
 g++ -o hello -Wall hello.cpp
 ```
 
-# 声明、作用域（scopes）与内存分配
+# 声明、作用域与内存分配
 
 C++ 中所有命名的实体：变量、函数、复合类型等都需要提前**声明**（declaration）. 
 
@@ -141,8 +133,7 @@ int main()
 
 此外，也可以用 `::` 访问类中的成员.
 
-
-## 常量（constants）
+## 常量
 
 将非 `const` 值赋给 `const` 是合法的，反之是非法的.
 
@@ -440,7 +431,7 @@ int main()
 struct 
 ```
 
-# 运算符（operators）
+# 运算符
 
 算数运算符： `+ - * /` ，取余 `%`
 
@@ -479,11 +470,38 @@ a = (b=3, b+2); // a = 5
 >> // Shift bits right
 ```
 
-Precedence of operators
+## 优先级
 
-[check](https://cplusplus.com/doc/tutorial/operators/)
+[check](https://cplusplus.com/doc/tutorial/operators/) , [check](https://en.cppreference.com/w/cpp/language/operator_precedence)
 
-有几个需要注意的运算符顺序： `[]` 的优先级在 `*` 之上. `*pa[i]` 会解除 `pa[i]` ， `(*pa)[i]` 则是解除 `pa` .
+`[]` 的优先级在 `*` 之上. `*pa[i]` 会解除 `pa[i]` ， `(*pa)[i]` 则是解除 `pa` .
+
+后缀 `++` 的优先级在 `*` 之上，但下面这个例子很有迷惑性： (1)
+{ .annotate } 
+
+1. also check [se](https://stackoverflow.com/questions/27850172/c-operator-priority-and)
+
+```shell title="C++ 中的 * 和 ++" linenums="1"
+#include <iostream>
+using namespace std;
+
+int main() {
+    const char* sz = "hello";
+    const char* p = sz;
+    int n = 0;
+    /* 这里做的确实是 *(p++) 
+    但因为是后缀，所以运算数在被进行运算（在这里是 *）
+    之后才会被 ++ ；
+    */
+    while (*p++) n++;
+    // while (*p) { n++; p++ };
+    cout << n;
+    return 0;
+}
+```
+
+`&&` 和 `||` 的优先级在 `< > <= >= == !=` 之后，条件语句中可以不加括号，但是 `&&` 的优先级在 `||` 之前！
+
 
 # 表达式和语句
 
@@ -513,7 +531,7 @@ C++ 中 `std::istream` 是输入流类的基类， `istream` 类的实例代表�
 
 使用 `while` 用入口条件循环控制输入的退出条件：
 
-```cpp
+```cpp title="while 输入控制" linenums="1"
 // whileInput.cpp
 #include <iostream>
 int main()
@@ -803,7 +821,7 @@ type function_name (type& argument_name)
 
 ## 函数重载
 
-或函数多态
+或函数多态.
 
 一般通过函数的**特征标**：参数列表确定使用哪个重载函数. 要使用某一个重载函数，传入的参数数量和参数类型都必须保持一致.
 
@@ -837,6 +855,53 @@ int sum_same(int* arr, int n);
 注意，在这种情况下，用指针修改数组的值会修改传入的数组. （但这仍是下面所说的按值传递，只不过复制的值是指针地址）. 当数组本身非常大时，这样做可以节省复制产生的时间和存储成本，但同时也有破坏数组的风险.
 
 函数中使用的变量是**局部变量**，随着函数的调用自动分配内存，随着函数调用结束自动释放内存. 有两种局部变量：一种是**形式参数**复制调用函数过程中传入的**实际参数**创建的变量（称为**按值传递**），一种是函数内部创建的变量.
+
+一种常见的操作是重载已经有的运算符：
+
+```cpp title="重载运算符" linenums="1"
+#include <iostream>
+#include <string>
+using namespace std;
+
+bool operator<(const string& str1, const string& str2);
+
+int main() {
+    string str1 = "hello";
+    string str2 = "bye";
+    if (str1 > str2) cout << str1 << " is more than " << str2;
+    return 0;
+}
+
+bool operator<(const string& str1, const string& str2) {
+    return str1.length()<str2.length()?true:false;
+}
+```
+
+下面这个例子重载 `cout <<` 
+
+```cpp title="重载 cout <<" linenums="1"
+#include <iostream>
+using namespace std;
+
+class Dog {
+private:
+    int weight;
+
+public:
+    Dog(int w): weight(w) {};
+    // 重载运算符 <<
+    friend ostream& operator<<(ostream& os, const Dog& dog) {
+        os << "The dog weights " << dog.weight << " units";
+        return os;
+    }
+};
+
+int main() {
+    Dog dog(5);
+    cout << dog << endl;
+    return 0;
+}
+```
 
 ## 函数模板
 
@@ -896,15 +961,15 @@ delete[] pointer
 
 ## 内联函数
 
-在[[#编译器（compilers）]]中已经提到源代码需要经过编译获得可执行程序. 操作系统随后会将可执行程序载入到内存中，逐步地执行指令，或者跳过一些指令（例如，循环、条件选择）.
+在[[#编译器]]中已经提到源代码需要经过编译获得可执行程序. 操作系统随后会将可执行程序载入到内存中，逐步地执行指令，或者跳过一些指令（例如，循环、条件选择）.
 
-常规的函数调用：程序将会跳转到函数的地址，当某一函数出现多次时，这样执行时间成本可能会上升很多.
+常规的函数调用是：程序跳转到函数的地址，然后运行. 当某一函数出现多次时，执行时间成本可能会上升很多.
 
 C++ 因此提供了另一种<u>编译方式</u>：**内联函数**（inline function）声明. 编译器在编译内连函数时会直接复制一份内联函数的代码对应的指令.
 
-相比于 C 的**宏定义**，内联函数可以传入表达式. 例如：
+C 的**宏定义**，内联函数可以传入表达式. 例如：
 
-```c
+```c title="C 中的宏定义" linenums="1"
 #define SQUARE(x) x * x;
 ```
 
@@ -912,23 +977,21 @@ C++ 因此提供了另一种<u>编译方式</u>：**内联函数**（inline func
 
 ```cpp
 #include <iostream>
+using namespace std;
 
 inline double square(double x);
 
-int main()
-{
-    using namespace std;
+int main() {
     cout << square(4.0 + 2.0) << endl;
     return 0;
 }
 
-inline double square(double x)
-{
+inline double square(double x) {
     return x * x;
 }
 ```
 
-## 引用（reference）
+## 引用
 
 **引用**对已经定义的变量定义一个别名. 调用引用将会直接调用对应的变量. 而不是复制.
 
@@ -950,7 +1013,7 @@ int main()
 // zoe: 22, eplus: 22
 ```
 
-### 左值（lvalue）
+### 左值
 
 **左值**是可以被引用的数据对象，包括：简单类型变量、数组元素、结构成员、指针、解除引用的指针等.
 
@@ -977,7 +1040,7 @@ int main()
 double (*pf) (int);
 ```
 
-# 类（class）
+# 类
 
 [[DSA#面向对象编程]]
 
@@ -1022,21 +1085,23 @@ void Rectangular::set_value(int x, int y)
 
 最后，在类中进行成员的声明（包括成员函数和成员变量）最后都以 `;` 结尾，类所在块的最后也以 `;` 结尾.
 
-## 构造
+## 构造函数
 
-注意，私有变量在声明时不可以初始化；可以用**构造函数**（constructor）对类中的成员变量进行赋值.
+注意，私有变量在声明时不可以初始化，只可以用**构造函数**（constructor）对类中的成员变量进行初始化（对于私有变量的唯一的途径）.
 
 ```cpp
 class Rectangule
 {
 	int width, height;
 	public:
-		Rectangule (int, int) // use the same name as class name, do not need to declare return type.
+        // 不需要声明返回类型；
+		Rectangule (int, int) 
 		// Rectangule (int x, int y) {width = x; height = y;}
 		void area(void) {return width*height};
 };
 
-Rectangule rect (4, 6) // initialization
+// 在初始化对象时初始化参数
+Rectangule rect (4, 6);
 ```
 
 和一般的函数一样，可以重载类的构造：
@@ -1048,28 +1113,70 @@ Rectangule::Rectangule ()
 	int height = 5;
 }
 
+// 隐式地调用构造函数
 Rectangule rect (4, 6);
+// 或者显式地调用构造函数
+Rectangule rect = Rectangule(4, 6);
 Rectangule rectb ();
-Rectangule rectc; // default constructor
+Rectangule rectc; // 使用默认构造
 ```
 
 上式中创建 rectc 时使用的是**默认构造**（default constructor）：成员将不会被赋予任何值. #issue 
 
 除了上面的**函数形式**（functional form），如果构造只有一个参数，可以直接通过 `className objectName = initialValue;` 进行赋值，也可以用下面的**统一初始化**（uniform initialization ，） `className objectName {val1, val2, ...};` 此外也可以用 `className objectName {}` 调用默认构造.
 
-还可以使用**成员初始化**（member initialization ，或者称为成员初始化列）进行赋值，例如：
+还可以使用**成员初始化**（member initialization ，或者称为成员初始化列）进行赋值，(1) 例如：
+{ .annotate } 
 
-```cpp
+1. reference: [cpptutorial](https://cplusplus.com/doc/tutorial/classes/) ；构造函数成员初始化用逗号分割；公有访问.
+
+```cpp title="类的成员初始化方法" linenums="1"
 class Cycle
 {
 	double radius;
+	double xPos;
 	public:
-		Cycle (double r): radius(r) {}; 
+	    // 和 Cycle (double r) { radius = r; xPos = 0; } 等价
+		Cycle (double r): radius(r), xPos = 0 {}; 
 		void area() {return 3.14 * radius * radius;}
 }
 ```
 
 可创建指向类的对象的指针，和结构相同，使用 `->` 访问成员.
+
+```cpp title="类指针访问成员" linenums="1"
+Cycle* pC = new Cycle(0.5);
+pC -> area();
+```
+
+## 析构函数
+
+类似于其他变量一样，当一个对象被创建时，程序将会（如果需要，例如在局部声明的对象）控制其释放，因此需要一个成员函数对于对象中的变量进行释放（例如，如果在构造函数中使用 `new` 为某些变量分配了内存，则应当在该成员函数中调用 `delete` ），这个成员函数被称为**析构函数**（destructor）.
+
+```cpp title="析构函数" linenums="1"
+// 内联形式
+className ~className() {
+    // statements
+};
+
+// 外部
+className::~className() {
+    // statements
+};
+```
+
+析构函数一般不需要显示地调用，考虑在 [[#声明、作用域与内存分配]] 中讨论的各类变量：静态存储的对象在程序终止时会自动调用析构函数；自动存储的对象在程序结束对其所在块内代码运行结束时自动调用析构函数；用 `new` 进行动态分配的对象（在堆中存储）用 `delete` 时调用析构函数；
+
+## 友元函数
+
+可以使用**友元函数**访问其他类的私有成员；
+
+```cpp title="友元函数" linenums="1"
+```
+
+## 常量成员函数
+
+不能修改类的成员变量（除非其被声明为 `mutable` ）.
 
 ## 引用自身
 

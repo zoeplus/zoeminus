@@ -377,7 +377,9 @@ $$\mathcal{P}(\mu=k)=\mathcal{P}(B_k)\overset{def}{=}b(k;n,p),k=0,1,\cdots,n$$
 
 不断进行相互独立的 Bernoulli 试验，每一次 Bernoulli 试验事件 $A$ 发生的概率为 $p$ ，考虑 $A$ 首次发生出现在第 $k$ 次（记事件为 $W_k$ ）的概率.
 
-显然 $$\mathcal{P}(W_k)=\mathcal{P}(\bar{A}_1\cdots \bar{A}_{k-1}A_k)=(1-p)^{k-1}p$$
+显然 
+
+$$\mathcal{P}(W_k)=\mathcal{P}(\bar{A}_1\cdots \bar{A}_{k-1}A_k)=(1-p)^{k-1}p$$
 
 称 $g(k;p)=(1-p)^{k-1}p,k\geq1$ 为**几何分布**. 并且有： $$\sum\limits_{k=1}^{\infty}g(k;p)=1$$
 
@@ -405,16 +407,22 @@ $\mathcal{P}$ 是由 $W_1,W_2,\cdots,W_k,\emptyset,\Omega$ 组成的事件域 $\
 
 ## 泊松过程
 
-**泊松过程**（Poisson）：考虑事件 $A_k([t_0,t_0+t))$ ：在时间段 $[t_0,t_0+t)$ 内接收到某信号的次数为 $k$ . 泊松过程的特点和数学刻画如下：
+**泊松过程**（Poisson）：考虑事件 $A_k([t_0,t_0+t))$ ：在时间段 $[t_0,t_0+t)$ 内接收到某信号的次数为 $k$ . 泊松过程的特点和对特点的数学刻画如下：
 
-1. **平稳性**：起始时间 $t_0$ 不影响该事件发生的概率（ $k$ 只与 $t$ 有关），则可以将该事件记为 $A_k(t)$ ，其概率记为： $p_k([t_0,t_0+t))=p_k(t)$ ，并且有： $\sum\limits_{k=0}^{\infty}p_k(t)=1$ .
-2. **独立增量性** / **无后效性**： $[t_0,t_0+t)$ 上的所有事件与 $(-\infty,t_0)$ 之前任何一个时间段 $[t_1,t_1+t')$ 上的所有事件是独立的. 并且有推论： $p_k(t+\Delta t)=\sum\limits_{i=0}^{k}p_i(t)p_{k-i}(\Delta t)$ .
-3. **标准性** / **普遍性**：对于 $A_k(t)$ ，当 $t$ 最够小时 $A_k(t)$ 不发生（ $\forall k\geq2$ ），或可以写作： $$\psi(t)=1-p_0(t)-p_1(t)\rightarrow0(t\rightarrow 0)$$ 即 $\psi(t)=o(t)$ ，或者可以写作： $$\lim_{t\rightarrow 0}\frac{\psi(t)}{t}=1$$
+1. **平稳性**：起始时间 $t_0$ 不影响该事件发生的概率（ $k$ 只与时间段 $t$ 有关），则可以将事件 $A_k([t_0,t_0+t])$ 记为 $A_k(t)$ ，其概率记为： $p_k(t)$ ，并且有： $\sum\limits_{k=0}^{\infty}p_k(t)=1$ .
+2. **独立增量性** / **无后效性**： $[t_0,t_0+t)$ 上的所有事件与 $(-\infty,t_0)$ 之前任何一个时间段 $[t_1,t_1+t')$ 上的所有事件是独立的. 有推论： $p_k(t+\Delta t)=\sum\limits_{i=0}^{k}p_i(t)p_{k-i}(\Delta t)$ .
+3. **标准性** / **普遍性**：对于 $A_k(t)$ ，当 $t$ 最够小时 $A_k(t)$ 不发生（ $\forall k\geq2$ ），或可以写作： $\psi(t)=1-p_0(t)-p_1(t)\rightarrow0(t\rightarrow 0)$ 即 $\psi(t)=o(t)$ ，或者可以写作： $\lim_{t\rightarrow 0}\frac{\psi(t)}{t}=1$ .
 
 从以上条件中，可以推出 $p_k(t)$ 具有唯一形式：
 
->[!note]- 对于泊松过程中的 $p_k(t)$ ，在限制 $p_0(t)\in(0,1)$ 且 $p_0(t)$ 关于 $p(t)$ 单调递减的情况下，存在 $\lambda>0$ ，使得 $p_k(t)=\frac{\lambda^k}{k!}e^{-\lambda t}$ .
->证明：注意到 $p_k(t+\Delta t)=\sum\limits_{i=0}^{k}p_i(t)p_{k-i}(\Delta t)\quad (1)$ ，由 $p_0(t+\Delta t)=p_0(t)p_0(\Delta t)$ ，并且 $p_0(t)$ 关于 $t$ 单调递减，进而可以证明存在 $\alpha\geq0$ 使得 $p_0(t)=\alpha^t$ 并且由 $p_0(t)\in(0,1)$ 可得 $\alpha\in(0,1)$ ，因此存在 $\lambda>0$ 使得 $\alpha=e^{-\lambda}$ ，所以 $p_0(t)=e^{-\lambda t}$ . 由 $(1)$ 式归纳可得 $$p_k(t)=\frac{\lambda^k}{k!}e^{-\lambda t}$$
+>[!note]- 对于泊松过程中的 $p_k(t)$ ，在限制 $p_0(t)\in(0,1)$ 且 $p_0(t)$ 关于 $t$ 单调递减的情况下，存在 $\lambda>0$ ，使得 $p_k(t)=\frac{\lambda^k}{k!}e^{-\lambda t}$ .
+>证明：注意到 $p_k(t+\Delta t)=\sum\limits_{i=0}^{k}p_i(t)p_{k-i}(\Delta t)\quad (1)$ ，由 $p_0(t+\Delta t)=p_0(t)p_0(\Delta t)$ ，并且 $p_0(t)$ 关于 $t$ 单调递减，进而可以证明存在 $\alpha\geq0$ 使得 $p_0(t)=\alpha^t$ 并且由 $p_0(t)\in(0,1)$ 可得 $\alpha\in(0,1)$ ，因此存在 $\lambda>0$ 使得 $\alpha=e^{-\lambda}$ ，所以 $p_0(t)=e^{-\lambda t}$ . 由 $(1)$  可以得到 #imcomplete 
+>
+> $$p_k'(t)=\lambda[p_{k-1}(t)-p_{k}(t)],\forall k\geq1$$
+>
+>进而可得：
+>
+>$$p_k(t)=\frac{\lambda^k}{k!}e^{-\lambda t}$$
 
 对于泊松过程，只需要正确求解 $\lambda$ 即可. 最简单地，注意到 $p_0(t)=e^{-\lambda t}$ .
 
@@ -480,21 +488,21 @@ $$\xi\sim\begin{bmatrix}x_1 & x_2 & \cdots & x_n &\cdots \\ p_1 & p_2 & \cdots &
 
 分布函数可以和分布列相互表示： $F(x)=\mathcal{P}(\xi<x)=\sum\limits_{x_k<x}^{}p(x_k)$ ， $p(x_k)=\text{lastmin}\{F(x):x>x_k\}-\text{lastmax}\{F(x):x<x_k\}$ .
 
-更一般的，有**退化分布** / 单点分布，随机变量 $\alpha\equiv c$ ，此时 $F(x)=\left\{\begin{aligned}&0,x\leq c\\&1,x>c\end{aligned}\right.$  . #issue %%这能否推出 $\mathcal{F}=\{\emptyset,\Omega\}$ ?%%
+### 退化分布
 
-### 离散型概率分布
+**退化分布** / 单点分布，随机变量 $\alpha\equiv c$ ，此时 $F(x)=\left\{\begin{aligned}&0,x\leq c\\&1,x>c\end{aligned}\right.$  . #issue %%这能否推出 $\mathcal{F}=\{\emptyset,\Omega\}$ ?%%
 
-之前已经接触了很多离散随机分布. 
+### Bernoulli 分布
 
 [Bernoulli 分布](#伯努利随机试验)：随机变量 $\beta$ 只取两个值 $k=0,1$ ；
 
----
+### 二项分布（二）
 
-[二项分布](#二项分布)：随机变量 $\mu$ 可以取多个值 $k=0,1,\cdots,n,n<\infty$ ；一般用 $\mu\sim B(n,q)$ 表示随机变量 $\mu$ 的分布列为二项分布；
+[二项分布 / 两点分布](#二项分布)：随机变量 $\mu$ 可以取多个值 $k=0,1,\cdots,n,n<\infty$ ；一般用 $\mu\sim B(n,q)$ 表示随机变量 $\mu$ 的分布列为二项分布；
 
----
+### 几何分布（二）
 
-几何分布：用 $\eta$ 表示多次 Bernoulli 试验首次成功时进行的试验次数，随机变量 $\eta$ 可以取 $1,\cdots,n,\cdots$（和几何概率模型没有关系）则 $\mathcal{P}(\eta=k)\overset{def}{=}g(k;p)=q^{k-1}p,k\geq1$ ，几何分布具有**无记忆性**，即 $\forall m,k\geq1$ ， $\mathcal{P}(\eta=m+k \,|\,\eta>m)=\mathcal{P}(\eta=k)$ ，由： 
+**几何分布**：用 $\eta$ 表示多次 Bernoulli 试验首次成功时进行的试验次数，随机变量 $\eta$ 可以取 $1,\cdots,n,\cdots$（和几何概率模型没有关系）则 $\mathcal{P}(\eta=k)\overset{def}{=}g(k;p)=q^{k-1}p,k\geq1$ ，几何分布具有**无记忆性**，即 $\forall m,k\geq1$ ， $\mathcal{P}(\eta=m+k \,|\,\eta>m)=\mathcal{P}(\eta=k)$ ，有： 
 
 $$\frac{\mathcal{P}(\eta=m+k)}{\mathcal{P}(\eta>m)}=\frac{q^{m+k-1}p}{\sum\limits_{i=m+1}^{\infty}q^{i-1}p}=q^{k-1}p$$
 
@@ -509,20 +517,127 @@ $$\frac{\mathcal{P}(\eta=m+k)}{\mathcal{P}(\eta>m)}=\frac{q^{m+k-1}p}{\sum\limit
 >
 >另一种证明：记 $p=\mathcal{P}(\xi=k+1 \,|\,\xi>k)$ （由无记忆性） ，记 $q_k=\mathcal{P}(\xi=k)$ ， $p_k=\mathcal{P}(\xi>k)$ ，从而 $q_{k+1}=\mathcal{P}(\xi=k+1)=p_{k}-p_{k+1}$ ，从而有： $\frac{p_k-p_{k+1}}{p_k}=p$ ，所以 $\frac{p_{k+1}}{p_k}=1-p$ ，因此 $p_k=(1-p)^{k}p_0$ . 而 $p_0=1$ ，所以 $q_k=p_{k-1}-p_{k}=(1-p)^{k-1}-(1-p)^{k}=(1-p)^{k-1}p$ ，即为几何分布.
 
----
+### 超几何分布
 
-超几何分布
-
----
-
-Pascal 分布
+**超几何分布**
 
 ---
 
-泊松分布 $P(\xi=k)=\frac{\lambda^k}{k!}e^{-\lambda},\lambda>0$ ；记分布列为泊松分布的随机变量 $\xi\sim \mathcal{P}(\lambda)$ .
+### Pascal 分布（二）
+
+**Pascal 分布**
+
+### 泊松分布（二）
+
+[check-wiki](https://zh.wikipedia.org/zh-cn/%E5%8D%9C%E7%93%A6%E6%9D%BE%E5%88%86%E5%B8%83)
+
+**泊松分布** $P(\xi=k)=\frac{\lambda^k}{k!}e^{-\lambda},\lambda>0$ ；记分布列为泊松分布的随机变量 $\xi\sim \mathcal{P}(\lambda)$ .
 
 ---
 
 **简单随机变量**的形式可以写作 $X(w)=\sum\limits_{i=1}^{n}a_iI_{A_i}(w)$ 其中 $I_{A_i},1\leq i\leq n$ 为指示函数， $A_i,1\leq i\leq n$ 则组成了 $\Omega$ 的一个不相交划分. #issue [Check](https://www.oreilly.com/library/view/probability-random-variables/9781118393956/OEBPS/c05-sec1-0004.htm#:~:text=A%20simple%20random%20variable%20is%20a%20generalization%20of,of%20%CE%A9%20are%20mapped%20to%20N%20values%20in.)
 
 随机并且为变量，注意不是事件，而是根据该事件抽象出来的概念.
+
+## 连续型随机变量
+
+对于随机变量 $\xi$ ，设 $\xi$ 的分布函数为 $F(x)$ 如果存在非负可积函数 $f(x)$ 使得： $F(x)=\int_{-\infty}^xf(x)dx$ ，则称 $\xi$ 为**连续型随机变量**， $f$ 为 $\xi$ 的（分布）**密度函数**. 
+
+$F$ 除了满足[分布函数的一般性质](#随机变量)以外还具有如下性质：
+
+-  $f=F',\int_{-\infty}^{\infty}f(x)dx=F(+\infty)=1$ ；
+- $F$ 关于 $x$ 连续（而不是左连续）；
+
+可以求出其他事件的概率：
+
+- $\mathcal{P}(a\leq \xi<b)=\int_{a}^bf(x)dx,\forall a<b,a,b\in \mathbb{R}\cup\{\pm\infty\}$ ；
+- $\mathcal{P}(\xi=x)=0$ ；（这并不代表 $x\in \Omega$ 不会发生）
+- $\mathcal{P}(\xi\geq a)=\int_a^\infty f(x)dx$ . 
+
+由离散型随机变量的分布函数只满足左连续性可知离散型随机变量均非连续型随机变量（可以由反证得到此结论，即若存在连续型的离散随机变量，则可得 $\mathcal{P}(\xi=x_n)=0,\forall n\geq1$ ，从而矛盾！）.
+
+并且，连续型随机变量的非负概率的取值一定是 $\mathbb{R}$ 中的一段区间.
+
+### 均匀分布
+
+**均匀分布**： $\xi$ 取值为 $[a,b]$ ，其密度函数为：
+
+$$ f=\left\{\begin{aligned}
+&\frac{1}{b-a},x\in[a,b]\\
+&0,x\notin [a,b]
+\end{aligned}\right.$$
+
+记 $\xi\sim U([a,b])$ ， $\xi$ 服从 $[a,b]$ 上的均匀分布.
+
+$\xi$ 的分布函数为： 
+
+$$F(x)=\left\{\begin{aligned}
+&0,x\leq a\\
+&\frac{x-a}{b-a},a<x\leq b\\
+&1,x>b
+\end{aligned}\right.$$
+
+因为 $F$ 是连续的所以取等位置任意，这里仍写作 $\leq$ 是习惯，和离散随机变量的分布函数保持一致. 另外也可以根据 $F$ 是否连续判断是否不是连续型随机变量的分布函数.
+
+### 正态分布
+
+随机变量 $\xi$ 的密度函数为： $f(x)=\frac{1}{\sqrt{2\pi \sigma}}e^{-\frac{(x-\mu)^2}{2\sigma^2}},x\in \mathbb{R}$ ，称 $\xi$ 服从参数为 $\mu,\sigma$ 的**正态分布**， $\xi\sim \mathcal{N}(\mu,\sigma^2)$ .
+
+正态分布的分布函数：
+
+$$F(x)=\int_{-\infty}^x \frac{1}{\sqrt{2\pi \sigma}}e^{-\frac{(y-\mu)^2}{2\sigma^2}}dy$$
+
+一般记 $\mathcal{N}(0,1)$ 为**标准正态分布**，记 $\varphi(x)=\frac{1}{\sqrt{2\pi}}e^{-\frac{x^2}{2}}$ ， $\Phi(x)=\int_{-\infty}^x\frac{1}{\sqrt{2\pi}}e^{-\frac{y^2}{2}}dy$ . 不难得到  $\Phi(-x)=1-\Phi(x)$ ， $\Phi(0)=\frac{1}{2}$ 
+
+关于 $\int_{-\infty}^\infty e^{-\frac{x^2}{2}}dx=\sqrt{2\pi}$ 等的证明，见 #imcomplete-whatever  
+
+### 指数分布
+
+随机变量 $\xi$ 的密度函数为：
+
+$$f(x)=\left\{\begin{aligned}
+&0,x\leq 0\\
+&\lambda e^{-\lambda x},x>0
+\end{aligned}\right.$$
+
+则称 $\xi$ 服从参数为 $\lambda$ 的**指数分布**（尽管按指数函数的定义 $y=\lambda e^{-\lambda x}$ 不是指数函数），或者记为 $\xi\sim\text{Exp}(\lambda)$ .
+
+$\xi$ 的分布函数为： 
+
+$$F(x)=\left\{\begin{aligned}
+&0,x\leq 0\\
+&1-e^{-\lambda x},x>0
+\end{aligned}\right.$$
+
+**尾分布**： 
+
+$$\mathcal{P}(\xi\geq x)\left\{\begin{aligned}
+&1,x\leq 0\\
+&e^{-\lambda x},x>0
+\end{aligned}\right.$$
+
+指数分布和[泊松分布]()有关系 #imcomplete  ，回顾[[#用二项分布逼近泊松分布]]，泊松分布 $p(k;\lambda)=\frac{\lambda^k}{k!}e^{-\lambda}$ 中的 $\lambda$ 的含义是试验次数足够大时发生某事件的次数（ $np_n(n\rightarrow \infty)$ ，事件发生次数的期望）而指数分布中 $\lambda$ 的含义则为单位时间发生该事件的次数. [check-wiki](https://zh.wikipedia.org/zh-cn/%E6%8C%87%E6%95%B0%E5%88%86%E5%B8%83) 也可以用 $\beta=\frac{1}{\lambda}$ 表示指数分布，这时的 $\beta$ 表示的是<u>发生率</u> #issue %%搞不懂什么叫发生率，拿出生率对比?%% ；
+
+指数分布和[[#几何分布（二）]]一样具有无记忆性质，前者的无记忆性刻画为 $\forall s>0,t>0$ ：
+
+$$\mathcal{P}(\xi\geq s+t \,|\,\xi\geq t)=\mathcal{P}(\xi\geq s)$$
+
+指数函数也是唯一的无记忆性的连续型随机变量：
+
+>[!note]- 若连续型随机变量 $\xi$ 满足 $\mathcal{P}(\xi\geq s+t \,|\,\xi\geq t)=\mathcal{P}(\xi\geq s)$ ，则 $\xi$ 服从指数分布.
+>证明：注意到 $\mathcal{P}(\xi\geq s+t)=\mathcal{P}(\xi\geq s)\mathcal{P}(\xi\geq t)$ ，记 $g(t)=\mathcal{P}(\xi\geq t)$ ，因为 $g$ 单调，所以由 [[MA#^CauchyExp]] 可得存在 $\alpha\geq0,g=\alpha^x$ ，并且 $g\in[0,1]$ 所以 $\alpha\in[0,1]$ ，所以 $F(x)=1-\alpha^{x}$ 令 $\alpha=e^{-\lambda}$ 即可得到结论.
+
+指数分布可以有更一般的形式：
+
+**Erlang 分布**： $\xi$ 的密度函数为：
+
+$$f(x)=\left\{\begin{aligned}
+&0,x\leq 0\\
+&\frac{\lambda^n}{(n-1)!}x^{n-1}e^{-\lambda x},x>0
+\end{aligned}\right.$$
+
+当 $n=1$ 时即为指数分布.
+
+
+
+
