@@ -725,7 +725,14 @@ $$\{X\}\cup\{U_1\cap U_2\cap \cdots\cap U_n:U_i\in \mathcal{B},n\geq1\}$$
 
 >[!note]- 设 $X$ 为拓扑空间， $A\subset X,x\in X$ 则 $x\in \bar{A}$ 等价于 $A$ 中有网 $\{\xi(d):d\in D,\xi(d)\in A\}$ 收敛于 $x$ .
 
-证明：
+证明： | #imcomplete 
+
+定义在网收敛中的聚点. 设 $X$ 是拓扑空间， $\xi:(D,\sqsubseteq)\rightarrow X$ 是 $X$ 的一个网， $A\subset X,x\in X$ ，若 $\forall d\in D,\exists e\in D$ 使得 $d\sqsubseteq e,\xi(e)\in A$ 则称 $\xi$ **常在** $A$ 中；若 $\xi$ 常在 $x$ 的每个邻域，则称 $x$ 为 $\xi$ 的**聚点**（cluster point）.
+
+>[!note]- 设 $X,Y$ 是度量空间，证明 $f: X\rightarrow Y$ 连续当且仅当 $f$ 保持聚点：任给网 $\xi:(D,\sqsubseteq)\rightarrow X,f(\text{clust}(\xi))\subset \text{clust}(f\circ \xi))$ .
+>证明：$\Rightarrow$ ：设 $x\in \text{clust}(\xi)$ ，因为 $f$ 连续，任给 $f(x)$ 的邻域 $U$ ，存在 $x$ 的邻域 $V,f(V)\subset U$ ，又因为 $x\in \text{clust}(\xi)$ ， $\forall d\in D,\exists e\in D,\xi(e)\in V$ ， $f(\xi(e))\in U$ ，所以 $f(x)\in \text{clust}(f\circ \xi)$ ，所以 $f(\text{clust}(\xi))\subset \text{clust}(f\circ \xi)$ . 
+>
+> $\Leftarrow$ ：对于任意的 $A\subset X$ ，若 $x\in \bar{A}$ ，则 $A$ 中有网 $\xi:(D,\sqsubseteq)\rightarrow X$ 收敛于 $x$ ，对于任意的 $x$ 的邻域 $U$ ，存在 $d',\forall e\in D: d'\sqsubseteq e$ 有 $\xi(d')\in U$ ，从而对于任意的 $d\in D$ ，因为 $D$ 是定向集，所以存在 $e\sqsupseteq d,e\sqsupseteq d'$ 从而 $\xi(e)\in U$ ，所以 $x$ 是 $\xi$ 的聚点，从而 $f(x)$ 是 $f\circ \xi$ 的聚点，对于任意的 $f(x)$ 的邻域 $V$ ，对于任意的 $d\in D$ ，存在 $e\in D,e\sqsupseteq d$ ， $f(\xi(e))\in V$ ，并且 $\xi(e)\in A$ ，所以 $f(\xi(e))\in V\cap A$ ，所以 $V\cap A\neq\emptyset$ ，所以 $f(x)\in \overline{f(A)}$ ，所以 $f(\bar{A})\subset \overline{f(A)}$ . 所以 $f: X\rightarrow Y$ 连续.
 
 ## $\mathbb{R}$ 上拓扑
 
