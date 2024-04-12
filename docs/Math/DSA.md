@@ -1,4 +1,4 @@
-Dependences： [C++](CPP.md)
+依赖： [C++](CPP.md)
 
 数据结构主要分为**线性**和**非线性**两种，其中线性数据结构包含：数组、链表、栈、堆等，非线性数据结构分为树状和非树状两种.
 
@@ -44,9 +44,11 @@ class ChildClass(ParentClass):
 
 由于操作平台和硬件不同，因此通常通过计算基本语句的数量估计算法消耗的时间.
 
-# Notation
+# 符号说明
 
-$n!=n(n-1)\cdots1$
+$[n]=\{1,\cdots,n\}$ ；
+
+$n!=n(n-1)\cdots1\overset{def}{=}[n]!$ ；
 
 组合数的表示，一般不用 $C_n^k$ ，用 
   
@@ -275,19 +277,130 @@ C++ 中提供了实现栈的模板类 [stack](CPP.md#stack)
 
 ### 二叉树的遍历
 
-树的不同的遍历方法是由优先级决定的，主要可以分为两类：**深度优先**和**广度优先**.
+对树的结点的遍历主要分为三个步骤：对当前结点进行<u>访问</u>（e.g. 输出结点对应的数值），遍历左子结点，遍历右子结点；
 
-| #imcomplete 
+当采用非并行计算时，对于一个多个子结点，只能先访问一个子结点；因此需要以某种方式保存其他未被访问的子结点，常用栈或者队列；
 
-**先序遍历**（preorder） /  非递归的先序遍历.
+遍历方式的顺序的一种最简单的划分是：深度优先（先访问子结点，再访问父结点，再访问其他的子结点），广度优先（先访问当前层的所有子结点，再访问父结点）；
 
-**中序遍历** /  非递归的中序遍历；借助栈实现
+深度优先可以按照根结点相对于左右子结点的访问先后进行划分；
 
-**后序遍历** / 
+前序遍历 / 先序遍历（pre-order traversal）：按根结点、左结点、右结点进行（递归地）顺序遍历；
 
-**逐层遍历**：可以用队列实现，
+```cpp title="先序遍历" linenums="1"
+void preOrderTraversal(TreeNode *root) {
+    statements // 对根结点进行访问操作，例如输出对应值
+    if (root -> lchild != nullptr) preOrderTraversal(root -> lchild);
+    if (root -> rchild != nullptr) preOrderTraversal(root -> rchild);
+}
+```
+
+中序遍历（in-order traversal）：以左结点、根结点、右结点（递归地）顺序遍历；
+
+```cpp title="中序遍历" linenums="1"
+void inOrderTraversal(TreeNode *root) {
+    if (root -> lchild != nullptr) inOrderTraversal(root -> lchild);
+    statements // 对根结点进行访问操作，例如输出对应值
+    if (root -> rchild != nullptr) inOrderTraversal(root -> rchild);
+}
+```
+
+后序遍历（post-order traversal）：按左结点、右结点、根结点（递归地）进行遍历；
+
+```cpp title="后序遍历" linenums="1"
+void postOrderTraversal(TreeNode *root) {
+    if (root -> lchild != nullptr) postOrderTraversal(root -> lchild);
+    if (root -> rchild != nullptr) postOrderTraversal(root -> rchild);
+    statements // 对根结点进行访问操作，例如输出对应值
+}
+```
+
+**逐层遍历** / 广度优先遍历：可以用队列实现，
 
 [refernce-wiki](https://zh.wikipedia.org/zh-cn/%E6%A0%91%E7%9A%84%E9%81%8D%E5%8E%86)
+
+## 二叉排序树
+
+**二叉排序树**（二叉查找树）：若非空树，则具有如下性质：
+
+- 若左子树非空，则左子树的所有结点的值小于根结点，左子树也是二叉排序树；
+- 若右子树非空，则右子树的所有结点的值大于根结点，右子树也是二叉排序树；
+
+由此，对二叉排序树进行中序遍历可以得到一个有序序列（升序）；
+
+二叉排序树的生成：每一次插入的结点都作为一个叶结点插入；不允许有重复的数字出现；具体如下
+
+```cpp title="二叉排序树的生成伪代码" linenums="1"
+// 算法名称：二叉排序树的生成，对于一个待插入的元素 $N$ ：
+
+// 输入：集合 S = {N_1, N_2, ..., N_m}
+// 输出：二叉排序树；
+
+若二叉排序树是一个空树，则将该元素作为根结点；
+root = N_1
+
+for (node : S):
+    if node.value == root.value continue；
+    if node.value < root.value { 
+        将 node 插入 root.左子树中；
+        root = root.左子结点；
+    }
+    if node.value > root.value {
+        将 node 插入 root.右子树中；
+        root = root.右子结点；
+    }
+```
+
+二叉排序树的查询：与每一个结点进行对比，然后进入到下一个子树中；
+
+二叉排序树的查找效率：如果原先的数据集是有序的，生成二叉排序树之后的结构等同于链表，二叉排序树查询效率与线性表查询一致；
+
+为使得二叉排序树的查找效率提高，需要生成的二叉排序树左右尽量均衡（AVL）；
+
+具体地，每加入一个新的结点，若形成的左右子树的深度差超过 1 ，则对深度大的子树进行调整. #imcomplete-further-wanted 
+
+下面介绍二叉排序树的应用：
+
+### 霍夫曼编码
+
+[refer-wiki](https://zh.wikipedia.org/zh-cn/%E9%9C%8D%E5%A4%AB%E6%9B%BC%E7%BC%96%E7%A0%81)
+
+考虑对一串字符进行二进制编码，例如 A, B, C, D，进行编码时一个很重要的问题是不能使得某一字符的编码与另一字符的编码的字串相同，例如： A - 0, B - 1, C - 10，则对于 1010 无法区分是 BAC，CC，BABA，CBA 等. 
+
+稳妥的做法是采取<u>定长编码</u>，例如： A - 0001 ， B - 0010 ， C - 0011 ， D - 0100 . 但是在某些情况下，例如某一个字符出现的频率想当高，如果用简短的编码表示可以提高传输效率，这时地<u>变长编码</u>就值得采取.
+
+霍夫曼编码即为一种变长编码算法，其首先基于字符串中各个字符的频率构建一个二叉排序树，然后进行编码，具体实现如下：
+
+首先定义**树的带权路径长度**：树中所有叶结点的带权路径长度的和 $\text{WPL}=\sum_{i=1}^nW_iL_i$ . 其中 $n$ 表示叶结点的数目， $W_i$ 表示第 $i$ 个叶结点的权重（视具体情况而定，例如对应的字符出现的频率）， $L_i$ 表示第 $i$ 个叶结点的层数.
+
+称在具有相同的叶结点的二叉树中具有最小的带权路径长度的二叉树为**霍夫曼树 / 最优二叉树**：
+
+下面介绍霍夫曼树的构造方法：
+
+```cpp title="霍夫曼树构造伪代码" linenums="1"
+// 算法名称：霍夫曼树构造
+
+// 输入：结点集合 {N_1, N_2, ..., N_m} ，权重 {W_1, W_2, ..., W_m}
+// 输出：霍夫曼树
+
+1. 以 N_i 作为根结点，构造 n 个只有根结点的树，记为 S = {T_1, T_2, ..., T_m}；
+2. 从 S 中选取带权路径长度最小的两个树 T_p, T_q；
+3. 构造新的结点 N_pq ，权重为 W_p + W_q；
+4. 构造一个新的树 T_pq ，其左，右子结点为 N_p, N_q（默认无序树），其根结点为 N_pq；
+5. 更新 S：移除 T_p， T_q，加入 T_pq ，回到 2.
+```
+
+| #imcomplete-lack-codes
+
+按照上述构造方法，霍夫曼树的结点的度均为 $0$ 或者 $2$ ，不可能为 $1$ .
+
+在完成霍夫曼树的构造之后，根结点的编码设为 $1/0$ ，子结点继承父结点的编码，每一层的左结点编码在继承的编码上添加 $0$ ，右结点编码添加 $1$ （或者反之，无所谓）； $S$ 中的所有元素均为霍夫曼树的叶结点；因此不可能出现编码包含. #imcomplete-lack-proofs 
+
+哈夫曼树的应用：压缩、传输、加密、解码
+
+哈夫曼解码：借助哈夫曼树完成；
+
+| #imcomplete-lack-examples 
 
 # 排列
 
@@ -423,7 +536,9 @@ class StackSorting
 
 | #imcomplete-whatever 
 
-考虑经过堆栈排序之后得到 $\text{id}$ 的排列（即为不包含 231-pattern 的排列）的数量： $\#\{\pi\in S_n:S(pi)=\text{id}\}$ . 称为**Cataland数** $C_n$ ，可以证明： $C_n=\frac{1}{n+1}\binom{2n}{n},C_0=1$ . $C_n=\sum\limits_{i=1}^{n}C_{i-1}C_{n-i}$ . ^Cataland
+考虑经过堆栈排序之后得到 $\text{id}$ 的排列（即为不包含 231-pattern 的排列）的数量： $\#\{\pi\in S_n:S(\pi)=\text{id}\}$ . 称为 **Cataland数** $C_n$ ，可以证明： $C_n=\frac{1}{n+1}\binom{2n}{n},C_0=1$ . $C_n=\sum\limits_{i=1}^{n}C_{i-1}C_{n-i}$ . ^Cataland
+
+更多关于 Cataland 数的内容可以见 [R.P Stanley Cataland Numbers](https://math.mit.edu/~rstan/catalan/) ，之后也会反复出现 Cataland 数.
 
 并且可以证明： $\#\{\pi\in S_n:\pi\text{ 不包含 }\sigma-\text{pattern}\}=C_n$ .
 
@@ -470,7 +585,7 @@ class StackSorting
 定义**杨表**（young tablean）：将 $n$ 个不同的正整数填入到 $\lambda$ 对应的杨图中，要求：每行从左至右<u>严格</u>递增，每列从上至下<u>严格</u>递增，称 $\lambda$ 为杨表的**形状**. 如果限制填入杨表的数字为 $\{1,2,\cdots,n\}$ 中的元素，则称对应的杨表为**标准杨表**，并记这种标准杨表的个数为 $f^\lambda$ . 定义**勾长**（hook length）：对 $u\in \lambda$ ， $h_u$ 表示 $u$ 所在同行右侧和同列下册的方块数目，包括 $u$ 本身.
 
 >[!example]- $3$ 的各个分拆 $\lambda$ 对应的标准杨表的个数 $f^\lambda$ .
-> $f^{(3)}=1,f^{(2,1)}=2,f^{(1,1,1)}=1$ ，具体见[[DSDraw]].
+> $f^{(3)}=1,f^{(2,1)}=2,f^{(1,1,1)}=1$ ，具体见[[DSADraw]].
 
 >[!note]- 若 $\lambda\vdash n$ ，则 $f^\lambda=\frac{n!}{\prod_{u\in \lambda}^{}h_u}$ 
 
@@ -568,14 +683,13 @@ $$\begin{bmatrix}4 \\ 2\end{bmatrix}=1+q+2q^2+q^3+q^4$$
 
 并且观察到系数呈先递增后递降顺序，该结论可以推广到所有 $n\geq1$ 的情形.
 
-
 # 格路
 
 **格路**（lattie path）指的是由邻接的格子（也可能是多边形）拼起来后，相邻的格子重叠的部分形成的路径. 例如 $\mathbb{Z}^2$ 形成的格路，在格路上可以定义移动，例如 $U,R,D,L$ .
 
 ## Dyck 路
 
-首先介绍**自由 Dyck 路**（free dyck path）： $\mathbb{Z}^2$ 上由 $(0,0)$ 到 $(n,n)$ 的格路，只允许进行 $U,R$ 移动，称为 **n 长 Dyck 路**，则不难证明这样的 Dyck 路有 $\binom{2n}{n}$ 条.
+首先介绍**自由 Dyck 路**（free dyck path）： $\mathbb{Z}^2$ 上由 $(0,0)$ 到 $(n,n)$ 的格路，只允许进行 $U,R$ 移动，称为 **n 长 Dyck 路**，则不难发现这样的 Dyck 路有 $\binom{2n}{n}$ 条.
 
 **n 长 Dyck 路**首先是自由 Dyck 路，并且满足始终位于 $y=x$ 的上方（允许触碰到 $y=x$ ）. 可以用符号抽象 Dyck 路，例如当 $n=2$ 时有 Dyck 路 $UURR,URUR$ . 一般地，对于 $n$ 长 Dyck 路，其有 $C_n=\frac{1}{n+1}\binom{2n}{n}$ 条 Dyck 路， $C_n$ 即为 [Cataland数](#^Cataland). 并且有这个公式可以看出 $n$ 长 Dyck 路占自由 Dyck 路的 $1/(n+1)$ .
 
@@ -589,12 +703,54 @@ $$\begin{bmatrix}4 \\ 2\end{bmatrix}=1+q+2q^2+q^3+q^4$$
 - 由 $n$ 个 $1$ 和 $n$ 个 $-1$ 构成的排列全体，并且满足 $\forall k\geq1,\sum\limits_{i=1}^{k}\pi_i\geq0$ ；
 - 考虑形状为 $(n,2)$ 的标准杨表，
 
+# 集合划分
 
+# 匹配
 
+设图 $G=(V,E)$ ，对 $M\subset E$ ，如果 $M$ 中的任意两个边无顶点（即不相交，或称不相邻），则称 $M$ 为 $G$ 的一个**匹配**. 如果 $M$ 的边覆盖了 $G$ 的所有顶点，则称 $M$ 为 $G$ 的一个**完美匹配**. 此时 $M$ 的顶点数为 $M$ 的边数乘 $2$ . 若记 $V=[n]$ ，匹配 $M$ 实际上是对集合 $[n]$ 的一个划分，并且集合划分的每一块中的元素个数至多有两个，称 $M$ 为**贫划分**（poor partition）.
 
+>[!example] $M=\{(1,3),(2,4),(5,6)\}$ 是 $[6]$ 的一个完美匹配.
 
+划分有如下的**线图表示**：
+
+![[MatchLinearRepresentation.png]]
+
+## 完美匹配与 Dyck 路
+
+考虑以 $y=x$ 旋转 $45^\circ$ 的 Dyck 路，注意 $n$ 阶 Dyck 路的个数等于 Cataland 数： $D_n=C_n=\frac{1}{n+1}\binom{2n}{n}$ . 下面来讨论完美匹配的数目与 Cataland 数的关系.
+
+可以建立完美匹配与 Dyck 路之间的一个映射，注意到完美匹配的线图表示中，每个匹配对应的两个结点有一个上升和下降的方向. 分别可以对应于 Dyck 路上的 $(1,1),(1,-1)$ 两个行进方向. 因此有映射，但显然这一映射不是双射.
+
+记 $M_{2n}$ 为 $[2n]$ 上的全体完美匹配，定义完美匹配的**交叉数**（crossing numbers）： 
+
+$$\text{Cr}(M)=\#\{(i,j)\in [2n]^2:i<j<M(i)<M(j)\}$$
+
+定义完美匹配的**嵌套数**（nesting numbers）：
+
+$$\text{Ne}(M)=\#\{(i,j)\in[2n]^2:i<j<M(j)<M(i)\}$$
+
+称交叉数、嵌套数为完美匹配的两个统计量. 如果 $\text{Cr}(M)=\emptyset(\text{Ne}(M)=\emptyset)$ 则称 $M$ 为无交叉（嵌套）匹配.
+
+记 $M_1$ 为全体非交叉完美匹配的集合， $M_2$ 为全体非嵌套完美匹配的集合.
+
+考虑从 $M_1$ 到 $D_n$ 的映射，规则与上相同. 则 $\lvert M_1\rvert\leq \lvert D_n\rvert$ ，另一方面，对 $D\in D_n$ ，<u>从后往前</u>逐渐地构造，每一个下降方向的结点与其左侧最近的上升方向的结点匹配，得到交叉数非 $0$ 的匹配，所以 $\lvert D_n\rvert\leq \lvert M_1\rvert$ ， $\lvert D_n\rvert=\lvert M_1\rvert$ ；
+
+从 $M_2$ 到 $D_n$ 的匹配与上相同，对 $D\in D_n$ ，从前往后逐渐地构造，每一个上升方向的结点都与其右侧最远的下降方向的结点匹配，可得到嵌套数非 $0$ 的匹配.
+
+所以 $\lvert D_n\rvert=\lvert M_2\rvert=\lvert M_1\rvert=\frac{1}{n+1}\binom{2n}{n}$ .
+
+记 $P_{n,k}=\{M\in M_n:\text{Cr}(M)=k\}$ ， $Q_{n,k}=\{M\in M_n:\text{Ne}(M)=k\}$ .
+
+>[!note]- $\#P_{n,k}=\#Q_{n,k}$ .
+
+证明：对于第 $i$ 个下降步，定义其高度为 $h_i$ ，对应于 Dyck 路的结点的坐标. 如图：
+
+![[HeightOfSteps.png]]
+
+并设由高度 $h_1,\cdots,h_n$ 生成的向量为 $A=\{(a_1,\cdots,a_n):0\leq a_i\leq h_i,a_i\in \mathbb{N}\}$ . $\# A=\prod_{i=1}^{n}(h_i+1)$ .
 
 # 递归
+
 
 也成为**分而治之策略**（divide-and-conquer strategy）.
 
