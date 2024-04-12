@@ -1,7 +1,7 @@
 site_name: zoeminus
 repo_url: https://github.com/zoeplus/zoeminus
 repo_name: zoeminus
-edit_uri: 'blob/main/docs/'
+edit_uri: 'commits/main/docs/'
 
 nav:
   - 主页: 'index.md'
@@ -27,7 +27,8 @@ nav:
     - 'PyTorch': 'Cookbooks/DLCB.md'
     - 'Python DM & ML': 'Cookbooks/PyDCB.md'
   - 零零五五:
-    - '遥望': 'Likes/WordsLoved.md'
+    - '遥望': 'Likes/Divisadero.md'
+    - '存在主义': 'Likes/Existential.md'
 
 plugins:
   - search
@@ -72,6 +73,8 @@ theme:
   name: material
   language: zh
   locale: en
+  favicon: imgs/zxr.ico
+  logo: imgs/zx.png
   icon:
     annotation: material/alpha-z-circle
   features:
@@ -80,7 +83,7 @@ theme:
     - navigation.path
     - navigation.top
     - content.action.edit
-    - content.action.view
+    # - content.action.view
     - content.code.copy
   palette:
     # Palette toggle for light mode
