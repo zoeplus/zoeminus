@@ -404,12 +404,11 @@ $E\subset X$ ，如果对于任意的非空开集 $G\subset X$ ， $G\cap E\neq\
 
 ### 序列紧
 
-设度量空间 $(X,d)$ ，定义**序列紧**： $K\subset X$ ，任何 $K$ 中的序列都有收敛到 $K$ 中点的子列. **全有界**（totally bounded）：任给 $\epsilon>0$ ，开覆盖 $\{B(x,\epsilon):\epsilon\in X\}$ 都有有限子覆盖. **紧**：任何包含 $X$ 的开覆盖都有有限子覆盖.
+设度量空间 $(X,d)$ ，定义**序列紧**： $K\subset X$ ，任何 $K$ 中的序列都有收敛到 $K$ 中点的子列； **全有界**（totally bounded）：任给 $\epsilon>0$ ，$X$ 的开覆盖 $\{B(x,\epsilon):x\in X\}$ 都有有限子覆盖； **紧**：任何包含 $X$ 的开覆盖都有有限子覆盖.
 
 根据定义首先可得：
 
->[!note]- 紧度量空间全有界.
->证明，取 $X$ 的开覆盖 $\{B(x,\delta_x):x\in X\}$ ，由 $X$ 紧，存在 $x_1,\cdots,x_n\in X$ ， $\{B(x_i,\delta_{x_i}:1\leq i\leq n\}$ 是 $X$ 的开覆盖. 取 $\epsilon=\max\{\delta_{x_i}:1\leq i\leq n\}$ 即可.
+>[!note] 紧度量空间全有界.
 
 >[!note]- 对于全有界度量空间 $(X,d)$ ，对任意 $A\subset X$ ， $(A,d)$ 也全有界.
 
@@ -419,10 +418,22 @@ $E\subset X$ ，如果对于任意的非空开集 $G\subset X$ ， $G\cap E\neq\
 下面证明序列紧、紧、全有界且完备这三个概念是等价的.
 
 >[!note]- 序列紧度量空间亦紧.
->证明：设 $U$ 为 $(X,d)$ 的开覆盖，但 $U$ 中无有限子覆盖. 设 $U$ 的 Lebeague 数为 $r$ ，依次取 $$x_0\in X,x_1\in X\backslash B(x_0,r),x_2\in X\backslash(B(x_0,r)\cup B(x_1,r)),\cdots$$ 从而可以得到一个序列 $\{x_n\}_{n\geq1}$ ，其任意两个点之间的距离都大于 $r$ ，因此不可能有收敛子列，这与序列紧矛盾！
+>证明：设 $U$ 为 $(X,d)$ 的开覆盖，但 $U$ 中无有限子覆盖. 设 $U$ 的 Lebeague 数为 $r$ ，依次取 
+>
+>$$x_0\in X,x_1\in X\backslash B(x_0,r),x_2\in X\backslash(B(x_0,r)\cup B(x_1,r)),\cdots$$
+>
+>从而可以得到一个序列 $\{x_n\}_{n\geq1}$ ，其任意两个点之间的距离都大于 $r$ ，因此不可能有收敛子列，这与序列紧矛盾！
 
 >[!note]- 紧度量空间全有界并且完备.
->证明：之前已经证明过全有界. 下面证明完备：考虑利用[完备度量空间的等价条件](#^DownCapNEmpty)，设 $\{F_n\}_{n\geq1}$ 为一单调递减的非空闭集合列，不妨设 $\bigcap_{n\geq1}F_n=\emptyset$ ，从而 $$X\backslash\bigcap_{n\geq1}F_n=\bigcup_{n\geq1}X\backslash F_n=X$$ 则存在有限子覆盖 $\{X\backslash F_{n_i}\}_{1\leq i\leq k}$ ，并注意到 $X\backslash F_n$ 是单调递增的集合列，从而可得： $$X\cap F_{n_k}=\bigcup_{1\leq i\leq k}X\backslash F_{n_i}\supset X$$ 因此 $F_{n_k}=\emptyset$ 矛盾！
+>证明：全有界显然. 下面证明完备：考虑利用[完备度量空间的等价条件](#^DownCapNEmpty)，设 $\{F_n\}_{n\geq1}$ 为一单调递减的非空闭集合列，不妨设 $\bigcap_{n\geq1}F_n=\emptyset$ ，从而 
+>
+>$$X\backslash\bigcap_{n\geq1}F_n=\bigcup_{n\geq1}X\backslash F_n=X$$
+>
+>则存在有限子覆盖 $\{X\backslash F_{n_i}\}_{1\leq i\leq k}$ ，并注意到 $X\backslash F_n$ 是单调递增的集合列，从而可得： 
+>
+>$$X\cap F_{n_k}=\bigcup_{1\leq i\leq k}X\backslash F_{n_i}\supset X$$
+>
+>因此 $F_{n_k}=X$ 矛盾！
 
 >[!note]- 全有界完备度量空间序列紧.
 >对于 $X$ 中的序列 $\{x_n\}$ ，由 $X$ 全有界，首先取 $\epsilon=1$ ，则存在 $X$ 的有限子覆盖 $\{B(x_k,1):1\leq k\leq n\}$ ，进而可取 $B(x_{k_1},1)$ ，其包含有无限多项 $\{x_n\}_{n\geq1}$ 中的元素；由 $B(x_{k_1},1)$ 全有界，取 $\epsilon=1/2$ ，同理可得有 $B(x_{k_2},1/2)$ 包含无限多项 $\{x_n\}_{n\geq1}$ 中的元素，依此类推，可得到一 Cauchy 子列，再由完备性可知该子列收敛. #imcomplete %%证明比较粗糙%%
@@ -603,7 +614,7 @@ $$\begin{aligned}&(\text{N}1)\ X\in \mathcal{N}(x),\forall x\in X\\&(\text{N}2)\
 
 >[!note]- 邻域系刻画拓扑：设 $X$ 为一集合， $\mathcal{N}(x)$ 为 $X$ 的一个子集族，如果 $\{\mathcal{N}(x)\}_{x\in X}$ 满足 $(N1)\sim(N5)$ ，则存在 $X$ 上唯一拓扑 $\mathcal{O}$ ，使得对于任意 $x\in X$ ， $\mathcal{N}(x)$ 均为 $x$ 的邻域系.
 
-设 $(X,\mathcal{O})$ 为拓扑空间， $Y\subset X$ ，则 $Y$ 的子集族 $\mathcal{O}|Y=\{U\cap Y:U\in \mathcal{O}\}$ 也为一个拓扑，称 $(Y,\mathcal{O}| Y)$ 为 $(X,\mathcal{O})$ 上的一个**子空间**. 如果 $Y$ 是 $X$ 的开（闭）集，则称 $(Y,\mathcal{O}|Y)$ 是 $(X,\mathcal{O})$ 的一个开（闭）子空间.
+设 $(X,\mathcal{O})$ 为拓扑空间， $Y\subset X$ ，则 $Y$ 的子集族 $\mathcal{O}|Y=\{U\cap Y:U\in \mathcal{O}\}$ 也为一个拓扑，称 $(Y,\mathcal{O}| Y)$ 为 $(X,\mathcal{O})$ 的一个**子空间**. 若 $Y$ 是 $X$ 的开（闭）集，则称 $(Y,\mathcal{O}|Y)$ 是 $(X,\mathcal{O})$ 的一个开（闭）子空间.
 
 >[!note]- 闭集拼接定理：
 
@@ -617,13 +628,23 @@ $$\begin{aligned}&(\text{N}1)\ X\in \mathcal{N}(x),\forall x\in X\\&(\text{N}2)\
 
 ## 基刻画拓扑
 
+>[!summary]+ 自查表
+>- 回顾：构成区间是什么？
+>- 什么是基？
+>- 基的等价定义？
+>- 基的性质有哪些？什么是以基生成的拓扑？Sorgenfrey 拓扑是如何定义的？
+>- 子基的定义？邻域基的定义？
+>- 什么是第一可数空间、第二可数空间？两者之间的关系？
+>- 回顾：什么是稠子集？
+>- 什么是可分？第二可数空间为什么可分？
+
 注意到， $\mathbb{R}$ 中的每个开集都可以写成一族端点为有理数的开区间的并. 下面考虑对于一般的拓扑空间.
 
 设 $(X,\Omega)$ 为拓扑空间， $\mathcal{B}$ 为一族开集，若其满足： $(X,\mathcal{O})$ 中的每一个开集都可以表示为 $\mathcal{B}$ 中的一些元素的并，则称 $\mathcal{B}$ 为 $\mathcal{O}$ 的一个**基**（basis）. 
 
 基有如下等价定义：
 
->[!note]- 设 $(X,\mathcal{O})$ 是拓扑空间， $\mathcal{B}$ 为一组开集，则 $\mathcal{B}$ 是 $\mathcal{O}$ 的基当且仅当给开集 $U$ 以及 $x\in U$ ，存在 $B_x\in \mathcal{B}:x\in B_x\subset U$ .
+>[!note]- 设 $(X,\mathcal{O})$ 是拓扑空间， $\mathcal{B}$ 为一组开集，则 $\mathcal{B}$ 是 $\mathcal{O}$ 的基当且仅当给开集 $U$ 以及 $x\in U$ ，存在 $B_x\in \mathcal{B}:x\in B_x\subset U$ . #imcomplete-lack-proofs 
 
 基具有如下性质：
 
@@ -643,7 +664,12 @@ $$\{X\}\cup\{U_1\cap U_2\cap \cdots\cap U_n:U_i\in \mathcal{B},n\geq1\}$$
 
 设 $X$ 为拓扑空间， $x\in X$ ， $\mathcal{A}$ 为 $x$ 的一族邻域. 若任给 $x$ 的邻域 $U$ ，存在 $A\in \mathcal{A}$ 使得 $A\subset U$ ，则称 $\mathcal{A}$ 为 $x$ 的一个**邻域基**.
 
-称 $X$ **第一可数**或者有**可数邻域基**，如果 $X$ 的每一个点都有一个可数的邻域基；称 $X$ **第二可数**，若 $X$ 有一个可数的基；
+称 $X$ **第一可数**或者有**可数邻域基**，如果 $X$ 的每一个点都有一个可数的邻域基；称 $X$ **第二可数**，若 $X$ 有一个可数的基；如果 $X$ 具有可数的稠子集，则称 $X$ 是**可分**的.
+
+>[!note]- 第二可数空间是可分的第一可数空间.
+>证明：利用基的等价定义，设 $X$ 的可数基为 $\{B_n\}_{n\geq1}$ ，则对于任意 $x\in X$ ，对于任意 $x$ 的邻域 $A$ ，存在 $x\in B_n\subset U\subset A$ ，则取 $\mathcal{B}=\{B_k:x\in B_k,k\geq1\}$ 即为 $X$ 的一个邻域基. 所以 $X$ 第二可数.
+>
+>另一方面：取 $x_n\in B_n$ ，则 $\{x_n\}_{n\geq1}$ 与 $X$ 的任何一个非空开集的交集非空，所以 $\{x_n\}_{n\geq1}$ 为 $X$ 的稠子集，所以第二可数空间可分.
 
 >[!note]- 第二可数空间的开连续像第二可数；第一可数空间的开连续像第一可数.
 >证明：设 $X$ 为第二可数空间，设 $f$ 为 $X$ 上的开连续函数，则对于 $f(X)$ 上的任意开集 $V$ ， $f^{-1}(V)$ 是开集，设 $\mathcal{B}=\{B_n\}_{n\geq1}$ 是 $X$ 的可数基，则存在 $I\subset \mathbb{N}$ 使得 $f^{-1}(V)\subset \bigcup_{i\in I}B_i$ ，所以 $V=f(f^{-1}(V))\subset f\left(\bigcup_{i\in I}B_i\right)=\bigcup_{i\in I}f(B_i)$ . 并且 $f(B_i)$ 为开集，则 $\{f(B_n)\}_{n\geq1}$ 是 $f(X)$ 的一个开集.
@@ -669,6 +695,10 @@ $$\{X\}\cup\{U_1\cap U_2\cap \cdots\cap U_n:U_i\in \mathcal{B},n\geq1\}$$
 
 ## 收敛刻画拓扑
 
+>[!summary]+ 自查表
+>- 回顾：终在、收敛、极限；
+>- 举例说明 $X$ 上的序列在不同的拓扑空间上的极限不一定相同；
+
 与度量空间中定义[收敛](#^Limit)类似，设 $\{x_n\}_{n\geq1}\subset X$ ，称 $\{x_n\}_{n\geq1}$ 收敛到 $x$ ，如果 $\{x_n\}_{n\geq1}$ 终在 $x$ 的任何一个邻域中. （等价定义：终在包含 $x$ 的任何一个开集中），称 $x$ 为 $\{x_n\}_{n\geq1}$ 的极限，并记 $\lim x_n$ 为 $\{x_n\}_{n\geq1}$ 的极限全体.
 
 >[!warning]- 同一 $X$ 上的序列在不同的拓扑空间上的极限不同，且可能不唯一.
@@ -683,6 +713,13 @@ $$\{X\}\cup\{U_1\cap U_2\cap \cdots\cap U_n:U_i\in \mathcal{B},n\geq1\}$$
 >$\Leftarrow$ ：对于包含 $x$ 的任何一个开集 $U$ ，存在邻域基中的一个元素 $B_x\in U$ ，因为 $\{x_n\}_{n\geq1}$ 收敛于 $x$ 所以一定存在 $x_i\in B_x$ ，进而 $U\cap A\neq\emptyset$ . 所以 $x\in \bar{A}$ .
 
 ### 网收敛
+
+>[!summary]+ 自查表
+>- 回顾：为什么序列收敛不足以刻画拓扑空间？举出一反例；
+>- 什么是预序、定向集？定向集与全序集的区别是什么？
+>- 什么是网？（网）终在、网收敛、（网）常在、（网）聚点的定义？
+>- 什么是子网？
+>- 聚点和子网有什么关系？
 
 序列收敛不能完全刻画拓扑空间中（的闭集），引入**网收敛**以刻画拓扑.
 
@@ -723,16 +760,123 @@ $$\{X\}\cup\{U_1\cap U_2\cap \cdots\cap U_n:U_i\in \mathcal{B},n\geq1\}$$
 
 下面说明网收敛可以刻画拓扑，只需要说明网收敛与之前定义的等价拓扑等价即可.
 
->[!note]- 设 $X$ 为拓扑空间， $A\subset X,x\in X$ 则 $x\in \bar{A}$ 等价于 $A$ 中有网 $\{\xi(d):d\in D,\xi(d)\in A\}$ 收敛于 $x$ .
+>[!note]- 设 $X$ 为拓扑空间， $A\subset X,x\in X$ 则 $x\in \bar{A}$ 等价于 $A$ 中有网 $\{\xi(d):d\in D,\xi(d)\in A\}$ 收敛于 $x$ . #imcomplete-lack-proofs 
+>^NetLimitClose
 
-证明： | #imcomplete 
+定义在网收敛中的聚点. 设 $X$ 是拓扑空间， $\xi:(D,\sqsubseteq)\rightarrow X$ 是 $X$ 的一个网， $A\subset X,x\in X$ ，若 $\forall d\in D,\exists e\in D$ 使得 $d\sqsubseteq e,\xi(e)\in A$ 则称 $\xi$ **常在** $A$ 中；若 $\xi$ 常在 $x$ 的每个邻域，则称 $x$ 为 $\xi$ 的**聚点**（cluster point），记 $\xi$ 的聚点全体为 $\text{clust}\xi$.
 
-定义在网收敛中的聚点. 设 $X$ 是拓扑空间， $\xi:(D,\sqsubseteq)\rightarrow X$ 是 $X$ 的一个网， $A\subset X,x\in X$ ，若 $\forall d\in D,\exists e\in D$ 使得 $d\sqsubseteq e,\xi(e)\in A$ 则称 $\xi$ **常在** $A$ 中；若 $\xi$ 常在 $x$ 的每个邻域，则称 $x$ 为 $\xi$ 的**聚点**（cluster point）.
+>[!note]- $\lim \xi\subset \text{clust}\xi$ . #imcomplete-lack-proofs 
 
 >[!note]- 设 $X,Y$ 是度量空间，证明 $f: X\rightarrow Y$ 连续当且仅当 $f$ 保持聚点：任给网 $\xi:(D,\sqsubseteq)\rightarrow X,f(\text{clust}(\xi))\subset \text{clust}(f\circ \xi))$ .
 >证明：$\Rightarrow$ ：设 $x\in \text{clust}(\xi)$ ，因为 $f$ 连续，任给 $f(x)$ 的邻域 $U$ ，存在 $x$ 的邻域 $V,f(V)\subset U$ ，又因为 $x\in \text{clust}(\xi)$ ， $\forall d\in D,\exists e\in D,\xi(e)\in V$ ， $f(\xi(e))\in U$ ，所以 $f(x)\in \text{clust}(f\circ \xi)$ ，所以 $f(\text{clust}(\xi))\subset \text{clust}(f\circ \xi)$ . 
 >
 > $\Leftarrow$ ：对于任意的 $A\subset X$ ，若 $x\in \bar{A}$ ，则 $A$ 中有网 $\xi:(D,\sqsubseteq)\rightarrow X$ 收敛于 $x$ ，对于任意的 $x$ 的邻域 $U$ ，存在 $d',\forall e\in D: d'\sqsubseteq e$ 有 $\xi(d')\in U$ ，从而对于任意的 $d\in D$ ，因为 $D$ 是定向集，所以存在 $e\sqsupseteq d,e\sqsupseteq d'$ 从而 $\xi(e)\in U$ ，所以 $x$ 是 $\xi$ 的聚点，从而 $f(x)$ 是 $f\circ \xi$ 的聚点，对于任意的 $f(x)$ 的邻域 $V$ ，对于任意的 $d\in D$ ，存在 $e\in D,e\sqsupseteq d$ ， $f(\xi(e))\in V$ ，并且 $\xi(e)\in A$ ，所以 $f(\xi(e))\in V\cap A$ ，所以 $V\cap A\neq\emptyset$ ，所以 $f(x)\in \overline{f(A)}$ ，所以 $f(\bar{A})\subset \overline{f(A)}$ . 所以 $f: X\rightarrow Y$ 连续.
+
+>[!note]- $\bigcap_{d\in D}\overline{A_d}=\text{clust}\xi$ ， $A_d=\{\xi(e):d\sqsubseteq e\}$ .
+>证明：设 $x\in \bigcap_{d\in D}\overline{A_d}$ ，则对于 $x$ 的任一邻域 $V$ ， $V\cap A_d\neq \emptyset,\forall d\in D$ ，从而对于任意的 $d\in D,\exists \xi(e)\in V\cap A_d\subset V$ ，并且 $e\sqsupseteq d$ ，所以 $x\in \text{clust}\xi$ ；设 $x\in \text{clust}\xi$ ，则对于给定的 $d\in D$ ，任给 $x$ 的邻域 $V$ ，存在 $e\sqsupseteq d$ 满足 $\xi(e)\in V$ ，所以 $V\cap A_d\neq \emptyset$ ，所以 $x\in \overline{A_d}$ ，再由 $d$ 的任意性知 $x\in \bigcap_{d\in D}\overline{A_d}$ . 综上 $\bigcap_{d\in D}\overline{A_d}=\text{clust}\xi$ .
+>^ClustXi
+
+下面定义子网.
+
+首先定义**共尾映射**（cofinal map）：设 $(D,\sqsubseteq_D),(E,\sqsubseteq_E)$ 是定向集，称 $h: D\rightarrow E$ 是共尾映射，如果 $\forall d\in D,\exists e\in E$ ，对于任意的 $e'\sqsubseteq_E e$ 有 $d\sqsubseteq_D h(e')$ . （以下为方便或省略 $\sqsubseteq_E,\sqsubseteq_D$ 的下标）
+
+称网 $\eta$ 是网 $\xi$ 的子网，如果存在共尾映射 $h$ 使得 $\eta=\xi\circ h$ .
+
+观察可知一个网的子网相当于只作用在一部分定向集上. 显然子序列是子网，但：
+
+>[!warning]+ 以序列形式呈现的子网并不一定是子序列.
+>考虑序列 $x_1,\cdots,x_n,\cdots$ ；考虑序列 $S=x_1,x_2,x_1,x_3,\cdots$  具体排列形式可以随意变化，但是要求每一个 $x_i$ 只能在 $S$ 中出现任意次，这样任给 $D=\mathbb{N}$ 中的一个元素 $n$ ，总存在 $S$ 中的一个元素 $s'$ ， $s'$ 之后的元素均大于 $n$ .
+
+从中应该感觉到共尾想要表达的含义：只要 $(D,\sqsubseteq)$ 的任意一个尾段 $\{d':d'\sqsupseteq d\}$ 为 $(E,\sqsubseteq)$ 的一个尾段 $\{e':e'\sqsupseteq e\}$ 的像即可. 无论这个尾段在何处（事实上，定向集的两个尾段是无法比较的）.
+
+>[!note]- 设 $\xi$ 为拓扑空间 $X$ 的网，则 $x$ 是 $\xi$ 的聚点当且仅当 $\xi$ 有子网收敛于 $x$ . #imcomplete-lack-proofs 
+
+## 紧
+
+>[!summary]+ 自查表
+>- 紧空间的定义？
+>- 紧空间不具有开遗传性质的例子；
+>- 紧空间的紧子集不一定为闭集的例子；
+>- 紧空间的等价刻画？（目前有三种）
+>- 紧空间、序列紧、可数紧，这三种性质在什么情况下可以转换？
+
+设拓扑空间 $X$ ，若 $W\subset X$ ， $W$ 的任意开覆盖都存在有限子覆盖，则称 $W$ 为 $X$ 的**紧子集**；若 $X$ 为 $X$ 的紧子集，则称 $X$ 为**紧空间**，不难得到紧空间的任何子集都是紧子集.
+
+>[!note]- 紧是拓扑性质.
+>证明：设 $f: X\rightarrow Y$ 是同胚映射，则对于任意 $Y$ 的开覆盖 $\{U_i\}_{i\in I}$ ，由 $Y\subset \bigcup_{i\in I}U_i$ 可得 $X\subset f^{-1}\left(\bigcup_{i\in I}U_i\right)=\bigcup_{i\in I}f^{-1}(U_i)$ ，由 $\{f^{-1}(U_i)\}_{i\in I}$ 是 $X$ 的开覆盖，可得结论.
+
+事实上只要求连续满射，就可以保持紧. 紧集的连续像是紧集.
+
+>[!note]- 紧是闭遗传性质.
+>证明：设 $K$ 为紧空间 $X$ 的闭子集，对于任何 $K$ 的开覆盖 $\mathcal{U}=\{V\cap Y:V\in \mathcal{V}\}$ ，其中 $\mathcal{V}$ 为 $X$ 上的开集族，进而 $\mathcal{V}\cup \{X\backslash Y\}$ 为 $X$ 的一个覆盖，从而存在 $X$ 的有限子覆盖： $\{V_1,\cdots,V_n\in \mathcal{V},X\backslash Y\}$ ，从而 $Y=X\cap Y=\bigcup_{i=1}^nV_i\cap Y=\bigcup_{i=1}^nV_i\cap Y$ ， $\{V_i\cap Y\}_{1\leq i\leq n}$ 即为 $Y$ 的有限子覆盖.
+
+>[!warning]+ 紧空间的紧子集不一定闭. #imcomplete-lack-examples 
+
+下面给出紧空间的等价刻画. 设集族 $\mathcal{A}$ ，如果 $\mathcal{A}\neq\emptyset$ 并且对于 $\mathcal{A}$ 的任意有限个元素，其交非空，则称 $\mathcal{A}$ 具有**有限交性质**.
+
+>[!note]- 拓扑空间 $X$ 是紧空间当且仅当其每个满足有限交性质的<u>闭集族</u>的交非空.
+>证明： $\Rightarrow$ ：设 $\mathcal{A}$ 为 $X$ 上的<u></u>闭集族并且满足有限交性质，取集族 $U=\{X\backslash A:A\in \mathcal{A}\}$ ，对于任意的 $U_1,\cdots,U_n\in U,n<\infty$ ，因为 $\mathcal{A}$ 有限交，所以 $\bigcup_{1\leq i\leq n}U_i\neq X$ ，而 $X$ 是紧空间，所以 $U$ 不是 $X$ 的开覆盖，所以 $X\backslash \bigcap \mathcal{A}=\bigcup U\neq X$ ，所以 $\bigcap \mathcal{A}\neq \emptyset$ .
+> $\Leftarrow$ ：设 $\mathcal{U}$ 为 $X$ 的一个开覆盖，令 $\mathcal{F}=\{X\backslash U:U\in \mathcal{U}\}$ ， $\bigcap \mathcal{F}=X\backslash \bigcup \mathcal{U}$ ，如果 $\mathcal{U}$ 没有有限子覆盖，则 $\mathcal{F}$ 满足有限交性质，从而 $\bigcap \mathcal{F}\neq \emptyset$ . 所以 $\bigcup \mathcal{U}\not\supset X$ 矛盾！
+
+紧空间可以用网收敛刻画：
+
+>[!note]- 等价命题： 1) $X$ 是紧空间；2) $X$ 的每个网都有聚点；3) $X$ 的每个网都有收敛子网.
+>证明： $1)\rightarrow 2)$ ：由 [[#^ClustXi]] ，设 $X$ 的一个网 $\xi$ ，则 $\text{clust}\xi=\bigcap_{d\in D}\overline{A_d}$ 其中 $A_d=\{\xi(e): e\sqsupseteq d\}$ ，考虑 $X\backslash \text{clust}\xi$ ，因为 $X$ 是紧空间，且由网的定义可知集族 $\{A_d\}_{d\in D}$ 满足有限交性质，所以 $\{A_d\}_{d\in D}$ 的交非空，所以 $\text{clust}\xi\neq \emptyset$ ；
+>
+>$2)\rightarrow 1)$ ：考虑 $X$ 的一个满足有限交性质的闭集族 $\mathcal{F}$ ，不妨设 $\forall F_1,F_2\in \mathcal{F},F_1\cap F_2\neq \emptyset$ （不改变 $\bigcap \mathcal{F}$ ）. (下面试图构造 $\text{clust}\xi=\bigcap_{d\in D}\overline{A_d}=\bigcap \mathcal{F}\neq \emptyset$ ，为此，只需要构造 $\mathcal{F}=\{A_d\}_{d\in D}$ 即可) 考虑 $D=\{(x,F): x\in F\in \mathcal{F}\}$ ，称 $(x,F_x)\sqsubseteq (y,F_y)$ 如果 $F_x\supset F_y$ ，定义网 $\xi:(D,\sqsubseteq)\rightarrow X,\xi((x,F))=x$ ，则对 $d=(x,F)\in D$ ：：
+>
+>$$\begin{aligned}
+>A_d &=\{\xi(e):e\sqsupseteq d\}\\
+>&=\{y:(y,F_y)\sqsupseteq (x,F)\}\\
+>&=\{y:F_y\subset F,y\in F_y\}\\
+>&=\bigcup_{F_y\subset F_y}F=F
+>\end{aligned}$$
+>
+>所以 $\text{clust}(\xi)=\bigcap_{d\in D}\overline{A_d}=\bigcap \mathcal{F}\neq \emptyset$ ，所以 $X$ 是紧空间. 
+>
+>$2)\leftrightarrow 3)$ 见 [[#网收敛]] .
+>
+
+之前在度量空间中已经定义过 [[#序列紧]] 的概念，也可以在拓扑空间上定义序列紧；定义**可数紧**： $X$ 的可数子覆盖具有有限子覆盖. 显然可数紧可以得到序列紧.
+
+>[!note]- 若 $X$ 是第一可数紧空间，则 $X$ 序列紧.
+>证明：设 $\{x_n\}_{n\geq1}$ 为 $X$ 的一个序列，因为 $X$ 是紧空间，所以 $\{x_n\}_{n\geq1}$ 有聚点 $x$ ， $\{x_n\}_{n\geq1}$ 常在 $x$ 的任何一个邻域中，因为 $X$ 是第一可数紧空间，所以 $x$ 有可数邻域基 $\{N_k(x)\}_{k\geq1}$ . 不妨设 $\{N_k(x)\}_{k\geq1}$ 单调递减，对于任意的 $N_k(x)$ ，对于任意的 $k$ ，存在 $k'>k$ 使得 $x_{k'}\in N_k(x)$ ，进而取 $\{x_{k'}\}_{k\geq1}$ 即可知其终在 $x$ 的任何一个邻域中.
+
+>[!note]- 若 $X$ 序列紧，则 $X$ 可数紧.
+>证明：设 $\mathcal{U}=\{U_{n}\}_{n\geq1}$ 是 $X$ 的一个开覆盖，假设 $\mathcal{U}$ 没有 $X$ 的有限子覆盖，则取 $x_n\in X\backslash\bigcup_{1\leq i\leq n}U_i$ ，因为 $\{x_n\}_{n\geq1}$ 有收敛子列 $\{x_{n_k}\}_{k\geq1}$ ，设 $x_{n_k}\rightarrow x(k\rightarrow \infty)$ ，并且存在 $U_m\ni x$ ，所以 $x_{n_k}$ 终在 $U_{m}$ 中，而 $x_n\notin \bigcup_{1\leq i\leq n}U_i$ ，所以当 $k>m$ 时， $x_{n_k}\notin \bigcup_{1\leq i\leq n_k}U_i\rightarrow x_{n_k}\notin \bigcup_{1\leq i\leq m}U_i\rightarrow x_{n_k}\notin U_m$ 矛盾！
+
+>[!note]- 若 $X$ 为第二可数空间，且可数紧，则 $X$ 紧.
+>证明：设 $\mathcal{U}$ 为 $X$ 的开覆盖， $\{B_n\}_{n\geq1}$ 为 $X$ 的可数基. 则由基的等价定义，对于任意 $x\in X$ ，任意 $U\in \mathcal{U}$ ，存在 $B_n,x\in B_n\subset U$ ，设 $n_x=\min\{n:x\in B_n\subset U\}$ . 令 $I=\{n_x:x\in X\}$ ，下面考虑 $\mathcal{U}'=\{U_i\in \mathcal{U}:U\supset B_{i}\}_{i\in I}$ . 对于任意的 $x\in X$ ，存在 $i_x\in I$ ，使得 $x\in B_{i_x}\subset U_{i_x}$ 所以 $\mathcal{U}'$ 为 $X$ 的一个可数子覆盖，从而有有限子覆盖，所以 $X$ 为第二可数空间.
+
+特别地：
+
+- 当 $X$ 是第二可数空间时，紧、序列紧、可数紧等价；
+- 当 $X$ 是第一可数空间时，若 $X$ 紧，则 $X$ 序列紧、可数紧；
+
+## Hausdorff
+
+>[!summary]+ 自查表 
+>- 什么是 Hausforff 性质？是否遗传？
+>- 回顾：网收敛 $\lim \xi$ 不为单点集的例子？
+>- Hausdorff 性质与网收敛的关系？
+
+如果拓扑空间 $X$ 中的任何两个点都有不相交的邻域，则称 $X$ 具有 **Hausdorff 性质**， Hausforff 性质是一种分离性质.
+
+>[!note]- Hausforff 是遗传拓扑性质.
+>证明：设同胚映射 $f: X\rightarrow Y$ ，对任意 $y_1,y_2\in Y$ ， $f^{-1}(y_1),f^{-1}(y_2)$ 具有不相交的邻域 $U_1,U_2$ ，进而可得 $f(U_1)\ni y_1,f(U_2)\ni y_2,f(U_1)\cap f(U_2)=\emptyset$ . （只要求双射就可以）所以是拓扑性质；设 $Z$ 为 $X$ 的子空间，对任意 $z_1,z_2\in Z\subset X$ ，存在 $X$ 中的邻域 $B_1\ni z_1\cap B_2\ni z_2=\emptyset$ ，考虑 $B_1\cap Z,B_2\cap Z$ 即可.
+
+在之前讨论网收敛时，举例说明 $\lim \xi$ 可能有多个元素. Hausdorff 限制了 $\lim \xi$ 的势.
+
+>[!note]- 拓扑空间 $X$ 具有 Hausdorff 性质当且仅当其每一个网至多有一个极限.
+>证明： $\Rightarrow$ ：设 $\xi$ 为 $X$ 的网， $\lim \xi\neq \emptyset$ ，若 $x,y\in \lim \xi$ ，则存在 $U\ni x,V\ni y,U\cap V=\emptyset$ ，而 $\xi$ 终在 $x,y$ 的任何一个邻域中，从而矛盾.
+>
+>$\Leftarrow$ ：设存在 $x,y\in X,x\neq y$ ， $x,y$ 的任何邻域都相交，考虑定向集 $(D,\sqsubseteq)$ ： $D=\mathcal{N}(x)\times \mathcal{N}(y)$ ， $(U,V)\sqsubseteq (U',V')\leftrightarrow U\supset U'\land V\supset V'$ ，设网 $\xi:(U,V)\rightarrow x_{U,V}\in U\cap V$ ，则 $x,y\in \lim \xi$ ，矛盾！
+
+可以通过 $\lvert \lim \xi\rvert>1$ 说明拓扑空间 $X$ 不具备 Hausdorff 性质.
+
+>[!note]- 设 $X,Y$ 是拓扑空间， $Y$ 是 Hausdorff 空间， $f,g: X\rightarrow Y$ 为连续映射，则 $E=\{x:f(x)=g(x)\}$ 是 $X$ 中的闭集.
+
+>[!note]- Hausdorff 空间的紧子集是闭集.
 
 ## $\mathbb{R}$ 上拓扑
 
@@ -744,23 +888,33 @@ $\mathbb{R}$ 上有八大拓扑. 对照上面介绍的拓扑的刻画分别进�
 4. 第一可数；
 5. 基；
 6. 第二可数；
-7. 收敛.
+7. 收敛；
+9. 紧、可数紧、序列紧；
+10. Hausdorff 性质
 
 ### 平凡拓扑
 
-| 拓扑  | 闭集族 | 邻域系 | 第一可数 | 基   | 第二可数 | 收敛  |
-| --- | --- | --- | ---- | --- | ---- | --- |
-|     |     |     |      |     |      | ✅   |
+| 拓扑     | 闭集族 | 邻域系 | 第一可数      | 基   | 第二可数 | 收敛  |
+| ------ | --- | --- | --------- | --- | ---- | --- |
+|        |     |     |           |     |      | ✅   |
+| 紧      | 可数紧 | 序列紧 | Hausdorff |     |      |     |
+| ✅ 是紧空间 |     |     | ✅ 不具有     |     |      |     |
 
 开集最少的拓扑（最小 / 粗 / 弱的拓扑）： $\{\emptyset, \mathbb{R}\}$ . 由 $\emptyset,\mathbb{R}$ 既是开集也是闭集，可以得到 $\bar{\emptyset}=\emptyset,\bar{\mathbb{R}}=\mathbb{R},\emptyset^\circ=\emptyset,\mathbb{R}^\circ=\mathbb{R}$ .
 
 平凡拓扑上对任意 $x$ ，任意 $\{x_n\}_{n\geq1}$ 都收敛于 $x$ .
 
+平凡拓扑只有两个开集，所以是紧空间.
+
+对于任意的 $x_1,x_2\in X$ ，其邻域均为 $X$ ，因此不满足 Hausdorff 性质.
+
 ### 离散拓扑
 
-| 拓扑  | 闭集族 | 邻域系 | 第一可数 | 基   | 第二可数 | 收敛  |
-| --- | --- | --- | ---- | --- | ---- | --- |
-|     |     |     |      |     |      | ✅   |
+| 拓扑        | 闭集族 | 邻域系 | 第一可数      | 基   | 第二可数 | 收敛  |
+| --------- | --- | --- | --------- | --- | ---- | --- |
+|           |     |     |           |     |      | ✅   |
+| 紧         | 可数紧 | 序列紧 | Hausdorff |     |      |     |
+| ✅ 有限集是紧子集 |     |     | ✅ 满足      |     |      |     |
 
 形如 $(X,\mathcal{P}(X))$ 的拓扑空间称为**离散空间**（discrete space）.
 
@@ -768,34 +922,56 @@ $\mathbb{R}$ 上有八大拓扑. 对照上面介绍的拓扑的刻画分别进�
 
 离散拓扑中的收敛： $x_n\rightarrow x$ 当且仅当存在 $N,n>N$ 时 $x_n=x$ .
 
+离散拓扑中任何子集的开覆盖为单点集组成的集族，紧当且仅当该子集是有限集.
+
+对任意 $x_1,x_2\in X$ ，取 $\{x_1\},\{x_2\}$ 作为邻域. 由此 $X$ 具有 Hausdorff 性质.
+
 ### 欧式拓扑
 
-| 拓扑  | 闭集族 | 邻域系 | 第一可数 | 第二可数 | 基   | 收敛  |
-| --- | --- | --- | ---- | ---- | --- | --- |
-|     |     |     |      | ✅    | ✅   |     |
+| 拓扑  | 闭集族 | 邻域系 | 第一可数 | 第二可数 | 基   | 收敛  | 紧         |
+| --- | --- | --- | ---- | ---- | --- | --- | --------- |
+|     |     |     |      | ✅    | ✅   |     | ✅ 有界闭集是紧集 |
 
 由欧式度量给出.
 
-欧式拓扑中的开集都能够写为一族端点为有理数 / 无理数的开区间的并. 而 $\mathcal{B}=\{(r,R):r<R,r,R\in \mathbb{Q}\}\subset \mathbb{Q}\times \mathbb{Q}$ 可数，所以欧式拓扑第二可数. 
+欧式拓扑中的开集都能够写为一族端点为有理数 / 无理数的开区间的并. 而 $\mathcal{B}=\{(r,R):r<R,r,R\in \mathbb{Q}\}\subset \mathbb{Q}\times \mathbb{Q}$ 可数，所以欧式拓扑第二可数，从而第一可数.
+
+欧式拓扑中有界闭和紧是等价的. [[zoeminus/docs/Math/R#^Henie-Borel|R]] 
 
 ### 左拓扑
 
-| 拓扑  | 闭集族 | 邻域系 | 第一可数 | 基   | 第二可数 | 收敛  |
-| --- | --- | --- | ---- | --- | ---- | --- |
-| ✅   | ✅   | ✅   | ✅ 是  |     |      |     |
+| 拓扑  | 闭集族 | 邻域系 | 第一可数      | 基   | 第二可数 | 收敛  |
+| --- | --- | --- | --------- | --- | ---- | --- |
+| ✅   | ✅   | ✅   | ✅ 是       |     |      |     |
+| 紧   | 可数紧 | 序列紧 | Hausdorff |     |      |     |
+| ✅   |     |     | ✅ 不具有     |     |      |     |
 
 $\{(-\infty,a):a\in \mathbb{R}\cup\{+\infty\}\}\cup\emptyset$ ，以下记为 $L\mathbb{R}$ ；
 
 >[!note]- 左拓扑与右拓扑同胚.
 >证明：考虑映射 $f: L\mathbb{R}\rightarrow R\mathbb{R}, (-\infty,-a)\rightarrow (a,+\infty)$ . 则 $f$ 为双射并且连续. 所以左右拓扑同胚.
 
+下面来讨论左拓扑空间的紧性，很容易看出左拓扑空间不是紧空间，例如，考虑 $(-\infty,a),a<\infty$ ，对其开覆盖 $\{(-\infty,a-1/n)\}$ ，没有有限子覆盖. 猜测左拓扑空间中的紧集具有最大值.
+
+若 $K\subset \mathbb{R}$ 为 $(\mathbb{R},L\mathbb{R})$ 上的紧子集，设 $k=\sup K$ ，如果 $K$ 不能取到 $k$ ，则取 $K$ 的开覆盖： $\{(-\infty,k-\epsilon)\}_{\epsilon>0}$ ，对于该开覆盖的任意的有限子集 $\{(-\infty,k-\epsilon_{n})\}_{1\leq n\leq m}$ ，由 $k$ 的定义，存在 $k'\in K$ ， $k'\in (k-\min\{\epsilon_n\}_{n\geq1},k)$ ，因此无有限子覆盖.
+
+若 $K$ 能够取得 $k$ ，则对于任意的 $K$ 的开覆盖 $\mathcal{U}$ ，一定存在 $(-\infty,a)\in \mathcal{U}:a>k$ ， $\{(-\infty,a)\}$ 即为 $K$ 的一个有限子覆盖.
+
+$K$ 为空集时也为紧子集.
+
+| #imcomplete-further-wanted 
+
+对于左拓扑， $X$ 上的任意两个点的邻域的交都非空，因此不具有 Hausdorff 性质.
+
 ### 右拓扑
 
-| 拓扑  | 闭集族 | 邻域系 | 邻域基 | 第一可数 | 基   | 第二可数 | 收敛  |
-| --- | --- | --- | --- | ---- | --- | ---- | --- |
-| ✅   | ✅   | ✅   | ✅   | ✅ 是  |     |      |     |
+| 拓扑  | 闭集族 | 邻域系 | 邻域基       | 第一可数 | 基   | 第二可数 | 收敛  |
+| --- | --- | --- | --------- | ---- | --- | ---- | --- |
+| ✅   | ✅   | ✅   | ✅         | ✅ 是  |     |      |     |
+| 紧   | 可数紧 | 序列紧 | Hausdorff |      |     |      |     |
+|     |     |     | ✅ 不满足     |      |     |      |     |
 
-$\{(a,+\infty):a\in \mathbb{R}\}\cup\emptyset$ ；右拓扑的闭集族则为 $\{(-\infty,b): b\in \mathbb{R}\}\cup\emptyset$ .
+$\{(a,+\infty):a\in \mathbb{R}\}\cup\emptyset$ ；右拓扑的闭集族则为 $\{(-\infty,b]: b\in \mathbb{R}\}\cup\emptyset$ .
 
 右拓扑中每一个点 $x$ 的邻域系 $\mathcal{N}(x)=\{(y,+\infty):y<x\}$ .
 
@@ -803,19 +979,29 @@ $x$ 的一个邻域基可以写为： $\{\left(x-\frac{1}{n},+\infty\right)\}_{n
 
 ### 余有限拓扑
 
-| 拓扑  | 闭集族 | 邻域系 | 第一可数 | 基   | 第二可数 | 收敛  |
-| --- | --- | --- | ---- | --- | ---- | --- |
-|     |     |     |      |     |      |     |
+| 拓扑     | 闭集族 | 邻域系 | 第一可数 | 基   | 第二可数 | 收敛  |
+| ------ | --- | --- | ---- | --- | ---- | --- |
+|        |     |     |      |     |      |     |
+| 紧      |     |     |      |     |      |     |
+| ✅ 是紧空间 |     |     |      |     |      |     |
 
 $\emptyset\cup\{\mathbb{R}\backslash F:F=F\text{ 为有限集}\}$ .
+
+对于余有限拓扑空间 $X$ ，设其一开覆盖为 $\mathcal{U}$ ， $X\subset \bigcup \mathcal{U}$ ，取 $U\in \mathcal{U}$ ，则 $U^c=X\backslash U$ 有限，设 $U^c=\{u_1,\cdots,u_n\},n<\infty$ ， $U^c=\bigcup \mathcal{U}\backslash U$ ，从而有至多 $n$ 个 $\bigcup \mathcal{U}\backslash U$ 中的元素可以覆盖 $U^c$ ，所以 $X$ 是紧空间.
+
+### 余可数拓扑
+
+| 拓扑  | 闭集族 | 邻域系 | 第一可数 | 基   | 第二可数 | 收敛  | 紧   |
+| --- | --- | --- | ---- | --- | ---- | --- | --- |
+|     |     |     |      |     |      |     |     |
 
 ### Sorgenfrey 拓扑
 
 S<u>o</u>rgenfrey 直线是由 $\mathcal{B}=\{[a,b):a,b\in \mathbb{R},a<b\}$ 为基生成的拓扑.
 
-| 基   | 第二可数 | 拓扑  | 闭集族 | 邻域基 | 第一可数 | 收敛  |
-| --- | ---- | --- | --- | --- | ---- | --- |
-| ✅   | ✅ 否  |     |     | ✅   | ✅ 是  | ✅   |
+| 基   | 第二可数 | 拓扑  | 闭集族 | 邻域基 | 第一可数 | 收敛  | 紧   |
+| --- | ---- | --- | --- | --- | ---- | --- | --- |
+| ✅   | ✅ 否  |     |     | ✅   | ✅ 是  | ✅   | 否   |
 
 下面借助基的等价定义说明 Sorgenfrey 第二可数：对于任意的包含 $x$ 的开集 $U$ ，存在 $B_x\in \mathcal{B}$ 使得 $x\in B_x\subset U$ ，因为 $[x,+\infty)$ 也是包含 $x$ 的开集，所以存在 $B_x'\in \mathcal{B}$ ： $B_x'=[x,a')\subset [x,+\infty]$ ，进而建立起 $\mathbb{R}$ 和 $\mathcal{B}$ 之间的一个双射. 所以 Sorgenfrey 直线第二可数. 类似地， Sorgenfrey 拓扑均非第二可数. [ste](https://math.stackexchange.com/questions/1135993/mathbbr-with-the-lower-limit-topology-is-not-second-countable)
 
