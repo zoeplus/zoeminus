@@ -493,16 +493,16 @@ $$\begin{aligned}
 
 # 排序算法
 
-## 堆栈排序（stack sorting）
+## 堆栈排序
 
 >[!example]- 汉诺塔（Tower of Hanoi）：有三根杆子 $A,B,C$ ，其中 $A$ 杆上的圆盘大小自上而下呈递增趋势，下面要将所有的圆盘转移到 $C$ 上，在此过程中需要满足以下两个条件：1) 每一次只能移动一个圆盘；2) 大圆盘不能放置在小圆盘上. 问：对于 $n$ 个圆盘，需要移动多少次才能全部转移到 $C$ 杆上.
 >假设对于 $n$ 个圆盘需要移动 $a_n$ 次，可以证明： $$a_n=a_{n-1}+1+a_{n-1}$$ （即，首先将 $n-1$ 个圆盘移动到 $B$ 杆上，将最大圆盘移动到 $C$ 杆上，再将 $n-1$ 个圆盘移动到 $C$ 杆上. 又 $a_1=1$ ，可得 $a_n=2^n-1$ .
 
-```algorithm
-堆栈排序算法
+**堆栈排序**（stack sorting）算法如下：
 
-输入: 排列 pi=pi_1pi_2...pi_n ；
-输出: 排列 S(pi)=sigma_1sigma_2...sigma_n
+```cpp title="堆栈排序伪代码"
+// 输入: 排列 pi=pi_1pi_2...pi_n ；
+// 输出: 排列 S(pi)=sigma_1sigma_2...sigma_n
 
 for i = 1; i<n; i++:
 	1. 将 pi_i 放入栈中；
@@ -542,11 +542,13 @@ class StackSorting
 
 并且可以证明： $\#\{\pi\in S_n:\pi\text{ 不包含 }\sigma-\text{pattern}\}=C_n$ .
 
-## 耐心排序（patience sorting）
+## 耐心排序
 
 以一个纸牌游戏为场景：假设一组纸牌的排列为 $\pi$ ，现在依次抽取 $\pi_i,i=1,\cdots,n$ . 如果 $\pi_{i}>\pi_{i-1}$ ，则形成一新的牌堆，以 $\pi_i$ 为该牌堆的首牌，如果 $\pi_i<\pi_{i-1}$ ，则或可选择让该牌作为首牌形成一新的牌堆，或可选择让该牌加入到 $\pi_{i-1}$ 所在的牌堆上（ $\cdots\pi_{i-1}\pi_i$ ）.
 
 现在的问题是：如何进行选择能够使得最终形成的牌堆数目最小？
+
+**耐心排序**（patience sorting）算法的方法是：每一次新加入的牌都放置在最左侧的符合要求的牌堆上.
 
 ### 贪心算法
 
@@ -703,7 +705,33 @@ $$\begin{bmatrix}4 \\ 2\end{bmatrix}=1+q+2q^2+q^3+q^4$$
 - 由 $n$ 个 $1$ 和 $n$ 个 $-1$ 构成的排列全体，并且满足 $\forall k\geq1,\sum\limits_{i=1}^{k}\pi_i\geq0$ ；
 - 考虑形状为 $(n,2)$ 的标准杨表，
 
+定义 Dyck 路的**峰**：相邻的一个上升步和一个下降步，记有 $k$ 个峰的 $n$ 阶 Dyck 路的个数为 $N(n,k)$ ，称为 **Narayana 数**. ^DyckPeak
+
+>[!note]- $N(n,k)=\frac{1}{n}\binom{n}{k}\binom{n}{k-1}$ . #imcomplete-lack-proofs 
+
+>[!note]- $\sum\limits_{k=1}^{n}N(n,k)=C_n$
+>证明： 
+>
+> $$\begin{aligned}
+>\sum\limits_{k=1}^{n}N(n,k)&=\frac{1}{n}\sum\limits_{k=1}^{n}\binom{n}{k}\binom{n}{k-1}\\
+>&=\frac{1}{n}\sum\limits_{k=1}^{n}\binom{n}{n-k}\binom{n}{k-1}\\
+>&=\frac{1}{n}\binom{2n}{n-1}=C_n
+>\end{aligned}$$
+
 # 集合划分
+
+将集合 $[n]$ 划分为 $k$ 块，每一块中的元素个数大于等于 $0$ ，划分个数的计算：相当于 $y_1+\cdots+y_k=n,y_i\geq0(1\leq i\leq k)$ ，从而 $\sum\limits_{i=1}^{k}(y_i+1)=n+k$ ，对于 $n+k$ 个元素采取挡板法，有 $\binom{n+k-1}{k-1}$ 种分法.
+
+
+
+
+
+
+
+
+
+
+
 
 # 匹配
 
@@ -717,9 +745,9 @@ $$\begin{bmatrix}4 \\ 2\end{bmatrix}=1+q+2q^2+q^3+q^4$$
 
 ## 完美匹配与 Dyck 路
 
-考虑以 $y=x$ 旋转 $45^\circ$ 的 Dyck 路，注意 $n$ 阶 Dyck 路的个数等于 Cataland 数： $D_n=C_n=\frac{1}{n+1}\binom{2n}{n}$ . 下面来讨论完美匹配的数目与 Cataland 数的关系.
+考虑沿 $y=x$ 旋转 $45^\circ$ 的 Dyck 路， $n$ 阶 Dyck 路的个数等于 Cataland 数： $D_n=C_n=\frac{1}{n+1}\binom{2n}{n}$ . 下面来讨论完美匹配的数目与 Cataland 数的关系.
 
-可以建立完美匹配与 Dyck 路之间的一个映射，注意到完美匹配的线图表示中，每个匹配对应的两个结点有一个上升和下降的方向. 分别可以对应于 Dyck 路上的 $(1,1),(1,-1)$ 两个行进方向. 因此有映射，但显然这一映射不是双射.
+可以建立完美匹配与 Dyck 路之间的一个映射，注意到完美匹配的线图表示中，每个匹配对应的两个结点有一个上升和下降的方向（以下也称上弧和下弧）. 分别可以对应于 Dyck 路上的 $(1,1),(1,-1)$ 两个行进方向. 因此有映射，但显然这一映射不是双射.
 
 记 $M_{2n}$ 为 $[2n]$ 上的全体完美匹配，定义完美匹配的**交叉数**（crossing numbers）： 
 
@@ -742,18 +770,104 @@ $$\text{Ne}(M)=\#\{(i,j)\in[2n]^2:i<j<M(j)<M(i)\}$$
 记 $P_{n,k}=\{M\in M_n:\text{Cr}(M)=k\}$ ， $Q_{n,k}=\{M\in M_n:\text{Ne}(M)=k\}$ .
 
 >[!note]- $\#P_{n,k}=\#Q_{n,k}$ .
+>证明：对于第 $i$ 个<u>下降步</u>，定义其高度为 $h_i$ ，对应于 Dyck 路的结点的坐标. 如图：
+>
+> ![[HeightOfSteps.png]]
+>
+>并设由高度 $h_1,\cdots,h_n$ 生成的向量为 $A=\{(a_1,\cdots,a_n):0\leq a_i\leq h_i,a_i\in \mathbb{N}\}$ . $\# A=\prod_{i=1}^{n}(h_i+1)$ . 定义映射： $\varphi: D_n\times A\rightarrow M_n$ ，对于 $(D,a_k)\in D_n\times A$ ，用 $a_i(1\leq i\leq n)$ 限制 $D$ 向 $M\in M_n$ 的映射（由 $n$ 个这样的限制），令  $a_k=\#\{m:m<k<M(k)<M(m)\}$ ，表示包含 $(k,M(k))$ 的弧 $(m,M(m))$ 的数量，下面根据 $(a_1,\cdots,a_n)$ 和 $D$ 构造 $M$ ：对于 $a_i$ ，自左向右对 $D$ 留出 $a_i$ 个上弧不连接，取第 $a_{i}+1$ 个上弧与自左向右的第 $1$ 个下弧连接，将已经连接的上下弧排除，重复操作. 并可以证明 $\sum\limits_{k=1}^{n}a_k=\text{Ne}(M)$ ：
+>
+>$$\begin{aligned}
+>\text{Ne}(M)&=\#\{(i,j):i<j<M(j)<M(i)\}\\
+>&=\sum\limits_{k=1}^{n}\{i:i<a_k<M(a_k)<M(i)\}\\
+>&=\sum\limits_{k=1}^{n}a_k
+>\end{aligned}$$
+>
+>其中 $a_k$ 表示第 $k$ 个上弧的位置，由映射中的构造可知 $a_k=\#\{m:m<k<M(k)<M(m)\}$ ，故结论成立.
+>
+>另一方面，也可以用交叉数作为限制构造 $D_n\times A\rightarrow M_n$ 的映射，具体规则为自左向右第 $1$ 个下降弧与其左侧数第 $a_{i}+1$ 个上弧连接，并可以证明 $\sum\limits_{k=1}^{n}a_k=\text{Cr}(M)$ .
+>
+>再考虑 $P_{n,k},Q_{n,k}$ ，可知 $\lvert P_{n,k}\rvert=\lvert Q_{n,k}\rvert=\#\{(a_i)_{1\leq i\leq n}\in A:\sum\limits_{i=1}^{n}a_i=k\}$ ，具体需要由 $A$ 的限制讨论 $\lvert P_{n,k}\rvert$ 的大小. （分拆加上上界限定） #imcomplete-further-wanted 
+>
+>具体的例子见 [[按嵌套数和交叉数分别映射.png]]
 
-证明：对于第 $i$ 个下降步，定义其高度为 $h_i$ ，对应于 Dyck 路的结点的坐标. 如图：
+## 一般匹配和 Motzkin 路
 
-![[HeightOfSteps.png]]
+下面讨论一般匹配，可以将其中的孤立点对应到“水平步”，其他则按照 Dyck 路中的映射进行.
 
-并设由高度 $h_1,\cdots,h_n$ 生成的向量为 $A=\{(a_1,\cdots,a_n):0\leq a_i\leq h_i,a_i\in \mathbb{N}\}$ . $\# A=\prod_{i=1}^{n}(h_i+1)$ .
+定义 **Motzkin 路**：从 $(0,0)$ 出发，最终回到 $x$ 轴，只允许进行 $(1,1),(1,-1),(1,0)$ 三种操作. 或可将 Motzkin 路视为 Dyck 路中插入一部分水平步. Motzkin 路中的**峰**定义为去掉水平步之后得到的 [Dyck 路的峰](#^DyckPeak).
+
+记 $n$ 长 Motzkin 路全体为 $\mathcal{T}_n$ ， $T_n=\lvert t\rvert$ ， $T_{n,k}=\#\{T\in \mathcal{T}_n:T\text{ 有 }k\text{ 个峰}\}$ ；称 $T_n$ 为 **Motzkin 数**，记 $T_0=1$ .
+
+下面考虑 Motzkin 路和 Dyck 路的关系：
+
+对于 $j$ 长 Dyck 路，可以插入 $n-2j$ 个水平步以得到 Motzkin 路，并且峰数保持不变； $j$ 长 Dyck 路共有 $2j+1$ 个位置可以插入水平步，每一个位置可以至少 $0$ 个水平步，因此有： $\binom{n-2j+2j+1-1}{2j+1-1}=\binom{n}{2j}$ 种分法.
+
+所以 $T_{n,k}=\sum\limits_{j=0}^{n}\binom{n}{2j}N(j,k)$ . 其中 $N(j,k)$ 为 Narayana 树. $N(j,k)=\frac{1}{j}\binom{j}{k}\binom{j}{k-1}$ .
+
+>[!note]- $T_n=T_{n-1}+\sum\limits_{k=0}^{n-2}T_kT_{n-k-2},n\geq2$ .
+>证明：对于 $T\in \mathcal{T}_n$ ，若其第一步为水平步，则有 $T_{n-1}$ 中可能情况；若其第一步为上升步，以 $T$ 中第一个返回到 $x$ 轴的下降步作为分界将 $T$ 分割成两部分，分别形成了两个新的 Motzkin 路，从而有 $\sum\limits_{k=0}^{n-2}T_kT_{n-k-2}$ 种情况. 综上可得结论.
+
+>[!example]- 计算 $T_4$ .
+>$$\begin{aligned}
+>T_4&=T_3+\sum\limits_{k=0}^{2}T_kT_{2-k}\\
+>&=T_3+2T_0T_2+T_1^2\\
+>&=4+2\times 1\ \times 2+1^2=9
+>\end{aligned}$$
+
+下面讨论 Motzkin 数的生成函数：
+
+$$\begin{aligned}
+M(x)&=\sum\limits_{n\geq0}^{}T_nx^n\\
+&=1+T_1x+\sum\limits_{n\geq2}^{}T_{n-1}x^n+\sum\limits_{n\geq2}^{}\sum\limits_{k=0}^{n-2}T_{k}T_{n-k-2}x^n\\
+&\overset{(1)}{=}1+x M(x)+x^2\sum\limits_{n\geq0}^{}\sum\limits_{k=0}^{n}T_kT_{n-2}x^{k}x^{n-k}\\
+&=1+xM(x)+x^2\left(\sum\limits_{n\geq0}^{}T_nx^n\right)^2\\
+&=1+xM(x)+x^2M^2(x)
+\end{aligned}$$
+
+整理可得： $x^2M^2(x)+(x-1)M(x)+1=1$ ，从而解得： $M(x)=\frac{1-x\pm \sqrt{(1-x)^2-4x^2}}{2x^2}$ ，并且 $M(0)=0$ ，所以 $M(x)=\frac{1-x+\sqrt{(1-x)^2-4x^2}}{2x^2}$ . （ $(1)$ 中的第 $3$ 项是卷积.）
+
+进而可以通过对 $M(x)$ Taylor 展开计算 $T_n$ .
+
+>[!note]- $n$ 长非交叉匹配的个数为 $T_n$ . #imcomplete-lack-proofs 
+
+## RNA 二级结构
+
+[RNA 二级结构](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC92549/)是一个集合的非交叉匹配，并且匹配的弧长 $\geq2$ （即，两个匹配的元素不能是相邻的）.
+
+记 $S_n=\#\{n \text{ 长 RNA 二级结构}\}$ ， $S(n,k)=\#\{n \text{ 长 RNA 二级结构，有 }k \text{ 个弧}\}$ .
+
+可以得到递推公式： $S(n+1)=S(n)+\sum\limits_{j=1}^{n-1}S(j)S(n-j)$ . （ $1$ 为上升弧（下降弧对应 $j$ ）和 $1$ 为孤立点）
+
+可以将 RNA 二级结构对应到 Dyck 路：去掉 RNA 结构中的所有孤立点后得到的即为完美匹配，假设得到的完美匹配对应于 $j$ 长 Dyck 路，设其峰数为 $p$ ，在每个峰处（相邻的上升步和下降步之间）插入 $1$ 个水平步以使得匹配的弧长 $\geq2$ ，共插入 $p$ 个，为了形成 $n$ 长的路，还需要插入 $n-p-2j$ 个水平步到已有的 $2j+1$ 个位置中，共有： $\binom{n-p-2j+2j+1-1}{2j+1-1}=\binom{n-p}{2j}$ . 或者是将剩余的 $n-2j-p$ 个孤立点插入到 $2j+1$ 个位置，有： $\binom{n-2j-p+2j+1-1}{2j+1-1}=\binom{n-p}{2j}$ 种情况. 综上 $S(n,k)=\sum\limits_{p\geq 0}^{}N(k,p)\binom{n-p}{2k}$ . 并且 $N(k,p)=\frac{1}{k}\binom{k}{p}\binom{k}{p-1}$ ，所以：
+
+$$\begin{aligned}
+S(n,k)&=\sum\limits_{p=0}^{n}\frac{1}{k}\binom{k}{p}\binom{k}{p-1}\binom{n-p}{2k}\\
+&=\frac{1}{k}\sum\limits_{p=0}^{n}\binom{n-k+p}{k+1+k-1}\binom{k}{p}\binom{k}{k+1-p}\\
+&\overset{(1)}{=}\frac{1}{k}\binom{n-k}{k+1}\binom{n-k-1}{k-1}
+\end{aligned}$$
+
+$(1)$ 取等用到 [[#^RiordanIdentity]]  .
+
+# 离散数据结构的计数
+
+对于离散数据结构的计数有以下方法：
+
+- 直接用初等函数的计数公式；
+- 将该数据结构双射到另一数据结构，计数；
+- 根据递推公式求解；
+- 利用生成函数求解；
 
 # 递归
-
 
 也成为**分而治之策略**（divide-and-conquer strategy）.
 
 C++ 中每次递归都会创建一个新的变量，相应的递和归具有相同的变量（内存地址）
 
+# 附录：组合恒等式
 
+>[!note]- Vandermonde 恒等式： $\binom{m+n}{r}=\sum\limits_{k=0}^{r}\binom{m}{k}\binom{n}{r-k}$ .
+
+>[!note]+ Riordan 恒等式： 
+>$$\binom{m}{p}\binom{n}{q}=\sum\limits_{j}^{}\binom{n+j}{p+q}\binom{m-n+q}{j}\binom{n-m+p}{p-j}$$
+>
+>^RiordanIdentity
