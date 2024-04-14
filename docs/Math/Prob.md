@@ -432,9 +432,9 @@ $\mathcal{P}$ 是由 $W_1,W_2,\cdots,W_k,\emptyset,\Omega$ 组成的事件域 $\
 
 # 随机变量
 
-[随机变量](https://en.wikipedia.org/wiki/Random_variable)是一个将样本空间 $\Omega$ 映射到可测空间 $E$ 的函数. 称映射 $\xi:(\Omega,\mathcal{F},\mathcal{P})\rightarrow \mathbb{R}$ 为**随机变量**，如果 $\forall x\in \mathbb{R},\{\omega\in \Omega:\xi(\omega)<x\}\overset{def}{=}\{\xi<x\}\in\mathcal{F}$ ，换言之 $\{\xi<x\}$ 是一个事件，并记 $F(x)=\mathcal{P}(\xi<x)$ 是随机变量 $\xi$ 的**分布函数** / 概率分布.
+[随机变量](https://en.wikipedia.org/wiki/Random_variable)是一个将样本空间 $\Omega$ 映射到可测空间 $E$ 的函数. 称映射 $\xi:(\Omega,\mathcal{F},\mathcal{P})\rightarrow \mathbb{R}$ 为**随机变量**，如果 $\forall x\in \mathbb{R},\{\omega\in \Omega:\xi(\omega)<x\}\overset{def}{=}\{\xi<x\}\in\mathcal{F}$ ，换言之 $\{\xi<x\}$ 是一个事件. 并记 $F(x)=\mathcal{P}(\xi<x)$ 是随机变量 $\xi$ 的**分布函数** / 概率分布.
 
-随机变量还有如下的等价定义：设 $\xi:(\Omega,\mathcal{F},\mathcal{P})\rightarrow \mathbb{R}$ ，若对于任一 Borel 集（[[RF#Borel $ sigma-$ 代数]]） $B$ ， $\{\omega\in \Omega:\xi(\omega)\in B\}\in \mathcal{F}$ ，则称 $\xi$ 是随机变量.
+随机变量有如下等价定义：设 $\xi:(\Omega,\mathcal{F},\mathcal{P})\rightarrow \mathbb{R}$ ，若对于任一 Borel 集（[[RF#Borel $ sigma-$ 代数]]） $B$ ， $\{\omega\in \Omega:\xi(\omega)\in B\}\in \mathcal{F}$ ，则称 $\xi$ 是随机变量.
 
 >[!note]- 两种对于随机变量的定义是等价的.
 >分别记为第一定义和第二定义. 
@@ -447,11 +447,11 @@ $\mathcal{P}$ 是由 $W_1,W_2,\cdots,W_k,\emptyset,\Omega$ 组成的事件域 $\
 
 -  $\mathcal{P}(a\leq \xi<b)=\mathcal{P}(\xi<b)-\mathcal{P}(\xi<a)=F(b)-F(a)$ （ $\mathcal{P}(\xi<b)=\mathcal{P}(\xi<a)+\mathcal{P}(a\leq \xi<b)$ 其中 $\{a\leq \xi<b\}=\{\xi<a\}-\{\xi<b\}\in \mathcal{F}$）；
 
-可以将分布函数进一步推广，首先分析 $F$ 的性质：
+可以将分布函数进一步推广，首先分析 $F$ 的性质（也称为特征）：
 
 1. 单调性： $\forall a<b,F(a)\leq F(b)$ ；
 2. 标准型： $\lim_{a\rightarrow -\infty}F(a)=0,\lim_{b\rightarrow +\infty}=1$ ；
-3. 左连续性： $\lim_{x_n\rightarrow x^-}F(x_n)\overset{def}{=}F(x-0)=F(x)$ . （如果在对 $\xi$ 的定义中改为 $\leq$ 时，这里的性质是右连续性）
+3. 左连续性： $\lim_{x_n\rightarrow x^-}F(x_n)\overset{def}{=}F(x-0)=F(x)$ . （如果在对 $\xi$ 的定义中改为 $\leq$ 时，这里的性质是右连续性） ^DistributionFunctionProperty
 
 其中对于左连续性，考虑 $x_0<x_1<\cdots<x_k<\cdots,\forall n\geq1(x_n<x_0)$ ，
 
@@ -541,18 +541,20 @@ $$\frac{\mathcal{P}(\eta=m+k)}{\mathcal{P}(\eta>m)}=\frac{q^{m+k-1}p}{\sum\limit
 
 ## 连续型随机变量
 
-对于随机变量 $\xi$ ，设 $\xi$ 的分布函数为 $F(x)$ 如果存在非负可积函数 $f(x)$ 使得： $F(x)=\int_{-\infty}^xf(x)dx$ ，则称 $\xi$ 为**连续型随机变量**， $f$ 为 $\xi$ 的（分布）**密度函数**. 
+对于随机变量 $\xi$ ，设 $\xi$ 的分布函数为 $F(x)$ ，如果存在非负可积函数 $f(x)$ 使得： $F(x)=\int_{-\infty}^xf(u)du$ ，则称 $\xi$ 为**连续型随机变量**， $f$ 为 $\xi$ 的（分布）**密度函数**. 
 
-$F$ 除了满足[分布函数的一般性质](#随机变量)以外还具有如下性质：
+$F$ 除了满足[分布函数的一般性质](#^DistributionFunctionProperty)以外还具有如下性质：
 
--  $f=F',\int_{-\infty}^{\infty}f(x)dx=F(+\infty)=1$ ；
-- $F$ 关于 $x$ 连续（而不是左连续）；
+-  $f=F'$ ；
+- $F$ 关于 $x$ 连续（而不仅是左连续）；
 
 可以求出其他事件的概率：
 
 - $\mathcal{P}(a\leq \xi<b)=\int_{a}^bf(x)dx,\forall a<b,a,b\in \mathbb{R}\cup\{\pm\infty\}$ ；
-- $\mathcal{P}(\xi=x)=0$ ；（这并不代表 $x\in \Omega$ 不会发生）
+- $\mathcal{P}(\xi=x)=0$ ；（这并不代表 $\omega:\xi(w)=x\in \Omega$ 不会发生）
 - $\mathcal{P}(\xi\geq a)=\int_a^\infty f(x)dx$ . 
+
+>[!question]- 关于 $\mathcal{P}(\xi=x)=0$ ，其中 $\xi$ 是连续型随机变量. #imcomplete-further-wanted
 
 由离散型随机变量的分布函数只满足左连续性可知离散型随机变量均非连续型随机变量（可以由反证得到此结论，即若存在连续型的离散随机变量，则可得 $\mathcal{P}(\xi=x_n)=0,\forall n\geq1$ ，从而矛盾！）.
 
@@ -581,7 +583,7 @@ $$F(x)=\left\{\begin{aligned}
 
 ### 正态分布
 
-随机变量 $\xi$ 的密度函数为： $f(x)=\frac{1}{\sqrt{2\pi \sigma}}e^{-\frac{(x-\mu)^2}{2\sigma^2}},x\in \mathbb{R}$ ，称 $\xi$ 服从参数为 $\mu,\sigma$ 的**正态分布**， $\xi\sim \mathcal{N}(\mu,\sigma^2)$ .
+随机变量 $\xi$ 的密度函数为： $f(x)=\frac{1}{\sqrt{2\pi \sigma}}e^{-\frac{(x-\mu)^2}{2\sigma^2}},x\in \mathbb{R}$ ，称 $\xi$ 服从参数为 $\mu,\sigma$ 的**正态分布**， $\xi\sim \mathcal{N}(\mu,\sigma^2)$ . 或称 $\xi$ 为正态变量. 
 
 正态分布的分布函数：
 
@@ -589,7 +591,14 @@ $$F(x)=\int_{-\infty}^x \frac{1}{\sqrt{2\pi \sigma}}e^{-\frac{(y-\mu)^2}{2\sigma
 
 一般记 $\mathcal{N}(0,1)$ 为**标准正态分布**，记 $\varphi(x)=\frac{1}{\sqrt{2\pi}}e^{-\frac{x^2}{2}}$ ， $\Phi(x)=\int_{-\infty}^x\frac{1}{\sqrt{2\pi}}e^{-\frac{y^2}{2}}dy$ . 不难得到  $\Phi(-x)=1-\Phi(x)$ ， $\Phi(0)=\frac{1}{2}$ 
 
-关于 $\int_{-\infty}^\infty e^{-\frac{x^2}{2}}dx=\sqrt{2\pi}$ 等的证明，见 #imcomplete-whatever  
+关于 $\int_{-\infty}^\infty e^{-\frac{x^2}{2}}dx=\sqrt{2\pi}$ 等的证明，见 [[MA#无穷积分]] .
+
+在实际应用中需要依据[标准正态分布函数表求解](https://www.math.arizona.edu/~rsims/ma464/standardnormaltable.pdf)以正态分布为假设的命题，一般纵轴对应于小数点后第一位，横轴第二位；对于一般的正态分布还可以将其转化为标准正态分布进行求解. #imcomplete-lack-examples 
+
+>[!summary]+ 标准正态分布的几个数值：
+>- $\int_{-0.67}^{0.67}f du=75\%$ ；
+>- $\int_{-1.96}^{1.96}f du=95\%$ ；
+>- $\int_{-2.58}^{2.58}f du=99\%$ ；
 
 ### 指数分布
 
@@ -616,7 +625,7 @@ $$\mathcal{P}(\xi\geq x)\left\{\begin{aligned}
 &e^{-\lambda x},x>0
 \end{aligned}\right.$$
 
-指数分布和[泊松分布]()有关系 #imcomplete  ，回顾[[#用二项分布逼近泊松分布]]，泊松分布 $p(k;\lambda)=\frac{\lambda^k}{k!}e^{-\lambda}$ 中的 $\lambda$ 的含义是试验次数足够大时发生某事件的次数（ $np_n(n\rightarrow \infty)$ ，事件发生次数的期望）而指数分布中 $\lambda$ 的含义则为单位时间发生该事件的次数. [check-wiki](https://zh.wikipedia.org/zh-cn/%E6%8C%87%E6%95%B0%E5%88%86%E5%B8%83) 也可以用 $\beta=\frac{1}{\lambda}$ 表示指数分布，这时的 $\beta$ 表示的是<u>发生率</u> #issue %%搞不懂什么叫发生率，拿出生率对比?%% ；
+指数分布和[泊松分布]()有关系 #imcomplete-further-wanted   ，回顾[[#用二项分布逼近泊松分布]]，泊松分布 $p(k;\lambda)=\frac{\lambda^k}{k!}e^{-\lambda}$ 中的 $\lambda$ 的含义是试验次数足够大时发生某事件的次数（ $np_n(n\rightarrow \infty)$ ，即事件发生次数的期望）而指数分布中 $\lambda$ 的含义则为单位时间发生该事件的次数. [check-wiki](https://zh.wikipedia.org/zh-cn/%E6%8C%87%E6%95%B0%E5%88%86%E5%B8%83) 也可以用 $\beta=\frac{1}{\lambda}$ 表示指数分布，这时的 $\beta$ 也称为<u>发生率</u>.
 
 指数分布和[[#几何分布（二）]]一样具有无记忆性质，前者的无记忆性刻画为 $\forall s>0,t>0$ ：
 
@@ -636,8 +645,48 @@ $$f(x)=\left\{\begin{aligned}
 &\frac{\lambda^n}{(n-1)!}x^{n-1}e^{-\lambda x},x>0
 \end{aligned}\right.$$
 
-当 $n=1$ 时即为指数分布.
+当 $n=1$ 时即为指数分布. #imcomplete-further-wanted 
 
+更一般的形式：
 
+$\Gamma$ 分布： $\xi$ 的密度函数为：
+
+$$f(x)=\left\{\begin{aligned}
+&0,x\leq0\\
+&\frac{\lambda^r}{\Gamma(r)}x^{r-1}e^{-\lambda x},x>0
+\end{aligned}\right.$$
+
+[[MA#Gamma 函数]]
+
+其中 $\lambda,r>0$ ，称 $\xi$ 服从以 $\lambda,r$ 为参数的 $\Gamma$ 分布，记作 $\xi\sim G(\lambda,r)$ .
+
+当 $r$ 为整数时即为 Erlang 分布；
+
+## 随机向量
+
+设 $\xi,\eta$ 为概率空间 $(\Omega,\mathcal{F},\mathcal{P})$ 上的两个随机变量，称 $(\xi,\eta)$ 为随机向量.
+
+定义**联合分布函数**： $F(x,y)=\mathcal{P}(\xi<x,\eta<y)=\mathcal{P}(\{\omega\in \Omega:\xi(\omega)<x,\eta(\omega)<y\})$ . 由定义可知 $F(x,y)\leq \min\{F(x),F(y)\}$ . 
+
+由 $F(x,y)$ 的定义可以得到：
+
+- $\mathcal{P}(\xi<x,\eta\geq y)=F(x,+\infty)-F(x,y)$  ；
+- $\mathcal{P}(\xi>x,\eta\leq y)=F(+\infty,y+0)-F(x+0,y+0)$ ；
+- $\mathcal{P}(\xi=x,\eta<y)=F(x+0,b)-F(x,y)$ ；
+
+可以证明 $F$ 具有和 [[#^DistributionFunctionProperty]] 平行的性质：
+
+1. $F$ 关于每个分量单调不减；
+2. $F(-\infty,y)=F(x,-\infty)=F(-\infty,-\infty)=0$ ， $F(+\infty,+\infty)=1$ ；
+3. $F$ 关于每个分量左连续；
+
+此外：
+
+$$\begin{aligned}
+&\mathcal{P}(\xi\in[a_1,b_1),\eta\in[a_2,b_2))\\
+&=F(b_1,b_2)-F(a_1,b_2)-F(b_1,a_2)+F(a_1,a_2)\geq0
+\end{aligned}$$
+
+- $F(a,+\infty)=F(a)$ ， $F(+\infty,b)=F(b)$ .
 
 
