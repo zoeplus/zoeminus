@@ -27,8 +27,11 @@ nav:
     - 'PyTorch': 'Cookbooks/DLCB.md'
     - 'Python DM & ML': 'Cookbooks/PyDCB.md'
   - 零零五五:
-    - '遥望': 'Likes/Divisadero.md'
-    - '存在主义': 'Likes/Existential.md'
+    - '遥望': 'Parrot/Divisadero.md'
+    - '感官刺激': 'Parrot/Senses.md'
+    - '存在主义': 
+      - '存在 I': 'Parrot/Existential.md'
+      - '对存在的追求': 'Parrot/PoB.md'
 
 plugins:
   - search
@@ -91,14 +94,14 @@ theme:
       scheme: default
       primary: amber
       toggle:
-        icon: material/lightbulb
+        icon: material/lightbulb-outline
         name: 切暗色
     # Palette toggle for dark mode
     - media: "(prefers-color-scheme: dark)"
       scheme: slate
       primary: amber
       toggle:
-        icon: material/lightbulb-outline
+        icon: material/lightbulb
         name: 切亮色
 
 extra_javascript:
@@ -111,6 +114,7 @@ extra_javascript:
   - https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js
   - https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/copy-tex.min.js
   - javascripts/katex.js    # katex
+  - javascripts/tabSync.js
 
 extra_css:
   - https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css
