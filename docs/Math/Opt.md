@@ -1,4 +1,4 @@
-# Pre
+# 依赖和简介
 
 对于范数和矩阵理论的[介绍](MAlg.md#范数).
 
@@ -193,7 +193,43 @@ $$\begin{aligned}
 
 >[!note]- 若 $F$ 有界，则 $F=\{F\text{ 的顶点的凸组合}\}$ . #imcomplete-lack-proofs 
 
+设 $D$ 是一个凸集， $d$ 是一个向量，如果 $\forall x\in D,\alpha\geq0$ ，都有 $x+\alpha d\in D$ 则称 $d$ 为 $D$ 的一个**方向**.
+
 >[!note]- 若 $F$ 无界，则任一可行域中的点 $x$ 都可以表示为 $x=\sum\limits_{i=1}^{k}\alpha_iv_i+\alpha d$ ，其中 $\sum\limits_{i=1}^{k}\alpha_i=1,\alpha_i\geq0$ ， $v_i$ 为 $F$ 的顶点， $\alpha\geq0$ ， $d$ 为 $F$ 的一个方向.
 
+>[!note]- 若线性规划标准形式有解，则其必然在可行域 $F$ 的某个顶点处达到最优值.
 
+## 单纯形算法
+
+```python title="修正单纯形算法" linenums="1"
+输入： 初始基本可行解 x_0, c, A, b
+输出： 最优解 x
+
+x = x_0
+1. 确定 A 中基阵 B 对应的指标集 I_B, c_B; 非基阵 N 对应的指标集 I_N, c_N; 
+# 计算 .t() 表示转置 .inv() 表示求逆
+Delta = c_N.t() - c_N.t() * B.inv() * N;
+# 初始化单纯形表（simplex table）
+St = con(c, A, dim = 0)
+St = con(St, [0, b].t(), dim = 1)
+
+# 直到 Delta >= 0 时停止迭代
+while (not Delta >= 0)
+    k = c_N[Delta.argmin()]
+    if (B.inv()) * A[k] <= 0) print("无解") return none;
+    # 计算用于 Gauss-Jordan 消元的主元素的位置
+    filter = I_B[(B.inv() * A[k])[I_B] > 0)];
+    check_list = (B.inv() * b) / (B.inv() * A[k])[filter])
+    r = (I_B[filter])[check_list.argmin()]
+    main_ele = (B.inv * A[k])[r]
+    # 下面用主元素 main_ele 对单纯形进行 Gauss-Jordan 消元
+    
+    # 调整基指标和非基指标
+return x
+```
+
+
+## 两阶段法
+
+## M 法
 
