@@ -794,7 +794,7 @@ $$\{X\}\cup\{U_1\cap U_2\cap \cdots\cap U_n:U_i\in \mathcal{B},n\geq1\}$$
 ## 紧
 
 >[!summary]+ 自查表
->- 紧空间的定义？
+>- 紧空间的定义；
 >- 紧空间不具有开遗传性质的例子；
 >- 紧空间的紧子集不一定为闭集的例子；
 >- 紧空间的等价刻画？（目前有三种）
@@ -810,7 +810,16 @@ $$\{X\}\cup\{U_1\cap U_2\cap \cdots\cap U_n:U_i\in \mathcal{B},n\geq1\}$$
 >[!note]- 紧是闭遗传性质.
 >证明：设 $K$ 为紧空间 $X$ 的闭子集，对于任何 $K$ 的开覆盖 $\mathcal{U}=\{V\cap Y:V\in \mathcal{V}\}$ ，其中 $\mathcal{V}$ 为 $X$ 上的开集族，进而 $\mathcal{V}\cup \{X\backslash Y\}$ 为 $X$ 的一个覆盖，从而存在 $X$ 的有限子覆盖： $\{V_1,\cdots,V_n\in \mathcal{V},X\backslash Y\}$ ，从而 $Y=X\cap Y=\bigcup_{i=1}^nV_i\cap Y=\bigcup_{i=1}^nV_i\cap Y$ ， $\{V_i\cap Y\}_{1\leq i\leq n}$ 即为 $Y$ 的有限子覆盖.
 
->[!warning]+ 紧空间的紧子集不一定闭. #imcomplete-lack-examples 
+>[!warning]+ 紧空间的紧子集不一定闭.
+>证明：考虑 $X=\{0,1\}$ ，定义在 $X$ 上的拓扑空间为 $\{\emptyset,\{1\},X\}$ ，则 $\{1\}$ 为 $X$ 的紧集，而 $\{1\}$ 是开集.
+>
+
+>[!warning]- 紧空间的无限紧子集是否一定闭？ #issue 
+
+>[!warning]- 两个紧子集的交不一定是紧子集.
+>再如：考虑 $\mathbb{N}\cup\{e,\pi\}$ ，其拓扑为 $\mathbb{N}$ 的离散拓扑加上 $\{e\}\cup \mathbb{N},\{\pi\}\cup \mathbb{N}$ ， $\{e,\pi\}\cup \mathbb{N}$ . 可验证其是拓扑，但 $\mathbb{N}$ 不是紧子集.
+
+>[!warning]- 闭紧集的交不一定是紧集. #imcomplete-lack-proofs 
 
 下面给出紧空间的等价刻画. 设集族 $\mathcal{A}$ ，如果 $\mathcal{A}\neq\emptyset$ 并且对于 $\mathcal{A}$ 的任意有限个元素，其交非空，则称 $\mathcal{A}$ 具有**有限交性质**.
 
@@ -852,6 +861,14 @@ $$\{X\}\cup\{U_1\cap U_2\cap \cdots\cap U_n:U_i\in \mathcal{B},n\geq1\}$$
 
 - 当 $X$ 是第二可数空间时，紧、序列紧、可数紧等价；
 - 当 $X$ 是第一可数空间时，若 $X$ 紧，则 $X$ 序列紧、可数紧；
+
+>[!note]- 可数紧空间的连续像可数紧.
+>证明：设 $X$ 为可数紧空间，设 $f$ 为 $X$ 上的连续函数，对于 $f(X)$ 的一个可数开覆盖 $\{U_n\}_{n\geq1}$ ， $f^{-1}(U_n),\forall n\geq1$ 为开集，并且 $\bigcup_{n\geq1}f^{-1}(U_n)\supset f^{-1}\left(\bigcup_{n\geq1}U_n\right)\supset f^{-1}(f(X))=X$ ，从而存在可数子覆盖 $\{f^{-1}(U_{n_k})\}_{1\leq k\leq m}$ ， $\bigcup_{1\leq k\leq m}f^{-1}(U_{n_k})\supset X$ ，从而 $\bigcup_{1\leq k\leq m}U_{n_k}\supset \bigcup_{1\leq k\leq m}f(f^{-1}(U_{n_k}))\supset f(X)$ ，所以 $f(X)$ 可数紧.
+ 
+>[!note]- 拓扑空间 $X$ 可数紧当且仅当 $X$ 的每个单调降的非空闭集列都有非空的交.
+>证明： $\Rightarrow$ 设 $\{F_n\}_{n\geq1}$ 为 $X$ 的单调降非空闭集列，则 $\{X\backslash F_n\}_{n\geq1}$ 为 $X$ 的非空开集列，如果 $\bigcap_{n\geq1} F_n=\emptyset$ ，则 $\{X\backslash F_n\}_{n\geq1}$ 为 $X$ 的开覆盖，从而存在有限子覆盖 $\{X\backslash F_{n_k}\}_{1\leq k\leq m}$ ，从而 $\bigcap_{1\leq k\leq m}F_{n_k}=\emptyset$ ，又 $F_n$ 单调降，所以 $F_{n_l}\subset \bigcap_{1\leq k\leq m}F_{n_k}=\emptyset$ ，所以当 $n\geq n_l(l>k)$ 时 $F_n=\emptyset$ 矛盾！ 
+>
+>$\Leftarrow$ 设 $\mathcal{U}=\{U_n\}_{n\geq1}$ 为 $X$ 的可数开覆盖，不妨设 $\mathcal{U}$ 单调递增，考虑 $\mathcal{F}=\{X\backslash U_n\}_{n\geq1}$ ，若 $X\backslash U_n\neq \emptyset$ ， $\bigcap_{n\geq1}\mathcal{F}=X\backslash \bigcup_{n\geq1}U_n\neq\emptyset$ ，矛盾！
 
 ## Hausdorff
 
@@ -991,17 +1008,21 @@ $\emptyset\cup\{\mathbb{R}\backslash F:F=F\text{ 为有限集}\}$ .
 
 ### 余可数拓扑
 
-| 拓扑  | 闭集族 | 邻域系 | 第一可数 | 基   | 第二可数 | 收敛  | 紧   |
-| --- | --- | --- | ---- | --- | ---- | --- | --- |
-|     |     |     |      |     |      |     |     |
+| 拓扑  | 闭集族 | 邻域系 | 第一可数 | 基   | 第二可数 | 收敛  |
+| --- | --- | --- | ---- | --- | ---- | --- |
+|     |     |     |      |     |      |     |
+| 紧   |     |     |      |     |      |     |
+|     |     |     |      |     |      |     |
 
 ### Sorgenfrey 拓扑
 
 S<u>o</u>rgenfrey 直线是由 $\mathcal{B}=\{[a,b):a,b\in \mathbb{R},a<b\}$ 为基生成的拓扑.
 
-| 基   | 第二可数 | 拓扑  | 闭集族 | 邻域基 | 第一可数 | 收敛  | 紧   |
-| --- | ---- | --- | --- | --- | ---- | --- | --- |
-| ✅   | ✅ 否  |     |     | ✅   | ✅ 是  | ✅   | 否   |
+| 基   | 第二可数 | 拓扑  | 闭集族 | 邻域基 | 第一可数 | 收敛  |
+| --- | ---- | --- | --- | --- | ---- | --- |
+| ✅   | ✅ 否  |     |     | ✅   | ✅ 是  | ✅   |
+| 紧   |      |     |     |     |      |     |
+| 否   |      |     |     |     |      |     |
 
 下面借助基的等价定义说明 Sorgenfrey 第二可数：对于任意的包含 $x$ 的开集 $U$ ，存在 $B_x\in \mathcal{B}$ 使得 $x\in B_x\subset U$ ，因为 $[x,+\infty)$ 也是包含 $x$ 的开集，所以存在 $B_x'\in \mathcal{B}$ ： $B_x'=[x,a')\subset [x,+\infty]$ ，进而建立起 $\mathbb{R}$ 和 $\mathcal{B}$ 之间的一个双射. 所以 Sorgenfrey 直线第二可数. 类似地， Sorgenfrey 拓扑均非第二可数. [ste](https://math.stackexchange.com/questions/1135993/mathbbr-with-the-lower-limit-topology-is-not-second-countable)
 
