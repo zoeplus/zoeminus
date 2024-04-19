@@ -1,0 +1,1591 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../Stat/">
+      
+      
+        <link rel="next" href="../DSA/">
+      
+      
+      <link rel="icon" href="../../imgs/zxr.ico">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.16">
+    
+    
+      
+        <title>最优化理论 - zoeminus</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.bcfcd587.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+  
+  
+  
+  
+  <style>:root{--md-annotation-icon:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9 7v2h4l-4 6v2h6v-2h-4l4-6V7H9m3-5a10 10 0 0 1 10 10 10 10 0 0 1-10 10A10 10 0 0 1 2 12 10 10 0 0 1 12 2Z"/></svg>');}</style>
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css">
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="amber" data-md-color-accent="amber">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../.." title="zoeminus" class="md-header__button md-logo" aria-label="zoeminus" data-md-component="logo">
+      
+  <img src="../../imgs/zx.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            zoeminus
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              最优化理论
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="amber" data-md-color-accent="amber"  aria-label="切暗色"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="切暗色" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7M9 21v-1h6v1a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1m3-17a5 5 0 0 0-5 5c0 2.05 1.23 3.81 3 4.58V16h4v-2.42c1.77-.77 3-2.53 3-4.58a5 5 0 0 0-5-5Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="amber" data-md-color-accent="amber"  aria-label="切亮色"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="切亮色" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7M9 21a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9v1Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/zoeplus/zoeminus" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    zoeminus
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="zoeminus" class="md-nav__button md-logo" aria-label="zoeminus" data-md-component="logo">
+      
+  <img src="../../imgs/zx.png" alt="logo">
+
+    </a>
+    zoeminus
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/zoeplus/zoeminus" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    zoeminus
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    主页
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    一
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            一
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Set/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    集合论
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../R/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    实数理论
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../GTopo/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    一般拓扑学
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../RF/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    实变函数
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../MAlg/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    矩阵代数
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    九
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            九
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Prob/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    概率论
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Stat/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    数理统计
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    最优化理论
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    最优化理论
+  </span>
+  
+
+      </a>
+      
+        
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="本文组织：">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      本文组织：
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      依赖和简介
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      凸集和凸函数
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="凸集和凸函数">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      凸集
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      线性规划
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="线性规划">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      单纯形算法
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      两阶段法
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#m" class="md-nav__link">
+    <span class="md-ellipsis">
+      M 法
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../DSA/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    数据结构与算法
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CLT/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    计算学习理论
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    二十二
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            二十二
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../DM/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    数据挖掘
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SL/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    统计学习
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../DL/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    深度学习
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    二十
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            二十
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Coding/C.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Coding/CPP/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    十九
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            十九
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Cookbooks/DLCB/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PyTorch
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Cookbooks/PyDCB/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Python DM & ML
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    零零五五
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            零零五五
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Parrot/Divisadero/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    遥望
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Parrot/Senses/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    感官刺激
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Parrot/LucidDreaming.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    清醒的梦
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_7_4" id="__nav_7_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    存在主义
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_4">
+            <span class="md-nav__icon md-icon"></span>
+            存在主义
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Parrot/Existential/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    存在 I
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Parrot/B&N.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    对存在的追求
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="本文组织：">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      本文组织：
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      依赖和简介
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      凸集和凸函数
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="凸集和凸函数">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      凸集
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      线性规划
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="线性规划">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      单纯形算法
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      两阶段法
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#m" class="md-nav__link">
+    <span class="md-ellipsis">
+      M 法
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+    <a href="https://github.com/zoeplus/zoeminus/commits/main/docs/Math/Opt.md" title="编辑此页" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"/></svg>
+    </a>
+  
+  
+
+
+  <h1>最优化理论</h1>
+
+<h2 id="_1">依赖和简介<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>对于范数和矩阵理论的<a href="../MAlg/#范数">介绍</a>.</p>
+<p>最优化方法主要分为两个步骤：<strong>优化建模</strong>和<strong>求解</strong>. 优化建模与特定的专业领域有关，本篇专述求解（算法）.</p>
+<p>最优化方法的分类：<strong>离散</strong> &amp; <strong>连续</strong>；<strong>有限维</strong> &amp; <strong>无限维</strong>. 本篇考虑的是 <span class="arithmatex">\(\mathbb{R}^n\)</span> 上的连续有限维优化.</p>
+<p><span class="arithmatex">\(\mathbb{R}^n\)</span> 中的优化问题. 通常记<strong>标准内积</strong> <span class="arithmatex">\(x,y\in \mathbb{R}^n,\langle x,y \rangle=\sum\limits_{i=1}^{n}x_iy_i\)</span> ，若给定一个<a href="../LAlg/#正定矩阵">正定</a>对称矩阵 <span class="arithmatex">\(P\)</span> ，记 <span class="arithmatex">\(\langle x,y \rangle_P=x^TPy\)</span> . 并可以定义<strong>矩阵内积</strong> <span class="arithmatex">\(A,B\in \mathbb{R}^{m\times n}, \langle A,B \rangle=\sum\limits_{i=1}^{m}\sum\limits_{j=1}^{n}a_{ij}b_{ij}=\text{tr}(A^TB)=\text{tr}(B^TA)\)</span> .</p>
+<p>连续优化的形式为： </p>
+<div class="arithmatex">\[\begin{aligned}
+&amp;\min_{x} f(x)\\
+&amp;s.t.\left\{\begin{aligned}
+&amp;c_i(x)=0,i=1,\cdots,m\\
+&amp;c_j(x)\geq0,j=m+1,\cdots,p
+\end{aligned}\right.
+\end{aligned}\]</div>
+<p>其中 <span class="arithmatex">\(c_i,i=1,\cdots,n\)</span> 为连续函数. 称 <span class="arithmatex">\(c_i(x)=0\)</span> 为<strong>等式约束</strong>， <span class="arithmatex">\(c_j(x)\geq0\)</span> 为<strong>不等式约束</strong>. 定义<strong>可行集</strong>： </p>
+<div class="arithmatex">\[F=\{x:c_i(x)=0,i=1,\cdots,m,c_j(x)\geq0,j=m+1,\cdots,p\}\]</div>
+<p>对于任意 <span class="arithmatex">\(x\in F\)</span> ，定义<strong>指标集合</strong>： </p>
+<p><span class="arithmatex">\(\mathcal{A}(x)=\{1,2,\cdots ,n\}\backslash \{k:c_k(x)&gt;0\}=\{1,\cdots,m\}\cup\{k:c_k(x)\leq 0\}\)</span> 为 <span class="arithmatex">\(x\)</span> 的<strong>积极约束</strong>， <span class="arithmatex">\(\{1,2,\cdots,n\}\backslash \mathcal{A}(x)\)</span> 称为 <span class="arithmatex">\(x\)</span> 的<strong>非积极约束</strong>. （此处的积极，指的是对于 <span class="arithmatex">\(x\)</span> 进行轻微绕动之后是否影响约束条件，一般来说对于 <span class="arithmatex">\(c_{i}(x)&gt;0\)</span> 约束，不会产生变化，因此称为非积极）. 定义<strong>整体最优解</strong> <span class="arithmatex">\(x^*\)</span> ，如果 <span class="arithmatex">\(\forall x\in F,f(x^*)\leq f(x)\)</span> ；并可以定义<strong>严格整体最优解</strong> <span class="arithmatex">\(x^*\)</span> ： <span class="arithmatex">\(\forall x\in F,x\neq x^*,f(x^*)&lt;f(x)\)</span> . <strong>局部最优解</strong>则为：对于 <span class="arithmatex">\(x^*\)</span> ，存在某一邻域 <span class="arithmatex">\(N\)</span> ， <span class="arithmatex">\(\forall x\in N\cap F,x\neq x^*,f(x^*)\leq f(x)\)</span> ，<strong>严格局部最优解</strong>类似.</p>
+<p>按照可行集可以将优化问题划分为<strong>凸优化</strong>和<strong>非凸优化</strong>，多数情况下凸优化简单，凸优化情形下局部最优即为整体最优.</p>
+<h2 id="_2">凸集和凸函数<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<h3 id="_3">凸集<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<p>凸优化中的可行集是<strong>凸集</strong>：对于 <span class="arithmatex">\(D\subset \mathbb{R}^n\)</span> ，称 <span class="arithmatex">\(D\)</span> 为凸集，如果 <span class="arithmatex">\(\forall x,y\in D,\forall \lambda\in(0,1)\)</span> ， <span class="arithmatex">\(\lambda x+(1-\lambda)y\in D\)</span> . 定义<strong>凸组合</strong>：对于 <span class="arithmatex">\(x_i\in \mathbb{R}^n\)</span> ， <span class="arithmatex">\(\alpha_i\in \mathbb{R}^n,\alpha_i&gt;0,\sum\limits_{i=1}^{m}\alpha_i=1\)</span> ， <span class="arithmatex">\(,i=1,\cdots,m\)</span> ，称 <span class="arithmatex">\(\sum\limits_{i=1}^{m}\alpha_ix_i\)</span> 为 <span class="arithmatex">\(x_1,\cdots,x_m\)</span> 的凸组合. 定义<strong>凸包</strong>： <span class="arithmatex">\(D\subset \mathbb{R}^n\)</span> ，称 <span class="arithmatex">\(H(D)=\{D\text{ 中有限多个点的凸组合}\}\)</span> 为 <span class="arithmatex">\(D\)</span> 的凸包.</p>
+<details class="warning">
+<summary>凸组合中 <span class="arithmatex">\(\alpha_i&gt;0\)</span> ，而不是 <span class="arithmatex">\(\geq\)</span> .</summary>
+</details>
+<p>注意上述对于凸包 <span class="arithmatex">\(H(D)\)</span> 的叙述并不要求 <span class="arithmatex">\(D\)</span> 为凸集，但若 <span class="arithmatex">\(D\)</span> 为凸集则有以下结论：</p>
+<details class="note">
+<summary>设 <span class="arithmatex">\(D\)</span> 为凸集，则 <span class="arithmatex">\(D\)</span> 中任意 <span class="arithmatex">\(m\)</span> 个点的凸组合都在 <span class="arithmatex">\(D\)</span> 中. 也即有 <span class="arithmatex">\(H(D)\subset D\)</span> .</summary>
+<p>证明：用归纳法证明， <span class="arithmatex">\(n=2\)</span> 是显然成立，设 <span class="arithmatex">\(n=k\)</span> 时也成立，对于 <span class="arithmatex">\(n=k+1\)</span> ： 设 <span class="arithmatex">\(x_1,\cdots,x_{k+1}\)</span> ，注意到 $$\begin{aligned}</p>
+</details>
+<p>\sum\limits_{i=1}^{k+1}\alpha_ix_i &amp;=\alpha_{k+1}x_{k+1}+\sum\limits_{i=1}^{k}\alpha_ix_i\<br />
+&amp;=\alpha_{k+1}x_{k+1}+(1-\alpha_{k+1})\sum\limits_{i=1}^{k}\frac{\alpha_i}{1-\alpha_{k+1}}x_i<br />
+\end{aligned}$$ 注意到后者为凸组合包含于 <span class="arithmatex">\(D\)</span> 中，从而得证.</p>
+<p>进而可以证明：</p>
+<details class="note">
+<summary>对于 <span class="arithmatex">\(D\subset \mathbb{R}^n\)</span> ， <span class="arithmatex">\(H(D)\)</span> 是所有包含 <span class="arithmatex">\(D\)</span> 的凸集中最小的凸集.</summary>
+<p>证明：<br />
+<span class="arithmatex">\(<span class="arithmatex">\(H(D)=\left\{\sum\limits_{i=1}^{k}\lambda_ix_i:k\in \mathbb{N},\lambda_i&gt;0,\sum\limits_{i=1}^{k}\lambda_i=1,x_i\in D\right\}\)</span>\)</span> 对于任意的 <span class="arithmatex">\(\sum\limits_{i=1}^{k_1}\lambda^1_ix^1_i,\cdots,\sum\limits_{i=1}^{k_m}\lambda^m_ix^m_i\)</span> ，考虑 <span class="arithmatex">\(<span class="arithmatex">\(\sum\limits_{j=1}^{m}\alpha_j\left(\sum\limits_{i=1}^{k_j}\lambda^j_ix_i^j\right)=\sum\limits_{j=1}^{m}\sum\limits_{i=1}^{k_j}\alpha_j\lambda_i^jx_i^j\)</span>\)</span> 注意到 <span class="arithmatex">\(\sum\limits_{j=1}^{m}\sum\limits_{i=1}^{k_j}\alpha_j\lambda_i^j=\sum\limits_{j=1}^{m}\alpha_j\sum\limits_{i=1}^{k_j}\lambda_i^j=\sum\limits_{j=1}^{m}\alpha_j=1\)</span> . 从而可知 <span class="arithmatex">\(H(D)\)</span> 为凸集. 下面证明 <span class="arithmatex">\(H(D)\)</span> 为包含 <span class="arithmatex">\(D\)</span> 的最小凸集：设 <span class="arithmatex">\(B_i\supset D\)</span> 为凸集显然 <span class="arithmatex">\(\bigcap_{i\in I}B_i\)</span> 仍然为包含 <span class="arithmatex">\(D\)</span> 的凸集，显然 <span class="arithmatex">\(H(D)\)</span> 包含 <span class="arithmatex">\(D\)</span> 所以： <span class="arithmatex">\(<span class="arithmatex">\(H(D)\supset \bigcap_{i\in I}B_i\)</span>\)</span> 另一方面注意到 <span class="arithmatex">\(D\subset \bigcap_{i\in I}B_i\)</span> ，所以 <span class="arithmatex">\(<span class="arithmatex">\(H(D)\subset H(\cap_{i\in I}B_i)\subset \cap_{i\in I}B_i\)</span>\)</span> 所以 <span class="arithmatex">\(H(D)=\bigcap_{i\in I}B_i\)</span> .</p>
+</details>
+<p>注意这里没有限制 <span class="arithmatex">\(D\)</span> 本身是不是凸集. </p>
+<details class="note">
+<summary>设 <span class="arithmatex">\(D\subset \mathbb{R}^n\)</span> ， <span class="arithmatex">\(\forall x\in H(D)\)</span> ，其可以表示为 <span class="arithmatex">\(D\)</span> 中至多 <span class="arithmatex">\(n+1\)</span> 个点的凸组合.</summary>
+<p>证明：不妨设 <span class="arithmatex">\(x=\sum\limits_{i=1}^{N}\lambda_ix_i,x_i\in D\)</span> 并且 <span class="arithmatex">\(\sum\limits_{i=1}^{N}\lambda_i=1,\lambda_i&gt;0\)</span> . 不妨设 <span class="arithmatex">\(N&gt;n+1\)</span> ，则对于 <span class="arithmatex">\(x_i,1\leq i\leq N\)</span> ，存在不全为 <span class="arithmatex">\(0\)</span> 的数 <span class="arithmatex">\(\mu_i,2\leq i\leq N,\sum\limits_{i=2}^{N}\mu_i(x_i-x_1)=0\)</span> ，令 <span class="arithmatex">\(\mu_1=-\sum\limits_{i=2}^{N}\mu_i\)</span> ，则有 <span class="arithmatex">\(\sum\limits_{i=1}^{N}\mu_ix_i=0\)</span> . 断言： <span class="arithmatex">\(\mu_i,1\leq i\leq N\)</span> 中至少有一个正数，若不然 <span class="arithmatex">\(\mu_1\)</span> 则为正数，矛盾！下面取 <span class="arithmatex">\(\alpha\geq0\)</span> ，使得 <span class="arithmatex">\(<span class="arithmatex">\(x=\sum\limits_{i=1}^{N}\lambda_ix_i-\alpha \sum\limits_{i=1}^{N}\mu_ix_i=\sum\limits_{i=1}^{N}(\lambda_i-\alpha \mu_i)x_i\)</span>\)</span> 因为 <span class="arithmatex">\(\lambda_i&gt;0\)</span> ，所以对于 <span class="arithmatex">\(\mu_i,1\leq i\leq N\)</span> 中的正项（已经证明至少存在一个） <span class="arithmatex">\(\{\mu_{i_1},\cdots \mu_{i_k}\}\)</span>可以取 <span class="arithmatex">\(\alpha=\min\{\frac{\lambda_{i_m}}{\mu_{i_m}}:1\leq m\leq k\}=\frac{\lambda_j}{\mu_j}\)</span> ，进而 <span class="arithmatex">\(x=\sum\limits_{i\neq j}^{}(\lambda_i-\alpha \mu_i)x_i\)</span> ，由归纳法即可得到结论.<br />
+^AtMostnplus1</p>
+</details>
+<p>不难证明以下<strong>保凸运算</strong>：</p>
+<details class="note">
+<summary>任意多个凸集的交仍然是凸集.</summary>
+</details>
+<details class="note">
+<summary>凸集的内部和闭包仍然为凸集.</summary>
+<p>证明：设 <span class="arithmatex">\(D\)</span> 为凸集，对于 <span class="arithmatex">\(D^\circ\)</span> ，首先固定 <span class="arithmatex">\(t\in(0,1)\)</span> ，对于 <span class="arithmatex">\(U=tD^\circ+(1-t)D^\circ\subset D\)</span> ，不难证明 <span class="arithmatex">\(tD^\circ\)</span> 是开集，注意到 <span class="arithmatex">\(<span class="arithmatex">\(U=\bigcup_{x\in (1-t)D^\circ}(tD^\circ+x)\)</span>\)</span> 为开集，从而有 <span class="arithmatex">\(U=U^\circ\subset D^\circ\)</span> ，因此 <span class="arithmatex">\(D^\circ\)</span> 是凸集.</p>
+<p>对于凸集 <span class="arithmatex">\(D\subset \mathbb{R}^n\)</span> 的闭包 <span class="arithmatex">\(\bar{D}\)</span> ，取其中任意两点 <span class="arithmatex">\(a,b\)</span> ，从而存在 <span class="arithmatex">\(D\)</span> 中收敛到 <span class="arithmatex">\(a,b\)</span> 的子列 <span class="arithmatex">\(\{a_n\}_{n\geq1}\)</span> ， <span class="arithmatex">\(\{b_n\}_{n\geq1}\)</span> ，对于任意给定的 <span class="arithmatex">\(\lambda\in(0,1)\)</span> 有： <span class="arithmatex">\(<span class="arithmatex">\(\lambda a_n+(1-\lambda)b_n\in D,\forall n\geq1\)</span>\)</span> 反证： <span class="arithmatex">\(\lambda a+(1-\lambda)b\in \bar{D}^c\)</span> ，则 <span class="arithmatex">\(\lambda a_n+(1-\lambda)b_n\)</span> 将终在 <span class="arithmatex">\(\bar{D}^c\)</span> 中，矛盾！可得到结论.</p>
+</details>
+<details class="note">
+<summary>设仿射函数 <span class="arithmatex">\(f:\mathbb{R}^m\rightarrow \mathbb{R}^n,x\mapsto Ax+b,A\in \mathbb{R}^{n\times m},b\in \mathbb{R}^n\)</span> ，对于凸集 <span class="arithmatex">\(S\)</span> ， <span class="arithmatex">\(f(S)\)</span> 和 <span class="arithmatex">\(f^{-1}(S)\)</span> 都是凸集. 更一般的，凸集的数量乘积和平移都不改变凸性.</summary>
+<p>证明： <span class="arithmatex">\(f(S)\)</span> 的显然，对于 <span class="arithmatex">\(f^{-1}(S)\)</span> 中的凸组合 <span class="arithmatex">\(\sum\limits_{i=1}^{N}\lambda_ix_i\)</span> ，注意到 <span class="arithmatex">\(f\left(\sum\limits_{i=1}^{N}\lambda_i x_i\right)=\sum\limits_{i=1}^{N}\lambda_i (Ax_i+b)\)</span> ，从而可得结论.</p>
+</details>
+<details class="note">
+<summary>凸集的和仍然为凸集.</summary>
+</details>
+<details class="note">
+<summary>凸集到几个象限的投影仍然是凸集. e.g. 设 <span class="arithmatex">\(S\in \mathbb{R}^2\)</span> 是凸集，则 <span class="arithmatex">\(S_x=\{x:(x,y)\in S\}\)</span> 是凸集.</summary>
+</details>
+<details class="example">
+<summary>定义多面体： <span class="arithmatex">\(H=\{x\in \mathbb{R}^n:Ax\leq b,Cx=d\}\)</span> . 则 <span class="arithmatex">\(H\)</span> 为凸集.</summary>
+<p>证明：注意到 <span class="arithmatex">\(A\sum\limits_{i=1}^{N}\lambda_ix_i\leq \sum\limits_{i=1}^{N}\lambda_ib=b\)</span> ，另一个同理.</p>
+</details>
+<details class="example">
+<summary><span class="arithmatex">\(n\)</span> 阶半正定矩阵全体 <span class="arithmatex">\(S_+^n=\cap _{z\neq0}\{X\in S^n:z^TXz\geq0\}\)</span> 是凸集. 线性矩阵不等式的解集为凸集.</summary>
+<p><span class="arithmatex">\(S_+^n\)</span> 半正定矩阵为凸集容易验证. 设 <span class="arithmatex">\(A_i,B\in S^m\)</span> ，均为实矩阵，考虑线性不等式 <span class="arithmatex">\(<span class="arithmatex">\(A(x)=x_1A_1+\cdots +x_nA_n\preceq B\)</span>\)</span> 即 <span class="arithmatex">\(B-A(x)\)</span> 是半正定的，令 <span class="arithmatex">\(f(x)=B-A(x)\)</span> ，不难验证 <span class="arithmatex">\(f:\mathbb{R}^n\rightarrow S^m\)</span> 的原像仍然为凸集，进而可得结论. #imcomplete-whatever %%答案的说法是 <span class="arithmatex">\(f\)</span> 是一个仿射函数，没看出来%%</p>
+</details>
+<details class="note">
+<summary>线性分式函数保凸.</summary>
+</details>
+<p>定义<strong>透视函数</strong>： <span class="arithmatex">\(P:\mathbb{R}^{n+1}\rightarrow \mathbb{R}^n,P(z,t)=z/t\)</span> , <span class="arithmatex">\(\text{dom}(P)=\mathbb{R}^n\times\mathbb{R}_{+ +}\)</span> , <span class="arithmatex">\(\mathbb{R}_{++}\)</span> 表示正实数集. </p>
+<details class="note">
+<summary>若 <span class="arithmatex">\(C\subset \text{dom}(P)\)</span> 是凸集，则 <span class="arithmatex">\(P(C)\)</span> 是凸集. 反之也成立.</summary>
+<p>证明：需要用到透视函数的性质：首先由凸集的定义可知 <span class="arithmatex">\(\forall x_1,x_2\in C\)</span> ，线段 <span class="arithmatex">\(L=\{\lambda(\bar{x}_1,x_1)+(1-\lambda)(\bar{x}_2,x_2),\lambda\in[0,1]\}\)</span> 仍然包含在 <span class="arithmatex">\(C\)</span> 中，并且 <span class="arithmatex">\(<span class="arithmatex">\(P(L)=(\lambda \bar{x}_1+(1-\lambda)\bar{x}_2)/(\lambda x_1+(1-\lambda)x_2)\)</span>\)</span> 令 <span class="arithmatex">\(\mu=\frac{\lambda x_1}{\lambda x_1+(1-\lambda)x_2}\)</span> ，从而可得 <span class="arithmatex">\(P(L)=\mu P((\bar{x}_1,x_1))+(1-\mu)P(\bar{x}_2,x_2)\)</span> . 也就是说任何两个 <span class="arithmatex">\(P(C)\)</span> 中的点形成的线段都包含在 <span class="arithmatex">\(P(C)\)</span> 中（因为 <span class="arithmatex">\(P(L)\subset P(C)\)</span> ）任何凸组合都可以有限的表示为在线段上取一点. 从而可得结论.</p>
+<p>另一方面： #imcomplete-whatever </p>
+</details>
+<p><strong>线性分式函数</strong>则是由透视函数和仿射函数复合定义的：设 <span class="arithmatex">\(g:\mathbb{R}^n\rightarrow \mathbb{R}^{m+1}\)</span> ： <span class="arithmatex">\(<span class="arithmatex">\(g(x)=\begin{bmatrix}A \\ c^T\end{bmatrix}x+\begin{bmatrix}b  \\ d\end{bmatrix}\)</span>\)</span> 其中 <span class="arithmatex">\(A\in \mathbb{R}^{m\times n},c\in \mathbb{R}^{n},b\in \mathbb{R}^m,d\in \mathbb{R}\)</span> ，定义线性分式函数： <span class="arithmatex">\(f=P\circ g\)</span> ，即： <span class="arithmatex">\(<span class="arithmatex">\(f(x)=(Ax+b)/(c^Tx+d)\)</span>\)</span></p>
+<p>下面定义凸集的<strong>分离</strong>：设 <span class="arithmatex">\(D_1,D_2\subset \mathbb{R}^n\)</span> 是两个凸集，如果存在 <span class="arithmatex">\(\alpha\in \mathbb{R}^n,\alpha\neq0,\beta\in \mathbb{R}\)</span> ，使得 <span class="arithmatex">\(<span class="arithmatex">\(\begin{aligned}
+&amp;D_1\subset H^+=\{x\in \mathbb{R}^n:\alpha^Tx\geq \beta\}\\
+&amp;D_2\subset H^-=\{x\in \mathbb{R}^n:\alpha^Tx\leq \beta\}
+\end{aligned}\)</span>\)</span> 则称<strong>超平面</strong> <span class="arithmatex">\(H=\{x\in \mathbb{R}^n:\alpha^Tx=\beta\}\)</span> 为 <span class="arithmatex">\(D_1,D_2\)</span> 的<strong>分离</strong>. 若 <span class="arithmatex">\(D_1,D_2\)</span> 中取 <span class="arithmatex">\(&gt;,&lt;\)</span> 则称 <span class="arithmatex">\(H\)</span> 为 <span class="arithmatex">\(D_1,D_2\)</span> 的<strong>严格分离</strong>. ^SeperateHyperplane</p>
+<p>类似于二维或者三维上的凸集，有下面的存在唯一最近点定理：</p>
+<details class="note">
+<summary>设 <span class="arithmatex">\(D\subset \mathbb{R}^n\)</span> 是非空<u>闭</u>凸集， <span class="arithmatex">\(y\notin D\)</span> ，则 1) 存在唯一 <span class="arithmatex">\(\bar{x}\in D\)</span> 满足 <span class="arithmatex">\(\lVert \bar{x}-y\rVert=\inf_{x\in D}\lVert x-y\rVert\)</span> ；2) <span class="arithmatex">\(\bar{x}:\lVert \bar{x}-y\rVert=\inf_{x\in D}\lVert x-y\rVert\)</span> 当且仅当 <span class="arithmatex">\((x-\bar{x})^T(\bar{x}-y)\geq0\)</span> .</summary>
+<p>证明：利用连续函数可以在紧集（在 <span class="arithmatex">\(\mathbb{R}^n\)</span> 中，等价于有界闭集）中可以取得最小值. #imcomplete %%这里最好能更新一下<a href="../R/">实数理论</a>%% 首先取 <span class="arithmatex">\(z\in D\)</span> . 取 <span class="arithmatex">\(R=\lVert y-z\rVert\)</span> ，从而可得 <span class="arithmatex">\(C=\bar{B}(z,R)\cap D\)</span> 为 <span class="arithmatex">\(\mathbb{R}^n\)</span> 上的有界闭集，又 <span class="arithmatex">\(\lVert \cdot\rVert\)</span> 为连续函数（事实上，一致连续），从而可在 <span class="arithmatex">\(C\)</span> 上取得 <span class="arithmatex">\(\inf\)</span> ，记 <span class="arithmatex">\(\lVert \bar{x}-y\rVert=\inf_{x\in C}\lVert x-y\rVert\)</span> ，当 <span class="arithmatex">\(x\notin C\)</span> 时， <span class="arithmatex">\(\lVert x-y\rVert\geq R\geq \lVert \bar{x}-y\rVert\)</span> 因此 <span class="arithmatex">\(\lVert \bar{x}-y\rVert=\inf_{x\in D}\lVert x-y\rVert\)</span> .<br />
+对于唯一性的证明：考虑 <span class="arithmatex">\(<span class="arithmatex">\(\begin{aligned}
+\left\lVert \frac{1}{2}\bar{x}-\frac{1}{2}y-\frac{1}{2}y+\frac{1}{2}\bar{x}'\right\rVert &amp;\leq \frac{1}{2}\left\lVert \bar{x}-y\right\rVert+\frac{1}{2}\lVert \bar{x}'-y\rVert\\
+&amp;=\lVert \bar{x}-y\rVert
+\end{aligned}\)</span>\)</span> 并且 <span class="arithmatex">\(<span class="arithmatex">\(\left\lVert \frac{\bar{x}+\bar{x}'}{2}-y\right\rVert\geq\lVert \bar{x}-y\rVert\)</span>\)</span> 则上不等式可取等，满足取等条件： <span class="arithmatex">\(<span class="arithmatex">\(\frac{1}{2}(\bar{x}-y)=\frac{\alpha}{2}(\bar{x}'-y)\)</span>\)</span> 取模长可得 <span class="arithmatex">\(\alpha=1\)</span> ，从而可得 <span class="arithmatex">\(\bar{x}=\bar{x}'\)</span> .</p>
+<p>对 2) ， <span class="arithmatex">\(\rightarrow\)</span> 观察可得 <span class="arithmatex">\(<span class="arithmatex">\(\begin{aligned}
+\lVert x-y\rVert^2 &amp;=\lVert x-\bar{x}+\bar{x}-y\rVert^2\\
+&amp;=\lVert x-\bar{x}\rVert^2+\lVert \bar{x}-y\rVert^2+2(x-\bar{x})^T(\bar{x}-y)\\
+\end{aligned}\)</span>\)</span> 但这一形式无法解决问题，因此考虑利用凸集的性质，和上面的 <span class="arithmatex">\(<span class="arithmatex">\(\begin{aligned}
+\lVert \lambda x+(1-\lambda)\bar{x}-y\rVert^2&amp;=\lVert \bar{x}-y+\lambda(x-\bar{x})\rVert^2\\
+&amp;=\lVert \bar{x}-y\rVert^2+\lambda^2\lVert x-\bar{x}\rVert^2\\
+&amp;+2\lambda(x-\bar{x})^T(\bar{x}-y)\\
+&amp;\geq \lVert \bar{x}-y\rVert^2
+\end{aligned}\)</span>\)</span> 从而可以得到 <span class="arithmatex">\(<span class="arithmatex">\(\lambda^2\lVert x-\bar{x}\rVert^2+2\lambda(x-\bar{x})^T(\bar{x}-y)\geq0\)</span>\)</span> 其中 <span class="arithmatex">\(\lambda\in(0,1)\)</span> ，因此 <span class="arithmatex">\((x-\bar{x})^T(\bar{x}-y)\geq0\)</span> . 利用参数的任意性求解，和<a href="#atmostnplus1">#^AtMostnplus1</a>相似.</p>
+<p><span class="arithmatex">\(\Leftarrow\)</span> ：直接由 $$\begin{aligned}\lVert x-y\rVert^2 &amp;=\lVert x-\bar{x}+\bar{x}-y\rVert^2\ <br />
+&amp;=\lVert x-\bar{x}\rVert^2+\lVert \bar{x}-y\rVert<sup>2+2(x-\bar{x})</sup>T(\bar{x}-y)\<br />
+\end{aligned}<br />
+$$ 得到结论.</p>
+</details>
+<p>下面是一个重要的引理，即存在超平面将位于非空闭凸集 <span class="arithmatex">\(D\)</span> 外的一点 <span class="arithmatex">\(y\)</span> 与凸集 <span class="arithmatex">\(D\)</span> 分开：</p>
+<details class="note">
+<summary>设 <span class="arithmatex">\(D\subset \mathbb{R}^n\)</span> 是非空<u>闭</u>凸集， <span class="arithmatex">\(y\notin D\)</span> ，则存在 <span class="arithmatex">\(\alpha\in \mathbb{R}^n,\alpha\neq0\)</span> ， <span class="arithmatex">\(\beta\in \mathbb{R}\)</span> 使得 <span class="arithmatex">\(\alpha^Tx\leq\beta&lt;\alpha^Ty,\forall x\in D\)</span> .</summary>
+<p>证明：已知 <span class="arithmatex">\((x-\bar{x})^T(\bar{x}-y)\geq0\)</span> . 从而 <span class="arithmatex">\((\bar{x}-y)^T(x-\bar{x})\geq0\)</span> ，进而可得 <span class="arithmatex">\(<span class="arithmatex">\((y-\bar{x})^Tx\leq (y-\bar{x})^T\bar{x}\)</span>\)</span> 令 <span class="arithmatex">\(\alpha=y-\bar{x}\)</span> 从而可得： <span class="arithmatex">\(<span class="arithmatex">\(\alpha^Tx\leq \alpha^T\bar{x}=\alpha^T(\bar{x}-y+y)=-\alpha^T\alpha+\alpha^Ty&lt;\alpha^Ty\)</span>\)</span> 并且可取 <span class="arithmatex">\(\beta=\alpha^T\alpha+\alpha^Ty\)</span> 得到结论.</p>
+</details>
+<p>下面这个定理建立在特定条件下的线性不等式和线性等式之间的等价关系.</p>
+<details class="note">
+<summary>Farkas 引理：设 <span class="arithmatex">\(A\in \mathbb{R}^{m\times n}\)</span> ， <span class="arithmatex">\(b\in \mathbb{R}^n\)</span> ，则 1. <span class="arithmatex">\(Ax\leq 0,b^Tx&gt;0\)</span> 2. <span class="arithmatex">\(A^Ty=b,y\geq0\)</span> 中有且仅有一个有解.</summary>
+<p>证明：假设 <span class="arithmatex">\(1,2\)</span> 均有解 <span class="arithmatex">\(x_0,y_0\)</span> ，则 <span class="arithmatex">\(A^Ty_0=b\rightarrow x\rightarrow x_0^TA^Ty_0=x_0^Tb=(Ax_0)^Ty_0\)</span> ，注意到 <span class="arithmatex">\(Ax_0\leq 0,x_0^Tb&gt;0,y_0\geq0\)</span> 从而可得矛盾. </p>
+<p>另一方面，假设 <span class="arithmatex">\(1,2\)</span> 均无解，则取 <span class="arithmatex">\(<span class="arithmatex">\(D=\{z:z=A^Ty,y\geq0\}\)</span>\)</span> 显然 <span class="arithmatex">\(D\)</span> 为非空<u>闭</u>凸集（仿射变换将凸集映射到凸集）并且 <span class="arithmatex">\(b\notin D\)</span> ，从而对于存在 <span class="arithmatex">\(\alpha\in \mathbb{R}^n,\beta\in \mathbb{R}\)</span> ，对任意的 <span class="arithmatex">\(z\in D\)</span> ，有： <span class="arithmatex">\(<span class="arithmatex">\((A\alpha)^Ty=\alpha^TA^Ty=\alpha^Tz\leq\beta&lt;\alpha^Tb=b^T\alpha,\forall y\geq0\)</span>\)</span> </p>
+<p>注意到 <span class="arithmatex">\(b^T\alpha&gt;(A\alpha)^T0=0\)</span> . 而若 <span class="arithmatex">\(A\alpha\)</span> 中存在分量 <span class="arithmatex">\(&gt;0\)</span> 由 <span class="arithmatex">\(y\)</span> 的任意性，可以取对应分量位置的正值而其余位置为 <span class="arithmatex">\(0\)</span> ，可得 <span class="arithmatex">\(\exists y',(A\alpha)^Ty'&gt;b^T\alpha\)</span> ，所以 <span class="arithmatex">\(A\alpha\leq0\)</span> ，这与 <span class="arithmatex">\(1\)</span> 无解矛盾！<br />
+综上 1. 2. 有且只有一个有解.<br />
+^Farkas</p>
+</details>
+<p>下面定义<strong>支撑</strong>的概念：设 <span class="arithmatex">\(D\)</span> 为非空集合， <span class="arithmatex">\(\bar{x}\in \partial{D}\)</span> ，若存在 <span class="arithmatex">\(\alpha\neq0\)</span> 使得 <span class="arithmatex">\(<span class="arithmatex">\(D\subset H_{\bar{x}}^+=\{x:\alpha^T(x-\bar{x})\geq0\}\)</span>\)</span> 或者 <span class="arithmatex">\(<span class="arithmatex">\(D\subset H_{\bar{x}}^-=\{x:\alpha(x-\bar{x})\leq0\}\)</span>\)</span> 则称超平面 <span class="arithmatex">\(H_{\bar{x}}=\{x:\alpha(x-\bar{x})=0\}\)</span> 为 <span class="arithmatex">\(D\)</span> 在 <span class="arithmatex">\(\bar{x}\)</span> 处的<strong>支撑超平面</strong>.</p>
+<p>下面这个定理说明了凸集的边界上的点的特殊性质：存在一个包含该点的超平面，使得凸集的闭包上的所有点均位于该超平面的一侧（可以位于该超平面上）</p>
+<details class="note">
+<summary>设 <span class="arithmatex">\(D\)</span> 为非空凸集， <span class="arithmatex">\(\bar{x}\in\partial{D}\)</span> ，则存在 <span class="arithmatex">\(\alpha\neq0,\alpha\in \mathbb{R}^n\)</span> 使得 <span class="arithmatex">\(\alpha^Tx\leq \alpha^T\bar{x},\forall x\in \bar{D}\)</span> .</summary>
+<p>证明：因为 <span class="arithmatex">\(\bar{x}\in \partial{D}\)</span> ，所以存在点列 <span class="arithmatex">\(\{x_n\}_{n\geq1}\rightarrow \bar{x},x_n\notin \bar{D},\forall n\geq1\)</span> ，注意到 <span class="arithmatex">\(\bar{D}\)</span> 为非空<u>闭</u>凸集（凸集的闭包是凸集之前已经证明过），根据上面的引理可知，存在 <span class="arithmatex">\(\{\alpha_n\}_{n\geq1}\)</span> 使得： <span class="arithmatex">\(<span class="arithmatex">\(\alpha_n^Tx&lt;\alpha_n^Tx_n,\forall x\in \bar{D}\)</span>\)</span> 进而有： <span class="arithmatex">\(<span class="arithmatex">\(\frac{\alpha_n^T}{\lVert \alpha_n\rVert}x&lt;\frac{\alpha_n^T}{\lVert \alpha_n\rVert}x_n,\forall x\in \bar{D}\)</span>\)</span> 有界序列有收敛子列： <span class="arithmatex">\(\left\{\frac{\alpha_{n_k}^T}{\lVert \alpha_{n_k}\rVert}\right\}_{k\geq1}\rightarrow \alpha\)</span>  ，从而可得 <span class="arithmatex">\(\alpha^T x\leq \alpha^T x_n\)</span> ，再令 <span class="arithmatex">\(n\rightarrow \infty\)</span> 可得 <span class="arithmatex">\(\alpha^Tx\leq \alpha^T \bar{x}\)</span> .</p>
+</details>
+<p>下面这个定义说明了更一般的情况：讨论 <span class="arithmatex">\(\bar{x}\notin D\)</span> 但不再限制 <span class="arithmatex">\(D\)</span> 是闭集.</p>
+<details class="note">
+<summary>设 <span class="arithmatex">\(D\)</span> 是非空凸集， <span class="arithmatex">\(\bar{x}\notin D\)</span> ，则存在 <span class="arithmatex">\(\alpha\neq0\)</span> 使得 <span class="arithmatex">\(\alpha^T x\leq \alpha^T\bar{x},\forall x\in \bar{D}\)</span> .</summary>
+<p>证明：不妨设 <span class="arithmatex">\(\bar{x}\notin \partial{D}\cup D\)</span> ，由 <span class="arithmatex">\(\bar{D}\)</span> 为非空闭凸集即可得到结论.</p>
+</details>
+<p>下面这个定理说明了两个不相交非空凸集之间存在分离超平面：</p>
+<details class="note">
+<summary>设 <span class="arithmatex">\(D_1,D_2\)</span> 是两个非空凸集并且 <span class="arithmatex">\(D_1\cap D_2=\emptyset\)</span> ，则存在 <span class="arithmatex">\(\alpha\neq0\)</span> 使得 <span class="arithmatex">\(\alpha^Tx\leq \alpha^Ty,\forall x\in \bar{D}_1,x_2\in \bar{D}_2\)</span> .</summary>
+<p>证明：令 <span class="arithmatex">\(D=D_1-D_2\)</span> 则 <span class="arithmatex">\(D\)</span> 为并且 <span class="arithmatex">\(0\neq D\)</span> ，从而存在 <span class="arithmatex">\(\alpha\in \mathbb{R}^n\)</span> 使得： <span class="arithmatex">\(<span class="arithmatex">\(\alpha^T(x-y)\leq \alpha^T0=0,\forall x\in D_1,y\in D_2\)</span>\)</span> 从而可得 <span class="arithmatex">\(\alpha^Tx\leq \alpha^Ty\)</span> （这里因为 <span class="arithmatex">\(D\subset \bar{D}\)</span> ，所以可以直接这样写） 令 <span class="arithmatex">\(\beta=\sup\{\alpha^Tx:x\in D_1\}\)</span> ，从而可得 <span class="arithmatex">\(<span class="arithmatex">\(\alpha^Tx\leq \beta\leq \alpha^Ty,\forall x,y\in D_1,D_2\)</span>\)</span> 注意到 <span class="arithmatex">\(f(x)=\alpha^Tx\)</span> 是连续函数，所以 <span class="arithmatex">\(<span class="arithmatex">\(\alpha^Tx\leq \beta\leq \alpha^Ty,\forall x,y\in D_1,D_2\)</span>\)</span> 否则若 <span class="arithmatex">\(\alpha^Tx_0&gt;\beta,x_0\in \bar{D_1}-D_1\)</span> ，则存在 <span class="arithmatex">\(x_0\)</span> 的一个最够小的邻域仍然满足，并且与 <span class="arithmatex">\(D_1\)</span> 有交点，矛盾！</p>
+</details>
+<p>之前已经介绍了<a href="#^Farkas">Farkas 引理</a>，下面介绍的引理</p>
+<h2 id="_4">线性规划<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<p><strong>线性规划</strong>（linear programming ，LP）的标准形式为：</p>
+<div class="arithmatex">\[\begin{aligned}
+&amp;\min\ a_1x_1+\cdots+a_nx_n\\
+&amp;s.t. \ a_{i_1}x_1+\cdots+a_{i_n}x_n=b_i\\
+&amp;\quad\ i=1,\cdots,m,x_j\geq0,j=1,\cdots,n
+\end{aligned}\]</div>
+<p>矩阵形式：</p>
+<div class="arithmatex">\[\begin{aligned}
+&amp;\min\ c^Tx\\
+&amp;s.t.\ Ax=b\\
+&amp;\quad\quad x\geq0
+\end{aligned}\]</div>
+<p>一般设 <span class="arithmatex">\(\text{rank}(A)=m,b\geq0\)</span> ，并且 <span class="arithmatex">\(m\leq n\)</span> . </p>
+<p>线性规划的可行域是一个<strong>多面体</strong>.</p>
+<p>可以通过引入变量的方式以将非标准形式的线性规划转化为标准形式. #imcomplete-lack-examples .</p>
+<p>由 <span class="arithmatex">\(\text{rank}(A)=m\)</span> ，设 <span class="arithmatex">\(A=(B\ N)\)</span> ， <span class="arithmatex">\(B\)</span> 为 <span class="arithmatex">\(m\)</span> 阶非奇异矩阵，相应地令 <span class="arithmatex">\(x=\begin{bmatrix}x_B &amp; x_N\end{bmatrix}\)</span> 从而可得 <span class="arithmatex">\(Ax=Bx_B+Nx_N=b\)</span> ，从而 <span class="arithmatex">\(x_B=B^{-1}b-B^{-1}Nx_N\)</span> ，所以 <span class="arithmatex">\(Ax=b\)</span> 有一解 <span class="arithmatex">\(\begin{bmatrix}B^{-1}b\\ 0\end{bmatrix}\)</span> ，称为<strong>基本解</strong>；如果 <span class="arithmatex">\(B^{-1}b\geq0\)</span> ，则 <span class="arithmatex">\(\begin{bmatrix}B^{-1}b\\ 0\end{bmatrix}\)</span> 即为该线性规划问题的解，称为<strong>基本可行解</strong>. （ <span class="arithmatex">\(A\)</span> 中的 <span class="arithmatex">\(m\)</span> 阶非奇异矩阵可能有多个，所以可能有多个基本可行解，此外注意，将 <span class="arithmatex">\(A\)</span> 写作 <span class="arithmatex">\((B,N)\)</span> 只是方便表示，实际计算时，只需要确定 <span class="arithmatex">\(A\)</span> 中的 <span class="arithmatex">\(m\)</span> 个线性无关列对应的列索引（基指标）即可，下面的所有表示都是如此）</p>
+<p>在处理简单的二维线性规划问题时，极值一般都在多边形（多面体）的顶点处取得，在线性规划中也有这一结论.</p>
+<p>定义<strong>顶点</strong>（极点）：设 <span class="arithmatex">\(S\subset \mathbb{R}^n\)</span> 是凸集，如果对于任意的 <span class="arithmatex">\(\lambda\in(0,1),y,z\in S\)</span> ， <span class="arithmatex">\(x=\lambda y+(1-\lambda)z\Rightarrow x=y=z\)</span> .  </p>
+<details class="example">
+<summary>闭球体 <span class="arithmatex">\(S:\{x:x^Tx=1\}\)</span> 的顶点全体为 <span class="arithmatex">\(\partial{S}\)</span> .</summary>
+</details>
+<details class="example">
+<summary><span class="arithmatex">\(\{x:x_1+x_2+x_3\leq1,x_i\geq0,i=1,2,3\}\)</span> 的顶点为 <span class="arithmatex">\((1,0,0)^T,(0,1,0)^T,(0,0,1)^T\)</span> .</summary>
+</details>
+<details class="note">
+<summary><span class="arithmatex">\(x\)</span> 是可行域 <span class="arithmatex">\(F=\{x:Ax=b,x\geq0\}\)</span> 的一个顶点的充要条件是 <span class="arithmatex">\(x\)</span> 是 LP 标准形式的一个基本可行解 <span class="arithmatex">\(\begin{bmatrix}B^{-1}b\\ 0\end{bmatrix}\)</span> .  #imcomplete-lack-proofs</summary>
+</details>
+<p>由上结论，依据 <span class="arithmatex">\(B^{-1}\)</span> 为从 <span class="arithmatex">\(A\)</span> 的线性无关列中选取而组成的可知，线性规划的可行域 <span class="arithmatex">\(F\)</span> 的顶点有限.</p>
+<details class="note">
+<summary>若 <span class="arithmatex">\(F\)</span> 有界，则 <span class="arithmatex">\(F=\{F\text{ 的顶点的凸组合}\}\)</span> . #imcomplete-lack-proofs</summary>
+</details>
+<p>设 <span class="arithmatex">\(D\)</span> 是一个凸集， <span class="arithmatex">\(d\)</span> 是一个向量，如果 <span class="arithmatex">\(\forall x\in D,\alpha\geq0\)</span> ，都有 <span class="arithmatex">\(x+\alpha d\in D\)</span> 则称 <span class="arithmatex">\(d\)</span> 为 <span class="arithmatex">\(D\)</span> 的一个<strong>方向</strong>.</p>
+<details class="note">
+<summary>若 <span class="arithmatex">\(F\)</span> 无界，则任一可行域中的点 <span class="arithmatex">\(x\)</span> 都可以表示为 <span class="arithmatex">\(x=\sum\limits_{i=1}^{k}\alpha_iv_i+\alpha d\)</span> ，其中 <span class="arithmatex">\(\sum\limits_{i=1}^{k}\alpha_i=1,\alpha_i\geq0\)</span> ， <span class="arithmatex">\(v_i\)</span> 为 <span class="arithmatex">\(F\)</span> 的顶点， <span class="arithmatex">\(\alpha\geq0\)</span> ， <span class="arithmatex">\(d\)</span> 为 <span class="arithmatex">\(F\)</span> 的一个方向.</summary>
+</details>
+<details class="note">
+<summary>若线性规划标准形式有解，则其必然在可行域 <span class="arithmatex">\(F\)</span> 的某个顶点处达到最优值.</summary>
+</details>
+<h3 id="_5">单纯形算法<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">修正单纯形算法</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">输入</span><span class="err">：</span> <span class="n">初始基本可行解</span> <span class="n">x_0</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">A</span><span class="p">,</span> <span class="n">b</span>
+<span class="n">输出</span><span class="err">：</span> <span class="n">最优解</span> <span class="n">x</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">x_0</span>
+<span class="mf">1.</span> <span class="n">确定</span> <span class="n">A</span> <span class="n">中基阵</span> <span class="n">B</span> <span class="n">对应的指标集</span> <span class="n">I_B</span><span class="p">,</span> <span class="n">c_B</span><span class="p">;</span> <span class="n">非基阵</span> <span class="n">N</span> <span class="n">对应的指标集</span> <span class="n">I_N</span><span class="p">,</span> <span class="n">c_N</span><span class="p">;</span> 
+<span class="c1"># 计算 .t() 表示转置 .inv() 表示求逆</span>
+<span class="n">Delta</span> <span class="o">=</span> <span class="n">c_N</span><span class="o">.</span><span class="n">t</span><span class="p">()</span> <span class="o">-</span> <span class="n">c_N</span><span class="o">.</span><span class="n">t</span><span class="p">()</span> <span class="o">*</span> <span class="n">B</span><span class="o">.</span><span class="n">inv</span><span class="p">()</span> <span class="o">*</span> <span class="n">N</span><span class="p">;</span>
+<span class="c1"># 初始化单纯形表（simplex table）</span>
+<span class="n">St</span> <span class="o">=</span> <span class="n">con</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">A</span><span class="p">,</span> <span class="n">dim</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">St</span> <span class="o">=</span> <span class="n">con</span><span class="p">(</span><span class="n">St</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="n">b</span><span class="p">]</span><span class="o">.</span><span class="n">t</span><span class="p">(),</span> <span class="n">dim</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># 直到 Delta &gt;= 0 时停止迭代</span>
+<span class="k">while</span> <span class="p">(</span><span class="ow">not</span> <span class="n">Delta</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="n">k</span> <span class="o">=</span> <span class="n">c_N</span><span class="p">[</span><span class="n">Delta</span><span class="o">.</span><span class="n">argmin</span><span class="p">()]</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">B</span><span class="o">.</span><span class="n">inv</span><span class="p">())</span> <span class="o">*</span> <span class="n">A</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">)</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;无解&quot;</span><span class="p">)</span> <span class="k">return</span> <span class="n">none</span><span class="p">;</span>
+    <span class="c1"># 计算用于 Gauss-Jordan 消元的主元素的位置</span>
+    <span class="nb">filter</span> <span class="o">=</span> <span class="n">I_B</span><span class="p">[(</span><span class="n">B</span><span class="o">.</span><span class="n">inv</span><span class="p">()</span> <span class="o">*</span> <span class="n">A</span><span class="p">[</span><span class="n">k</span><span class="p">])[</span><span class="n">I_B</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)];</span>
+    <span class="n">check_list</span> <span class="o">=</span> <span class="p">(</span><span class="n">B</span><span class="o">.</span><span class="n">inv</span><span class="p">()</span> <span class="o">*</span> <span class="n">b</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">B</span><span class="o">.</span><span class="n">inv</span><span class="p">()</span> <span class="o">*</span> <span class="n">A</span><span class="p">[</span><span class="n">k</span><span class="p">])[</span><span class="nb">filter</span><span class="p">])</span>
+    <span class="n">r</span> <span class="o">=</span> <span class="p">(</span><span class="n">I_B</span><span class="p">[</span><span class="nb">filter</span><span class="p">])[</span><span class="n">check_list</span><span class="o">.</span><span class="n">argmin</span><span class="p">()]</span>
+    <span class="n">main_ele</span> <span class="o">=</span> <span class="p">(</span><span class="n">B</span><span class="o">.</span><span class="n">inv</span> <span class="o">*</span> <span class="n">A</span><span class="p">[</span><span class="n">k</span><span class="p">])[</span><span class="n">r</span><span class="p">]</span>
+    <span class="c1"># 下面用主元素 main_ele 对单纯形进行 Gauss-Jordan 消元</span>
+
+    <span class="c1"># 调整基指标和非基指标</span>
+<span class="k">return</span> <span class="n">x</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="_6">两阶段法<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<h3 id="m">M 法<a class="headerlink" href="#m" title="Permanent link">&para;</a></h3>
+
+
+
+
+
+
+
+  
+    
+  
+  
+
+
+  <aside class="md-source-file">
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="最后更新">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
+    </span>
+    2024-04-19
+  </span>
+
+    
+    
+    
+    
+  </aside>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  回到页面顶部
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["revision.date", "navigation.path", "navigation.top", "content.action.edit", "content.code.copy"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.bd41221c.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/copy-tex.min.js"></script>
+      
+        <script src="../../javascripts/katex.js"></script>
+      
+        <script src="../../javascripts/tabSync.js"></script>
+      
+    
+  </body>
+</html>

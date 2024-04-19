@@ -1,0 +1,1892 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../GTopo/">
+      
+      
+        <link rel="next" href="../MAlg/">
+      
+      
+      <link rel="icon" href="../../imgs/zxr.ico">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.16">
+    
+    
+      
+        <title>实变函数 - zoeminus</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.bcfcd587.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+  
+  
+  
+  
+  <style>:root{--md-annotation-icon:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9 7v2h4l-4 6v2h6v-2h-4l4-6V7H9m3-5a10 10 0 0 1 10 10 10 10 0 0 1-10 10A10 10 0 0 1 2 12 10 10 0 0 1 12 2Z"/></svg>');}</style>
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css">
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="amber" data-md-color-accent="amber">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../.." title="zoeminus" class="md-header__button md-logo" aria-label="zoeminus" data-md-component="logo">
+      
+  <img src="../../imgs/zx.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            zoeminus
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              实变函数
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="amber" data-md-color-accent="amber"  aria-label="切暗色"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="切暗色" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7M9 21v-1h6v1a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1m3-17a5 5 0 0 0-5 5c0 2.05 1.23 3.81 3 4.58V16h4v-2.42c1.77-.77 3-2.53 3-4.58a5 5 0 0 0-5-5Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="amber" data-md-color-accent="amber"  aria-label="切亮色"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="切亮色" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7M9 21a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9v1Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/zoeplus/zoeminus" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    zoeminus
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="zoeminus" class="md-nav__button md-logo" aria-label="zoeminus" data-md-component="logo">
+      
+  <img src="../../imgs/zx.png" alt="logo">
+
+    </a>
+    zoeminus
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/zoeplus/zoeminus" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    zoeminus
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    主页
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    一
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            一
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Set/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    集合论
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../R/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    实数理论
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../GTopo/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    一般拓扑学
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    实变函数
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    实变函数
+  </span>
+  
+
+      </a>
+      
+        
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="本文组织：">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      本文组织：
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      引
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      实数与集合
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="实数与集合">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      构成区间
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      完备
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lebesgue" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lebesgue 测度
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Lebesgue 测度">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#lebesgue_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lebesgue 外测度
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lebesgue-lebesgue" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lebesgue 可测集和 Lebesgue 测度
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      可测集的变换
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      开闭集逼近可测集
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      等测包
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#borel-sigma-" class="md-nav__link">
+    <span class="md-ellipsis">
+      Borel \(\sigma-\) 代数
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mathbbrn-lebesgue" class="md-nav__link">
+    <span class="md-ellipsis">
+      \(\mathbb{R}^n\) 中的 Lebesgue 测度和可测集
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      可测函数
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../MAlg/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    矩阵代数
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    九
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            九
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Prob/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    概率论
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Stat/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    数理统计
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Opt/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    最优化理论
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../DSA/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    数据结构与算法
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CLT/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    计算学习理论
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    二十二
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            二十二
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../DM/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    数据挖掘
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SL/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    统计学习
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../DL/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    深度学习
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    二十
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            二十
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Coding/C.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Coding/CPP/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    十九
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            十九
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Cookbooks/DLCB/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PyTorch
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Cookbooks/PyDCB/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Python DM & ML
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    零零五五
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            零零五五
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Parrot/Divisadero/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    遥望
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Parrot/Senses/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    感官刺激
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Parrot/LucidDreaming.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    清醒的梦
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_7_4" id="__nav_7_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    存在主义
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_4">
+            <span class="md-nav__icon md-icon"></span>
+            存在主义
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Parrot/Existential/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    存在 I
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Parrot/B&N.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    对存在的追求
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="本文组织：">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      本文组织：
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      引
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      实数与集合
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="实数与集合">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      构成区间
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      完备
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lebesgue" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lebesgue 测度
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Lebesgue 测度">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#lebesgue_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lebesgue 外测度
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lebesgue-lebesgue" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lebesgue 可测集和 Lebesgue 测度
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      可测集的变换
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      开闭集逼近可测集
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      等测包
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#borel-sigma-" class="md-nav__link">
+    <span class="md-ellipsis">
+      Borel \(\sigma-\) 代数
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mathbbrn-lebesgue" class="md-nav__link">
+    <span class="md-ellipsis">
+      \(\mathbb{R}^n\) 中的 Lebesgue 测度和可测集
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      可测函数
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+    <a href="https://github.com/zoeplus/zoeminus/commits/main/docs/Math/RF.md" title="编辑此页" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"/></svg>
+    </a>
+  
+  
+
+
+  <h1>实变函数</h1>
+
+<h2 id="_1">引<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>引入实变函数的原因：</p>
+<p>在极限与积分换序这一问题下 Riemann 积分的有不足之处 #issue . 需要引入Lebegue积分.</p>
+<div class="arithmatex">\[\lim_{n\rightarrow \infty}\int_a^bf_n(x)dx\overset{?}{=}\int_a^b\lim_{n\rightarrow\infty}f_n(x)dx\]</div>
+<p>其中 <span class="arithmatex">\(f_n(x)\rightarrow f(x),x\in X\)</span> . 以下两个问题都可以转换为对该问题的讨论 #issue  ：</p>
+<div class="arithmatex">\[
+\frac{d}{dx}\int_a^bf(x,y)dy\overset{?}{=}\int_a^b\frac{\partial{}}{\partial{x}}f(x,y)dy
+\]</div>
+<div class="arithmatex">\[
+\int_a^{+\infty} dx\int_c^{+\infty}f(x,y)dy\overset{?}{=}\int_c^{+\infty} dy\int_a^{+\infty}f(x,y)dx
+\]</div>
+<p>Lebegue 积分是 Riemann 积分的推广， Riemann 积分要求： </p>
+<div class="arithmatex">\[\lim_{\max{\Delta T_i}\rightarrow0}\sum\limits_{k=1}^{n}\Delta T_kf(x_k)\]</div>
+<p>存在，即对于定义域进行划分后求和. Lebegue积分则对于值域进行划分然后求和： </p>
+<div class="arithmatex">\[\lim_{\max\{y_k-y_{k-1}\}\rightarrow0}\sum\limits_{k=1}^{n}\lvert \{x:y_{k-1}&lt;f(x)&lt;y_k\}\rvert\cdot y_{k-1}\]</div>
+<p>Lebegue积分在理论上有用，但实际计算时一般使用 Riemann积分. </p>
+<h2 id="_2">实数与集合<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>依赖：<a href="../R/">实数理论</a> ，<a href="../Set/">集合论</a></p>
+<p>测度：定义在 <span class="arithmatex">\(\mathbb{R}\)</span> 上. 也可以推广，例如 <span class="arithmatex">\(\mathcal{F}\)</span> 上的测度 <span class="arithmatex">\(\mathcal{P}\)</span> . 定义外测度以定义 Lebegue 测度，最终目标是 Lebegue 可测集，如何证明一个集合是可测的（2.5）.</p>
+<p>测度是定义在集合上的，所以需要对集合有一定了解. 涉及到集合极限、像集和原像集、等价 / 基数、拓扑（但主要用到的是开集和闭集，注意 Cantor 集和 Cantor 函数）</p>
+<details class="example">
+<summary><span class="arithmatex">\(\mathbb{R}\)</span> 上任一实函数的连续点全体为可数个开集的交.</summary>
+<p>引入振幅函数： <span class="arithmatex">\(w(I)\overset{def}{=}\sup_{x\in I}f(x)-\inf_{x\in I}f(x)\)</span> . <span class="arithmatex">\(w(x)\overset{def}{=}\lim_{\delta\rightarrow0^+}w(B(x,\delta))\)</span> ，因为 <span class="arithmatex">\(f\)</span> 在 <span class="arithmatex">\(x\)</span> 点连续， <span class="arithmatex">\(\Leftrightarrow w(x)=0\)</span> . 下面考虑 <span class="arithmatex">\(A=\bigcap_{n=1}^\infty\{x:w(x)&lt;\frac{1}{n}\}\)</span> ，证明 <span class="arithmatex">\(A\)</span> 为开集，首先证明 <span class="arithmatex">\(B=\{x:w(x)&lt;\frac{1}{n}\}\)</span> 是开集： <span class="arithmatex">\(\forall x_0\in B,\exists \delta_0,w(B(x,\delta_0))&lt;\frac{1}{n}\)</span> . 可以取 <span class="arithmatex">\(\delta_1:B(x_0,\delta_n)\subset B(x,\delta_0)\)</span> ，则 <span class="arithmatex">\(B\)</span> 为开集. 所以 <span class="arithmatex">\(A\)</span> （连续点全体）是可数个开集的交.</p>
+</details>
+<h3 id="_3">构成区间<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<p>下面讨论 <span class="arithmatex">\(\mathbb{R}\)</span> 上开集，首先定义<strong>构成区间</strong>：设 <span class="arithmatex">\(E\subset \mathbb{R}\)</span> 为开集，则若 <span class="arithmatex">\((a,b)\subset E\)</span> 并且 <span class="arithmatex">\(a,b\neq E\)</span> ，则称 <span class="arithmatex">\((a,b)\)</span> 为 <span class="arithmatex">\(E\)</span> 的构成区间.</p>
+<details class="note">
+<summary>设 <span class="arithmatex">\(X\subset \mathbb{R}\)</span> 为开集， <span class="arithmatex">\(\forall x\in X\)</span> ，存在包含 <span class="arithmatex">\(x\)</span> 的 <span class="arithmatex">\(E\)</span> 的构成区间.</summary>
+<p>证明：由 <span class="arithmatex">\(E\)</span> 为开集，可设 <span class="arithmatex">\(a=\inf\{a':a'&lt;x,(a',x)\subset E\}\)</span> ， <span class="arithmatex">\(b=\sup\{b':b'&gt;x,(x,b')\subset b'\}\)</span> . <span class="arithmatex">\(\forall y\in (a,x)\)</span> 由 <span class="arithmatex">\(a\)</span> 的定义可知 <span class="arithmatex">\((y,x)\subset E\)</span> ，从而可知 <span class="arithmatex">\((a,x)\subset E\)</span> ，同理可证 <span class="arithmatex">\((x,b)\subset E\)</span> ，因此 <span class="arithmatex">\((a,b)\subset E\)</span> ，如果 <span class="arithmatex">\(a\in E\)</span> ，则 <span class="arithmatex">\(\exists \delta&gt;0,(a-\delta,a+\delta)\subset E\)</span> ，从而 <span class="arithmatex">\(a-\frac{\delta}{2}\in E\)</span> ，与 <span class="arithmatex">\(a\)</span> 的定义矛盾. 所以 <span class="arithmatex">\(a\notin E\)</span> ，同理可得 <span class="arithmatex">\(b\notin E\)</span> ，因此 <span class="arithmatex">\((a,b)\)</span> 为 <span class="arithmatex">\(E\)</span> 的构造区间.</p>
+</details>
+<details class="note">
+<summary>任何一开集都可以表示为至多可数个<u>两两不交</u>的开区间的并.</summary>
+<p>设 <span class="arithmatex">\(E\)</span> 为开集，对于任意 <span class="arithmatex">\(x\in E\)</span> ，存在构造区间 <span class="arithmatex">\(I_x\ni x\)</span> ，由构造区间的定义可知 <span class="arithmatex">\(E=\cup_{x\in E}I_x\)</span> . 而对于任意两个构造区间 <span class="arithmatex">\(I_x=(a,b),I_y=(c,d),x\neq y\)</span> ，若 <span class="arithmatex">\(I_x\neq I_y\)</span> ，则不妨设 <span class="arithmatex">\(b&lt;d\)</span> 则 <span class="arithmatex">\(b\leq c\)</span> ，否则 <span class="arithmatex">\(b\in (c,d)\subset E\)</span> ，矛盾，因此两个构造区间要么不交要么重合. 下面说明构造区间的并为至多可数个：在每一个构造区间中取一有理数 <span class="arithmatex">\(r_x\in I_x\)</span> （重合的构造区间算作一个），进而得到一有理数集合 <span class="arithmatex">\(\{r_x\}_{x\in I'}\)</span> ，该有理数集合可以与可数集 <span class="arithmatex">\(\mathbb{Q}\times \mathbb{Q}\)</span> 的一个子集建立双射（还需要将每个有理数 <span class="arithmatex">\(r_x\)</span> 映射为 <span class="arithmatex">\((m,n):(m,n)=1\)</span> ），从而至多可数. 从而得证.</p>
+</details>
+<p>设 <span class="arithmatex">\(f:X\rightarrow \mathbb{R}\)</span> .<br />
+<span class="arithmatex">\(<span class="arithmatex">\(\begin{aligned}
+&amp;\limsup_{x\rightarrow x_0}f(x)=\lim_{\epsilon\rightarrow 0}\sup\{f(x):x\in X\cap B(x_0,\epsilon)\backslash\{x_0\}\}\\
+&amp;\liminf_{x\rightarrow x_0}f(x)=\lim_{\epsilon\rightarrow 0}\inf\{f(x):x\in X\cap B(x_0,\epsilon)\backslash\{x_0\}\}
+\end{aligned}\)</span>\)</span></p>
+<details class="note">
+<summary><span class="arithmatex">\(G=[0,1]-C\)</span> 的构成区间的长度和为 <span class="arithmatex">\(1\)</span> ，其中 <span class="arithmatex">\(C\)</span> 是 Cantor 集.</summary>
+<p>由 <span class="arithmatex">\(G\)</span> 的定义即可直接得到. 计算 <span class="arithmatex">\(\sum\limits_{n=1}^{\infty}\frac{2^{n-1}}{3^n}=1\)</span> </p>
+</details>
+<h3 id="_4">完备<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<p>定义<strong>聚点</strong>： <span class="arithmatex">\(x\in E\)</span> ，对于任意 <span class="arithmatex">\(x\)</span> 的邻域 <span class="arithmatex">\(U\)</span> ，若 <span class="arithmatex">\((U-\{x\})\cap E\neq\emptyset\)</span> ，则称 <span class="arithmatex">\(x\)</span> 为 <span class="arithmatex">\(E\)</span> 的聚点. 显然聚点一定是附着点. 称聚点的全体为<strong>导集</strong>，记为 <span class="arithmatex">\(E'\)</span> . 定义非聚点的点为<strong>孤立点</strong>. 根据 <a href="../GTopo/#closure">GTopo#^Closure</a> 中对于闭包的第二定义， <span class="arithmatex">\(\bar{E}=E\cup E'\)</span> .</p>
+<p>根据聚点的定义有等价定义：若 <span class="arithmatex">\(x\)</span> 为 <span class="arithmatex">\(E\)</span> 的聚点，则 <span class="arithmatex">\(\exists\{x_n\}_{n\geq1},x_n\neq x,x_n\rightarrow x(n\rightarrow \infty)\)</span> .</p>
+<details class="note">
+<summary>对于任意 <span class="arithmatex">\(\mathbb{R}^n\)</span> 中的集合 <span class="arithmatex">\(E\)</span> ， <span class="arithmatex">\(E'\)</span> 为闭集.</summary>
+<p>证明：说明 <span class="arithmatex">\(E'^c\)</span> 为开集即可.</p>
+</details>
+<p>定义<strong>完备集</strong>：没有孤立点的闭集. 显然完备集有以下等价定义：</p>
+<details class="note">
+<summary><span class="arithmatex">\(E\)</span> 是完备集等价于 <span class="arithmatex">\(E=E'\)</span> .</summary>
+</details>
+<p><span class="arithmatex">\(\mathbb{R}\)</span> 上的完备集还有以下等价刻画：</p>
+<details class="note">
+<summary><span class="arithmatex">\(F\subset \mathbb{R}\)</span> 为完备集的充分必要条件为 <span class="arithmatex">\(F^c\)</span> 为至多可数个两两<u>没有公共端点</u>的开区间之并.</summary>
+<p>证明：<br />
+<span class="arithmatex">\(\Rightarrow\)</span> ： <span class="arithmatex">\(F^c\)</span> 为开集，从而可以表示为至多可数个两两不相交的开区间的并（<a href="#构成区间">#构成区间</a>），假设存在公共端点，则 <span class="arithmatex">\(F\)</span> 中将会出现孤立点，矛盾！</p>
+<p><span class="arithmatex">\(\Leftarrow\)</span> ：显然 <span class="arithmatex">\(F\)</span> 为闭集，并且若存在孤立点 <span class="arithmatex">\(x\in F,x\notin F^c\)</span> ，则存在 <span class="arithmatex">\(U\ni x:U\backslash\{x\}\cap F^c\neq\emptyset\)</span> ，从而 <span class="arithmatex">\(x\)</span> 为两个不交开区间的端点，矛盾！</p>
+</details>
+<p>因为 <span class="arithmatex">\(G=[0,1]\backslash C\)</span> 可以被表示为至多可数个（ <span class="arithmatex">\(\bigcup_{n=1}^\infty \bigcup_{k=1}^{2^n-1}I_{n,k}\)</span> ）两两不相交且没有公共端点的开区间之并，所以 </p>
+<p><span class="arithmatex">\(<span class="arithmatex">\(C=\mathbb{R}-(-\infty,0)-(1,\infty)-G\)</span>\)</span> <br />
+是完备集（此处需要说明， <span class="arithmatex">\(G\)</span> 中的开区间均不以 <span class="arithmatex">\(0,1\)</span> 为公共端点）.</p>
+<p>另外更多关于 Cantor 集的性质见 <a href="../GTopo/#cantor-集">GTopo#Cantor 集</a> .</p>
+<h2 id="lebesgue">Lebesgue 测度<a class="headerlink" href="#lebesgue" title="Permanent link">&para;</a></h2>
+<p>首先定义<strong>广义实数</strong>： <span class="arithmatex">\(\mathbb{R}\cup\{+\infty,-\infty\}\)</span> ，定义运算： <span class="arithmatex">\(\forall a\in \mathbb{R}\)</span> </p>
+<div class="arithmatex">\[\begin{aligned}
+&amp;a+(+\infty)=(+\infty)+a=+\infty,a+(-\infty)=(-\infty)+a=-\infty\\
+&amp;a-(+\infty)=-\infty,a-(-\infty)=+\infty\\
+&amp;(+\infty)-a=+\infty,(-\infty)-a=-\infty\\
+&amp;(+\infty)+(+\infty)=+\infty,(-\infty)+(-\infty)=-\infty\\
+&amp;a\cdot (+\infty)=(+\infty)\cdots a=\left\{\begin{aligned}
+&amp;+\infty,a&gt;0\\
+&amp;0,a=0\\
+&amp;-\infty,a&lt;0
+\end{aligned}\right.\\
+&amp;a\cdot(-\infty)=(-\infty)\cdots a=\left\{\begin{aligned}
+&amp;-\infty,a&gt;0\\
+&amp;0,a=0\\
+&amp;+\infty,a&lt;0\\
+\end{aligned}\right.\\
+&amp;(+\infty)\cdot(+\infty)=+\infty\\
+&amp;(-\infty)\cdot(-\infty)=-\infty\\
+&amp;(+\infty)\cdot(-\infty)=(-\infty)(+\infty)=-\infty\\
+&amp;\frac{1}{+\infty}=\frac{1}{-\infty}=0\\
+&amp;\frac{+\infty}{a}=+\infty(a\neq0)\\
+&amp;\frac{-\infty}{a}=-\infty(a\neq0)\\
+\end{aligned}\]</div>
+<p>注意，上面没有定义 <span class="arithmatex">\((+\infty)+(-\infty)\)</span> 的运算，之后可能需要刨掉某些定义域. e.g. <a href="#faddgmeasurable">#^fAddGMeasurable</a></p>
+<p>对于 <span class="arithmatex">\(\mathbb{R}\)</span> 中的区间 <span class="arithmatex">\(I\)</span> ，如果 <span class="arithmatex">\(I\)</span> 有界，则其左右端点 <span class="arithmatex">\((a,b)\)</span> 一定满足： <span class="arithmatex">\(a\neq-\infty,b\neq+\infty\)</span> . 记 <span class="arithmatex">\(l(I)=b-a\)</span> ，如果 <span class="arithmatex">\(I\)</span> 是无界区间则定义 <span class="arithmatex">\(l(I)=\infty\)</span> .</p>
+<p>对于 <span class="arithmatex">\(\mathbb{R}\)</span> 中的区间全体构成的集族，可以为其中的每一个元素定义长度（ <span class="arithmatex">\(I\rightarrow \mathbb{R}^+\cup\{0,\infty\}\)</span> 的一个映射），并且该长度具有一些性质；下面考虑的问题是，对于一般的 <span class="arithmatex">\(\mathbb{R}\)</span> 中的子集，如何定义其“长度”. 考虑 <span class="arithmatex">\(\mathbb{R}\)</span> 上的集族 <span class="arithmatex">\(\Omega\)</span> ，希望该集族类似于区间也具有如下性质：</p>
+<p><span class="arithmatex">\(\Omega1)\)</span> 所有的区间都是 <span class="arithmatex">\(\Omega\)</span> 中的元素；<br />
+<span class="arithmatex">\(\Omega2)\)</span> <span class="arithmatex">\(E\in \Omega\)</span> ， <span class="arithmatex">\(E^c=\mathbb{R}-E\in \Omega\)</span> ；<br />
+<span class="arithmatex">\(\Omega3)\)</span> <span class="arithmatex">\(\Omega\)</span> 中任意至多可数个元素的并仍然在 <span class="arithmatex">\(\Omega\)</span> 中； ^LebesgueMesurableSet</p>
+<p>并且由 2,3 可以推出 <span class="arithmatex">\(\Omega\)</span> 中任意至多可数个元素的交仍然在 <span class="arithmatex">\(\Omega\)</span> 中.</p>
+<p>对于长度（以下称为测度） <span class="arithmatex">\(m\)</span> 希望其具有如下性质：</p>
+<p><span class="arithmatex">\(m1)\)</span> <span class="arithmatex">\(\forall E\in \Omega,m(E)\)</span> 为非负广义实数；<br />
+<span class="arithmatex">\(m2)\)</span> <span class="arithmatex">\(m\)</span> 保持区间长度：对于任意区间 <span class="arithmatex">\(I\in \Omega,m(I)=l(I)\)</span> ； <br />
+<span class="arithmatex">\(m3)\)</span> <span class="arithmatex">\(\{E_n\}_{n\geq1}\)</span> 是 <span class="arithmatex">\(\Omega\)</span> 中一两两不相交的集合列，则 <span class="arithmatex">\(m\left(\bigcup_{n\geq1}E_n\right)=\sum\limits_{n=1}^{\infty}m(E_n)\)</span> .</p>
+<p>下面尝试用区间上已经定义的长度定义 <span class="arithmatex">\(m\)</span> . 首先引入<strong>外测度</strong>的概念，在此基础上定义测度和 <span class="arithmatex">\(\Omega\)</span> .</p>
+<h3 id="lebesgue_1">Lebesgue 外测度<a class="headerlink" href="#lebesgue_1" title="Permanent link">&para;</a></h3>
+<p>对于任意的 <span class="arithmatex">\(E\subset \mathbb{R}\)</span> ，定义 <span class="arithmatex">\(E\)</span> 的<strong>外测度</strong>为： </p>
+<div class="arithmatex">\[m^*(E)=\inf\left\{\sum\limits_{n=1}^{\infty}l(I_n):E\subset \bigcup_{n=1}^\infty I_n,I_n\ \text{是开区间, }\forall n\geq1\right\}\]</div>
+<p>显然 <span class="arithmatex">\(m^*(E)\)</span> 为非负广义实数，满足 <span class="arithmatex">\(m1)\)</span> . 下面来讨论 <span class="arithmatex">\(m^*\)</span> 的性质.</p>
+<details class="note">
+<summary>对任意至多可数点列 <span class="arithmatex">\(E=\{x_n\}_{n\geq1}\subset \mathbb{R}\)</span> ， <span class="arithmatex">\(m^*(E)=0\)</span> . 进一步可得 <span class="arithmatex">\(\mathbb{R}\)</span> 中任何至多可数集的外测度为 <span class="arithmatex">\(0\)</span> .</summary>
+<p>证明：对于任意的 <span class="arithmatex">\(\epsilon&gt;0\)</span> ，对任意 <span class="arithmatex">\(x_n\)</span> 存在区间 <span class="arithmatex">\(I_n=\left(x_n-\frac{\epsilon}{2^{n+1}},x_n+\frac{\epsilon}{2^{n+1}}\right)\ni x_n\)</span> ，并且 <span class="arithmatex">\(\sum\limits_{n=1}^{\infty}l(I_n)=\epsilon\)</span> ，从而可得 <span class="arithmatex">\(m^*(E)\leq \epsilon\)</span> ，由 <span class="arithmatex">\(\epsilon\)</span> 的任意性，结合 <span class="arithmatex">\(m^*(E)\geq0\)</span> 可得 <span class="arithmatex">\(m^*(E)=0\)</span> .<br />
+^AtMostZero</p>
+</details>
+<details class="note">
+<summary>单调性：若 <span class="arithmatex">\(E_1\subset E_2\)</span> ，则 <span class="arithmatex">\(m^*(E_1)\leq m^*(E_2)\)</span> .</summary>
+<p>证明：对任意 <span class="arithmatex">\(E_2\)</span> 的开覆盖 <span class="arithmatex">\(\{I_n\}_{n\geq1}\)</span> 显然其也为 <span class="arithmatex">\(E_1\)</span> 的开覆盖，因此有： <span class="arithmatex">\(<span class="arithmatex">\(m^*(E_1)\leq \sum\limits_{n=1}^{\infty}l(I_n)\)</span>\)</span> 由有开覆盖的任意性，取下确界可得 <span class="arithmatex">\(m^*(E_1)\leq m^*(E_2)\)</span> .</p>
+</details>
+<p>下面说明定义的外测度满足 <span class="arithmatex">\(m2)\)</span> .</p>
+<details class="note">
+<summary>对任意区间 <span class="arithmatex">\(I\in \Omega,m^*(I)=l(I)\)</span> .</summary>
+<p>证明：首先考虑有界闭区间 <span class="arithmatex">\(I=[a,b]\)</span> ，设 <span class="arithmatex">\(\{I_n\}_{n\geq1}\)</span> 为 <span class="arithmatex">\(I\)</span> 的一个开覆盖，则由紧集的性质可得存在有限子覆盖 <span class="arithmatex">\(\{I_{n_k}\}_{1\leq k\leq m}\)</span> ，从而有 <span class="arithmatex">\(l^(I)\leq \sum\limits_{k=1}^{m}l(I_{n_k})\leq \sum\limits_{n=1}^{\infty}l(I_n)\)</span> ，取下确界即可得到 <span class="arithmatex">\(l(I)\leq m^*(I)\)</span> . 另一方面，取 <span class="arithmatex">\(I\subset (a-\epsilon/2,b+\epsilon/2)\)</span> ，由外测度的单调性可知 <span class="arithmatex">\(m^*(I)\leq \epsilon+b-a\)</span> ，由 <span class="arithmatex">\(\epsilon\)</span> 的任意性， <span class="arithmatex">\(m^*(I)\leq l(I)\)</span> ，综上 <span class="arithmatex">\(m^*(I)=l(I)\)</span> .</p>
+<p>考虑有界半开半闭区间 <span class="arithmatex">\(I=(a,b]\)</span> ，注意到 <span class="arithmatex">\(m^*(I)\leq m^*([a,b])\)</span> ，并取 <span class="arithmatex">\([a+\epsilon,b]\subset I\)</span> ，可得 <span class="arithmatex">\(m^*(I)\geq b-a-\epsilon\)</span> ，由 <span class="arithmatex">\(\epsilon\)</span> 的任意性可得 <span class="arithmatex">\(m^*(I)=m^*([a,b])\)</span> ，从而有 <span class="arithmatex">\(m^*(I)=l(I)\)</span> . （注意这里区间长度的定义只算端点，不考虑开闭） <span class="arithmatex">\(I=[a,b)\)</span> 以及有界开区间 <span class="arithmatex">\(I=(a,b)\)</span> 同理.</p>
+<p>设 <span class="arithmatex">\(I\)</span> 为无界区间 <span class="arithmatex">\([a,+\infty)\)</span> ，则对于任意 <span class="arithmatex">\(b&gt;a\)</span> 有 <span class="arithmatex">\(m^*(I)\geq b-a\)</span> ，令 <span class="arithmatex">\(b\rightarrow \infty\)</span> 可得 <span class="arithmatex">\(m^*(I)=\infty\)</span> .</p>
+</details>
+<p>已经说明了外测度满足 <span class="arithmatex">\(m1),m2)\)</span> ，但是不足以保证其具有 <span class="arithmatex">\(m3)\)</span> ，只能证明下面的次可加性（下面的条件没有要求两两不交）：</p>
+<details class="note">
+<summary>设 <span class="arithmatex">\(\{E_n\}_{n\geq1}\)</span> 是 <span class="arithmatex">\(\mathbb{R}\)</span> 上的一子集族，则 <span class="arithmatex">\(m^*(\cup_{n=1}^\infty E_n)\leq \sum\limits_{n=1}^{\infty}m^*(E_n)\)</span> .</summary>
+<p>不妨设 <span class="arithmatex">\(m^*(E_n)\neq \infty,\forall \epsilon&gt;0,n\geq1\)</span> ，存在 <span class="arithmatex">\(\{I_n^k\}_{k\geq1}\)</span> 满足 <span class="arithmatex">\(E_n\subset \bigcup_{k\geq1}I_n^k\)</span> 同时 <span class="arithmatex">\(\sum\limits_{k=1}^{\infty}l(I_n^k)&lt;m^*(E_n)+\frac{\epsilon}{2^n}\)</span> . 从而有： <span class="arithmatex">\(<span class="arithmatex">\(\begin{aligned}
+m^*(\cup_{n=1}^\infty E_n)&amp;\leq m^*\left(\bigcup_{n=1}^\infty \bigcup_{k=1}^\infty I_n^k\right)\leq \sum\limits_{n=1}^{\infty}\sum\limits_{k=1}^{\infty}m^*(I_n^k)\\
+&amp;\leq \sum\limits_{n=1}^{\infty}m^*(E_n)+\frac{\epsilon}{2^n}=\sum\limits_{n=1}^{\infty}m^*(E_n)+\epsilon
+\end{aligned}\)</span>\)</span> 再由 <span class="arithmatex">\(\epsilon\)</span> 的任意性可得 <span class="arithmatex">\(m^*(\bigcup_{n=1}^\infty E_n)\leq \sum\limits_{n=1}^{\infty}m^*(E_n)\)</span> .</p>
+</details>
+<h3 id="lebesgue-lebesgue">Lebesgue 可测集和 Lebesgue 测度<a class="headerlink" href="#lebesgue-lebesgue" title="Permanent link">&para;</a></h3>
+<p>为了定义满足 <span class="arithmatex">\(m3)\)</span> 的测度，将 <span class="arithmatex">\(\mathbb{R}\)</span> 进行如下限制：定义 <strong>Lebesgue 可测集</strong> <span class="arithmatex">\(E\)</span> ，对于任意 <span class="arithmatex">\(A\subset \mathbb{R}\)</span> 有： <span class="arithmatex">\(m^*(A)\geq m^*(A\cap E)+m^*(A\cap E^c)\)</span> . 并且由外测度本身的性质可得 <span class="arithmatex">\(m^*(A)=m^*(A\cap E)+m^*(A\cap E^c)\)</span> .</p>
+<p>Lebesgue 测度具有可数可加性 <span class="arithmatex">\(m3)\)</span> .</p>
+<details class="note">
+<summary>设可测集列 <span class="arithmatex">\(\{E_n\}_{n\geq1}\)</span> ，若该集列单增或者 单减且 <span class="arithmatex">\(m(E_1)&lt;\infty\)</span> ，则有 <span class="arithmatex">\(\lim_{n\rightarrow \infty}m(E_n)=m(\lim_{n\rightarrow \infty}E_n)\)</span></summary>
+<p>证明：若 <span class="arithmatex">\(\{E_n\}_{n\geq1}\)</span> 单增，注意到 <span class="arithmatex">\(m(\lim_{n\rightarrow \infty}E_n)\geq m(E_k),\forall k\geq1\)</span> ，因此不妨设 <span class="arithmatex">\(m(\lim_{n\rightarrow \infty}E_n)&lt;\infty\)</span> ，则：</p>
+<div class="arithmatex">\[\begin{aligned}
+m(\lim_{n\rightarrow \infty}E_n)&amp;=m\left(\bigcup_{n\geq1}E_n\right)\\
+&amp;=m\left(\bigcup_{n\geq1}(E_n-E_{n-1})\cup E_0\right)\\
+&amp;=\sum\limits_{n\geq1}^{}m(E_n-E_{n-1})+m(E_0)\\
+&amp;=\lim_{n\rightarrow \infty}m(E_n)
+\end{aligned}\]</div>
+<p>其中 <span class="arithmatex">\(E_0=\emptyset\)</span> .</p>
+<p>若 <span class="arithmatex">\(\{E_n\}_{n\geq1}\)</span> 单调递减，则 <span class="arithmatex">\(\{E_1-E_n\}_{n\geq1}\)</span> 单调递增，所以 </p>
+<blockquote>
+<blockquote>
+<div class="arithmatex">\[\begin{aligned}
+m(\lim_{n\rightarrow \infty}(E_1-E_n))
+&amp;=m(E_1-\cap_{n\geq1}E_n)\\
+&amp;=m(E_1)-m(\cap_{n\geq1}E_n)\\
+&amp;=\lim_{n\rightarrow \infty}m(E_1-E_n)\\
+&amp;=m(E_1)-\lim_{n\rightarrow \infty}m(E_n)
+\end{aligned}\]</div>
+</blockquote>
+</blockquote>
+<p>并且因为 <span class="arithmatex">\(m(E_1)&lt;\infty\)</span> ，所以 <span class="arithmatex">\(\lim_{n\rightarrow \infty}m(E_n)=m(\cap_{n\geq1}E_n)=m(\lim_{n\rightarrow \infty}E_n)\)</span> .<br />
+^MonotonousLimit</p>
+</details>
+<details class="note">
+<summary>零测集可测.</summary>
+</details>
+<details class="example">
+<summary>设 <span class="arithmatex">\(F\)</span> 是 <span class="arithmatex">\([0,1]\)</span> 中的不可测集，求证：存在 <span class="arithmatex">\(0&lt;\epsilon&lt;1\)</span> ，使对 <span class="arithmatex">\([0,1]\)</span> 中任何满足 <span class="arithmatex">\(m(E)\geq \epsilon\)</span> 的可测集 <span class="arithmatex">\(E\)</span> ， <span class="arithmatex">\(F\cap E\)</span> 也是不可测集.</summary>
+<p>反证：假设对于任意的 <span class="arithmatex">\(n\geq 1\)</span> ，存在 <span class="arithmatex">\(E_n\)</span> 满足 <span class="arithmatex">\(m(E_n)\geq 1-1/n\)</span> ， <span class="arithmatex">\(E_n\)</span> 为可测集，而 <span class="arithmatex">\(F\cap E_n\)</span> 为不可测集，令 <span class="arithmatex">\(E=\bigcup_{n\geq1}E_n\)</span> ，从而 <span class="arithmatex">\(m(E)\geq m(E_n)\geq1-1/n,\forall n\geq1\)</span> ，从而可得 <span class="arithmatex">\(m(E)=1\)</span> ，所以 <span class="arithmatex">\(m(F\cap E^c)\leq m(E^c)=0\)</span> ，从而 <span class="arithmatex">\(F\cap E^c\)</span> 可测，并且 <span class="arithmatex">\(F\cap E=\cap_{n\geq1}(F\cap E_n)\)</span> 可测，所以 <span class="arithmatex">\(F=(F\cap E^c)\cup (F\cap E)\)</span> 可测，矛盾！</p>
+</details>
+<h3 id="_5">可测集的变换<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<p>设 <span class="arithmatex">\(E\subset \mathbb{R},y\in \mathbb{R}\)</span> 称 <span class="arithmatex">\(E_y=\{x+y:x\in E\}\)</span> 为 <span class="arithmatex">\(E\)</span> 关于 <span class="arithmatex">\(y\)</span> 的<strong>平移</strong>.</p>
+<p>容易得到 <span class="arithmatex">\(E\cap F_y=(E_{-y}\cap F)_y\)</span> ， <span class="arithmatex">\((E^c)_y=(E_y)^c\)</span> .</p>
+<p>注意到对于区间 <span class="arithmatex">\(I_y\)</span> ， <span class="arithmatex">\(l(I_y)=l(I)\)</span> ，平移的一个非常重要的性质是不改变外测度.</p>
+<details class="note">
+<summary><span class="arithmatex">\(m^*(E)=m^*(E_y)\)</span> .</summary>
+<p>证明：对于任意的 <span class="arithmatex">\(\epsilon&gt;0\)</span> ，存在开区间列 <span class="arithmatex">\(\{I_n\}_{n\geq1}\)</span> ， <span class="arithmatex">\(\bigcup_{n\geq1}I_n\supset E\Rightarrow\bigcup_{n\geq1}(I_n)_y\supset E_y\)</span> ，从而 <span class="arithmatex">\(m^*(E_y)\leq \sum\limits_{n\geq1}^{}l(I_n)&lt;m^*(E)+\epsilon\)</span> ，所以 <span class="arithmatex">\(m^*(E_y)\leq m^*(E)\)</span> ，同理可得 <span class="arithmatex">\(m^*(E)\leq m^*(E_y)\)</span> .</p>
+</details>
+<p>在此基础上可以证明测度也保持平移不变：</p>
+<details class="note">
+<summary>设 <span class="arithmatex">\(E\)</span> 是可测集，则 <span class="arithmatex">\(\forall y\in \mathbb{R},E_y\)</span> 也可测并且 <span class="arithmatex">\(m(E)=m(E_y)\)</span> .</summary>
+<p>证明：对任意的 <span class="arithmatex">\(A\subset \mathbb{R},y\in \mathbb{R}\)</span> ， </p>
+<div class="arithmatex">\[\begin{aligned}
+m^*(A)&amp;=m^*(A_{-y})\\
+&amp;\geq m^*(A_{-y}\cap E)+m^*(A_{-y}\cap E^c)\\
+&amp;\overset{*}{=}m^*(A\cap E_y)+m^*(A\cap E_u^c)
+\end{aligned}\]</div>
+<p><span class="arithmatex">\(\overset{*}{=}\)</span> 依赖于平移的两个性质. 所以 <span class="arithmatex">\(E_y\)</span> 也可测. <span class="arithmatex">\(m(E_y)=m^*(E_y)=m^*(E)=m(E)\)</span> .</p>
+</details>
+<p>对于仿射变换也有这一结论：</p>
+<details class="note">
+<summary><span class="arithmatex">\(E\subset \mathbb{R}\)</span> 可测，则 <span class="arithmatex">\(\forall a,b\in \mathbb{R},F=aE+b\)</span> 也可测，并且 <span class="arithmatex">\(m(F)=\lvert a\rvert m(E)\)</span> .</summary>
+<p>证明：为证明 <span class="arithmatex">\(F\)</span> 可测只需要证明 <span class="arithmatex">\(G=aE\)</span> 可测. 首先讨论 <span class="arithmatex">\(m^*(aA)\)</span> ，对于任意的 <span class="arithmatex">\(A\subset \mathbb{R},a\in \mathbb{R}\)</span> ，对于任意 <span class="arithmatex">\(\epsilon&gt;0\)</span> ，存在开区间列 <span class="arithmatex">\(\{I_n\}_{n\geq1}\)</span> ，使得 <span class="arithmatex">\(\bigcup_{n\geq1}aI_n\supset aA\)</span> ， <span class="arithmatex">\(\sum\limits_{n\geq1}^{}\lvert a\rvert l(I_n)=\sum\limits_{n\geq1}^{}l(aI_n)&lt;\lvert a\rvert m^*(A)+\lvert a\rvert\epsilon\)</span> ，从而可得 <span class="arithmatex">\(m^*(aA)&lt;\lvert a\rvert m^*(A)+\epsilon \lvert a\rvert\)</span> ，进而由 <span class="arithmatex">\(\epsilon\)</span> 的任意性的 <span class="arithmatex">\(m^*(aA)\leq \lvert a\rvert m^*(A)\)</span> ；并且 <span class="arithmatex">\(m^*(A)=m^*(a^{-1}aA)\leq \lvert a\rvert^{-1}m^*(aA)\)</span> 从而可得 <span class="arithmatex">\(m^*(aA)=\lvert a\rvert m^*(A)\)</span> .</p>
+<div class="arithmatex">\[\begin{aligned}
+m^*(a^{-1}A)&amp;\geq m^*(a^{-1}A\cap E)+m^*(a^{-1}A\cap E^c)\\
+&amp;=m^*(a^{-1}(A\cap aE))+m^*(a^{-1}(A\cap aE^c))\\
+&amp;=\lvert a\rvert^{-1}m^*(A\cap aE)+\lvert a\rvert^{-1}m^*(A\cap aE^c)
+\end{aligned}\]</div>
+<p>从而可得结论.</p>
+</details>
+<p>下面来说明可测集的子集并不一定可测.</p>
+<p>定义 <span class="arithmatex">\(E(x)=\{y\in[0,1]:\exists x,y-x\in \mathbb{R}\}\)</span> . 显然 <span class="arithmatex">\([0,1]=\bigcup_{x\in [0,1]}E(x)\)</span> ，并且对于任意的 <span class="arithmatex">\(x_1\neq x_2\)</span> ， <span class="arithmatex">\(E(x_1)=E(x_2)\)</span> 或者 <span class="arithmatex">\(E(x_1)\cap E(x_2)=\emptyset\)</span> . 因此可以构造 <span class="arithmatex">\(F\subset [0,1]\)</span> ， <span class="arithmatex">\(\forall f_1,f_2\in F\)</span> ， <span class="arithmatex">\(E(f_1)\cap E(f_2)=\emptyset\)</span> . 下面证明 <span class="arithmatex">\(F\)</span> 是 <span class="arithmatex">\([0,1]\)</span> 的不可测子集，利用可测集的可数可加性进行反证.</p>
+<p>设 <span class="arithmatex">\(\{r_n\}_{n\geq1}=\mathbb{Q}\cap [0,1]\)</span> ，考虑 <span class="arithmatex">\(F\)</span> 的平移 <span class="arithmatex">\(F_{r_n}\overset{def}{=}F_n\)</span> ，由 <span class="arithmatex">\(F\)</span> 的定义可知 <span class="arithmatex">\(F_m\cap F_n=\emptyset,\forall m\neq n\)</span> ，从而由可数可加性和平移保持测度， <span class="arithmatex">\(m\left(\bigcup_{n\geq1}F_n\right)=\sum\limits_{n\geq1}^{}m(F)\)</span> . 又 <span class="arithmatex">\([0,1]\subset \bigcup_{n\geq1}F_n\subset [0,2]\)</span> ，所以 <span class="arithmatex">\(1\leq \sum\limits_{n\geq1}^{}m(F)\leq 2\)</span> ，这说明 <span class="arithmatex">\(m(F)\neq0\)</span> ，从而 <span class="arithmatex">\(\sum\limits_{n\geq1}^{}m(F)=\infty\)</span> 矛盾！ </p>
+<p>所以 <span class="arithmatex">\(F\)</span> 是不可测子集.</p>
+<p>类似地，有如下重要结论 <a href="https://math.stackexchange.com/questions/1287212/non-measurable-subset-of-a-positive-measure-set">check-mse</a>：</p>
+<details class="note">
+<summary>可测集正测当且仅当其存在不可测子集.</summary>
+<p>证明： <span class="arithmatex">\(\Rightarrow\)</span> 若 <span class="arithmatex">\(m(G)\)</span> 可测，设 <span class="arithmatex">\(E_r=\{p\in \mathbb{R}:p-r\in \mathbb{R}\backslash \mathbb{Q}\cup \{0\}\}\)</span>  ，则 <span class="arithmatex">\(\mathbb{R}=\bigcup_{r\in \mathbb{Q}}E_r\)</span> （对于任意一个无理数，一定存在有理数使两者之差为无理数），下面考虑 <span class="arithmatex">\(G=G\cap \mathbb{R}=\bigcap_{r\in \mathbb{Q}}G\cap E_r\)</span> ，假设 <span class="arithmatex">\(E_r\cap G\)</span> 可测（ <span class="arithmatex">\(\forall r\in \mathbb{Q}\)</span> ），</p>
+</details>
+<blockquote>
+<p>则存在包含于 <span class="arithmatex">\(E_r\cap G-E_r\cap G\)</span> 的开区间 <span class="arithmatex">\(B(0,\delta)\)</span> ，然而对于任意的 <span class="arithmatex">\(y_1,y_2\in E_r\)</span> ，如果 <span class="arithmatex">\(y_1-y_2\in \mathbb{Q}\)</span> ，则 <span class="arithmatex">\(y_1-r=y_1-y_2+y_2-r\in \mathbb{R}\backslash \mathbb{Q}\)</span> #issue </p>
+</blockquote>
+<details class="example">
+<summary>设 <span class="arithmatex">\(f(x)\)</span> 定义在 <span class="arithmatex">\(\mathbb{R}\)</span> 上，并且对于任何可测集 <span class="arithmatex">\(E\)</span> ， <span class="arithmatex">\(f(E)\)</span> 可测，求证：对于任何零测集 <span class="arithmatex">\(Z\)</span> ， <span class="arithmatex">\(f(Z)\)</span> 也是零测集.</summary>
+<p>证明：假设存在零测集 <span class="arithmatex">\(Z\)</span> ， <span class="arithmatex">\(m(f(Z))&gt;0\)</span> ，则存在 <span class="arithmatex">\(f(Z)\)</span> 的不可测子集 <span class="arithmatex">\(G\)</span> ，而 <span class="arithmatex">\(m(Z)=0\)</span> ， <span class="arithmatex">\(G\subset f(Z)\)</span> ，从而<u>有</u> <span class="arithmatex">\(Z\)</span> 的子集 <span class="arithmatex">\(W\)</span> 使得 <span class="arithmatex">\(G=f(W)\)</span> ，而且 <span class="arithmatex">\(m^*(f(W))\leq m^*(f(Z))=0\)</span> ，从而可得 <span class="arithmatex">\(f(W)\)</span> 可测，矛盾！ </p>
+</details>
+<details class="example">
+<summary>设 <span class="arithmatex">\(f(x)\)</span> 在 <span class="arithmatex">\(\mathbb{R}\)</span> 上连续，求证： <span class="arithmatex">\(f\)</span> 将任何可测集映射为可测集的充分必要条件为 <span class="arithmatex">\(f\)</span> 将任何零测集映射为零测集.</summary>
+<p>证明： <span class="arithmatex">\(\Rightarrow\)</span> 由上一题给出； <span class="arithmatex">\(\Leftarrow\)</span> ： 对于任意的有界闭集 <span class="arithmatex">\(F\subset \mathbb{R}\)</span> ， <span class="arithmatex">\(f(F)\)</span> 仍然为有界闭集（由 <span class="arithmatex">\(f\)</span> 连续，以及闭集的等价刻画：收敛列仍然在闭集中）；如果 <span class="arithmatex">\(F\)</span> 为无界闭集，则 <span class="arithmatex">\(f(F)=\bigcup_{n\geq1}f(F\cap [-n,n])\)</span> 可测，所以 <span class="arithmatex">\(f(F)\)</span> 可测. 对于任意的 <span class="arithmatex">\(\epsilon&gt;0\)</span> ，存在 <span class="arithmatex">\(F\in F_\sigma\)</span> 使得 <span class="arithmatex">\(m^*(E\backslash F)=0\)</span> ，从而 <span class="arithmatex">\(f(E\backslash F)\)</span> 是零测集，可测，并且 <span class="arithmatex">\(f(F)\)</span> 可测，所以 <span class="arithmatex">\(f(E)=f(E\backslash F)\cup f(F)\)</span> 可测.</p>
+</details>
+<h3 id="_6">开闭集逼近可测集<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<p>以下三个命题等价：</p>
+<details class="note">
+<summary>等价命题： 1) <span class="arithmatex">\(E\)</span> 是可测集；2) 对于任意的 <span class="arithmatex">\(\epsilon&gt;0\)</span> 存在开集 <span class="arithmatex">\(G\supset E\)</span> 使得 <span class="arithmatex">\(m(G\backslash E)&lt;\epsilon\)</span> ；3) 对于任意的 <span class="arithmatex">\(\epsilon&gt;0\)</span> ，存在闭集 <span class="arithmatex">\(F\subset E\)</span> 使得 <span class="arithmatex">\(m(E\backslash F)&lt;\epsilon\)</span> .</summary>
+<p>证明： <span class="arithmatex">\(1)\Rightarrow 2)\)</span> 因为 <span class="arithmatex">\(E\)</span> 是可测集， <u>i)</u> 若 <span class="arithmatex">\(m(E)&lt;\infty\)</span> 则对于任意的 <span class="arithmatex">\(\epsilon&gt;0\)</span> 由定义可知存在 <span class="arithmatex">\(\{I_n\}_{n\geq1},G=\bigcup_{n\geq1}I_n\supset E\)</span> 满足 <span class="arithmatex">\(m(G)\leq \sum\limits_{n\geq1}^{}m(I_n)&lt;m(E)+\epsilon\)</span> ，所以 <span class="arithmatex">\(m(G\backslash E)\leq m(G)-m(E)&lt;\epsilon\)</span> <u>ii)</u> 若 <span class="arithmatex">\(m(E)=\infty\)</span> ，则取 <span class="arithmatex">\(E=\bigcup_{n\in \mathbb{Z}}E\cap [n,n+1)\overset{def}{=}\bigcup_{n\geq1}E_n\)</span> ，其中 <span class="arithmatex">\(E_n\)</span> 均为可测集，所以存在开集 <span class="arithmatex">\(G_n\supset E_n,m(G_n\backslash E_n)&lt;\frac{\epsilon}{2^{\lvert n\rvert+2}}\)</span> 从而可得 <span class="arithmatex">\(m(\bigcup_{n\in \mathbb{Z}}G_n\backslash E)=m\left(\bigcup_{n\in \mathbb{Z}}(G_n\backslash E_n)\right)\leq \sum\limits_{n\in \mathbb{Z}}^{}m(G_n\backslash E_n)\leq2\frac{\epsilon}{4}/\frac{1}{2}=\epsilon\)</span> ，从而可得到结论；</p>
+<p><span class="arithmatex">\(2)\Rightarrow 3)\)</span> <span class="arithmatex">\(E^c\)</span> 是可测集，所以存在开集 <span class="arithmatex">\(W\supset E^c\)</span> 使得 <span class="arithmatex">\(m(W\backslash E^c)&lt;\epsilon\)</span> ，令 <span class="arithmatex">\(F=W^c\subset E\)</span> ，注意到 <span class="arithmatex">\(m(W\backslash E^c)=m(F^c\cap E)=m(E\backslash F)&lt;\epsilon\)</span> ； </p>
+<p><span class="arithmatex">\(3)\Rightarrow1)\)</span> 对于任意的 <span class="arithmatex">\(n\geq1\)</span> ，存在闭集 <span class="arithmatex">\(F_n\subset E\)</span> 使得 <span class="arithmatex">\(m(E\backslash F_n)&lt;\frac{1}{n}\)</span> ，令 <span class="arithmatex">\(F=\bigcup_{n\geq1}F_n\)</span> ，可得 <span class="arithmatex">\(m(E\backslash F)\leq m(E\backslash F_n)&lt;\frac{1}{n},\forall n\geq1\)</span> ，所以 <span class="arithmatex">\(m(E\backslash F)=0\)</span> ， <span class="arithmatex">\(E\backslash F\)</span> 可测，所以 <span class="arithmatex">\(E=E\backslash F\cup F\)</span> 可测.</p>
+</details>
+<p>这个命题相当有用，除了逼近之外，可以通过闭集和开集进行论证. 下面就用该命题证明一个重要结论，在上面用其说明任何一个可测集都存在一个不可测子集. <a href="https://math.stackexchange.com/questions/84491/does-the-set-of-differences-of-a-lebesgue-measurable-set-contains-elements-of-at/104126#104126">check-mse</a></p>
+<details class="note">
+<summary>若 <span class="arithmatex">\(E\subset \mathbb{R}^n\)</span> 可测并且 <span class="arithmatex">\(m(E)&gt;0\)</span> ，则存在 <span class="arithmatex">\(\delta&gt;0\)</span> ， <span class="arithmatex">\(B(0,\delta)\subset E-E\)</span> .</summary>
+<p>证明：首先证明若 <span class="arithmatex">\(F\subset \mathbb{R}^n\)</span> ， <span class="arithmatex">\(F\)</span> 可测并且 <span class="arithmatex">\(F\)</span> 是紧集，则存在 <span class="arithmatex">\(\delta&gt;0,B(0,\delta)\subset F-F\)</span> ，因为 <span class="arithmatex">\(F\)</span> 可测所以存在开集 <span class="arithmatex">\(G\supset F\)</span> 使得 <span class="arithmatex">\(m(G)&lt;2m(F)\)</span> ，并且 <span class="arithmatex">\(G^c\cap F=\emptyset\)</span> ，令 <span class="arithmatex">\(\delta=d(G^c,F)&gt;0\)</span> （这里 <span class="arithmatex">\(\delta\)</span> 严格大于 <span class="arithmatex">\(0\)</span> ，因为两者都是闭集，否则可以构造 <span class="arithmatex">\(G^c\)</span> 和 <span class="arithmatex">\(F\)</span> 中的一个子列 <span class="arithmatex">\(\{g_n\}_{n\geq1},\{f_n\}_{n\geq1},\lim_{n\rightarrow \infty}d(g_n,f_n)=0\)</span> ，并且 <span class="arithmatex">\(F\)</span> （因为是 <span class="arithmatex">\(\mathbb{R}\)</span> 上的紧集，所以序列紧. 见 <a href="../GTopo/#紧">GTopo#紧</a> ）存在收敛子列 <span class="arithmatex">\(\{f_{n_i}\}_{i\geq1},f_{n_i}\rightarrow f\in F(i\rightarrow \infty)\)</span> 从而可得 <span class="arithmatex">\(\{g_{n_i}\}_{i\geq1}\)</span> 收敛到 <span class="arithmatex">\(f\)</span> ，再由闭集的定义可知 <span class="arithmatex">\(f\in G^c\)</span> 矛盾！）.</p>
+<p>断言：对任意 <span class="arithmatex">\(x\in \mathbb{R}^n:\lVert x\rVert&lt;\delta\)</span> 有 <span class="arithmatex">\(F_x\subset G\)</span> ，否则，假设存在 <span class="arithmatex">\(x:\lVert x\rVert&lt;\delta\)</span>  存在 <span class="arithmatex">\(f\in F_x\cap G^c\)</span> ，则 <span class="arithmatex">\(f=f'+x=g'\in G^c,f'\in F\)</span> ，进而 <span class="arithmatex">\(d(G^c,F)\leq \lVert g'-f'\rVert=\lVert x\rVert&lt;\delta\)</span> ，矛盾！</p>
+<p>现在已经有 <span class="arithmatex">\(F\subset G,F_x\subset G,\forall x:\lVert x\rVert&lt;\delta\)</span> ，所以 <span class="arithmatex">\(F\cup F_x\subset G\)</span> ，如果 <span class="arithmatex">\(F\cap F_x= \emptyset\)</span> ，则 <span class="arithmatex">\(m(G)\geq m(F\cup F_x)=2m(F)\)</span> ，矛盾！所以 <span class="arithmatex">\(F\cap F_x\neq \emptyset\)</span> . 对于任意的 <span class="arithmatex">\(x\in B(0,\delta),\lVert x\rVert&lt;\delta\)</span> ，所以存在 <span class="arithmatex">\(f\in F\cap F_x,f=f'+x\)</span> ，所以 <span class="arithmatex">\(x=f-f'\in F-F\)</span> . 所以 <span class="arithmatex">\(B(0,\delta)\subset F-F\)</span> .</p>
+<p>下面讨论一般的集合 <span class="arithmatex">\(E:m(E)&gt;0\)</span> ，截断： <span class="arithmatex">\(E=\bigcup_{n\geq1}B(0,n)\cap E\)</span> ，则存在 <span class="arithmatex">\(G=B(0,m)\cap E\)</span> ， <span class="arithmatex">\(m(G)&gt;0\)</span> ，存在闭集 <span class="arithmatex">\(F\subset G\)</span> 使得 <span class="arithmatex">\(0&lt;m(G)/2&lt; m(F)\)</span> （ <span class="arithmatex">\(m(G\backslash F)&lt;m(F)\rightarrow 0&lt;m(G)&lt;2m(F)\)</span>），注意到 <span class="arithmatex">\(F\)</span> 为有界闭集，所以有上面的结论可知，存在 <span class="arithmatex">\(\delta&gt;0\)</span> ， <span class="arithmatex">\(B(0,\delta)\subset F-F\subset G-G\subset E-E\)</span> .</p>
+</details>
+<p>定义 <span class="arithmatex">\(G_\delta\)</span> 集： <span class="arithmatex">\(E\in G_\delta\Leftrightarrow\)</span> <span class="arithmatex">\(E\)</span> 能表示为可数个开集的交；定义 <span class="arithmatex">\(F_\delta\)</span> 集： <span class="arithmatex">\(E\in F_\delta\Leftrightarrow\)</span> <span class="arithmatex">\(E\)</span> 能表示为可数个闭集的并；</p>
+<h3 id="_7">等测包<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
+<h3 id="borel-sigma-">Borel <span class="arithmatex">\(\sigma-\)</span> 代数<a class="headerlink" href="#borel-sigma-" title="Permanent link">&para;</a></h3>
+<p>设 <span class="arithmatex">\(\mathcal{F}\)</span> 为 <span class="arithmatex">\(X\)</span> 上的集族，考虑如下三条性质：</p>
+<ol>
+<li><span class="arithmatex">\(\mathcal{F}\)</span> 对于补运算封闭；</li>
+<li><span class="arithmatex">\(\mathcal{F}\)</span> 对于有限并运算封闭；</li>
+</ol>
+<p>如果 <span class="arithmatex">\(\mathcal{F}\)</span> 满足 1. 2. ，则称 <span class="arithmatex">\(\mathcal{F}\)</span> 为<strong>代数</strong>；如果 <span class="arithmatex">\(\mathcal{F}\)</span> 满足 1. 2. ，同时对可数并运算封闭（可以推出对有限并运算封闭），则称 <span class="arithmatex">\(\mathcal{F}\)</span> 是 <span class="arithmatex">\(\sigma-\)</span> 代数（可以证明 <span class="arithmatex">\(\sigma-\)</span> 代数是代数）.</p>
+<p>设 <span class="arithmatex">\(\mathcal{F}\)</span> 为 <span class="arithmatex">\(X\)</span> 上的子集族，记 <span class="arithmatex">\(A(\mathcal{F})\)</span> 为包含 <span class="arithmatex">\(\mathcal{F}\)</span> 的所有<u>代数</u>的交，为包含 <span class="arithmatex">\(\mathcal{F}\)</span> 的最小代数；记 <span class="arithmatex">\(B(\mathcal{F})\)</span> 为包含 <span class="arithmatex">\(\mathcal{F}\)</span> 的所有 <span class="arithmatex">\(\sigma-\)</span> 代数的交，称为由 <span class="arithmatex">\(\mathcal{F}\)</span> 生成的 <span class="arithmatex">\(\sigma-\)</span> 代数.</p>
+<p>定义 Borel <span class="arithmatex">\(\sigma-\)</span> 代数：由 <span class="arithmatex">\(\mathbb{R}\)</span> 上的开区间全体生成的 <span class="arithmatex">\(\sigma-\)</span> 代数，记为 <span class="arithmatex">\(\mathcal{B}\)</span> 或 <span class="arithmatex">\(\mathcal{B}(\mathbb{R})\)</span> ，并称 <span class="arithmatex">\(\mathcal{B}\)</span> 中的元素为<strong>Borel 集</strong>. </p>
+<p>因为 <span class="arithmatex">\(\mathbb{R}\)</span> 上的开（闭）集都是至多可数个开（闭）区间的并（交），所以 <span class="arithmatex">\(\mathbb{R}\)</span> 上的开集和闭集都是 Borel 集. 但是也存在既非开集也非闭集的 Borel 集，例如 <span class="arithmatex">\(U\cap V^c\)</span> 其中 <span class="arithmatex">\(U,V\)</span> 为开集并且 <span class="arithmatex">\(U\subset V\)</span> .</p>
+<p>而由 Lebesgue 可测集的性质可知其也为 <span class="arithmatex">\(\sigma-\)</span> 代数，所以 <span class="arithmatex">\(\mathcal{B}\subset \Omega\)</span> ，因此 Borel 集可测.</p>
+<p>因为 <span class="arithmatex">\(\mathbb{R}\)</span> 中的开区间是 Lebesgue 可测集，并且至多可数个可测集的并仍然可测，所以 <span class="arithmatex">\(\mathcal{B}\subset \Omega\)</span> .</p>
+<details class="note">
+<summary>Borel <span class="arithmatex">\(\sigma-\)</span> 代数是包含所有端点为有理数的开区间的最小 <span class="arithmatex">\(\sigma-\)</span> 代数.</summary>
+<p>证明：显然 Borel <span class="arithmatex">\(\sigma-\)</span> 代数为包含所有端点为有理数的开区间的 <span class="arithmatex">\(\sigma-\)</span> 代数. 对于任意的 <span class="arithmatex">\(a,b\in \mathbb{R},a&lt;b\)</span> ，取 <span class="arithmatex">\(\{r_n\}_{n\geq1},\{R_n\}_{n\geq1}\subset \mathbb{Q}\)</span> ，且 <span class="arithmatex">\(r_n\rightarrow a,R_n\rightarrow b,r_n&lt;\frac{a+b}{2}&lt;R_n\)</span> . 从而可得 <span class="arithmatex">\((a,b)=\sum\limits_{n=1}^{\infty}(r_n,R_n)\)</span> . 因此，任何包含所有端点为有理数的开区间的 <span class="arithmatex">\(\sigma-\)</span> 代数都为所有开区间生成的 <span class="arithmatex">\(\sigma-\)</span> 代数. 再由 <span class="arithmatex">\(\mathcal{B}\)</span> 是由所有开区间生成的最小的 <span class="arithmatex">\(\sigma-\)</span> 代数可得到结论.</p>
+</details>
+<details class="note">
+<summary>任意多个 ( <span class="arithmatex">\(\sigma-\)</span> ）代数的交仍然为（ <span class="arithmatex">\(\sigma-\)</span> ）代数.</summary>
+</details>
+<details class="example">
+<summary>任意多个（ <span class="arithmatex">\(\sigma-\)</span> ）代数的并不一定是（ <span class="arithmatex">\(\sigma-\)</span> ）代数.</summary>
+<p>考虑 <span class="arithmatex">\(X=\{1,2,3\}\)</span> ， <span class="arithmatex">\(\mathcal{F}_1=\{\emptyset,X,\{1\}\},\mathcal{F}_2=\{\emptyset,X,\{2,3\}\}\)</span> ，则 <span class="arithmatex">\(\mathcal{F}_1\)</span> 和 <span class="arithmatex">\(\mathcal{F}_2\)</span> 均为（ <span class="arithmatex">\(\sigma-\)</span> ）代数，但是 <span class="arithmatex">\(\mathcal{F}_1\cup \mathcal{F}_2\)</span> 不是 ( <span class="arithmatex">\(\sigma-\)</span> ）代数.</p>
+</details>
+<p>下面这个定理是为了进一步讨论非 Borel 集的可测集.</p>
+<details class="note">
+<summary>设 <span class="arithmatex">\(h\)</span> 为 <span class="arithmatex">\(\mathbb{R}\)</span> 上的<u>严格</u>单调连续函数，则 <span class="arithmatex">\(h\)</span> 将 Borel 集映射为 Borel 集.</summary>
+<p>证明：令 <span class="arithmatex">\(\mathcal{B}^*=\{B:B,h(B)\text{ 均为 Borel 集}\}\)</span> ，下面证明 <span class="arithmatex">\(\mathcal{B}^*=\mathcal{B}\)</span> ，对于任意的 <span class="arithmatex">\(B\in \mathcal{B}^*\)</span> ， <span class="arithmatex">\(B^c\in \mathcal{B}\)</span> ，因为 <span class="arithmatex">\(h\)</span> 是 <span class="arithmatex">\(\mathbb{R}\)</span> 上的严格单调连续函数，所以 <span class="arithmatex">\(h(B^c)=h(\mathbb{R})-h(B)\)</span> （事实上， <span class="arithmatex">\(h\)</span> 保持并运算，首先有 <span class="arithmatex">\(h(\mathbb{R})=h(B^c\cup B)=h(B^c)\cup h(B)\)</span> ，其次因为 <span class="arithmatex">\(h\)</span> 是严格单调映射（是单射），所以 <span class="arithmatex">\(h(B^c)\cap h(B)=\emptyset\)</span> ，所以 <span class="arithmatex">\(h(B^c)=h(\mathbb{R})-h(B)\)</span> ）. 注意到 <span class="arithmatex">\(h(\mathbb{R})\)</span> 和 <span class="arithmatex">\(h(B)\)</span> 都是 Borel 集（前者是开区间），从而可得 <span class="arithmatex">\(h(B^c)\)</span> 是 Borel 集. 所以 <span class="arithmatex">\(B^c\in \mathcal{B}^*\)</span> . 设 <span class="arithmatex">\(\{B_n\}_{n\geq1}\subset \mathcal{B}^*\)</span> ，则 <span class="arithmatex">\(h\left(\bigcup_{n=1}^\infty B_n\right)=\bigcup_{n=1}^\infty h(B_n)\)</span> ，所以 <span class="arithmatex">\(h\left(\bigcup_{n=1}^\infty B_n\right)\in \mathcal{B}\)</span> ，进而可知 <span class="arithmatex">\(h\left(\bigcup_{n=1}^\infty B_n\right)\in \mathcal{B}^*\)</span> ，所以 <span class="arithmatex">\(\mathcal{B}^*\)</span> 是一个 <span class="arithmatex">\(\sigma-\)</span> 代数. 此外因为 <span class="arithmatex">\(h\)</span> 是 <span class="arithmatex">\(\mathbb{R}\)</span> 上的严格单调连续函数，将开区间映射为开区间，所以开区间全体也在 <span class="arithmatex">\(\mathcal{B}^*\)</span> 中. 所以 <span class="arithmatex">\(\mathcal{B}\subset \mathcal{B}^*\)</span> ，并且 <span class="arithmatex">\(\mathcal{B}^*\supset \mathcal{B}\)</span> ，所以 <span class="arithmatex">\(\mathcal{B}=\mathcal{B}^*\)</span> .</p>
+</details>
+<p>已知 Borel 集都是可测集，但也存在不是 Borel 集的可测集：</p>
+<p>考虑 <a href="../GTopo/#cantor-集">GTopo#Cantor 集</a> 上的 Cantor 函数 <span class="arithmatex">\(f\)</span> ，其在 <span class="arithmatex">\([0,1]\)</span> 上单调递增且连续. 令 <span class="arithmatex">\(g(x)=f(x)+x\)</span> ，则 <span class="arithmatex">\(g\)</span> 为 <span class="arithmatex">\([0,1]\)</span> 上的严格单调递增函数，并且 <span class="arithmatex">\(g([0,1])=[0,2]\)</span> . <span class="arithmatex">\(m\left(g\left(\bigcup_{n,k}I_{n,k}\right)\right)=\sum\limits_{n,k}^{}m(g(I_{n,k}))\)</span> . 设 <span class="arithmatex">\(f(I_{n,k})=c_{n,k}\)</span> ，则 <span class="arithmatex">\(g(I_{n,k})=c_{n,k}+I_{n,k}\)</span> ，所以 <span class="arithmatex">\(m(g(I_{n,k}))=l(I_{n,k})\)</span> （可测集平移测度不变），所以 <span class="arithmatex">\(m\left(g\left(\bigcup_{n,k}I_{n,k}\right)\right)=\sum\limits_{n,k}^{}l(I_{n,k})=1\)</span> . 所以 </p>
+<div class="arithmatex">\[m(g(C))=m(g([0,1]-\cup_{n,k}I_{n,k}))=m(g[0,1])-m(g(\cup _{n,k}I_{n,k}))=1\]</div>
+<p>因为 <span class="arithmatex">\(g(C)\)</span> 是正测度集，所以可以构造 <span class="arithmatex">\(g(C)\)</span> 的不可测子集 <span class="arithmatex">\(E\)</span> ， <span class="arithmatex">\(g^{-1}(E)\subset C\)</span> . 而 <span class="arithmatex">\(m^*(g^{-1}(E))\leq m^*(C)=0\)</span> ，所以 <span class="arithmatex">\(g^{-1}(E)\)</span> 可测. 如果 <span class="arithmatex">\(g^{-1}(E)\)</span> 是 Borel 集，则由 <span class="arithmatex">\(g\)</span> 是严格单调连续递增函数， <span class="arithmatex">\(E=g(g^{-1}(E))\)</span> 也是 Borel 集，矛盾！</p>
+<h3 id="mathbbrn-lebesgue"><span class="arithmatex">\(\mathbb{R}^n\)</span> 中的 Lebesgue 测度和可测集<a class="headerlink" href="#mathbbrn-lebesgue" title="Permanent link">&para;</a></h3>
+<p>下面这个命题符合直观上的面积概念.</p>
+<details class="note">
+<summary>设 <span class="arithmatex">\(P\subset \mathbb{R}^n,Q\subset \mathbb{R}^m\)</span> ，若 <span class="arithmatex">\(P,Q\)</span> 可测，则 <span class="arithmatex">\(P\times Q\)</span> 可测，并且 <span class="arithmatex">\(m(P\times Q)=m(P)m(Q)\)</span>.</summary>
+<p>证明：1) 若 <span class="arithmatex">\(P,Q\)</span> 为 <span class="arithmatex">\(\mathbb{R}^n,\mathbb{R}^m\)</span> 中的长方体，则 <span class="arithmatex">\(P\times Q\)</span> 可测，并且 <span class="arithmatex">\(m(P\times Q)=m(P)m(Q)\)</span> ；2) 若 <span class="arithmatex">\(P,Q\)</span> 分别为 <span class="arithmatex">\(\mathbb{R}^n,\mathbb{R}^m\)</span> 中的开集，则存在长方体集族 <span class="arithmatex">\(\{I_n^p\}_{n\geq1},\{I_n^q\}_{n\geq1}\)</span>  其中 <span class="arithmatex">\(\{I_n^p\}_{n\geq1},\{I_n^q\}_{n\geq1}\)</span> 中的元素分别两两不交， <span class="arithmatex">\(P\times Q=\bigcup_{n\geq1}I_n^p\times \bigcup_{n\geq1}I_n^q=\bigcup_{m\geq1}\bigcup_{n\geq1}I_m^p\times I_n^q\)</span> 可测，并且 <span class="arithmatex">\(m(P\times Q)=\sum\limits_{m,n\geq1}^{}m(I_m^p\times I_n^q)=\sum\limits_{m\geq1}^{}m(I_m^p)\sum\limits_{n\geq1}^{}m(I_n^p)\)</span> 从而可得结论；3) 若 <span class="arithmatex">\(P,Q\)</span> 为一般可测集并且有限，为了证明 <span class="arithmatex">\(P\times Q\)</span> ，试图说明对于任意的 <span class="arithmatex">\(\epsilon&gt;0\)</span> 存在 <span class="arithmatex">\(G_p\times G_q\supset P\times Q\supset F_p\times F_q\)</span> ，其中 <span class="arithmatex">\(G_p\times G_q,F_p\times F_q\)</span> 分别为开、闭集，满足 <span class="arithmatex">\(m(G_p\times G_q-F_p\times F_q)&lt;\epsilon\)</span> ，利用 <a href="../Set/#productminus">Set#^ProductMinus</a> 中的结论有：</p>
+<div class="arithmatex">\[\begin{aligned}
+m(G_p\times G_q-F_p\times F_q)&amp;=m((G_p-F_p)\times G_q\cup(G_q-F_q)\times G_p)\\
+&amp;\leq m((G_p-F_p)\times G_q)+m((G_q-F_q)\times G_p)\\
+\end{aligned}\]</div>
+<p>而因为因为 <span class="arithmatex">\(P,Q\)</span> 是可测集，所以对于任意的 <span class="arithmatex">\(\epsilon&gt;0\)</span> 存在 <span class="arithmatex">\(G_p\supset P\supset F_p,G_q\supset Q\supset F_q\)</span> ，使得 <span class="arithmatex">\(m(G_p\backslash F_p)&lt;\epsilon,m(G_q\backslash F_q)&lt;\epsilon\)</span> <span class="arithmatex">\(m(G_p)&lt;m(P)+\epsilon_1,m(G_q)&lt;m(Q)+\epsilon\)</span> ，并且 <span class="arithmatex">\(G_p\backslash F_p,G_q\backslash F_q\)</span> 均为开集，从而由 2) 的结论可得： </p>
+<div class="arithmatex">\[\begin{aligned}
+m(G_p\times G_q-F_p\times F_q)\leq \epsilon(m(P)+m(Q)+2\epsilon)
+\end{aligned}\]</div>
+<p>由 <span class="arithmatex">\(\epsilon\)</span> 的任意性，并且 <span class="arithmatex">\(m(P),m(Q)&lt;\infty\)</span> ，可得 <span class="arithmatex">\(P\times Q\)</span> 可测. 由上面得到的结论，对于任意的 <span class="arithmatex">\(\epsilon&gt;0\)</span> 存在 <span class="arithmatex">\(G_p,G_q\)</span> ， <span class="arithmatex">\(m(G_p\times G_q)-m(P\times Q)\leq \epsilon\)</span> ，从而：</p>
+<div class="arithmatex">\[\begin{aligned}
+m(P)m(Q)-\epsilon &amp;\leq m(G_p)m(G_q)-\epsilon\\
+&amp;=m(G_p\times G_q)-\epsilon\\
+&amp;\leq m(P\times Q)\leq m(G_p\times G_q)\\
+&amp;= m(G_p)m(G_q)\\
+&amp;&lt;(m(P)+\epsilon)(m(Q)+\epsilon)
+\end{aligned}\]</div>
+<p>再由 <span class="arithmatex">\(\epsilon\)</span> 的任意性可得 <span class="arithmatex">\(m(P)m(Q)=m(P\times Q)\)</span> ；4) 对于一般的可测集采取截断法：注意到 <span class="arithmatex">\(P=\bigcup_{k\geq1}P\cap[-k,k]^n\overset{def}{=}\bigcup_{k\geq1}P_k\)</span> ，并且 <span class="arithmatex">\(m(P_k)&lt;\infty\)</span> 从而可得：&gt; &gt;<br />
+<span class="arithmatex">\(<span class="arithmatex">\(\begin{aligned}
+m(P\times Q)&amp;=m\left(\bigcup_{n\geq1}P_n\times Q_n\right)\\
+&amp;\overset{*}{=}\lim_{n\rightarrow \infty}m(P_n\times Q_n)\\
+&amp;=\lim_{n\rightarrow \infty}m(P_n) m(Q_n)\\
+&amp;\overset{*}{=}m(P)m(Q)
+\end{aligned}\)</span>\)</span></p>
+<p>其中 <span class="arithmatex">\(\overset{*}{=}\)</span> 的成立是因为 <span class="arithmatex">\(\{P_n\}_{n\geq1},\{Q_n\}_{n\geq1},\{P_n\times Q_n\}_{n\geq1}\)</span> 是单调递增的有限可测集. <a href="./#monotonouslimit">RF#^MonotonousLimit</a> .</p>
+</details>
+<h2 id="_8">可测函数<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h2>
+<p>设 <span class="arithmatex">\(f:\mathbb{R}\rightarrow \mathbb{R}\)</span> 的定义域为 <span class="arithmatex">\(D\)</span> ， <span class="arithmatex">\(D\)</span> 为可测集，如果 <span class="arithmatex">\(\forall \alpha\in \mathbb{R},\{x\in D:f(x)&gt;\alpha\}\overset{def}{=}\{f&gt;\alpha\}\)</span> 是可测集，则称 <span class="arithmatex">\(f\)</span> 为定义在 <span class="arithmatex">\(D\)</span> 上的<strong>可测函数</strong>.</p>
+<div class="admonition example">
+<p class="admonition-title">常值函数是可测函数：若 <span class="arithmatex">\(f(x)\equiv c,\text{dom}(f)=D\)</span> ，则 <span class="arithmatex">\(\{f&gt;\alpha\}=\left\{\begin{aligned}&amp;\emptyset,\alpha\geq c\\&amp;D,\alpha&lt;c\end{aligned}\right.\)</span> .</p>
+</div>
+<details class="example" open="open">
+<summary>定义在区间 <span class="arithmatex">\(D\)</span> 上的连续函数是可测函数.</summary>
+<p>证明：当 <span class="arithmatex">\(D\)</span> 是开区间时，因为 <span class="arithmatex">\(f\)</span> 连续，所以 <span class="arithmatex">\(\{f&gt;\alpha\}=f^{-1}((\alpha,+\infty))\)</span> 是开集，所以 <span class="arithmatex">\(\{f&gt;\alpha\}\)</span> 可测；对于一般的区间 <span class="arithmatex">\(D\)</span> 注意到 <span class="arithmatex">\(\{x\in D^\circ:f(x)&gt;\alpha\}\)</span> 是可测的，并且 <span class="arithmatex">\(D\backslash D^\circ\)</span> 至多只有两个点，因此也是可测的（<a href="./#atmostzero">RF#^AtMostZero</a>），所以 <span class="arithmatex">\(D\)</span> 可测.</p>
+</details>
+<div class="admonition example">
+<p class="admonition-title">可测集的特征函数 <span class="arithmatex">\(\chi_D\)</span> 可测： <span class="arithmatex">\(\{\chi_D&gt;\alpha\}=\left\{\begin{aligned}&amp;\emptyset,\alpha\geq1\\&amp;D,0\leq \alpha&lt;1\\&amp;\mathbb{R},\alpha&lt;0\end{aligned}\right.\)</span> .</p>
+</div>
+<p>可测函数的定义不是唯一的，有下列等价定义：</p>
+<details class="note">
+<summary>等价命题： 1) <span class="arithmatex">\(f\)</span> 在 <span class="arithmatex">\(D\)</span> 上可测；2) <span class="arithmatex">\(\{f\geq \alpha\}\)</span> 可测；3) <span class="arithmatex">\(\{f&lt;\alpha\}\)</span> 可测；4) <span class="arithmatex">\(\{f\leq \alpha\}\)</span> 可测.</summary>
+<p>证明： <span class="arithmatex">\(1)\rightarrow 2)\)</span> <span class="arithmatex">\(\{f\geq \alpha\}=\bigcap_{n\geq1}\{f&gt;\alpha-\frac{1}{n}\}\)</span> 可测； <span class="arithmatex">\(2)\rightarrow 3)\)</span> <span class="arithmatex">\(\{f&lt;\alpha\}=D-\{f\geq \alpha\}\)</span> 可测； <span class="arithmatex">\(3)\rightarrow4)\)</span> <span class="arithmatex">\(\{f\leq \alpha\}=\bigcap_{n\geq1}\{f&lt;\alpha+\frac{1}{n}\}\)</span> 可测； <span class="arithmatex">\(4)\rightarrow 1)\)</span> <span class="arithmatex">\(\{f&gt;\alpha\}=D-\{f\leq \alpha\}\)</span> 可测.</p>
+</details>
+<p>据此可得若 <span class="arithmatex">\(f\)</span> 为可测函数，则 <span class="arithmatex">\(-f\)</span> 也为可测函数.</p>
+<p>进一步有以下集合也可测：</p>
+<ul>
+<li><span class="arithmatex">\(\{f=\lambda\}=\{f\geq \lambda\}-\{f&gt;\lambda\},\lambda\in \mathbb{R}\)</span> ，以及 <span class="arithmatex">\(\{f=-\infty\}=\cup_{n\geq1}\{f&lt;-n\},\{f=\infty\}\)</span> ；</li>
+<li><span class="arithmatex">\(\{\alpha&lt;(\leq)f&lt;(\leq)\beta\}\)</span> ， <span class="arithmatex">\(\alpha\in\mathbb{R}\cup -\infty,\beta\in \mathbb{R}\cup \infty\)</span> ；</li>
+</ul>
+<p>若 <span class="arithmatex">\(f,g\)</span> 均为 <span class="arithmatex">\(D\)</span> 上的可测函数，则下列集合为可测集，记 <span class="arithmatex">\(\mathbb{Q}=\{r_n\}_{n\geq1}\)</span> ：</p>
+<ul>
+<li><span class="arithmatex">\(\{f&gt;g\}\)</span> ：因为 <span class="arithmatex">\(\{f&gt;g\}=\bigcup_{n\geq1}(\{f&gt;r_n\}\cap \{g&lt;r_n\})\)</span> ，以及 <span class="arithmatex">\(\{f\geq g\}\)</span>；进而可以得到 <span class="arithmatex">\(\max\{f,g\}=\{f\geq g\}\cup\{g&gt;f\}\)</span> 也是可测的；进而 <span class="arithmatex">\(f\)</span> 的正部 <span class="arithmatex">\(\max\{f,0\}\)</span> 和负部 <span class="arithmatex">\(\max\{-f,0\}\)</span> 可测；从而 <span class="arithmatex">\(\lvert f\rvert=f^++f^{-}\)</span> 也可测； ^fGreaterThanGMeasurable</li>
+<li><span class="arithmatex">\(\{f=g\},\{f&lt;(\leq)g\}\)</span> ；从而可得 <span class="arithmatex">\(\min\{f,g\}\)</span> 也是可测的；</li>
+</ul>
+<p>注： <span class="arithmatex">\(\{f&gt;g\}\)</span> 是可测的这一命题很有用，在之后处理收敛一类的命题是可保证构造的集合是可测的，例如 <a href="#egoroff">#^Egoroff</a></p>
+<p><span class="arithmatex">\(f+g,f-g\)</span> 也是 <span class="arithmatex">\(D'\)</span> 上的可测函数：由 <span class="arithmatex">\(\{f+g&gt;\alpha\}=\bigcup_{n=1}^\infty\{f&gt;r_n\}\cap \{g&gt;\alpha-r_n\}\)</span> （证明：若 <span class="arithmatex">\(x\in \{f+g&gt;\alpha\}\)</span> ，则 <span class="arithmatex">\(\exists r_n\in \mathbb{Q},f(x)&gt;r_n&gt;\alpha-g(x)\)</span> ，并且 <span class="arithmatex">\(g(x)&gt;\alpha-r_n\)</span> ，另一方面显然），注意为保持定义的合理性（广义实数没有定义 <span class="arithmatex">\(-\infty+\infty\)</span> ） <span class="arithmatex">\(f+g\)</span> 的定义域为 <span class="arithmatex">\(D-(\{f=-\infty\}\cap\{g=+\infty\})-(\{f=+\infty\}\cap\{g=-\infty\})\)</span> ； ^fAddGMeasurable</p>
+<p>若 <span class="arithmatex">\(\{f_n\}_{n\geq1}\)</span> 是可测函数，则 <span class="arithmatex">\(\{\sup_{n\geq1}f_n&gt;\alpha\}=\bigcup_{n=1}^\infty\{f_n&gt;\alpha\}\)</span> ， <span class="arithmatex">\(\{\inf_{n\geq1}f_n&lt;\alpha\}=\bigcup_{n=1}^\infty \{f_n&lt;\alpha\}\)</span> ；从而 <span class="arithmatex">\(\varlimsup_{n\rightarrow \infty}f_n(x)=\inf_{n\geq1}\sup_{k\geq n}f_k(x)\)</span> ， <span class="arithmatex">\(\varliminf_{n\rightarrow \infty}f_n(x)=\sup_{n\geq1}\inf_{n\geq n}f_k(x)\)</span> <span class="arithmatex">\(\sup f_n,\inf f_n,\varlimsup f_n,\varliminf f_n\)</span> 均为可测函数. 若 <span class="arithmatex">\(\{f_n\}\)</span> 存在极限，则 <span class="arithmatex">\(\lim_{n\rightarrow \infty}f_n\)</span> 也为可测函数.</p>
+<details class="example">
+<summary><span class="arithmatex">\(f\)</span> 是可测集 <span class="arithmatex">\(D\)</span> 上的可测函数， <span class="arithmatex">\(m(\{f&gt;\alpha\})\)</span> 为 <span class="arithmatex">\(\alpha\)</span> 的右连续函数， <span class="arithmatex">\(m(\{f&lt;\alpha\})\)</span> 为 <span class="arithmatex">\(\alpha\)</span> 的左连续函数；进一步， <span class="arithmatex">\(m(\{f\geq \alpha\})\)</span> 为 <span class="arithmatex">\(\alpha\)</span> 的左连续函数， <span class="arithmatex">\(m(\{f\leq \alpha\}\)</span> 为 <span class="arithmatex">\(\alpha\)</span> 的右连续函数.</summary>
+<p>证明：令 <span class="arithmatex">\(g(\alpha)=m(\{f&gt;\alpha\})\)</span> ，则 <span class="arithmatex">\(g(\alpha+1/n)=g(\alpha)-m(\{1/n+\alpha\geq f&gt;\alpha\})\)</span> . 注意到集列 <span class="arithmatex">\(\{1/n+\alpha\geq f&gt;\alpha\}_{n\geq1}\)</span> 单调递减并且不妨设 <span class="arithmatex">\(m(1+\alpha\geq f&gt;\alpha)\)</span> 有限（否则 <span class="arithmatex">\(m\{f&gt;\alpha+1/n\}=m\{f&gt;\alpha\}\equiv\infty\)</span> ），所以：</p>
+<div class="arithmatex">\[\begin{aligned}
+\lim_{n\rightarrow \infty}(g(\alpha+1/n))&amp;=g(\alpha)-\lim_{n\rightarrow \infty}m(\{1/n+\alpha\geq f&gt;\alpha\})\\
+&amp;=g(\alpha)-m(\lim_{n\rightarrow \infty}\{1/n+\alpha\geq f&gt;\alpha\})\\
+&amp;=g(\alpha)-m(\emptyset)=g(\alpha)
+\end{aligned}\]</div>
+<p>由 <span class="arithmatex">\(g\)</span> 单调，所以 <span class="arithmatex">\(g\)</span> 关于 <span class="arithmatex">\(\alpha\)</span> 右连续，同理可得 <span class="arithmatex">\(m(\{f&lt;\alpha\})\)</span> 关于 <span class="arithmatex">\(\alpha\)</span> 左连续.</p>
+<p>另一方面，若 <span class="arithmatex">\(D\)</span> 为有限集，令 <span class="arithmatex">\(g(\alpha)=m(\{f\geq \alpha\})\)</span> ，则：</p>
+<div class="arithmatex">\[\begin{aligned}
+\lim_{n\rightarrow \infty}g(\alpha-1/n)&amp;=g(\alpha)+\lim_{n\rightarrow \infty}m(\alpha&gt;f\geq \alpha-1/n)\\
+&amp;=g(\alpha)
+\end{aligned}\]</div>
+<p>又 <span class="arithmatex">\(g(\alpha)\)</span> 单调，所以 <span class="arithmatex">\(g(\alpha)\)</span> 关于 <span class="arithmatex">\(\alpha\)</span> 左连续，同理可得另一个；</p>
+</details>
+<details class="example">
+<summary>如果对于任意 <span class="arithmatex">\([\alpha,\beta]\subset (a,b)\)</span> ， <span class="arithmatex">\(f(x)\)</span> 在 <span class="arithmatex">\([\alpha,\beta]\)</span> 上可测，则 <span class="arithmatex">\(f(x)\)</span> 在 <span class="arithmatex">\((a,b)\)</span> 上可测.</summary>
+<p>证明：由题可知，对于任意的 <span class="arithmatex">\(a\in \mathbb{R}\)</span> ， <span class="arithmatex">\(\{x\in[a-1/n,b+1/n]:f(x)&gt;a\}\)</span> 为可测集，进而可得 <span class="arithmatex">\(\{x\in(a,b):f(x)&gt;a\}=\bigcup_{n\geq1}\{x\in[a-1/n,b+1/n]:f(x)&gt;a\}\)</span> 可测. 所以 <span class="arithmatex">\(f(x)\)</span> 在 <span class="arithmatex">\((a,b)\)</span> 上可测.</p>
+</details>
+<details class="example">
+<summary>设 <span class="arithmatex">\(f\)</span> 定义在可测集 <span class="arithmatex">\(D\)</span> 上，如果 <span class="arithmatex">\(f^2\)</span> 在 <span class="arithmatex">\(D\)</span> 上可测并且 <span class="arithmatex">\(\{f&gt;0\}\)</span> 是可测集，求证： <span class="arithmatex">\(f\)</span> 在 <span class="arithmatex">\(D\)</span> 上可测.</summary>
+</details>
+<p>证明：对任意 <span class="arithmatex">\(\alpha&lt;0\)</span> ， <span class="arithmatex">\(\{x\in D:f(x)^2&gt;\alpha^2\}\)</span> 为可测集，所以 <span class="arithmatex">\(\{x\in D:f(x)&lt;\alpha\}\cup \{x\in D:f(x)&gt;-\alpha\}\)</span> 为可测集，所以 <span class="arithmatex">\(\{x\in D:\alpha\leq f(x)\leq -\alpha\}\)</span> 为可测集，又 <span class="arithmatex">\(\{f&gt;0\}\)</span> 是可测集，所以 <span class="arithmatex">\(\{x\in D:0&lt;f(x)\leq -\alpha\}\)</span> 是可测集，所以 <span class="arithmatex">\(\{f&gt;-\alpha\}\)</span> 是可测集.</p>
+<p>定义<strong>几乎处处成立</strong>：若 <span class="arithmatex">\(D-E=\{x\in D:P(x)\}\)</span> ，其中 <span class="arithmatex">\(E\subset D\)</span> 为一零测集，则称性质 <span class="arithmatex">\(P(x)\)</span> 在 <span class="arithmatex">\(D\)</span> 上几乎处处成立，记为 <span class="arithmatex">\(P(x)\ a.e.\ x\in D\)</span> .</p>
+<div class="admonition example">
+<p class="admonition-title"><span class="arithmatex">\(\sin x\)</span> 在 <span class="arithmatex">\(\mathbb{R}\)</span> 上几乎处处非 <span class="arithmatex">\(0\)</span> ， <span class="arithmatex">\(\sin^nx\)</span> 在 <span class="arithmatex">\(\mathbb{R}\)</span> 上几乎处处收敛于 <span class="arithmatex">\(0\)</span> .</p>
+</div>
+<div class="admonition example">
+<p class="admonition-title"><span class="arithmatex">\(\chi_\mathbb{Q}\)</span> 在 <span class="arithmatex">\(\mathbb{R}\)</span> 上几乎处处为 <span class="arithmatex">\(0\)</span> （由 <span class="arithmatex">\(m(\mathbb{Q})=0\)</span> ）.</p>
+</div>
+<p>定义<strong>简单函数</strong>：设 <span class="arithmatex">\(f\)</span> 为可测集 <span class="arithmatex">\(D\)</span> 上的一个可测函数，若 <span class="arithmatex">\(f(D)=\{a_1,\cdots,a_n\},n&lt;\infty\)</span> ，则称 <span class="arithmatex">\(f\)</span> 为 <span class="arithmatex">\(D\)</span> 上的简单函数；若令 <span class="arithmatex">\(E_k=\{f=a_k\},1\leq k\leq n\)</span> 则 <span class="arithmatex">\(E_k\)</span> 为可测集并且 <span class="arithmatex">\(f=\sum\limits_{1\leq k\leq n}^{}a_k\chi_{E_k}\)</span> . 并且 <span class="arithmatex">\(\forall \lambda\in \mathbb{R}\)</span> ， <span class="arithmatex">\(\lambda f,\lvert f\rvert,f^+,f^-\)</span> 也是简单函数，若 <span class="arithmatex">\(g\)</span> 为简单函数，则 <span class="arithmatex">\(g\pm f,\max(\min)\{f,g\},fg\)</span> 也为简单函数. </p>
+<p>反之，若 <span class="arithmatex">\(f=\sum\limits_{k=1}^{n}a_k\chi_{E_k}\)</span> 并且 <span class="arithmatex">\(E_k\)</span> 为两两不交的<u>可测集</u>，则 <span class="arithmatex">\(f\)</span> 为 <span class="arithmatex">\(D\)</span> 上的简单函数.</p>
+<p>下面这个定理说明任何一个可测函数都可以由简单函数逼近.</p>
+<details class="note">
+<summary>设 <span class="arithmatex">\(f\)</span> 为可测集 <span class="arithmatex">\(D\)</span> 上的可测函数，则存在 <span class="arithmatex">\(D\)</span> 上的简单函数列 <span class="arithmatex">\(\{f_n\}_{n\geq1}\)</span> 逐点收敛到 <span class="arithmatex">\(f(x)\)</span> . 并且： 1) 当 <span class="arithmatex">\(f\geq0\)</span> 时，存在逐点单调递增的函数列 <span class="arithmatex">\(\{f_n\}_{n\geq1}\)</span> 收敛到 <span class="arithmatex">\(f\)</span> ；2) 当 <span class="arithmatex">\(f\)</span> 有界时，存在函数列 <span class="arithmatex">\(\{f_n\}_{n\geq1}\)</span> 一致收敛到 <span class="arithmatex">\(f\)</span> .</summary>
+<p>证明：令：</p>
+<div class="arithmatex">\[f_n(x)=\left\{\begin{aligned}
+&amp;n,f(x)\geq n\\
+&amp;\frac{k-1}{2^n},\frac{k-1}{2^n}\leq f(x)&lt;\frac{k}{2^n},k=-n2^n+1,\cdots,n2^n\\
+&amp;-n,f(x)&lt;-n
+\end{aligned}\right.\]</div>
+<p>对任意 <span class="arithmatex">\(x\in D\)</span> ，若 <span class="arithmatex">\(f(x)=(-)\infty\)</span> ，则 <span class="arithmatex">\(f_n(x)=(-)n\)</span> ，从而 <span class="arithmatex">\(f_n\rightarrow f(n\rightarrow \infty)\)</span> ；若 <span class="arithmatex">\(f(x)\in \mathbb{R}\)</span> 则 <span class="arithmatex">\(\lvert f_n-f\rvert\leq \frac{1}{2^n}\)</span> ，从而 <span class="arithmatex">\(f_n\rightarrow f(n\rightarrow \infty)\)</span> .</p>
+<p>若 <span class="arithmatex">\(f\geq0\)</span> ， <span class="arithmatex">\(\forall x\in D\)</span> ，若 <span class="arithmatex">\(f(x)=\infty\)</span> ，则 <span class="arithmatex">\(f_n(x)=n\)</span> ， <span class="arithmatex">\(\{f_n\}_{n\geq1}\)</span> 单调递增；若 <span class="arithmatex">\(f(x)&lt;\infty\)</span> ，则存在 <span class="arithmatex">\(k\in \mathbb{N},k\leq f(x)&lt;k+1\)</span> ，分成两段对于 <span class="arithmatex">\(f_n\)</span> 讨论，当 <span class="arithmatex">\(n\leq k\)</span> 时 <span class="arithmatex">\(f_n(x)=n\)</span> 递增，当 <span class="arithmatex">\(n&gt;k\)</span> 时，显然 <span class="arithmatex">\(f_n&gt;f_k\)</span> ，且对于任意的 <span class="arithmatex">\(n&gt;k\)</span> ，存在 <span class="arithmatex">\(k_n\)</span> 使得：</p>
+<div class="arithmatex">\[\frac{2k_n-2}{2^{n+1}}=\frac{k_n-1}{2^n}\leq f(x)&lt;\frac{k_n}{2^n}=\frac{2k_n}{2^{n+1}}\]</div>
+<p>如果 <span class="arithmatex">\(f(x)\in\left[\frac{2k_n-2}{2^{n+1}},\frac{2k_n-1}{2^{n+1}}\right)\)</span> ，由 <span class="arithmatex">\(-(n+1)2^{n+1}+1=-n2^{n+1}\leq2k_n-2\leq n2^{n+1}-2\leq (n+1)2^{n+1}\)</span>  ，可得 <span class="arithmatex">\(f_{n+1}(x)=\frac{2k_n-2}{2^{n+1}}\)</span> ，从而 <span class="arithmatex">\(f_{n+1}(x)=f_n(x)\)</span> ，若 <span class="arithmatex">\(f(x)\in \left[\frac{2k_n-1}{2^{n+1}},\frac{2k_n}{2^{n+1}}\right)\)</span> ，同理可验证 <span class="arithmatex">\(f_{n+1}(x)&gt;f_n(x)\)</span> ，所以 <span class="arithmatex">\(\{f_n\}_{n\geq1}\)</span> 单调递增；</p>
+<p>若 <span class="arithmatex">\(f\)</span> 有界，设 <span class="arithmatex">\(\lvert f\rvert&lt;M\)</span> ，则当 <span class="arithmatex">\(n&gt;M\)</span> 时，因为 <span class="arithmatex">\(\{f\geq n\}=\emptyset=\{f&lt;-n\}\)</span> ，所以 <span class="arithmatex">\(\lvert f_n-f\rvert&lt;\frac{1}{2^n}\)</span> ，从而 <span class="arithmatex">\(\{f_n\}_{n\geq 1}\)</span> 一致收敛于 <span class="arithmatex">\(f\)</span> .</p>
+</details>
+<p>据此，可以从有收敛的简单函数列证明：若 <span class="arithmatex">\(f,g\)</span> 为可测集 <span class="arithmatex">\(D\)</span> 上的可测函数， <span class="arithmatex">\(\forall \lambda\in \mathbb{R}\)</span> ， <span class="arithmatex">\(\lambda f,\lvert f\rvert,fg\)</span> 均为可测函数.</p>
+<hr />
+<p>以下，若 <span class="arithmatex">\(f\)</span> 在 <span class="arithmatex">\(D-E\)</span> 上可测， <span class="arithmatex">\(m(E)=0\)</span> ，则无论 <span class="arithmatex">\(f\)</span> 在 <span class="arithmatex">\(E\)</span> 上是否有定义，均称 <span class="arithmatex">\(f\)</span> 在 <span class="arithmatex">\(D\)</span> 上可测. 在这个约定下，如果使 <span class="arithmatex">\(f+g\)</span> 无意义（e.g. <span class="arithmatex">\(f=-\infty,g=\infty\)</span> ）的点全体为零测集，则可以忽略. 以上只是约定.</p>
+<p>由上定理可得推论：</p>
+<details class="note">
+<summary>可测函数列几乎处处收敛的极限是可测的.</summary>
+<p>证明：设可测函数列 <span class="arithmatex">\(\{f_n\}_{n\geq1}\)</span> 在 <span class="arithmatex">\(D-E\)</span> 上收敛于 <span class="arithmatex">\(f\)</span> ， <span class="arithmatex">\(m(E)=0\)</span> ，则对于任意的 <span class="arithmatex">\(\epsilon&gt;0\)</span> ，存在 <span class="arithmatex">\(N,\forall n&gt;N\)</span> ， <span class="arithmatex">\(\lvert f_n-f\rvert&lt;\frac{\epsilon}{2}\)</span> ，并且由 <span class="arithmatex">\(f_n\)</span> 可测，所以存在简单函数 <span class="arithmatex">\(f_n'\)</span> ， <span class="arithmatex">\(\lvert f_n'-f_n\rvert&lt;\frac{\epsilon}{2}\)</span> ，所以 <span class="arithmatex">\(\lvert f_n'-f\rvert&lt;\epsilon\)</span> ，所以简单函数列 <span class="arithmatex">\(\{f_n'\}_{n\geq N}\)</span> 在 <span class="arithmatex">\(D-E\)</span> 上逐点收敛到 <span class="arithmatex">\(f\)</span> ，所以 <span class="arithmatex">\(f\)</span> 可测.</p>
+</details>
+<p>下面这个定理说明了几乎处处收敛的可测函数可以在限制条件下可以几乎没有损失地加强为一致收敛.</p>
+<details class="note">
+<summary>Egoroff 定理：设 <span class="arithmatex">\(f,f_n(n\geq1)\)</span> 都是有限可测集 <span class="arithmatex">\(D\)</span> 上的几乎处处有限的可测函数，如果 <span class="arithmatex">\(f_n\)</span> 在 <span class="arithmatex">\(D\)</span> 上几乎处处收敛于 <span class="arithmatex">\(f\)</span> ，则对于任意的 <span class="arithmatex">\(\epsilon&gt;0\)</span> ，存在 <span class="arithmatex">\(D\)</span> 的闭子集 <span class="arithmatex">\(F\)</span> ， <span class="arithmatex">\(m(D-F)&lt;\epsilon\)</span> 并且 <span class="arithmatex">\(f_n\)</span> 在 <span class="arithmatex">\(F\)</span> 上一致收敛于 <span class="arithmatex">\(f\)</span> .</summary>
+<p>证明：首先证明存在可测集 <span class="arithmatex">\(E\)</span> 使得 <span class="arithmatex">\(m(D-E)&lt;\frac{\epsilon}{2}\)</span> ，然后利用 <a href="#开闭集逼近可测集">#开闭集逼近可测集</a>证明存在 <span class="arithmatex">\(F\)</span> 使得 <span class="arithmatex">\(m(D-F)&lt;\epsilon\)</span> .</p>
+<p>首先刨去几乎处处之外的集合，令 <span class="arithmatex">\(D_1=D_1^1\cap D_2^2\)</span></p>
+<div class="arithmatex">\[\begin{aligned}
+&amp;D_1^1=\{x\in D:f_n(x),f(x)&lt;\infty,\forall n\geq1\}\\
+&amp;D_1^2=\{x\in D:f_n(x)\rightarrow f(x)(n\rightarrow \infty)\}
+\end{aligned}\]</div>
+<p>进而可知 <span class="arithmatex">\(m(D-D_1)\leq m(D\cap D_1^1)+m(D\cap D_1^2)=0\)</span> ，所以 <span class="arithmatex">\(m(D_1)=m(D)\)</span> ，只需要构造 <span class="arithmatex">\(E\subset D_1\)</span> 使得 <span class="arithmatex">\(m(D_1-E)&lt;\frac{\epsilon}{2}\)</span> .</p>
+<p>令 </p>
+<div class="arithmatex">\[A_n^r=D_1\cap \left[\bigcap_{k\geq n}\left\lvert f_k(x)-f(x)\right\rvert&lt;\frac{1}{r}\right],n,r\in \mathbb{N}\]</div>
+<p>易证 <span class="arithmatex">\(A_n^r\)</span> 是可测集，并且</p>
+<div class="arithmatex">\[\bigcup_{n\geq1}A_n^r=D_1\cap \left[\bigcup_{n\geq1}\bigcap_{k\geq n}\lvert f_k(x)-f(x)\rvert&lt;\frac{1}{r}\right]\]</div>
+<p>由 <span class="arithmatex">\(D_1\)</span> 的定义可知 <span class="arithmatex">\(D_1=\bigcup_{n\geq1}A_n^r\)</span> ，并且 <span class="arithmatex">\(\{A_n^r\}_{n\geq1}\)</span> 单调递增，所以由 <a href="#monotonouslimit">#^MonotonousLimit</a> 可知 <span class="arithmatex">\(m(\lim_{n\rightarrow \infty}A_n^r)=m(D_1)=\lim_{n\rightarrow \infty}m(A_n^r)\)</span> . </p>
+<p>对于任意的 <span class="arithmatex">\(\epsilon&gt;0\)</span> 和给定的 <span class="arithmatex">\(r\)</span> ，存在 <span class="arithmatex">\(n_r\)</span> 使得 <span class="arithmatex">\(m(D_1-A^r_{n_r})&lt;\epsilon/2^{r+1}\)</span> .</p>
+<p>考虑集合 <span class="arithmatex">\(E=\bigcap_{r\geq1}A_{n_r}^r\)</span> ，对于任意的 <span class="arithmatex">\(\epsilon'&gt;0\)</span> ，存在 <span class="arithmatex">\(r_0\geq 1\)</span> ， <span class="arithmatex">\(\frac{1}{r_0}&lt;\epsilon'\)</span> ，对任意的 <span class="arithmatex">\(x\in E\)</span> 由 <span class="arithmatex">\(A_n^r\)</span> 的定义可知，存在 <span class="arithmatex">\(n_{r_1}\)</span> 使得 <span class="arithmatex">\(\forall k&gt;n_{r_1}(\forall x\in E,\lvert f_k(x)-f(x)\rvert&lt;\frac{1}{r_1})\)</span> ，取 <span class="arithmatex">\(r_2=\max\{r_0,r_1\}\)</span> 可得对于任意的 <span class="arithmatex">\(k&gt;n_{r_2}\)</span> 有 <span class="arithmatex">\(\forall x\in E,\lvert f_k(x)-f(x)\rvert&lt;\epsilon'\)</span> ，所以 <span class="arithmatex">\(\{f_n\}_{n\geq1}\)</span> 在 <span class="arithmatex">\(E\)</span> 上一致收敛于 <span class="arithmatex">\(f\)</span> .</p>
+<p>因为 <span class="arithmatex">\(E\)</span> 是可测集，所以存在闭集 <span class="arithmatex">\(F\subset E\)</span> ， <span class="arithmatex">\(m(E\backslash F)&lt;\epsilon/2\)</span> ，从而：</p>
+<div class="arithmatex">\[\begin{aligned}
+m(D-F)&amp;=m(D)-m(F)=m(D_1)-m(F)\\
+&amp;=m(D_1-F)\\
+&amp;\leq m(D_1-E)+m(E-F)= m(\cup_{r\geq1}(D_1-A_{n_r}^r))+\epsilon/2\\
+&amp;\leq \sum\limits_{r\geq1}^{}m(D_1-A_{n_r}^r)+\epsilon/2\\
+&amp;\leq \epsilon
+\end{aligned}\]</div>
+<p>从而可得结论.<br />
+^Egoroff</p>
+</details>
+<details class="note">
+<summary>Egoroff 定理的逆命题也成立.</summary>
+<p>证明：对于任意的 <span class="arithmatex">\(k\geq1\)</span> ，存在 <span class="arithmatex">\(D\)</span> 的闭子集 <span class="arithmatex">\(F_k\)</span> 使得 <span class="arithmatex">\(m(D-F_k)\leq \frac{1}{k}\)</span> 并且 <span class="arithmatex">\(f_n\)</span> 在 <span class="arithmatex">\(F\)</span> 上一致收敛于 <span class="arithmatex">\(f\)</span> . 令 <span class="arithmatex">\(F=\bigcup_{k\geq1}F_k\)</span> ，则 <span class="arithmatex">\(m(D-F)=m\left(\bigcap_{k\geq1}D-F_k\right)\leq \frac{1}{k}\)</span> ，所以 <span class="arithmatex">\(m(D-F)=0\)</span> . 并且对于任意的 <span class="arithmatex">\(x\in F\)</span> ，存在 <span class="arithmatex">\(F_{k_0}\ni x\)</span> ， <span class="arithmatex">\(f_n\)</span> 在 <span class="arithmatex">\(F_{k_0}\)</span> 上一致收敛于 <span class="arithmatex">\(f\)</span> ，从而 <span class="arithmatex">\(\{f_n(x)\}_{n\geq1}\)</span> 收敛到 <span class="arithmatex">\(f(x)\)</span> .</p>
+</details>
+<details class="warning" open="open">
+<summary>在满足 Egoroff 定理的条件下，即使存在 <span class="arithmatex">\(D\)</span> 的子集 <span class="arithmatex">\(F\)</span> 使得 <span class="arithmatex">\(m(D-F)=0\)</span> 也不能保证 <span class="arithmatex">\(f_n\)</span> 在 <span class="arithmatex">\(F\)</span> 上一致收敛于 <span class="arithmatex">\(f\)</span> .</summary>
+<p>例如，对于 <span class="arithmatex">\(f_n(x)=x^n,x\in[0,1]\)</span> ，注意到 <span class="arithmatex">\(\{f_n\}_{n\geq1}\)</span> 在 <span class="arithmatex">\([0,1)\)</span> 上并不一致收敛于 <span class="arithmatex">\(0\)</span> （而在 <span class="arithmatex">\([0,1-\delta)\)</span> 上一致收敛）</p>
+</details>
+<details class="warning" open="open">
+<summary><span class="arithmatex">\(m(D)=\infty\)</span> 时 Egoroff 定理不一定成立.</summary>
+<p>考虑 <span class="arithmatex">\(D=\mathbb{R}\)</span> ， <span class="arithmatex">\(f_n=\chi_{[n,+\infty)}\)</span> ，注意到 <span class="arithmatex">\(f_n\)</span> 逐点收敛到 <span class="arithmatex">\(f=0\)</span> ，而不存在闭集 <span class="arithmatex">\(F\)</span> 满足 <span class="arithmatex">\(m(D-F)&lt;1\)</span> 使得 <span class="arithmatex">\(f_n\)</span> 在 <span class="arithmatex">\(F\)</span> 上一致收敛于 <span class="arithmatex">\(f=0\)</span> . （ <span class="arithmatex">\(\forall N\in \mathbb{N},\exists n_0&gt;N\)</span> ，<span class="arithmatex">\(\lvert f_{n_0}-f\rvert=1,\forall x\in[n_0,+\infty)\)</span> ）</p>
+</details>
+
+
+
+
+
+
+
+  
+    
+  
+  
+
+
+  <aside class="md-source-file">
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="最后更新">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
+    </span>
+    2024-04-19
+  </span>
+
+    
+    
+    
+    
+  </aside>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  回到页面顶部
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["revision.date", "navigation.path", "navigation.top", "content.action.edit", "content.code.copy"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.bd41221c.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/copy-tex.min.js"></script>
+      
+        <script src="../../javascripts/katex.js"></script>
+      
+        <script src="../../javascripts/tabSync.js"></script>
+      
+    
+  </body>
+</html>

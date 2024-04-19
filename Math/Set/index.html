@@ -1,0 +1,1809 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../..">
+      
+      
+        <link rel="next" href="../R/">
+      
+      
+      <link rel="icon" href="../../imgs/zxr.ico">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.16">
+    
+    
+      
+        <title>集合论 - zoeminus</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.bcfcd587.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+  
+  
+  
+  
+  <style>:root{--md-annotation-icon:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9 7v2h4l-4 6v2h6v-2h-4l4-6V7H9m3-5a10 10 0 0 1 10 10 10 10 0 0 1-10 10A10 10 0 0 1 2 12 10 10 0 0 1 12 2Z"/></svg>');}</style>
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css">
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="amber" data-md-color-accent="amber">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../.." title="zoeminus" class="md-header__button md-logo" aria-label="zoeminus" data-md-component="logo">
+      
+  <img src="../../imgs/zx.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            zoeminus
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              集合论
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="amber" data-md-color-accent="amber"  aria-label="切暗色"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="切暗色" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7M9 21v-1h6v1a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1m3-17a5 5 0 0 0-5 5c0 2.05 1.23 3.81 3 4.58V16h4v-2.42c1.77-.77 3-2.53 3-4.58a5 5 0 0 0-5-5Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="amber" data-md-color-accent="amber"  aria-label="切亮色"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="切亮色" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7M9 21a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9v1Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/zoeplus/zoeminus" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    zoeminus
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="zoeminus" class="md-nav__button md-logo" aria-label="zoeminus" data-md-component="logo">
+      
+  <img src="../../imgs/zx.png" alt="logo">
+
+    </a>
+    zoeminus
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/zoeplus/zoeminus" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    zoeminus
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    主页
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    一
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            一
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    集合论
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    集合论
+  </span>
+  
+
+      </a>
+      
+        
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="本文组织：">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      本文组织：
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      集合及其运算
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      集族
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      集合极限
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      关系
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      势（基数）
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="势（基数）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      映射
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      势
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="势">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      可数集
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      连续统势
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2c" class="md-nav__link">
+    <span class="md-ellipsis">
+      \(2^c\)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      选择公理
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      拓扑
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../R/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    实数理论
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../GTopo/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    一般拓扑学
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../RF/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    实变函数
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../MAlg/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    矩阵代数
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    九
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            九
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Prob/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    概率论
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Stat/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    数理统计
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Opt/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    最优化理论
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../DSA/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    数据结构与算法
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CLT/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    计算学习理论
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    二十二
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            二十二
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../DM/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    数据挖掘
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SL/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    统计学习
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../DL/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    深度学习
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    二十
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            二十
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Coding/C.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Coding/CPP/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    十九
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            十九
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Cookbooks/DLCB/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PyTorch
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Cookbooks/PyDCB/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Python DM & ML
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    零零五五
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            零零五五
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Parrot/Divisadero/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    遥望
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Parrot/Senses/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    感官刺激
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Parrot/LucidDreaming.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    清醒的梦
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_7_4" id="__nav_7_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    存在主义
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_4">
+            <span class="md-nav__icon md-icon"></span>
+            存在主义
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Parrot/Existential/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    存在 I
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Parrot/B&N.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    对存在的追求
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="本文组织：">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      本文组织：
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      集合及其运算
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      集族
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      集合极限
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      关系
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      势（基数）
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="势（基数）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      映射
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      势
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="势">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      可数集
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      连续统势
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2c" class="md-nav__link">
+    <span class="md-ellipsis">
+      \(2^c\)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      选择公理
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      拓扑
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+    <a href="https://github.com/zoeplus/zoeminus/commits/main/docs/Math/Set.md" title="编辑此页" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"/></svg>
+    </a>
+  
+  
+
+
+  <h1>集合论</h1>
+
+<p>集合论.</p>
+<h2 id="_1">集合及其运算<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>集合是基本的概念，不予定义，将集合理解为一个包含多个的整体. </p>
+<p><strong>属于</strong> <span class="arithmatex">\(x\in A\)</span> ，<strong>不属于</strong> <span class="arithmatex">\(x\notin A\)</span> .</p>
+<p><strong>罗素悖论</strong>： <span class="arithmatex">\(\{x:x\notin x\}\)</span> .</p>
+<p><strong>分离模式</strong>： 设 <span class="arithmatex">\(X\)</span> 是集合 ， <span class="arithmatex">\(\{x\in X:P(x)\}\)</span> ；进而可以定义空集： <span class="arithmatex">\(\emptyset=\{x\in X:x\neq x\}\)</span> .</p>
+<p><strong>包含（于）</strong> <span class="arithmatex">\(\supset(\subset)\)</span> 或者 <span class="arithmatex">\(\supseteq(\subseteq)\)</span> ，<strong>真包含（于）</strong> <span class="arithmatex">\(\supsetneq(\subsetneq)\)</span> . <strong>相等</strong> <span class="arithmatex">\((A=B)\Leftrightarrow \forall x(x\in A\Leftrightarrow x\in B)\Leftrightarrow A\subset B\wedge B\subset A\)</span> . <strong>幂集</strong> <span class="arithmatex">\(\mathcal{P}(A)=\{X:X\subset A\}\)</span> . 只含有一个元素的集合称为<strong>单点集</strong>.</p>
+<p>运算：<strong>并</strong> <span class="arithmatex">\(\cup\)</span> ；<strong>交</strong> <span class="arithmatex">\(\cap\)</span> ；<strong>差</strong>运算 <span class="arithmatex">\(A\backslash B\)</span> （或者记作 <span class="arithmatex">\(A-B\)</span> ）；如果 <span class="arithmatex">\(A\subset X\)</span> ，称 <span class="arithmatex">\(X\backslash A\overset{def}{=}A^c\)</span> 为 <span class="arithmatex">\(A\)</span> 关于 <span class="arithmatex">\(X\)</span> 的<strong>补</strong>集 ；</p>
+<p>集合 <span class="arithmatex">\(A,B\)</span> 的<strong>乘积</strong>（或笛卡尔积 Cartesian Product、卡式积，对积）. 记为： <span class="arithmatex">\(A\times B=\{(a,b):a\in A,b\in B\}\)</span> . 对于<strong>有序对</strong> <span class="arithmatex">\((a,b)\)</span> 或可以记作 <span class="arithmatex">\(\{a,\{b\}\}\)</span> 或 <span class="arithmatex">\(\{\{a\},\{a,b\} \}\)</span> （用后者），其具有性质： <span class="arithmatex">\((a,b)=(c,d)\Leftrightarrow (a=c)\wedge (b=d)\)</span> ；此外有 <span class="arithmatex">\(\emptyset \times A=A\times \emptyset=\emptyset\)</span> .</p>
+<p>并可以将乘积推广到多个集合，<strong>直积</strong>： <span class="arithmatex">\(<span class="arithmatex">\(\Pi_{k=1}^n A_k=\{(x_1,x_2,\cdots,x_n):x_i\in A_i,i=1,2,\cdots,n\}\)</span>\)</span></p>
+<p><strong>对称差</strong>： <span class="arithmatex">\(A\Delta B=(A\backslash B)\cup(B\backslash A)\)</span> 其具有性质： </p>
+<div class="arithmatex">\[\begin{aligned}
+&amp;1)\ A\Delta B=(A\cup B)\backslash(A\cap B)\\
+&amp;2)\ A\Delta B=B\Delta A
+\end{aligned}\]</div>
+<p>（ #imcomplete i) 的证明画 Venn 图就能理解，如果写成析取和合取形式的话是有公式可以推出吗? ) </p>
+<p><strong>分配律</strong>： </p>
+<div class="arithmatex">\[\begin{aligned}
+&amp;A\cap\left(\bigcup_{i\in I}B_i\right)=\bigcup_{i\in I}\left(A\cap B_i\right)\\
+&amp;A\cup\left(\bigcap_{i\in I}B_i\right)=\bigcap_{i\in I}(A\cup B_i)
+\end{aligned}\]</div>
+<p><strong>De Morgan律</strong>： </p>
+<div class="arithmatex">\[\begin{aligned}
+&amp;A\backslash\left(\bigcup_{i\in I}B_i\right)=\bigcap_{i\in I}\left(A\backslash B_i\right)\\
+&amp;A\backslash\left(\bigcap_{i\in I}B_i\right)=\bigcup_{i\in I}(A\backslash B_i)
+\end{aligned}\]</div>
+<p><strong>积的分配律</strong>： </p>
+<div class="arithmatex">\[\begin{aligned}
+&amp;A\times\left(\bigcup_{i\in I}B_i\right)=\bigcup_{i\in I}(A\times B_i)\\
+&amp;A\times\left(\bigcap_{i\in I}B_i\right)=\bigcap_{i\in I}(A\times B_i)
+\end{aligned}\]</div>
+<details class="example">
+<summary><span class="arithmatex">\(f(x),f_n(x)\)</span> 为 <span class="arithmatex">\(\mathbb{R}\)</span> 上的连续函数，证明： <span class="arithmatex">\(\{x:\lim_{n\rightarrow \infty}f_n(x)=f(x)\}=\)</span> <span class="arithmatex">\(\bigcap_{r=1}^\infty\bigcup_{n=1}^\infty\bigcap_{k=n}^\infty\{x:\lvert f_k(x)-f(x)\rvert&lt;\frac{1}{r}\}\)</span> .</summary>
+<p>证明：首先证明 <span class="arithmatex">\(\subset\)</span> ：对于任意 <span class="arithmatex">\(x\in\{x:\lim_{n\rightarrow \infty}f_n(x)=f(x)\}\)</span> ， <span class="arithmatex">\(\forall r\geq1,r\in \mathbb{N}\)</span> ，存在 <span class="arithmatex">\(N\in \mathbb{N}\)</span> ，<span class="arithmatex">\(\forall k&gt;N\)</span> ，均有 <span class="arithmatex">\(\lvert f_k(x)-f(x)\rvert&lt;\frac{1}{r}\)</span> ，据次即可得到 <span class="arithmatex">\(x\in \bigcap_{r=1}^\infty\bigcup_{n=1}^\infty\bigcap_{k=n}^\infty\{x:\lvert f_k(x)-f(x)\rvert&lt;\frac{1}{r}\}\)</span> ；</p>
+<p>反之，考虑 <span class="arithmatex">\(y\in \bigcap_{r=1}^\infty\bigcup_{n=1}^\infty\bigcap_{k=n}^\infty\{x:\lvert f_k(x)-f(x)\rvert&lt;\frac{1}{r}\}\)</span> ，对于任意的 <span class="arithmatex">\(\epsilon&gt;0\)</span> ，存在 <span class="arithmatex">\(r\geq1:\frac{1}{r}&lt;\epsilon\)</span> ，由该集合的性质： <span class="arithmatex">\(\exists N\in \mathbb{N}\)</span> ，当 <span class="arithmatex">\(k&gt;N\)</span> 时， <span class="arithmatex">\(\lvert f_k(x)-f(x)\rvert&lt;\frac{1}{r}&lt;\epsilon\)</span> ，从而可得 <span class="arithmatex">\(\lim_{n\rightarrow \infty}f_n(x)=f(x)\)</span> . </p>
+<p>综上，等式成立.</p>
+</details>
+<details class="note">
+<summary><span class="arithmatex">\(A\times B-C\times D=[(A-C)\times B]\cup[A\times (B-D)]\)</span> .</summary>
+<p>证明：若 <span class="arithmatex">\((x,y)\in A\times B-C\times D\)</span> ，则 <span class="arithmatex">\(\cancel{x\in A-C,y\in B-D}\)</span> <span class="arithmatex">\((x,y)\in A\times B,(x,y)\notin C\times D\rightarrow x\notin C\land y\in D\)</span> 或者 <span class="arithmatex">\(x\in C\land y\notin D\)</span> 或者 <span class="arithmatex">\(x\notin C\land y\notin D\)</span> . 并且从而可知 <span class="arithmatex">\((x,y)\in[(A-C)\times B]\cup[A\times (B-D)]\)</span> . 若 <span class="arithmatex">\((x,y)\in [(A-C)\times B]\cup[A\times (B-D)]\)</span> ，则 <span class="arithmatex">\(x\in (A-C),y\in B\)</span> 或者 <span class="arithmatex">\(x\in A,y\in (B-D)\)</span> ，两者都可以得出 <span class="arithmatex">\((x,y)\in A\times B-C\times D\)</span> .<br />
+^ProductMinus</p>
+</details>
+<h2 id="_2">集族<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>称集合 <span class="arithmatex">\(\Lambda\)</span> 为指标集，如果 <span class="arithmatex">\(\forall \lambda\in \Lambda\)</span> ，都有一个集合 <span class="arithmatex">\(A_\lambda\)</span> 与之对应，并称 <span class="arithmatex">\(\mathcal{A}=\{A_\lambda\}_{\lambda\in\Lambda}\)</span> 为集族. 从而可以定义集族 <span class="arithmatex">\(\mathcal{A}\)</span> 的交 <span class="arithmatex">\(\bigcap_{\lambda\in\Lambda}A_\lambda\)</span> 和集族的并 <span class="arithmatex">\(\bigcup_{\lambda\in \Lambda}A_\lambda\)</span> .  </p>
+<p>如果指标集是空集，则称对应的集合族为<strong>空族</strong>（空族的并为空集，不考虑空族的交）. 如果集族中的每一个集合都为一个集合 <span class="arithmatex">\(X\)</span> 的子集，则称该集族为 <span class="arithmatex">\(X\)</span> 的<strong>子集族</strong>. <span class="arithmatex">\(\{A_\lambda\}_{\lambda\in \Lambda}\)</span> 即为 <span class="arithmatex">\(\bigcup_{\lambda\in \Lambda}A_\lambda\)</span> 的子集族.</p>
+<p><strong>De Mogan定理</strong>（集合族）： <span class="arithmatex">\(<span class="arithmatex">\(\begin{aligned}
+&amp;\left(\bigcup_{\lambda\in\Lambda}A_\lambda\right)^c=\bigcap_{\lambda\in \Lambda}A_\lambda^c\\
+&amp;\left(\bigcap_{\lambda\in\Lambda}A_\lambda\right)^c=\bigcup_{\lambda\in \Lambda}A^c_\lambda
+\end{aligned}\)</span>\)</span> 证明从定义即可.</p>
+<p><strong>集合序列</strong>：如果 <span class="arithmatex">\(\Lambda=\mathbb{N}\)</span> ，则称 <span class="arithmatex">\(\mathcal{A}\)</span> 为集合序列，一般记为 <span class="arithmatex">\(\{A_n\}_{n\geq1}\)</span> .</p>
+<h2 id="_3">集合极限<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p>考虑集合序列 <span class="arithmatex">\(\{A_n\}_{n\geq1}\)</span> . 称 <span class="arithmatex">\(A_1\subset A_2\subset \cdots\subset A_n\subset \cdots\)</span> 为单调递增， <span class="arithmatex">\(A_1\supset A_2\supset \cdots\supset A_n\supset \cdots\)</span> 为单调递减.</p>
+<details class="example">
+<summary>假设 <span class="arithmatex">\(\{A_n\}_{n\geq1}\)</span> 单调递减，则 <span class="arithmatex">\(A_1=\left(\bigcap_{n=1}^\infty A_n\right)\bigcup\left(\bigcup_{n=1}^\infty(A_n-A_{n+1})\right)\)</span> .</summary>
+<p>证明：对于任意的 <span class="arithmatex">\(x\in A_1\)</span> ，注意到 <span class="arithmatex">\(\bigcup_{n=1}^\infty(A_n-A_{n+1})=A_1-A_{n+1}\)</span> ，假设 <span class="arithmatex">\(\forall n\geq1,x\notin (A_1-A_{n+1})\)</span> ，则 <span class="arithmatex">\(x\in A_{n+1}\)</span> ，从而可以得到 <span class="arithmatex">\(x\in \bigcap_{n=1}^\infty A_n\)</span> ，从而可以得到 <span class="arithmatex">\(A_1\subset \left(\bigcap_{n=1}^\infty A_n\right)\bigcup\left(\bigcup_{n=1}^\infty(A_n-A_{n+1})\right)\)</span> ；</p>
+<p>另一方面的包含是显然的，从而等式成立.</p>
+</details>
+<p>对于一个集合序列 <span class="arithmatex">\(\{A_n\}_{n\geq1}\)</span> 构造递减序列 <span class="arithmatex">\(\{B_n\}_{n\geq1},B_k=\cup_{n\geq k}A_n\)</span> 构造递增序列 <span class="arithmatex">\(C_k=\cap_{n\geq k}A_n\)</span> . 记： </p>
+<div class="arithmatex">\[\begin{aligned}
+&amp;\varlimsup_{n\rightarrow \infty}A_n=\bigcap_{k=1}^{\infty}B_k\\
+&amp;\varliminf_{n\rightarrow \infty}A_n=\bigcup_{k=1}^{\infty}C_k
+\end{aligned}\]</div>
+<p>如果 <span class="arithmatex">\(\varlimsup_{n\rightarrow\infty}A_n=\varliminf_{n\rightarrow\infty}A_n\)</span> ，则称 <span class="arithmatex">\(\{A_n\}_{n\geq1}\)</span> 存在极限.</p>
+<details class="tip">
+<summary>助记：上交.</summary>
+</details>
+<details class="example">
+<summary>集合序列的极限： <span class="arithmatex">\(\{A_n\}_{n\geq1},A_n=\{\frac{m}{n}:m\in \mathbb{Z}\}\)</span> ，证明 <span class="arithmatex">\(\varlimsup_{n\rightarrow \infty}A_n=\mathbb{Q}\)</span> ， <span class="arithmatex">\(\varliminf_{n\rightarrow \infty}A_n=\mathbb{Z}\)</span> .</summary>
+<p>注意到： <span class="arithmatex">\(<span class="arithmatex">\(\mathbb{Z}\subset \varliminf_{n\rightarrow \infty}A_n,\varlimsup_{n\rightarrow \infty}A_n\subset \mathbb{Q}\)</span>\)</span> . </p>
+<ul>
+<li>对于 <span class="arithmatex">\(x\in \bigcup_{n\geq1}\bigcap_{k\geq n}A_k\)</span> ，存在 <span class="arithmatex">\(n_1\)</span> 使得 <span class="arithmatex">\(x\in \bigcap_{k\geq n_1}A_k\)</span> ，进而一定存在 <span class="arithmatex">\(n_1\)</span> 使得 <span class="arithmatex">\(x\in A_{n_2}\cap A_{n_2+1}\)</span> . 从而可以得到 <span class="arithmatex">\(x=\frac{m_1}{n_2}=\frac{m_2}{n_2+1}\)</span> ，进而 <span class="arithmatex">\(x=m_2-m_1\in \mathbb{N}\)</span> . 从而取等.</li>
+<li>由于 <span class="arithmatex">\(\frac{p}{q}=\frac{np}{nq},\forall n\in \mathbb{Z}\)</span> ，所以 <span class="arithmatex">\(\frac{p}{q}\in \bigcup_{k\geq n}A_k,\forall n\geq1\)</span> ，从而可得 <span class="arithmatex">\(\frac{p}{q}\in \bigcap_{n\geq1}\bigcup_{k\geq n}A_k\)</span> ，最后由 <span class="arithmatex">\(\frac{p}{q}\)</span> 的任意性等式成立 .</li>
+</ul>
+</details>
+<p>根据定义有以下结论：</p>
+<details class="note">
+<summary><span class="arithmatex">\(x\in\varlimsup_{n\rightarrow \infty}A_n\Leftrightarrow \forall n\geq1(\exists N\geq n,x\in A_N)\)</span> 即有无穷多个包含 <span class="arithmatex">\(x\)</span> 的 <span class="arithmatex">\(A_N\)</span></summary>
+</details>
+<details class="note">
+<summary><span class="arithmatex">\(x\in\varliminf_{n\rightarrow \infty}A_n\Leftrightarrow \exists N\geq1(\forall n\geq N,x\in A_n)\)</span> 或者不包含 <span class="arithmatex">\(x\)</span> 的集合只有有限多个.</summary>
+</details>
+<p>根据上面两条可以得到：</p>
+<details class="note">
+<summary><span class="arithmatex">\(\varliminf_{n\rightarrow \infty}A_n\subset \varlimsup_{n\rightarrow \infty}A_n\)</span> .</summary>
+</details>
+<p>进而有取等时的充分条件：</p>
+<details class="note">
+<summary>如果 <span class="arithmatex">\(\{A_n\}_{n\geq1}\)</span> 单调，则 <span class="arithmatex">\(\varliminf_{n\rightarrow \infty}A_n=\varlimsup_{n\rightarrow \infty}A_n\)</span></summary>
+<p>$$=\left{\begin{aligned}</p>
+</details>
+<p>&amp;\bigcup_{n=1}^\infty A_n,A_n\text{ 单调递增}\<br />
+&amp;\bigcap_{n=1}^\infty A_n,A_n\text{ 单调递减}<br />
+\end{aligned}\right.$$</p>
+<h2 id="_4">关系<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<p>可以用集合定义两个元素之间的<strong>关系</strong>. 设集合 <span class="arithmatex">\(S\subset A\times B\)</span> . 如果 <span class="arithmatex">\((a,b)\in S\)</span> 则称 <span class="arithmatex">\(a,b\)</span> 之间关于存在由 <span class="arithmatex">\(S\)</span> 定义的关系，记为 <span class="arithmatex">\(a\sim b\)</span> 或者 <span class="arithmatex">\(aRb\)</span> .</p>
+<p><strong>对偶关系</strong></p>
+<p>设 <span class="arithmatex">\(a,b\)</span> 之间存在关系 <span class="arithmatex">\(R\)</span> ，其由集合 <span class="arithmatex">\(S=\{(a,b):a\in A,b\in B\}\)</span> 定义. 考虑集合 <span class="arithmatex">\(S^{op}=\{(b,a):a\in A',b\in B'\}\)</span> ，如果 <span class="arithmatex">\((b,a)\in S^{op}\)</span> ，则记由 <span class="arithmatex">\(S^{op}\)</span> 定义的关系为 <span class="arithmatex">\(R^{op}\)</span> ，记为 <span class="arithmatex">\(aR^{op}b\)</span> .</p>
+<p><strong>复合关系</strong></p>
+<p>考虑关系 <span class="arithmatex">\(R,S\)</span> ，记 <span class="arithmatex">\(S\circ R=\{(a,c):\exists b(aSb\wedge bRc)\}\)</span></p>
+<h2 id="_5">势（基数）<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<h3 id="_6">映射<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<p>映射描述的是从集合 <span class="arithmatex">\(X\)</span> 到集合 <span class="arithmatex">\(Y\)</span> 的一个对应关系，<strong>单射</strong>、<strong>满射</strong>和<strong>双射</strong>是特殊的映射.</p>
+<p>此外还有一些特殊的映射： <span class="arithmatex">\(1_X:X\rightarrow X,x\mapsto x\)</span> 称为 <span class="arithmatex">\(X\)</span> 上的<strong>恒等映射</strong>； 设 <span class="arithmatex">\(A\subset X,i:A\rightarrow X:x\mapsto x\)</span> 称为 <span class="arithmatex">\(A\)</span> 在 <span class="arithmatex">\(X\)</span> 中的<strong>含入映射</strong>. <strong>特征函数</strong>或指示函数： <span class="arithmatex">\(<span class="arithmatex">\(A\subset X,\chi_A=\left\{\begin{aligned}
+&amp;1,x\in A\\
+&amp;0,x\notin X-A
+\end{aligned}\right.\)</span>\)</span> 例如，对于 <span class="arithmatex">\(\mathbb{Q}\subset \mathbb{R},\chi_\mathbb{Q}\)</span> 为一特征函数，也即为<strong>Dirichlet函数</strong>.</p>
+<details class="example">
+<summary>设 <span class="arithmatex">\(\{A_n\}_{n\geq1}\)</span> 是一集列，证明： i) <span class="arithmatex">\(\chi_{\varlimsup_{n\rightarrow \infty}A_n}(x)=\varlimsup_{n\rightarrow \infty}\chi_{A_n}(x)\)</span> . ii) <span class="arithmatex">\(\chi_{\varliminf_{n\rightarrow \infty}A_n}(x)=\varliminf_{n\rightarrow \infty}\chi_{A_n}(x)\)</span> .</summary>
+<p>证明：<br />
+i) ：如果 <span class="arithmatex">\(x\in\varlimsup_{n\rightarrow \infty}A_n\)</span> ，则 <span class="arithmatex">\(\forall n\geq1,x\in \bigcup_{k=n}^\infty A_n\)</span> ， 则存在 <span class="arithmatex">\(k_1\geq n,x\in A_{k_1}\)</span> ，依次类推可以得到 <span class="arithmatex">\(k_1&lt;k_2&lt;\cdots\)</span> ，有 <span class="arithmatex">\(x\in A_{k_i},i=1,2,\cdots\)</span> ，从而 <span class="arithmatex">\(\varlimsup_{n\rightarrow \infty}\chi_{A_n}(x)=1\)</span> . </p>
+<p>反之，如果 <span class="arithmatex">\(x\notin \varlimsup_{n\rightarrow \infty}A_n\)</span> ，则 <span class="arithmatex">\(\forall n\geq1,x\notin \bigcup_{k=n}^\infty A_k\)</span> ，从而 <span class="arithmatex">\(x\notin A_n,\forall n\geq1\)</span> ，因此 <span class="arithmatex">\(\varliminf_{n\rightarrow \infty}\chi_{A_n}(x)=0\)</span> .</p>
+<p>ii) ：如果 <span class="arithmatex">\(x\in\varliminf_{n\rightarrow \infty}A_n\)</span> ，则显然有 <span class="arithmatex">\(\varliminf_{n\rightarrow \infty}\chi_{A_n}(x)=1\)</span> ，反之若 <span class="arithmatex">\(x\notinf \varliminf_{n\rightarrow \infty}A_n\)</span> ，则对于任意的 <span class="arithmatex">\(n\geq1\)</span> ，有 <span class="arithmatex">\(x\notin \bigcap_{k=n}^\infty A_k\)</span> ，从而 <span class="arithmatex">\(x\notin A_k,k\feq 1\)</span> ，进而有 <span class="arithmatex">\(\varliminf_{n\rightarrow \infty}\chi_{A_n}(x)=0\)</span> .</p>
+</details>
+<p>特征函数还具有以下性质 <a href="https://zhuanlan.zhihu.com/p/616321641">zhihu</a> #imcomplete </p>
+<p>定义映射的<strong>复合</strong>： <span class="arithmatex">\(f:X\rightarrow Y,g:Y\rightarrow Z\)</span> ，进而记 <span class="arithmatex">\(g\circ f(x)=g(f(x)),g\circ f:X\rightarrow Z\)</span> .</p>
+<p>对于双射，其具有以下的充分必要条件：</p>
+<details class="note">
+<summary>设 <span class="arithmatex">\(f:X\rightarrow Y\)</span> ，如果存在 <span class="arithmatex">\(g:Y\rightarrow X\)</span> 使得 <span class="arithmatex">\(f\circ g=1_Y,g\circ f=1_X\)</span> ，则 <span class="arithmatex">\(f\)</span> 为双射，并且这样的 <span class="arithmatex">\(g\)</span> 唯一. #imcomplete-whatever</summary>
+<p>证明： 略.  </p>
+</details>
+<p>称满足上述条件的 <span class="arithmatex">\(g\)</span> 为 <span class="arithmatex">\(f\)</span> 的<strong>逆映射</strong>，记为 <span class="arithmatex">\(f^{-1}\)</span> .</p>
+<details class="example">
+<summary>只满足 <span class="arithmatex">\(f\circ g=1_Y\)</span> 或者 <span class="arithmatex">\(g\circ f=1_X\)</span> 的映射 <span class="arithmatex">\(g\)</span> 不一定是 <span class="arithmatex">\(f\)</span> 的逆映射.</summary>
+<p>以 <span class="arithmatex">\(f\circ g=1_Y\)</span> 为例，设 <span class="arithmatex">\(g\circ f(x)=x'\)</span> ，将 <span class="arithmatex">\(f\)</span> 作用在等式左右边得到 <span class="arithmatex">\(f(x)=f(x')\)</span> ，由此可见如果 <span class="arithmatex">\(f\)</span> 不是单射则 <span class="arithmatex">\(g\neq f^{-1}\)</span> 不成立.</p>
+<p>设 <span class="arithmatex">\(f=(x-1)^2:[0,+\infty)\rightarrow [0,+\infty)\)</span> ， $$g=\left{\begin{aligned}</p>
+</details>
+<p>&amp;\sqrt{x}+1,x&gt;1\<br />
+&amp;1-\sqrt{x},0\leq x\leq1<br />
+\end{aligned}\right.$$ ，则 <span class="arithmatex">\(g:[0,+\infty)\rightarrow [0,+\infty)\)</span> ，则 <span class="arithmatex">\(f\circ g=1_Y\)</span>  ，而 <span class="arithmatex">\(g\circ f\left(\frac{3}{2}\right)=\frac{1}{2}\)</span> .</p>
+<p>此外对于 <span class="arithmatex">\(f:X\rightarrow Y\)</span> ，还可以定义 <span class="arithmatex">\(Y\)</span> 的<strong>原像</strong>： <span class="arithmatex">\(<span class="arithmatex">\(f^{-1}(Y)=\{x\in X:f(x)\in Y\}\)</span>\)</span></p>
+<div class="arithmatex">\[\begin{aligned}
+&amp;f\left(\bigcup_{\lambda\in \Lambda}A_\lambda\right)=\bigcup_{\lambda\in \Lambda}f(A_\lambda)\\
+&amp;f\left(\bigcap_{\lambda\in \Lambda}A_\lambda\right)\overset{\textcolor{red}{?}}=\bigcap_{\lambda\in \Lambda}f(A_\lambda)
+\end{aligned}\]</div>
+<p>注意： <span class="arithmatex">\(<span class="arithmatex">\(f\left(\bigcap_{\lambda\in \Lambda}A_\lambda\right)\subset \bigcap_{\lambda\in \Lambda}f(A_\lambda)\)</span>\)</span></p>
+<details class="note">
+<summary>反例以及对于 <span class="arithmatex">\(f\)</span> 是单射为上式取等的充分条件</summary>
+<p>包含关系是显然的. 对于反例，可以取一非单射的 <span class="arithmatex">\(f\)</span> ： $$\begin{aligned}</p>
+</details>
+<p>&amp;A={1,2},B={2,3}\<br />
+&amp;f(1)=f(3)=4,f(2)=2\<br />
+&amp;f(A\cap B)=2,f(A)\cap f(B)={4,2}<br />
+\end{aligned}$$</p>
+<blockquote>
+<p>下面证明取等的充分条件为 <span class="arithmatex">\(f\)</span> 为单射.<br />
+- <span class="arithmatex">\(\Leftarrow\)</span> ：注意到对任意 <span class="arithmatex">\(x\in\bigcap_{\lambda\in \Lambda}f(A_\lambda)\)</span> ，则每一个集合 <span class="arithmatex">\(A_\lambda\)</span> 中都至少存在一个元素 <span class="arithmatex">\(a_\lambda\)</span> 满足 <span class="arithmatex">\(x=f(a_\lambda)\)</span> ，设 <span class="arithmatex">\(A_\lambda,\lambda\in \Lambda\)</span> 中满足 <span class="arithmatex">\(x=f(a_\lambda)\)</span> 的元素组成的集合为 <span class="arithmatex">\(\Lambda'\)</span>. 并且由 <span class="arithmatex">\(f\)</span> 为单射，可知 <span class="arithmatex">\(\Lambda'=\{x\}\)</span> . 从而每一个集合中都有一个 <span class="arithmatex">\(x\)</span> ，进而可知 <span class="arithmatex">\(f(x)\in f\left(\bigcap_{\lambda\in \Lambda}A_\lambda\right)\)</span> . 由集合相互包含可得取等.<br />
+- <span class="arithmatex">\(\Rightarrow\)</span> ：并不是必要条件，可以取 <span class="arithmatex">\(f\)</span> 为一个恒等映射.</p>
+</blockquote>
+<h3 id="_7">势<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
+<p>用<strong>势</strong>（cardinality）来衡量两个集合的大小，考虑集合 <span class="arithmatex">\(A,B\)</span> ，如果 <span class="arithmatex">\(A\)</span> 与 <span class="arithmatex">\(B\)</span> 等价（存在双射），则记 <span class="arithmatex">\(\lvert A\rvert=\lvert B\rvert\)</span> ；如果 <span class="arithmatex">\(A\)</span> 与 <span class="arithmatex">\(B\)</span> 的一个子集等价，则记 <span class="arithmatex">\(\lvert A\rvert\leq \lvert B\rvert\)</span> .  在此基础上，如果 <span class="arithmatex">\(B\)</span> 不与 <span class="arithmatex">\(A\)</span> 中的任何一个子集等价，则记 <span class="arithmatex">\(\lvert A\rvert&lt;\lvert B\rvert\)</span> .</p>
+<p>可以证明： <span class="arithmatex">\(\leq\)</span> 具有自反性（ <span class="arithmatex">\(\lvert A\rvert\leq \lvert A\rvert\)</span> ）和传递性（ <span class="arithmatex">\(\lvert A\rvert\leq \lvert B\rvert,\lvert B\rvert\leq \lvert C\rvert\rightarrow \lvert A\rvert\leq \lvert C\rvert\)</span> ）.</p>
+<details class="note">
+<summary><span class="arithmatex">\(\lvert A\rvert\leq \lvert B\rvert\)</span> 并且 <span class="arithmatex">\(\lvert B\rvert \leq \lvert A\rvert\)</span> 的充分必要条件为 <span class="arithmatex">\(\lvert A\rvert=\lvert B\rvert\)</span> .</summary>
+<p>证明：由题可知 <span class="arithmatex">\(A\)</span> 与 <span class="arithmatex">\(B\)</span> 的一个子集 <span class="arithmatex">\(B_1\)</span> 等价， <span class="arithmatex">\(B\)</span> 则与 <span class="arithmatex">\(A\)</span> 的一个子集 <span class="arithmatex">\(A_1\)</span> 等价，则 <span class="arithmatex">\(B_1\)</span> 与 <span class="arithmatex">\(A_2\)</span> 的一个子集等价；从而 <span class="arithmatex">\(A\)</span> 与 <span class="arithmatex">\(A_2\)</span> 等价，而 <span class="arithmatex">\(A\subset A_2\)</span> ，所以 <span class="arithmatex">\(\lvert A\rvert=\lvert A_2\rvert\)</span> ，由 <span class="arithmatex">\(A\subset A_1\subset A_2\)</span> 从而 <span class="arithmatex">\(\lvert A\rvert=\lvert A_1\rvert=\lvert B\rvert\)</span> . （见下面定理）</p>
+<p>反之显然.</p>
+</details>
+<details class="note">
+<summary><span class="arithmatex">\(\lvert A\rvert\leq\lvert B\rvert\)</span> ，取等号当且仅当 <span class="arithmatex">\(B\)</span> 到 <span class="arithmatex">\(A\)</span> 存在满射.</summary>
+<ul>
+<li><span class="arithmatex">\(\Rightarrow\)</span> ：因为 <span class="arithmatex">\(\lvert A\rvert\leq\lvert B\rvert\)</span> ，所以存在单射 <span class="arithmatex">\(f:A\rightarrow B\)</span> . 考虑从 <span class="arithmatex">\(B\)</span> 到 <span class="arithmatex">\(A\)</span> 的映射：取 <span class="arithmatex">\(a_0\in A\)</span> $$g(b)=\left{\begin{aligned}</li>
+</ul>
+</details>
+<p>&amp;a\quad f(a)=b\<br />
+&amp;a_0<br />
+\end{aligned}\right.$$ 即为满射.</p>
+<blockquote>
+<ul>
+<li><span class="arithmatex">\(\Leftarrow\)</span> ：构造 <span class="arithmatex">\(A\)</span> 到 <span class="arithmatex">\(B\)</span> 的单射：考虑逆像 <span class="arithmatex">\(g^{-1}(a),a\in A\)</span> ，由 <span class="arithmatex">\(g:B\rightarrow A\)</span> 为满射可知 <span class="arithmatex">\(g^{-1}(a)\neq\emptyset,\forall a\in A\)</span> . 进而可以得到一个集合族： <span class="arithmatex">\(\{g^{-1}(a):a\in A\}\)</span> ，根据选择公理，可以定义 <span class="arithmatex">\(f(a)\in g^{-1}(a)\)</span> ，并且容易验证 <span class="arithmatex">\(f\)</span> 是单射.</li>
+</ul>
+</blockquote>
+<p>对于势为 <span class="arithmatex">\(n\)</span> 的集合 <span class="arithmatex">\(A\)</span> ， <span class="arithmatex">\(\mathcal{P}(A)\)</span> 的势为 <span class="arithmatex">\(2^n\)</span> . 对于势为 <span class="arithmatex">\(\mu\)</span> 的集合 <span class="arithmatex">\(A\)</span>，定义 <span class="arithmatex">\(\mathcal{P}(A)=2^\mu\)</span> . 考虑 <span class="arithmatex">\(\mu\)</span> 是无限基数时的情况. 有下定理： </p>
+<details class="note">
+<summary><strong>Cantor定理</strong>： 对于任一集合 <span class="arithmatex">\(X\)</span> ， <span class="arithmatex">\(\lvert X\rvert&lt;\lvert \mathcal{P}(X)\rvert\)</span> ，从而有 <span class="arithmatex">\(\mathcal{P}(\mathbb{N})\)</span> 不可数. 推论：不存在最大的势.</summary>
+<p>首先证明： <span class="arithmatex">\(\lvert A\rvert\leq \lvert \mathcal{A}\rvert\)</span> ，考虑映射 <span class="arithmatex">\(f:A\rightarrow \mathcal{P}(A),x\rightarrow \{x\}\)</span> 即可.</p>
+<p>证法一：不存在 <span class="arithmatex">\(\mathcal{P}(X)\)</span> 到 <span class="arithmatex">\(X\)</span> 的单射；</p>
+<p>证法二：不存在 <span class="arithmatex">\(X\)</span> 到 <span class="arithmatex">\(\mathcal{P}(X)\)</span> 的满射；任给一映射 <span class="arithmatex">\(f:X\rightarrow \mathcal{P}(X)\)</span> ，考虑集合 <span class="arithmatex">\(A=\{x\in X:x\notin f(x)\}\)</span> ，假设存在 <span class="arithmatex">\(a\in A\)</span> 使得 <span class="arithmatex">\(f(a)=A\)</span> ，则有 <span class="arithmatex">\(a\notin f(a)=A\)</span> ，矛盾！如果 <span class="arithmatex">\(a\notin A\)</span> ，由 <span class="arithmatex">\(f(a)=A\)</span> ，则因为 <span class="arithmatex">\(a\)</span> 满足 <span class="arithmatex">\(a\notin f(a)\)</span> 所以 <span class="arithmatex">\(a\in A\)</span> ，矛盾！<br />
+^Cantor</p>
+</details>
+<details class="note">
+<summary><span class="arithmatex">\(\mathbb{R}\)</span> 中的所有开区间等价.</summary>
+<p>证明：</p>
+<ol>
+<li>对于有限开区间 <span class="arithmatex">\((a,b)\)</span> ，设函数 <span class="arithmatex">\(f:a+(b-a)x\)</span> ，可得所有有限开区间等价；</li>
+<li>对于 <span class="arithmatex">\(\mathbb{R}\)</span> ，设函数 <span class="arithmatex">\(\tan\left(x\right)\)</span> ，则 <span class="arithmatex">\(\mathbb{R}\)</span> 和 <span class="arithmatex">\((-\frac{\pi}{2},\frac{\pi}{2})\)</span> 等价，进而与所有有限开区间等价；</li>
+<li>其他情况与之类似，利用 <span class="arithmatex">\(\tan\)</span> 映射即可.<br />
+^OpenSim</li>
+</ol>
+</details>
+<details class="note">
+<summary>设 <span class="arithmatex">\(\{A_\lambda\}_{\lambda\in \Lambda},\{B_\lambda\}_{\lambda\in \Lambda}\)</span> 中的集合两两不交. 如果 <span class="arithmatex">\(A_\lambda\sim B_\lambda,\forall \lambda\in \Lambda\)</span> ，则 <span class="arithmatex">\(\bigcup_{\lambda\in \Lambda}A_\lambda\sim \bigcup_{\lambda\in \Lambda}B_\lambda\)</span> .</summary>
+<p>证明：记： <span class="arithmatex">\(f_\lambda:A_\lambda\rightarrow B_\lambda\)</span> 为双射，进而设 <span class="arithmatex">\(f(x)=f_\lambda(x),x\in A_\lambda\)</span> . 证明 <span class="arithmatex">\(f\)</span> 为双射即可. #imcomplete-whatever </p>
+</details>
+<details class="note">
+<summary>设 <span class="arithmatex">\(A_0\supset A_1\supset A_2\)</span> ， <span class="arithmatex">\(A_0\sim A_2\)</span> ，证明： <span class="arithmatex">\(A_0\sim A_1\)</span> .</summary>
+<p>证明：尝试将 <span class="arithmatex">\(A_0\)</span> 和 <span class="arithmatex">\(A_1\)</span> 转换为两两不交集合的并，利用相应集合等势证明之.</p>
+<p>由 <span class="arithmatex">\(A_0\sim A_2\)</span> ，设双射 <span class="arithmatex">\(f:A_0\rightarrow A_2\)</span> ，设 <span class="arithmatex">\(A_3=f(A_1)\)</span> ， <span class="arithmatex">\(A_4=f(A_2)\)</span> ， <span class="arithmatex">\(A_{n+2}=f(A_n)\)</span> ，由 <span class="arithmatex">\(A_0\supset A_1\supset A_2\)</span> ，进而有 <span class="arithmatex">\(A_2=f(A_0)\supset f(A_1)=A_3\)</span> ，依次类推可以得到 <span class="arithmatex">\(A_{2n}\supset A_{2n+1},n\geq1\)</span> ，同理有 <span class="arithmatex">\(A_3=f(A_1)\supset f(A_2)=A_4\)</span> ，依次类推可得到 <span class="arithmatex">\(A_{2n+1}\supset A_{2n+2},n\geq0\)</span> . 从而可以得到一个单调递减集列 <span class="arithmatex">\(\{A_n\}_{n\geq1}\)</span> . 设 <span class="arithmatex">\(A_{-1}=\bigcap_{n=0}^\infty A_n\)</span> . <u>由包含关系可得</u>： <span class="arithmatex">\(A_{-1}=\bigcap_{n=1}^\infty A_{2n}=\bigcap_{n=1}^\infty A_{2n+1}\)</span> .</p>
+<p>由<a href="">引理</a>可得 <span class="arithmatex">\(A_0=A_{-1}\bigcup\left(\bigcup_{n=0}^\infty (A_{2n}-A_{2n+2})\right)\)</span> ，而 <span class="arithmatex">\(A_1=A_{-1}\bigcup\left(\bigcup_{n=0}^\infty (A_{2n+1}-A_{2n+3})\right)\)</span> .</p>
+<p>下面证明： <span class="arithmatex">\((A_{2n+1}-A_{2n+3})\sim (A_{2n}-A_{2n+2})\)</span> ，注意到 <span class="arithmatex">\((A_{2n+1}-A_{2n})\sim(A_{2n+3}-A_{2n+2})\)</span> ，并且 <span class="arithmatex">\((A_{2n}-A_{2n+3})\sim(A_{2n}-A_{2n+3})\)</span> ，注意到对应位置（左、右）的集合都是不交的，从而有 <span class="arithmatex">\((A_{2n+1}-A_{2n+3})\sim (A_{2n}-A_{2n+2})\)</span> .</p>
+<p>再由 <span class="arithmatex">\(A_0\)</span> ， <span class="arithmatex">\(A_1\)</span> 的集合并中的集合两两不交，可以得到 <span class="arithmatex">\(A_0\sim A_1\)</span> .</p>
+</details>
+<details class="example">
+<summary>构造 <span class="arithmatex">\((0,1)\rightarrow [0,1]\)</span> 的双射.</summary>
+<p>Hint: <span class="arithmatex">\(\frac{1}{n}\rightarrow \frac{1}{n-2}\)</span> . 或者更一般地取可数集 <span class="arithmatex">\(\{r_n\}_{n\geq1}\subset \mathbb{Q}\)</span> ，然后将 <span class="arithmatex">\(r_1\rightarrow 0,r_2\rightarrow 1,r_{n}\rightarrow r_{n-2}(n\geq3)\)</span> .</p>
+</details>
+<h4 id="_8">可数集<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h4>
+<p><span class="arithmatex">\(\exists n\in \mathbb{N},A\sim \{1,2,\cdots,n\}\)</span> ，则称 <span class="arithmatex">\(A\)</span> 为<strong>有限集</strong>. 否则称 <span class="arithmatex">\(A\)</span> 为<strong>无限集</strong>. <span class="arithmatex">\(A\sim \mathbb{N}\)</span> 则称 <span class="arithmatex">\(A\)</span> 为<strong>可数集</strong>. 有限集和可数集统称为<strong>至多可数集</strong>.</p>
+<details class="note">
+<summary>任何一个无限集都包含一个可数集.</summary>
+<p>证明：设 <span class="arithmatex">\(E\)</span> 为一个无限集，依次取： <span class="arithmatex">\(a_1\in E,a_2\in E\backslash \{a_1\},\cdots\)</span> 得到一个可数集 <span class="arithmatex">\(\{a_n\}_{n\geq1}\)</span></p>
+</details>
+<details class="note">
+<summary>可数集的任何一个无限子集都是可数集.</summary>
+<p>证明：考虑 <span class="arithmatex">\(A\subset E\)</span> ，设 <span class="arithmatex">\(E=\{a_n\}_{n\geq1}\)</span> ， <span class="arithmatex">\(A\)</span> 为无限集合，则取 <span class="arithmatex">\(n_1=\arg\min\{a_n\in A\}\)</span> ，<span class="arithmatex">\(n_2=\arg\min\{a_n\in A\backslash a_{n_1}\},\cdots\)</span> 进而可以将 <span class="arithmatex">\(A\)</span> 与 <span class="arithmatex">\(\mathbb{N}\)</span> 建立一一对应.</p>
+</details>
+<details class="note">
+<summary>至多可数集的并仍然为至多可数集.</summary>
+<p>证明：直接按照对角线法则即可：<br />
+$$\begin{aligned}</p>
+</details>
+<p>&amp;E_1:a_1<sup>1,a_2</sup>1,\cdots\<br />
+&amp;E_2:a_1<sup>2,a_2</sup>2,\cdots\<br />
+&amp;\cdots<br />
+\end{aligned}$$ </p>
+<details class="note">
+<summary>有限个可数集的直积是可数集.</summary>
+<p>Hint：对于有限个可数集 <span class="arithmatex">\(X_1=\{x^1_n\}_{n\geq1},\cdots,X_k=\{x^k_n\}_{n\geq1}\)</span> ，考虑用数学归纳法解决. 对于两个可数集的积，可以用对角线法则说明其可数. #imcomplete-whatever </p>
+</details>
+<details class="example">
+<summary>设 <span class="arithmatex">\(f\)</span> 是 <span class="arithmatex">\(\mathbb{R}\)</span> 上的实函数，若 <span class="arithmatex">\(M&gt;0\)</span> ，使得对于任何有限个 <span class="arithmatex">\(x_1,x_2,\cdots,x_n\)</span> 有 <span class="arithmatex">\(\lvert \sum\limits_{i=1}^{n}x_i\rvert\leq M\)</span> ，证明 <span class="arithmatex">\(\{x:f(x)\neq0\}\)</span> 为至多可数集.</summary>
+<p>Hint: <span class="arithmatex">\(\{x:f(x)\neq0\}=\bigcup_{n=1}^\infty \{x:\lvert f(x)\rvert&gt;\frac{1}{n}\}\)</span> #imcomplete-whatever </p>
+</details>
+<p><span class="arithmatex">\(\mathbb{N},\mathbb{Z},\mathbb{Q},\mathbb{N}\times \mathbb{N},\mathbb{Z}\times \mathbb{Z}\)</span> 等都是可数集. 例如： <span class="arithmatex">\(\mathbb{Q}\)</span> ，考虑 <span class="arithmatex">\(A_n=\{\frac{m}{n}\:m\geq1\},A_n\sim \mathbb{N}\)</span> . 从而 <span class="arithmatex">\(\mathbb{Q}^+=\bigcup_{n\geq1}A_n\sim \mathbb{N}\)</span> 同理 <span class="arithmatex">\(\mathbb{Q}^-\sim \mathbb{N}\)</span> 从而 <span class="arithmatex">\(\mathbb{Q}\sim \mathbb{N}\)</span>（因为 <span class="arithmatex">\(\mathbb{Q}\)</span> 不是有限集）.</p>
+<details class="note">
+<summary>假设 <span class="arithmatex">\(A\)</span> 为无限集， <span class="arithmatex">\(B\)</span> 为至多可数集，则 <span class="arithmatex">\(A\sim A\cup B\)</span> .</summary>
+<p>考虑到 <span class="arithmatex">\(A\cup B=A\cup (B\backslash A)\)</span> . 设 <span class="arithmatex">\(C=B\backslash A\)</span> ， <span class="arithmatex">\(A\cap C=0\)</span> ， <span class="arithmatex">\(C\subset B\)</span> 为至多可数集，因为 <span class="arithmatex">\(A\)</span> 是无限集，所以存在 <span class="arithmatex">\(A_1\subset A\)</span> 为可数集，从而 <span class="arithmatex">\(A_1\cup C\)</span> 为可数集，因此 <span class="arithmatex">\((A_1\cup C)\sim A_1\)</span> ，又显然 <span class="arithmatex">\((A-A_1)\sim (A-A_1)\)</span> ，且 <span class="arithmatex">\((A_1\cup C)\cap (A-A_1)=\emptyset,(A_1)\cap (A-A_1)=\emptyset\)</span> ，从而不难构造双射，进而有 <span class="arithmatex">\(A\cup C=(A-A_1)\cup (A_1\cup C)=(A\cup C)\sim A=(A-A_1)\cup A_1\)</span> .</p>
+</details>
+<p>进而有下推论：</p>
+<details class="note">
+<summary><span class="arithmatex">\(\mathbb{R}\)</span> 中的所有区间等价.</summary>
+<p>之前已经证明了 <span class="arithmatex">\(\mathbb{R}\)</span> 中的<a href="#^OpenSim">所有开区间等价</a>. 从而对于 <span class="arithmatex">\([a,b]=(a,b)\cup \{a,b\}\)</span> 由 <span class="arithmatex">\(\{a,b\}\)</span> 为至多可数集即可推出其与 <span class="arithmatex">\((a,b)\)</span> 等价，同理等价于 <span class="arithmatex">\([a,b),(a,b]\)</span> .<br />
+^RAllEqual</p>
+</details>
+<p><strong>阿列夫数</strong></p>
+<p><span class="arithmatex">\(\lvert \mathbb{N}\rvert=\aleph_0\)</span> </p>
+<p><span class="arithmatex">\(\lvert\mathcal{P}(\mathbb{N})\rvert=2^{\aleph_0}\)</span></p>
+<p>其中 <span class="arithmatex">\(2^{\aleph_0}=\{0,1\}^{\mathbb{N}}\)</span> 表示所有 <span class="arithmatex">\(\mathbb{N}\rightarrow\{0,1\}\)</span> 的函数的集合.</p>
+<p><span class="arithmatex">\(\lvert \mathcal{P}(\mathcal{P}(\mathbb{N}))\rvert=2^{2^{\aleph_0}}\)</span> .</p>
+<details class="example">
+<summary>设 <span class="arithmatex">\(E\subset \mathbb{R}^3\)</span> ， <span class="arithmatex">\(E\)</span> 中任何两点的距离都是有理数，求证 <span class="arithmatex">\(E\)</span> 至多可数.</summary>
+<p>证明：任取 <span class="arithmatex">\(x_1,x_2\)</span> ，设映射 $$\begin{aligned}</p>
+</details>
+<p>&amp;f:E\rightarrow \mathbb{Q}\times \mathbb{Q}\<br />
+&amp;x\mapsto(d_1,d_2)<br />
+\end{aligned}$$ 其中 <span class="arithmatex">\(d_1,d_2\)</span> 分别为 <span class="arithmatex">\(d(x,x_1),d(x,x_2)\)</span> ， <span class="arithmatex">\(d\)</span> 为欧式距离度量. 如果若 <span class="arithmatex">\(f(x)=f(x'),x\neq x'\)</span> 即 <span class="arithmatex">\(d_1=d_1',d_2=d_2'\)</span> ，则 <span class="arithmatex">\(x,x'\)</span> 为以 <span class="arithmatex">\(x_1\)</span> 为圆心的圆与以 <span class="arithmatex">\(x_2\)</span> 为圆心的圆的交上. 又因为空间中的两个圆或者重合，或者至多相交两个点. 由圆心 <span class="arithmatex">\(x_1\neq x_2\)</span> 可知这两个圆不可能重合，从而至多相交两个点，如果如果只相交于一个点，则 <span class="arithmatex">\(x=x'\)</span> ，矛盾，因此只可能是相交于两个点. 定义映射 <span class="arithmatex">\(g:E\rightarrow \{0,1\}\)</span> ，并且满足若 <span class="arithmatex">\(\exists x,x':f(x)=f(x'),g(x)+g(x')=1\)</span> ，若不存在 <span class="arithmatex">\(x,x':f(x)=f(x'),g(x)=0\)</span> ，从而建立了 <span class="arithmatex">\(E\)</span> 到 <span class="arithmatex">\(F=\{(d_1,d_2,g(x):x\in E\}\subset\mathbb{Q}\times \mathbb{Q}\times \mathbb{Q}\)</span> 的一个双射. 对于任意的 <span class="arithmatex">\(y=(h_1,h_2,h_3)\in F\)</span> ，首先由 <span class="arithmatex">\((h_1,h_2)\)</span> 对应于 <span class="arithmatex">\(E\)</span> 中至多两个点，至少一个点，并且由 <span class="arithmatex">\(h_3\)</span> 可以确定 <span class="arithmatex">\(E\)</span> 中的唯一点，所以该映射为满射；其次由构造规则可知该映射为单射. 综上 <span class="arithmatex">\(E\)</span> 至多可数.</p>
+<details class="example">
+<summary>有理系数多项式全体是可数集.</summary>
+<p>证明：在下面已经证明了有限 <span class="arithmatex">\(n\)</span> 元数列（只有有限个数非 <span class="arithmatex">\(0\)</span> ）是可数集. 对于任意有理系数多项式，可将其对应于一有限的 <span class="arithmatex">\(\mathbb{Q}\)</span> 上的数列，并进一步映射为有限 <span class="arithmatex">\(n\)</span> 元数列：</p>
+<p><span class="arithmatex">\(<span class="arithmatex">\(a_0+a_1x+a_2x^2+\cdots+a_nx^n+0x^{n+1}+\cdots\)</span>\)</span> 将其映射为 <span class="arithmatex">\(m_0,n_0,m_1,n_1,\cdots,m_n,n_n,0,\cdots\)</span> ，记该映射为 <span class="arithmatex">\(\mathcal{L}\)</span> ，其中 <span class="arithmatex">\((m_i,n_i)=1,a_i=\frac{m_i}{n_i}\)</span> 或者 <span class="arithmatex">\(m_i=n_i=0\)</span> 若 <span class="arithmatex">\(a_i=0\)</span> ，因此对于多项式 <span class="arithmatex">\(f(x),g(x)\)</span> ，如果 <span class="arithmatex">\(f(x)=g(x)\)</span> ，则 <span class="arithmatex">\(a_i=b_i,\cdots\)</span> ，显然 <span class="arithmatex">\(\mathcal{L}\)</span> 是双射.</p>
+<p>记全体有理系数多项式 <span class="arithmatex">\(\mathcal{F}\)</span> ，则 <span class="arithmatex">\(\mathcal{L}(\mathcal{F})=\bigcup_{k\geq1}\{m_0,n_0,\cdots,m_k,n_k,\cdots:m_k,n_k\neq 0\}\)</span> ，显然 <span class="arithmatex">\({m_0,n_0,\cdots,m_k,n_k,\cdots:m_k,n_k\neq 0\}\)</span> 为有限个正整数集的积从而可数，而可数个可数集的并仍然为可数集，所以 <span class="arithmatex">\(\mathcal{L}(\mathcal{F})\)</span> 可数，从而 <span class="arithmatex">\(\mathcal{F}\)</span> 可数.</p>
+<p>（或者，直接将 <span class="arithmatex">\(\mathcal{F}\)</span> 对应于可数个 <span class="arithmatex">\(\mathbb{Q}\)</span> 的乘积.）</p>
+</details>
+<h4 id="_9">连续统势<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h4>
+<p>前面讨论的可数集具有的势是一种特殊的势，一般称 <span class="arithmatex">\(A\sim \mathbb{N}\)</span> ，则 <span class="arithmatex">\(\lvert A\rvert=a\)</span> . 对于与 <span class="arithmatex">\(\{1,2,\cdots,n\}\)</span> 等价的集合 <span class="arithmatex">\(A\)</span> ，记 <span class="arithmatex">\(\lvert A\rvert=n\)</span> ，下面考虑的是 <span class="arithmatex">\(\mathbb{R}\)</span> 的势. </p>
+<details class="note">
+<summary><span class="arithmatex">\([0,1]\)</span> 是不可数集. 推论： <span class="arithmatex">\(\mathbb{R}\)</span> 为不可数集.</summary>
+<p>证明：反证：假设 <span class="arithmatex">\([0,1]=\{a_n\}_{n\geq1}\)</span> ，取不包含 <span class="arithmatex">\(a_1\)</span> 的闭区间 <span class="arithmatex">\(A_1\)</span> ，满足 <span class="arithmatex">\(l(A_1)\leq \frac{1}{2}\)</span> ，在 <span class="arithmatex">\(A_1\)</span> 中取不包含 <span class="arithmatex">\(a_2\)</span> 的闭区间 <span class="arithmatex">\(A_2:l(A_2)\leq \frac{1}{2^2}\)</span> ，依次类推，从而得到闭区间套： <span class="arithmatex">\(<span class="arithmatex">\(A_1\supset A_2\supset \cdots \supset A_n\supset \cdots\)</span>\)</span> ，从而有 <span class="arithmatex">\(a=\bigcap_{n\geq1}A_n\)</span> ， <span class="arithmatex">\(a\notin \{a_n\}_{n\geq1}=[0,1]\)</span> 矛盾.</p>
+</details>
+<p>称与 <span class="arithmatex">\([0,1]\)</span> 等价的集合具有<strong>连续统势</strong>. 或记作 <span class="arithmatex">\(\lvert A\rvert=c\)</span> . 由上<a href="#^RAllEqual">结论</a>，可以得到 <span class="arithmatex">\(\mathbb{R}\)</span> 中的所有区间均具有连续统势.</p>
+<p>下面进一步讨论具有连续统势的集合. 首先引入<strong>n元数列</strong>：由 <span class="arithmatex">\(0,1,\cdots,n-1\)</span> 组成的数列. <strong>有限n元数列</strong>则包含有限个不为 <span class="arithmatex">\(0\)</span> 的项，<strong>无限n元数列</strong>则有无限个不为 <span class="arithmatex">\(0\)</span> 的项. </p>
+<p>特别的， <span class="arithmatex">\(2\)</span> 元数列可以视为对于某一集合进行指示函数的结果，例如 <span class="arithmatex">\(\mathbb{Q}\times \mathbb{Q}\)</span> 的一个子集 <span class="arithmatex">\(A\)</span> 可以被表示为二元数列 <span class="arithmatex">\(\chi_A(\mathbb{Q})\)</span> ，相当于 <span class="arithmatex">\(\chi_A(\mathbb{N})\)</span> ，从而可以建立 <span class="arithmatex">\(\mathcal{P}(\mathbb{Q},\mathbb{Q})\)</span> 到二元数列全体的一个双射. 下面讨论一般的 <span class="arithmatex">\(n\)</span> 元数列.</p>
+<details class="note">
+<summary><span class="arithmatex">\(n\)</span> 元数列全体具有连续统势.</summary>
+<p>首先考虑有限 <span class="arithmatex">\(n\)</span> 元数列全体 <span class="arithmatex">\(B\)</span> ，该集合显然是至多可数集（可数个至多可数集）. 下面考虑无限 <span class="arithmatex">\(n\)</span> 元数列全体 <span class="arithmatex">\(C\)</span> .</p>
+<p>考虑集合 <span class="arithmatex">\((0,1]\)</span> ，对于任意 <span class="arithmatex">\(x\in(0,1]\)</span> ，首先将 <span class="arithmatex">\((0,1]\)</span> 分成 <span class="arithmatex">\(\{(\frac{k-1}{n},\frac{k}{n}]\}_{1\leq k\leq n}\)</span> ，随后取 <span class="arithmatex">\(k_1-1:x\in (\frac{k_1-1}{n},\frac{k_1}{n}]\)</span> ，下面对于 <span class="arithmatex">\((\frac{k_1-1}{n},\frac{k_1}{n}]\)</span> 进行相同的划分，然后取 <span class="arithmatex">\(k_2,\cdots,k_n,\cdots\)</span> ，从而建立了从 <span class="arithmatex">\((0,1]\)</span> 到 <span class="arithmatex">\(C\)</span> 的映射，并且有 <span class="arithmatex">\(x=\sum\limits_{i=1}^{\infty}\frac{k_i-1}{n^i}\)</span> </p>
+<p>首先证明 <span class="arithmatex">\(f\)</span> 为单射：若 <span class="arithmatex">\(x\neq x'\)</span> ，则存在 <span class="arithmatex">\(M\)</span> ，当 <span class="arithmatex">\(m&gt;M\)</span> 时有 <span class="arithmatex">\(\frac{1}{n^m}&lt;\lvert x-x'\rvert\)</span> ，因此 <span class="arithmatex">\(f(x)\neq f(x')\)</span> . </p>
+<p><span class="arithmatex">\(f\)</span> 是满射亦显然，任何 <span class="arithmatex">\(C\)</span> 中 <span class="arithmatex">\(n\)</span> 元数列对应的 <span class="arithmatex">\(\sum\limits_{i=1}^{\infty}\frac{k_i-1}{n^i}\)</span> 都是收敛的，并且在 <span class="arithmatex">\((0,1]\)</span> 区间内. </p>
+<p>所以 <span class="arithmatex">\(C\)</span> 与 <span class="arithmatex">\((0,1]\)</span> 等价，为无限集，又 <span class="arithmatex">\(B\)</span> 为至多可数集，所以 <span class="arithmatex">\(C\cup B\sim (0,1]\)</span> ，从而 <span class="arithmatex">\(n\)</span> 元数列全体与 <span class="arithmatex">\((0,1]\)</span> 等价，具有连续统势.</p>
+</details>
+<p>在<a href="#^Cantor">之前</a>已经证明了集合的子集全体的势要大于原先集合的势，下面证明：</p>
+<details class="note">
+<summary>可数集的子集全体具有连续统势.</summary>
+<p>不妨考虑 <span class="arithmatex">\(\mathbb{N}\)</span> ，对于任意 <span class="arithmatex">\(A\subset \mathbb{N}\)</span> ，考虑映射 <span class="arithmatex">\(f(A)=\{a_n\}_{n\geq1}\)</span> ，其中 $$a_n=\left{\begin{aligned}</p>
+</details>
+<p>&amp;1,n\in A\<br />
+&amp;0,n\notin A<br />
+\end{aligned}\right.$$ 进而建立了 <span class="arithmatex">\(\mathcal{P}(\mathbb{N})\)</span> 与二元数列全体之间的一个映射，显然该映射为双射. 因此两者等价. 再由上结论可知 <span class="arithmatex">\(\mathcal{P}(\mathbb{N})\)</span> 具有连续统势.</p>
+<blockquote>
+<p>从而，可数集的子集的全体具有连续统势. （对于一般的可数集，仍然可以效仿上述构造方法，只需要提前设可数集 <span class="arithmatex">\(B=\{b_n\}_{n\geq1}\)</span> 即可.</p>
+</blockquote>
+<p>之前提到，至多可数个至多可数集的并仍然是至多可数集. 下面考虑集合的积. 在证明集合的积时经常需要用到之前提到的 <span class="arithmatex">\(n/2\)</span> 元数列.</p>
+<p>不难看出：有限个可数集的直积为可数集，下面考虑可数个：</p>
+<details class="note">
+<summary>可数个可数集的直积具有连续统势.</summary>
+<p>考虑 <span class="arithmatex">\(Y_n=\{0,1\}\)</span> ，考虑 <span class="arithmatex">\(X=\prod_{n=1}^{\infty}X_n\)</span> ，其中 <span class="arithmatex">\(X_n\)</span> 为可数集，则 <span class="arithmatex">\(\lvert Y_n\rvert\leq \lvert X_n\rvert\)</span> ，从而可以构造 <span class="arithmatex">\(\prod_{n=1}^{\infty}Y_n\)</span> 到 <span class="arithmatex">\(\prod_{n=1}^{\infty}X_n\)</span> 的子集的双射，从而 <span class="arithmatex">\(\lvert \mathbb{R}\rvert=\lvert \prod_{n=1}^{\infty}Y_n\rvert\leq \lvert \prod_{n=1}^{\infty}X_n\rvert\)</span> ，又 <span class="arithmatex">\(\lvert X_n\rvert\leq \lvert \mathbb{R}\rvert\)</span> 所以可得 <span class="arithmatex">\(\lvert \prod_{n=1}^{\infty}X_n\rvert\leq \lvert \prod_{n=1}^{\infty}\mathbb{R}\rvert\)</span> ，综上 <span class="arithmatex">\(\lvert \prod_{n=1}^{\infty}X_n\rvert=\lvert \mathbb{R}\rvert\)</span> .</p>
+</details>
+<details class="note">
+<summary>可数个具有连续统势的集合的积具有连续统势.</summary>
+<p>证明：考虑可数个二元数列的积 <span class="arithmatex">\(X=\prod_{i=1}^{\infty}X_i\)</span> ，下面证明 <span class="arithmatex">\(X\)</span> 与二元数列全体等价：对于任意的 <span class="arithmatex">\(x=(x_1,x_2,\cdots,x_n,\cdots)\in \prod_{i=1}^{\infty}X_i\)</span> ，按照对角线法则可以将其转换为一个新的二元数列，进而建立从 <span class="arithmatex">\(X\)</span> 到二元数列全体的一个新的映射，该映射显然为双射. 从而 <span class="arithmatex">\(X\)</span> 具有连续统势. </p>
+</details>
+<p>自然有如下结论：</p>
+<details class="note">
+<summary><span class="arithmatex">\(\lvert \mathbb{R}\times \mathbb{R}\rvert=\lvert \mathbb{R}\rvert=\lvert \mathcal{P}(\mathbb{N})\rvert\)</span></summary>
+</details>
+<p>按照上述方法，同样可以证明：</p>
+<details class="note">
+<summary>有限个具有连续统势的集合的积仍然具有连续统势.</summary>
+</details>
+<details class="example">
+<summary><span class="arithmatex">\([0,1]\)</span> 上的连续实值函数全体 <span class="arithmatex">\(\mathcal{F}\)</span> 具有连续统势.</summary>
+<p>证明：将 <span class="arithmatex">\(\mathcal{F}\)</span> 映射到与 <span class="arithmatex">\(\mathbb{R}\)</span> 等势的集合的子集，将 <span class="arithmatex">\(\mathbb{R}\)</span> 映射到与 <span class="arithmatex">\(\mathcal{F}\)</span> 等势的子集：</p>
+<p>对于任意的 <span class="arithmatex">\(\lambda\in \mathbb{R}\)</span> 取常值函数 <span class="arithmatex">\(f(x)=\lambda,\forall x\in[0,1]\)</span> ，该映射显然为双射，从而有 <span class="arithmatex">\(\lvert R\rvert\leq \lvert \mathcal{F}\rvert\)</span> ；反之，对于任意的 <span class="arithmatex">\(f\in \mathcal{F}\)</span> ，考虑 <span class="arithmatex">\(\mathbb{Q}=\{q_n:n\geq1\}\)</span> ，将 <span class="arithmatex">\(f\)</span> 作用到 <span class="arithmatex">\(\{q_n:n\geq1\}\)</span> ，从而建立了 <span class="arithmatex">\(f\)</span> 到 <span class="arithmatex">\(\prod_{n=1}^{\infty}\mathbb{R}\)</span> 的子集的一个映射，且可数个具有连续统势的集合的积仍然具有连续统势；下面只需证明该映射为双射即可注意到若 <span class="arithmatex">\(f,g\in \mathcal{F}\)</span> 的像相同，则对于任意的 <span class="arithmatex">\(x\in[0,1]\backslash \mathbb{Q}\)</span> ，可取 <span class="arithmatex">\(\{x_n\}\rightarrow x\)</span> #issue %%此处用到的定理？%% ，由 <span class="arithmatex">\(f,g\in C([0,1])\)</span> 可得 <span class="arithmatex">\(f(x)=g(x)\)</span> ，从而 <span class="arithmatex">\(f=g\)</span> ，则该映射为单射；反之，对于任给的序列都存在对应的函数，因此 <span class="arithmatex">\(\lvert \mathcal{F}\rvert\leq \lvert \prod_{i=1}^{\infty}\mathbb{R}\rvert=\lvert \mathbb{R}\rvert\)</span> ，综上 <span class="arithmatex">\(\lvert \mathcal{F}\rvert=\lvert \mathbb{R}\rvert\)</span> .</p>
+</details>
+<details class="example">
+<summary>设实数集 <span class="arithmatex">\(E\)</span> 不可数，求证：有 <span class="arithmatex">\(x\)</span> ，使得对于任意 <span class="arithmatex">\(\delta&gt;0\)</span> ， <span class="arithmatex">\(E\cap(x-\delta,x+\delta)\)</span> 不可数. 进而证明 <span class="arithmatex">\(E\)</span> 中满足 <span class="arithmatex">\(\forall \delta&gt;0,E\cap(x-\delta,x+\delta)\)</span> 不可数的 <span class="arithmatex">\(x\)</span> 的全体是不可数集.</summary>
+<p>证明：<br />
+两个命题的证明很类似：</p>
+<p>对于第一个命题，用反证法即可，最终矛盾在于 <span class="arithmatex">\(E=\bigcup_{x\in E}[E\cap (r_x,R_x)]\)</span> 是至多可数集.</p>
+<p>对于第二个命题，假设满足条件的 <span class="arithmatex">\(x\)</span> 的全体 <span class="arithmatex">\(X\)</span> 为至多可数集. 设 <span class="arithmatex">\(I\subset \mathbb{N},X=\{x_i\}_{i\in I}\)</span> ，则考虑 <span class="arithmatex">\(E-X\)</span> ，从而对于任意的 <span class="arithmatex">\(x'\in E-X\)</span> ，存在 <span class="arithmatex">\(\delta_{x'}&gt;0\)</span> ， <span class="arithmatex">\(E\cap(x'-\delta_{x'},x'+\delta_{x'})\)</span> 为可数集. 并且可知 <span class="arithmatex">\(\forall x\in X,x\notin(x'-\delta_{x'},x'+\delta_{x'})\)</span> ，而 <span class="arithmatex">\(E\backslash X=\bigcup_{x'\in E\backslash X}E\cap(x'-\delta_{x'},x'+\delta_{x'})\)</span> 一定是不可数集合，又显然对于任意的 <span class="arithmatex">\((x'-\delta_{x'},x'+\delta_{x'})\)</span> ，一定存在有理数 <span class="arithmatex">\(r_{x'}&lt;R_{x'}\)</span> 使得 <span class="arithmatex">\(x'\in(r_{x'},R_{x'})\subset(x'-\delta_{x'},x'+\delta_{x'})\)</span> ，显然有 <span class="arithmatex">\(E\backslash X=\bigcup_{x'\in E}E\cap(r_{x'},R_{x'})\)</span> ，并且后者可以与 <span class="arithmatex">\(\mathbb{Q}\times \mathbb{Q}\)</span> 的一个子集建立双射，从而 <span class="arithmatex">\(E\backslash X\)</span> 为至多可数集， <span class="arithmatex">\(E=(E\backslash X)\cup X\)</span> 则为至多可数集，矛盾！</p>
+</details>
+<details class="example">
+<summary>若 <span class="arithmatex">\(\mathbb{R}\)</span> 中的集 <span class="arithmatex">\(A\)</span> 不可数，求证：必有 <span class="arithmatex">\(x\in A\)</span> ，使得对于任何的 <span class="arithmatex">\(\delta&gt;0\)</span> ， <span class="arithmatex">\((x-\delta,x)\)</span> 和 <span class="arithmatex">\((x,x+\delta)\)</span> 中都有 <span class="arithmatex">\(A\)</span> 中的点，并且这种 <span class="arithmatex">\(x\)</span> 全体也是不可数的.</summary>
+<p>反证： <span class="arithmatex">\(\forall x\in A,\exists \delta&gt;0,(x-\delta,x)\cap A=\emptyset,(x,x+\delta)\cap A=\emptyset\)</span> . 于是存在 <span class="arithmatex">\(x\in (r_x',R_x')\subset (x-\delta,x+\delta)\)</span> ， <span class="arithmatex">\(E=\cup_{x\in E}E\cap(r_x,R_x)\)</span> 为至多可数集，矛盾！若这种 <span class="arithmatex">\(x\)</span> 的全体 <span class="arithmatex">\(A\)</span> 是可数的，则 <span class="arithmatex">\(E\backslash A\)</span> 为不可数集，并且 <span class="arithmatex">\(E\backslash A=\cup_{x\in E\backslash A}E\cap(x-\delta_x,x+\delta_x)\)</span> 为可数集（还是有理数集套进去，没什么意思）矛盾！</p>
+</details>
+<h4 id="2c"><span class="arithmatex">\(2^c\)</span><a class="headerlink" href="#2c" title="Permanent link">&para;</a></h4>
+<p>下面考虑的是与 <span class="arithmatex">\(\mathcal{P}(\mathcal{P}(\mathbb{N}))\)</span> 等价的集合. <a href="https://math.stackexchange.com/questions/17914/cardinality-of-the-set-of-all-real-functions-of-real-variable">check</a></p>
+<details class="note">
+<summary>求证： <span class="arithmatex">\(\mathbb{R}\)</span> 上实函数全体具有基数 <span class="arithmatex">\(2^c\)</span> .</summary>
+<p>证明：设映射 $$\begin{aligned}</p>
+</details>
+<p>&amp;\mathcal{F}:R[\mathbb{R}]\rightarrow \mathbb{R}\times \mathbb{R}\<br />
+&amp;f\rightarrow {(r,f(r)):r\times R}<br />
+\end{aligned}$$ 从而 <span class="arithmatex">\(\lvert R[\mathbb{R}]\rvert\leq \lvert \mathcal{P}(\mathbb{R}\times \mathbb{R})\rvert=\lvert \mathcal{P}(R)\rvert\)</span> .  （注意这里 <span class="arithmatex">\(\mathcal{F}\)</span> 并不是双射）</p>
+<blockquote>
+<p>或者，注意到 <span class="arithmatex">\(\mathcal{P}(\mathbb{R})\)</span> 对应于 <span class="arithmatex">\(2^\mathbb{R}=\{0,1\}^\mathbb{R}\)</span> ，也即对应于 <span class="arithmatex">\(\mathbb{R}\)</span> 中的一个函数（唯一），该映射也为双射，从而 <span class="arithmatex">\(\lvert \mathcal{P}\rvert=\lvert R[\mathbb{R}]\rvert\)</span> .</p>
+</blockquote>
+<h2 id="_10">选择公理<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h2>
+<p>集合族 <span class="arithmatex">\(\{S_i\}_{i\in I},S_i\neq0\)</span> ，存在集合 <span class="arithmatex">\(\{x_i:x_i\in S_i,i\in I\}\)</span> .</p>
+<p><a href="https://www.zhihu.com/question/40197216">知乎</a></p>
+<h2 id="_11">拓扑<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h2>
+<p>对于集合 <span class="arithmatex">\(S\)</span> ，<strong>闭集合</strong>： <span class="arithmatex">\(S\)</span> 中任何收敛序列的极限都包含在 <span class="arithmatex">\(S\)</span> 中. 全空间和空集都是闭集. 闭集的任意多个交仍然为闭集；闭集的有限多个并仍然为闭集. </p>
+<details class="example">
+<summary>闭集的无限多个并是开集的例子</summary>
+<ul>
+<li><span class="arithmatex">\([\frac{1}{n},1-\frac{1}{n}]_{n\geq1}\)</span> 的并为开集 <span class="arithmatex">\((0,1)\)</span> <span class="arithmatex">\(0,1\)</span> 无法取到，因为该集合族中没有集合包含之.</li>
+</ul>
+</details>
+<p><strong>开集合</strong>： 闭集的补集为开集；全空间和空集均为开集合；开集的任意多个并为开集；开集的有限多个交为开集；</p>
+<details class="note">
+<summary>每一个开集都为开球之并. #imcomplete-whatever</summary>
+</details>
+<details class="note">
+<summary>开集的无限多个交为闭集的例子</summary>
+<ul>
+<li><span class="arithmatex">\((0,\frac{1}{n})\)</span> </li>
+</ul>
+</details>
+
+
+
+
+
+
+
+  
+    
+  
+  
+
+
+  <aside class="md-source-file">
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="最后更新">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
+    </span>
+    2024-04-19
+  </span>
+
+    
+    
+    
+    
+  </aside>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  回到页面顶部
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["revision.date", "navigation.path", "navigation.top", "content.action.edit", "content.code.copy"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.bd41221c.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/copy-tex.min.js"></script>
+      
+        <script src="../../javascripts/katex.js"></script>
+      
+        <script src="../../javascripts/tabSync.js"></script>
+      
+    
+  </body>
+</html>

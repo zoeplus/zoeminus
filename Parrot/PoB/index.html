@@ -1,0 +1,1252 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+      <link rel="icon" href="../../imgs/zxr.ico">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.16">
+    
+    
+      
+        <title>PoB - zoeminus</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.bcfcd587.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+  
+  
+  
+  
+  <style>:root{--md-annotation-icon:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9 7v2h4l-4 6v2h6v-2h-4l4-6V7H9m3-5a10 10 0 0 1 10 10 10 10 0 0 1-10 10A10 10 0 0 1 2 12 10 10 0 0 1 12 2Z"/></svg>');}</style>
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css">
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="amber" data-md-color-accent="amber">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#the-phenomenon" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../.." title="zoeminus" class="md-header__button md-logo" aria-label="zoeminus" data-md-component="logo">
+      
+  <img src="../../imgs/zx.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            zoeminus
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              PoB
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="amber" data-md-color-accent="amber"  aria-label="切暗色"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="切暗色" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7M9 21v-1h6v1a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1m3-17a5 5 0 0 0-5 5c0 2.05 1.23 3.81 3 4.58V16h4v-2.42c1.77-.77 3-2.53 3-4.58a5 5 0 0 0-5-5Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="amber" data-md-color-accent="amber"  aria-label="切亮色"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="切亮色" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7M9 21a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9v1Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/zoeplus/zoeminus" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    zoeminus
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="zoeminus" class="md-nav__button md-logo" aria-label="zoeminus" data-md-component="logo">
+      
+  <img src="../../imgs/zx.png" alt="logo">
+
+    </a>
+    zoeminus
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/zoeplus/zoeminus" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    zoeminus
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    主页
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    一
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            一
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Math/Set/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    集合论
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Math/R/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    实数理论
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Math/GTopo/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    一般拓扑学
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Math/RF/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    实变函数
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Math/MAlg/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    矩阵代数
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    九
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            九
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Math/Prob/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    概率论
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Math/Stat/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    数理统计
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Math/Opt/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    最优化理论
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Math/DSA/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    数据结构与算法
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Math/CLT/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    计算学习理论
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    二十二
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            二十二
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Math/DM/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    数据挖掘
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Math/SL/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    统计学习
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Math/DL/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    深度学习
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    二十
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            二十
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Coding/C.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Coding/CPP/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    十九
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            十九
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Cookbooks/DLCB/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PyTorch
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Cookbooks/PyDCB/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Python DM & ML
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    零零五五
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            零零五五
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Divisadero/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    遥望
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Senses/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    感官刺激
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../LucidDreaming.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    清醒的梦
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_7_4" id="__nav_7_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    存在主义
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_4">
+            <span class="md-nav__icon md-icon"></span>
+            存在主义
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Existential/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    存在 I
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../B&N.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    对存在的追求
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="本文组织：">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      本文组织：
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#the-phenomenon" class="md-nav__link">
+    <span class="md-ellipsis">
+      THE PHENOMENON
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+    <a href="https://github.com/zoeplus/zoeminus/commits/main/docs/Parrot/PoB.md" title="编辑此页" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"/></svg>
+    </a>
+  
+  
+
+
+  <h1>PoB</h1>
+
+<h2 id="the-phenomenon">THE PHENOMENON<a class="headerlink" href="#the-phenomenon" title="Permanent link">&para;</a></h2>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:6"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><input id="__tabbed_1_6" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">现代思想对于存在物的定义</label><label for="__tabbed_1_2">此定义下存在物没有外部</label><label for="__tabbed_1_3">此定义下存在物没有内部</label><label for="__tabbed_1_4">所有表象均平等</label><label for="__tabbed_1_5">表象均平等：举例 I</label><label for="__tabbed_1_6">表象均平等：举例 II</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>Modern thought has realized considerable progress by reducing the existent to the series of appearances which manifest it. Its aim was to overcome a certain number of dualisms which have embarrassed philosophy and to replace them by the monism of the phenomenon. Has the attempt been successful?</p>
+<p>现代思想通过<u>将存在物简化为一系列表现它的表象</u>取得了相当大的进步。其目的是克服一些使得哲学难以处理的「二元论」，并用「现象的一元论」替代。这种做法是否取得了成功？</p>
+<p>注 1：现代思想对于存在物的定义可以用分离模式刻画，为了方便之后的讨论写作 <span class="arithmatex">\(\text{The Existent}\overset{def}{=}E=\{x:P_1(x)\land P_2(x)\land P_n(x)\}\)</span> ，其中 <span class="arithmatex">\(P_i,1\leq i\leq n\)</span> 为关于 <span class="arithmatex">\(x\)</span> 的命题；<br />
+注 2：称 <span class="arithmatex">\(P_i\)</span> 为存在物的一个本质；</p>
+</div>
+<div class="tabbed-block">
+<p>In the first place we certainly thus get rid of that dualism which in the existent opposes interior to exterior. There is no longer an exterior for the existent if one means by that a superficial covering which hides from sight <u>the true nature of the object.</u> |</p>
+<p>首先，我们确实因这种做法摆脱了二元论——存在物的「内部」和「外部」是对立的（很快会发现这种看法是错误的）。如果一个人认为存在物的「外部」指的是<u>隐藏物体本质的表面覆盖</u>，那么存在物就没有「外部」</p>
+<p>注 1：认为 <span class="arithmatex">\(\text{Exterior of the Existent}\overset{def}{=}EoE\supset E\)</span> ， <span class="arithmatex">\(\text{Interior of the Existent}\overset{def}{=}IoE\supset E\)</span> ， <span class="arithmatex">\(E=EoE\cap IoE\)</span> ；<br />
+注 2：正如第一段所说：存在物被简化为一系列表现它的表象，按照以上对于外部的定义（掩盖物体本质的表象），一个存在的外部应该为 <span class="arithmatex">\(EoE=\{x:\neg P_i(x),i\in I\subset [n]\}\not\supset \text{E}\)</span> ，与注 1 矛盾！.</p>
+</div>
+<div class="tabbed-block">
+<p>| And this true nature in turn, if it is to be the secret reality of the thing, which one can have a presentiment of or which one can suppose but can never reach because it is the “interior” of the object under consideration—this nature no longer exists. |</p>
+<p>反过来，如果物体的本质是物体的某种不为人所知的现实——可以被预感或者假设，但永远无法被揭露，因为物体的本质是所考虑对象的内部，所以物体的本质也不应存在。</p>
+<p>注：和对于外部的讨论相同，可以得出 <span class="arithmatex">\(\text{IoE}\not\supset E\)</span> .</p>
+</div>
+<div class="tabbed-block">
+<p>| The appearances which manifest the existent are neither interior nor exterior; they are all equal, they all refer to other appearances, and none of them is privileged. |</p>
+<p>按照对于存在物的外部和内部的定义，表现存在物的表象既不应该是外部也不应该是内部，所有表象都是平等的，他们都是指其他表象，没有一个是有特权的。</p>
+<p>注：没看懂这段想表达什么. #issue </p>
+</div>
+<div class="tabbed-block">
+<p>| Force, for example, is not a metaphysical conatus of an unknown kind which hides behind its effects (accelerations, deviations, etc.); it is the totality of these effects. | </p>
+<p>例如，力（作为一种存在物）不是隐藏在其效果（加速度、偏差等）背后的某种「形而上学」的概念；它是这些效果的总和。</p>
+<p>注：从这里可以看出之前对于存在物用分离模式的定义是可靠的.</p>
+</div>
+<div class="tabbed-block">
+<p>| Similarly an electric current does not have a secret reverse side; it is nothing but the totality of the physical-chemical actions which manifest it (electrolysis, the incandescence of a carbon filament, the displacement of the needle of a galvanometer, etc.). | </p>
+<p>同样，电流也没有什么不为人知的反面，它不过是所有表现它的物理化学作用的总和（电解、碳丝的炽热、检流记指针的位移等）。</p>
+<p>注：意思就是谈论一个存在物，谈论的都是已知的性质，不考虑任何隐藏内容（就算有）和掩盖它的内容；</p>
+</div>
+</div>
+</div>
+<p>| No one of these actions alone is sufficient to reveal it. But no action indicates anything which is behind itself; it indicates only itself and the total series. |</p>
+<p>以上任何一种作用都不足以单独表现存在物。但是这并不说明没有作用表现其背后的任何东西；它只表现自身和整个系列。</p>
+<p>注：对于 <span class="arithmatex">\(E=\{x:P_1(x)\cap P_2(x)\cap \cdots\cap P_n(x)\}\)</span> ， <span class="arithmatex">\(\{x:P_i(x)\}\neq E,\forall 1\leq i \leq n\)</span> ，并且 <span class="arithmatex">\(\{x:P_i(x)\}\cap\{x:\neg P_1(x)\vee\cdots\vee \neg P_n(x)\}=\emptyset\)</span> . </p>
+<p>| The obvious conclusion is that the dualism of being and appearance is no longer entitled to any legal status within philosophy. The appearance refers to the total series of appearances and not to a hidden reality which would drain to itself all the being of the existent. And the appearance for its part is not an inconsistent manifestation of this being. | </p>
+<p>在上述讨论下，存在和表象的二元论（要么是内部要么是外部）不再成立。表象不是任何<u>试图将存在物的存在归功于自身的</u>隐藏的事实。并且表象不是这种存在的不一致的表现。</p>
+<p>| To the extent that men had believed in noumenal realities, they have presented appearance as a pure negative. It was “that which is not being”; it had no other being than that of illusion and error. |</p>
+<p>而在某种程度上，人们相信「本体现实」，他们将表象看作一个纯粹的否定。它是“不存在的东西”；除了幻觉和错误之外，表象说明不了任何其他东西。</p>
+<p>| But even this being was borrowed, it was itself a pretence, and philosophers met with the greatest difficulty in maintaining cohesion and existence in the appearance so that it should not itself be reabsorbed in the depth of non-phenomenal being. |</p>
+<p>但是即使说这种存在是借来的，它本身就是一种伪装，哲学家在保持表象的凝聚力和非空洞的方面遇到了很大的困难，</p>
+<p>| But if we once get away from what Nietzsche called “the illusion of worlds-behind-the-scene,” and if we no longer believe in the being-behind-the-appearance, then the appearance becomes full positivity; its essence is an “appearing” which is no longer opposed to being but on the contrary is the measure of it. For the being of an existent is exactly what it appears. Thus we arrive at the idea of the phenomenon such as we can find, for example in the “phenomenology” of Husserl or of Heidegger—the phenomenon or the relative-absolute. Relative the phenomenon remains, for “to appear” supposes in essence somebody to whom to appear. But it does not have the double relativity of Kant’s Erscheinung. It does not point over its shoulder to a true being which would be, for it, absolute. What it is, it is absolutely, for it reveals itself as it is. The phenomenon can be studied and described as such, for it is absolutely indicative of itself.</p>
+<p>The duality of potency and act falls by the same stroke. The act is everything. Behind the act there is neither potency nor “hexis”1 nor virtue. We shall refuse, for example, to understand by “genius”—in the sense in which we say that Proust “had genius” or that he “was” a genius—a particular capacity to produce certain works, which was not exhausted exactly in producing them. The genius of Proust is neither the work considered in isolation nor the subjective ability to produce it; it is the work considered as the totality of the manifestations of the person.</p>
+<p>That is why we can equally well reject the dualism of appearance and essence. The appearance does not hide the essence, it reveals it; it is the essence. The essence of an existent is no longer a property sunk in the cavity of this existent; it is the manifest law which presides over the succession of its appearances, it is the principle of the series. To the nominalism of Poincaré, defining a physical reality (an electric current, for example) as the sum of its various manifestations, Duhem rightly opposed his own theory, which makes of the concept the synthetic unity of these manifestations. To be sure phenomenology is anything but a nominalism. But essence, as the principle of the series, is definitely only the concatenation of appearances; that is, itself an appearance. This explains how it is possible to have an intuition of essences (the Wesenchau of Husserl, for example). The phenomenal being manifests itself; it manifests its essence as well as its existence, and it is nothing but the well connected series of its manifestations.</p>
+<p>Does this mean that by reducing the existent to its manifestations we have succeeded in overcoming all dualisms? It seems rather that we have converted them all into a new dualism: that of finite and infinite. Yet the existent in fact can not be reduced to a finite series of manifestations since each one of them is a relation to a subject constantly changing. Although an object may disclose itself only through a single Abschattung, the sole fact of there being a subject implies the possibility of multiplying the points of view on that Abschattung. This suffices to multiply to infinity the Abschattung under consideration. Furthermore if the series of appearances were finite, that would mean that the first appearances do not have the possibility of reappearing, which is absurd, or that they can be all given at once, which is still more absurd. Let us understand indeed that our theory of the phenomenon has replaced the reality of the thing by the objectivity of the phenomenon and that it has based this on an appeal to infinity. The reality of that cup is that it is there and that it is not me. We shall interpret this by saying that the series of its appearances is bound by a principle which does not depend on my whim. But the appearance, reduced to itself and without reference to the series of which it is a part, could be only an intuitive and subjective plenitude, the manner in which the subject is affected. If the phenomenon is to reveal itself as transcendent, it is necessary that the subject himself transcend the appearance toward the total series of which it is a member. He must seize Red through his impression of red. By Red is meant the principle of the series—the electric current through the electrolysis, etc. But if the transcendence of the object is based on the necessity of causing the appearance to be always transcended, the result is that on principle an object posits the series of its appearances as infinite. Thus the appearance, which is finite, indicates itself in its finitude, but at the same time in order to be grasped as an appearance-of-that-which-appears, it requires that it be surpassed toward infinity.</p>
+<p>This new opposition, the “finite and the infinite,” or better, “the infinite in the finite,” replaces the dualism of being and appearance. What appears in fact is only an aspect of the object, and the object is altogether in that aspect and altogether outside of it. It is altogether within, in that it manifests itself in that aspect; it shows itself as the structure of the appearance, which is at the same time the principle of the series. It is altogether outside, for the series itself will never appear nor can it appear. Thus the outside is opposed in a new way to the inside, and the being-which-does-not-appear, to the appearance. Similarly a certain “potency” returns to inhabit the phenomenon and confer on it its very transcendence—a potency to be developed in a series of real or possible appearances. The genius of Proust, even when reduced to the works produced, is no less equivalent to the infinity of possible points of view which one can take on that work and which we will call the “inexhaustibility” of Proust’s work. But is not this inexhaustibility which implies a transcendence and a reference to the infinite—is this not an “hexis” at the exact moment when one apprehends it on the object? The essence finally is radically severed from the individual appearance which manifests it, since on principle it is that which must be able to be manifested by an infinite series of individual manifestations.</p>
+<p>In thus replacing a variety of oppositions by a single dualism on which they all are based, have we gained or lost? This we shall soon see. For the moment, the first consequence of the “theory of the phenomenon” is that the appearance does not refer to being as Kant’s phenomenon refers to the noumenon. Since there is nothing behind the appearance, and since it indicates only itself (and the total series of appearances), it can not be supported by any being other than its own. The appearance can not be the thin film of nothingness which separates the being-of-the-subject from absolute-being. If the essence of the appearance is an “appearing” which is no longer opposed to any being, there arises a legitimate problem concerning the being of this appearing. It is this problem which will be our first concern and which will be the point of departure for our inquiry into being and nothingness.</p>
+<p>II. THE PHENOMENON OF BEING AND THE BEING OF THE PHENOMENON</p>
+<p>THE appearance is not supported by any existent different from itself; it has its own being. The first being which we meet in our ontological inquiry is the being of the appearance. Is it itself an appearance? It seems so at first. The phenomenon is what manifests itself, and being manifests itself to all in some way, since we can speak of it and since we have a certain comprehension of it. Thus there must be for it a phenomenon of being, an appearance of being, capable of description as such. Being will be disclosed to us by some kind of immediate access—boredom, nausea, etc., and ontology will be the description of the phenomenon of being as it manifests itself; that is, without intermediary. However for any ontology we should raise a preliminary question: is the phenomenon of being thus achieved identical with the being of phenomena? In other words, is the being which discloses itself to me, which appears to me, of the same nature as the being of existents which appear to me? It seems that there is no difficulty. Husserl has shown how an eidetic reduction is always possible; that is, how one can always pass beyond the concrete phenomenon toward its essence. For Heidegger also “human reality” is ontic-ontological; that is, it can always pass beyond the phemomenon toward its being. But the passage from the particular object to the essence is a passage from homogeneous to homogeneous. Is it the same for the passage from the existent to the phenomenon of being: Is passing beyond the existent toward the phenomenon of being actually to pass beyond it toward its being, as one passes beyond the particular red toward its essence? Let us consider further.</p>
+<p>In a particular object one can always distinguish qualities like color, odor, etc. And proceeding from these, one can always determine an essence which they imply, as a sign implies its meaning. The totality “object-essence” makes an organized whole. The essence is not in the object; it is the meaning of the object, the principle of the series of appearances which disclose it. But being is neither one of the object’s qualities, capable of being apprehended among others, nor a meaning of the object. The object does not refer to being as to a signification; it would be impossible, for example, to define being as a presence since absence too discloses being, since not to be there means still to be. The object does not possess being, and its existence is not a participation in being, nor any other kind of relation. It is. That is the only way to define its manner of being; the object does not hide being, but neither does it reveal being. The object does not hide it, for it would be futile to try to push aside certain qualities of the existent in order to find the being behind them; being is being of them all equally. The object does not reveal being, for it would be futile to address oneself to the object in order to apprehend its being. The existent is a phenomenon; this means that it designates itself as an organized totality of qualities. It designates itself and not its being. Being is simply the condition of all revelation. It is being-for-revealing (être-pour-dévoiler) and not revealed being (être dévoilé). What then is the meaning of the surpassing toward the ontological, of which Heidegger speaks? Certainly I can pass beyond this table or this chair toward its being and raise the question of the being-of-the-table or the being-of-the-chair. 2 But at that moment I turn my eyes away from the phenomenon of the table in order to concentrate on the phenomenon of being, which is no longer the condition of all revelation, but which is itself something revealed—an appearance which as such, needs in turn a being on the basis of which it can reveal itself.</p>
+<p>If the being of phenomena is not resolved in a phenomenon of being and if nevertheless we can not say anything about being without considering this phenomenon of being, then the exact relation which unites the phenomenon of being to the being of the phenomenon must be established first of all. We can do this more easily if we will consider that the whole of the preceding remarks has been directly inspired by the revealing intuition of the phenomenon of being. By not considering being as the condition of revelation but rather being as an appearance which can be determined in concepts, we have understoond first of all that knowledge can not by itself give an account of being; that is, the being of the phenomenon can not be reduced to the phenomenon of being. In a word, the phenomenon of being is “ontological” in the sense that we speak of the ontological proof of St. Anselm and Descartes. It is an appeal to being; it requires as phenomenon, a foundation which is transphenomenal. The phenomenon of being requires the transphenomenality of being. That does not mean that being is found hidden behind phenomena (we have seen that the phenomenon can not hide being), nor that the phenomenon is an appearance which refers to a distinct being (the phenomenon exists only qua appearance; that is, it indicates itself on the foundation of being). What is implied by the preceding considerations is that the being of the phenomenon although coextensive with the phenomenon, can not be subject to the phenomenal condition—which is to exist only in so far as it reveals itself—and that consequently it surpasses the knowledge which we have of it and provides the basis for such knowledge.</p>
+<p>III. THE PRE-REFLECTIVE COGITO AND THE BEING OF THE PERCIPERE</p>
+<p>ONE will perhaps be tempted to reply that the difficulties mentioned above all pertain to a certain conception of being, to a kind of ontological realism entirely incompatible with the very notion of appearance. What determines the being of the appearance is the fact that it appears. And since we have restricted reality to the phenomenon, we can say of the phenomenon that it is as it appears. Why not push the idea to its limit and say that the being of the appearance is its appearing? This is simply a way of choosing new words to clothe the old “Esse est percipi” of Berkeley. And it is in fact just what Husserl and his followers are doing when after having effected the phenomenological reduction, they treat the noema as unreal and declare that its esse is percipi.</p>
+<p>It seems that the famous formula of Berkeley can not satisfy us—for two essential reasons, one concerning the nature of the percipi, the other that of the percipere.</p>
+<p>The nature of the percipere.</p>
+<p>If every metaphysics in fact presupposes a theory of knowledge, every theory of knowledge in turn presupposes a metaphysics. This means among other things that an idealism intent on reducing being to the knowledge which we have of it, ought first to give some kind of guarantee for the being of knowledge. If one begins, on the other hand, by taking the knowledge as a given, without being concerned to establish a basis for its being, and if one then affirms that esse est percipi, the totality “perceived-perception,” lacks the support of a solid being and so falls away in nothingness. Thus the being of knowledge can not be measured by knowledge; it is not subject to the percipi. 3 Therefore the foundation-of-being (l’être-fondement) for the percipere and the percipi can not itself be subject to the percipi; it must be transphenomenal. Let us return now to our point of departure. We can always agree that the percipi refers to a being not subject to the laws of the appearance, but we still maintain that this transphenomenal being is the being of the subject. Thus the percipi would refer to the percipiens—the known to knowledge and knowledge to the being who knows (in his capacity as being, not as being known); that is, knowledge refers to consciousness. This is what Husserl understood; for if the noema is for him an unreal correlate of noesis, and if its ontological law is the percipi, the noesis, on the contrary, appears to him as reality, of which the principle characteristic is to give itself to the reflection which knows it as “having already been there before.” For the law of being in the knowing subject is to-be-conscious. Consciousness is not a mode of particular knowledge which may be called an inner meaning or self-knowledge; it is the dimension of transphenomenal being in the subject.</p>
+<p>Let us look more closely at this dimension of being. We said that consciousness is the knowing being in his capacity as being and not as being known. This means that we must abandon the primacy of knowledge if we wish to establish that knowledge. Of course consciousness can know and know itself. But it is in itself something other than a knowledge turned back upon itself.</p>
+<p>All consciousness, as Husserl has shown, is consciousness of something. This means that there is no consciousness which is not a positing of a transcendent object, or if you prefer, that consciousness has no “content.” We must renounce those neutral “givens” which, according to the system of reference chosen, find their place either “in the world” or “in the psyche.” A table is not in consciousness—not even in the capacity of a representation. A table is in space, beside the window, etc. The existence of the table in fact is a center of opacity for consciousness; it would require an infinite process to inventory the total contents of a thing. To introduce this opacity into consciousness would be to refer to infinity the inventory which it can make of itself, to make consciousness a thing, and to deny the cogito. The first procedure of a philosophy ought to be to expel things from consciousness and to reestablish its true connection with the world, to know that consciousness is a positional consciousness of the world. All consciousness is positional in that it transcends itself in order to reach an object, and it exhausts itself in this same positing. All that there is of intention in my actual consciousness is directed toward the outside, toward the table; all my judgments or practical activities, all my present inclinations transcend themselves; they aim at the table and are absorbed in it. Not all consciousness is knowledge (there are states of affective consciousness, for example), but all knowing consciousness can be knowledge only of its object.</p>
+<p>However, the necessary and sufficient condition for a knowing consciousness to be knowledge of its object, is that it be consciousness of itself as being that knowledge. This is a necessary condition, for if my consciousness were not consciousness of being consciousness of the table, it would then be conciousness of that table without consciousness of being so. In other words, it would be a consciousness ignorant of itself, an unconscious—which is absurd. This is a sufficient condition, for my being conscious of being conscious of that table suffices in fact for me to be conscious of it. That is of course not sufficient to permit me to affirm that this table exists in itself—but rather that it exists for me.</p>
+<p>What is this consciousness of consciousness? We suffer to such an extent from the illusion of the primacy of knowledge that we are immediately ready to make of the consciousness of consciousness an idea ideae in the manner of Spinoza; that is, a knowledge of knowledge. Alain, wanting to express the obvious “To know is to be conscious of knowing,” interprets it in these terms: “To know is to know that one knows.” In this way we should have defined reflection or positional consciousness of consciousness, or better yet knowledge of consciousness. This would be a complete consciousness directed toward something which is not it; that is, toward consciousness as object of reflection. It would then transcend itself and like the positional consciousness of the world would be exhausted in aiming at its object. But that object would be itself a consciousness.</p>
+<p>It does not seem possible for us to accept this interpretation of the consciousness of consciousness. The reduction of consciousness to knowledge in fact involves our introducing into consciousness the subject-object dualism which is typical of knowledge. But if we accept the law of the knower-known dyad, then a third term will be necessary in order for the knower to become known in turn, and we will be faced with this dilemma: Either we stop at any one term of the series—the known, the knower known, the knower known by the knower, etc. In this case the totality of the phenomenon falls into the unknown; that is, we always bump up against a non-self-conscious reflection and a final term. Or else we affirm the necessity of an infinite regress (idea ideae ideae, etc.), which is absurd. Thus to the necessity of ontologically establishing consciousness we would add a new necessity: that of establishing it epistemologically. Are we obliged after all to introduce the law of this dyad into consciousness? Consciousness of self is not dual. If we wish to avoid an infinite regress, there must be an immediate, non-cognitive relation of the self to itself.</p>
+<p>Furthermore the reflecting consciousness posits the consciousness reflected-on, as its object. In the act of reflecting I pass judgment on the consciousness reflected-on; I am ashamed of it, I am proud of it, I will it, I deny it, etc. The immediate consciousness which I have of perceiving does not permit me either to judge or to will or to be ashamed. It does not know my perception, does not posit it; all that there is of intention in my actual consciousness is directed toward the outside, toward the world. In turn, this spontaneous consciousness of my perception is constitutive of my perceptive consciousness. In other words, every positional consciousness of an object is at the same time a non-positional consciousness of itself. If I count the cigarettes which are in that case, I have the impression of disclosing an objective property of this collection of cigarettes: they are a dozen. This property appears to my consciousness as a property existing in the world. It is very possible that I have no positional consciousness of counting them. Then I do not know myself as counting. Proof of this is that children who are capable of making an addition spontaneously can not explain subsequently how they set about it. Piaget’s tests, which show this, constitute an excellent refutation of the formula of Alain—To know is to know that one knows. Yet at the moment when these cigarettes are revealed to me as a dozen, I have a non-thetic consciousness of my adding activity. If anyone questioned me, indeed, if anyone should ask, “What are you doing there?” I should reply at once, “I am counting.” This reply aims not only at the instantaneous consciousness which I can achieve by reflection but at those fleeting consciousnesses which have passed without being reflected-on, those which are forever not-reflected-on in my immediate past. Thus reflection has no kind of primacy over the consciousness reflected-on. It is not reflection which reveals the consciousness reflected-on to itself. Quite the contrary, it is the non-reflective consciousness which renders the reflection possible; there is a pre-reflective cogito which is the condition of the Cartesian cogito. At the same time it is the non-thetic consciousness of counting which is the very condition of my act of adding. If it were otherwise, how would the addition be the unifying theme of my consciousnesses? In order that this theme should preside over a whole series of syntheses of unifications and recognitions, it must be present to itself, not as a thing but as an operative intention which can exist only as the revealing-revealed (révélante-révélée), to use an expression of Heidegger’s. Thus in order to count, it is necessary to be conscious of counting.</p>
+<p>Of course, someone may say, but this makes a circle. For is it not necessary that I count in fact in order to be conscious of counting? That is true. However there is no circle, or if you like, it is the very nature of consciousness to exist “in a circle.” The idea can be expressed in these terms: Every conscious existence exists as consciousness of existing. We understand now why the first consciousness of consciousness is not positional; it is because it is one with the consciousness of which it is consciousness. At one stroke it determines itself as consciousness of perception and as perception. The necessity of syntax has compelled us hitherto to speak of the “non-positional consciousness of self.” But we can no longer use this expression in which the “of self” still evokes the idea of knowledge. (Henceforth we shall put the “of” inside parentheses to show that it merely satisfies a grammatical requirement.) 4</p>
+<p>This self-consciousness we ought to consider not as a new consciousness, but as the only mode of existence which is possible for a consciousness of something. Just as an extended object is compelled to exist according to three dimensions, so an intention, a pleasure, a grief can exist only as immediate self-consciousness. If the intention is not a thing in consciousness, then the being of the intention can be only consciousness. It is not necessary to understand by this that on the one hand, some external cause (an organic trouble, an unconscious impulse, another Erlebnis) could determine that a psychic event—a pleasure, for example,—produce itself, and that on the other hand, this event so determined in its material structure should be compelled to produce itself as self-consciousness. This would be to make the non-thetic consciousness a quality of the positional consciousness (in the sense that the perception, positional consciousness of that table, would have as addition the quality of self-consciousness) and would thus fall back into the illusion of the theoretical primacy of knowledge. This would be moreover to make the psychic event a thing and to qualify it with “conscious” just as I can qualify this blotter with “red.” Pleasure can not be distinguished—even logically—from consciousness of pleasure. Consciousness (of) pleasure is constitutive of the pleasure as the very mode of its own existence, as the material of which it is made, and not as a form which is imposed by a blow upon a hedonistic material. Pleasure can not exist “before” consciousness of pleasure—not even in the form of potentiality or potency. A potential pleasure can exist only as consciousness (of) being potential. Potencies of consciousness exist only as consciousness of potencies.</p>
+<p>Conversely, as I showed earlier, we must avoid defining pleasure by the consciousness which I have of it. This would be to fall into an idealism of consciousness which would bring us by indirect means to the primacy of knowledge. Pleasure must not disappear behind its own self-consciousness; it is not a representation, it is a concrete event, full and absolute. It is no more a quality of self-consciousness than self-consciousness is a quality of pleasure. There is no more first a consciousness which receives subsequently the affect “pleasure” like water which one stains, than there is first a pleasure (unconscious or psychological) which receives subsequently the quality of “conscious” like a pencil of light rays. There is an indivisible, indissoluble being—definitely not a substance supporting its qualities like particles of being, but a being which is existence through and through. Pleasure is the being of self-consciousness and this self-consciousness is the law of being of pleasure. This is what Heidegger expressed very well when he wrote (though speaking of Dasein, not of consciousness): “The ‘how’ (essentia) of this being, so far as it is possible to speak of it generally, must be conceived in terms of its existence (existentia).” This means that consciousness is not produced as a particular instance of an abstract possibility but that in rising to the center of being, it creates and supports its essence—that is, the synthetic order of its possibilities.</p>
+<p>This means also that the type of being of consciousness is the opposite of that which the ontological proof reveals to us. Since consciousness is not possible before being, but since its being is the source and condition of all possibility, its existence implies its essence. Husserl expresses this aptly in speaking of the “necessity of fact.” In order for there to be an essence of pleasure, there must be first the fact of a consciousness (of) this pleasure. It is futile to try to invoke pretended laws of consciousness of which the articulated whole would constitute the essence. A law is a transcendent object of knowledge; there can be consciousness of a law, not a law of consciousness. For the same reasons it is impossible to assign to a consciousness a motivation other than itself. Otherwise it would be necessary to conceive that consciousness to the degree to which it is an effect, is not conscious (of) itself. It would be necessary in some manner that it should be without being conscious (of) being. We should fall into that too common illusion which makes consciousness semi-conscious or a passivity. But consciousness is consciousness through and through. It can be limited only by itself.</p>
+<p>This self-determination of consciousness must not be conceived as a genesis, as a becoming, for that would force us to suppose that consciousness is prior to its own existence. Neither is it necessary to conceive of this self-creation as an act, for in that case consciousness would be conscious (of) itself as an act, which it is not. Consciousness is a plenum of existence, and this determination of itself by itself is an essential characteristic. It would even be wise not to misuse the expression “cause of self,” which allows us to suppose a progression, a relation of self-cause to self-effect. It would be more exact to say very simply: The existence of consciousness comes from consciousness itself. By that we need not understand that consciousness “derives from nothingness.” There can not be “nothingness of consciousness” before consciousness. “Before” consciousness one can conceive only of a plenum of being of which no element can refer to an absent consciousness. If there is to be nothingness of consciousness, there must be a consciousness which has been and which is no more and a witnessing consciousness which poses the nothingness of the first consciousness for a synthesis of recognition. Consciousness is prior to nothingness and “is derived” from being. 5</p>
+<p>One will perhaps have some difficulty in accepting these conclusions. But considered more carefully, they will appear perfectly clear. The paradox is not that there are “self-activated” existences but that there is no other kind. What is truly unthinkable is passive existence; that is, existence which perpetuates itself without having the force either to produce itself or to preserve itself. From this point of view there is nothing more incomprehensible than the principle of inertia. Indeed where would consciousness “come” from if it did “come” from something? From the limbo of the unconscious or of the physiological. But if we ask ourselves how this limbo in its turn can exist and where it derives its existence, we find ourselves faced with the concept of passive existence; that is, we can no more absolutely understand how this non-conscious given (unconscious or physiological) which does not derive its existence from itself, can nevertheless perpetuate this existence and find in addition the ability to produce a consciousness. This demonstrates the great favor which the proof a contingentia mundi has enjoyed.</p>
+<p>Thus by abandoning the primacy of knowledge, we have discovered the being of the knower and encountered the absolute, that same absolute which the rationalists of the seventeenth century had defined and logically constituted as an object of knowledge. But precisely because the question concerns an absolute of existence and not of knowledge, it is not subject to that famous objection according to which a known absolute is no longer an absolute because it becomes relative to the knowledge which one has of it. In fact the absolute here is not the result of a logical construction on the ground of knowledge but the subject of the most concrete of experiences. And it is not at all relative to this experience because it is this experience. Likewise it is a non-substantial absolute. The ontological error of Cartesian rationalism is not to have seen that if the absolute is defined by the primacy of existence over essence, it can not be conceived as a substance. Consciousness has nothing substantial, it is pure “appearance” in the sense that it exists only to the degree to which it appears. But it is precisely because consciousness is pure appearance, because it is total emptiness (since the entire world is outside it)—it is because of this identity of appearance and existence within it that it can be considered as the absolute.</p>
+
+
+
+
+
+
+
+  
+    
+  
+  
+
+
+  <aside class="md-source-file">
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="最后更新">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
+    </span>
+    2024-04-19
+  </span>
+
+    
+    
+    
+    
+  </aside>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  回到页面顶部
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["revision.date", "navigation.path", "navigation.top", "content.action.edit", "content.code.copy"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.bd41221c.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/copy-tex.min.js"></script>
+      
+        <script src="../../javascripts/katex.js"></script>
+      
+        <script src="../../javascripts/tabSync.js"></script>
+      
+    
+  </body>
+</html>

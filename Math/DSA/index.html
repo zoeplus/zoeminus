@@ -1,0 +1,2854 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../Opt/">
+      
+      
+        <link rel="next" href="../CLT/">
+      
+      
+      <link rel="icon" href="../../imgs/zxr.ico">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.16">
+    
+    
+      
+        <title>数据结构与算法 - zoeminus</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.bcfcd587.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+  
+  
+  
+  
+  <style>:root{--md-annotation-icon:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9 7v2h4l-4 6v2h6v-2h-4l4-6V7H9m3-5a10 10 0 0 1 10 10 10 10 0 0 1-10 10A10 10 0 0 1 2 12 10 10 0 0 1 12 2Z"/></svg>');}</style>
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css">
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="amber" data-md-color-accent="amber">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../.." title="zoeminus" class="md-header__button md-logo" aria-label="zoeminus" data-md-component="logo">
+      
+  <img src="../../imgs/zx.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            zoeminus
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              数据结构与算法
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="amber" data-md-color-accent="amber"  aria-label="切暗色"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="切暗色" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7M9 21v-1h6v1a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1m3-17a5 5 0 0 0-5 5c0 2.05 1.23 3.81 3 4.58V16h4v-2.42c1.77-.77 3-2.53 3-4.58a5 5 0 0 0-5-5Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="amber" data-md-color-accent="amber"  aria-label="切亮色"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="切亮色" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7M9 21a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9v1Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/zoeplus/zoeminus" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    zoeminus
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="zoeminus" class="md-nav__button md-logo" aria-label="zoeminus" data-md-component="logo">
+      
+  <img src="../../imgs/zx.png" alt="logo">
+
+    </a>
+    zoeminus
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/zoeplus/zoeminus" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    zoeminus
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    主页
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    一
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            一
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Set/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    集合论
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../R/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    实数理论
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../GTopo/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    一般拓扑学
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../RF/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    实变函数
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../MAlg/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    矩阵代数
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    九
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            九
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Prob/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    概率论
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Stat/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    数理统计
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Opt/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    最优化理论
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    数据结构与算法
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    数据结构与算法
+  </span>
+  
+
+      </a>
+      
+        
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="本文组织：">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      本文组织：
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      面向对象编程
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      时间复杂度
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      符号说明
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      线性表
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="线性表">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      顺序表
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      链表
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      线性表的应用
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      栈
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="栈">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      栈的应用
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      队列
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="队列">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      队列的应用
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      栈与队列的区别
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      树
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="树">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      二叉树
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="二叉树">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      二叉树的实现
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      二叉树的遍历
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      二叉排序树
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="二叉排序树">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      霍夫曼编码
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    <span class="md-ellipsis">
+      排列
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="排列">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_20" class="md-nav__link">
+    <span class="md-ellipsis">
+      排列的表示方式
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_21" class="md-nav__link">
+    <span class="md-ellipsis">
+      逆序数和主指标
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_22" class="md-nav__link">
+    <span class="md-ellipsis">
+      组合
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_23" class="md-nav__link">
+    <span class="md-ellipsis">
+      排序算法
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="排序算法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_24" class="md-nav__link">
+    <span class="md-ellipsis">
+      堆栈排序
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="堆栈排序">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_25" class="md-nav__link">
+    <span class="md-ellipsis">
+      计数问题
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_26" class="md-nav__link">
+    <span class="md-ellipsis">
+      耐心排序
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="耐心排序">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_27" class="md-nav__link">
+    <span class="md-ellipsis">
+      贪心算法
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rs" class="md-nav__link">
+    <span class="md-ellipsis">
+      R.S. 算法
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="R.S. 算法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#gauss" class="md-nav__link">
+    <span class="md-ellipsis">
+      Gauss 系数
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_28" class="md-nav__link">
+    <span class="md-ellipsis">
+      格路
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="格路">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dyck" class="md-nav__link">
+    <span class="md-ellipsis">
+      Dyck 路
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_29" class="md-nav__link">
+    <span class="md-ellipsis">
+      集合划分
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_30" class="md-nav__link">
+    <span class="md-ellipsis">
+      匹配
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="匹配">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dyck_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      完美匹配与 Dyck 路
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#motzkin" class="md-nav__link">
+    <span class="md-ellipsis">
+      一般匹配和 Motzkin 路
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rna" class="md-nav__link">
+    <span class="md-ellipsis">
+      RNA 二级结构
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_31" class="md-nav__link">
+    <span class="md-ellipsis">
+      离散数据结构的计数
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_32" class="md-nav__link">
+    <span class="md-ellipsis">
+      递归
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_33" class="md-nav__link">
+    <span class="md-ellipsis">
+      附录：组合恒等式
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CLT/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    计算学习理论
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    二十二
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            二十二
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../DM/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    数据挖掘
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SL/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    统计学习
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../DL/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    深度学习
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    二十
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            二十
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Coding/C.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Coding/CPP/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    十九
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            十九
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Cookbooks/DLCB/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PyTorch
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Cookbooks/PyDCB/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Python DM & ML
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    零零五五
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            零零五五
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Parrot/Divisadero/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    遥望
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Parrot/Senses/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    感官刺激
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Parrot/LucidDreaming.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    清醒的梦
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_7_4" id="__nav_7_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    存在主义
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_4">
+            <span class="md-nav__icon md-icon"></span>
+            存在主义
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Parrot/Existential/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    存在 I
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Parrot/B&N.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    对存在的追求
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="本文组织：">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      本文组织：
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      面向对象编程
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      时间复杂度
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      符号说明
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      线性表
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="线性表">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      顺序表
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      链表
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      线性表的应用
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      栈
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="栈">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      栈的应用
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      队列
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="队列">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      队列的应用
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      栈与队列的区别
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      树
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="树">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      二叉树
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="二叉树">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      二叉树的实现
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      二叉树的遍历
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      二叉排序树
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="二叉排序树">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      霍夫曼编码
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    <span class="md-ellipsis">
+      排列
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="排列">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_20" class="md-nav__link">
+    <span class="md-ellipsis">
+      排列的表示方式
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_21" class="md-nav__link">
+    <span class="md-ellipsis">
+      逆序数和主指标
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_22" class="md-nav__link">
+    <span class="md-ellipsis">
+      组合
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_23" class="md-nav__link">
+    <span class="md-ellipsis">
+      排序算法
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="排序算法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_24" class="md-nav__link">
+    <span class="md-ellipsis">
+      堆栈排序
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="堆栈排序">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_25" class="md-nav__link">
+    <span class="md-ellipsis">
+      计数问题
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_26" class="md-nav__link">
+    <span class="md-ellipsis">
+      耐心排序
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="耐心排序">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_27" class="md-nav__link">
+    <span class="md-ellipsis">
+      贪心算法
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rs" class="md-nav__link">
+    <span class="md-ellipsis">
+      R.S. 算法
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="R.S. 算法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#gauss" class="md-nav__link">
+    <span class="md-ellipsis">
+      Gauss 系数
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_28" class="md-nav__link">
+    <span class="md-ellipsis">
+      格路
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="格路">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dyck" class="md-nav__link">
+    <span class="md-ellipsis">
+      Dyck 路
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_29" class="md-nav__link">
+    <span class="md-ellipsis">
+      集合划分
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_30" class="md-nav__link">
+    <span class="md-ellipsis">
+      匹配
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="匹配">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dyck_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      完美匹配与 Dyck 路
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#motzkin" class="md-nav__link">
+    <span class="md-ellipsis">
+      一般匹配和 Motzkin 路
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rna" class="md-nav__link">
+    <span class="md-ellipsis">
+      RNA 二级结构
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_31" class="md-nav__link">
+    <span class="md-ellipsis">
+      离散数据结构的计数
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_32" class="md-nav__link">
+    <span class="md-ellipsis">
+      递归
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_33" class="md-nav__link">
+    <span class="md-ellipsis">
+      附录：组合恒等式
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+    <a href="https://github.com/zoeplus/zoeminus/commits/main/docs/Math/DSA.md" title="编辑此页" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"/></svg>
+    </a>
+  
+  
+
+
+  <h1>数据结构与算法</h1>
+
+<p>依赖： <a href="../../Coding/CPP/">C++</a></p>
+<p>数据结构主要分为<strong>线性</strong>和<strong>非线性</strong>两种，其中线性数据结构包含：数组、链表、栈、堆等，非线性数据结构分为树状和非树状两种.</p>
+<p>以上考虑的是数据结构的<strong>逻辑结构</strong>，其实现依赖于物理上的<strong>存储结构</strong>：使用连续（如数组）或者离散的存储空间（如链表）.</p>
+<p>算法依托于数据结构进行，一般用时间复杂度和空间复杂度计算算法复杂度. 对于时间复杂度，由于硬件和广义上的操作系统（ e.g. 编译器）的不同，通常只考虑最基础操作的数量. 并且只考虑最高阶. 常见的时间复杂度有 <span class="arithmatex">\(\mathcal{O}(1),\mathcal{O}(n),\mathcal{O}(n\log n),\mathcal{O}(n^2)\)</span> .</p>
+<h2 id="_1">面向对象编程<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p><strong>OOP</strong>（object-oriented-programming）并不首先关注内部实现，而是将问题转换为多个对象之间传递信息，设计每一个对象用于接收信息的接口和响应（在 C++ 对应于类设计中的声明）. 这个过程中会将数据（<strong>成员变量</strong>）和函数（<strong>成员函数 / 方法</strong>）<strong>封装</strong>为对象. 不同的对象可能具有相同的特征，可以抽象为<strong>类</strong>. 类可以视为一个<strong>抽象数据类型</strong>（abstract data type, ADT），可以表示为一个三元组 <span class="arithmatex">\((D,R,P)\)</span> ，对应数据、关系和处理（processing）.</p>
+<p>每个对象具有可以接收消息的接口，根据接口调用相应的方法. 从而限制用户对于对象内部的的访问，保护内部实现.</p>
+<p>类与类之间可以存在<strong>继承</strong>关系，分别称为<strong>基类</strong> / 父类和<strong>派生类</strong> / 子类. 子类可以继承父类的特征，<strong>重写</strong>或者添加新的特征.</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Python 中定义类</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span> <span class="nc">ParentClass</span><span class="p">():</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">attr1</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">attr2</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">;</span>
+
+    <span class="k">def</span> <span class="nf">method1</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">attr1</span><span class="p">)</span>
+
+<span class="k">class</span> <span class="nc">ChildClass</span><span class="p">(</span><span class="n">ParentClass</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span> <span class="c1"># 调用父类的初始化方法</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">attr3</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">method1</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">method1</span><span class="p">()</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;rewrite parent&#39;s method1&quot;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">method2</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;add a new method&quot;</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<p>从同一个基类继承得到的子类具有<strong>多态</strong>：对于同一消息有不同的响应（方法）.</p>
+<h2 id="_2">时间复杂度<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>对于同输入输出的算法，需要比较其时间复杂度，一般计算<strong>平均时间复杂度</strong>（实际计算）和<strong>最差时间复杂度</strong>（理论上）.</p>
+<p>由于操作平台和硬件不同，因此通常通过计算基本语句的数量估计算法消耗的时间.</p>
+<h2 id="_3">符号说明<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p><span class="arithmatex">\([n]=\{1,\cdots,n\}\)</span> ；</p>
+<p><span class="arithmatex">\(n!=n(n-1)\cdots1\overset{def}{=}[n]!\)</span> ；</p>
+<p>组合数的表示，一般不用 <span class="arithmatex">\(C_n^k\)</span> ，用 </p>
+<div class="arithmatex">\[\binom{n}{k}=\frac{n!}{k!(n-k)!}=\frac{n(n-1)\cdots(n-k+1)}{k!}\]</div>
+<p>或称为<strong>二项式系数</strong>（binomial coefficient），二项式展开： </p>
+<div class="arithmatex">\[(x+y)^n=\sum\limits_{k=0}^{n}\binom{n}{k}x^ky^{n-k}\]</div>
+<h2 id="_4">线性表<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<p>线性表的特征如下：</p>
+<ol>
+<li>第 1 个元素没有前驱；</li>
+<li>最后的一个元素没有后继；</li>
+<li>中间的元素各有一个前驱和一个后继.</li>
+</ol>
+<p>可以将线性表表示为： <span class="arithmatex">\((e_1,e_2,\cdots,e_N)\)</span> . 或称 <span class="arithmatex">\(e_1\)</span> 为<strong>首结点</strong>， <span class="arithmatex">\(e_N\)</span> 为<strong>尾结点</strong>.</p>
+<p>以上已经定义了 <span class="arithmatex">\((D,R)\)</span> . 线性表的操作 <span class="arithmatex">\(P\)</span> 可以分为如下几类：</p>
+<ul>
+<li>创建（长度、内存空间、最大长度）；</li>
+<li>删除整个线性表；</li>
+<li>查询；</li>
+<li>更新：插入、删除某个元素；</li>
+<li>输出：获取某个元素；</li>
+</ul>
+<p>以上介绍的 <span class="arithmatex">\((D,R,P)\)</span> 是线性表的逻辑结构. 在具体实现时可以从两个方面入手，分别对应连续和离散的物理存储结构. 一般称为顺序实现和链式实现.</p>
+<h3 id="_5">顺序表<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<p>顺序表采取连续的存储空间实现线性表，如下：</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">C++ 实现顺序表</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span>
+<span class="normal">49</span>
+<span class="normal">50</span>
+<span class="normal">51</span>
+<span class="normal">52</span>
+<span class="normal">53</span>
+<span class="normal">54</span>
+<span class="normal">55</span>
+<span class="normal">56</span>
+<span class="normal">57</span>
+<span class="normal">58</span>
+<span class="normal">59</span>
+<span class="normal">60</span>
+<span class="normal">61</span>
+<span class="normal">62</span>
+<span class="normal">63</span>
+<span class="normal">64</span>
+<span class="normal">65</span>
+<span class="normal">66</span>
+<span class="normal">67</span>
+<span class="normal">68</span>
+<span class="normal">69</span>
+<span class="normal">70</span>
+<span class="normal">71</span>
+<span class="normal">72</span>
+<span class="normal">73</span>
+<span class="normal">74</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span><span class="c1"> </span>
+<span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="p">;</span><span class="w"> </span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">LinearList</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">private</span><span class="o">:</span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">length</span><span class="p">;</span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">MaxSize</span><span class="p">;</span>
+<span class="w">        </span><span class="n">T</span><span class="o">*</span><span class="w"> </span><span class="n">element</span><span class="p">;</span>
+<span class="w">    </span><span class="k">public</span><span class="o">:</span>
+<span class="w">        </span><span class="n">LinearList</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">LLMaxSize</span><span class="p">);</span><span class="w"> </span><span class="c1">// 初始化</span>
+<span class="w">        </span><span class="o">~</span><span class="n">LinearList</span><span class="p">();</span><span class="w"> </span><span class="c1">// 析构函数，删除表</span>
+<span class="w">        </span><span class="n">LinearList</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">insert</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">k</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">T</span><span class="o">&amp;</span><span class="w"> </span><span class="n">x</span><span class="p">);</span>
+<span class="w">        </span><span class="kt">bool</span><span class="w"> </span><span class="nf">isEmpty</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="nf">getLength</span><span class="p">();</span>
+<span class="w">        </span><span class="kt">bool</span><span class="w"> </span><span class="nf">get</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">k</span><span class="p">,</span><span class="w"> </span><span class="n">T</span><span class="o">&amp;</span><span class="w"> </span><span class="n">x</span><span class="p">);</span><span class="w"> </span><span class="c1">// 查询</span>
+<span class="w">        </span><span class="kt">bool</span><span class="w"> </span><span class="nf">modify</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">k</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">T</span><span class="o">&amp;</span><span class="w"> </span><span class="n">x</span><span class="p">);</span>
+<span class="w">        </span><span class="n">T</span><span class="o">*</span><span class="w"> </span><span class="nf">getAddress</span><span class="p">();</span>
+<span class="p">};</span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="n">LinearList</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;::</span><span class="n">LinearList</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">LLMaxSize</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">MaxSize</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">LLMaxSize</span><span class="p">;</span>
+<span class="w">    </span><span class="n">element</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="p">[</span><span class="n">LLMaxSize</span><span class="p">];</span>
+<span class="w">    </span><span class="n">length</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="n">LinearList</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;::~</span><span class="n">LinearList</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">delete</span><span class="w"> </span><span class="p">[]</span><span class="w"> </span><span class="n">element</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">LinearList</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;::</span><span class="n">getLength</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">length</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="n">LinearList</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">LinearList</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;::</span><span class="n">insert</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">k</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">T</span><span class="o">&amp;</span><span class="w"> </span><span class="n">x</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">k</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">length</span><span class="p">)</span>
+<span class="w">        </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;invalid position&quot;</span><span class="p">;</span>
+<span class="w">    </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">length</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">MaxSize</span><span class="p">)</span>
+<span class="w">        </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;no place to insert&quot;</span><span class="p">;</span>
+<span class="w">    </span><span class="k">else</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">length</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">k</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">--</span><span class="p">)</span><span class="w"> </span><span class="n">element</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">element</span><span class="p">[</span><span class="n">i</span><span class="mi">-1</span><span class="p">];</span>
+<span class="w">        </span><span class="n">element</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
+<span class="w">        </span><span class="n">length</span><span class="o">++</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="o">*</span><span class="k">this</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="n">T</span><span class="o">*</span><span class="w"> </span><span class="n">LinearList</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;::</span><span class="n">getAddress</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">element</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="n">main</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">LinearList</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">ll</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
+<span class="w">    </span><span class="n">ll</span><span class="p">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span>
+<span class="w">    </span><span class="n">ll</span><span class="p">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">);</span>
+<span class="w">    </span><span class="n">ll</span><span class="p">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">);</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">len</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ll</span><span class="p">.</span><span class="n">getLength</span><span class="p">();</span>
+<span class="w">    </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Length: &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">len</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">int</span><span class="o">*</span><span class="w"> </span><span class="n">pl</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ll</span><span class="p">.</span><span class="n">getAddress</span><span class="p">();</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">len</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="o">*</span><span class="n">pl</span><span class="p">;</span><span class="w"> </span><span class="n">pl</span><span class="o">++</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="_6">链表<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<p>链表采用的是离散的存储空间，通过指针找到前驱和后继.</p>
+<p>需要说明的是，虽然顺序表插入元素的时间复杂度为 <span class="arithmatex">\(\mathcal{O}(n)\)</span> ，链表插入元素的复杂度为 <span class="arithmatex">\(\mathcal{O}(1)\)</span> ，但是链表需要先查找（通过索引）到插入位置原先的元素，这一过程的复杂度为 <span class="arithmatex">\(\mathcal{O}(n)\)</span> ，而顺序表通过索引获取元素的复杂度为 <span class="arithmatex">\(\mathcal{O}(1)\)</span> #issue %%不太清楚，如果数组长度非常大时时间复杂度还低吗？%%</p>
+<p>| #imcomplete </p>
+<div class="highlight"><span class="filename">C++ 实现链表</span><pre><span></span><code><span class="c1">// 链表的销毁需要一个一个节点进行</span>
+<span class="kt">void</span><span class="w"> </span><span class="o">~</span><span class="n">LinkedList</span><span class="p">(</span><span class="n">LinkedList</span><span class="o">&amp;</span><span class="w"> </span><span class="n">L</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">L</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">T</span><span class="o">*</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">L</span><span class="p">;</span>
+<span class="w">        </span><span class="n">L</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">L</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+<span class="w">        </span><span class="n">free</span><span class="p">(</span><span class="n">p</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="n">L</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">nullptr</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>以上实现的是单向链表，此外还有<strong>循环链表</strong>：尾部指针指向头；<strong>双向链表</strong>：每一个元素都分别有一个指向前驱和后继的指针.</p>
+<h3 id="_7">线性表的应用<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
+<h2 id="_8">栈<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h2>
+<p>C++ 中提供了实现栈的模板类 <a href="../../Coding/CPP/#stack">stack</a></p>
+<h3 id="_9">栈的应用<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h3>
+<details class="example">
+<summary>括号匹配.</summary>
+</details>
+<details class="example">
+<summary>根据运算符（前缀/中缀/后缀）的优先级求解表达式的值. E.g. <span class="arithmatex">\(4+5*5-10\)</span> .</summary>
+<p>算法依赖于两个栈进行，其中一个栈存储运算数，另一个栈存储运算符.</p>
+</details>
+<details class="example">
+<summary>多项式相加. 适合用链表求解.</summary>
+<p>考虑简单的情形，一元多项式可以被表示为 <span class="arithmatex">\((a_0,e_0),\cdots,(a_n,e_n)\)</span> 的形式，其中 <span class="arithmatex">\(a_i,e_i,1\leq i\leq n\)</span> 分别表示系数和指数.</p>
+</details>
+<details class="example">
+<summary>进制转换.</summary>
+</details>
+<h2 id="_10">队列<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h2>
+<p>队列分别有一个只有一个前驱和只有一个后继的元素，称为<strong>队头</strong>（front）和<strong>队尾</strong>（rear），剩余的元素都只有一个前驱和一个后继. 队列遵从<strong>先进先出</strong>（FIFO）的数据存放机制，但也有另外定义出入顺序的<strong>优先列表</strong>.</p>
+<p>首先考虑用顺序结构实现链表：问题主要出现在对 <code>pop()</code> 和 <code>push()</code> 的定义，如果用一个定长的数组实现，则需要分别指定队头 <code>front</code> 和队尾 <code>rear</code> ，按照<a href="#顺序表">#顺序表</a>的插入 / 删除方法，以 <code>pop()</code> 为例， <code>front</code> 会和 <code>rear</code> 重合，即<strong>假上溢</strong>. 因此考虑采取循环（取模）. #imcomplete 此外还需要定义队列的长度，以区分队列为空和队列为满的情况.</p>
+<p>用链式结构实现队列则要简单地多： #imcomplete </p>
+<p>也可以用 C++ 中的模板类 <a href="../../Coding/CPP/#deque">deque</a> 实现.</p>
+<h3 id="_11">队列的应用<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h3>
+<p>| #imcomplete </p>
+<details class="example">
+<summary>计算杨辉三角.</summary>
+</details>
+<details class="example">
+<summary>叫号机：模拟三个队列（窗口），1) 先到先服务（叫号机），计算平均等待时间 / 2) 只能单个窗口排队，计算平均等待时间；为什么 1) 要比 2) 好?</summary>
+<p>BankQueueSimulator 模拟顾客号、顾客到达时间（随机），服务时间（随机）；</p>
+</details>
+<h3 id="_12">栈与队列的区别<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h3>
+<p>根据算法选择数据结构时，需要考虑问题中对数据进行的操作. 栈和队列的根本区别在于对于数据的<u>缓冲</u>不同：数据存入的顺序与处理的顺序是否保持一致，一致则采取队列（先进先出），否则采取栈（后进后出）.</p>
+<h2 id="_13">树<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h2>
+<p><strong>树</strong>是非线性结构，一个元素可以有多个后继，但最多有一个前驱.</p>
+<p>可以用递归的方式定义树：考虑 <span class="arithmatex">\(n\)</span> 个元素组成的集合，若 <span class="arithmatex">\(n=0\)</span> 则称该树为空树， <span class="arithmatex">\(n&gt;0\)</span> 时，其满足以下条件：</p>
+<ol>
+<li>有且只有一个元素没有前驱，称为<strong>根结点</strong>，称其后继为<strong>分支结点</strong>.</li>
+<li>将根结点去除后，剩下的 <span class="arithmatex">\(n-1\)</span> 个元素形成两两不交的集合，每个集合称为一个<strong>子树</strong>，其满足 1. 2. 条件.</li>
+</ol>
+<p>称没有后继的元素为<strong>叶结点</strong>. 根结点、分支结点和叶结点统称为<strong>结点</strong>，结点的后继的数量称为该结点的<strong>度</strong>. 树的度则定义为其所有结点的度的最大值.</p>
+<p>结点 <span class="arithmatex">\(n\)</span> 与其后继 <span class="arithmatex">\(n_1\)</span> 之间的“连线” <span class="arithmatex">\((n,n_1)\)</span> 称为<strong>分支</strong>， <span class="arithmatex">\(s,t\)</span>  两个结点之间的路径则为 <span class="arithmatex">\((s,n_1),(n_1,n_2),\cdots,(n_{l-1},t)\)</span> 组成的集合，其中 <span class="arithmatex">\(n_m\)</span> 为 <span class="arithmatex">\(n_{m-1}\)</span> 的后继（ <span class="arithmatex">\(n_l=t,n_0=s,1\leq m\leq l\)</span> ），记为 <span class="arithmatex">\((s,n_1,n_2,\cdots,n_{l-1}, t)\)</span> ，由树的定义，如果两个结点之间存在路径，则路径唯一.</p>
+<p>从根结点到某一结点之间的路径包含的分支个数称为该结点的<strong>层数</strong>，称树的<strong>深度</strong>为最大结点层数.</p>
+<p>此外，根据结点之间的前驱后继关系可以定义： <strong>父结点 / 双亲结点</strong>：结点的前驱；<strong>子结点</strong>：结点的后继；<strong>兄弟</strong>：两个结点具有同一个双亲结点；<strong>堂兄弟</strong>：两个结点各自的父结点具有同一个父结点；<strong>祖先</strong>：该结点的前驱的前驱，前驱的前驱的前驱...</p>
+<p>树有多种类别：按照是否关心树的左右顺序有<strong>有序树</strong>和<strong>无序树</strong>.</p>
+<h3 id="_14">二叉树<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h3>
+<p>二叉树为每个结点的度不超过 <span class="arithmatex">\(2\)</span> 的有序树；<strong>顺序编号法</strong>按照深度递增，从左往右对结点进行编号. 如果深度为 <span class="arithmatex">\(l\)</span> 的二叉树的最大编号为 <span class="arithmatex">\(2^l-1\)</span> 则称该二叉树为<strong>满二叉树</strong>，如果深度为 <span class="arithmatex">\(l\)</span> 的二叉树中的结点的编号与相同深度的满二叉树对应的编号相同，则称该二叉树为<strong>完全二叉树</strong>，非完全二叉树称为<strong>普通二叉树</strong>. </p>
+<p>二叉树具有以下性质：</p>
+<ul>
+<li>深度为 <span class="arithmatex">\(l\)</span> 的二叉树最多有 <span class="arithmatex">\(2^k-1\)</span> 个结点；</li>
+<li>记度为 <span class="arithmatex">\(0\)</span> 的结点的个数为 <span class="arithmatex">\(n_0\)</span> ，度为 <span class="arithmatex">\(2\)</span> 的结点个数为 <span class="arithmatex">\(n_2\)</span> 则， <span class="arithmatex">\(n_0=n_2+1\)</span> ；证明：设度为 <span class="arithmatex">\(1\)</span> 的结点个数为 <span class="arithmatex">\(n_1\)</span> ，树的结点数为 <span class="arithmatex">\(n\)</span> 由树的定义，该树中所有是后继的结点的数量为 <span class="arithmatex">\(n-1=0\cdot n_0+n_1+2n_2\)</span> ，并且 <span class="arithmatex">\(n=n_0+n_1+n_2\)</span> ，可得结论.</li>
+<li>具有 <span class="arithmatex">\(n\)</span> 个结点的完全二叉树的深度为 <span class="arithmatex">\(\lfloor \log_2n\rfloor+1\)</span> ；</li>
+<li>对于采取顺序表示的完全二叉树，编号为 <span class="arithmatex">\(i\)</span> 的结点的左侧子结点（如果有的话）的编号为 <span class="arithmatex">\(2i\)</span> ，右侧子结点（如果有的话）的编号为 <span class="arithmatex">\(2i+1\)</span> . 因此，可以采取顺序存储的方式实现完全二叉树（以及普通二叉树）.</li>
+</ul>
+<h4 id="_15">二叉树的实现<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h4>
+<p>如上性质，可以采取顺序存储表示二叉树，对于完全二叉树进行顺序编号之后将所有结点以 <span class="arithmatex">\(s-1\)</span> 为索引填充到数组中即可，其中 <span class="arithmatex">\(s\)</span> 表示结点的编号. #imcomplete </p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>
+</code></pre></div></td></tr></table></div>
+<p>而对于普通二叉树，将其缺失的结点补全后，按照完全二叉树的方法表示即可. #imcomplete </p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>
+</code></pre></div></td></tr></table></div>
+<p>二叉树的顺序表示很可能造成空间的浪费. </p>
+<hr />
+<p>下面介绍二叉树的链式实现：每一个结点定义一个左指针（指向左子树的根结点 / 左子结点）和右指针（指向右子树的根结点 / 右子结点）对于空子树则指针指向空. #imcomplete </p>
+<p>这种单向指针的实现在查找当前结点的父结点时比较耗时（需要借助栈实现）. #imcomplete </p>
+<h4 id="_16">二叉树的遍历<a class="headerlink" href="#_16" title="Permanent link">&para;</a></h4>
+<p>对树的结点的遍历主要分为三个步骤：对当前结点进行<u>访问</u>（e.g. 输出结点对应的数值），遍历左子结点，遍历右子结点；</p>
+<p>当采用非并行计算时，对于一个多个子结点，只能先访问一个子结点；因此需要以某种方式保存其他未被访问的子结点，常用栈或者队列；</p>
+<p>遍历方式的顺序的一种最简单的划分是：深度优先（先访问子结点，再访问父结点，再访问其他的子结点），广度优先（先访问当前层的所有子结点，再访问父结点）；</p>
+<p>深度优先可以按照根结点相对于左右子结点的访问先后进行划分；</p>
+<p>前序遍历 / 先序遍历（pre-order traversal）：按根结点、左结点、右结点进行（递归地）顺序遍历；</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">先序遍历</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="nf">preOrderTraversal</span><span class="p">(</span><span class="n">TreeNode</span><span class="w"> </span><span class="o">*</span><span class="n">root</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">statements</span><span class="w"> </span><span class="c1">// 对根结点进行访问操作，例如输出对应值</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">root</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">lchild</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="k">nullptr</span><span class="p">)</span><span class="w"> </span><span class="n">preOrderTraversal</span><span class="p">(</span><span class="n">root</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">lchild</span><span class="p">);</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">root</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">rchild</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="k">nullptr</span><span class="p">)</span><span class="w"> </span><span class="n">preOrderTraversal</span><span class="p">(</span><span class="n">root</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">rchild</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>中序遍历（in-order traversal）：以左结点、根结点、右结点（递归地）顺序遍历；</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">中序遍历</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="nf">inOrderTraversal</span><span class="p">(</span><span class="n">TreeNode</span><span class="w"> </span><span class="o">*</span><span class="n">root</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">root</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">lchild</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="k">nullptr</span><span class="p">)</span><span class="w"> </span><span class="n">inOrderTraversal</span><span class="p">(</span><span class="n">root</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">lchild</span><span class="p">);</span>
+<span class="w">    </span><span class="n">statements</span><span class="w"> </span><span class="c1">// 对根结点进行访问操作，例如输出对应值</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">root</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">rchild</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="k">nullptr</span><span class="p">)</span><span class="w"> </span><span class="n">inOrderTraversal</span><span class="p">(</span><span class="n">root</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">rchild</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>后序遍历（post-order traversal）：按左结点、右结点、根结点（递归地）进行遍历；</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">后序遍历</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="nf">postOrderTraversal</span><span class="p">(</span><span class="n">TreeNode</span><span class="w"> </span><span class="o">*</span><span class="n">root</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">root</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">lchild</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="k">nullptr</span><span class="p">)</span><span class="w"> </span><span class="n">postOrderTraversal</span><span class="p">(</span><span class="n">root</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">lchild</span><span class="p">);</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">root</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">rchild</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="k">nullptr</span><span class="p">)</span><span class="w"> </span><span class="n">postOrderTraversal</span><span class="p">(</span><span class="n">root</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">rchild</span><span class="p">);</span>
+<span class="w">    </span><span class="n">statements</span><span class="w"> </span><span class="c1">// 对根结点进行访问操作，例如输出对应值</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p><strong>逐层遍历</strong> / 广度优先遍历：可以用队列实现，</p>
+<p><a href="https://zh.wikipedia.org/zh-cn/%E6%A0%91%E7%9A%84%E9%81%8D%E5%8E%86">refernce-wiki</a></p>
+<h3 id="_17">二叉排序树<a class="headerlink" href="#_17" title="Permanent link">&para;</a></h3>
+<p><strong>二叉排序树</strong>（二叉查找树）：若非空树，则具有如下性质：</p>
+<ul>
+<li>若左子树非空，则左子树的所有结点的值小于根结点，左子树也是二叉排序树；</li>
+<li>若右子树非空，则右子树的所有结点的值大于根结点，右子树也是二叉排序树；</li>
+</ul>
+<p>由此，对二叉排序树进行中序遍历可以得到一个有序序列（升序）；</p>
+<p>二叉排序树的生成：每一次插入的结点都作为一个叶结点插入；不允许有重复的数字出现；具体如下</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">二叉排序树的生成伪代码</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// 算法名称：二叉排序树的生成，对于一个待插入的元素 $N$ ：</span>
+
+<span class="c1">// 输入：集合 S = {N_1, N_2, ..., N_m}</span>
+<span class="c1">// 输出：二叉排序树；</span>
+
+<span class="n">若二叉排序树是一个空树</span><span class="err">，</span><span class="n">则将该元素作为根结点</span><span class="err">；</span>
+<span class="n">root</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">N_1</span>
+
+<span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">node</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">S</span><span class="p">)</span><span class="o">:</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="n">node</span><span class="p">.</span><span class="n">value</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">root</span><span class="p">.</span><span class="n">value</span><span class="w"> </span><span class="k">continue</span><span class="err">；</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="n">node</span><span class="p">.</span><span class="n">value</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">root</span><span class="p">.</span><span class="n">value</span><span class="w"> </span><span class="p">{</span><span class="w"> </span>
+<span class="w">        </span><span class="n">将</span><span class="w"> </span><span class="n">node</span><span class="w"> </span><span class="n">插入</span><span class="w"> </span><span class="n">root</span><span class="p">.</span><span class="n">左子树中</span><span class="err">；</span>
+<span class="w">        </span><span class="n">root</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">root</span><span class="p">.</span><span class="n">左子结点</span><span class="err">；</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="n">node</span><span class="p">.</span><span class="n">value</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">root</span><span class="p">.</span><span class="n">value</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">将</span><span class="w"> </span><span class="n">node</span><span class="w"> </span><span class="n">插入</span><span class="w"> </span><span class="n">root</span><span class="p">.</span><span class="n">右子树中</span><span class="err">；</span>
+<span class="w">        </span><span class="n">root</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">root</span><span class="p">.</span><span class="n">右子结点</span><span class="err">；</span>
+<span class="w">    </span><span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>二叉排序树的查询：与每一个结点进行对比，然后进入到下一个子树中；</p>
+<p>二叉排序树的查找效率：如果原先的数据集是有序的，生成二叉排序树之后的结构等同于链表，二叉排序树查询效率与线性表查询一致；</p>
+<p>为使得二叉排序树的查找效率提高，需要生成的二叉排序树左右尽量均衡（AVL）；</p>
+<p>具体地，每加入一个新的结点，若形成的左右子树的深度差超过 1 ，则对深度大的子树进行调整. #imcomplete-further-wanted </p>
+<p>下面介绍二叉排序树的应用：</p>
+<h4 id="_18">霍夫曼编码<a class="headerlink" href="#_18" title="Permanent link">&para;</a></h4>
+<p><a href="https://zh.wikipedia.org/zh-cn/%E9%9C%8D%E5%A4%AB%E6%9B%BC%E7%BC%96%E7%A0%81">refer-wiki</a></p>
+<p>考虑对一串字符进行二进制编码，例如 A, B, C, D，进行编码时一个很重要的问题是不能使得某一字符的编码与另一字符的编码的字串相同，例如： A - 0, B - 1, C - 10，则对于 1010 无法区分是 BAC，CC，BABA，CBA 等. </p>
+<p>稳妥的做法是采取<u>定长编码</u>，例如： A - 0001 ， B - 0010 ， C - 0011 ， D - 0100 . 但是在某些情况下，例如某一个字符出现的频率想当高，如果用简短的编码表示可以提高传输效率，这时地<u>变长编码</u>就值得采取.</p>
+<p>霍夫曼编码即为一种变长编码算法，其首先基于字符串中各个字符的频率构建一个二叉排序树，然后进行编码，具体实现如下：</p>
+<p>首先定义<strong>树的带权路径长度</strong>：树中所有叶结点的带权路径长度的和 <span class="arithmatex">\(\text{WPL}=\sum_{i=1}^nW_iL_i\)</span> . 其中 <span class="arithmatex">\(n\)</span> 表示叶结点的数目， <span class="arithmatex">\(W_i\)</span> 表示第 <span class="arithmatex">\(i\)</span> 个叶结点的权重（视具体情况而定，例如对应的字符出现的频率）， <span class="arithmatex">\(L_i\)</span> 表示第 <span class="arithmatex">\(i\)</span> 个叶结点的层数.</p>
+<p>称在具有相同的叶结点的二叉树中具有最小的带权路径长度的二叉树为<strong>霍夫曼树 / 最优二叉树</strong>：</p>
+<p>下面介绍霍夫曼树的构造方法：</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">霍夫曼树构造伪代码</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// 算法名称：霍夫曼树构造</span>
+
+<span class="c1">// 输入：结点集合 {N_1, N_2, ..., N_m} ，权重 {W_1, W_2, ..., W_m}</span>
+<span class="c1">// 输出：霍夫曼树</span>
+
+<span class="mf">1.</span><span class="w"> </span><span class="n">以</span><span class="w"> </span><span class="n">N_i</span><span class="w"> </span><span class="n">作为根结点</span><span class="err">，</span><span class="n">构造</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="n">个只有根结点的树</span><span class="err">，</span><span class="n">记为</span><span class="w"> </span><span class="n">S</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="n">T_1</span><span class="p">,</span><span class="w"> </span><span class="n">T_2</span><span class="p">,</span><span class="w"> </span><span class="p">...,</span><span class="w"> </span><span class="n">T_m</span><span class="p">}</span><span class="err">；</span>
+<span class="mf">2.</span><span class="w"> </span><span class="n">从</span><span class="w"> </span><span class="n">S</span><span class="w"> </span><span class="n">中选取带权路径长度最小的两个树</span><span class="w"> </span><span class="n">T_p</span><span class="p">,</span><span class="w"> </span><span class="n">T_q</span><span class="err">；</span>
+<span class="mf">3.</span><span class="w"> </span><span class="n">构造新的结点</span><span class="w"> </span><span class="n">N_pq</span><span class="w"> </span><span class="err">，</span><span class="n">权重为</span><span class="w"> </span><span class="n">W_p</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">W_q</span><span class="err">；</span>
+<span class="mf">4.</span><span class="w"> </span><span class="n">构造一个新的树</span><span class="w"> </span><span class="n">T_pq</span><span class="w"> </span><span class="err">，</span><span class="n">其左</span><span class="err">，</span><span class="n">右子结点为</span><span class="w"> </span><span class="n">N_p</span><span class="p">,</span><span class="w"> </span><span class="n">N_q</span><span class="err">（</span><span class="n">默认无序树</span><span class="err">），</span><span class="n">其根结点为</span><span class="w"> </span><span class="n">N_pq</span><span class="err">；</span>
+<span class="mf">5.</span><span class="w"> </span><span class="n">更新</span><span class="w"> </span><span class="n">S</span><span class="err">：</span><span class="n">移除</span><span class="w"> </span><span class="n">T_p</span><span class="err">，</span><span class="w"> </span><span class="n">T_q</span><span class="err">，</span><span class="n">加入</span><span class="w"> </span><span class="n">T_pq</span><span class="w"> </span><span class="err">，</span><span class="n">回到</span><span class="w"> </span><span class="mf">2.</span>
+</code></pre></div></td></tr></table></div>
+<p>| #imcomplete-lack-codes</p>
+<p>按照上述构造方法，霍夫曼树的结点的度均为 <span class="arithmatex">\(0\)</span> 或者 <span class="arithmatex">\(2\)</span> ，不可能为 <span class="arithmatex">\(1\)</span> .</p>
+<p>在完成霍夫曼树的构造之后，根结点的编码设为 <span class="arithmatex">\(1/0\)</span> ，子结点继承父结点的编码，每一层的左结点编码在继承的编码上添加 <span class="arithmatex">\(0\)</span> ，右结点编码添加 <span class="arithmatex">\(1\)</span> （或者反之，无所谓）； <span class="arithmatex">\(S\)</span> 中的所有元素均为霍夫曼树的叶结点；因此不可能出现编码包含. #imcomplete-lack-proofs </p>
+<p>哈夫曼树的应用：压缩、传输、加密、解码</p>
+<p>哈夫曼解码：借助哈夫曼树完成；</p>
+<p>| #imcomplete-lack-examples </p>
+<h2 id="_19">排列<a class="headerlink" href="#_19" title="Permanent link">&para;</a></h2>
+<h3 id="_20">排列的表示方式<a class="headerlink" href="#_20" title="Permanent link">&para;</a></h3>
+<p>用 <span class="arithmatex">\(S\)</span> 表示一个 <span class="arithmatex">\(n\)</span> 元集合，通常记为 <span class="arithmatex">\(S=\{1,2,\ldots,n\}\)</span> . <span class="arithmatex">\(S\)</span> 的一个<strong>排列</strong>是将 <span class="arithmatex">\(1,2,\cdots,n\)</span> 排成一列，记为 <span class="arithmatex">\(\pi=\pi_1\pi_2\cdots\pi_n\)</span> . 用 <span class="arithmatex">\(S_n\)</span> 表示 <span class="arithmatex">\(S\)</span> 的排列的集合，此为一<strong>对称群</strong>（symmetric group），并且 <span class="arithmatex">\(\lvert S_n\rvert\overset{def}{=}\#S_n=n!\)</span> .</p>
+<details class="note">
+<summary>用程序生成 <span class="arithmatex">\(S_n\)</span> . #imcomplete-whatever</summary>
+<p>思路可以考虑抽象代数中生成 <span class="arithmatex">\(S_n\)</span> 的方法. <a href="https://math.stackexchange.com/questions/903225/generators-of-the-symmetric-group-s-3">stack</a></p>
+</details>
+<p>对于排列 <span class="arithmatex">\(\pi\)</span> 可以从下面几个角度理解：</p>
+<p><strong>行表示</strong>（one-line notation），即 <span class="arithmatex">\(\pi=\pi_1\pi_2\cdots\pi_n\)</span> 的写法；</p>
+<p><strong>二行表示</strong>， <span class="arithmatex">\(\pi\)</span> 可以看作是一个双射： </p>
+<p><span class="arithmatex">\(<span class="arithmatex">\(\begin{aligned}\pi:&amp;S\rightarrow S_n \\&amp;i\mapsto \pi(i)\overset{def}{=}\pi_i\end{aligned}\)</span>\)</span> <br />
+或可写作： </p>
+<div class="arithmatex">\[\pi=\begin{bmatrix}1&amp;2&amp;\cdots&amp;n \\  \pi_1&amp;\pi_2&amp;\cdots&amp;\pi_n\end{bmatrix}\]</div>
+<p><strong>矩阵表示</strong>，可以采用类似于独热编码的方式. 例如对于 <span class="arithmatex">\(\pi=1324\)</span> 可以写作： </p>
+<div class="arithmatex">\[\pi=\begin{bmatrix}1&amp;0&amp;0&amp;0\\ 0&amp;0&amp;1&amp;0\\ 0&amp;1&amp;0&amp;0\\ 0&amp;0&amp;0&amp;1\end{bmatrix}\]</div>
+<p>并且可以验证在此标记下对于两个排列的复合（称之为<strong>乘积</strong>） <span class="arithmatex">\(\pi\circ \sigma\)</span> 等同于对应的矩阵乘法. （注意运算是 <span class="arithmatex">\(\pi(\sigma(i))\)</span> ）.</p>
+<p>上面的矩阵表示是一个<strong>双随机矩阵</strong>，其满足： <span class="arithmatex">\(<span class="arithmatex">\(\begin{aligned}
+&amp;M=(a_{ij})_{n\times n}\\
+&amp;1.a_{ij}\geq0,\forall i,j\\
+&amp;2.\Sigma_{k=1}^na_{ik}=1,\forall i\\
+&amp;3.\Sigma_{k=1}^na_{kj}=1,\forall j
+\end{aligned}\)</span>\)</span> 如果将双随机矩阵 <span class="arithmatex">\(M=(a_{ij})_{n\times n}\)</span> 看作 <span class="arithmatex">\(\mathbb{R}^{n\times n}\)</span> 中的一个点，可以证明 <span class="arithmatex">\(\mathbb{R}^{n\times n}\)</span> 上的所有双随机矩阵组成的集合是一个以所有 <span class="arithmatex">\(M_{\pi}\)</span> 为顶点的<strong>凸包</strong> #issue ，其中 <span class="arithmatex">\(M_\pi\)</span> 即为排列 <span class="arithmatex">\(\pi\in S_n\)</span> 的矩阵表示.</p>
+<p>4) 排列的圈表示（cycle decomposition / representation），可以将排列分解为排列的乘积，例如： <span class="arithmatex">\(<span class="arithmatex">\(\pi=(42135)=(143)(2)(5)\)</span>\)</span></p>
+<p>除此之外还有<strong>重集</strong>（multiset）上的排列，重集如： <span class="arithmatex">\(\{1^{m_1},2^{m_2},\cdots,n^{m_n}\}\)</span> ，表示 <span class="arithmatex">\(m_1\)</span> 个 <span class="arithmatex">\(1\)</span> ， <span class="arithmatex">\(m_2\)</span> 个 <span class="arithmatex">\(2\)</span> ，... ， <span class="arithmatex">\(m_n\)</span> 个 <span class="arithmatex">\(n\)</span> 组成的集合. 其排列个数为： <span class="arithmatex">\(<span class="arithmatex">\(\frac{(m_1+m_2+\cdots+m_n)}{m_1!m_2!\cdots m_n!}\)</span>\)</span></p>
+<details class="example">
+<summary>计算 <span class="arithmatex">\(\{0^2,1^2,2^2\}\)</span> 能够生成的所有 <span class="arithmatex">\(6\)</span> 位数个数.</summary>
+<p><span class="arithmatex">\(\frac{6!}{2!2+2!2+2!2}-\frac{5!}{1!2!2!}=60\)</span> .</p>
+</details>
+<p>定义<strong>第一类Stirling数</strong>： <span class="arithmatex">\(S_n\)</span> 中圈表示的圈数为 <span class="arithmatex">\(k\)</span> 的排列的个数.（圈中只有单个数字的也算一个圈）记作 <span class="arithmatex">\(c(n,k)\)</span> . 可以证明<strong>生成函数</strong>（generative function）：<span class="arithmatex">\(<span class="arithmatex">\(\sum\limits_{k=1}^{n}c(n,k)x^k=x(x+1)\cdots(x+n-1)\)</span>\)</span> </p>
+<details class="note" open="open">
+<summary>生成函数的证明</summary>
+<p>首先证明引理：</p>
+<details class="note" open="open">
+<summary><span class="arithmatex">\(c(n,k)=c(n-1,k-1)+(n-1)c(n-1,k)\)</span></summary>
+<p>证明：在 <span class="arithmatex">\(S_{n-1}\)</span> 的基础上，1) 对于圈数为 <span class="arithmatex">\(k-1\)</span> 的排列 <span class="arithmatex">\(\pi\in S_{n-1}\)</span> 添加一个新的元素 <span class="arithmatex">\(n\)</span> 则 <span class="arithmatex">\(n\)</span> 作为一个单独的圈，可以获得一个圈数为 <span class="arithmatex">\(k\)</span> 的排列； 2) 对于圈数为 <span class="arithmatex">\(k\)</span> 的排列 <span class="arithmatex">\(\pi\in S_{n-1}\)</span> 添加一个新的元素（插入到已有的圈中），共有 <span class="arithmatex">\(n-1\)</span> 种插入方法.</p>
+</details>
+<p>下面利用归纳法进行证明：</p>
+<details class="note">
+<summary>不妨设 <span class="arithmatex">\(x(x+1)\cdots(x+n-1)=\sum\limits_{k=1}^{n}c(n,k)x^k\)</span> .</summary>
+<p>原式： <span class="arithmatex">\(<span class="arithmatex">\(\begin{aligned} &amp;=x(x+1)\cdots(x+n-2)(n-1)+x(x+1)\cdots(x+n-2)x \\\\ &amp;=\sum\limits_{k=1}^{n-1}c(n-1,k)x^k+\sum\limits_{k=1}^{n-1}c(n-1,k)x^{k+1} \end{aligned}\)</span>\)</span><br />
+进而根据系数比可以得出 <span class="arithmatex">\(a(n,k)=(n-1)c(n-1,k)+c(n-1,k-1)\)</span> 与引理进行对比，即可得到 <span class="arithmatex">\(a(n,k)=c(n,k)\)</span> . 证毕.</p>
+</details>
+</details>
+<h3 id="_21">逆序数和主指标<a class="headerlink" href="#_21" title="Permanent link">&para;</a></h3>
+<p>对于排列 <span class="arithmatex">\(\pi=\pi_1\pi_2\cdots\pi_n\)</span> ，首先定义<strong>逆序</strong>： <span class="arithmatex">\(1\leq i&lt;j\leq n,\pi_i&gt;\pi_j\)</span> ，则称 <span class="arithmatex">\(\pi_i,\pi_j\)</span> 成逆序. 不存在逆序的排列 <span class="arithmatex">\(\pi=12\cdots n\)</span> 称为<strong>单位排列</strong>.</p>
+<p>定义逆序数： <span class="arithmatex">\(\text{inv}(\pi)=\#\{(i,j):1\leq i&lt;j\leq n,\pi_i&gt;\pi_j\}\)</span> .</p>
+<p>有下面关于逆序数的生成函数的定理：</p>
+<details class="note">
+<summary><span class="arithmatex">\(1(1+x)(1+x+x^2)\cdots(1+x+\cdots+x^{n-1})=\sum\limits_{\pi\in S_n}^{}x^{\text{inv}(\pi)}\)</span> ，记 <span class="arithmatex">\([k]=1+x+\cdots+x^{k-1}\)</span> ，则上式可以写作 <span class="arithmatex">\(\sum\limits_{\pi\in S_n}^{}x^{\text{inv}(\pi)}=[n][n-1]\cdots[1]\overset{def}{=}[n]!\)</span> .</summary>
+<p>证明：从 <span class="arithmatex">\(\text{inv}(\pi)\)</span> 的具体形式入手，引入 <strong>lehmer code</strong>： <span class="arithmatex">\(c_i=\#\{j&gt;i:\pi_j&lt;\pi_i\},1\leq i\leq n\)</span> ，从而有 <span class="arithmatex">\(\text{inv}(\pi)=c_1+c_2+\cdots+c_{n-1}\)</span> ，进而有 <span class="arithmatex">\(<span class="arithmatex">\(\sum\limits_{\pi\in S_n}^{}x^{\text{inv}(\pi)}=\sum\limits_{c_1,c_2,\cdots,c_{n-1},c_n}^{0\leq c_n\leq n-i}x^{c_1+c_2+\cdots+c_n}\)</span>\)</span> （注意其中的 <span class="arithmatex">\(n-i\)</span> ）从而可以写作： <span class="arithmatex">\(<span class="arithmatex">\(=\left(\sum\limits_{0\leq c_1\leq n-1}^{}x^{c_1}\right)\left(\sum\limits_{0\leq c_2\leq n-2}^{}x^{c_2}\right)\cdots\left(\sum\limits_{0\leq c_n\leq 0}^{}x^{c_n}\right)=[n]!\)</span>\)</span> 证毕.</p>
+</details>
+<p>下面引入另一种与排列相关的量：排列的逆序所在的索引的累加<strong>主指标</strong>（major index）： <span class="arithmatex">\(<span class="arithmatex">\(\text{maj}(\pi)=\sum\limits_{1\leq i&lt;j\leq n,\pi_i&gt;\pi_j}^{}i\)</span>\)</span> 例如： <span class="arithmatex">\(\text{maj}(3142)=1+3=4\)</span> .</p>
+<p>并且可以证明：</p>
+<details class="note">
+<summary><span class="arithmatex">\(\sum\limits_{\pi\in S_n}^{}x^{\text{maj}(\pi)}=\sum\limits_{\pi\in S_n}^{}x^{\text{inv}(\pi)}\)</span> . #imcomplete-whatever</summary>
+</details>
+<h2 id="_22">组合<a class="headerlink" href="#_22" title="Permanent link">&para;</a></h2>
+<p><strong>乘法原理</strong>，<strong>加法原理</strong></p>
+<p><strong>多重组合数</strong>： <span class="arithmatex">\(<span class="arithmatex">\(\begin{aligned}
+\binom{n}{k_1k_2}&amp;=\binom{n}{k_1}\binom{n-k_1}{k_2}\\
+&amp;=\frac{n!}{k_1!(n-k_1)!}\frac{(n-k_1)!}{k_2!(n-k_1-k_2)}\\
+&amp;=\frac{n!}{k_1!k_2!(n-k_1-k_2)!}
+\end{aligned}\)</span>\)</span></p>
+<p><span class="arithmatex">\(<span class="arithmatex">\(\binom{n}{r}=\binom{n-1}{r-1}+\binom{n-1}{r}\)</span>\)</span> （证明：包含和不包含 <span class="arithmatex">\(n-1\)</span> ）</p>
+<div class="arithmatex">\[\begin{aligned}
+&amp;2^n=\binom{n}{0}+\binom{n}{1}+\cdots+\binom{n}{n}\\
+&amp;n2^{n-1}=\binom{n}{1}+2\binom{n}{2}+\cdots+n\binom{n}{n}
+\end{aligned}\]</div>
+<details class="note">
+<summary><span class="arithmatex">\(\binom{m+n}{k}=\sum\limits_{i=0}^{k}\binom{m}{i}\binom{n}{k-i}\)</span> . #imcomplete-whatever</summary>
+<p>证明：考虑 <span class="arithmatex">\(<span class="arithmatex">\((1+x)^{m+n}=(1+x)^m(1+x)^n\)</span>\)</span></p>
+</details>
+<h2 id="_23">排序算法<a class="headerlink" href="#_23" title="Permanent link">&para;</a></h2>
+<h3 id="_24">堆栈排序<a class="headerlink" href="#_24" title="Permanent link">&para;</a></h3>
+<details class="example">
+<summary>汉诺塔（Tower of Hanoi）：有三根杆子 <span class="arithmatex">\(A,B,C\)</span> ，其中 <span class="arithmatex">\(A\)</span> 杆上的圆盘大小自上而下呈递增趋势，下面要将所有的圆盘转移到 <span class="arithmatex">\(C\)</span> 上，在此过程中需要满足以下两个条件：1) 每一次只能移动一个圆盘；2) 大圆盘不能放置在小圆盘上. 问：对于 <span class="arithmatex">\(n\)</span> 个圆盘，需要移动多少次才能全部转移到 <span class="arithmatex">\(C\)</span> 杆上.</summary>
+<p>假设对于 <span class="arithmatex">\(n\)</span> 个圆盘需要移动 <span class="arithmatex">\(a_n\)</span> 次，可以证明： <span class="arithmatex">\(<span class="arithmatex">\(a_n=a_{n-1}+1+a_{n-1}\)</span>\)</span> （即，首先将 <span class="arithmatex">\(n-1\)</span> 个圆盘移动到 <span class="arithmatex">\(B\)</span> 杆上，将最大圆盘移动到 <span class="arithmatex">\(C\)</span> 杆上，再将 <span class="arithmatex">\(n-1\)</span> 个圆盘移动到 <span class="arithmatex">\(C\)</span> 杆上. 又 <span class="arithmatex">\(a_1=1\)</span> ，可得 <span class="arithmatex">\(a_n=2^n-1\)</span> .</p>
+</details>
+<p><strong>堆栈排序</strong>（stack sorting）算法如下：</p>
+<div class="highlight"><span class="filename">堆栈排序伪代码</span><pre><span></span><code><span class="c1">// 输入: 排列 pi=pi_1pi_2...pi_n ；</span>
+<span class="c1">// 输出: 排列 S(pi)=sigma_1sigma_2...sigma_n</span>
+
+<span class="k">for</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">&lt;</span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++:</span>
+<span class="w">    </span><span class="mf">1.</span><span class="w"> </span><span class="n">将</span><span class="w"> </span><span class="n">pi_i</span><span class="w"> </span><span class="n">放入栈中</span><span class="err">；</span>
+<span class="w">    </span><span class="mf">2.</span><span class="w"> </span><span class="n">将</span><span class="w"> </span><span class="n">pi_</span><span class="p">{</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">}</span><span class="w"> </span><span class="n">放入栈中</span><span class="err">，</span><span class="n">与</span><span class="w"> </span><span class="n">pi_i</span><span class="w"> </span><span class="n">比较</span><span class="err">，</span><span class="w"> </span><span class="k">if</span><span class="o">:</span>
+<span class="w">        </span><span class="n">pi_</span><span class="p">{</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">}</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">pi_i</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">将</span><span class="w"> </span><span class="n">pi_i</span><span class="w"> </span><span class="n">取出放在堆的第一位</span><span class="err">，</span><span class="n">返回步骤</span><span class="w"> </span><span class="mf">1.</span>
+<span class="w">        </span><span class="n">pi_</span><span class="p">{</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">}</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">pi_i</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">返回步骤</span><span class="w"> </span><span class="mf">1.</span><span class="w"> </span>
+</code></pre></div>
+<p>堆栈排序的时间复杂度为 <span class="arithmatex">\(\mathcal{O}(n)\)</span> ，但是并不能输出的排列 <span class="arithmatex">\(S(\pi)\)</span> 为 <span class="arithmatex">\(\text{id}=12\cdots n\)</span> . 下面考虑当排列满足什么性质时输出的排列为 <span class="arithmatex">\(\text{id}\)</span> . 为此首先要引入<strong>模式</strong>（pattern）这一概念：</p>
+<p>对于 <span class="arithmatex">\(\pi\in S_n,\sigma\in S_m\)</span> 称 <span class="arithmatex">\(\pi\)</span> 包含 <span class="arithmatex">\(\sigma-\)</span> pattern，如果存在 <span class="arithmatex">\(\pi\)</span> 的<strong>子字</strong>（subword） <span class="arithmatex">\(\pi_{i_1}\pi_{i_2}\cdots \pi_{i_m}=\sigma\)</span> .</p>
+<p>如果一个排列经过堆栈算法之后得到的排列为 <span class="arithmatex">\(\text{id}\)</span> ，则称该排列<strong>可堆栈排序</strong>（stack-sortable）.</p>
+<details class="note">
+<summary><span class="arithmatex">\(\pi\in S_n\)</span> 可堆栈排序当且仅当 <span class="arithmatex">\(\pi\)</span> 包含 <span class="arithmatex">\(231-\)</span> pattern.</summary>
+<p>证明：首先易证对于排列： <span class="arithmatex">\(\pi=\pi_Ln\pi_R\)</span> ，经过堆栈排序之后得到 <span class="arithmatex">\(S(\pi)=S(\pi_L)S(\pi_R)n\)</span> .<br />
+<span class="arithmatex">\(\Rightarrow\)</span> ： 如果 <span class="arithmatex">\(\pi\)</span> 包含 <span class="arithmatex">\(231-\)</span> pattern，不妨设 <span class="arithmatex">\(\pi=(\pi_1\cdots \pi_{i-1})n(\pi_{i+1}\cdots \pi_{n})=\pi_Ln\pi_R\)</span> ，允许 <span class="arithmatex">\(\pi_L\)</span> 或者 <span class="arithmatex">\(\pi_R\)</span> 中不包含任何元素. 可知 <span class="arithmatex">\(\pi_L\)</span> 或者 <span class="arithmatex">\(\pi_R\)</span> 中至少有一个包含 <span class="arithmatex">\(231-\)</span> pattern ，不妨设 <span class="arithmatex">\(\pi_L\)</span> 中含有 <span class="arithmatex">\(231-\text{pattern}\)</span> </p>
+<p>可以分为如下两种情况讨论：</p>
+<ol>
+<li><span class="arithmatex">\(\pi_L\)</span> 中的任何一个元素小于 <span class="arithmatex">\(\pi_R\)</span> 中的元素. 由上可知存在 <span class="arithmatex">\(\pi_i\pi_k\pi_l(1\leq i&lt;k&lt;l\leq i-1):\pi_l&lt;\pi_i&lt;\pi_k\)</span> ，按照堆栈排序算法，经过排序之后 <span class="arithmatex">\(\pi_i\)</span> 一定排在 <span class="arithmatex">\(\pi_k\)</span> 之前，而 <span class="arithmatex">\(\pi_l\)</span> 将排在 <span class="arithmatex">\(\pi_k\)</span> 之后，从而不会得到 <span class="arithmatex">\(\text{id}\)</span> .</li>
+<li><span class="arithmatex">\(\pi_L\)</span> 中存在元素大于 <span class="arithmatex">\(\pi_R\)</span> 中的元素，由上引理 <span class="arithmatex">\(S(\pi)=S(\pi_L)S(\pi_R)n\)</span> 可知不会得到 <span class="arithmatex">\(\text{id}\)</span> .</li>
+</ol>
+</details>
+<p>堆栈排序实现：</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">StackSorting</span>
+</code></pre></div>
+<h4 id="_25">计数问题<a class="headerlink" href="#_25" title="Permanent link">&para;</a></h4>
+<p>| #imcomplete-whatever </p>
+<p>考虑经过堆栈排序之后得到 <span class="arithmatex">\(\text{id}\)</span> 的排列（即为不包含 231-pattern 的排列）的数量： <span class="arithmatex">\(\#\{\pi\in S_n:S(\pi)=\text{id}\}\)</span> . 称为 <strong>Cataland数</strong> <span class="arithmatex">\(C_n\)</span> ，可以证明： <span class="arithmatex">\(C_n=\frac{1}{n+1}\binom{2n}{n},C_0=1\)</span> . <span class="arithmatex">\(C_n=\sum\limits_{i=1}^{n}C_{i-1}C_{n-i}\)</span> . ^Cataland</p>
+<p>更多关于 Cataland 数的内容可以见 <a href="https://math.mit.edu/~rstan/catalan/">R.P Stanley Cataland Numbers</a> ，之后也会反复出现 Cataland 数.</p>
+<p>并且可以证明： <span class="arithmatex">\(\#\{\pi\in S_n:\pi\text{ 不包含 }\sigma-\text{pattern}\}=C_n\)</span> .</p>
+<h3 id="_26">耐心排序<a class="headerlink" href="#_26" title="Permanent link">&para;</a></h3>
+<p>以一个纸牌游戏为场景：假设一组纸牌的排列为 <span class="arithmatex">\(\pi\)</span> ，现在依次抽取 <span class="arithmatex">\(\pi_i,i=1,\cdots,n\)</span> . 如果 <span class="arithmatex">\(\pi_{i}&gt;\pi_{i-1}\)</span> ，则形成一新的牌堆，以 <span class="arithmatex">\(\pi_i\)</span> 为该牌堆的首牌，如果 <span class="arithmatex">\(\pi_i&lt;\pi_{i-1}\)</span> ，则或可选择让该牌作为首牌形成一新的牌堆，或可选择让该牌加入到 <span class="arithmatex">\(\pi_{i-1}\)</span> 所在的牌堆上（ <span class="arithmatex">\(\cdots\pi_{i-1}\pi_i\)</span> ）.</p>
+<p>现在的问题是：如何进行选择能够使得最终形成的牌堆数目最小？</p>
+<p><strong>耐心排序</strong>（patience sorting）算法的方法是：每一次新加入的牌都放置在最左侧的符合要求的牌堆上.</p>
+<h4 id="_27">贪心算法<a class="headerlink" href="#_27" title="Permanent link">&para;</a></h4>
+<p><strong>贪心算法</strong>指的是每次行动都按照最大化当前利益的原则进行选择.</p>
+<p>在大多数情况下使用贪心算法得到的结果不会是最差的，但不一定是最好的. 然而可以证明在上述情况下：每次将牌 <span class="arithmatex">\(\pi_i\)</span> 放置在最左侧（默认从左向右生成牌堆）最终可以取得最小的牌堆数.</p>
+<p>事实上有下列结论：定义排列 <span class="arithmatex">\(\pi\)</span> 的递增子列 <span class="arithmatex">\(\pi_{i_1}\pi_{i_2}\cdots \pi_{i_k}(i_{m}&lt;i_{m+1},m=1,\cdots,k-1),\pi_{i_m}&lt;\pi_{i_{m+1}}\)</span> .</p>
+<details class="note">
+<summary>贪心算法形成的堆的个数等于最长递增子列的长度.</summary>
+<p>证明：</p>
+<ol>
+<li>堆的个数 <span class="arithmatex">\(\geq\)</span> <span class="arithmatex">\(\pi\)</span> 的最长递增子列的长度 <span class="arithmatex">\(\text{in}(\pi)\)</span> . 由贪心算法，对于任意 <span class="arithmatex">\(\pi_i&lt;\pi_j(i&lt;j)\)</span> ，两者映定不出现在同一个堆中，所以最终形成的堆数大于等于 <span class="arithmatex">\(\text{in}(\pi)\)</span> .</li>
+<li>堆的个数 <span class="arithmatex">\(\leq\)</span> <span class="arithmatex">\(\pi\)</span> 的最长递增子列的长度 <span class="arithmatex">\(\text{in}(\pi)\)</span> . 由贪心算法过程，一定能从堆中获取一个递增子列. 从而堆数小于等于 <span class="arithmatex">\(\text{in}(\pi)\)</span> .</li>
+</ol>
+</details>
+<p>又由一般的排列规则，任何遵从排序规则的排法一定会包含有一个最长递增子列长度的子列，因此贪心算法形成的牌堆数量最少.</p>
+<p>事实上可以用贪心算法快速得到一个排列中的最长递增子列. 例如对于 <code>7 2 8 1 3 4 10 6 9 5</code> ，经过贪心算法后得到： <code>721 83 4 10&amp;65 8</code> ，其中有递增序列： <code>13468</code> （并不一定是最顶层）</p>
+<p>| #imcomplete 经过耐心排序之后再经过一次插入排序就可以得到顺序排列.</p>
+<h3 id="rs">R.S. 算法<a class="headerlink" href="#rs" title="Permanent link">&para;</a></h3>
+<p>下面介绍的 R.S. 算法是另一种同时确定最长递增和最长递减子列长度的方法.</p>
+<p>首先定义<strong>整数分拆</strong>（integer partition）：设 <span class="arithmatex">\(n\in \mathbb{N}\)</span> ，称 <span class="arithmatex">\(\lambda=(\lambda_1,\lambda_2,\cdots,\lambda_k)\)</span> 为 <span class="arithmatex">\(n\)</span> 的分拆，如果 1. <span class="arithmatex">\(\lambda_1+\lambda_2+\cdots+\lambda_k=n\)</span> ； 2. <span class="arithmatex">\(\lambda_1\geq \lambda_2\geq \cdots\geq \lambda_k\)</span> （弱递降）. 记为 <span class="arithmatex">\(\lambda\vdash n\)</span> . 称 <span class="arithmatex">\(k\)</span> 为分拆 <span class="arithmatex">\(\lambda\)</span> 的长度，记为 <span class="arithmatex">\(l(\lambda)\)</span> ， <span class="arithmatex">\(\lambda_i(1\leq i\leq k)\)</span> 称为 <span class="arithmatex">\(\lambda\)</span> 的部分（part）.</p>
+<details class="example" open="open">
+<summary><span class="arithmatex">\(3\)</span> 的所有分拆</summary>
+<p><span class="arithmatex">\((1,1,1),(2,1),(3)\)</span> .</p>
+</details>
+<p>求解分拆的过程就是求解一<strong>丢番图方程</strong>（未知数为整数的多项式， <a href="https://zh.wikipedia.org/zh-cn/%E4%B8%9F%E7%95%AA%E5%9C%96%E6%96%B9%E7%A8%8B">check</a>）</p>
+<p>可以用<strong>杨图</strong>（young diagram）表示分拆 <span class="arithmatex">\(\lambda=(\lambda_1,\cdots,\lambda_k)\)</span> ，其第 <span class="arithmatex">\(i\)</span> 行有 <span class="arithmatex">\(\lambda_i\)</span> 个方块. 例如 <span class="arithmatex">\(3\)</span> 的杨图： </p>
+<p>![[YoungDiagram.png]]</p>
+<p>定义<strong>杨表</strong>（young tablean）：将 <span class="arithmatex">\(n\)</span> 个不同的正整数填入到 <span class="arithmatex">\(\lambda\)</span> 对应的杨图中，要求：每行从左至右<u>严格</u>递增，每列从上至下<u>严格</u>递增，称 <span class="arithmatex">\(\lambda\)</span> 为杨表的<strong>形状</strong>. 如果限制填入杨表的数字为 <span class="arithmatex">\(\{1,2,\cdots,n\}\)</span> 中的元素，则称对应的杨表为<strong>标准杨表</strong>，并记这种标准杨表的个数为 <span class="arithmatex">\(f^\lambda\)</span> . 定义<strong>勾长</strong>（hook length）：对 <span class="arithmatex">\(u\in \lambda\)</span> ， <span class="arithmatex">\(h_u\)</span> 表示 <span class="arithmatex">\(u\)</span> 所在同行右侧和同列下册的方块数目，包括 <span class="arithmatex">\(u\)</span> 本身.</p>
+<details class="example">
+<summary><span class="arithmatex">\(3\)</span> 的各个分拆 <span class="arithmatex">\(\lambda\)</span> 对应的标准杨表的个数 <span class="arithmatex">\(f^\lambda\)</span> .</summary>
+<p><span class="arithmatex">\(f^{(3)}=1,f^{(2,1)}=2,f^{(1,1,1)}=1\)</span> ，具体见[[DSADraw]].</p>
+</details>
+<details class="note">
+<summary>若 <span class="arithmatex">\(\lambda\vdash n\)</span> ，则 <span class="arithmatex">\(f^\lambda=\frac{n!}{\prod_{u\in \lambda}^{}h_u}\)</span></summary>
+</details>
+<p>下面介绍 R.S. 算法，其构造 <span class="arithmatex">\(S_n\)</span> 到 <span class="arithmatex">\(\{(P,Q):P,Q\ \text{为形状相同的标准杨表}\}\)</span> 之间的一个映射.</p>
+<p>首先介绍下面这个算法：</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// 算法名称：杨表添加元素</span>
+
+<span class="c1">// 输入：杨表 T ，正整数 i （与杨表中已经填入的数字没有重复）</span>
+<span class="c1">// 输出：杨表 T&#39;</span>
+
+<span class="n">r</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">r</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="o">:</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">第</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="n">行中所有元素</span><span class="o">:</span>
+<span class="w">        </span><span class="c1">// 注意此处设置 r = 0 ，下一次插入仍然从第 1 行开始</span>
+<span class="w">        </span><span class="n">将</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="n">插入到该行末尾</span><span class="err">，</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">T</span><span class="err">&#39;</span><span class="p">;</span><span class="w"> </span>
+<span class="w">    </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">该行中的某个元素</span><span class="err">，</span><span class="n">设为</span><span class="w"> </span><span class="n">j</span><span class="o">:</span>
+<span class="w">        </span><span class="n">用</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="n">替换</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="n">所在位置</span><span class="p">;</span>
+<span class="w">        </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">j</span><span class="p">;</span>
+<span class="w">        </span><span class="n">r</span><span class="o">++</span><span class="p">;</span>
+</code></pre></div>
+<p><span class="arithmatex">\(T'\)</span> 的形状由 <span class="arithmatex">\(T\)</span> 在某一行加上一个元素得到.</p>
+<details class="note">
+<summary>上述算法是<strong>可逆</strong>的：给定 <span class="arithmatex">\(T'\)</span> 和一标记方块（corner）可以得到初始杨表 <span class="arithmatex">\(T\)</span> 以及一整数 <span class="arithmatex">\(i\)</span> .</summary>
+<p>只需要用下面这个算法即可：<br />
+<div class="highlight"><pre><span></span><code>输入：杨表 T&#39; ，标记 T&#39; 中一方块;
+输出：杨表 T 和一整数 i.
+
+r = 标记方块所在行;
+i&#39; = 标记方块中放置的数字;
+while (r&gt;1):
+    设第 r-1 行中小于 i&#39; 的最大的数字为 j ;
+    用 i&#39; 替换 j 所在区块;
+    i&#39; = j
+    r--;
+</code></pre></div></p>
+</details>
+<p>下面给出 R.S.(K) 算法：</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// 算法名称： R.S.(K) 排序</span>
+
+<span class="c1">// 输入: 排列 pi=pi_1pi_2...pi_n;</span>
+<span class="c1">// 输出: (P,Q): P,Q 是具有相同形状的标准杨表.</span>
+
+<span class="c1">// 这里使用的 add 为上面介绍的 杨表添加元素 算法</span>
+<span class="n">T</span><span class="err">&#39;</span><span class="w"> </span><span class="n">add</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">);</span>
+<span class="c1">// 重载该函数：当只提供一个参数 i 时初始化只含有一个元素的杨表</span>
+<span class="n">T</span><span class="err">&#39;</span><span class="w"> </span><span class="n">add</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
+
+<span class="n">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+
+<span class="c1">// 初始化两个杨表:</span>
+<span class="n">P</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">add</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+<span class="n">Q</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">add</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+<span class="n">count</span><span class="o">++</span><span class="p">;</span>
+
+<span class="cp"># P 按照排列 pi 中的顺序依次放入元素; Q_1 按照排列 I=12...n 依次放入元素</span>
+<span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">count</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="o">:</span>
+<span class="w">    </span><span class="n">P</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">add</span><span class="p">(</span><span class="n">P</span><span class="p">,</span><span class="w"> </span><span class="n">pi</span><span class="p">[</span><span class="n">count</span><span class="o">+</span><span class="mi">1</span><span class="p">]);</span>
+<span class="w">    </span><span class="n">Q</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">add</span><span class="p">(</span><span class="n">Q</span><span class="p">,</span><span class="w"> </span><span class="n">I</span><span class="p">[</span><span class="n">count</span><span class="o">+</span><span class="mi">1</span><span class="p">]);</span>
+<span class="w">    </span><span class="n">count</span><span class="o">++</span><span class="p">;</span>
+</code></pre></div>
+<p>由杨表添加元素算法可逆可知 <span class="arithmatex">\(\pi\)</span> 与 <span class="arithmatex">\((P,Q)\)</span> 之间建立了双射. 从而建立了 <span class="arithmatex">\(S_n\)</span> 到 <span class="arithmatex">\(\{(P_1,Q_1),\cdots,(P_{n!},Q_{n!})\}\)</span> （其中 <span class="arithmatex">\(P_i,Q_i(1\leq i\leq n!)\)</span> 是形状相同的标准杨表）之间的双射. 有以下结论：</p>
+<details class="note">
+<summary><span class="arithmatex">\(n!=\sum\limits_{\lambda\vdash n}^{}(f^\lambda)^2\)</span> .</summary>
+<p>证明：对于形状为 <span class="arithmatex">\(\lambda\)</span> 对应的所有标准杨表，其组成二元组之后共有 <span class="arithmatex">\((f^\lambda)^2\)</span> . 所以所有的标准杨表可以对应于 <span class="arithmatex">\(\sum\limits_{\lambda\vdash n}^{}(f^\lambda)^2\)</span> 种情况（注意二元组中两个标准杨表的形状要求是一致的），再有双射可得结论.</p>
+</details>
+<p>此外还有以下结论：</p>
+<details class="note">
+<summary>若 <span class="arithmatex">\(\pi\in S_n\)</span> 对应于 <span class="arithmatex">\((P,Q)\)</span> ，则 <span class="arithmatex">\(\pi^{-1}\)</span> 对应于 <span class="arithmatex">\((Q,P)\)</span> .</summary>
+</details>
+<p>R.S. 算法可以同时得到最长递增、最长递减子列的长度：</p>
+<details class="note">
+<summary>设 <span class="arithmatex">\(\pi\leftrightarrow(P,Q)\)</span> ，则 <span class="arithmatex">\(\text{in}(\pi)\)</span> 等于 <span class="arithmatex">\(P\)</span> 第 <span class="arithmatex">\(1\)</span> 行的方块数， <span class="arithmatex">\(\text{de}(\pi)\)</span> 对应于 <span class="arithmatex">\(P\)</span> 第 <span class="arithmatex">\(1\)</span> 列方块数.</summary>
+</details>
+<p>R.S 算法与耐心排序相比可以同时计算最长递增和递减子列的<u>长度</u>，但并不能找到一个符合要求的子列. 此外 R.S 算法比较耗时.</p>
+<details class="example">
+<summary><span class="arithmatex">\(101\)</span> 个身高不同的人随机地排成一列，至少有 <span class="arithmatex">\(11\)</span> 个人严格递增或者严格递减.</summary>
+<p>证明：也就是对于任意 <span class="arithmatex">\(\pi\in S_{101}\)</span> ，其递增子列和递减子列的长度至少有一个大于 <span class="arithmatex">\(11\)</span> ，反证两者都 <span class="arithmatex">\(&lt;=10\)</span> ，则 <span class="arithmatex">\(\pi\)</span> 对应的杨表中的元素 <span class="arithmatex">\(\leq10^2=100\)</span> 矛盾！</p>
+</details>
+<h4 id="gauss">Gauss 系数<a class="headerlink" href="#gauss" title="Permanent link">&para;</a></h4>
+<p>定义 <span class="arithmatex">\(\begin{bmatrix}2n  \\ n\end{bmatrix}=\frac{[2n]!}{[n]![n]!}\)</span> ，有结论： <span class="arithmatex">\(\begin{bmatrix}2n \\ n\end{bmatrix}=\sum\limits_{\lambda\in \text{YoungDia}^{n\times n}}^{}q^{\lvert \lambda\rvert}\)</span> . 其中 <span class="arithmatex">\(\text{YoungDia}^{n\times n}\)</span> 表示的是能够放入 <span class="arithmatex">\(n\times n\)</span> 个小方格排列成的正方形中的全体杨图. <span class="arithmatex">\(\lvert \lambda\rvert\)</span> 则表示杨图中的小方块的个数.</p>
+<p>例如：考虑 <span class="arithmatex">\(\begin{bmatrix}4  \\ 2\end{bmatrix}\)</span> ，注意到能够放入 <span class="arithmatex">\(2\times2\)</span> 个小方格排列称的正方形中的杨图有 <span class="arithmatex">\(\emptyset\)</span> （空图）， <span class="arithmatex">\((1),(2),(1,1),(2,1),(2,2)\)</span> ，从而 </p>
+<div class="arithmatex">\[\begin{bmatrix}4 \\ 2\end{bmatrix}=1+q+2q^2+q^3+q^4\]</div>
+<p>并且观察到系数呈先递增后递降顺序，该结论可以推广到所有 <span class="arithmatex">\(n\geq1\)</span> 的情形.</p>
+<h2 id="_28">格路<a class="headerlink" href="#_28" title="Permanent link">&para;</a></h2>
+<p><strong>格路</strong>（lattie path）指的是由邻接的格子（也可能是多边形）拼起来后，相邻的格子重叠的部分形成的路径. 例如 <span class="arithmatex">\(\mathbb{Z}^2\)</span> 形成的格路，在格路上可以定义移动，例如 <span class="arithmatex">\(U,R,D,L\)</span> .</p>
+<h3 id="dyck">Dyck 路<a class="headerlink" href="#dyck" title="Permanent link">&para;</a></h3>
+<p>首先介绍<strong>自由 Dyck 路</strong>（free dyck path）： <span class="arithmatex">\(\mathbb{Z}^2\)</span> 上由 <span class="arithmatex">\((0,0)\)</span> 到 <span class="arithmatex">\((n,n)\)</span> 的格路，只允许进行 <span class="arithmatex">\(U,R\)</span> 移动，称为 <strong>n 长 Dyck 路</strong>，则不难发现这样的 Dyck 路有 <span class="arithmatex">\(\binom{2n}{n}\)</span> 条.</p>
+<p><strong>n 长 Dyck 路</strong>首先是自由 Dyck 路，并且满足始终位于 <span class="arithmatex">\(y=x\)</span> 的上方（允许触碰到 <span class="arithmatex">\(y=x\)</span> ）. 可以用符号抽象 Dyck 路，例如当 <span class="arithmatex">\(n=2\)</span> 时有 Dyck 路 <span class="arithmatex">\(UURR,URUR\)</span> . 一般地，对于 <span class="arithmatex">\(n\)</span> 长 Dyck 路，其有 <span class="arithmatex">\(C_n=\frac{1}{n+1}\binom{2n}{n}\)</span> 条 Dyck 路， <span class="arithmatex">\(C_n\)</span> 即为 <a href="#^Cataland">Cataland数</a>. 并且有这个公式可以看出 <span class="arithmatex">\(n\)</span> 长 Dyck 路占自由 Dyck 路的 <span class="arithmatex">\(1/(n+1)\)</span> .</p>
+<p>对于 Cataland 数，可以先证明其递归公式： <span class="arithmatex">\(C_n=\sum\limits_{i=1}^{n}C_{i-1}C_{n-i}\)</span> .</p>
+<details class="note">
+<summary>设 <span class="arithmatex">\(C_n\)</span> 为 <span class="arithmatex">\(n\)</span> 长 Dyck 路的个数，定义 <span class="arithmatex">\(C_0=1\)</span> ，证明 <span class="arithmatex">\(C_n=\sum\limits_{i=1}^{n}C_{i-1}C_{n-i}\)</span> .</summary>
+<p>证明：用 <span class="arithmatex">\(L\)</span> 表示一个 <span class="arithmatex">\(n\)</span> 长 Dyck 路，按照如下规则将其划分为 <span class="arithmatex">\(L_1,L_2\)</span> 两条路：以除零点外第一个接触 <span class="arithmatex">\(y=x\)</span> 轴的点为分点划分 <span class="arithmatex">\(L\)</span> ，如果该点为 <span class="arithmatex">\((n,n)\)</span> 则记 <span class="arithmatex">\(L_2=\emptyset\)</span> ，并设 <span class="arithmatex">\(L_1\)</span> 的落点位置为 <span class="arithmatex">\((i,i)\)</span> ，则 <span class="arithmatex">\(L_2\)</span> 有 <span class="arithmatex">\(C_{n-i}\)</span> 种. 进一步，将 <span class="arithmatex">\(L_1\)</span> 的起始向上和终止向右曲调，则 <span class="arithmatex">\(L_1\)</span> 可以由一条 <span class="arithmatex">\(i-1\)</span> 长 Dyck 路决定，有 <span class="arithmatex">\(C_i\)</span> 种，从而 <span class="arithmatex">\(C_n=\sum\limits_{i=1}^{n}C_{i-1}C_{n-i}\)</span> .</p>
+</details>
+<p>除此之外， <span class="arithmatex">\(n\)</span> 长 Dyck 路、不含 231-pattern 的排列全体还有如下的等价结构：</p>
+<ul>
+<li>由 <span class="arithmatex">\(n\)</span> 个 <span class="arithmatex">\(1\)</span> 和 <span class="arithmatex">\(n\)</span> 个 <span class="arithmatex">\(-1\)</span> 构成的排列全体，并且满足 <span class="arithmatex">\(\forall k\geq1,\sum\limits_{i=1}^{k}\pi_i\geq0\)</span> ；</li>
+<li>考虑形状为 <span class="arithmatex">\((n,2)\)</span> 的标准杨表，</li>
+</ul>
+<p>定义 Dyck 路的<strong>峰</strong>：相邻的一个上升步和一个下降步，记有 <span class="arithmatex">\(k\)</span> 个峰的 <span class="arithmatex">\(n\)</span> 阶 Dyck 路的个数为 <span class="arithmatex">\(N(n,k)\)</span> ，称为 <strong>Narayana 数</strong>. ^DyckPeak</p>
+<details class="note">
+<summary><span class="arithmatex">\(N(n,k)=\frac{1}{n}\binom{n}{k}\binom{n}{k-1}\)</span> . #imcomplete-lack-proofs</summary>
+</details>
+<details class="note">
+<summary><span class="arithmatex">\(\sum\limits_{k=1}^{n}N(n,k)=C_n\)</span></summary>
+<p>证明： </p>
+<div class="arithmatex">\[\begin{aligned}
+\sum\limits_{k=1}^{n}N(n,k)&amp;=\frac{1}{n}\sum\limits_{k=1}^{n}\binom{n}{k}\binom{n}{k-1}\\
+&amp;=\frac{1}{n}\sum\limits_{k=1}^{n}\binom{n}{n-k}\binom{n}{k-1}\\
+&amp;=\frac{1}{n}\binom{2n}{n-1}=C_n
+\end{aligned}\]</div>
+</details>
+<h2 id="_29">集合划分<a class="headerlink" href="#_29" title="Permanent link">&para;</a></h2>
+<p>将集合 <span class="arithmatex">\([n]\)</span> 划分为 <span class="arithmatex">\(k\)</span> 块，每一块中的元素个数大于等于 <span class="arithmatex">\(0\)</span> ，划分个数的计算：相当于 <span class="arithmatex">\(y_1+\cdots+y_k=n,y_i\geq0(1\leq i\leq k)\)</span> ，从而 <span class="arithmatex">\(\sum\limits_{i=1}^{k}(y_i+1)=n+k\)</span> ，对于 <span class="arithmatex">\(n+k\)</span> 个元素采取挡板法，有 <span class="arithmatex">\(\binom{n+k-1}{k-1}\)</span> 种分法.</p>
+<h2 id="_30">匹配<a class="headerlink" href="#_30" title="Permanent link">&para;</a></h2>
+<p>设图 <span class="arithmatex">\(G=(V,E)\)</span> ，对 <span class="arithmatex">\(M\subset E\)</span> ，如果 <span class="arithmatex">\(M\)</span> 中的任意两个边无顶点（即不相交，或称不相邻），则称 <span class="arithmatex">\(M\)</span> 为 <span class="arithmatex">\(G\)</span> 的一个<strong>匹配</strong>. 如果 <span class="arithmatex">\(M\)</span> 的边覆盖了 <span class="arithmatex">\(G\)</span> 的所有顶点，则称 <span class="arithmatex">\(M\)</span> 为 <span class="arithmatex">\(G\)</span> 的一个<strong>完美匹配</strong>. 此时 <span class="arithmatex">\(M\)</span> 的顶点数为 <span class="arithmatex">\(M\)</span> 的边数乘 <span class="arithmatex">\(2\)</span> . 若记 <span class="arithmatex">\(V=[n]\)</span> ，匹配 <span class="arithmatex">\(M\)</span> 实际上是对集合 <span class="arithmatex">\([n]\)</span> 的一个划分，并且集合划分的每一块中的元素个数至多有两个，称 <span class="arithmatex">\(M\)</span> 为<strong>贫划分</strong>（poor partition）.</p>
+<div class="admonition example">
+<p class="admonition-title"><span class="arithmatex">\(M=\{(1,3),(2,4),(5,6)\}\)</span> 是 <span class="arithmatex">\([6]\)</span> 的一个完美匹配.</p>
+</div>
+<p>划分有如下的<strong>线图表示</strong>：</p>
+<p>![[MatchLinearRepresentation.png]]</p>
+<h3 id="dyck_1">完美匹配与 Dyck 路<a class="headerlink" href="#dyck_1" title="Permanent link">&para;</a></h3>
+<p>考虑沿 <span class="arithmatex">\(y=x\)</span> 旋转 <span class="arithmatex">\(45^\circ\)</span> 的 Dyck 路， <span class="arithmatex">\(n\)</span> 阶 Dyck 路的个数等于 Cataland 数： <span class="arithmatex">\(D_n=C_n=\frac{1}{n+1}\binom{2n}{n}\)</span> . 下面来讨论完美匹配的数目与 Cataland 数的关系.</p>
+<p>可以建立完美匹配与 Dyck 路之间的一个映射，注意到完美匹配的线图表示中，每个匹配对应的两个结点有一个上升和下降的方向（以下也称上弧和下弧）. 分别可以对应于 Dyck 路上的 <span class="arithmatex">\((1,1),(1,-1)\)</span> 两个行进方向. 因此有映射，但显然这一映射不是双射.</p>
+<p>记 <span class="arithmatex">\(M_{2n}\)</span> 为 <span class="arithmatex">\([2n]\)</span> 上的全体完美匹配，定义完美匹配的<strong>交叉数</strong>（crossing numbers）： </p>
+<div class="arithmatex">\[\text{Cr}(M)=\#\{(i,j)\in [2n]^2:i&lt;j&lt;M(i)&lt;M(j)\}\]</div>
+<p>定义完美匹配的<strong>嵌套数</strong>（nesting numbers）：</p>
+<div class="arithmatex">\[\text{Ne}(M)=\#\{(i,j)\in[2n]^2:i&lt;j&lt;M(j)&lt;M(i)\}\]</div>
+<p>称交叉数、嵌套数为完美匹配的两个统计量. 如果 <span class="arithmatex">\(\text{Cr}(M)=\emptyset(\text{Ne}(M)=\emptyset)\)</span> 则称 <span class="arithmatex">\(M\)</span> 为无交叉（嵌套）匹配.</p>
+<p>记 <span class="arithmatex">\(M_1\)</span> 为全体非交叉完美匹配的集合， <span class="arithmatex">\(M_2\)</span> 为全体非嵌套完美匹配的集合.</p>
+<p>考虑从 <span class="arithmatex">\(M_1\)</span> 到 <span class="arithmatex">\(D_n\)</span> 的映射，规则与上相同. 则 <span class="arithmatex">\(\lvert M_1\rvert\leq \lvert D_n\rvert\)</span> ，另一方面，对 <span class="arithmatex">\(D\in D_n\)</span> ，<u>从后往前</u>逐渐地构造，每一个下降方向的结点与其左侧最近的上升方向的结点匹配，得到交叉数非 <span class="arithmatex">\(0\)</span> 的匹配，所以 <span class="arithmatex">\(\lvert D_n\rvert\leq \lvert M_1\rvert\)</span> ， <span class="arithmatex">\(\lvert D_n\rvert=\lvert M_1\rvert\)</span> ；</p>
+<p>从 <span class="arithmatex">\(M_2\)</span> 到 <span class="arithmatex">\(D_n\)</span> 的匹配与上相同，对 <span class="arithmatex">\(D\in D_n\)</span> ，从前往后逐渐地构造，每一个上升方向的结点都与其右侧最远的下降方向的结点匹配，可得到嵌套数非 <span class="arithmatex">\(0\)</span> 的匹配.</p>
+<p>所以 <span class="arithmatex">\(\lvert D_n\rvert=\lvert M_2\rvert=\lvert M_1\rvert=\frac{1}{n+1}\binom{2n}{n}\)</span> .</p>
+<p>记 <span class="arithmatex">\(P_{n,k}=\{M\in M_n:\text{Cr}(M)=k\}\)</span> ， <span class="arithmatex">\(Q_{n,k}=\{M\in M_n:\text{Ne}(M)=k\}\)</span> .</p>
+<details class="note">
+<summary><span class="arithmatex">\(\#P_{n,k}=\#Q_{n,k}\)</span> .</summary>
+<p>证明：对于第 <span class="arithmatex">\(i\)</span> 个<u>下降步</u>，定义其高度为 <span class="arithmatex">\(h_i\)</span> ，对应于 Dyck 路的结点的坐标. 如图：</p>
+<p>![[HeightOfSteps.png]]</p>
+<p>并设由高度 <span class="arithmatex">\(h_1,\cdots,h_n\)</span> 生成的向量为 <span class="arithmatex">\(A=\{(a_1,\cdots,a_n):0\leq a_i\leq h_i,a_i\in \mathbb{N}\}\)</span> . <span class="arithmatex">\(\# A=\prod_{i=1}^{n}(h_i+1)\)</span> . 定义映射： <span class="arithmatex">\(\varphi: D_n\times A\rightarrow M_n\)</span> ，对于 <span class="arithmatex">\((D,a_k)\in D_n\times A\)</span> ，用 <span class="arithmatex">\(a_i(1\leq i\leq n)\)</span> 限制 <span class="arithmatex">\(D\)</span> 向 <span class="arithmatex">\(M\in M_n\)</span> 的映射（由 <span class="arithmatex">\(n\)</span> 个这样的限制），令  <span class="arithmatex">\(a_k=\#\{m:m&lt;k&lt;M(k)&lt;M(m)\}\)</span> ，表示包含 <span class="arithmatex">\((k,M(k))\)</span> 的弧 <span class="arithmatex">\((m,M(m))\)</span> 的数量，下面根据 <span class="arithmatex">\((a_1,\cdots,a_n)\)</span> 和 <span class="arithmatex">\(D\)</span> 构造 <span class="arithmatex">\(M\)</span> ：对于 <span class="arithmatex">\(a_i\)</span> ，自左向右对 <span class="arithmatex">\(D\)</span> 留出 <span class="arithmatex">\(a_i\)</span> 个上弧不连接，取第 <span class="arithmatex">\(a_{i}+1\)</span> 个上弧与自左向右的第 <span class="arithmatex">\(1\)</span> 个下弧连接，将已经连接的上下弧排除，重复操作. 并可以证明 <span class="arithmatex">\(\sum\limits_{k=1}^{n}a_k=\text{Ne}(M)\)</span> ：</p>
+<div class="arithmatex">\[\begin{aligned}
+\text{Ne}(M)&amp;=\#\{(i,j):i&lt;j&lt;M(j)&lt;M(i)\}\\
+&amp;=\sum\limits_{k=1}^{n}\{i:i&lt;a_k&lt;M(a_k)&lt;M(i)\}\\
+&amp;=\sum\limits_{k=1}^{n}a_k
+\end{aligned}\]</div>
+<p>其中 <span class="arithmatex">\(a_k\)</span> 表示第 <span class="arithmatex">\(k\)</span> 个上弧的位置，由映射中的构造可知 <span class="arithmatex">\(a_k=\#\{m:m&lt;k&lt;M(k)&lt;M(m)\}\)</span> ，故结论成立.</p>
+<p>另一方面，也可以用交叉数作为限制构造 <span class="arithmatex">\(D_n\times A\rightarrow M_n\)</span> 的映射，具体规则为自左向右第 <span class="arithmatex">\(1\)</span> 个下降弧与其左侧数第 <span class="arithmatex">\(a_{i}+1\)</span> 个上弧连接，并可以证明 <span class="arithmatex">\(\sum\limits_{k=1}^{n}a_k=\text{Cr}(M)\)</span> .</p>
+<p>再考虑 <span class="arithmatex">\(P_{n,k},Q_{n,k}\)</span> ，可知 <span class="arithmatex">\(\lvert P_{n,k}\rvert=\lvert Q_{n,k}\rvert=\#\{(a_i)_{1\leq i\leq n}\in A:\sum\limits_{i=1}^{n}a_i=k\}\)</span> ，具体需要由 <span class="arithmatex">\(A\)</span> 的限制讨论 <span class="arithmatex">\(\lvert P_{n,k}\rvert\)</span> 的大小. （分拆加上上界限定） #imcomplete-further-wanted </p>
+<p>具体的例子见 [[按嵌套数和交叉数分别映射.png]]</p>
+</details>
+<h3 id="motzkin">一般匹配和 Motzkin 路<a class="headerlink" href="#motzkin" title="Permanent link">&para;</a></h3>
+<p>下面讨论一般匹配，可以将其中的孤立点对应到“水平步”，其他则按照 Dyck 路中的映射进行.</p>
+<p>定义 <strong>Motzkin 路</strong>：从 <span class="arithmatex">\((0,0)\)</span> 出发，最终回到 <span class="arithmatex">\(x\)</span> 轴，只允许进行 <span class="arithmatex">\((1,1),(1,-1),(1,0)\)</span> 三种操作. 或可将 Motzkin 路视为 Dyck 路中插入一部分水平步. Motzkin 路中的<strong>峰</strong>定义为去掉水平步之后得到的 <a href="#^DyckPeak">Dyck 路的峰</a>.</p>
+<p>记 <span class="arithmatex">\(n\)</span> 长 Motzkin 路全体为 <span class="arithmatex">\(\mathcal{T}_n\)</span> ， <span class="arithmatex">\(T_n=\lvert t\rvert\)</span> ， <span class="arithmatex">\(T_{n,k}=\#\{T\in \mathcal{T}_n:T\text{ 有 }k\text{ 个峰}\}\)</span> ；称 <span class="arithmatex">\(T_n\)</span> 为 <strong>Motzkin 数</strong>，记 <span class="arithmatex">\(T_0=1\)</span> .</p>
+<p>下面考虑 Motzkin 路和 Dyck 路的关系：</p>
+<p>对于 <span class="arithmatex">\(j\)</span> 长 Dyck 路，可以插入 <span class="arithmatex">\(n-2j\)</span> 个水平步以得到 Motzkin 路，并且峰数保持不变； <span class="arithmatex">\(j\)</span> 长 Dyck 路共有 <span class="arithmatex">\(2j+1\)</span> 个位置可以插入水平步，每一个位置可以至少 <span class="arithmatex">\(0\)</span> 个水平步，因此有： <span class="arithmatex">\(\binom{n-2j+2j+1-1}{2j+1-1}=\binom{n}{2j}\)</span> 种分法.</p>
+<p>所以 <span class="arithmatex">\(T_{n,k}=\sum\limits_{j=0}^{n}\binom{n}{2j}N(j,k)\)</span> . 其中 <span class="arithmatex">\(N(j,k)\)</span> 为 Narayana 树. <span class="arithmatex">\(N(j,k)=\frac{1}{j}\binom{j}{k}\binom{j}{k-1}\)</span> .</p>
+<details class="note">
+<summary><span class="arithmatex">\(T_n=T_{n-1}+\sum\limits_{k=0}^{n-2}T_kT_{n-k-2},n\geq2\)</span> .</summary>
+<p>证明：对于 <span class="arithmatex">\(T\in \mathcal{T}_n\)</span> ，若其第一步为水平步，则有 <span class="arithmatex">\(T_{n-1}\)</span> 中可能情况；若其第一步为上升步，以 <span class="arithmatex">\(T\)</span> 中第一个返回到 <span class="arithmatex">\(x\)</span> 轴的下降步作为分界将 <span class="arithmatex">\(T\)</span> 分割成两部分，分别形成了两个新的 Motzkin 路，从而有 <span class="arithmatex">\(\sum\limits_{k=0}^{n-2}T_kT_{n-k-2}\)</span> 种情况. 综上可得结论.</p>
+</details>
+<details class="example">
+<summary>计算 <span class="arithmatex">\(T_4\)</span> .</summary>
+<div class="arithmatex">\[\begin{aligned}
+T_4&amp;=T_3+\sum\limits_{k=0}^{2}T_kT_{2-k}\\
+&amp;=T_3+2T_0T_2+T_1^2\\
+&amp;=4+2\times 1\ \times 2+1^2=9
+\end{aligned}\]</div>
+</details>
+<p>下面讨论 Motzkin 数的生成函数：</p>
+<div class="arithmatex">\[\begin{aligned}
+M(x)&amp;=\sum\limits_{n\geq0}^{}T_nx^n\\
+&amp;=1+T_1x+\sum\limits_{n\geq2}^{}T_{n-1}x^n+\sum\limits_{n\geq2}^{}\sum\limits_{k=0}^{n-2}T_{k}T_{n-k-2}x^n\\
+&amp;\overset{(1)}{=}1+x M(x)+x^2\sum\limits_{n\geq0}^{}\sum\limits_{k=0}^{n}T_kT_{n-2}x^{k}x^{n-k}\\
+&amp;=1+xM(x)+x^2\left(\sum\limits_{n\geq0}^{}T_nx^n\right)^2\\
+&amp;=1+xM(x)+x^2M^2(x)
+\end{aligned}\]</div>
+<p>整理可得： <span class="arithmatex">\(x^2M^2(x)+(x-1)M(x)+1=1\)</span> ，从而解得： <span class="arithmatex">\(M(x)=\frac{1-x\pm \sqrt{(1-x)^2-4x^2}}{2x^2}\)</span> ，并且 <span class="arithmatex">\(M(0)=0\)</span> ，所以 <span class="arithmatex">\(M(x)=\frac{1-x+\sqrt{(1-x)^2-4x^2}}{2x^2}\)</span> . （ <span class="arithmatex">\((1)\)</span> 中的第 <span class="arithmatex">\(3\)</span> 项是卷积.）</p>
+<p>进而可以通过对 <span class="arithmatex">\(M(x)\)</span> Taylor 展开计算 <span class="arithmatex">\(T_n\)</span> .</p>
+<details class="note">
+<summary><span class="arithmatex">\(n\)</span> 长非交叉匹配的个数为 <span class="arithmatex">\(T_n\)</span> . #imcomplete-lack-proofs</summary>
+</details>
+<h3 id="rna">RNA 二级结构<a class="headerlink" href="#rna" title="Permanent link">&para;</a></h3>
+<p><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC92549/">RNA 二级结构</a>是一个集合的非交叉匹配，并且匹配的弧长 <span class="arithmatex">\(\geq2\)</span> （即，两个匹配的元素不能是相邻的）.</p>
+<p>记 <span class="arithmatex">\(S_n=\#\{n \text{ 长 RNA 二级结构}\}\)</span> ， <span class="arithmatex">\(S(n,k)=\#\{n \text{ 长 RNA 二级结构，有 }k \text{ 个弧}\}\)</span> .</p>
+<p>可以得到递推公式： <span class="arithmatex">\(S(n+1)=S(n)+\sum\limits_{j=1}^{n-1}S(j)S(n-j)\)</span> . （ <span class="arithmatex">\(1\)</span> 为上升弧（下降弧对应 <span class="arithmatex">\(j\)</span> ）和 <span class="arithmatex">\(1\)</span> 为孤立点）</p>
+<p>可以将 RNA 二级结构对应到 Dyck 路：去掉 RNA 结构中的所有孤立点后得到的即为完美匹配，假设得到的完美匹配对应于 <span class="arithmatex">\(j\)</span> 长 Dyck 路，设其峰数为 <span class="arithmatex">\(p\)</span> ，在每个峰处（相邻的上升步和下降步之间）插入 <span class="arithmatex">\(1\)</span> 个水平步以使得匹配的弧长 <span class="arithmatex">\(\geq2\)</span> ，共插入 <span class="arithmatex">\(p\)</span> 个，为了形成 <span class="arithmatex">\(n\)</span> 长的路，还需要插入 <span class="arithmatex">\(n-p-2j\)</span> 个水平步到已有的 <span class="arithmatex">\(2j+1\)</span> 个位置中，共有： <span class="arithmatex">\(\binom{n-p-2j+2j+1-1}{2j+1-1}=\binom{n-p}{2j}\)</span> . 或者是将剩余的 <span class="arithmatex">\(n-2j-p\)</span> 个孤立点插入到 <span class="arithmatex">\(2j+1\)</span> 个位置，有： <span class="arithmatex">\(\binom{n-2j-p+2j+1-1}{2j+1-1}=\binom{n-p}{2j}\)</span> 种情况. 综上 <span class="arithmatex">\(S(n,k)=\sum\limits_{p\geq 0}^{}N(k,p)\binom{n-p}{2k}\)</span> . 并且 <span class="arithmatex">\(N(k,p)=\frac{1}{k}\binom{k}{p}\binom{k}{p-1}\)</span> ，所以：</p>
+<div class="arithmatex">\[\begin{aligned}
+S(n,k)&amp;=\sum\limits_{p=0}^{n}\frac{1}{k}\binom{k}{p}\binom{k}{p-1}\binom{n-p}{2k}\\
+&amp;=\frac{1}{k}\sum\limits_{p=0}^{n}\binom{n-k+p}{k+1+k-1}\binom{k}{p}\binom{k}{k+1-p}\\
+&amp;\overset{(1)}{=}\frac{1}{k}\binom{n-k}{k+1}\binom{n-k-1}{k-1}
+\end{aligned}\]</div>
+<p><span class="arithmatex">\((1)\)</span> 取等用到 <a href="#riordanidentity">#^RiordanIdentity</a>  .</p>
+<h2 id="_31">离散数据结构的计数<a class="headerlink" href="#_31" title="Permanent link">&para;</a></h2>
+<p>对于离散数据结构的计数有以下方法：</p>
+<ul>
+<li>直接用初等函数的计数公式；</li>
+<li>将该数据结构双射到另一数据结构，计数；</li>
+<li>根据递推公式求解；</li>
+<li>利用生成函数求解；</li>
+</ul>
+<h2 id="_32">递归<a class="headerlink" href="#_32" title="Permanent link">&para;</a></h2>
+<p>也成为<strong>分而治之策略</strong>（divide-and-conquer strategy）.</p>
+<p>C++ 中每次递归都会创建一个新的变量，相应的递和归具有相同的变量（内存地址）</p>
+<h2 id="_33">附录：组合恒等式<a class="headerlink" href="#_33" title="Permanent link">&para;</a></h2>
+<details class="note">
+<summary>Vandermonde 恒等式： <span class="arithmatex">\(\binom{m+n}{r}=\sum\limits_{k=0}^{r}\binom{m}{k}\binom{n}{r-k}\)</span> .</summary>
+</details>
+<details class="note" open="open">
+<summary>Riordan 恒等式：</summary>
+<div class="arithmatex">\[\binom{m}{p}\binom{n}{q}=\sum\limits_{j}^{}\binom{n+j}{p+q}\binom{m-n+q}{j}\binom{n-m+p}{p-j}\]</div>
+<p>^RiordanIdentity</p>
+</details>
+
+
+
+
+
+
+
+  
+    
+  
+  
+
+
+  <aside class="md-source-file">
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="最后更新">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
+    </span>
+    2024-04-19
+  </span>
+
+    
+    
+    
+    
+  </aside>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  回到页面顶部
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["revision.date", "navigation.path", "navigation.top", "content.action.edit", "content.code.copy"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.bd41221c.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/copy-tex.min.js"></script>
+      
+        <script src="../../javascripts/katex.js"></script>
+      
+        <script src="../../javascripts/tabSync.js"></script>
+      
+    
+  </body>
+</html>

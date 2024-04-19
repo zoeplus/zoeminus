@@ -1,0 +1,2951 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../DM/">
+      
+      
+        <link rel="next" href="../DL/">
+      
+      
+      <link rel="icon" href="../../imgs/zxr.ico">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.16">
+    
+    
+      
+        <title>统计学习 - zoeminus</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.bcfcd587.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+  
+  
+  
+  
+  <style>:root{--md-annotation-icon:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9 7v2h4l-4 6v2h6v-2h-4l4-6V7H9m3-5a10 10 0 0 1 10 10 10 10 0 0 1-10 10A10 10 0 0 1 2 12 10 10 0 0 1 12 2Z"/></svg>');}</style>
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css">
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="amber" data-md-color-accent="amber">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../.." title="zoeminus" class="md-header__button md-logo" aria-label="zoeminus" data-md-component="logo">
+      
+  <img src="../../imgs/zx.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            zoeminus
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              统计学习
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="amber" data-md-color-accent="amber"  aria-label="切暗色"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="切暗色" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7M9 21v-1h6v1a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1m3-17a5 5 0 0 0-5 5c0 2.05 1.23 3.81 3 4.58V16h4v-2.42c1.77-.77 3-2.53 3-4.58a5 5 0 0 0-5-5Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="amber" data-md-color-accent="amber"  aria-label="切亮色"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="切亮色" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7M9 21a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9v1Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/zoeplus/zoeminus" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    zoeminus
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="zoeminus" class="md-nav__button md-logo" aria-label="zoeminus" data-md-component="logo">
+      
+  <img src="../../imgs/zx.png" alt="logo">
+
+    </a>
+    zoeminus
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/zoeplus/zoeminus" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    zoeminus
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    主页
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    一
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            一
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Set/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    集合论
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../R/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    实数理论
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../GTopo/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    一般拓扑学
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../RF/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    实变函数
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../MAlg/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    矩阵代数
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    九
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            九
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Prob/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    概率论
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Stat/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    数理统计
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Opt/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    最优化理论
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../DSA/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    数据结构与算法
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CLT/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    计算学习理论
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    二十二
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            二十二
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../DM/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    数据挖掘
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    统计学习
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    统计学习
+  </span>
+  
+
+      </a>
+      
+        
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="本文组织：">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      本文组织：
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      符号说明
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      模型假设
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="模型假设">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      监督学习假设及概念
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      模型选择
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="模型选择">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      衡量模型性能
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="衡量模型性能">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mse" class="md-nav__link">
+    <span class="md-ellipsis">
+      回归：MSE
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#imcomplete-ml-cheatsheetspdf" class="md-nav__link">
+    <span class="md-ellipsis">
+      imcomplete [[ML-cheatsheets.pdf]]
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="imcomplete [[ML-cheatsheets.pdf]]">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      分类：错误率
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#issue-isl" class="md-nav__link">
+    <span class="md-ellipsis">
+      issue %%按照ISL中的假设，在分类情境下还有真实函数和误差项吗？%%
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#imcomplete-p56-exercise" class="md-nav__link">
+    <span class="md-ellipsis">
+      imcomplete %%P56 Exercise%%
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="imcomplete %%P56 Exercise%%">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      交叉检验
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#imcomplete" class="md-nav__link">
+    <span class="md-ellipsis">
+      imcomplete
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      线性回归
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="线性回归">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      单变量情形
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#imcomplete-httpsenwikipediaorgwikistandard_error" class="md-nav__link">
+    <span class="md-ellipsis">
+      imcomplete %%怎么来的？[https://en.wikipedia.org/wiki/Standard_error]，上式是如何推导得到的？%%
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#imcomplete-sento-be-precise-rather-than-the-number-2-310-should-contain-the-975-quantile-of-a-t-distribution-with-n2-degrees-of-freedom" class="md-nav__link">
+    <span class="md-ellipsis">
+      imcomplete %%注释：上式成立误差项需要服从高斯分布，并且SE前的系数会随着N的变化发生轻微变化，最后是一句看不懂的话：To be precise, rather than the number 2, (3.10) should contain the 97.5% quantile of a t-distribution with n−2 degrees of freedom%%
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="imcomplete %%注释：上式成立误差项需要服从高斯分布，并且SE前的系数会随着N的变化发生轻微变化，最后是一句看不懂的话：To be precise, rather than the number 2, (3.10) should contain the 97.5% quantile of a t-distribution with n−2 degrees of freedom%%">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      一般情形
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="一般情形">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      决定影响大的变量
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#implementation-r" class="md-nav__link">
+    <span class="md-ellipsis">
+      implementation %%这个筛选方法用R实现一下%%
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="implementation %%这个筛选方法用R实现一下%%">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      模型拟合
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#imcomplete_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      imcomplete %%实现，图 | 这里承接一下非线性方法%%
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="imcomplete %%实现，图 | 这里承接一下非线性方法%%">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      模型预测
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      线性回归之外
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="线性回归之外">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      变量不是连续值
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      改变基函数
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      潜在问题
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="潜在问题">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      误差项相关性假设
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    <span class="md-ellipsis">
+      误差项的方差非常数
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_20" class="md-nav__link">
+    <span class="md-ellipsis">
+      离群值
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#imcomplete-delete-residuals" class="md-nav__link">
+    <span class="md-ellipsis">
+      imcomplete Delete Residuals %%数据量较少时可以用%%
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="imcomplete Delete Residuals %%数据量较少时可以用%%">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_21" class="md-nav__link">
+    <span class="md-ellipsis">
+      高杠杆点
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_22" class="md-nav__link">
+    <span class="md-ellipsis">
+      协线性
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#k" class="md-nav__link">
+    <span class="md-ellipsis">
+      与K近邻算法比较
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lab" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lab
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_23" class="md-nav__link">
+    <span class="md-ellipsis">
+      分类
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="分类">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_24" class="md-nav__link">
+    <span class="md-ellipsis">
+      评价方法
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="评价方法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#roc" class="md-nav__link">
+    <span class="md-ellipsis">
+      ROC 曲线
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#implementation" class="md-nav__link">
+    <span class="md-ellipsis">
+      implementation
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="implementation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_25" class="md-nav__link">
+    <span class="md-ellipsis">
+      邻近度
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_26" class="md-nav__link">
+    <span class="md-ellipsis">
+      分类为什么分不准？
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="分类为什么分不准？">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_27" class="md-nav__link">
+    <span class="md-ellipsis">
+      模型过拟合
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_28" class="md-nav__link">
+    <span class="md-ellipsis">
+      逻辑斯蒂回归
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="逻辑斯蒂回归">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#softmax" class="md-nav__link">
+    <span class="md-ellipsis">
+      多分类逻辑斯蒂回归 &amp; Softmax
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_29" class="md-nav__link">
+    <span class="md-ellipsis">
+      广义分类模型
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="广义分类模型">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_30" class="md-nav__link">
+    <span class="md-ellipsis">
+      线性判别分析
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#k_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      K 近邻
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_31" class="md-nav__link">
+    <span class="md-ellipsis">
+      决策树
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="决策树">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_32" class="md-nav__link">
+    <span class="md-ellipsis">
+      度量局部划分优劣
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_33" class="md-nav__link">
+    <span class="md-ellipsis">
+      剪枝
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_34" class="md-nav__link">
+    <span class="md-ellipsis">
+      随机森林
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_35" class="md-nav__link">
+    <span class="md-ellipsis">
+      朴素贝叶斯
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_36" class="md-nav__link">
+    <span class="md-ellipsis">
+      支持向量机
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_37" class="md-nav__link">
+    <span class="md-ellipsis">
+      集成学习
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="集成学习">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bagging" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bagging
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#boosting" class="md-nav__link">
+    <span class="md-ellipsis">
+      Boosting
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stacking" class="md-nav__link">
+    <span class="md-ellipsis">
+      Stacking
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../DL/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    深度学习
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    二十
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            二十
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Coding/C.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Coding/CPP/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    十九
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            十九
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Cookbooks/DLCB/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PyTorch
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Cookbooks/PyDCB/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Python DM & ML
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    零零五五
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            零零五五
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Parrot/Divisadero/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    遥望
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Parrot/Senses/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    感官刺激
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Parrot/LucidDreaming.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    清醒的梦
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_7_4" id="__nav_7_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    存在主义
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_4">
+            <span class="md-nav__icon md-icon"></span>
+            存在主义
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Parrot/Existential/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    存在 I
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Parrot/B&N.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    对存在的追求
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="本文组织：">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      本文组织：
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      符号说明
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      模型假设
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="模型假设">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      监督学习假设及概念
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      模型选择
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="模型选择">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      衡量模型性能
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="衡量模型性能">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mse" class="md-nav__link">
+    <span class="md-ellipsis">
+      回归：MSE
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#imcomplete-ml-cheatsheetspdf" class="md-nav__link">
+    <span class="md-ellipsis">
+      imcomplete [[ML-cheatsheets.pdf]]
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="imcomplete [[ML-cheatsheets.pdf]]">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      分类：错误率
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#issue-isl" class="md-nav__link">
+    <span class="md-ellipsis">
+      issue %%按照ISL中的假设，在分类情境下还有真实函数和误差项吗？%%
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#imcomplete-p56-exercise" class="md-nav__link">
+    <span class="md-ellipsis">
+      imcomplete %%P56 Exercise%%
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="imcomplete %%P56 Exercise%%">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      交叉检验
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#imcomplete" class="md-nav__link">
+    <span class="md-ellipsis">
+      imcomplete
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      线性回归
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="线性回归">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      单变量情形
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#imcomplete-httpsenwikipediaorgwikistandard_error" class="md-nav__link">
+    <span class="md-ellipsis">
+      imcomplete %%怎么来的？[https://en.wikipedia.org/wiki/Standard_error]，上式是如何推导得到的？%%
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#imcomplete-sento-be-precise-rather-than-the-number-2-310-should-contain-the-975-quantile-of-a-t-distribution-with-n2-degrees-of-freedom" class="md-nav__link">
+    <span class="md-ellipsis">
+      imcomplete %%注释：上式成立误差项需要服从高斯分布，并且SE前的系数会随着N的变化发生轻微变化，最后是一句看不懂的话：To be precise, rather than the number 2, (3.10) should contain the 97.5% quantile of a t-distribution with n−2 degrees of freedom%%
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="imcomplete %%注释：上式成立误差项需要服从高斯分布，并且SE前的系数会随着N的变化发生轻微变化，最后是一句看不懂的话：To be precise, rather than the number 2, (3.10) should contain the 97.5% quantile of a t-distribution with n−2 degrees of freedom%%">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      一般情形
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="一般情形">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      决定影响大的变量
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#implementation-r" class="md-nav__link">
+    <span class="md-ellipsis">
+      implementation %%这个筛选方法用R实现一下%%
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="implementation %%这个筛选方法用R实现一下%%">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      模型拟合
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#imcomplete_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      imcomplete %%实现，图 | 这里承接一下非线性方法%%
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="imcomplete %%实现，图 | 这里承接一下非线性方法%%">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      模型预测
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      线性回归之外
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="线性回归之外">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      变量不是连续值
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      改变基函数
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      潜在问题
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="潜在问题">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      误差项相关性假设
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    <span class="md-ellipsis">
+      误差项的方差非常数
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_20" class="md-nav__link">
+    <span class="md-ellipsis">
+      离群值
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#imcomplete-delete-residuals" class="md-nav__link">
+    <span class="md-ellipsis">
+      imcomplete Delete Residuals %%数据量较少时可以用%%
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="imcomplete Delete Residuals %%数据量较少时可以用%%">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_21" class="md-nav__link">
+    <span class="md-ellipsis">
+      高杠杆点
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_22" class="md-nav__link">
+    <span class="md-ellipsis">
+      协线性
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#k" class="md-nav__link">
+    <span class="md-ellipsis">
+      与K近邻算法比较
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lab" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lab
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_23" class="md-nav__link">
+    <span class="md-ellipsis">
+      分类
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="分类">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_24" class="md-nav__link">
+    <span class="md-ellipsis">
+      评价方法
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="评价方法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#roc" class="md-nav__link">
+    <span class="md-ellipsis">
+      ROC 曲线
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#implementation" class="md-nav__link">
+    <span class="md-ellipsis">
+      implementation
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="implementation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_25" class="md-nav__link">
+    <span class="md-ellipsis">
+      邻近度
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_26" class="md-nav__link">
+    <span class="md-ellipsis">
+      分类为什么分不准？
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="分类为什么分不准？">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_27" class="md-nav__link">
+    <span class="md-ellipsis">
+      模型过拟合
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_28" class="md-nav__link">
+    <span class="md-ellipsis">
+      逻辑斯蒂回归
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="逻辑斯蒂回归">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#softmax" class="md-nav__link">
+    <span class="md-ellipsis">
+      多分类逻辑斯蒂回归 &amp; Softmax
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_29" class="md-nav__link">
+    <span class="md-ellipsis">
+      广义分类模型
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="广义分类模型">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_30" class="md-nav__link">
+    <span class="md-ellipsis">
+      线性判别分析
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#k_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      K 近邻
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_31" class="md-nav__link">
+    <span class="md-ellipsis">
+      决策树
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="决策树">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_32" class="md-nav__link">
+    <span class="md-ellipsis">
+      度量局部划分优劣
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_33" class="md-nav__link">
+    <span class="md-ellipsis">
+      剪枝
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_34" class="md-nav__link">
+    <span class="md-ellipsis">
+      随机森林
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_35" class="md-nav__link">
+    <span class="md-ellipsis">
+      朴素贝叶斯
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_36" class="md-nav__link">
+    <span class="md-ellipsis">
+      支持向量机
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_37" class="md-nav__link">
+    <span class="md-ellipsis">
+      集成学习
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="集成学习">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bagging" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bagging
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#boosting" class="md-nav__link">
+    <span class="md-ellipsis">
+      Boosting
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stacking" class="md-nav__link">
+    <span class="md-ellipsis">
+      Stacking
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+    <a href="https://github.com/zoeplus/zoeminus/commits/main/docs/Math/SL.md" title="编辑此页" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"/></svg>
+    </a>
+  
+  
+
+
+  <h1>统计学习</h1>
+
+<ul>
+<li><a href="https://online.stat.psu.edu/stat462/node/77/">stat462</a></li>
+</ul>
+<h2 id="_1">符号说明<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>一部分符号说明和<a href="../DM/">DM</a>保持一致，不重复.</p>
+<p><span class="arithmatex">\(\pi_k\)</span> 表示响应的先验概率 <span class="arithmatex">\(\text{Pr}(Y=k)\)</span> .</p>
+<p><span class="arithmatex">\(\text{Pr}(Y=k|X=x)\)</span> 或者简记为 <span class="arithmatex">\(p_k(x)\)</span> ， <span class="arithmatex">\(\text{Pr}(Y=k|X)\)</span> ；概率密度分布函数 <span class="arithmatex">\(\text{Pr}(X|Y=k)\)</span> 记为 <span class="arithmatex">\(f_k(x)\)</span> . </p>
+<h2 id="_2">模型假设<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<h3 id="_3">监督学习假设及概念<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<p>假设 <span class="arithmatex">\(\mathcal{X}\subset \mathbb{R}^n,\mathcal{Y}\subset \mathbb{R}^m\)</span> ，在 <span class="arithmatex">\(\mathcal{X}\)</span> 和 <span class="arithmatex">\(\mathcal{Y}\)</span> 上定义随机变量 <span class="arithmatex">\(X,Y\)</span> ，并假设存在函数 <span class="arithmatex">\(f\)</span> 和与 <span class="arithmatex">\(X\)</span> 独立的<strong>随机误差变量</strong>（random error term） <span class="arithmatex">\(\epsilon\)</span> ，使得： <span class="arithmatex">\(Y=f(X)+\epsilon,\text{Mean}(\epsilon)=0\)</span> .</p>
+<p>称 <span class="arithmatex">\(x\in \mathcal{X}\)</span> 为<strong>预测因子</strong>（predictor）/ <strong>特征</strong>（feature）/ <strong>协变量</strong>（covariate）， <span class="arithmatex">\(y=f(x)+\epsilon\in \mathcal{Y}\)</span> 为<strong>响应</strong>（response）/ <strong>目标</strong>（target）/ <strong>标签</strong>（label）. 称 <span class="arithmatex">\(\mathcal{X}\)</span> 为特征空间， <span class="arithmatex">\(\mathcal{Y}\)</span> 为响应空间. 将标签和特征统称为<strong>属性</strong>（attributes）.</p>
+<p><span class="arithmatex">\(f\)</span> 为根据 <span class="arithmatex">\(x\)</span> 预测 <span class="arithmatex">\(y\)</span> 提供了<strong>系统信息</strong>（systemmatic information），但仍然存在其他未被观测到的变量会对 <span class="arithmatex">\(y\)</span> 产生影响，因此假设存在误差项 <span class="arithmatex">\(\epsilon\)</span> 是合理的. #issue %%而假设其均值为 <span class="arithmatex">\(0\)</span> ？%%</p>
+<p>假设从 <span class="arithmatex">\(\mathcal{X}\)</span> 中独立同 <span class="arithmatex">\(X\)</span> 分布（i.i.d）地抽取 <span class="arithmatex">\([x_1,x_2,\cdots,x_N]\)</span> ，相应的有 <span class="arithmatex">\([y_1,y_2,\cdots,y_N]\)</span> ，于是有<strong>数据集</strong>（data set）： <span class="arithmatex">\(T=\{(x_1,y_1),(x_2,y_2),\cdots(x_N,y_N)\}\)</span> 称 <span class="arithmatex">\((x_i,y_i),i=1,2,\cdots,N\)</span> 为一个<strong>数据点</strong>（data point）/ <strong>元组</strong>（tuple） / <strong>样本</strong>（sample）/ <strong>数据对象</strong> / <strong>实例</strong>（instance） / <strong>示例</strong> / <strong>事务</strong>. </p>
+<p>根据上述定义的数据集 <span class="arithmatex">\(T\)</span> 估计函数 <span class="arithmatex">\(f\)</span> 的过程称为监督学习. 一般称 <span class="arithmatex">\(f\)</span> 为真实函数，估计得到的函数用 <span class="arithmatex">\(\hat{f}\)</span> 表示.</p>
+<p>在监督学习中通常将数据集划分为<strong>训练集</strong>（training set），<strong>验证集</strong>（validation set）和<strong>测试集</strong>（test set）. （或者只有训练集和验证集，具体见<a href="#交叉检验">#交叉检验</a>）</p>
+<p>估计 <span class="arithmatex">\(f\)</span> 的目的（场景）有两种：</p>
+<p><strong>预测</strong>（prediction）：只关注给定 <span class="arithmatex">\(X\)</span> ，根据 <span class="arithmatex">\(\hat{f}\)</span> 得到的响应 <span class="arithmatex">\(\hat{Y}=\hat{f}(X)\)</span> 与实际的响应 <span class="arithmatex">\(Y=f(X)+\epsilon\)</span> 之间的差距： </p>
+<div class="arithmatex">\[\begin{aligned}E[(Y-\hat{Y})^2]&amp;=E[(f(X)+\epsilon-\hat{f}(X))^2]\\&amp;=[f(X)-\hat{f}(X)]^2+\text{Var}(\epsilon)\\&amp;\geq \text{Var}(\epsilon)\end{aligned}\]</div>
+<p>只关心能否减少这一差距，无所谓 <span class="arithmatex">\(f\)</span> 的具体形式，即使 <span class="arithmatex">\(f\)</span> 是黑箱.</p>
+<p><strong>推断</strong>（inference）：关注变量之间的相互作用和关系. #imcomplete %%没说清楚，另外这里我看原文也感觉不清楚，窃以为这里的推断是指可（人为）解释性好，例如线性回归这样的直接可以用系数的正负解释.%%</p>
+<p>根据 <span class="arithmatex">\(Y\)</span> 是连续还是离散可以将监督学习划分为<strong>回归</strong>（regression）和<strong>分类</strong>（classification）</p>
+<h2 id="_4">模型选择<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<p>在<a href="#监督学习假设及概念">#监督学习假设及概念</a>中，目标是最小化 <span class="arithmatex">\(E_X[(Y-\hat{Y})^2],\hat{Y}=\hat{f}(X)\)</span> ，但没有测量 <span class="arithmatex">\(E_X[(Y-\hat{Y})^2]\)</span> 的方法，可供使用的只有数据集 <span class="arithmatex">\(T=\{(x_1,y_2),(x_2,y_2),\cdots,(x_N,y_N)\}\)</span> 且不可以从 <span class="arithmatex">\(\mathcal{X}\)</span> 中无限制地抽样.</p>
+<p>给定了对于 <span class="arithmatex">\(f\)</span> 的估计 <span class="arithmatex">\(\hat{f}\)</span> ，考虑如何衡量 <span class="arithmatex">\(\hat{f}\)</span> ，以减少 <span class="arithmatex">\(E[(Y-\hat{Y})^2]\)</span> .</p>
+<h3 id="_5">衡量模型性能<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<p>为了检验 <span class="arithmatex">\(\hat{f}\)</span> 的性能，需要将其应用于从未出现的数据上. 将 <span class="arithmatex">\(T\)</span> 分割为<strong>训练集</strong>（train data set）和<strong>测试集</strong>（test data set），使用训练集获取 <span class="arithmatex">\(\hat{f}\)</span> ，训练过程中需要评估 <span class="arithmatex">\(\hat{f}\)</span> 的性能，也需要使用测试集评估 <span class="arithmatex">\(\hat{f}\)</span> 的性能. 通常情况下训练和测试过程中的度量标准是相同的. 下面分别就回归和分类场景提出度量标准.</p>
+<h4 id="mse">回归：MSE<a class="headerlink" href="#mse" title="Permanent link">&para;</a></h4>
+<p>假设有数据集 <span class="arithmatex">\(<span class="arithmatex">\(T=\{(x_1,y_1),(x_2,y_2),\cdots,(x_N,y_N)\}\)</span>\)</span> 待评估的函数为<span class="arithmatex">\(\hat{f}\)</span>，则可计算<strong>均方误差</strong>（mean squared error, MSE）： <span class="arithmatex">\(<span class="arithmatex">\(\text{MSE}(\hat{f},T)=\frac{1}{N}\sum\limits_{i=1}^{N}(y_i-\hat{f}(x_i))^2\)</span>\)</span></p>
+<p>假设对于一给定的数据点 <span class="arithmatex">\((x_0,y_0)\)</span> ，采用相同抽样方法得到训练集，根据训练集得到 <span class="arithmatex">\(\hat{f}\)</span> ，将 <span class="arithmatex">\(\hat{f}\)</span> 视为一个随机变量，并假设与 <span class="arithmatex">\(\epsilon\)</span> 独立，假设其均值为 <span class="arithmatex">\(m\)</span> ，则考虑在该点的均方误差期望： <span class="arithmatex">\(<span class="arithmatex">\(\begin{aligned}
+E[(y_0-\hat{f}(x_0))^2]&amp;=E[(f(x_0)+\epsilon-\hat{f}(x_0))^2]\\
+&amp;=E[(f(x_0)-\hat{f}(x_0))^2]+\text{Var}(\epsilon)\\
+&amp;=E[(f(x_0)-m+m-\hat{f}(x_0))^2]+\text{Var}(\epsilon)\\
+&amp;=E[(f(x_0)-m)^2]+E((m-\hat{f}(x_0)^2))+\text{Var}(\epsilon)\\
+&amp;=[\text{Bias}(\hat{f}(x_0))]^2+\text{Var}(\hat{f}(x_0))+\text{Var}(\epsilon)
+\end{aligned}\)</span>\)</span></p>
+<h2 id="imcomplete-ml-cheatsheetspdf">imcomplete [[ML-cheatsheets.pdf]]<a class="headerlink" href="#imcomplete-ml-cheatsheetspdf" title="Permanent link">&para;</a></h2>
+<p>为在整体上取得较小的 <span class="arithmatex">\(E[(Y-\hat{Y})^2]\)</span> ，需要在每个点处取得较小的 <span class="arithmatex">\(E[(y_0-\hat{f}(x_0))^2]\)</span> ，其可以被拆解为<span class="arithmatex">\(3\)</span>个部分：</p>
+<ul>
+<li><strong>偏差</strong> <span class="arithmatex">\(\text{Bias}(\hat{f}(x_0))\)</span>（bias）：当改变训练集时得到的 <span class="arithmatex">\(\hat{f}\)</span> 与真实值之间的平均差距；</li>
+<li><strong>方差</strong> <span class="arithmatex">\(\text{Var}(\hat{f}(x_0))\)</span>（variance）：当改变训练集时得到的 <span class="arithmatex">\(\hat{f}\)</span> 的波动程度；</li>
+<li><strong>不可减少误差</strong> <span class="arithmatex">\(\text{Var}(\epsilon)\)</span> （irreducible error）</li>
+</ul>
+<p>偏差和方差是统计学习中一对矛盾的因素，需要选取合适的模型以取得较低的偏差和较低的方差，这要求将模型的灵活程度（flexity）控制在一定范围内，以上称为<strong>偏差-方差权衡</strong>（bias-variance trade-off）</p>
+<h4 id="_6">分类：错误率<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h4>
+<p>假设做出的拟合函数为<span class="arithmatex">\(\hat{f}\)</span>，应用在数据集 <span class="arithmatex">\(T=\{(x_1,y_1),(x_2,y_2),\cdots,(x_N,y_N)\}\)</span> 上，对于 <span class="arithmatex">\(x_i\)</span> 预测的结果为 <span class="arithmatex">\(\hat{y}_i(i=1,2,\cdots,N)\)</span> . 则定义<strong>错误率</strong>（error rate）： <span class="arithmatex">\(<span class="arithmatex">\(\text{Er}(\hat{f},D)=\frac{1}{N}I(\hat{y}\neq y)\)</span>\)</span> 目标即为最小化应用于测试集上得到的错误率.</p>
+<h2 id="issue-isl">issue %%按照ISL中的假设，在分类情境下还有真实函数和误差项吗？%%<a class="headerlink" href="#issue-isl" title="Permanent link">&para;</a></h2>
+<details class="quote">
+<summary>下面是一段把我CPU干烧的话：</summary>
+<p>It is possible to show (though the proof is outside of the scope of this book) that the test error rate <span class="arithmatex">\(\text{Avg}(I(y_0\neq \hat{y}_0))\)</span> is minimized, on average, by a very simple classifier that assigns each observation to the most likely class, given its predictor values.</p>
+</details>
+<p>所谓<strong>贝叶斯分类器</strong>（bayes classfier）即为将其预测的概率向量中最大的值所对应的类别作为预测类别. 并可以证明 #issue %%在什么条件下？%%此时测试错误率平均来看最小.</p>
+<h2 id="imcomplete-p56-exercise">imcomplete %%P56 Exercise%%<a class="headerlink" href="#imcomplete-p56-exercise" title="Permanent link">&para;</a></h2>
+<h4 id="_7">交叉检验<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h4>
+<p><strong>交叉检验</strong>（cross valuation）是在最终测试 / 模型部署前进行的步骤，目的是从多个解决方案中选取最好的版本，尤其适合于在特征工程、模型调参时需要决定超参数的情形.</p>
+<p>为说明交叉检验的优点，先来考虑一般的方案效果检验步骤：首先将数据集随机地划分为训练和测试集：</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+<span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">datasets</span>
+
+<span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">datasets</span><span class="o">.</span><span class="n">load_iris</span><span class="p">(</span><span class="n">return_X_y</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+<span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span> <span class="o">=</span> <span class="mf">0.4</span><span class="p">,</span> <span class="n">random_state</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span>
+</code></pre></div>
+<p>在进行划分之后，可以进行如下的检验，以支持向量机中的超参 <code>C</code> 为例子：</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">svm</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">svm</span><span class="o">.</span><span class="n">SVC</span><span class="p">(</span><span class="n">kernel</span> <span class="o">=</span> <span class="s1">&#39;linear&#39;</span><span class="p">,</span> <span class="n">C</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+<span class="n">model</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>
+</code></pre></div>
+<p>这种做法有一个问题：因为测试集总是不变的，所以在手动调参以获取最适合测试集的参数时，实际上是将测试集内的信息泄露给了模型. 最终结果很可能是模型在测试集上保持良好，但检验其泛化效果时表现一般.</p>
+<p>因此可将数据集划分为训练集、<strong>验证集</strong>（validation set）和测试集，验证集替代上面提到的测试集的作用，<u>用于估计超参</u>，而测试集（模型之前从未见过）将被用于最终的验证，<u>不会对超参决策造成影响</u>.</p>
+<p>这样做有一个问题，模型在从未见过的测试集上的表现<u>并不能代表泛化能力</u>（这个测试集不一定具有代表性），并且，训练集和验证集的选取也会对训练的模型造成很大影响.</p>
+<p>事实上，理想的情况是模型可以在多个不同的训练集上分别进行训练，然后分别测试其在从未见过的数据集上的表现，最终体现的就是模型的期望表现（具体指标，e.g. <span class="arithmatex">\(F1-\text{Score}\)</span> 的期望）.</p>
+<p>但现实情况是训练集的大小一般不足以实现这种做法.</p>
+<p><strong>交叉检验</strong>（cross-validation, CV) 的提出即是为了解决这一问题：仍然保留一个数据集（就称之为验证集了）以决定超参数的选取，每一次超参数的选取都将基于在不同数据集上设置该超参数训练出来的模型在不同测试集上的<u>平均表现</u>（以避免模型间接获取测试集内的信息）.</p>
+<p>交叉检验有多种形式，一种方法是 <strong>k 折交叉检验</strong>（ k folds CV）：首先将数据集分为 <span class="arithmatex">\(k\)</span> 份，每次取其中的 <span class="arithmatex">\(k-1\)</span> 份作为训练集（不同次之间训练集不同），剩下的 <span class="arithmatex">\(1\)</span> 份用于计算模型表现（e.g. accuracy, F1-Score）模型的综合表现则为上面 <span class="arithmatex">\(k\)</span> 次的平均值. 相比于将数据集划分为三份而言，交叉检验在计算量上更大，但是保留了更多可以训练的数据. 尤其是在数据量非常少时，可以采用<strong>留一交叉检验法</strong>：每一次用除了一个数据之外的数据作为训练集（比如， KNN 确定超参数）</p>
+<p>下面是交叉检验的实现，以 <span class="arithmatex">\(K\)</span> 近邻算法中选取临近值为例：</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">cross_val_score</span>
+<span class="kn">from</span> <span class="nn">sklearn.neighbors</span> <span class="kn">import</span> <span class="n">KNeighborsClassifier</span>
+<span class="n">scores_list</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">15</span><span class="p">)</span>
+    <span class="c1"># i 表示用于分类决策的临近点数量</span>
+    <span class="n">model</span> <span class="o">=</span> <span class="n">KNeighborsClassifier</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+    <span class="c1"># cv: 交叉检验次数 / 折数， scoring: 评分函数</span>
+    <span class="n">scores_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">cross_val_value</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">scoring</span><span class="o">=</span><span class="s1">&#39;f1_macro&#39;</span><span class="p">))</span>
+<span class="c1"># 这里考虑的是每一个模型在 cv 次交叉检验下的平均得分</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">15</span><span class="p">),[</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">scores_list</span><span class="p">])</span>
+</code></pre></div>
+<h2 id="imcomplete">imcomplete<a class="headerlink" href="#imcomplete" title="Permanent link">&para;</a></h2>
+<h2 id="_8">线性回归<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h2>
+<p>关注的问题：</p>
+<ul>
+<li>各个特征与响应之间是否存在关系？关系的强弱如何？</li>
+<li>特征之间是否存在<strong>协同效应</strong>（synergy effect）；</li>
+<li>是否存在线性关系，如果不存在能否对变量进行变换以转换为线性关系？</li>
+</ul>
+<h3 id="_9">单变量情形<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h3>
+<p>先考虑最简单的情形：模型假设为：<span class="arithmatex">\(<span class="arithmatex">\(\begin{aligned}
+Y &amp;=f(X)+\epsilon\\
+&amp;=\alpha_0+\alpha_1X+\epsilon\\
+&amp;\text{mean}(\epsilon)=0
+\end{aligned}\)</span>\)</span>并且 <span class="arithmatex">\(X,\epsilon\)</span> 独立.</p>
+<p>下面尝试给出对于<span class="arithmatex">\(f(X)\)</span>的估计：<span class="arithmatex">\(<span class="arithmatex">\(\hat{f}(X)=\beta_0+\beta_1X_1\)</span>\)</span> 其中<span class="arithmatex">\(\beta_0,\beta_1\)</span>称为系数（coefficients）/ 参数（parameters）</p>
+<p>选用 <span class="arithmatex">\(\text{MSE}\)</span> 度量 <span class="arithmatex">\(\hat{f}\)</span> 对 <span class="arithmatex">\(f\)</span> 的拟合程度，或可使用<strong>残差平方和</strong>（residual sum of squres, RSS）： <span class="arithmatex">\(<span class="arithmatex">\(\text{RSS}=\text{RSS}(\hat{f},T)=\sum\limits_{i=1}^{N}(y_i-\hat{f}(x_i))^2\)</span>\)</span> ^RSS</p>
+<p>取 <span class="arithmatex">\(<span class="arithmatex">\(\begin{aligned}
+&amp;\hat{\beta}_1=\frac{\sum_{i=1}^{N}(x_i-\bar{x})(y_i-\bar{y})}{\sum_{i=1}^{N}(x_i-\bar{x})^2}\\
+&amp;\hat{\beta}_0=\bar{y}-\hat{\beta}_1\bar{x}
+\end{aligned}\)</span>\)</span>作为<span class="arithmatex">\(\beta_1,\beta_0\)</span>时最小化. （推导见<a href="#一般情形">#一般情形</a>）</p>
+<div class="highlight"><pre><span></span><code><span class="nf">lm.fit</span><span class="p">(</span><span class="n">y</span><span class="w"> </span><span class="o">~</span><span class="w"> </span><span class="n">x</span><span class="p">)</span>
+<span class="nf">coef</span><span class="p">(</span><span class="n">lm.fit</span><span class="p">)</span>
+</code></pre></div>
+<p>假设用多个大小相等的数据集 <span class="arithmatex">\(T\)</span> （其样本均i.i.d）训练 <span class="arithmatex">\(\hat{f}\)</span> ， <span class="arithmatex">\(\hat{f}\)</span> 中两个参数 <span class="arithmatex">\(\beta_0,\beta_1\)</span> 可以视为随机变量，现在估量用上述方法估计得到的参数 <span class="arithmatex">\(\beta_0,\beta_1\)</span> 与 <span class="arithmatex">\(f\)</span> 中两个参数 <span class="arithmatex">\(\alpha_0,\alpha_1\)</span> 之间的差距随着数据集大小 <span class="arithmatex">\(N\)</span> 的变化会如何变化，考虑计算<strong>标准误差</strong>（standard errors）：<span class="arithmatex">\(<span class="arithmatex">\(\begin{aligned}
+&amp;\text{SE}(\beta_0)^2=\left[\frac{1}{N}+\frac{\bar{x}^2}{\sum_{i=1}^{N}(x_i-\bar{x})^2}\right]\cdot\text{Var}(\epsilon)\\
+&amp;\text{SE}(\beta_1)^2=\frac{\text{Var}(\epsilon)}{\sum_{i=1}^{N}(x_i-\bar{x})^2}
+\end{aligned}\)</span>\)</span> ^SE</p>
+<p>标准偏差定义为<span class="arithmatex">\(<span class="arithmatex">\(\text{SE}(Y)^2=\text{Var}(Y)=\frac{\sigma^2}{n}\)</span>\)</span>其中<span class="arithmatex">\(\sigma\)</span>是随机变量<span class="arithmatex">\(Y\)</span>的<br />
+<strong>标准差</strong>（standard deviation）</p>
+<h2 id="imcomplete-httpsenwikipediaorgwikistandard_error">imcomplete  %%怎么来的？[https://en.wikipedia.org/wiki/Standard_error]，上式是如何推导得到的？%%<a class="headerlink" href="#imcomplete-httpsenwikipediaorgwikistandard_error" title="Permanent link">&para;</a></h2>
+<p>此外，在上式中<span class="arithmatex">\(\text{Var}(\epsilon)\)</span>的估计（称为残余标准偏差，residual standard error，RSE）由<span class="arithmatex">\(\text{RSS}\)</span>给出：<span class="arithmatex">\(<span class="arithmatex">\(\text{RSE}=\sqrt{\text{RSS}/(N-2)}\)</span>\)</span>^RSE</p>
+<p>计算得到标准偏差之后可以计算<strong>置信区间</strong>（confidence intervals，CI）；<span class="arithmatex">\(95\%\)</span>的置信区间定义为有<span class="arithmatex">\(95\%\)</span>的概率，参数的真实值将会落在该区间内. </p>
+<p>这里需要特别说明一下置信区间与<strong>可信区间</strong>（credible intervals）之间的差别，置信区间是从频率角度出发定义的，即对于一个给定的分布，使用相同的方法为每一次抽样获取一个区间，在所有的抽样实验中有 <span class="arithmatex">\(95\%\)</span> 的情况中，参数的真实值将会落在该区间内，则称该区间（一个表达式）为 <span class="arithmatex">\(95\%\)</span> 置信区间. 而对于可信区间，其是从Bayesian角度出发的，即对于一个样本， <span class="arithmatex">\(95\%\)</span> 的可信区间指该区间有 <span class="arithmatex">\(95\%\)</span> 的概率包含真实值.  #imcomplete %%<a href="https://stats.stackexchange.com/questions/26450/why-does-a-95-confidence-interval-ci-not-imply-a-95-chance-of-containing-the">stack</a>，回答中有一个例子可以留意一下%%</p>
+<p>对于线性回归，参数<span class="arithmatex">\(\beta_1\)</span>的<span class="arithmatex">\(95\%\)</span>置信区间大约为：<span class="arithmatex">\(<span class="arithmatex">\(\hat{\beta}_1\pm 2\cdot \text{SE}(\hat{\beta}_1)\)</span>\)</span></p>
+<h2 id="imcomplete-sento-be-precise-rather-than-the-number-2-310-should-contain-the-975-quantile-of-a-t-distribution-with-n2-degrees-of-freedom">imcomplete %%注释：上式成立误差项需要服从高斯分布，并且SE前的系数会随着N的变化发生轻微变化，最后是一句看不懂的话：To be precise, rather than the number 2, (3.10) should contain the 97.5% quantile of a t-distribution with n−2 degrees of freedom%%<a class="headerlink" href="#imcomplete-sento-be-precise-rather-than-the-number-2-310-should-contain-the-975-quantile-of-a-t-distribution-with-n2-degrees-of-freedom" title="Permanent link">&para;</a></h2>
+<p>标准差也可以执行<strong>假设检验</strong>（hypothesis tests），例如<strong>零假设</strong>（null hypothesis）<span class="arithmatex">\(H_0\)</span>：变量<span class="arithmatex">\(X\)</span>和<span class="arithmatex">\(Y\)</span>之间没有关联；<strong>备选假设</strong>（alternative hypothesis）<span class="arithmatex">\(H_a\)</span>：变量<span class="arithmatex">\(X\)</span>和<span class="arithmatex">\(Y\)</span>之间有关联.</p>
+<p>在线性回归中，<span class="arithmatex">\(H_0\)</span>对应于<span class="arithmatex">\(\beta_1=0\)</span>，<span class="arithmatex">\(H_a\)</span>对应于<span class="arithmatex">\(\beta_1\neq0\)</span>.</p>
+<p>实际进行假设检验时，需要确定精度（accuracy），即对于<span class="arithmatex">\(\beta_1\neq0\)</span>，标准误差<span class="arithmatex">\(\text{SE}(\beta_1)\)</span>在什么范围内时可以认为<span class="arithmatex">\(\beta_1=0\)</span>，从而接受<span class="arithmatex">\(H_0\)</span>.</p>
+<p>实际中计算<span class="arithmatex">\(t-\)</span>统计量（t-statistic）：<span class="arithmatex">\(<span class="arithmatex">\(t=\frac{\beta_1-0}{\text{SE}(\beta_1)}\)</span>\)</span> ^TStatistic</p>
+<p>其测量 #issue %%什么意思？？？ the number of standard deviations that <span class="arithmatex">\(\beta_1\)</span> is away from 0%% 如果<span class="arithmatex">\(X\)</span>和<span class="arithmatex">\(Y\)</span>之间无关联（<span class="arithmatex">\(H_0\)</span>成立） #issue %%什么是有关联？在线性模型下是beta_1，在其他情况下用什么度量，线性关系的度量总是合适的吗？%% 则期望<span class="arithmatex">\(t-\)</span>统计量具有<span class="arithmatex">\(N-2\)</span>个自由度 #issue %%?%% 的<span class="arithmatex">\(t-\)</span>分布.</p>
+<p>反之，可以假设<span class="arithmatex">\(H_0\)</span>成立（<span class="arithmatex">\(\beta_1\)</span>=0），因为当<span class="arithmatex">\(N\)</span>充分大（<span class="arithmatex">\(&gt;30\)</span>）时<span class="arithmatex">\(t-\)</span>分布近似于标准正态分布 <span class="arithmatex">\(\mathcal{N}(0,1)\)</span> . 然后对于 <span class="arithmatex">\(t-\)</span> 分布，计算 <span class="arithmatex">\(<span class="arithmatex">\(P(x&gt;\lvert t\rvert)\)</span>\)</span> #issue %%t-分布没说清楚%% 该值定义为<span class="arithmatex">\(p-\)</span>值（<span class="arithmatex">\(p\)</span>-value） #imcomplete %%更多内容见ISL Chap.13%%^pValue</p>
+<p>通常来说，设置<span class="arithmatex">\(p\)</span>值截止线为<span class="arithmatex">\(5\%\)</span>或者<span class="arithmatex">\(1\%\)</span>，当<span class="arithmatex">\(p\)</span>值小于该截止线时拒绝零假设.</p>
+<hr />
+<p>到这里回顾一下已经提到的统计量：<br />
+- <span class="arithmatex">\(<span class="arithmatex">\(\text{MSE}(\bar{f},T)\)</span>\)</span><br />
+- <span class="arithmatex">\(<span class="arithmatex">\(\text{SE}(\beta_1)=\frac{\sigma}{\sqrt{n}}\)</span>\)</span><br />
+- <span class="arithmatex">\(\text{RSS}\)</span>：表示模型预测结果与实际值的绝对差平方和；<br />
+- #issue %%不理解为什么除自由度-2%%<span class="arithmatex">\(<span class="arithmatex">\(\text{RSE}=\sqrt{\frac{\text{RSS}}{N-2}}\)</span>\)</span><br />
+- <span class="arithmatex">\(t-\)</span>统计量：<span class="arithmatex">\(<span class="arithmatex">\(t=\sqrt{\frac{\beta_1-0}{\text{SE}(\beta_1)}}\)</span>\)</span><br />
+- <span class="arithmatex">\(p-\)</span>值；</p>
+<p>为了检测模型的拟合程度（预测），可以选用<span class="arithmatex">\(\text{MSE},\text{RSS},\text{RSE}\)</span>.</p>
+<p>为了验证变量之间是否存在关系（推断），可以计算：<span class="arithmatex">\(t-\)</span>统计量，<span class="arithmatex">\(p-\)</span>值</p>
+<hr />
+<p>下面再引入一些统计量：</p>
+<p><span class="arithmatex">\(R^2\)</span>统计量：<span class="arithmatex">\(<span class="arithmatex">\(R^2=\frac{\text{TSS}-\text{RSS}}{\text{TSS}}\)</span>\)</span> 其中 <span class="arithmatex">\(\text{TSS}\)</span>（total sum of squares）定义为<span class="arithmatex">\(<span class="arithmatex">\(\text{TSS}=\sum\limits_{i=1}^{N}(y_i-\bar{y})^2\)</span>\)</span> ^R2</p>
+<p>直观上的解释： <span class="arithmatex">\(\text{RSS}\)</span> 为在进行回归之后计算得到的偏差平方和（不可解释）， <span class="arithmatex">\(\text{TSS}\)</span> 为在进行回归之前得到的方差，<span class="arithmatex">\(R^2\)</span> #issue 因此表示 <span class="arithmatex">\(Y\)</span> 的变动中可以被 <span class="arithmatex">\(X\)</span> 解释的部分. %%太模糊%%</p>
+<p>回顾（样本）协方差的定义：<span class="arithmatex">\(<span class="arithmatex">\(\text{Cov}(X, Y)=\frac{\sum_{i=1}^{N}(x_i-\bar{x})(y_i-\bar{y})}{\sqrt{\sum_{i=1}^{N}(x_i-\bar{x})^2}\sqrt{\sum_{i=1}^{N}(y_i-\bar{y})^2}}\)</span>\)</span> %%也叫Pearson相关系数%%</p>
+<div class="highlight"><pre><span></span><code>
+</code></pre></div>
+<p>一般记<span class="arithmatex">\(r=\text{Cov}(X,Y)\)</span>，可以证明： #imcomplete <span class="arithmatex">\(<span class="arithmatex">\(R^2=r^2\)</span>\)</span></p>
+<p>在下面讨论一般情形（多变量）时，无法延申<span class="arithmatex">\(\text{Cov}(X,Y)\)</span>的概念，但<span class="arithmatex">\(R^2\)</span>可以延申.</p>
+<h3 id="_10">一般情形<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h3>
+<p>现在考虑多个协变量的情形：<span class="arithmatex">\(X_1,X_2,\cdots,X_d\)</span>，下面记：<span class="arithmatex">\(<span class="arithmatex">\(X=[X_1,X_2,\cdots,X_d]\)</span>\)</span>考虑其与标签<span class="arithmatex">\(Y\)</span>之间的关系. 假设：<span class="arithmatex">\(<span class="arithmatex">\(Y=\alpha_0+\alpha_1X_1+\alpha_2X_2+\cdots+\alpha_dX_d+\epsilon\)</span>\)</span></p>
+<p>假设估计得到的函数：<span class="arithmatex">\(<span class="arithmatex">\(\hat{f}(X)=\beta_0+\beta_1X_1+\beta_2X_2+\cdots+\beta_dX_d\)</span>\)</span></p>
+<p>对于数据集<span class="arithmatex">\(T\)</span>，可计算：<span class="arithmatex">\(<span class="arithmatex">\(\text{RSS}(\hat{f},T)=\sum\limits_{i=1}^{N}(y_i-\hat{f}(x_i))^2\)</span>\)</span></p>
+<p>为确定<span class="arithmatex">\(X\)</span>与<span class="arithmatex">\(Y\)</span>之间是否有关联，提出假设检验：</p>
+<p>零假设：<span class="arithmatex">\(<span class="arithmatex">\(H_0:\alpha_1=\alpha_2=\cdots=\alpha_d=0\)</span>\)</span>和备选假设：<span class="arithmatex">\(<span class="arithmatex">\(H_a:\exists \alpha_i\neq0,i=1,2,\cdots,d\)</span>\)</span></p>
+<p>下面计算<span class="arithmatex">\(F-\)</span>统计量（<span class="arithmatex">\(F-statistic\)</span>）：<span class="arithmatex">\(<span class="arithmatex">\(F=\frac{(\text{TSS}-\text{RSS})/d}{\text{RSS}/(N-d-1)}\)</span>\)</span>其中：<span class="arithmatex">\(<span class="arithmatex">\(\begin{aligned}
+&amp;\text{TSS}=\sum\limits_{i=1}^{N}(y_i-\bar{y})^2\\
+&amp; \text{RSS}=\sum\limits_{i=1}^{N}(y_i-\hat{f}(x_i))^2
+\end{aligned}\)</span>\)</span>^fStatistic</p>
+<p>若线性假设成立，有：<span class="arithmatex">\(<span class="arithmatex">\(E[\text{RSS}/(N-d-1)]=\sigma^2\)</span>\)</span>并且在零假设成立的条件下：<span class="arithmatex">\(<span class="arithmatex">\(E[(\text{TSS}-\text{RSS})/d]=\sigma^2\)</span>\)</span>若不成立则：<span class="arithmatex">\(<span class="arithmatex">\(E[(\text{TSS}-\text{RSS})/d]&gt;\sigma^2\)</span>\)</span></p>
+<p>因此当响应<span class="arithmatex">\(Y\)</span>与预测因子<span class="arithmatex">\(X\)</span>之间不存在关系时，<span class="arithmatex">\(F-\)</span>统计量接近于<span class="arithmatex">\(1\)</span>，否则“明显”大于<span class="arithmatex">\(1\)</span>. #imcomplete %%没有推导%% #implementation %%R实现%%</p>
+<p>当<span class="arithmatex">\(H_0\)</span>成立并且误差项 <span class="arithmatex">\(\epsilon_i\)</span> 服从正态分布时，<span class="arithmatex">\(F-\)</span>统计量服从<span class="arithmatex">\(F-\)</span>分布. #imcomplete %%即使误差项并不是正态分布的，<span class="arithmatex">\(F-\)</span>统计量在<span class="arithmatex">\(N\)</span>充分大时也近似服从<span class="arithmatex">\(F-\)</span>分布%%</p>
+<p>从而可以计算<span class="arithmatex">\(p-\)</span>值，进而决定是否拒绝原假设<span class="arithmatex">\(H_0\)</span>. %%这里不明白，<span class="arithmatex">\(F\)</span>的<span class="arithmatex">\(p-\)</span>值要如何取得？%%</p>
+<p>更一般的情形，对一部分系数进行假设检验，为方便不妨定义零假设为：<span class="arithmatex">\(<span class="arithmatex">\(H_0:\alpha_{d-m+1}=\alpha_{d-m+2}=\cdots=\alpha_{d}=0\)</span>\)</span></p>
+<p>假设零假设成立，进而给出模型：<span class="arithmatex">\(<span class="arithmatex">\(\hat{f}'(X)=\beta_0+\beta_1X_1+\cdots+\beta_{d-m}X_{d-m}\)</span>\)</span></p>
+<p>同样可以计算<span class="arithmatex">\(F-\)</span>统计量：<span class="arithmatex">\(<span class="arithmatex">\(F=\frac{(\text{RSS}_0-\text{RSS})/m}{\text{RSS}/(N-d-1)}\)</span>\)</span>其中<span class="arithmatex">\(<span class="arithmatex">\(\text{RSS}_0=\sum\limits_{i=1}^{N}(y_i-\hat{f}'(X))^2\)</span>\)</span>而<span class="arithmatex">\(<span class="arithmatex">\(\text{RSS}=\sum\limits_{i=1}^{N}(y_i-\hat{f}(X))^2\)</span>\)</span></p>
+<p>特殊情况：<span class="arithmatex">\(d=1，m=0\)</span>时，<span class="arithmatex">\(F-\)</span>统计量即等同于<span class="arithmatex">\(t-\)</span>统计量. 并且可以证明，只对于单变量<span class="arithmatex">\(X_i\)</span>和响应<span class="arithmatex">\(Y\)</span>分析得到的<span class="arithmatex">\(t-\)</span>统计量，等同于在多变量<span class="arithmatex">\(X=[X_1,X_2,\cdots,X_d]\)</span>中忽略掉<span class="arithmatex">\(X_i\)</span>之后计算得到的<span class="arithmatex">\(F-\)</span>统计量：<span class="arithmatex">\(<span class="arithmatex">\(t^2=F\)</span>\)</span> #issue %%原文：It turns out that each of these is exactly equivalent to the F - test that omits that single variable from the model, leaving all the others in—i.e. q=1 in (3.24).%% 进而在多变量分析中，为分析单个因素是否对响应起到效果，可以先进行单变量分析，进而排除没有影响的变量.</p>
+<p>反之，能否仅根据对单变量分析的结果来判断多变量分析的影响？答案是不可以. #issue %%下面这个例子没有给出证明%% 考虑<span class="arithmatex">\(d=100\)</span>，<span class="arithmatex">\(H_0\)</span>假设成立，则约有<span class="arithmatex">\(5\%\)</span>的<span class="arithmatex">\(p-\)</span>值（单变量分析）将会小于<span class="arithmatex">\(0.05\)</span>. 因此有可能认定存在关系，从而与相悖.</p>
+<p>上述情况，若采用<span class="arithmatex">\(F-\)</span>统计量其有<span class="arithmatex">\(5\%\)</span>的概率落在<span class="arithmatex">\(0.05\)</span>以下，与<span class="arithmatex">\(d\)</span>或者<span class="arithmatex">\(N\)</span>无关，因此更容易判断.</p>
+<details class="warning">
+<summary><span class="arithmatex">\(F-\)</span>统计量的限制</summary>
+<p><span class="arithmatex">\(d&gt;N\)</span>时不能使用<span class="arithmatex">\(F-\)</span>统计量，也不能进行回归计算，上述方法失效.</p>
+</details>
+<p>在拒绝零假设之后，需要考虑哪些变量对于响应是有影响的，下面进入到<strong>特征选择</strong>（feature / variable selection）.</p>
+<p>直接的方法是取特征的子集分别拟合模型，然后对比模型的性能. #imcomplete %%报菜名：Mallow's <span class="arithmatex">\(C_p\)</span>, Akaike information criterion (<span class="arithmatex">\(\text{AIC}\)</span>), Bayesian information criterion (<span class="arithmatex">\(\text{BIC}\)</span>), adjusted <span class="arithmatex">\(R^2\)</span>. Chap. 6%% 但在<span class="arithmatex">\(d\)</span>过大时显然不可取.</p>
+<h4 id="_11">决定影响大的变量<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h4>
+<p>三种方法：前向选择、后向选择和混合选择.</p>
+<p><strong>前向选择</strong>（forward selection）首先拟合一个只含有截距的模型：<span class="arithmatex">\(<span class="arithmatex">\(\hat{f}_0(X)=\beta_0\)</span>\)</span>然后对<span class="arithmatex">\(d\)</span>个特征分别进行单变量线性回归，得到：<span class="arithmatex">\(<span class="arithmatex">\(\hat{f}_i(X)=\beta_{0i}+\beta_iX_i,i=1,2,\cdots,d\)</span>\)</span>下面计算：<span class="arithmatex">\(<span class="arithmatex">\(\text{RSS}(\hat{f}_0+\hat{f}_{i},T),i=1,2,\cdots,d\)</span>\)</span>选取其中最小的<span class="arithmatex">\(\text{RSS}\)</span>对应的<span class="arithmatex">\(\hat{f}_0+\hat{f}_{i}\)</span>作为新的双变量线性回归，依次类推，直到达到停止条件. #imcomplete %%什么停止条件？%%</p>
+<h2 id="implementation-r">implementation %%这个筛选方法用R实现一下%%<a class="headerlink" href="#implementation-r" title="Permanent link">&para;</a></h2>
+<p><strong>后向选择</strong>（backawrd selection）首先拟合包含所有变量的模型：<span class="arithmatex">\(<span class="arithmatex">\(\hat{f}(X)=\beta_0+\beta_1X_1+\beta_2X_2+\cdots+\beta_dX_d\)</span>\)</span>首先移除掉具有最大<span class="arithmatex">\(p-\)</span>值的变量（最不具备统计显著性） #issue %%单变量回归下计算得到的<span class="arithmatex">\(p-\)</span>值？%% 不断重复操作直到剩余的变量拟合得到的模型的<span class="arithmatex">\(p-\)</span>值低于某个预设条件. #imcomplete  %%理论%%</p>
+<p><strong>混合选择</strong>（mixed selection）将前向选择和后向选择结合；首先从只含有截距的模型出发，按照前向选择的方式逐渐增加变量，同时<span class="arithmatex">\(p-\)</span>值（多变量回归计算得到的<span class="arithmatex">\(p-\)</span>值）可能会增大，当<span class="arithmatex">\(p-\)</span>值超过预设线时，移除最近添加的一个变量，再按照前向选择的方式添加新的变量，直到<span class="arithmatex">\(p-\)</span>值达到一个较低的水平，并且增加任何变量都会引起较大的<span class="arithmatex">\(p-\)</span>值时，停止混合选择. #issue %%挺模糊的，需要提前规定threshhold.%% #implementation </p>
+<p>之所以采用混合选择，是因为前向选择采取的是贪心算法，可能会引起较大的<span class="arithmatex">\(p-\)</span>值.</p>
+<h4 id="_12">模型拟合<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h4>
+<p>模型拟合最主要的是如何度量其拟合效果，有两种常见度量方式：</p>
+<ol>
+<li><span class="arithmatex">\(\text{RSE}\)</span></li>
+<li><span class="arithmatex">\(R^2\)</span></li>
+</ol>
+<p>对于<span class="arithmatex">\(R^2\)</span>统计量，需要注意的是在增加变量的情况下<span class="arithmatex">\(R^2\)</span>总是增大接近于<span class="arithmatex">\(1\)</span>的（ #issue 增加一个变量总会引起<span class="arithmatex">\(\text{RSS}\)</span>变小，而<span class="arithmatex">\(\text{TSS}\)</span>总是不变）. 但是模型的拟合效果并不只取决于<span class="arithmatex">\(\text{RSS}\)</span>（仅就训练阶段而言） #issue %%这里还是离不开上面对于<span class="arithmatex">\(F-\)</span>统计量的讨论，先把<span class="arithmatex">\(F-\)</span>统计量搞懂%%</p>
+<p>对于<span class="arithmatex">\(\text{RSE}\)</span>统计量，注意其并不等同于<span class="arithmatex">\(\text{RSS},\text{MSE}\)</span>. <span class="arithmatex">\(\text{RSS}\)</span>减少时<span class="arithmatex">\(\text{RSE}\)</span>不一定减少：<span class="arithmatex">\(<span class="arithmatex">\(\text{RSE}=\sqrt{\frac{1}{N-d-1}\text{RSS}}\)</span>\)</span>（回顾一下，RSE试图估算的是<span class="arithmatex">\(\text{Var}(\epsilon)\)</span>）从该式也能看出选取变量与<span class="arithmatex">\(\text{RSS}\)</span>之间的可能矛盾.</p>
+<hr />
+<p>提醒，这里模型拟合的是 <span class="arithmatex">\(Y=f(X)+\epsilon\)</span> 而不是 <span class="arithmatex">\(f(X)\)</span> ，更重要的是 <span class="arithmatex">\(f(X)\)</span> 的形式也不一定是线性的，判断 <span class="arithmatex">\(f(X)\)</span> 的形式只能够从数据的分布入手，因此可以画出<strong>残差图</strong>（residual plot）（肉眼）识别模型中的线性或者非线性关系. #issue %%这个统计模型的假设过于难处理了，有 <span class="arithmatex">\(\epsilon\)</span> 干扰怎么分析 <span class="arithmatex">\(f(X)\)</span> ，必须先把 <span class="arithmatex">\(f\)</span> 定了%% </p>
+<p>直接可视化（绘制相应数据的散点图） <span class="arithmatex">\(\hat{Y}\sim X\)</span> 并不实际，尤其是对于多个特征情形，因此考虑绘制 <span class="arithmatex">\(Y\sim \hat{Y}\)</span> ，或者 <span class="arithmatex">\((Y-\hat{Y})\sim \hat{Y}\)</span>. 以评估拟合程度. 在根据数据集 <span class="arithmatex">\(T\)</span> 绘制出散点图之后，可以进行拟合以观察残差变化趋势.</p>
+<h2 id="imcomplete_1">imcomplete  %%实现，图 | 这里承接一下非线性方法%%<a class="headerlink" href="#imcomplete_1" title="Permanent link">&para;</a></h2>
+<h4 id="_13">模型预测<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h4>
+<p>注意统计学习的假设是：<span class="arithmatex">\(<span class="arithmatex">\(Y=f_0(X)+\epsilon\)</span>\)</span></p>
+<p>其中<span class="arithmatex">\(\epsilon\)</span>与<span class="arithmatex">\(X\)</span>独立，在线性回归中我们假设<span class="arithmatex">\(f_0(X)\)</span>具有形式：<span class="arithmatex">\(<span class="arithmatex">\(f(X)=\alpha_0+\alpha_1X_1+\cdots+\alpha_dX_d\)</span>\)</span></p>
+<p>所以使用拟合的函数：<span class="arithmatex">\(<span class="arithmatex">\(\hat{f}(X)=\beta_0+\beta_1X_1+\beta_2X_2+\cdots+\beta_dX_d\)</span>\)</span>给出预测值<span class="arithmatex">\(\hat{Y}=\hat{f}(X)\)</span>之后，其与真实值<span class="arithmatex">\(Y\)</span>之间的差距可以看作由两个部分组成：<br />
+1) 可减少误差： <span class="arithmatex">\(\hat{f}(X)\)</span> 与<span class="arithmatex">\(f_0(X)\)</span>之间的差距（尝试用<span class="arithmatex">\(\hat{f}\)</span>逼近 <span class="arithmatex">\(f_0\)</span> ）；<br />
+2) 不可减少误差： <span class="arithmatex">\(\epsilon\)</span> 项.</p>
+<p>或可以写成： <span class="arithmatex">\(<span class="arithmatex">\(\begin{aligned}
+Y-\hat{f}(X)&amp;=Y-f_0(X)+f_0(X)-\hat{f}(X)\\
+&amp;=\epsilon+[f_0(X)-\hat{f}(X)]
+\end{aligned}\)</span>\)</span></p>
+<p>下面关心的问题是：预测值<span class="arithmatex">\(\hat{Y}\)</span>与真实值<span class="arithmatex">\(Y\)</span>之间的差距有多大？能否给出一个<strong>预测区间</strong>（prediction intervals）？</p>
+<p>置信区间与预测区间有区别：i.e. 考虑对于 <span class="arithmatex">\(X=[x_1,x_2,\cdots,x_d]\)</span> 给出了 <span class="arithmatex">\(95\%\)</span> 置信区间和 <span class="arithmatex">\(95\%\)</span> 预测区间，前者并未考虑 <span class="arithmatex">\(\epsilon\)</span> ，其 <span class="arithmatex">\(95\%\)</span> 指的是包含 <span class="arithmatex">\(f(X)\)</span> 的概率；后者考虑 <span class="arithmatex">\(\epsilon\)</span> ，其 <span class="arithmatex">\(95\%\)</span> 指的是包含 <span class="arithmatex">\(Y\)</span> 的概率. #issue %%这两个区间都是怎么给出来的？%%</p>
+<h3 id="_14">线性回归之外<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h3>
+<h4 id="_15">变量不是连续值<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h4>
+<p>比较常见的是响应变量不是连续值（分类问题），处理也比较直接，用Logistic函数 <span class="arithmatex">\(\frac{1}{1+e^{-x}}\)</span> ，或者 <span class="arithmatex">\(\text{Softmax}\)</span> 处理一下，将响应变量转换为概率值（连续值），然后给出一个threshold说明概率值超过多少时可以认为属于该类即可. #imcomplete %%写得不是很严谨，用tensorflow playground里面得例子吧%%</p>
+<p>另一种情况是特征变量不是连续值（factor / qualitative predictors），比如说变量sex只能取male和female，这时可以直接赋值以建立模型假设，例如： <span class="arithmatex">\(<span class="arithmatex">\(sex=\left\{\begin{aligned}
+&amp;1,\text{if male}\\
+&amp;0,\text{if female}
+\end{aligned}\right.\)</span>\)</span> 或者： <span class="arithmatex">\(<span class="arithmatex">\(sex=\left\{\begin{aligned}
+&amp;1,\text{if male}\\
+&amp;-1,\text{if female}
+\end{aligned}\right.\)</span>\)</span> 这样一个变量称为<strong>哑变量</strong>（dummy variable, 虚变量）或者<strong>指示变量</strong>（indicators）至于之后取 <span class="arithmatex">\(\{-1,1\}\)</span> 还是 <span class="arithmatex">\(\{0,1\}\)</span> 并不重要. #issue %%理论上怎么证明，之前看感知机的时候能看出来是一样的%%</p>
+<p>在此基础上建立的模型很容易解释. 但也要依据计算得到的统计量（e.g. <span class="arithmatex">\(p-\)</span> 值）来检验统计显著性.</p>
+<h4 id="_16">改变基函数<a class="headerlink" href="#_16" title="Permanent link">&para;</a></h4>
+<p>线性函数： <span class="arithmatex">\(<span class="arithmatex">\(\begin{aligned}
+&amp;f(X)=\alpha_0+\alpha_1X_1+\alpha_2X_2+\cdots+\alpha_dX_d\\
+&amp;X=[X_1,X_2,\cdots,X_d]
+\end{aligned}\)</span>\)</span> 可以看作由一组基函数：<span class="arithmatex">\(<span class="arithmatex">\(f_1(X)=X_1+a_1,\cdots,f_d(X)=X_d+a_d\)</span>\)</span> 线性组合得到的，显然其表达能力是很弱的. </p>
+<p>在此基础上，可以添加的常见基函数形式有：</p>
+<ul>
+<li>乘 e.g. <span class="arithmatex">\(X_1X_2\)</span> ；</li>
+<li>幂 e.g. <span class="arithmatex">\(X_1^2\)</span> ；</li>
+</ul>
+<h3 id="_17">潜在问题<a class="headerlink" href="#_17" title="Permanent link">&para;</a></h3>
+<p>除了线性函数本身表达能力弱以外，还有以下潜在问题. 不妨假设已经具有了表达能力足够强的模型 <span class="arithmatex">\(\hat{f}\)</span> ，其能够以任意精度拟合 <span class="arithmatex">\(f\)</span> .</p>
+<h4 id="_18">误差项相关性假设<a class="headerlink" href="#_18" title="Permanent link">&para;</a></h4>
+<p>根据<a href="#监督学习假设及概念">#监督学习假设及概念</a>，根据数据集 <span class="arithmatex">\(T\)</span> 计算得到的误差项 <span class="arithmatex">\(\epsilon_1,\epsilon_2,\cdots,\epsilon_n\)</span> 独立同分布. 上面式子中的推导，例如：<a href="#^SE">标准误差</a>就是基于此假设（如果该假设不成立则标准误差的估计偏小，从而计算得到的置信区间变小）.  并且<a href="#^pValue">p值</a>的估计也会偏小， #imcomplete #issue %%这段话看不懂：As an extreme example, suppose we accidentally <u>doubled</u> our data, lead- ing to observations and error terms identical in pairs. If we ignored this, our standard error calculations would be <u>as if we had a sample of size 2n</u> (???), when in fact we have only n samples. Our estimated parameters would be the same for the 2n samples as for the n samples, but the confidence intervals would be narrower by a factor of √2! 这里double是指数据量增大？不然double数据大小的话根据公式应该是不变的吧%%<br />
+在时间序列数据中，误差项之间可能会出现（较强的）关联性. 为了验证误差项之间是否存在关联性，可以绘制残差图. 一般情况下，时间序列中的相邻时间段中的误差项具有正相关性——相邻的误差项接近. #issue %%没看出来具有正相关性和接近有什么关系 | 这里又有问题，根据上下文能看出来作者提的残差是<span class="arithmatex">\(y-\hat{y}\)</span>，但这并不一定等于 <span class="arithmatex">\(\epsilon\)</span> ，而且还默认使用线性回归了，问题感觉很大 P106，不过根据P107的三幅图似乎是这种情况，经验上的做法？%%</p>
+<p>一个数据集 <span class="arithmatex">\(T\)</span> 中的误差项 <span class="arithmatex">\(\epsilon_i,i=1,2,\cdots,N\)</span> 之间存在相关性的情况并不少见，这里举一个简单的例子：分析体重 <span class="arithmatex">\(\sim\)</span> 身高之间的关系，如果其中一些个体之间有明显的相似性（e.g. 人种、国家），则可能呈现出误差项具有较强的关联性的情况.</p>
+<p>大多数统计方法都吃误差项的相关性假设. 特别注意对此进行验证.</p>
+<h4 id="_19">误差项的方差非常数<a class="headerlink" href="#_19" title="Permanent link">&para;</a></h4>
+<p>上面对于线性回归的分析i.e. <a href="#standrdError">标准误差</a>, 假设检验）中隐含了 <span class="arithmatex">\(\text{Var}(\epsilon_i)=\sigma^2\)</span> （这里的意思是， <span class="arithmatex">\(\epsilon\)</span> 对于不同的 <span class="arithmatex">\(X\)</span> 或者 <span class="arithmatex">\(Y\)</span> 会具有不同的方差，见下面构造的一个例子）</p>
+<p>但实际情况是，误差项的方差并不一定为 <span class="arithmatex">\(0\)</span> ，可能会随着响应发生变化.（<strong>异差性</strong>，heteroscedasticity）#issue %%对于误差项的估计我持怀疑态度，主要问题还是出在 <span class="arithmatex">\(f\)</span> 上，下面作者对于 <span class="arithmatex">\(\epsilon\)</span> 的估计基于 <span class="arithmatex">\((y-\hat{y})\sim \hat{y}\)</span>%% 可以使用残差图估计异差性是否存在. #implementation %%来个异差性图，FIGUREh3.11%%</p>
+<p>（经验上？）如果残差图呈现漏斗状，则存在异差性. 对于异差性，可以尝试对于 <span class="arithmatex">\(Y\)</span> 进行变换（ <span class="arithmatex">\(\log Y,\sqrt{Y}\)</span> . 这样做的可以缩小响应的规模，从而减少异差性. #issue  %%本质上不就是更换了一个模型吗？这个说法有问题.%%</p>
+<p>在一些情况下， <span class="arithmatex">\(\epsilon\)</span> 的方差是可以估计的，据此可以为模型的建立提供依据，例如：若第 <span class="arithmatex">\(i\)</span> 个响应为 <span class="arithmatex">\(n_i\)</span> 个观测值 #issue %%原文是raw observation%% 的平均值（比如， <span class="arithmatex">\(\hat{y}_i=\frac{1}{n_i}\sum\limits_{}^{n_i}y_j\)</span> ，如果假设观测值具有方差 <span class="arithmatex">\(\sigma\)</span> 并且不相关，则响应具有方差 <span class="arithmatex">\(\sigma_i^2=\sigma^2/n\)</span> . 可以使用<strong>加权最小二乘法</strong>（weighted least squares）拟合模型，权重大小与方差成正比即可（惩罚项）. #imcomplete %%这实际能用吗？？？%%</p>
+<h4 id="_20">离群值<a class="headerlink" href="#_20" title="Permanent link">&para;</a></h4>
+<p><strong>离群值</strong>（outliers）指的是数据呈现出来的模式不匹配的值. 可以通过残差图检测离群值，但是需要估计残差到多少时才算是离群值. 因此可以考虑计算<strong>学生化残差</strong>（studentized residuals）： <span class="arithmatex">\(\frac{y-\hat{y}}{e}\sim \hat{y}\)</span> 其中 <span class="arithmatex">\(e\)</span> 为对残差的标准误差的估计值. #issue %%如何估计残差的标准偏差? <a href="https://online.stat.psu.edu/stat462/node/247/">check</a>%% 学生化残差的计算公式为： <span class="arithmatex">\(<span class="arithmatex">\(t_i=\frac{y_i-\hat{y}_{(i)}}{\text{std}(y_i-\hat{y}_{(i)})}=\frac{y_i-\hat{y}_i}{\sqrt{\text{MSE}_{(i)}}}(1-h_{ii})\)</span>\)</span> 其中 <span class="arithmatex">\(\hat{y}_{i}\)</span> 表示删除掉 <span class="arithmatex">\(y_i\)</span> 拟合得到的线性模型对于 <span class="arithmatex">\(y_i\)</span> 的估计， <span class="arithmatex">\(\text{MSE}_{(i)}\)</span> 表示去掉 <span class="arithmatex">\(y_i\)</span> 之后计算得到的 <span class="arithmatex">\(\text{MSE}\)</span> . <span class="arithmatex">\(h_{ii}\)</span> 表示杠杆率. #imcomplete %%<a href="https://en.wikipedia.org/wiki/Leverage_(statistics)#:~:text=is%20the%20number%20of%20independent,i.e.%2C%20to%20be%20influential%20points.">check</a>%% 一般来说 <span class="arithmatex">\(|t_i|&gt;3\)</span> 时可以认为是离群值. ^Outliers</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># compute studentized residuals</span>
+<span class="nf">rstudent</span><span class="p">(</span><span class="n">lm.fit</span><span class="p">)</span>
+
+<span class="nf">par</span><span class="p">(</span><span class="n">mfrow</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="m">2</span><span class="p">,</span><span class="m">1</span><span class="p">))</span>
+<span class="nf">plot</span><span class="p">(</span><span class="nf">predict</span><span class="p">(</span><span class="n">lm.fit</span><span class="p">),</span><span class="w"> </span><span class="n">lm.fit</span><span class="o">$</span><span class="n">residuals</span><span class="p">)</span>
+<span class="nf">plot</span><span class="p">(</span><span class="nf">predict</span><span class="p">(</span><span class="n">lm.fit</span><span class="p">),</span><span class="w"> </span><span class="nf">rstudent</span><span class="p">(</span><span class="n">lm.fit</span><span class="p">))</span>
+</code></pre></div>
+<p>一般来说（数据量较大时）占比例较少的离群值不会对模型拟合造成过大影响. 但是对于其他的统计量如<a href="#^RSE">残余标准偏差</a>的计算会造成影响，进而影响<a href="#^SE">标准误差</a>的计算，进而影响置信区间的计算（去除异常值后计算偏大）</p>
+<h2 id="imcomplete-delete-residuals">imcomplete Delete Residuals %%数据量较少时可以用%%<a class="headerlink" href="#imcomplete-delete-residuals" title="Permanent link">&para;</a></h2>
+<p>离群值可能是异常点，但另一方面也可能是模型自身的缺陷造成的，例如缺少预测因子.</p>
+<h4 id="_21">高杠杆点<a class="headerlink" href="#_21" title="Permanent link">&para;</a></h4>
+<p>离群值指的是响应与其他数据的响应区别大的情况，<strong>高杠杆点</strong>（high leverage points）则指的是预测因子一场的值. 高杠杆点相对于离群值会对模型的拟合结果造成更大的影响. ^HighLeveragePoints</p>
+<p>对于单变量线性回归，高杠杆点非常容易识别，只需要观察预测因子是否与大部分预测因子偏离即可. 对于多变量线性回归则不能这样做. 计算<strong>杠杆统计量</strong>（leverage statistic） <span class="arithmatex">\(<span class="arithmatex">\(h_i=\frac{1}{n}+\frac{(x_i-\bar{x})^2}{\sum_{j=1}^{n}(x_{j}-\bar{x})^2}\)</span>\)</span> 该统计量具有的性质： <span class="arithmatex">\(<span class="arithmatex">\(\begin{aligned}
+&amp;h_i\in[\frac{1}{n},1]\\
+&amp;\text{Avg}(h_i)=\frac{p+1}{n}
+\end{aligned}\)</span>\)</span> #issue %%p?%%</p>
+<p>可以绘制 <span class="arithmatex">\(t_i\sim h_i\)</span> 用学生化残差和杠杆统计量以检测离群值和高杠杆点. #implementation %%确切的算法实现%%</p>
+<h4 id="_22">协线性<a class="headerlink" href="#_22" title="Permanent link">&para;</a></h4>
+<p><strong>协线性</strong>（collinearity）指的是两个或多个特征之间具有强关联性. e.g. <span class="arithmatex">\(\beta_1=c-\beta_0\)</span></p>
+<p>可以绘制等高线图 <span class="arithmatex">\(\text{RSS}\sim (\beta_i,\beta_j)\)</span> 来观察协线性造成的影响. 如果 <span class="arithmatex">\(\beta_i,\beta_j\)</span> 对应的 <span class="arithmatex">\(X_i,X_j\)</span> 没有协线性，则绘制得到的等高线图比较平滑——在相同的 <span class="arithmatex">\(\text{RSS}\)</span> 下， <span class="arithmatex">\(\beta_i\)</span> 的变换对应的 <span class="arithmatex">\(\beta_j\)</span> 的变化比较平滑，从而容易判断参数的范围（考虑进标准误差，结合等高线图几乎可以锁定参数的范围）；而若 <span class="arithmatex">\(\beta_i, \beta_j\)</span> 具有协线性，则等高线图很窄， <span class="arithmatex">\(\beta_i\)</span> 的变化会引起 <span class="arithmatex">\(\beta_j\)</span> 的大幅度变化，很难估计参数范围. #issue %%FIGURE 3.15 这个例子，是会引起几倍的变化，但是也呈现出很强的线相关，怎么就不能估计了？尝试从参数的置信区间考虑这个问题，但是还是看不出来为什么不能允许参数出现明显的线性%%</p>
+<p>协线性会造成对于参数的标准误差的估计增大. <a href="#^TStatistic">t-统计量</a>的估计则会减小，因此很有可能会拒绝对于该参数的零假设. （参数的统计显著性，e.g. <span class="arithmatex">\(p\)</span> 值、 <span class="arithmatex">\(t-\)</span> 统计量，因为协线性而降低.）</p>
+<p>为了判断协线性，可以观察<strong>协相关矩阵</strong>（correlation matrix）. 根据协相关矩阵中的元素的绝对值大小判断相应预测因子之间是否存在协线性. 而对于两个以上的预测因子之间存在协线性的情况（<strong>多协线性</strong>，multicolinearity），可以计算<strong>方差膨胀因子</strong>（variance inflation factor, <span class="arithmatex">\(\text{VIF}\)</span>），其表示的是拟合整个模型时 <span class="arithmatex">\(\beta_j\)</span> 的方差除以只采用 <span class="arithmatex">\(X_j\)</span> 作为拟合模型中的预测因子时得到的 <span class="arithmatex">\(\beta_j\)</span> 的方差. #issue %%the ratio of the variance of <span class="arithmatex">\(\beta_j\)</span> when fitting the full model divided by the variance of <span class="arithmatex">\(\beta_j\)</span> if fit on its own%% <span class="arithmatex">\(\text{VIF}\)</span> 可以通过以下公式计算： <span class="arithmatex">\(<span class="arithmatex">\(\text{VIF}(\beta_j)=\frac{1}{1-R^2_{X_j \,|\,X_{-j}}}\)</span>\)</span> 其中 <span class="arithmatex">\(R^2_{X_j \,|\, X_{-j}}\)</span> 表示拟合 <span class="arithmatex">\(X_j\sim X\backslash X_j\)</span> 得到的线性回归模型计算得到的<a href="#^R2">R^2统计量</a>，如果 <span class="arithmatex">\(R^2_{X_j \,|\,X_{-j}}\)</span> 接近于 <span class="arithmatex">\(1\)</span> 则存在协线性. 一般 <span class="arithmatex">\(\text{VIF}\)</span> 超过 <span class="arithmatex">\(5\)</span> 或者 <span class="arithmatex">\(10\)</span> 时可认为存在协线性.</p>
+<h3 id="k">与K近邻算法比较<a class="headerlink" href="#k" title="Permanent link">&para;</a></h3>
+<p>线性回归是一种<strong>参数方法</strong>（parametric approach），具有较好的可解释性（只有几个参数），也容易进行显著性检验（还是，只有几个参数）.  但是参数方法主观地估计了 <span class="arithmatex">\(f(X)\)</span> ，或者说用模型逼近 <span class="arithmatex">\(f(X)\)</span> ，如果选择的模型表示能力不足，则欠拟合；如果选择的模型表示能力过强，则可能将误差项 <span class="arithmatex">\(\epsilon\)</span> 也一并拟合，即过拟合.</p>
+<p><strong>非参数方法</strong>（non-parametric approach）并不给出 <span class="arithmatex">\(f(X)\)</span> 的具体形式. <strong>K近邻算法</strong>（K-nearest neighbors regression, KNN regression）接受距离度量函数 <span class="arithmatex">\(d\)</span> , <span class="arithmatex">\(K\)</span> 和 待预测点 <span class="arithmatex">\(x_0\)</span> ，首先依据 <span class="arithmatex">\(d\)</span> 计算与 <span class="arithmatex">\(x_0\)</span> 最接近的 <span class="arithmatex">\(K\)</span> 个点，记点集合为 <span class="arithmatex">\(N_0\)</span> ，从而给出预测： <span class="arithmatex">\(<span class="arithmatex">\(\hat{f}(x_0)=\frac{1}{K}\sum\limits_{x_i\in N_0}^{}y_i\)</span>\)</span></p>
+<p>其中 <span class="arithmatex">\(K\)</span> 值的选择需要考虑<a href="#回归：MSE">偏差-方差</a>，可以画出 <span class="arithmatex">\(\text{MSE}\sim \frac{1}{K}\)</span>，选取合适的 <span class="arithmatex">\(K\)</span> 值.</p>
+<p>KNN在低维情形情况下（尤其是非线性情形）一般拟合得比线性回归要好. 高维情形下KNN的表现不如线性回归. 经验上，参数方法在数据量较小的情况下比非参数方法拟合效果好.</p>
+<p>统计模型在高维情形下表现明显低于低维的情况称为<strong>维数灾难</strong>（curse of dimensionality）. 对于高维情形，KNN中计算得到的近邻点实际上可能非常远，从而造成很差的拟合效果. ^CurseOfDimensionality</p>
+<p>此外，如果目的是<a href="#监督学习假设及概念">推断</a>，一般会舍弃一些拟合较好的非参数方法，用参数方法. %%传统的深度学习模型也算是参数方法吧，但也没什么可解释性%%</p>
+<h3 id="lab">Lab<a class="headerlink" href="#lab" title="Permanent link">&para;</a></h3>
+<p><a href="../../Cookbooks/R-Cookbook/#linear-regression">R-Cookbook#Linear Regression</a></p>
+<h2 id="_23">分类<a class="headerlink" href="#_23" title="Permanent link">&para;</a></h2>
+<p>在<a href="#变量不是连续值">#变量不是连续值</a>中已经提到了预测因子是离散值的情形，现在讨论响应是离散值的情形. 一般称离散响应为<strong>类别</strong>（categorical）. 一般情况下，在进行分类之间会先给出是某一响应的概率，因此也可以尝试用回归的方法处理分类.</p>
+<p>常用的分类器有：<strong>逻辑斯蒂回归</strong>（logistic regression），<strong>线性判别分析</strong>（linear discriminnant analysis），<strong>二次判别分析</strong>（quadratic discriminant analysis），<strong>朴素贝叶斯</strong>（naive Bayes），以及KNN.</p>
+<p>不采用线性回归，主要原因是类别之间没有明显的“序”的关系，无从谈起大小，即使有序，也很难量化序之间的差异. 而对于一个二元的情形，在<a href="#变量不是连续值">#变量不是连续值</a>中提到了用线性回归的方案. 但是线性回归并不具备可解释性，线性回归的预测结果不是概率 <span class="arithmatex">\(\text{Pr}(Y|X)\)</span> ，只是数值.</p>
+<h3 id="_24">评价方法<a class="headerlink" href="#_24" title="Permanent link">&para;</a></h3>
+<p>独立抽样：获得独立测试集；</p>
+<p>交叉验证：留一交叉验证（注意每一次都训练一个新的模型）；多倍交叉验证；</p>
+<p>准确率的计算： <span class="arithmatex">\(<span class="arithmatex">\(\frac{TP+TN}{TP+TN+FP+FN}\)</span>\)</span> </p>
+<p>准确率可能会产生误导效果.</p>
+<p>混淆矩阵：</p>
+<ul>
+<li>真阳率 / 灵敏度 / 查全率（recall）： <span class="arithmatex">\(TPR=TP/(TP+FN)\)</span> ；</li>
+<li>真阴率： <span class="arithmatex">\(TNR=TN/(TN+FP)\)</span> ；</li>
+<li></li>
+</ul>
+<p>精确率（precision ，查准率） <span class="arithmatex">\(<span class="arithmatex">\(\text{precision}=\frac{TP}{TP+FP}\)</span>\)</span></p>
+<p>举例（用条图可视化）</p>
+<h4 id="roc">ROC 曲线<a class="headerlink" href="#roc" title="Permanent link">&para;</a></h4>
+<p>设置各个阈值 <span class="arithmatex">\(P(+|A)\)</span> 并计算 <span class="arithmatex">\(FPR,TPR\)</span> 绘制 <span class="arithmatex">\(ROC\)</span> 曲线. 然后计算面积 <span class="arithmatex">\(AUC\)</span> . 理想的情况为 <span class="arithmatex">\(1\)</span> （ROC曲线非常靠近左上角）</p>
+<h2 id="implementation">implementation<a class="headerlink" href="#implementation" title="Permanent link">&para;</a></h2>
+<p><span class="arithmatex">\(PRC\)</span> (precision recall curve)</p>
+<p><span class="arithmatex">\(\text{auPRC}\)</span> (area under PRC)</p>
+<p>其他评价指标： F1-Score (precision 和 recall 的调和平均值)</p>
+<h3 id="_25">邻近度<a class="headerlink" href="#_25" title="Permanent link">&para;</a></h3>
+<p><strong>邻近度</strong>（）是数据挖掘任务（KNN ，聚类，关联分析等）中非常重要的概念，很多描述性算法 / 推断任务都建立在邻近度的基础上.</p>
+<p>直观上想，邻近度似乎等同于<a href="../GTopo/#度量空间">拓扑</a>中在 <span class="arithmatex">\(\mathbb{R}^n\)</span> 上定义的度量概念，但并非总是如此. 首先</p>
+<h3 id="_26">分类为什么分不准？<a class="headerlink" href="#_26" title="Permanent link">&para;</a></h3>
+<p>分类中训练集、模型两个要素的选择都会造成很大影响. 在之前的<a href="#监督学习假设及概念">假设</a>的基础上，分类分布准等同于 <span class="arithmatex">\(\hat{f}\)</span> 无法拟合 <span class="arithmatex">\(f\)</span> .</p>
+<ul>
+<li>训练集不具有代表性：就训练集 <span class="arithmatex">\(D\)</span> 而言， <span class="arithmatex">\(D\)</span> 中的特征可能并不是最能 / 完全能反映标签的，不可避免的，有一些对标签起显著影响的<strong>隐变量</strong>（latent）没有被包括在内；此外 <span class="arithmatex">\(D\)</span> 的大小如果过小，可能使得模型无法捕捉到变量和标签之间的关系；训练集中还含有部分噪声（测量误差、由隐变量造成的误差）；以上因素都会造成模型欠拟合或者过拟合.<ul>
+<li>训练集缺失代表性的又一种可能性是针对某种特定类别的样本发挥很差（该类别的样本数量可能很少），建议采用<strong>桑基图</strong>可视化分类情况，以确定没有被正确分类的样本的类别.</li>
+</ul>
+</li>
+<li>模型本身表示能力：一般称模型的复杂度都是指参数. #issue 如果模型的参数过多，一种情况是训练集大小不足，模型欠拟合，另一种情况是模型直接过拟合（参考，多项式式拟合线性，完美通过每一个点）；如果模型的参数过少，可能欠拟合真实函数；</li>
+<li>除了训练集和模型本身的问题之外，还有一种可能是真实函数本身也不存在 / 随机程度超出理解，比如天气预报；</li>
+</ul>
+<p>可以通过[特征构造]以及[数据降维]获取一个相对更具有代表性的数据集. #imcomplete 而对于模型的构造，现有的模型一般从两个思路方面出发：1) 建立<strong>概率分类模型</strong>，推测给定的样本属于某类的概率 / 置信. （比如下面的朴素贝叶斯） 2) 建立拟合模型，在大容量且高质量训练集的基础上上模型尽可能的拟合真实函数. （比如下面的 logistic 回归）</p>
+<h4 id="_27">模型过拟合<a class="headerlink" href="#_27" title="Permanent link">&para;</a></h4>
+<p>训练误差、泛化误差.</p>
+<p>泛化误差高的原因：噪声、训练集太小 / 缺乏代表性样本.</p>
+<p>验证集：从训练集（已经有标签的数据集）中抽出一部分用于测试，也是交叉验证的思想.</p>
+<h3 id="_28">逻辑斯蒂回归<a class="headerlink" href="#_28" title="Permanent link">&para;</a></h3>
+<p>考虑类别只有两种的情况，用 <span class="arithmatex">\(0,1\)</span> 代替（只是符号表示）. 定义 <span class="arithmatex">\(p(X)=\text{Pr}(Y=1|X)\)</span>. <strong>逻辑斯蒂函数</strong>（logistic function）定义为： <span class="arithmatex">\(<span class="arithmatex">\(p(X)=\frac{e^{\beta_0+\beta_1X}}{1+e^{\beta_0+\beta_1X}}\)</span>\)</span></p>
+<p>为拟合模型，采取<strong>极大似然估计</strong>（maximum likelihood）. 即为取使得事件最有可能发生的参数： <span class="arithmatex">\(<span class="arithmatex">\((\beta_0,\beta_1)=\arg\max \text{Pr}(Y|X,T)\)</span>\)</span> 其中 <span class="arithmatex">\(T\)</span> 为数据集， <span class="arithmatex">\(<span class="arithmatex">\(\begin{aligned}
+\text{Pr}(Y|X,T)&amp;=\text{Pr}(y_1,\cdots,y_N|x_1,\cdots,x_N)\\
+&amp;=\prod_{i=1}^{N}\text{Pr}(y_i|x_i)\\
+&amp;=\prod_{i=1}^{N}\left[\frac{e^{\beta_0+\beta_1x_i}}{1+e^{\beta_0+\beta_1x_i}}\right]^{y_i}\left[\frac{1}{1+e^{\beta_0+\beta_1x_i}}\right]^{1-y_i}
+\end{aligned}\)</span>\)</span></p>
+<p>注意到： <span class="arithmatex">\(<span class="arithmatex">\(\frac{p(X)}{1-p(X)}=e^{\beta_0+\beta_1X}\)</span>\)</span> 称其为 <strong>赔率</strong>（odds），又： <span class="arithmatex">\(<span class="arithmatex">\(\log\left(\frac{p(X)}{1-p(X)}\right)=\beta_0+\beta_1X\)</span>\)</span> 称为<strong>log赔率</strong>（log odds）或者<strong>logit</strong>. </p>
+<p>logistic回归也有较强的可解释性，对于上面的赔率，观察到 <span class="arithmatex">\(X\)</span> 增加一个单位，赔率将增加 <span class="arithmatex">\(\beta_1\)</span> 个单位，而logit则乘以 <span class="arithmatex">\(e^{\beta_1}\)</span> 个单位. <span class="arithmatex">\(\beta_1&gt;0\)</span> 时， <span class="arithmatex">\(p(X)\)</span> 随着 <span class="arithmatex">\(X\)</span> 的增加非线性增加.</p>
+<p>也可以对于Logistic回归进行零假设检验，计算 <span class="arithmatex">\(z-\)</span> 统计量即可. 其计算公式与 <span class="arithmatex">\(t-\)</span> 统计量一样： <span class="arithmatex">\(\frac{\beta_1}{\text{SE}(\beta_1)}\)</span> ，这里如果零假设成立，则 <span class="arithmatex">\(p(X)=\frac{e^{\beta_0}}{1+e^{\beta_0}}\)</span> .</p>
+<p>下面考虑多变量情形： <span class="arithmatex">\(<span class="arithmatex">\(\begin{aligned}
+&amp;\log\left(\frac{p(X)}{1-p(X)}\right)=\beta_0+\beta_1X_1+\cdots+\beta_dX_d\\
+&amp;p(X)=\frac{e^{\beta_0+\beta_1X_1+\cdots+\beta_dX_d}}{1+e^{\beta_0+\beta_1X_1+\cdots+\beta_dX_d}}
+\end{aligned}\)</span>\)</span> 仍然采取极大似然估计参数.</p>
+<p>ISLRv2中的TABLE 4.2, TABLE 4.3举了一个“矛盾”的例子. 对于哑变量 <span class="arithmatex">\(X_k\)</span> ，观察到在单变量Logistic和多变Logistic中其对应的 <span class="arithmatex">\(p\)</span> 值都很小，因此可以拒绝零假设，但是对应的系数分别为正数和负数， <span class="arithmatex">\(X_k\)</span> 对于 <span class="arithmatex">\(p(X)\)</span> 的影响在两种情形下相反. 就 FIGURE 4.3 可以观察到是怎么回事：多变量Logistic中 <span class="arithmatex">\(X_k\)</span> 对应的系数的含义是在其他变量固定的情况下 <span class="arithmatex">\(X_k\)</span> 的变化（取两种情况之一）对于 <span class="arithmatex">\(p(X)\)</span> 造成的影响；单变量Logistic中 <span class="arithmatex">\(X_k\)</span> 则未考虑到这一影响（在FIGURE 4.3右侧图更直观的体现了单变量的局限性：忽略了来自其他多变量的信息）. <strong>在实际应用中</strong>，如果其他相关的变量的信息没有给出，那么应当采取单变量Logistic，否则考虑多变量Logistic. 多变量和单变量情形下的结果（或解释）不同的现象称为<strong>混淆</strong>（confounding） ^Confounding</p>
+<h4 id="softmax">多分类逻辑斯蒂回归 &amp; Softmax<a class="headerlink" href="#softmax" title="Permanent link">&para;</a></h4>
+<p>下面考虑响应具有两个以上值的情况. 假设总共有 <span class="arithmatex">\(K\)</span> 个可取值，不妨记为： <span class="arithmatex">\(1,2,\cdots,K\)</span> . <strong>多分类逻辑斯蒂回归</strong>（multinomial logistic regression）的形式为： <span class="arithmatex">\(<span class="arithmatex">\(\text{Pr}(Y=k|X)=\left\{\begin{aligned}
+&amp;\frac{e^{\beta_{k0}+\beta_{k1}X_1+\cdots+\beta_{kd}X_d}}{1+\sum_{j=1}^{K-1}e^{\beta_{j0}+\beta_{j1}X_1+\cdots+\beta_{jd}X_d}},k=1,\cdots,K-1\\
+&amp;\frac{1}{1+\sum_{j=1}^{K-1}e^{\beta_{j0}+\beta_{j1}X_1+\cdots+\beta_{jd}X_d}},k=K
+\end{aligned}\right.\)</span>\)</span> 并且有： <span class="arithmatex">\(<span class="arithmatex">\(\log\left(\frac{\text{Pr}(Y=k|X)}{\text{Pr}(Y=K|X)}\right)=\beta_{k0}+\beta_{k1}X_1+\cdots+\beta_{kd}X_d\)</span>\)</span> 其中 <span class="arithmatex">\(k=1,2,\cdots,K-1\)</span> . 上述使用 <span class="arithmatex">\(\text{Pr}(Y=K|X)\)</span> 作为基准线，其具体的值并不重要. 关注logit即可. </p>
+<p><strong>Softmax</strong>是logistic的一种替代方法： <span class="arithmatex">\(<span class="arithmatex">\(\begin{aligned}
+&amp;\text{Pr(Y=k|X)}=\frac{e^{\beta_{k0}+\beta_{k1}X_1+\cdots+\beta_{kd}X_d}}{\sum_{j=1}^{K}e^{\beta_{j0}+\beta_{j1}X_1+\cdots+\beta_{jd}X_d}},k=1,\cdots,K\\
+&amp;\log\left(\frac{\text{Pr}(Y=k|X)}{\text{Pr}(Y=k'|X)}\right)=(\beta_{k0}-\beta_{k'0})+\cdots+(\beta_{kd}-\beta_{k'd})X_d
+\end{aligned}\)</span>\)</span></p>
+<h3 id="_29">广义分类模型<a class="headerlink" href="#_29" title="Permanent link">&para;</a></h3>
+<p>之前直接估计给定预测因子下响应的概率分布 <span class="arithmatex">\(\text{Pr}(Y|X=x)\)</span> . 就Logistic回归本身而言：当不同类别之间存在较大差异时，估计得到的参数将会很不稳定. #issue %%结论，和极大似然估计有关？另外什么是存在巨大差异？substantial seperation P152%%</p>
+<p>广义分类模型考虑估计概率密度函数 <span class="arithmatex">\(f_k(x)=\text{Pr}(X=x|Y=k)\)</span> ，然后根据<strong>贝叶斯定理</strong>（Bayesian theorem）计算得到 <span class="arithmatex">\(<span class="arithmatex">\(\begin{aligned}
+\text{Pr}(Y=k|X=x)&amp;=\frac{\text{Pr}(X=x|Y=k)\text{Pr}(Y=k)}{\text{Pr}(X=x)}\\
+&amp;=\frac{\text{Pr}(X=x|Y=k)\text{Pr}(Y=k)}{\sum_{j=1}^{K}\text{Pr}(Y=j)\text{Pr}(X=x|Y=j)}\\
+&amp;=\frac{f_k(x)\pi_k}{\sum_{j=1}^{K}\pi_jf_j(x)}
+\end{aligned}\)</span>\)</span> 称 <span class="arithmatex">\(\pi_k=\text{Pr}(Y=k)\)</span> 为<strong>先验概率</strong>（prior probability）， <span class="arithmatex">\(f_k(x)=\text{pr}(Y=k|X=x)\)</span> 为<strong>后验概率</strong>（posterior probability）. 计算完概率分布函数 <span class="arithmatex">\(f_k(x)\)</span> ，根据贝叶斯分类法即可进行预测）</p>
+<p>下面考虑如何对于先验和后验概率进行估计.</p>
+<h4 id="_30">线性判别分析<a class="headerlink" href="#_30" title="Permanent link">&para;</a></h4>
+<p><strong>线性判别分析</strong>对于同一类别的样本做正态分布假设 <span class="arithmatex">\(f_k(x)=\frac{1}{\sqrt{2\pi}\sigma_k}\exp\left(-\frac{(x-\mu_k)^2}{2\sigma_k^2}\right)\)</span> . 一般更简单地假设 <span class="arithmatex">\(\sigma_1=\sigma_2=\cdots=\sigma_K\)</span> .</p>
+<p>带入上式可得： <span class="arithmatex">\(<span class="arithmatex">\(\text{Pr}(Y=k|X=x)=\frac{\pi_k\frac{1}{\sqrt{2\pi} \sigma_k}\exp\left(-\frac{(x-\mu_k)^2}{2\sigma_k^2}\right)}{\sum_{i=1}^{K}\pi_k\frac{1}{\sqrt{2\pi}\sigma_i}\exp\left(-\frac{(x-\mu_i)^2}{2\sigma_i^2}\right)}\)</span>\)</span> 注意到只需要分子，取 <span class="arithmatex">\(\log\)</span> ，忽略常数： <span class="arithmatex">\(<span class="arithmatex">\(-\frac{x^2}{2\sigma_k^2}+\frac{\mu_k}{\sigma_k^2}x-\frac{\mu_k^2}{2\sigma_k^2}+\log \pi_k\)</span>\)</span> 如果假设 <span class="arithmatex">\(\sigma_1=\sigma_2=\cdots=\sigma_K=\sigma\)</span> ，则只需要考虑： <span class="arithmatex">\(<span class="arithmatex">\(\frac{\mu_k}{\sigma^2}x-\frac{\mu_k^2}{2\sigma^2}+\log \pi_k\)</span>\)</span> 只与 <span class="arithmatex">\(x\)</span> 呈线性关系，因此称线性判别分析. </p>
+<p>下面考虑只有两个类别（ <span class="arithmatex">\(0,1\)</span> ）的情况，可以得到决策界：</p>
+<h3 id="k_1">K 近邻<a class="headerlink" href="#k_1" title="Permanent link">&para;</a></h3>
+<p>惰性学习：直到测试时才进行训练和分类；</p>
+<p>K 近邻算法中的调参问题： <span class="arithmatex">\(k\)</span> 的取值，如何刻画近邻（确定度量），如何确定最终标签.</p>
+<p>进行（留一）交叉验证：依次取 <span class="arithmatex">\(k\)</span> 值，对于任何一个已经有标签的点再次进行预测，比较正确率； <span class="arithmatex">\(k\)</span> 值较大模型简单，欠拟合； <span class="arithmatex">\(k\)</span> 值较小模型复杂，受噪声影响较大.</p>
+<h3 id="_31">决策树<a class="headerlink" href="#_31" title="Permanent link">&para;</a></h3>
+<p>Dependencies: <a href="../DSA/#树">树的定义</a>.</p>
+<p>决策树对于整个数据集进行多轮<u>有依赖的</u>划分（本轮分类是在上一轮分类上进行的），训练决策树即是找出最好的划分条件.</p>
+<p>决策树算法中有几个关键元素：</p>
+<ul>
+<li><strong>测试节点</strong>（也就是<strong>分支结点</strong>）：基于一个或者多个属性对数据进行划分（e.g. 二元属性的 yes / no，连续属性的区间）</li>
+<li><strong>叶结点</strong>；标签.</li>
+</ul>
+<p>Hunt 算法：（采用贪心算法构建决策树，局部最优）</p>
+<p>步骤：</p>
+<p>1) 若 <span class="arithmatex">\(D_t\)</span> 中的所有记录都属于同一类，则记 <span class="arithmatex">\(t\)</span> 为叶结点，用 <span class="arithmatex">\(v\)</span> 表示；</p>
+<p>为不同类型的属性指定测试条件：多路划分 / 二元划分</p>
+<p>决策树算法：测试节点、分支、叶子；</p>
+<p>Hunt 算法：（采用贪心算法构建决策树，局部最优）</p>
+<p>步骤：</p>
+<p>1) 若 <span class="arithmatex">\(D_t\)</span> 中的所有记录都属于同一类，则记 <span class="arithmatex">\(t\)</span> 为叶结点，用 <span class="arithmatex">\(v\)</span> 表示；</p>
+<p>为不同类型的属性指定测试条件：多路划分 / 二元划分</p>
+<p>确定决策树的最佳划分：纯度应该较高（可以用熵值度量）</p>
+<p>采取<strong>信息增益算法</strong>，经过分类之后得到的信息量减去原始数据的信息量；</p>
+<p>GINI 度量，计算被分为某类的概率；</p>
+<p><strong>分类误差</strong>（classification error）</p>
+<p><strong>增益率</strong>（gain ratio）</p>
+<p><strong>剪枝</strong>： </p>
+<ul>
+<li>
+<p>预剪枝：对于信息增益如 Gini 指标低于阈值或者元素数量低于阈值时停止划分. 但可能导致欠拟合.</p>
+</li>
+<li>
+<p>后剪枝：在生成决策树之后删除节点（转化为叶结点）计算开销大；</p>
+</li>
+</ul>
+<details class="question">
+<summary><strong>冗余</strong>属性是否会对决策树的效果造成影响？</summary>
+<p>不会，在特征筛选阶段就排除了.</p>
+<p>如果把冗余属性算进去呢？</p>
+</details>
+<details class="warning">
+<summary>决策树不能学习特征之间的相关性.</summary>
+<p>这里要硬说能学习我觉得也可以，对于具有 <span class="arithmatex">\(k\)</span> 个属性的数据集，每一次用一个属性训练一个决策树，然后再比对不同决策树分类的相似度. （但似乎只是相关性的必要条件？） #imcomplete </p>
+</details>
+<h4 id="_32">度量局部划分优劣<a class="headerlink" href="#_32" title="Permanent link">&para;</a></h4>
+<p>决策树的优劣直接根据分类结果的精确率或者<a href="#评价方法">#评价方法</a>即可得到. 而依照贪心算法，在每一层的划分中都需要度量局部划分的好坏.</p>
+<p>采取<strong>信息增益算法</strong>，经过分类之后得到的信息量减去原始数据的信息量；</p>
+<p><strong>基尼度量</strong>（GINI），计算被分为某类的概率；</p>
+<p><strong>分类误差</strong>（classification error）</p>
+<p><strong>增益率</strong>（gain ratio）</p>
+<h4 id="_33">剪枝<a class="headerlink" href="#_33" title="Permanent link">&para;</a></h4>
+<p>决策树很有可能产生过拟合，例如对于一个大小为 <span class="arithmatex">\(n\)</span> 的数据集，完全可以构造出一个深度为 <span class="arithmatex">\(n\)</span> 的决策树以实现正确分类 #imcomplete-whatever ，但不可能具备泛化能力.</p>
+<p>决策树用剪枝处理以降低树的复杂度：</p>
+<p><strong>预剪枝</strong>：对于信息增益如 Gini 指标低于阈值或者元素数量低于阈值时停止划分. 但可能导致欠拟合.</p>
+<p><strong>后剪枝</strong>：在生成决策树之后删除节点（转化为叶结点）计算开销大；</p>
+<h4 id="_34">随机森林<a class="headerlink" href="#_34" title="Permanent link">&para;</a></h4>
+<p><strong>随机森林</strong>是集成学习中 <a href="#bagging">#Bagging</a> 的一个例子.</p>
+<p>随机森林中的“随机”有两层含义， 1) 行随机：选取数据集的子集时随机；2) 列随机：选取数据集的特征时随机.</p>
+<h3 id="_35">朴素贝叶斯<a class="headerlink" href="#_35" title="Permanent link">&para;</a></h3>
+<p>朴素贝叶斯就是上面提到的<a href="#分类为什么分不准？">概率分类模型</a>，最简单并且被广泛使用和拓展.</p>
+<h3 id="_36">支持向量机<a class="headerlink" href="#_36" title="Permanent link">&para;</a></h3>
+<p><strong>支持向量机</strong>（support vector machine, SVM）试图选取最优的<a href="../Opt/#^SeperateHyperplane">分离超平面</a>，此处所定义的“最优”指的是距离不同类别的数据点的平均距离最大.</p>
+<p>首先定义<strong>决策超平面</strong>： <span class="arithmatex">\(w^Tx+b=0\)</span> ；假设有超平面 <span class="arithmatex">\(w^Tx+b=-1,w^Tx+b=1\)</span> ，分别对应于负样本和正样本，这两个超平面的<strong>间隔</strong>（gap）为 <span class="arithmatex">\(G=\frac{2}{\Vert w\Vert}\)</span> ，问题即转化为最小化 <span class="arithmatex">\(\Vert w\Vert\)</span> . 此外还需要满足约束： <span class="arithmatex">\(y_i(w^Tx_i+b)&gt;=1\)</span> ；该问题为<strong>凸二次规划</strong> #imcomplete ；可以将限制条件转换为一个<strong>惩罚项</strong>（penalty term）： </p>
+<div class="arithmatex">\[\alpha_i(1-y_i(w^Tx_i+b))\]</div>
+<p>其中 <span class="arithmatex">\(\alpha_i\)</span> 是拉格朗日乘子 #issue .</p>
+<p>以上讨论的是二分类问题，可以用二分类器构造多分类器： 将 <span class="arithmatex">\(k\)</span> 类数据两两组合，构建出 <span class="arithmatex">\(k(k-1)/2\)</span> 个支持向量机；或者每一次固定一个类别（属于该类别和不属于该类别），构建 <span class="arithmatex">\(k\)</span> 个支持向量机； #imcomplete</p>
+<p>非线性 SVM 和核函数：特征维度的提高可以提高可分性，因为最终关心的只有内积，只需要假设内积的形式 <span class="arithmatex">\(z_i^Tz_j=K(x_i,x_j)\)</span> ，这即是<strong>核函数</strong>（kernel function）.</p>
+<p>软间隔的 C-SVM : 引入<strong>松弛变量</strong> <span class="arithmatex">\(\xi\)</span> ， C 值较小（大）时，松弛变量大（小），样本误分较多（少），泛化能力强（若）； #issue</p>
+<h3 id="_37">集成学习<a class="headerlink" href="#_37" title="Permanent link">&para;</a></h3>
+<p><strong>集成学习</strong>（emsemble learning）组合多个弱分类器以获取一个更好的分类器. </p>
+<p>集成学习采取<strong>投票</strong>的方式进行分类：假设有 <span class="arithmatex">\(m\)</span> 个的弱分类器，考虑最简单的情形：每个弱分类器分类错误的<u>概率</u>为 <span class="arithmatex">\(r\)</span> ，则集成后获得的分类器（按照无加权投票）的分类错误的概率为：</p>
+<div class="arithmatex">\[p=\sum\limits_{\lfloor i=(m+1)/2\rfloor}^{m}\binom{m}{i}r^i(1-r)^{m-i}\]</div>
+<p>因此，每一个弱分类器的分类精确度应该大于 <span class="arithmatex">\(0.5\)</span> ，才能够保证分类器的精确度超过 <span class="arithmatex">\(r\)</span> . 证明：注意到 <span class="arithmatex">\(p\)</span> 关于 <span class="arithmatex">\(r\)</span> 单调递增，若 <span class="arithmatex">\(m=2k+1\)</span> ，取 <span class="arithmatex">\(r=0.5\)</span> 时， <span class="arithmatex">\(p=0.5\)</span> . #imcomplete </p>
+<p>此外注意，上述讨论的只是单个分类器的分类精确度对于分类器的影响. 单分类器之间也应当具有差异性（否则，考虑完全一致的弱分类器，组合是没有意义的）.</p>
+<p>集成学习分为两个阶段：训练弱分类器和集成.</p>
+<p>为了保证弱分类器之间具有差异性，需要对于数据集进行采样（大小） / 划分（特征），用不同的子数据集训练弱分类器；为保证弱分类器具有较高的分类精度，需要在大小和划分上调整参数.</p>
+<p>一般，用于每个弱分类器的特征数量越少，弱分类器的相关性就越小，但同时弱分类器的分类精度也可能降低. </p>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>Bagging</th>
+<th>Boosting</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>采样方法</td>
+<td>均匀采样</td>
+<td>根据错误率采样</td>
+</tr>
+<tr>
+<td>采样偏好</td>
+<td>随机选取</td>
+<td>与学习结果有关</td>
+</tr>
+<tr>
+<td>是否加权</td>
+<td>无权重</td>
+<td>有权重</td>
+</tr>
+<tr>
+<td>是否容易过拟合</td>
+<td>不易</td>
+<td>容易（对噪声敏感）</td>
+</tr>
+</tbody>
+</table>
+<h4 id="bagging">Bagging<a class="headerlink" href="#bagging" title="Permanent link">&para;</a></h4>
+<p><strong>Bagging</strong> 对于数据集进行有放回的重采样，以使得用于弱分类器的数据集有一定重合.</p>
+<p>Bagging 的一个应用即为 <a href="#随机森林">#随机森林</a></p>
+<h4 id="boosting">Boosting<a class="headerlink" href="#boosting" title="Permanent link">&para;</a></h4>
+<p>Boosting: 对于分类错误的样本加以关注（权重增加），获得多个针对特定错误样本的分类器. </p>
+<p>样本权重：根据权值对数据进行抽样；</p>
+<p>核心思想：没有先验知识时，所有的样本都是等概率分布.</p>
+<p>AdaBoost train:</p>
+<div class="highlight"><pre><span></span><code>算法名称： AdaBoost
+
+for (k = 1; k &lt; iterations; k++)
+    分类器 k 基于权重学习一个弱分类器；
+    计算加权分类误差 \epsilon_k
+    计算分类器的系数 \alpha_k
+    更新权值:
+</code></pre></div>
+<p>集成学习模型： <span class="arithmatex">\(f(x)=\sum_{m=1}^M\alpha_mG_m(x)\)</span></p>
+<p>并采用指数损失函数： <span class="arithmatex">\(L(y, f(x))=\exp[-yf(x)]\)</span></p>
+<p>并且 <span class="arithmatex">\(f_m(x)=f_{m-1}(x)+\alpha_mG_m(x)\)</span></p>
+<p>Adaboost 例子：</p>
+<p>初始权值为 <span class="arithmatex">\(1/N\)</span> ，</p>
+<p>弱分类器太复杂容易过拟合；弱分类器太简单容易欠拟合.</p>
+<h4 id="stacking">Stacking<a class="headerlink" href="#stacking" title="Permanent link">&para;</a></h4>
+<p><strong>Stacking</strong> 中弱分类器将基于前一个弱分类器进行训练.</p>
+
+
+
+
+
+
+
+  
+    
+  
+  
+
+
+  <aside class="md-source-file">
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="最后更新">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
+    </span>
+    2024-04-19
+  </span>
+
+    
+    
+    
+    
+  </aside>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  回到页面顶部
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["revision.date", "navigation.path", "navigation.top", "content.action.edit", "content.code.copy"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.bd41221c.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/copy-tex.min.js"></script>
+      
+        <script src="../../javascripts/katex.js"></script>
+      
+        <script src="../../javascripts/tabSync.js"></script>
+      
+    
+  </body>
+</html>
