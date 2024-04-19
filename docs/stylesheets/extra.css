@@ -20,46 +20,47 @@ body {
 }
 */
 
-/* 提示框内的字体大小 */
+/* 提示框 */
 .md-typeset .admonition,
 .md-typeset details {
-  font-size: 18px;
-  font-family: "LXGW WenKai Lite"
+  font-size: 20px;
+  font-family: "LXGW WenKai Lite";
+  background-color: transparent;
 }
 
 .md-typeset p {
   /* paragraphs */
-  font-size: 18px;
+  font-size: 20px;
   font-family: "LXGW WenKai Lite"
 }
 
 .md-typeset ul {
   /* unordered lists */
-  font-size: 18px
+  font-size: 20px
 }
 
 .md-typeset ol {
   /* ordered lists */
-  font-size: 18px
+  font-size: 20px
 }
 
 .md-typeset code {
   /* inline code */
-  font-size: 16px
+  font-size: 18px;
 }
 
 .md-typeset pre {
   /* code blocks */
-  font-size: 16px
+  font-size: 18px;
 }
 
 .md-typeset pre code {
   /* code blocks within pre tags */
-  font-size: 16px
+  font-size: 18px;
 }
 
 .code-block {
-    display: none; /* 初始隐藏代码块 */
+  display: none; /* 初始隐藏代码块 */
 }
 
 /*表格设置*/
@@ -90,7 +91,7 @@ th, td {
 
 /* 表格亮色 */
 .md-typeset__table tr:nth-child(2n) {
-    background-color: #f8f8f8;
+    background-color: #f5f5f5;
 }
 
 /* 表格暗色 */
@@ -99,8 +100,8 @@ th, td {
 }
 
 strong {
-    color: orange; 
-    font-weight: normal;
+    color: #FF8C00; 
+    font-weight: bold;
 }
 
 .md-typeset mark {
@@ -152,29 +153,6 @@ strong {
   font-size: 28px;
 }
 
-/* Header层级样式 */
-/*
-h2:before {
-  content: "H1 ";
-}
-
-h3:before {
-  content: "H2 ";
-}
-
-h4:before {
-  content: "H3 ";
-}
-
-h5:before {
-  content: "H4 ";
-}
-
-h6:before {
-  content: "H5 ";
-}
-*/
-
 .md-grid {
   max-width: 95%;
 }
@@ -193,7 +171,7 @@ h6:before {
     font-size: 16px;
   }
   .md-nav .md-nav__title {
-    display: none;
+  
   }
   .md-nav__icon {
     width: 1.2rem;
@@ -205,15 +183,115 @@ h6:before {
 /* Adjust font size of KaTeX inline equations */
 
 .katex {
-  font-size: 18px;
+  font-size: 20px;
 }
 
 .katex-display {
   margin-top: -1px;
   margin-bottom: -1px;
-  font-size: 18px;
+  font-size: 20px;
 }
 
+/* collapse code */
+.md-typeset .collapse-code{
+    position:relative;
+    margin-top:1em;
+    margin-bottom:1em
+}
+.md-typeset .collapse-code pre,
+.md-typeset .collapse-code .highlighttable {
+    margin-top:0;
+    margin-bottom:0
+}
+.md-typeset .collapse-code input{
+    display:none
+}
+.md-typeset .collapse-code input~.code-footer{
+    width:100%;
+    margin:0;
+    padding:.25em .5em .25em 0
+}
+.md-typeset .collapse-code input~.code-footer label{
+    position:relative;
+    margin:.05em;
+    padding:.15em .8em;
+    color:var(--md-primary-bg-color);
+    font-size:90%;
+    background-color:var(--md-primary-fg-color);
+    -webkit-mask-repeat:no-repeat;
+    mask-repeat:no-repeat;
+    -webkit-mask-size:contain;
+    mask-size:contain;
+    border-radius:.1rem;
+    cursor:pointer;
+    content:""
+}
+.md-typeset .collapse-code input~.code-footer label:hover{
+    background-color: var(--md-accent-fg-color);
+}
+.md-typeset .collapse-code input~.code-footer label::before{
+    position:absolute;
+    top:.15em;
+    left:.15em;
+    display:block;
+    box-sizing:border-box;
+    width:1.25em;
+    height:1.25em;
+    background-color:var(--md-primary-bg-color);
+    background-size:1.25em;content:""
+}
+.md-typeset .collapse-code input~.code-footer label.expand{
+    display:none
+}
+.md-typeset .collapse-code input~.code-footer label.expand::before{
+    -webkit-mask-image:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 21v-2H6.41l4.5-4.5-1.41-1.41-4.5 4.5V14H3v7h7m4.5-10.09 4.5-4.5V10h2V3h-7v2h3.59l-4.5 4.5 1.41 1.41Z"/></svg>');
+    mask-image:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 21v-2H6.41l4.5-4.5-1.41-1.41-4.5 4.5V14H3v7h7m4.5-10.09 4.5-4.5V10h2V3h-7v2h3.59l-4.5 4.5 1.41 1.41Z"/></svg>')
+}
+.md-typeset .collapse-code input~.code-footer label.collapse::before{
+    -webkit-mask-image:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19.5 3.09 15 7.59V4h-2v7h7V9h-3.59l4.5-4.5-1.41-1.41M4 13v2h3.59l-4.5 4.5 1.41 1.41 4.5-4.5V20h2v-7H4Z"/></svg>');
+    mask-image:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19.5 3.09 15 7.59V4h-2v7h7V9h-3.59l4.5-4.5-1.41-1.41M4 13v2h3.59l-4.5 4.5 1.41 1.41 4.5-4.5V20h2v-7H4Z"/></svg>')
+}
+.md-typeset .collapse-code input:checked~.code-footer label.expand{
+    display:inline
+}
+.md-typeset .collapse-code input:checked~.code-footer label.collapse{
+    display:none
+}
+.md-typeset .collapse-code input:checked+div.highlight code,
+.md-typeset .collapse-code input:checked+div.highlight .linenodiv{
+    max-height:9.375em;
+    overflow:hidden
+}
+.md-typeset .collapse-code input:checked~.code-footer{
+    position:absolute;
+    bottom:0;
+    left:0;
+    padding:2em .5em .5em .8rem;
+    background-image:linear-gradient(to bottom,transparent,var(--md-default-bg-color) 80% 100%)
+}
+
+.md-typeset .tabbed-block>.collapse-code:first-child,
+.md-typeset .tabbed-block>.collapse-code:first-child {
+    margin: 0;
+}
+
+@media screen and (max-width:44.9375em){
+    .md-typeset>.collapse-code{
+        margin-right:-.8rem;
+        margin-left:-.8rem
+    }
+    .md-typeset>.collapse-code label.collapse{
+        left:.8rem
+    }
+}
+
+[data-md-color-scheme="slate"] {
+    color: #f2f2f2; /* 将字体颜色修改为白色 */
+}
+
+[data-md-color-scheme="default"] {
+    /* background-color: #f0f0f0; 将亮色背景色调整为淡灰色 */
+}
 
 :root {
     --md-text-font: "LXGW WenKai Lite";

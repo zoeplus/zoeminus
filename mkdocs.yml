@@ -22,6 +22,7 @@ nav:
     - '统计学习': 'Math/SL.md'
     - '深度学习': 'Math/DL.md'
   - 二十: 
+    - 'C': 'Coding/C.md'
     - 'C++': 'Coding/CPP.md'
   - 十九:
     - 'PyTorch': 'Cookbooks/DLCB.md'
@@ -29,9 +30,10 @@ nav:
   - 零零五五:
     - '遥望': 'Parrot/Divisadero.md'
     - '感官刺激': 'Parrot/Senses.md'
+    - '清醒的梦': 'Parrot/LucidDreaming.md'
     - '存在主义': 
       - '存在 I': 'Parrot/Existential.md'
-      - '对存在的追求': 'Parrot/PoB.md'
+      - '对存在的追求': 'Parrot/B&N.md'
 
 plugins:
   - search
@@ -67,8 +69,11 @@ markdown_extensions:
         - name: mermaid
           class: mermaid
           format: !!python/name:pymdownx.superfences.fence_code_format
-
+  - tools.collapse_code:
+      expand_text: ''
+      collapse_text: ''
   - toc:
+      title: 本文组织：
       permalink: true
       baselevel: 2
 
@@ -81,25 +86,25 @@ theme:
   icon:
     annotation: material/alpha-z-circle
   features:
-    - header.autohide
     - revision.date
     - navigation.path
     - navigation.top
+    # - toc.integrate 
     - content.action.edit
     # - content.action.view
     - content.code.copy
   palette:
     # Palette toggle for light mode
-    - media: "(prefers-color-scheme: light)"
-      scheme: default
+    - scheme: default
       primary: amber
+      accent: amber
       toggle:
         icon: material/lightbulb-outline
         name: 切暗色
     # Palette toggle for dark mode
-    - media: "(prefers-color-scheme: dark)"
-      scheme: slate
+    - scheme: slate
       primary: amber
+      accent: amber
       toggle:
         icon: material/lightbulb
         name: 切亮色
