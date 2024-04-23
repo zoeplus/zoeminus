@@ -1,3 +1,5 @@
+# 依赖与简介
+
 依赖： [C++](CPP.md)
 
 数据结构主要分为**线性**和**非线性**两种，其中线性数据结构包含：数组、链表、栈、堆等，非线性数据结构分为树状和非树状两种.
@@ -5,6 +7,39 @@
 以上考虑的是数据结构的**逻辑结构**，其实现依赖于物理上的**存储结构**：使用连续（如数组）或者离散的存储空间（如链表）.
 
 算法依托于数据结构进行，一般用时间复杂度和空间复杂度计算算法复杂度. 对于时间复杂度，由于硬件和广义上的操作系统（ e.g. 编译器）的不同，通常只考虑最基础操作的数量. 并且只考虑最高阶. 常见的时间复杂度有 $\mathcal{O}(1),\mathcal{O}(n),\mathcal{O}(n\log n),\mathcal{O}(n^2)$ .
+
+# 伪代码标准
+
+```cpp title="伪代码语句" linenums="1"
+// 当有多个语句时，为了后文便于解释加上序号
+1. statement1;
+2. statement2;
+
+while condition statement:
+    statements;
+
+if condition statement:
+    statements:
+```
+
+其他规定：
+
+- 在写伪代码的时候不显示指定任何数据结构，也不使用数据结构对应的接口. e.g. 如果某一问题适合用栈解决，在代码实现时或用该结构，但是在伪代码中不用这一结构表示，也不使用 `.pop()` ， `.push()` 等与该结构相关的接口；
+- 伪代码中的数据结构一律用集合表示；
+
+不加声明的常用函数：
+
+```title="伪代码常用函数" linenums="1"
+min(S)
+min(a, b)
+max(S)
+max(a,b)
+
+# 默认降序排序
+sort(S, reverse = false)
+# 根据 W 对 S 进行排序
+sort(S, W)
+```
 
 # 面向对象编程
 
@@ -14,6 +49,7 @@
 
 类与类之间可以存在**继承**关系，分别称为**基类** / 父类和**派生类** / 子类. 子类可以继承父类的特征，**重写**或者添加新的特征.
 
+/// collapse-code
 ```python title="Python 中定义类" linenums="1" 
 class ParentClass():
 	def __init__(self):
@@ -35,6 +71,7 @@ class ChildClass(ParentClass):
 	def method2(self):
 		print("add a new method")
 ```
+///
 
 从同一个基类继承得到的子类具有**多态**：对于同一消息有不同的响应（方法）.
 
@@ -60,10 +97,10 @@ $$(x+y)^n=\sum\limits_{k=0}^{n}\binom{n}{k}x^ky^{n-k}$$
 
 # 线性表
 
-线性表的特征如下：
+**线性表**（linear list）的特征如下：
 
-1. 第 1 个元素没有前驱；
-2. 最后的一个元素没有后继；
+1. 第 1 个元素没有**前驱**（predecessor）；
+2. 最后的一个元素没有**后继**（successor）；
 3. 中间的元素各有一个前驱和一个后继.
 
 可以将线性表表示为： $(e_1,e_2,\cdots,e_N)$ . 或称 $e_1$ 为**首结点**， $e_N$ 为**尾结点**.
@@ -80,9 +117,10 @@ $$(x+y)^n=\sum\limits_{k=0}^{n}\binom{n}{k}x^ky^{n-k}$$
 
 ## 顺序表
 
-顺序表采取连续的存储空间实现线性表，如下：
+**顺序表**采取连续的存储空间实现线性表，在 C++ 中顺序表（数组）是内置的数据结构，设数组 $A=\{A[0],\cdots,A[n-1]\}$ ，记 $A[0]$ 的地址为 $A$ 的起始地址，每一个元素占用的存储空间为 $d$ ， $A[s](0\leq s\leq n-1)$ 的物理存储地址为 $i+s*d$ 如下：
 
-```cpp title="C++ 实现顺序表" linenums="1"
+/// collapse-code
+```cpp title="顺序表" linenums="1"
 #include <iostream> 
 using namespace std; 
 
@@ -104,34 +142,29 @@ class LinearList {
 };
 
 template<class T>
-LinearList<T>::LinearList(int LLMaxSize)
-{
+LinearList<T>::LinearList(int LLMaxSize) {
     MaxSize = LLMaxSize;
     element = new T [LLMaxSize];
     length = 0;
 }
 
 template<class T>
-LinearList<T>::~LinearList()
-{
+LinearList<T>::~LinearList() {
     delete [] element;
 }
 
 template<class T>
-int LinearList<T>::getLength()
-{
+int LinearList<T>::getLength() {
     return length;
 }
 
 template<class T>
-LinearList<T>& LinearList<T>::insert(int k, const T& x)
-{
+LinearList<T>& LinearList<T>::insert(int k, const T& x) {
     if (k < 0 || k > length)
         cout << "invalid position";
     else if (length == MaxSize)
         cout << "no place to insert";
-    else
-    {
+    else {
         for (int i = length; i > k; i--) element[i] = element[i-1];
         element[k] = x;
         length++;
@@ -140,13 +173,11 @@ LinearList<T>& LinearList<T>::insert(int k, const T& x)
 }
 
 template<class T>
-T* LinearList<T>::getAddress()
-{
+T* LinearList<T>::getAddress() {
     return element;
 }
 
-int main()
-{
+int main() {
     LinearList<int> ll(10);
     ll.insert(0,1);
     ll.insert(0,2);
@@ -158,6 +189,7 @@ int main()
     return 0;
 }
 ```
+///
 
 ## 链表
 
@@ -183,6 +215,17 @@ void ~LinkedList(LinkedList& L) {
 以上实现的是单向链表，此外还有**循环链表**：尾部指针指向头；**双向链表**：每一个元素都分别有一个指向前驱和后继的指针.
 
 ## 线性表的应用
+
+| #imcomplete-further-wanted 
+
+## 广义表
+
+广义表（向量）：线性表的推广，不要求线性表中的元素具有相同的数据类型；可表示为 $V=\{V[0],\cdots,V[n-1]\}$ ，定义元素的**秩**（rank）为其前驱元素的数量，通过秩访问元素的方式被称为**循秩访问**（call-by-rank）. 例如：
+
+- $A = ()$ ；
+- $C = (a,(b,c,d))$ ；
+- $D = (A, B, C)$ ；
+- $E = (e, E)$
 
 # 栈
 
@@ -223,11 +266,40 @@ C++ 中提供了实现栈的模板类 [stack](CPP.md#stack)
 
 根据算法选择数据结构时，需要考虑问题中对数据进行的操作. 栈和队列的根本区别在于对于数据的<u>缓冲</u>不同：数据存入的顺序与处理的顺序是否保持一致，一致则采取队列（先进先出），否则采取栈（后进后出）.
 
+# 图
 
+设集合 $V$ ，定义 $E\subset V\times V$ ，称为 $V$ 上的边集，称 $G=(V,E)$ 为**图**. 如果 $\forall e=(v_i,v_j)\in E$ 若存在 $e'=(v_j,v_i)$ 认为 $e\neq e'$ ，则称 $G$ 为**有向图**，若 $\forall e=(v_i,v_j)$ ，认为 $(v_i,v_j)=(v_j,v_i)$ ，则称 $G$ 为**无向图**；否则，称 $G$ 为**混合图**.
+
+称 $G$ 为**加权图**，如果定义 $f:E\rightarrow \mathbb{R}$ ， $G=(V,E,w)$ ， $w(e)$ 称为边 $e$ 的**权重**；
+
+定义**路径**：存在 $P=\{(i, v_1),\cdots, (v_n,i)\}\subset E$ 则称 $i,j$ 之间存在路径；定义**圈 / 回路**，存在 $i$ 到 $i$ 的路径；定义**连通图**：对于任意的 $i, j\in V$ ，存在 $i$ 到 $j$ 的路径；定义**连通区域** $(V',E')\subset (V,E)$ ：区域中的任意两点都有路径；
+
+定义图中的结点的度 $d(v)=\#\{e: v\in e\}$ ，表示和 $v$ 相关联的边的个数（而不是定义作结点的个数，考虑重边）；
+
+定义**简单图**：无重边，无圈的无向图；**完全图**：图中的任意两个点都有边，此时 $\lvert E\rvert=C_{\lvert V\rvert}^2$ ，并且 $\sum\limits_{v\in V}^{}d(v)=2 \lvert E\rvert$ ， $d(v)=n-1,\lvert E\rvert=\frac{n(n-1)}{2}$ ；
 
 # 树
 
-**树**是非线性结构，一个元素可以有多个后继，但最多有一个前驱.
+**树**是连通简单图（无重边，无圈，无向）；由定义，树中一定有度为 $1$ 的点，称为叶结点，其他的点则称为内点.
+
+定义图的**生成树**：若 $(V',E')$ 是 $(V,E)$ 的连通子图，并且 $V'=V$ ，且为简单图（符合树的定义）
+
+树具有以下性质：
+
+>[!note]- 对于 $T=(V,E), V-E=1$
+>证明：一方面，由树无圈知树中的任意两个结点至多只有一个关联的边，由树的连通性可知任意两个结点至少有一个关联的边，所以任意两个结点都有一个关联边，从而得结论；另一方面，根据 Euler 定理： $V-E+F=2$ ，在图中， $V,E$ 分别表示结点数和边数， $F$ 表示连通区域的个数，而在树中连通区域只有一个，树本身 #ilp ，因此 $F=1$ ，所以 $V-F=1$ .
+
+>[!note] 生成树是原图 $G$ 的极小连通子图：去掉生成树任何一条边后得到的图不连通，在生成树上增加任何一条边都会产生圈；
+
+树可以分为：
+- **有根树** / **无根树**；
+- **有向树** / **无向树**；
+- **编号树** / **非编号树**；
+- **有序树** / **无序树**；
+
+---
+
+从数据结构实现角度考虑，**树**是非线性结构，一个元素可以有多个后继，但最多有一个前驱.
 
 可以用递归的方式定义树：考虑 $n$ 个元素组成的集合，若 $n=0$ 则称该树为空树， $n>0$ 时，其满足以下条件：
 
@@ -238,22 +310,46 @@ C++ 中提供了实现栈的模板类 [stack](CPP.md#stack)
 
 结点 $n$ 与其后继 $n_1$ 之间的“连线” $(n,n_1)$ 称为**分支**， $s,t$  两个结点之间的路径则为 $(s,n_1),(n_1,n_2),\cdots,(n_{l-1},t)$ 组成的集合，其中 $n_m$ 为 $n_{m-1}$ 的后继（ $n_l=t,n_0=s,1\leq m\leq l$ ），记为 $(s,n_1,n_2,\cdots,n_{l-1}, t)$ ，由树的定义，如果两个结点之间存在路径，则路径唯一.
 
-从根结点到某一结点之间的路径包含的分支个数称为该结点的**层数**，称树的**深度**为最大结点层数.
-
-此外，根据结点之间的前驱后继关系可以定义： **父结点 / 双亲结点**：结点的前驱；**子结点**：结点的后继；**兄弟**：两个结点具有同一个双亲结点；**堂兄弟**：两个结点各自的父结点具有同一个父结点；**祖先**：该结点的前驱的前驱，前驱的前驱的前驱...
-
 树有多种类别：按照是否关心树的左右顺序有**有序树**和**无序树**.
+
+## 有序平面树
+
+>[!summary] 自查表
+>- 有序平面树的定义（这也是数据结构中对于一般的树的定义）；
+>- $n$ 边有序平面树的个数以及证明思路；
+
+定义**有序平面树**（planar trees）： 树 $T=(V,E)$ ， $V$ 中有一个特定点 $s$ 称为**根**. $V\backslash s$ 后形成多个连通子图： $S_1,\cdots,S_n$ ，两两不交，并且仍然为有根树，称为**子树**，如果子树之间有序关系存在（分左右），则称 $T$ 为**有序平面树**.
+
+定义从根到叶结点的路径经过的结点个数为该结点的**层数**（e.g. $s,v_1,\cdots,v_n$ 则 $v_n$ 的层数为 $n+1$ ），并可以定义树的**深度**：最大的结点层数；
+
+有序平面树因此是“有向”的（尽管如此，仍然没有承认树具有有向边，与树的定义：连通简单图并不矛盾）：对于有关联边的两个结点 $v_i,v_j$ ，如果 $v_i$ 的层数比 $v_j$ 的要小，则称 $v_i$ 为 $v_j$ 的**父结点**， $v_j$ 称为 $v_i$ 的**子结点**（child）；如果 $v_j$ 的层数比 $v_i$ 低，但存在 $v_i$ 和 $v_j$ 之间的一条路径，则称 $v_j$ 为 $v_i$ 的**后代**（descendant）；如果 $v_i,v_j$ 层数相同，并且有相同的父结点，则互为**兄弟结点**（sibiling），如果层数相同但是没有相同的父结点，则互为**堂兄弟**.
+
+>[!hint]+ 在数据结构的具体实现中，借助前驱和后继的说法也可以再对上述概念作出解释.
+>根据结点之间的前驱后继关系可以定义： **父结点 / 双亲结点**：结点的直接前驱；**子结点**：结点的直接后继；**兄弟**：两个结点具有同一个直接前驱结点；**祖先**：该结点的前驱；**后代**：结点的后继.
+
+>[!question] 以上的定义能否说明 $S_i$ 的根与 $s$ 有关联边？
+
+下面讨论 $n$ 边（ $n+1$ 顶点）的有序平面树的个数，记为 $t(n)$ .
+
+>[!note]- $t(n)=C_n=\frac{1}{n+1}\binom{2n}{n}$ .
+>证明：考虑 $n$ 边有序平面树 $T$ ，设 $s$ 与其最左边的子结点之间的关联边为 $e$ . 考虑 $T-\{e\}$ ，可以得到两个新的子树 $T_1,T_2$ ， $T=T_1\cup \{e\}\cup T_2$ ，假设 $T_1$ 有 $k$ 条边，则 $T_2$ 有 $n-1-k$ 条边，因此 $t(n)=\sum\limits_{k=0}^{n-1}t(k)t(n-1-k)$ 并且 $t(0)=t(1)=1$ ，从而可得 $t(n)=C_n$ .
+
+进而可以利用生成函数求 $t(n)$ .
 
 ## 二叉树
 
-二叉树为每个结点的度不超过 $2$ 的有序树；**顺序编号法**按照深度递增，从左往右对结点进行编号. 如果深度为 $l$ 的二叉树的最大编号为 $2^l-1$ 则称该二叉树为**满二叉树**，如果深度为 $l$ 的二叉树中的结点的编号与相同深度的满二叉树对应的编号相同，则称该二叉树为**完全二叉树**，非完全二叉树称为**普通二叉树**. 
+>[!summary]+ 自查表
+>- 二叉树、完美二叉树、完全二叉树、普通二叉树的定义；
+>- 完美二叉树的深度和结点数的关系；
+
+**二叉树**（binary trees）为每个结点的度不超过 $2$ 的有序树；**顺序编号法**按照深度递增，从左往右对结点进行编号. 如果深度为 $l$ 的二叉树的最大编号为 $2^l-1$ 则称该二叉树为**完美二叉树**（perfect binary trees，也称作满二叉树，但在下面定义了一种满二叉树，故不用此说法），如果深度为 $l$ 的二叉树中的结点的编号与相同深度的完美二叉树对应的编号相同，则称该二叉树为**完全二叉树**（complete trees），非完全二叉树称为**普通二叉树**；如果 $\forall u\in T,d(u)=2$ 或者 $d(u)=0$ ，则称 $T$ 为**满二叉树**（full binary trees）. ^BinaryTree
 
 二叉树具有以下性质：
 
 - 深度为 $l$ 的二叉树最多有 $2^k-1$ 个结点；
 - 记度为 $0$ 的结点的个数为 $n_0$ ，度为 $2$ 的结点个数为 $n_2$ 则， $n_0=n_2+1$ ；证明：设度为 $1$ 的结点个数为 $n_1$ ，树的结点数为 $n$ 由树的定义，该树中所有是后继的结点的数量为 $n-1=0\cdot n_0+n_1+2n_2$ ，并且 $n=n_0+n_1+n_2$ ，可得结论.
 - 具有 $n$ 个结点的完全二叉树的深度为 $\lfloor \log_2n\rfloor+1$ ；
-- 对于采取顺序表示的完全二叉树，编号为 $i$ 的结点的左侧子结点（如果有的话）的编号为 $2i$ ，右侧子结点（如果有的话）的编号为 $2i+1$ . 因此，可以采取顺序存储的方式实现完全二叉树（以及普通二叉树）.
+- 对于采取顺序表示的完全二叉树，编号为 $i$ 的结点的左侧子结点（如果有的话）的编号为 $2i$ ，右侧子结点（如果有的话）的编号为 $2i+1$ . 因此，可以采取顺序存储的方式实现完全二叉树（以及普通二叉树）. #imcomplete-lack-proofs 
 
 ### 二叉树的实现
 
@@ -277,6 +373,8 @@ C++ 中提供了实现栈的模板类 [stack](CPP.md#stack)
 
 ### 二叉树的遍历
 
+关于树的遍历： [check-wiki](https://zh.wikipedia.org/zh-cn/%E6%A0%91%E7%9A%84%E9%81%8D%E5%8E%86)
+
 对树的结点的遍历主要分为三个步骤：对当前结点进行<u>访问</u>（e.g. 输出结点对应的数值），遍历左子结点，遍历右子结点；
 
 当采用非并行计算时，对于一个多个子结点，只能先访问一个子结点；因此需要以某种方式保存其他未被访问的子结点，常用栈或者队列；
@@ -285,7 +383,7 @@ C++ 中提供了实现栈的模板类 [stack](CPP.md#stack)
 
 深度优先可以按照根结点相对于左右子结点的访问先后进行划分；
 
-前序遍历 / 先序遍历（pre-order traversal）：按根结点、左结点、右结点进行（递归地）顺序遍历；
+前序遍历 / 先序遍历（pre-order traversal，或 NLR）：按根结点、左结点、右结点进行（递归地）顺序遍历；
 
 ```cpp title="先序遍历" linenums="1"
 void preOrderTraversal(TreeNode *root) {
@@ -294,6 +392,62 @@ void preOrderTraversal(TreeNode *root) {
     if (root -> rchild != nullptr) preOrderTraversal(root -> rchild);
 }
 ```
+
+>[!hint] 先序遍历适合一般的访问结点（e.g. 就输出值）的任务.
+
+/// collapse-code
+```cpp title="依据数列进行先序构建树和先序遍历树" linenums="1"
+#include<iostream>
+#include<vector>
+using namespace std;
+
+template<typename T>
+struct Node {
+    T val;
+    Node* left;
+    Node* right;
+    Node(T v): val(v), left(nullptr), right(nullptr) {}
+};
+
+template<typename T>
+class BiTree {
+private:
+    Node<T>* root = new Node(0);
+public:
+    void buildSubtree(vector<T>& vec, int i, Node<T>* head) {
+        if (2 * i + 2 <= vec.size() && vec[2 * i + 1] != -1) {
+            head -> left = new Node<T>(vec[2 * i + 1]);
+            buildSubtree(vec, 2 * i + 1, head -> left);
+        }
+        if (2 * i + 3 <= vec.size() && vec[2 * i + 2] != -1) {
+            head -> right = new Node<T>(vec[2 * i + 2]);
+            buildSubtree(vec, 2 * i + 2, head -> right);
+        }
+    };
+    // 根据数组（对应一个完全树）按先序排序生成树，用 -1 表示空
+    BiTree(vector<T>& vec) {
+        root -> val = vec[0];
+        buildSubtree(vec, 0, root);
+    };
+    // 先序遍历
+    void nodeTraverse(Node<T>* head) {
+        cout << head -> val << endl;
+        if (head -> left != nullptr) nodeTraverse(head -> left);
+        if (head -> right != nullptr) nodeTraverse(head -> right);
+    };
+    void NLRTraverse() {
+        nodeTraverse(root);
+    };
+};
+
+int main() {
+    vector<int> vec = {1, 3, 4, 5, -1, 6, 8, -1, 9};
+    BiTree bitree(vec);
+    bitree.NLRTraverse();
+    return 0;
+}
+```
+///
 
 中序遍历（in-order traversal）：以左结点、根结点、右结点（递归地）顺序遍历；
 
@@ -315,11 +469,47 @@ void postOrderTraversal(TreeNode *root) {
 }
 ```
 
+>[!hint]+ 后序遍历的特点.
+>考虑一串有后序遍历输出的序列 $v_1\cdots v_n$ . 则 $v_n$ 应该为根结点， $v_{n-1}$ 则为 $v_n$ 的右结点.
+>
+>在此基础上如果有更多的信息（例如 $v_{n-1}$ 是否是叶结点）可以得到更多关于原树的信息，甚至换元树（见下面的满二叉树中构造的映射 $\varphi$ ）
+>
+>此外后序遍历会优先遍历叶结点. 这意味着当遍历到根结点时，左右子结点及其后代已经被遍历过了. 所以<u>后序遍历适合删除结点</u>（尤其对于链式实现）.
+
 **逐层遍历** / 广度优先遍历：可以用队列实现，
 
-[refernce-wiki](https://zh.wikipedia.org/zh-cn/%E6%A0%91%E7%9A%84%E9%81%8D%E5%8E%86)
+
+### 满二叉树
+
+考虑前面提到的[满二叉树](#^BinaryTree)，记 $2n+1$ 个顶点的满二叉树的个数为 $tf(n)$ .
+
+>[!note]- $2n+1$ 顶点的满二叉树具有 $n+1$ 个叶结点和 $n$ 个内结点.
+> $n_0=n_2+1$ .
+
+>[!note]- $tf(n)=C_n=\frac{1}{n+1}\binom{2n}{n}$ .
+>证明：构造从 $2n+1$ 顶点的满二叉树全体 $\mathcal{T}F_n$ 到 $n$ 长 Dyck 路全体 $D_n$ 的映射 $\varphi$ ：
+>
+>对于任意的 $T\in \mathcal{T}F_n$ ，首先对于 $T$ 进行后序遍历得到 $S_{2n+1}$ .
+>
+>序列中的第一个元素（即移除 $T$ 中最左侧的叶结点）.
+>
+>将剩下的序列 $S_{2n}$ 与 Dyck 路中的上升 / 下降步进行映射： $S_{2n}$ 中的 $T$ 中的叶结点对应上升步，内结点对应于下降步.
+>
+>下面来证明这样映射得到的 $P$ 是一条 Dyck 路，首先在去掉一个叶结点之后剩余有 $n$ 个叶结点和 $n$ 个内结点；此外后序遍历先从叶结点开始访问，再由满二叉树（减去了一个叶结点）的完整子树仍然是满二叉树可知，任何子树的叶结点数量大于<u>等于</u>内结点的数量（等于是考虑到被去掉一个叶结点的树.）在后序遍历的过程中，每次都将遍历完当前子树的所有叶结点后归，因此被遍历的叶结点的数量在任一时刻都大于<u>等于</u>内结点. 所以 $P$ 是 Dyck 路. （关键：满二叉树的任何子树的叶结点比内结点多 $1$ 个）
+>
+>$\varphi$ 是单射是显然的，对于满射的验证，首先注意到 $P$ 对应于 $n$ 个叶结点和 $n$ 个根结点；其次，最后一步一定是 $D$ ，为方面起见举例说明，对于 $UUDDUD$ 这一 Dyck 路，以最后一个 $D$ 为根结点，从右到左，如果遇到 $D$ ，则将其作为上一个结点的右结点，遇到 $U$ 时仍然将其作为上一个结点的右结点，并且下一个不管是 $U$ 还是 $D$ 都不再作为一个右结点（因此该 $U$ 形成了一个右结点）将下一个 $U$ 或者 $D$ 作为最开始的 $D$ 的左结点，按照同样的规则构造，最后再添上一个左结点构成满二叉树. 具体见[[DSADraw]]
+>
+>综上 $\#\mathcal{T}F_n=\# D_n=C_n$ .
+
+有推广结论：
+
+>[!note] 对于 $kn+1$ 个顶点的满 $k$ 叉树，其全体个数为 $\frac{1}{kn+1}\binom{kn}{n}$ .
 
 ## 二叉排序树
+
+>[!summary]+ 自查表
+>- 二叉排序树的定义；
+>- 平衡二叉排序树的概念；
 
 **二叉排序树**（二叉查找树）：若非空树，则具有如下性质：
 
@@ -359,7 +549,7 @@ for (node : S):
 
 具体地，每加入一个新的结点，若形成的左右子树的深度差超过 1 ，则对深度大的子树进行调整. #imcomplete-further-wanted 
 
-下面介绍二叉排序树的应用：
+下面介绍二叉排序树的应用： #imcomplete-further-wanted 
 
 ### 霍夫曼编码
 
@@ -401,6 +591,189 @@ for (node : S):
 哈夫曼解码：借助哈夫曼树完成；
 
 | #imcomplete-lack-examples 
+
+## 最小生成树算法
+
+深度优先遍历（DFS）：
+
+```
+1. 从图中选取结点 v ；
+2. 遍历操作：
+    while v 仍有未被遍历的关联结点：
+    选取结点 v 的一个关联结点 v' ：
+        2.1 如果 v' 有非 v 的关联结点 v'' ，对 v'' 执行遍历操作；
+        2.2 否则，停止遍历，转到 2；
+```
+
+广度优先遍历（WFS / BFS, broadcast fisrt search）
+
+```
+1. 从图中选取结点 v ；
+2. 遍历操作：
+    遍历 v 的所有关联结点 v' ；
+    对 v' 执行遍历操作；
+```
+
+### 最小生成树算法
+
+| #imcomplete 
+
+对加权图 $G(V,E,w)$ ，定义 $G$ 的最小生成树（minimal spanning tree, MST）：边权重和最小的生成树；
+
+>[!note]- 设 $N=(V,E)$ ， $U\subset V,U\neq \emptyset$ ，令 $F=\{(v_1,v_2):v_1\in U,v_2\in V\backslash U\}$ ，设 $e$ 为 $F$ 中权重最小的边，则 $e$ 一定包含在 $N$ 的最小生成树中. #imcomplete-lack-proofs 
+
+| #imcomplete-lack-proofs 
+
+Prime 算法，需要遍历 $1+2+\cdots+(n-1)$ 次，其中 $n=\lvert V\rvert$ ，算法复杂度为 $\mathcal{O}(n^2)$ ：
+
+```title="Prime 算法伪代码" linenums="1"
+algorithm Prime(V, E, W) is:
+    E' = emptyset;
+    取边权最小的未被选取的边 e 加入到 E';
+    while E' 不包含所有的 V:
+        在 E' 包含的点中确定与其关联的 E\E' 中的权最小，并且不连成圈的边，加入到 E' 中;
+    return V, E, W;
+```
+
+[Kruskal 算法](https://en.wikipedia.org/wiki/Kruskal%27s_algorithm)，在对于边进行排序之后，每次只需要在已有的边中选取不形成圈的最小边，算法复杂度为 $\mathcal{O}(\lvert E\rvert)$ ：
+
+```title="Kruskal 算法伪代码" linenums="1"
+algorithm Kruskal(V, E, W) is:
+    E' = emptyset;
+    E_candidates = sort(E, W);
+    while E' 不包含所有的 V:
+        选取 E_candidates 中边权最小且不形成圈的边，并从 E_candidates 中移出 e;
+    return V, E', W;
+```
+
+>[!question]- 在什么情况下最小生成树唯一？ #imcomplete-further-wanted 
+
+### 完全树的生成树
+
+下面讨论完全图的生成树的个数，记 $t_n$ 为 $[n]$ 的完全图的生成树的个数.
+
+```title="Prufer 编码" linenums="1"
+algorithm PruferEncoding(T) is:
+    T_1 = T
+    codes = emptyset
+    for i = 1 to n - 1, step = 1, do:
+        取 T_i 中的编号最小的叶结点 u_i;
+        从 T_i 删除 u_i 得到 T_i+1;
+        
+    return v_1, ..., v_n;
+```
+
+# 堆
+
+**堆**（heap）的定义：任何一个子树中根的值都最大（小），则称该树为**大根堆**（**小根堆**）
+ 
+以大根堆为例，其具有一个性质：按照层数遍历到叶结点将会得到一个降序子列（优先队列）.
+
+在对堆顺序实现时，首先需要考虑堆的表示，为节省存储空间，采取完全的堆，
+
+```cpp title="堆的排序算法"
+堆中仍然有元素：
+    1. 取出堆的根；
+    2. 堆的最后一个元素作为候选根；
+    3. 将候选根与其子结点进行比较并交换其中最大的元素，如果比两个子结点都大，形成新的堆，停止转 1；否则将交换后的元素继续与其子结点进行比较，直到比两个子结点都大.
+```
+
+最终拿出的元素形成升序列（优先队列）时间复杂度为 $\mathcal{O}(n\log n)$ ，此外构建堆的过程的时间复杂度也为 $\mathcal{O}(n\log n)$ . 对比，冒泡排序 $\mathcal{O}(n^2)$ . #imcomplete
+
+/// collapse-code
+```cpp title="对序列建堆并进行堆排序"
+#include<iostream>
+#include<vector>
+using namespace std;
+
+void swap(int &a, int &b) {
+    int temp = a;
+    a = b;
+    b = temp;
+}
+
+class Heap {
+private:
+    vector<int> seq;
+    int len;
+public:
+    Heap(vector<int> arr): seq(arr) { len = seq.size(); };
+    // 构造堆：对于单个结点
+    void constructNode(int i) {
+        while ((i + 1) / 2 >= 1) {
+            if (seq[(i + 1) / 2 - 1] < seq[i]) {
+                swap(seq[(i + 1) / 2 - 1], seq[i]);
+                i = (i + 1) / 2 - 1;
+                constructNode(i);
+            }
+            break;
+        }
+        return;
+    };
+    // 构造堆
+    void construct() {
+        for (int i = 0; i < seq.size(); i++) {
+            constructNode(i);
+            printHeap();
+        }
+    };
+    // 排序堆：对于单个结点
+    void sortNode(int i, int len) {
+        // 没有子结点则停止
+        if (2 * i + 2 > len) return;
+        // 若有两个子结点
+        if (len >= 2 * i + 3) {
+            if (seq[i] > seq[2 * i + 1] && seq[i] > seq[2 * i + 2]) return;
+            if (seq[2 * i + 1] > seq[2 * i + 2]) {
+                swap(seq[i], seq[2 * i + 1]); i = 2 * i + 1;
+            } else {
+                swap(seq[i], seq[2 * i + 2]); i = 2 * i + 2;
+            }
+            sortNode(i, len);
+        }
+        // 只有一个子结点，并且该子结点无子结点（假定为完全堆），因此判断交换之后停止
+        if (len == 2 * i + 2 ) { swap(seq[i], seq[2 * i + 1]); return; }
+    };
+    // 排序堆
+    void sort() {
+        while(len > 2) {
+            swap(seq[0], seq[len - 1]);
+            len--;
+            sortNode(0, len);
+            printHeap();
+        };
+    };
+    // 打印操作，用于可视化构造和排序的每一步的情况
+    void printHeap() {
+        for (int i = 0; i < seq.size(); i++) {
+            cout << seq[i] << " ";
+        }
+        cout << "\n";
+    };
+};
+
+int main() {
+    vector<int> arr = {2, 4, 10, 9, 8, 7, 3, 5, 6};
+    Heap heap = Heap(arr);
+    cout << "初始化: "; heap.printHeap();
+    cout << "\n";
+    cout << "构造堆：\n";
+    heap.construct();
+    cout << "排序堆：\n";
+    heap.sort();
+    return 0;
+}
+```
+///
+
+## 堆的计数问题
+
+堆也被称为**递增二叉树**：对于编号二叉树，从根出发的二叉树的编号递增. 有以下结论：
+
+>[!note]- $[n]$ 上的递增二叉树的个数为 $n!$ . #imcomplete-lack-proofs 
+>证明：设 $[n]$ 上递增二叉树全体为 $IB(n)$ ，采取中序遍历建立与 $S_n$ 的双射（这里后序遍历会首先返回左侧结点，因此对于以最小数在最开头的排列，根结点将不是最小的，不是递增二叉树；同理先序遍历会首先返回根结点，因此对于最大数在开头的排列，根结点将不是最小的，因此先序、后序都不能建立双射，于是猜测中序遍历）.
+
+考虑 $2n+1$ 顶点的递增<u>满</u>二叉树的全体个数，根据满二叉树中序遍历的特点（子结点 -> 根结点 -> 子结点），输出的序列的编号呈现的序为： $a_1<a_2>a_3<\cdots<a_{n-1}>a_n$ . 这一排列是**交错排列**.
 
 # 排列
 
@@ -471,25 +844,41 @@ $$\pi=\begin{bmatrix}1&0&0&0\\ 0&0&1&0\\ 0&1&0&0\\ 0&0&0&1\end{bmatrix}$$
 
 >[!note]- $\sum\limits_{\pi\in S_n}^{}x^{\text{maj}(\pi)}=\sum\limits_{\pi\in S_n}^{}x^{\text{inv}(\pi)}$ . #imcomplete-whatever 
 
-# 组合
+## 交错排列
 
-**乘法原理**，**加法原理**
+**交错排列**（alternating permutation, a.p）为排列 $a_1\cdots a_n$ 对于任意的 $a_{i-1}a_ia_{i+1}$ 有 $a_{i-1}<a_i>a_{i+1}$ .
 
-**多重组合数**： $$\begin{aligned}
-\binom{n}{k_1k_2}&=\binom{n}{k_1}\binom{n-k_1}{k_2}\\
-&=\frac{n!}{k_1!(n-k_1)!}\frac{(n-k_1)!}{k_2!(n-k_1-k_2)}\\
-&=\frac{n!}{k_1!k_2!(n-k_1-k_2)!}
-\end{aligned}$$
+>[!hint] 记忆：对堆进行后序遍历可以得到交错排列，因此序是 $a_{i-1}<a_i>a_{i+1}$ .
 
-$$\binom{n}{r}=\binom{n-1}{r-1}+\binom{n-1}{r}$$ （证明：包含和不包含 $n-1$ ）
+**反交错排列**（o.a.p）则为排列 $a_1\cdots a_n$ ，对于任意的 $a_{i-1}a_ia_{i+1}$ 有 $a_{i-1}>a_i<a_{i+1}$ .
 
-$$\begin{aligned}
-&2^n=\binom{n}{0}+\binom{n}{1}+\cdots+\binom{n}{n}\\
-&n2^{n-1}=\binom{n}{1}+2\binom{n}{2}+\cdots+n\binom{n}{n}
-\end{aligned}$$
+>[!note]- 交错排列的个数等于反交错排列的个数.
+>考虑映射 $\varphi:i\rightarrow n+1-i$ .
 
->[!note]- $\binom{m+n}{k}=\sum\limits_{i=0}^{k}\binom{m}{i}\binom{n}{k-i}$ . #imcomplete-whatever 
->证明：考虑 $$(1+x)^{m+n}=(1+x)^m(1+x)^n$$
+记 $n$ 长的交错排列的个数为 $E_n$ . $E_{2n+1}$ 也被称为 **Euler 数**.
+
+>[!note]- $E_n$ 的递推公式： $2E_{n+1}=\sum\limits_{k=0}^{n}E_kE_{n-k}\binom{n}{k}$ .
+>考虑 $E_{n+1}$ 中交错排列和非交错排列全体中的元素：
+>
+>$$\cdots >u_1<n+1>v_1<\cdots$$ 
+>去掉 $n+1$ 之后得到了两个排列，并不关心其是交错还是反交错，因为两者个数都是一样的. 因此可以得到：
+>
+>$$E_{n+1}+E_{n+1}=\sum\limits_{k=0}^{n}\binom{n}{k}E_kE_{n-k}$$
+
+>[!note]- $E_n$ 的生成函数： $\sum\limits_{n\geq0}^{}E_n\frac{x^n}{n!}=\sec x+\tan x$ . 并由奇偶性有推论： $\sum\limits_{n\geq0}^{}E_{2n}\frac{x^{2n}}{(2n)!}=\sec x$ ， $\sum\limits_{n\geq0}^{}E_{2n+1}\frac{x^{2n+1}}{(2n+1)!}=\tan x$ . 或称 $E_{2n}$ 为第 $n$ 个正割数， $E_{2n+1}$ 为第 $n$ 个正切数.
+>证明：令 $y=\sum\limits_{n\geq0}^{}E_n\frac{x^n}{n!}$ .
+>
+>$$\begin{aligned}
+>2\sum\limits_{n\geq1}^{}E_{n+1}\frac{x^n}{n!}&=2(y'-1)\\
+>&=\sum\limits_{n\geq1}^{}\sum\limits_{k=0}^{n}E_kE_{n-k}\binom{n}{k}\frac{x^n}{n!}\\
+>&=\sum\limits_{n\geq0}^{}\sum\limits_{k=0}^{n}E_kE_{n-k}\frac{x^k}{k!}\frac{x^{n-k}}{(n-k)!}-1\\
+>&=y^2-1
+>\end{aligned}$$
+>
+>从而：
+>
+>$$2\frac{dy}{dx}=y^2+1$$ 
+>得到： $\arctan y=\frac{1}{2}x+c$ ， $y=\tan(x+c)$ 并且 $y(0)=1$ ，所以 $c=\frac{\pi}{4}$ . 从而可得结论.
 
 # 排序算法
 
@@ -761,9 +1150,9 @@ $$\text{Ne}(M)=\#\{(i,j)\in[2n]^2:i<j<M(j)<M(i)\}$$
 
 记 $M_1$ 为全体非交叉完美匹配的集合， $M_2$ 为全体非嵌套完美匹配的集合.
 
-考虑从 $M_1$ 到 $D_n$ 的映射，规则与上相同. 则 $\lvert M_1\rvert\leq \lvert D_n\rvert$ ，另一方面，对 $D\in D_n$ ，<u>从后往前</u>逐渐地构造，每一个下降方向的结点与其左侧最近的上升方向的结点匹配，得到交叉数非 $0$ 的匹配，所以 $\lvert D_n\rvert\leq \lvert M_1\rvert$ ， $\lvert D_n\rvert=\lvert M_1\rvert$ ；
+考虑从 $M_1$ 到 $D_n$ 的映射，规则与上相同. 则 $\lvert M_1\rvert\leq \lvert D_n\rvert$ ，另一方面，对 $D\in D_n$ ，<u>从后往前</u>逐渐地构造，每一个下降方向的结点与其左侧最近的上升方向的结点匹配，得到交叉数为 $0$ 的匹配，所以 $\lvert D_n\rvert\leq \lvert M_1\rvert$ ， $\lvert D_n\rvert=\lvert M_1\rvert$ ；
 
-从 $M_2$ 到 $D_n$ 的匹配与上相同，对 $D\in D_n$ ，从前往后逐渐地构造，每一个上升方向的结点都与其右侧最远的下降方向的结点匹配，可得到嵌套数非 $0$ 的匹配.
+从 $M_2$ 到 $D_n$ 的匹配与上相同，对 $D\in D_n$ ，从前往后逐渐地构造，每一个上升方向的结点都与其右侧最远的下降方向的结点匹配，可得到嵌套数为 $0$ 的匹配.
 
 所以 $\lvert D_n\rvert=\lvert M_2\rvert=\lvert M_1\rvert=\frac{1}{n+1}\binom{2n}{n}$ .
 
@@ -778,7 +1167,7 @@ $$\text{Ne}(M)=\#\{(i,j)\in[2n]^2:i<j<M(j)<M(i)\}$$
 >
 >$$\begin{aligned}
 >\text{Ne}(M)&=\#\{(i,j):i<j<M(j)<M(i)\}\\
->&=\sum\limits_{k=1}^{n}\{i:i<a_k<M(a_k)<M(i)\}\\
+>&=\sum\limits_{k=1}^{n}\{i:i<k<M(k)<M(i)\}\\
 >&=\sum\limits_{k=1}^{n}a_k
 >\end{aligned}$$
 >
@@ -802,7 +1191,7 @@ $$\text{Ne}(M)=\#\{(i,j)\in[2n]^2:i<j<M(j)<M(i)\}$$
 
 对于 $j$ 长 Dyck 路，可以插入 $n-2j$ 个水平步以得到 Motzkin 路，并且峰数保持不变； $j$ 长 Dyck 路共有 $2j+1$ 个位置可以插入水平步，每一个位置可以至少 $0$ 个水平步，因此有： $\binom{n-2j+2j+1-1}{2j+1-1}=\binom{n}{2j}$ 种分法.
 
-所以 $T_{n,k}=\sum\limits_{j=0}^{n}\binom{n}{2j}N(j,k)$ . 其中 $N(j,k)$ 为 Narayana 树. $N(j,k)=\frac{1}{j}\binom{j}{k}\binom{j}{k-1}$ .
+所以 $T_{n,k}=\sum\limits_{j=0}^{n}\binom{n}{2j}N(j,k)$ . 其中 $N(j,k)$ 为 Narayana 数. $N(j,k)=\frac{1}{j}\binom{j}{k}\binom{j}{k-1}$ .
 
 >[!note]- $T_n=T_{n-1}+\sum\limits_{k=0}^{n-2}T_kT_{n-k-2},n\geq2$ .
 >证明：对于 $T\in \mathcal{T}_n$ ，若其第一步为水平步，则有 $T_{n-1}$ 中可能情况；若其第一步为上升步，以 $T$ 中第一个返回到 $x$ 轴的下降步作为分界将 $T$ 分割成两部分，分别形成了两个新的 Motzkin 路，从而有 $\sum\limits_{k=0}^{n-2}T_kT_{n-k-2}$ 种情况. 综上可得结论.
@@ -863,11 +1252,87 @@ $(1)$ 取等用到 [[#^RiordanIdentity]]  .
 
 C++ 中每次递归都会创建一个新的变量，相应的递和归具有相同的变量（内存地址）
 
+并不是所有情况都需要递归：
+
+/// collapse-code
+```python title="分解质因数" linenums="1"
+def prime_factors(n):
+    i = 2
+    while (i <= n):
+        if (n % i == 0):
+            print(i) 
+            n /= i
+            i = 2
+        else: 
+            i += 1
+
+prime_factors(1001)
+```
+///
+
 # 附录：组合恒等式
 
+**乘法原理**，**加法原理**
+
+**多重组合数**： 
+
+$$\begin{aligned}
+\binom{n}{k_1k_2}&=\binom{n}{k_1}\binom{n-k_1}{k_2}\\
+&=\frac{n!}{k_1!(n-k_1)!}\frac{(n-k_1)!}{k_2!(n-k_1-k_2)}\\
+&=\frac{n!}{k_1!k_2!(n-k_1-k_2)!}
+\end{aligned}$$
+
+$$\begin{aligned}
+&2^n=\binom{n}{0}+\binom{n}{1}+\cdots+\binom{n}{n}\\
+&n2^{n-1}=\binom{n}{1}+2\binom{n}{2}+\cdots+n\binom{n}{n}
+\end{aligned}$$
+
+>[!note]- $$\binom{n}{r}=\binom{n-1}{r-1}+\binom{n-1}{r}$$ 
+>证明：包含和不包含 $n$ 
+
 >[!note]- Vandermonde 恒等式： $\binom{m+n}{r}=\sum\limits_{k=0}^{r}\binom{m}{k}\binom{n}{r-k}$ .
+>证明：考虑 $(1+x)^{m+n}=(1+x)^m(1+x)^n$
 
 >[!note]+ Riordan 恒等式： 
 >$$\binom{m}{p}\binom{n}{q}=\sum\limits_{j}^{}\binom{n+j}{p+q}\binom{m-n+q}{j}\binom{n-m+p}{p-j}$$
 >
 >^RiordanIdentity
+
+# 附录： Cataland 数
+
+[check-OEIS](https://oeis.org/A000108)
+
+离散数据结构中常见的数之一.
+
+$$C_n=\frac{1}{n+1}\binom{2n}{n}$$
+
+$1, 1, 2, 5, 14, 42, 132, 429, 1430, 4862,\cdots$ .
+
+要证明一个数据结构的计数是 Cataland 数，可以利用下面的递推公式.
+
+>[!note] Cataland 数递推公式： $C_n=\sum\limits_{i=1}^{n}C_{i-1}C_{n-i}$ 或写为 $C_n=\sum\limits_{k=0}^{n-1}C_nC_{n-1-k}$ . 
+>该公式的证明一般依靠将数据结构划分为两个集合. 例如 Dyck 路的“触点”；有序平面树划分为两个子树.
+
+在此基础上也可以得出 Cataland 数的生成函数：
+
+>[!note]- $\sum\limits_{n\geq0}^{}C_nx^n=\frac{1-\sqrt{1-4x}}{2x}$ .
+>令 $C(x)=\sum\limits_{n\geq0}^{}C_nx^n$ ，利用上面的递推得到：
+>
+>$$\begin{aligned}
+>C(x)-1&=\sum\limits_{n\geq1}^{}\sum\limits_{k\geq0}^{n-1}C_kC_{n-1-k}x^n\\
+>&=x\sum\limits_{n\geq0}^{}\sum\limits_{k=0}^{n}C_kC_{n-k}x^{n-k}x^k\\
+>&=xC^2(x)
+>\end{aligned}$$
+>
+>从而可以得到： $C(x)=\frac{1\pm \sqrt{1-4x}}{2x}$ ，再由 $C(0)=1$ 可以得到结论.
+
+对生成函数进行 Taylor 展开即可以得到 $C_n$ .
+
+Cataland 数的例子有：
+
+- 堆栈排序之后得到 $\text{id}$ 的排列的数量（不含 $231-$ pattern 的排列个数）；
+
+- $n$ 长 Dyck 路的个数；
+
+- [[#有序平面树]]： $n$ 边有序平面树的个数 $t_n$ ；
+- $2n+1$ 个顶点的 [满二叉树](#^BinaryTree) 的个数 $tf(n)$ ；
