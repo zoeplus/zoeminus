@@ -23,40 +23,68 @@ body {
 /* 提示框 */
 .md-typeset .admonition,
 .md-typeset details {
-  font-size: 20px;
+  font-size: 18px;
   font-family: "LXGW WenKai Lite";
+  background-color: transparent;
+}
+
+/*提示框背景色*/
+.md-typeset .note > .admonition-title, .md-typeset .note > summary {
+  background-color: transparent;
+}
+
+.md-typeset .example > .admonition-title, .md-typeset .example > summary {
+  background-color: transparent;
+}
+
+.md-typeset .warning > .admonition-title, .md-typeset .warning > summary {
+  background-color: transparent;
+}
+
+.md-typeset .abstract > .admonition-title, .md-typeset .abstract > summary {
+  background-color: transparent;
+}
+
+.md-typeset .tip > .admonition-title, .md-typeset .tip> summary {
   background-color: transparent;
 }
 
 .md-typeset p {
   /* paragraphs */
-  font-size: 20px;
+  font-size: 18px;
   font-family: "LXGW WenKai Lite"
 }
 
 .md-typeset ul {
   /* unordered lists */
-  font-size: 20px
+  font-size: 18px
 }
 
 .md-typeset ol {
   /* ordered lists */
-  font-size: 20px
+  font-size: 18px
 }
+
+.md-typeset ul li,
+.md-typeset ol li {
+  margin-top: 0.1em; 
+  margin-bottom: 0.1em; 
+}
+
 
 .md-typeset code {
   /* inline code */
-  font-size: 18px;
+  font-size: 16px;
 }
 
 .md-typeset pre {
   /* code blocks */
-  font-size: 18px;
+  font-size: 16px;
 }
 
 .md-typeset pre code {
   /* code blocks within pre tags */
-  font-size: 18px;
+  font-size: 16px;
 }
 
 .code-block {
@@ -75,7 +103,7 @@ th, td {
 
 .md-typeset__table {
     font-size: 18px;
-    line-height: 1;
+    line-height: ;
 }
 
 .md-typeset__table table:not([class]) {
