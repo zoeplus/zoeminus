@@ -24,6 +24,7 @@ nav:
   - 二十: 
     - 'C': 'Coding/C.md'
     - 'C++': 'Coding/CPP.md'
+    - 'Python': 'Coding/Python.md'
   - 十九:
     - 'PyTorch': 'Cookbooks/DLCB.md'
     - 'Python DM & ML': 'Cookbooks/PyDCB.md'
@@ -31,13 +32,21 @@ nav:
     - '遥望': 'Parrot/Divisadero.md'
     - '感官刺激': 'Parrot/Senses.md'
     - '清醒的梦': 'Parrot/LucidDreaming.md'
+    - '落': 'Parrot/Falling.md'
+    - '对话': 'Parrot/WithLLM.md'
     - '存在主义': 
       - '存在 I': 'Parrot/Existential.md'
       - '对存在的追求': 'Parrot/B&N.md'
 
 plugins:
   - search
-  - git-revision-date
+  # - git-revision-date
+  - git-revision-date-localized:
+      locale: zh
+      type: date
+      timezone: Asia/Shanghai
+      # fallback_to_build_date: false
+      enable_creation_date: true
   - callouts # converting obsidian callouts
   - tags
   - roamlinks
