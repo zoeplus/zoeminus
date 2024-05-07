@@ -25,6 +25,7 @@ nav:
     - 'C': 'Coding/C.md'
     - 'C++': 'Coding/CPP.md'
     - 'Python': 'Coding/Python.md'
+    - 'Sage': 'Math/Sage.md'
   - 十九:
     - 'PyTorch': 'Cookbooks/DLCB.md'
     - 'Python DM & ML': 'Cookbooks/PyDCB.md'
@@ -98,6 +99,7 @@ theme:
     - revision.date
     - navigation.path
     - navigation.top
+    - navigation.footer
     # - toc.integrate 
     - content.action.edit
     # - content.action.view
@@ -118,6 +120,15 @@ theme:
         icon: material/lightbulb
         name: 切亮色
 
+extra:
+  social:
+    - icon: fontawesome/solid/paper-plane
+      link: mailto:2210377@mail.nankai.edu.cn
+      name: Email
+    - icon: fontawesome/brands/github
+      link: https://github.com/zoeplus
+      name: Github Profile
+
 extra_javascript:
   # the following mathjax is not rendering normally
   # - javascripts/mathjax.js
@@ -133,3 +144,5 @@ extra_javascript:
 extra_css:
   - https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css
   - stylesheets/extra.css
+
+copyright: Copyright &copy 2024 zoeminus
