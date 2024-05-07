@@ -1,0 +1,2310 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+      <link rel="icon" href="../../imgs/zxr.ico">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.16">
+    
+    
+      
+        <title>WMH - zoeminus</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.bcfcd587.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+  
+  
+  
+  
+  <style>:root{--md-annotation-icon:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9 7v2h4l-4 6v2h6v-2h-4l4-6V7H9m3-5a10 10 0 0 1 10 10 10 10 0 0 1-10 10A10 10 0 0 1 2 12 10 10 0 0 1 12 2Z"/></svg>');}</style>
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css">
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="amber" data-md-color-accent="amber">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../.." title="zoeminus" class="md-header__button md-logo" aria-label="zoeminus" data-md-component="logo">
+      
+  <img src="../../imgs/zx.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            zoeminus
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              WMH
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="amber" data-md-color-accent="amber"  aria-label="切暗色"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="切暗色" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7M9 21v-1h6v1a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1m3-17a5 5 0 0 0-5 5c0 2.05 1.23 3.81 3 4.58V16h4v-2.42c1.77-.77 3-2.53 3-4.58a5 5 0 0 0-5-5Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="amber" data-md-color-accent="amber"  aria-label="切亮色"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="切亮色" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7M9 21a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9v1Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/zoeplus/zoeminus" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    zoeminus
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="zoeminus" class="md-nav__button md-logo" aria-label="zoeminus" data-md-component="logo">
+      
+  <img src="../../imgs/zx.png" alt="logo">
+
+    </a>
+    zoeminus
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/zoeplus/zoeminus" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    zoeminus
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    主页
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    一
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            一
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Math/Set/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    集合论
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Math/R/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    实数理论
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Math/GTopo/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    一般拓扑学
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Math/RF/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    实变函数
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Math/MAlg/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    矩阵代数
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    九
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            九
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Math/Prob/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    概率论
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Math/Stat/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    数理统计
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Math/Opt/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    最优化理论
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Math/DSA/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    数据结构与算法
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Math/CLT/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    计算学习理论
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    二十二
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            二十二
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Math/DM/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    数据挖掘
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Math/SL/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    统计学习
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Math/DL/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    深度学习
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    二十
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            二十
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Coding/C.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Coding/CPP/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Coding/Python.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Python
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Math/Sage.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Sage
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    十九
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            十九
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Cookbooks/DLCB/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PyTorch
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Cookbooks/PyDCB/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Python DM & ML
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    零零五五
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            零零五五
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Parrot/Divisadero/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    遥望
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Parrot/Senses/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    感官刺激
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Parrot/LucidDreaming.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    清醒的梦
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Parrot/Falling.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    落
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Parrot/WithLLM.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    对话
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_7_6" id="__nav_7_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    存在主义
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_6">
+            <span class="md-nav__icon md-icon"></span>
+            存在主义
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Parrot/Existential/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    存在 I
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Parrot/B&N.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    对存在的追求
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="本文组织：">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      本文组织：
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      古希腊和古罗马音乐
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="古希腊和古罗马音乐">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      古希腊的音乐
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      古罗马音乐
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      中世纪
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="中世纪">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      格里高利圣咏
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      早期复调音乐
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      中世纪的世俗音乐
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      中世纪的乐器
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      文艺复兴
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="文艺复兴">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      世俗音乐
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      器乐
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      音乐改革
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      引子与前置知识
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="引子与前置知识">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      非标题音乐
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      音乐要素
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="音乐要素">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      节奏
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      力度
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      调式
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    <span class="md-ellipsis">
+      旋律 / 曲调
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_20" class="md-nav__link">
+    <span class="md-ellipsis">
+      音区
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_21" class="md-nav__link">
+    <span class="md-ellipsis">
+      音色
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_22" class="md-nav__link">
+    <span class="md-ellipsis">
+      和声
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_23" class="md-nav__link">
+    <span class="md-ellipsis">
+      织体
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_24" class="md-nav__link">
+    <span class="md-ellipsis">
+      曲式
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_25" class="md-nav__link">
+    <span class="md-ellipsis">
+      体裁
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#baroque" class="md-nav__link">
+    <span class="md-ellipsis">
+      巴洛克（Baroque）
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="巴洛克（Baroque）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_26" class="md-nav__link">
+    <span class="md-ellipsis">
+      歌剧与清唱剧
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_27" class="md-nav__link">
+    <span class="md-ellipsis">
+      亨德尔
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_28" class="md-nav__link">
+    <span class="md-ellipsis">
+      巴赫
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_29" class="md-nav__link">
+    <span class="md-ellipsis">
+      维瓦尔第
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_30" class="md-nav__link">
+    <span class="md-ellipsis">
+      古典主义
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="古典主义">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_31" class="md-nav__link">
+    <span class="md-ellipsis">
+      海顿
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_32" class="md-nav__link">
+    <span class="md-ellipsis">
+      莫扎特
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_33" class="md-nav__link">
+    <span class="md-ellipsis">
+      贝多芬
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_34" class="md-nav__link">
+    <span class="md-ellipsis">
+      浪漫主义
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="浪漫主义">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_35" class="md-nav__link">
+    <span class="md-ellipsis">
+      舒伯特
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_36" class="md-nav__link">
+    <span class="md-ellipsis">
+      柴可夫斯基
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_37" class="md-nav__link">
+    <span class="md-ellipsis">
+      格林卡
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_38" class="md-nav__link">
+    <span class="md-ellipsis">
+      里姆斯基 柯萨科夫
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_39" class="md-nav__link">
+    <span class="md-ellipsis">
+      拉维尔
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_40" class="md-nav__link">
+    <span class="md-ellipsis">
+      二十世纪
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_41" class="md-nav__link">
+    <span class="md-ellipsis">
+      临时
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_42" class="md-nav__link">
+    <span class="md-ellipsis">
+      钢琴的历史
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_43" class="md-nav__link">
+    <span class="md-ellipsis">
+      西洋管弦乐队
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_44" class="md-nav__link">
+    <span class="md-ellipsis">
+      室内乐
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+    <a href="https://github.com/zoeplus/zoeminus/commits/main/docs/Music/WMH.md" title="编辑此页" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"/></svg>
+    </a>
+  
+  
+
+
+  <h1>WMH</h1>
+
+<h2 id="_1">古希腊和古罗马音乐<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>公元前12世纪 - 公元5世纪.</p>
+<h3 id="_2">古希腊的音乐<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<p>爱琴 -&gt; 迈锡尼 -&gt; 古希腊（ancient greece）</p>
+<p>古希腊可以分为<strong>荷马时期</strong>（公元前11世纪-公元前9世纪）和古典时期. （也有四个阶段的分析）. </p>
+<p>荷马时期的两部主要作品是描写特洛伊战争的<strong>伊利亚特</strong>和<strong>奥德赛</strong>.</p>
+<p>这个时期的音乐与对<strong>神的崇拜</strong>有一定关系（music &lt;- muse，与音乐相关的神除了缪斯，还有阿波罗，宙斯等），这一时期的音乐也具有相比于近代更广泛的概念：<strong>诗、乐、舞蹈</strong>综合一体. 此外，曲调和节奏都由<strong>词的抑扬顿挫决定</strong>.</p>
+<p>这一时期的乐器有：</p>
+<ul>
+<li>管乐：阿夫洛斯管；</li>
+<li>弦乐：里拉琴. （音徽）</li>
+</ul>
+<p>戏剧分为：<strong>咏叹调</strong>（对于观众）和<strong>宣叙调</strong>（人物对话）.</p>
+<p>音阶、音程和调式等概念已经形成，这一时期的<strong>调式</strong>：七声调式. </p>
+<p>这里提及一下四个著名的小提琴协奏曲：</p>
+<ul>
+<li>《贝多芬D大调小提协奏曲》；</li>
+<li>《勃拉姆斯D大调小提琴协奏曲》；</li>
+<li>《柴科夫斯基D大调协奏曲》；</li>
+<li>《门德尔松e小调小提琴协奏曲》；</li>
+</ul>
+<p>（音乐分为<strong>标题音乐</strong>和<strong>非标题音乐</strong>）</p>
+<h3 id="_3">古罗马音乐<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<p>这一时期的乐器有：</p>
+<ul>
+<li>波弦类乐器：竖琴、鲁特琴（lute）；<strong>the lute</strong> %%一首歌曲?%%</li>
+</ul>
+<h2 id="_4">中世纪<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<p>公元450年至公元1450年.</p>
+<p>公元 476 年，古罗马灭亡，西方进入中世纪；古罗马灭亡之前，基督教已被宣布为合法宗教. 这一时期的音乐主要主要是教会礼拜音乐. 中世纪被称为“黑暗的”，因为基督教会对于人们的思想禁锢很深（就音乐而言，教会音乐多采用脱离现实的和声，排斥乐器，采用单一的声乐，排斥女声）</p>
+<p>中世纪大概可以分为三个时期：</p>
+<p>1) 公元 5-10 世纪：基督教音乐初创；<br />
+2) 公元 11-13 世纪：基督教音乐取得重大成就，世俗音乐也有一定的发展；<br />
+3) 公元 14-15 世纪：“新艺术”时期.</p>
+<p>最早的音乐资料出自于于公元九世纪，属于宗教音乐 / 圣咏.</p>
+<h3 id="_5">格里高利圣咏<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<p>格里高利是一个教皇的名字，格里高利圣咏是宗教音乐的重要基础之一，形成于公元 8,9 世纪.</p>
+<p>情绪上：庄严、肃穆、超脱. </p>
+<p>采取纯男声，无伴奏，没有声部变化，<strong>单声织体</strong>.</p>
+<p>文字为拉丁文.</p>
+<h3 id="_6">早期复调音乐<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<p>中世纪时期<strong>多声部复调音乐</strong>兴起. 其中颇具代表性的是公元 9 世纪的<strong>奥尔加农</strong>（organum），其以格里高利为固定调，在上 / 下方增加一个<u>平行四度或者五度</u>的声部. 形成一种类似钟声的音效.</p>
+<p>12 或 13 世纪初，一种新的复调形式华丽奥尔加农 / <strong>第斯康特</strong>（discant）出现.</p>
+<h3 id="_7">中世纪的世俗音乐<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
+<p>中世纪的世俗音乐主要的传播者有：流浪艺人、法国游吟诗人（康佐 canzo，晨歌 alba、田园恋歌等）、德国恋诗歌手.</p>
+<h3 id="_8">中世纪的乐器<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
+<p>弦乐：<br />
+管乐：弟子、肖烟管？、<strong>管风琴</strong>.</p>
+<h2 id="_9">文艺复兴<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h2>
+<p>文艺复兴时期，宗教音乐地位没落，世俗音乐大众化.</p>
+<p>在这一时期音乐中的两大类别：声乐和器乐的关系也发生变化，器乐摆脱声乐独立.</p>
+<p>文艺复兴表面含义上是复兴，但也有新兴的意图. 这一时期的主要思潮是人文主义，即以人为本.</p>
+<h3 id="_10">世俗音乐<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h3>
+<p>意大利牧歌（madrigal） L.Marenzio, C.Gesualdo, C.Montivirdl .</p>
+<h3 id="_11">器乐<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h3>
+<p><a href="#西洋管弦乐队">#西洋管弦乐队</a></p>
+<p>管风琴（organ）：长管音频慢，因而发出低音.</p>
+<p>古钢琴：有拨弦式的羽管键琴，以及击弦式的楔縋键琴.</p>
+<p>竖笛（recorder）、肖姆管（shawn）</p>
+<h3 id="_12">音乐改革<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h3>
+<p>宗教改革上：马丁 路德 创造了新教圣咏（可以用非拉丁语）</p>
+<p>反宗教改革：帕勒斯特里那 罗马音乐 复调无伴奏合唱风格.</p>
+<h2 id="_13">引子与前置知识<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h2>
+<p><a href="https://imslp.org/wiki/Main_Page">IMSLP</a></p>
+<div class="admonition tip">
+<p class="admonition-title">一个正式的引子</p>
+<p>之前接触到的音乐时期在我看来只能作为当时社会的一个附属品来看待，缺乏的音乐资料使得其无法展开.</p>
+<p>接下来的音乐时期留下了很多可供考证的资料.</p>
+</div>
+<p>下面进入音乐史上的三个重要时期：<strong>巴洛克</strong>、<strong>古典主义</strong>、<strong>浪漫主义</strong>.</p>
+<p>每个时期都具有不同的风格，时期一方面是以重要的音乐家的生平为标准划分的，例如：巴洛克时期始于 1600，终于 1750——巴赫的时间，古典主义时期终于 1820 年——贝多芬于 1827 年去世.</p>
+<div class="admonition warning">
+<p class="admonition-title">部分音乐家属于哪一个时期是有争议的（例如舒伯特）.</p>
+</div>
+<p>音乐史上的重要时期的划分与代表性音乐家的风格有关系. 此外，这些时期的产生与当时的<u>社会背景</u>也有很大关系，例如古典主义处在 18 世纪的启蒙运动中，音乐整体上具有一种“理性主义”：反抗巴洛克时期的华丽、夸张、繁复. 此外，对于作曲家本身，其思想和个性与其音乐作品也有关.</p>
+<p>各个音乐时期之间也有关系，形成一种反抗的形式. 上面提到古典主义用理性主义反抗巴洛克时期的华丽夸张，随后的浪漫主义则用感性反抗古典主义的理性——过分宣泄、强调主观感受.</p>
+<h3 id="_14">非标题音乐<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h3>
+<p><a href="https://zhuanlan.zhihu.com/p/144100817">check-zhihu-编号体系</a></p>
+<p>在具体听各个作品时经常会遇到各种代称、编号. 例如：</p>
+<ul>
+<li>Symphony No. 9 In D Minor, Op. 125 - "Choral"</li>
+<li>BWV 925: Prelude In D Major</li>
+</ul>
+<p>不同于<strong>标题音乐</strong>——标题直接点明主题或者充当谜语，之前的音乐家通常采取<strong>非标题音乐</strong>：指明<u>曲式</u>、<u>曲调</u>（参见<a href="#音乐要素">#音乐要素</a>），例如上面 Symphony No. 9 In D Minor, Op. 125 - "Choral"： <br />
+- Symphony （曲式：交响曲）<br />
+- No. 9（该作曲家第九部该曲式作品）<br />
+- D Minor （D 小调）；<br />
+- 此外后人或为其编号， Op. 125 即为该作曲家的第 125 部作品；Op 的含义为作品集编号<br />
+- 有的非标题音乐也会指明一些想要表达的要素，例如上面的 "Choral" （合唱），与该交响曲最后一章中的欢乐颂相对应；</p>
+<p>连起来即为贝多芬的 D 小调第九交响曲“合唱”，为其第 125 部作品.</p>
+<p>此外，后人也为一些音乐家起了特殊的代号，例如 BWV 表示 J.S. 巴赫的作品， BWV 925 即为其第 925 部作品， Prelude In D Major 即为 D 大调前奏曲；</p>
+<div class="admonition warning">
+<p class="admonition-title">编号晚并不意味着作曲家作曲时间晚.</p>
+<p>事实上，有一些作品是在作曲家去世后发布的，为了不与之前的作品编号矛盾，所以编号是紧接着写的.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">编号通常并不是音乐家所为，是后世建立的一种索引.</p>
+<p>出于各种各样的原因，音乐家在世期间其作品并没有一个完整的编号系统，后世为其所有作品做了编号，现在看到的编号都是广泛认同的，可以当作音乐作品的唯一 ID.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">标题音乐并不一定反映主题</p>
+<p>《二泉映月》并不反映作品想要表达的主题：老人回顾命运；</p>
+</div>
+<h3 id="_15">音乐要素<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h3>
+<p><a href="http://www.sn68.com/Article.asp?ClassID=156&amp;id=938315">check-sn68</a> </p>
+<p><strong>音乐基本要素</strong>：音的高低、长短、强弱、音色；</p>
+<p>以上的基本要素组合形成音乐要素，是作曲家的音乐表现手段.</p>
+<h4 id="_16">节奏<a class="headerlink" href="#_16" title="Permanent link">&para;</a></h4>
+<p><strong>节奏</strong>：音的长短和强弱形成音乐的节奏；</p>
+<details class="note" open="open">
+<summary><strong>节拍</strong></summary>
+<p>音乐中的重拍和弱拍周期性重复进行，形成节拍；</p>
+<p>中国传统音乐称节拍为<strong>板眼</strong>：板相当于强拍，眼相当于次强拍或者弱拍；</p>
+</details>
+<details class="note" open="open">
+<summary>速度：音乐进行的快慢； #issue %%和节奏有区别？和音长有区别？%%</summary>
+</details>
+<h4 id="_17">力度<a class="headerlink" href="#_17" title="Permanent link">&para;</a></h4>
+<p>力度：即为音的强弱； #issue %%二者有区别？%%</p>
+<h4 id="_18">调式<a class="headerlink" href="#_18" title="Permanent link">&para;</a></h4>
+<p><strong>调式</strong>：由音的高低形成；调式描述的是音乐中的某些音的<u>组合</u>，该组合以一个音为中心；例如大调式（西方音乐中常用，七音组成）、小调式、五声调式；调式中的各个音从主音开始，按照音的高低排列构成音阶；</p>
+<details class="example" open="open">
+<summary>C 大调.</summary>
+<p>C（根音） - D（大二度） - E（大三度） - F（纯四度） - G（纯五度） - A（大六度） - B（大七度） - C（八度）</p>
+<p>明亮、愉悦，常常用于欢快、轻快的音乐中.</p>
+</details>
+<details class="example" open="open">
+<summary>C 小调.</summary>
+<p>C（根音） - D（小二度） - E♭（小三度） - F（纯四度） - G（小五度） - A♭（小六度） - B♭（小七度） - C（八度）<br />
+深沉、悲伤，常用于表达忧郁、内省的情感。</p>
+</details>
+<h4 id="_19">旋律 / 曲调<a class="headerlink" href="#_19" title="Permanent link">&para;</a></h4>
+<p><strong>曲调</strong>：也称<strong>旋律</strong>，由音的高低和节奏形成；表现音乐的感情；</p>
+<details class="note" open="open">
+<summary>曲调基本的进行方向.</summary>
+<ul>
+<li>水平进行：以相同音进行； </li>
+<li>上行：由低音向高音方向进行； </li>
+<li>下行：由高音向低音方向进行；</li>
+</ul>
+</details>
+<details class="note" open="open">
+<summary>曲调的常见进行方向.</summary>
+<ul>
+<li>同音反复；</li>
+<li>级近；按音阶的相邻音进行；</li>
+<li>跳进：</li>
+<li>小跳：音与音之间相差三度；</li>
+<li>大跳：音与音之间相差四度或者四度以上.</li>
+</ul>
+</details>
+<h4 id="_20">音区<a class="headerlink" href="#_20" title="Permanent link">&para;</a></h4>
+<h4 id="_21">音色<a class="headerlink" href="#_21" title="Permanent link">&para;</a></h4>
+<h4 id="_22">和声<a class="headerlink" href="#_22" title="Permanent link">&para;</a></h4>
+<p><strong>和声</strong>：包括和弦、和声进行两个部分. </p>
+<p><strong>和弦</strong>：三个及以上的音的纵向组合（重叠）；</p>
+<details class="note">
+<summary>色彩</summary>
+<ul>
+<li>浓； </li>
+<li>淡； </li>
+<li>厚；</li>
+<li>薄；</li>
+</ul>
+</details>
+<p><strong>和声进行</strong>：和弦的横向组织；</p>
+<details class="note" open="open">
+<summary>和声在音乐组织中的作用.</summary>
+<ul>
+<li>构成乐句； </li>
+<li>划分乐段； </li>
+<li>终止乐曲；</li>
+</ul>
+</details>
+<h4 id="_23">织体<a class="headerlink" href="#_23" title="Permanent link">&para;</a></h4>
+<p>织体描述的是音乐中的层次结构，反映<u>多个声部的组织形式</u>，其他声部服从某个声部，或者声部之间独立.</p>
+<p>主调、复调、单声.</p>
+<details class="note" open="open">
+<summary><strong>单声织体</strong>：单独的一条旋律；</summary>
+</details>
+<details class="note" open="open">
+<summary><strong>主调音乐织体</strong>.</summary>
+<p>由一条旋律加上和声伴奏组成的，或多个声部作为伴奏以加强和陪衬<u>主</u>旋律，在古典主义时期流行；</p>
+</details>
+<details class="note" open="open">
+<summary><strong>复调音乐织体</strong>.</summary>
+<p>由两条或者<u>多</u>条旋律组成，在巴洛克时期流行，有以下形式：</p>
+<ul>
+<li><strong>模仿式复调</strong>（主要旋律在各个声部依次出现）；模仿复调又可以分为<strong>卡农</strong>（精准模仿）和<strong>赋格</strong>（非精准模仿），可以参考 line rider 对复调的表现形式理解.</li>
+<li><strong>对比式复调</strong>（各声部独立，相互对比）；</li>
+<li><strong>支声复调</strong>等. </li>
+</ul>
+</details>
+<h4 id="_24">曲式<a class="headerlink" href="#_24" title="Permanent link">&para;</a></h4>
+<p>曲式：横向组织结构；简单来说是<strong>乐段</strong>的组合形式；每一个乐段是由之前提到的一些要素（旋律、力度、音色、和声、织体等）组成的.</p>
+<details class="note">
+<summary>一部曲式 <span class="arithmatex">\(A\)</span> .</summary>
+</details>
+<details class="note">
+<summary>二部曲式 <span class="arithmatex">\(AB\)</span> .</summary>
+</details>
+<details class="note">
+<summary>三部曲式 <span class="arithmatex">\(ABA,ABC\)</span> .</summary>
+</details>
+<details class="note">
+<summary>回旋曲式 <span class="arithmatex">\(ABACADA\)</span> .</summary>
+</details>
+<div class="admonition example">
+<p class="admonition-title">回旋曲式举例</p>
+<ul>
+<li>维瓦尔第《四季》；</li>
+</ul>
+</div>
+<div class="admonition note">
+<p class="admonition-title">变奏曲式</p>
+<p>从一个主题出发，每一个进行各种变化（速度、转调、加花等）.</p>
+</div>
+<div class="admonition example">
+<p class="admonition-title">变奏曲式举例</p>
+<p>注：主题通常在最前和最后分别出现一次，变奏在中间出现，所以下面的变奏曲的音乐段数为变奏段数 + 2.</p>
+<ul>
+<li><a href="">哥德堡变奏曲</a> 30 变奏；</li>
+<li>莫扎特 K.265 C 大调 12 变奏曲（小星星）；</li>
+</ul>
+</div>
+<h4 id="_25">体裁<a class="headerlink" href="#_25" title="Permanent link">&para;</a></h4>
+<p><a href="https://www.zhihu.com/question/38070714">check-zhihu-音乐体裁</a> ，<a href="http://www.musicgenreslist.com/">check-music_genre_list</a></p>
+<div class="admonition question">
+<p class="admonition-title">体裁与曲式的区别？</p>
+<p>简言之，体裁使用曲式，不同体裁 <span class="arithmatex">\(\not\Rightarrow\)</span> 不同曲式，不同曲式 <span class="arithmatex">\(\not\Rightarrow\)</span> 不同体裁；</p>
+<p>区别不同体裁的标准有：</p>
+<ul>
+<li>写作目的：e.g. 练习曲是为了乐器演奏的技术训练而写的乐曲）；</li>
+<li>器乐组成：e.g. 交响曲由管弦阅读演奏，奏鸣曲是由一件独奏乐器或者一件独奏乐器与光琴合奏的；</li>
+<li>乐章结构：e.g. 奏鸣曲通常包括：引子、呈示部、展开部、再现部、尾声；交响曲一般由四个乐章（快板、较慢、舞曲 / 谐谑曲、快速 / 急速）组成；</li>
+</ul>
+<p>有些曲式也可以作为体裁，例如变奏曲，乐章中可能对于主题进行变化，协奏曲、交响曲、奏鸣曲是体裁，协奏曲、交响曲、奏鸣曲均可以采用变奏曲式；变奏曲式也可以单独作为一个体裁.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">曲式和体裁有时也混为一谈.</p>
+<p><a href="http://www.cagezhujunjie.cn/post/NineChaptersForMusic-ChapterFour.html">check-niaoge</a></p>
+</div>
+<details class="note" open="open">
+<summary>奏响曲（Sonata）</summary>
+<p>想当灵活的一种曲式，主要包括：（引子）、呈示部、展开部、再现部、（尾声）.</p>
+<p>呈示部：一般分为<u>主题</u>和<u>副题</u>，两者区别明显，此外有时会在主题和副题之间插入<u>连接部</u>，或在副题之后加入<u>结束部</u>.</p>
+<p>展开部：对呈示部进行调式、调性的转换；</p>
+<p>再现部：再现或者压缩再现呈示部；</p>
+<p>奏鸣曲由三个乐章组成，节奏一般是快-慢-快 （但《月光奏鸣曲》是慢-快-快 ）</p>
+</details>
+<div class="admonition note">
+<p class="admonition-title">交响曲（Symphony）</p>
+<p>一般由四个乐章组成；其编制见<a href="#西洋管弦乐队">#西洋管弦乐队</a>，主要是弦乐组、木管乐组、铜管乐组、打击乐族，此外还可能有色彩乐器或者民族乐器.</p>
+<p>在古典时期由<a href="#海顿">#海顿</a>确定为：</p>
+<ul>
+<li>第一乐章，快板</li>
+<li>第二乐章，较慢</li>
+<li>第三乐章，舞曲或者谐谑曲</li>
+<li>第四乐章，快速或者急速</li>
+</ul>
+<p>交响曲的前身是意大利歌剧的序曲</p>
+</div>
+<div class="admonition example">
+<p class="admonition-title">交响曲举例</p>
+<ul>
+<li>贝多芬《C 小调第五交响曲：命运》（Symphony No. 5 in C Minor, Op. 67）</li>
+<li>贝多芬《D 小调第九交响曲：合唱》（Symphony No. 9 In D Minor, Op. 125 "Choral"）；</li>
+<li>莫扎特《G 小调第四十交响曲》（Symphony No. 40 in G Minor, K.550）</li>
+</ul>
+</div>
+<div class="admonition note">
+<p class="admonition-title">协奏曲（concerto）</p>
+<p>concerto：源自 16 世纪的意大利语 concertare ，意为协调一致.</p>
+<p>一件或者多件独奏乐器与管弦乐队同时演奏，目的是展示独奏乐器的个性以及技巧.</p>
+</div>
+<h2 id="baroque">巴洛克（Baroque）<a class="headerlink" href="#baroque" title="Permanent link">&para;</a></h2>
+<p>1600-1750</p>
+<p>巴洛克的含义：形状不规则的珍珠.</p>
+<p>巴洛克时期基督教乐和皇乐同时存在.</p>
+<p>特点：<strong>显赫富丽的公平气概，威严神圣的宗教精神</strong>；<strong>复杂渐深，表现技巧</strong>；情感统一、节奏持续、旋律持续、力度一致、阶梯力度（？）、<strong>复调织体</strong>、和弦和通奏低音（数字，即兴发挥）广泛使用. </p>
+<p>巴洛克前半时期的键盘音乐主要集中在意大利、德国和法国. 这一时期的音乐具有很强的装饰感（类似于颤音？）</p>
+<p>巴洛克时期确立了古钢琴<u>组曲</u>的标准形态：前奏曲，阿勒曼德（慢）、库朗特（快）、萨拉班提（慢）、小步舞曲、吉格舞曲.  （编排上呈现快慢交替）</p>
+<p>巴赫也创建了许多组曲，例如《英国组曲》</p>
+<p>巴洛克后半期的键盘音乐：德国管风琴，之后还形成了三个分支：南德、中德、北德.</p>
+<h3 id="_26">歌剧与清唱剧<a class="headerlink" href="#_26" title="Permanent link">&para;</a></h3>
+<p><strong>歌剧</strong>是一种综合的艺术体裁，除了音乐之外包括文学、戏剧、美术等，而<strong>清唱剧</strong>则忽略了除音乐之外的元素，并且主题是围绕<u>宗教</u>展开的.</p>
+<h3 id="_27">亨德尔<a class="headerlink" href="#_27" title="Permanent link">&para;</a></h3>
+<h3 id="_28">巴赫<a class="headerlink" href="#_28" title="Permanent link">&para;</a></h3>
+<p>1695-1750</p>
+<p>巴赫作品目录： BWV</p>
+<p>巴赫（Johann Sebastian Bach）生于德国爱森纳赫，是 3B 音乐家（巴赫（巴洛克）、贝多芬（古典）、波拉姆斯（浪漫））之首. 被称为<strong>西方近代音乐之父</strong>.</p>
+<p>作为作曲家的同时，巴赫也是管风琴（五指并用、踏板）、小提琴、大键盘演奏者，擅长即兴演奏. 作有《马太受难乐》、《约翰受难乐》、《 b 小调弥撒》</p>
+<p>巴赫在音律学上有很大造诣，是<strong>十二平均律</strong>的实践者，作有：</p>
+<div class="admonition note">
+<p class="admonition-title">平均律钢琴曲集（Das Wohltemperierte Klavier）</p>
+<p>又称《十二平均律钢琴曲集》被称为<strong>钢琴旧约圣经</strong>（<strong>钢琴新约圣经</strong>则是贝多芬的《三十二首钢琴奏鸣曲集》）</p>
+<p>该曲集本为大键琴及羽管键琴而作，分为两部，原标题为《二十四首前奏曲与赋格》，分别于 1722 年与 1742 年完成。</p>
+<p>共 24 个大小调，总共 48 首前奏曲与赋格.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">《C 大调前奏与赋格》</p>
+<p><a href="https://zhuanlan.zhihu.com/p/435464356">check-zhihu</a></p>
+<p>巴赫的《平均律钢琴曲集》上册第一首. 其中《C 大调前奏》广为流传。</p>
+</div>
+<p>其他作品：<br />
+- 《哥德堡变奏曲》<br />
+- 《 d 小调托卡塔与赋格》（ d 是代号，调式是小调，托卡塔 (toccata) 是一种阴柔但不明亮的<u>即兴创作体裁</u>，赋格 (fugae，或称为遁走曲) 是一种不严格的模仿、《二部创意曲》<br />
+- 《二部创意曲》（<u>古钢琴曲</u>）<br />
+- 《G 弦上的咏叹调》<br />
+- 《勃兰登堡协奏曲》</p>
+<p>巴赫被认为将复调发展到了顶峰.</p>
+<h3 id="_29">维瓦尔第<a class="headerlink" href="#_29" title="Permanent link">&para;</a></h3>
+<p>安东尼奥 卢西奥 维瓦尔第（Antonio Lucio Vivaldi），意大利作曲家，1678.3.4 – 1741.7.28 .</p>
+<div class="admonition note">
+<p class="admonition-title">《四季》</p>
+<p><a href="https://en.wikipedia.org/wiki/The_Four_Seasons_(Vivaldi)">check-wiki</a></p>
+<p>《四季》包含了四首小提琴协奏曲。</p>
+<ul>
+<li>
+<p>Concerto No. 1 in E major, Op. 8, RV 269, "Spring" (La primavera)<br />
+   Allegro (in E major)<br />
+   Largo e pianissimo sempre (in C♯ minor)<br />
+   Allegro pastorale (in E major)</p>
+</li>
+<li>
+<p>Concerto No. 2 in G minor, Op. 8, RV 315, "Summer" (L'estate)<br />
+   Allegro non molto (in G minor)<br />
+   Adagio e piano – Presto e forte (in G minor)<br />
+   Presto (in G minor)</p>
+</li>
+<li>
+<p>Concerto No. 3 in F major, Op. 8, RV 293, "Autumn" (L'autunno)<br />
+   Allegro (in F major)<br />
+   Adagio molto (in D minor)<br />
+   Allegro (in F major)</p>
+</li>
+<li>
+<p>Concerto No. 4 in F minor, Op. 8, RV 297, "Winter" (L'inverno)<br />
+   Allegro non molto (in F minor)<br />
+   Largo (in E♭ major)<br />
+   Allegro (in F minor)</p>
+</li>
+</ul>
+</div>
+<h2 id="_30">古典主义<a class="headerlink" href="#_30" title="Permanent link">&para;</a></h2>
+<p>背景： 18 世纪启蒙运动，强调“自由，平等，博爱”.</p>
+<p>古典时期的特点：<strong>理性主义</strong>；音乐世俗化；以朴素自然、色彩单纯、结构稳定取代巴洛克时期的华丽装饰、夸张、繁复；<strong>简洁易记，优美动人</strong>；</p>
+<p>小步舞曲 -&gt; 戏谑曲；</p>
+<p>常用体裁：奏响、协奏、交响曲、四重奏、<u>室内乐</u>；</p>
+<p>常用曲式：二部、三部曲式，变奏曲式；</p>
+<h3 id="_31">海顿<a class="headerlink" href="#_31" title="Permanent link">&para;</a></h3>
+<p>Hob</p>
+<p>奥地利</p>
+<p>作品：<br />
+- 《C 大调奏鸣曲》</p>
+<h3 id="_32">莫扎特<a class="headerlink" href="#_32" title="Permanent link">&para;</a></h3>
+<p><a href="https://en.wikipedia.org/wiki/Wolfgang_Amadeus_Mozart">check-wiki</a></p>
+<p>1756.1.27 - 1791.12.5</p>
+<p>奥地利</p>
+<p>创作领域：歌剧、协奏曲、交响乐、奏响曲、室内曲；</p>
+<div class="admonition tip">
+<p class="admonition-title">1784年，莫扎特参加了“共济会”（也称兄弟会，拿破仑在埃及创建，宣言自由平等，兄弟之爱），宣扬自由、平等、博爱.</p>
+</div>
+<details class="note" open="open">
+<summary>《费加罗的婚礼》（Le Nozze di Figaro， K.492）</summary>
+<p>听：<a href="https://open.spotify.com/album/2COjPQLeLFEAYFaDcqS87d">check-spotify</a></p>
+<p>完成于 1786 年，意大利四幕喜歌剧.</p>
+<p>序曲：急板；奏鸣曲式；</p>
+</details>
+<details class="note" open="open">
+<summary>《唐璜》</summary>
+<p>听：</p>
+<p>歌剧</p>
+</details>
+<div class="admonition note">
+<p class="admonition-title">《魔笛》</p>
+<p>听：</p>
+<p>歌剧：</p>
+</div>
+<p>创作了 41 部交响曲，其中 35、36、39、<strong>40</strong>、41 最为知名；</p>
+<details class="note" open="open">
+<summary>《G 小调第四十交响曲：“维特”》</summary>
+<p>听： <a href="https://open.spotify.com/playlist/6j0RaGKpeXfWDxhW1GYg6y">check-spotify</a><br />
+历史： <a href="https://zh.wikipedia.org/zh-cn/%E7%AC%AC40%E8%99%9F%E4%BA%A4%E9%9F%BF%E6%9B%B2_(%E8%8E%AB%E6%89%8E%E7%89%B9)">check-wiki-zh</a> , <a href="https://baike.baidu.com/item/%E7%AC%AC40%E5%8F%B7%E4%BA%A4%E5%93%8D%E6%9B%B2/1061709">check-baidu</a></p>
+<p>K.550 G 小调第 40 号交响曲；</p>
+<p>第一乐章：奏鸣曲式，类似于《命运交响曲》中的姊妹手法；</p>
+</details>
+<details class="note" open="open">
+<summary>《土耳其进行曲》</summary>
+<p>听：<a href="https://open.spotify.com/track/1jRCvttsFAHaFXEli2sGYd">check-spotify</a></p>
+<p>选自《第十一钢琴奏鸣曲》（Piano Sonata No. 11 K.331 ）第三章；</p>
+<p>首先是插部，以 BACABAA... 进行 （A 为主题），其中 do re mi ，中 do re 对 mi 起到烘托作用.</p>
+</details>
+<details class="note" open="open">
+<summary>《G 大调第 13 号小夜曲》（Serenade Nr. 13 in G-Dur）</summary>
+<p>听：<a href="https://open.spotify.com/track/2O0tYnL4ZgIntR1J7HWwh6">check-spotify</a></p>
+<p>K. 525</p>
+</details>
+<ul>
+<li>《双钢琴 D 大调协奏曲》</li>
+<li>《d 小调第 20 首钢琴奏鸣曲》</li>
+</ul>
+<h3 id="_33">贝多芬<a class="headerlink" href="#_33" title="Permanent link">&para;</a></h3>
+<p>路德维奇范贝多芬（Ludwig van Beethoven）德国音乐家，1770 - 1827.</p>
+<p>贝多芬所作的钢琴协奏曲有编号的有 5 部，总共有 7 部；</p>
+<div class="admonition note">
+<p class="admonition-title">《钢琴协奏曲第五：皇帝》</p>
+<p>（Piano Concerto No. 5 in E-Flat Major Emperor）</p>
+<p>分为三个乐章（快慢快）进行.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">《第八钢琴奏鸣曲》</p>
+<p><a href="https://en.wikipedia.org/wiki/Piano_Sonata_No._8_(Beethoven)">check-wiki</a></p>
+<p>Piano Sonata No. 8 in C minor, Op. 13 写于 1798 年，贝多芬 27 岁时的作品. 又称为《悲怆奏鸣曲》.</p>
+<p>共分为三个乐章：</p>
+<ul>
+<li>很快而有精神的快板（Grave; allegro di molto e con brio）</li>
+<li>如歌的慢板（Adagio cantabile）</li>
+<li>回旋曲，快板（Rondo allegro）</li>
+</ul>
+</div>
+<div class="admonition note">
+<p class="admonition-title">《降 E 大调钢琴变奏曲：英雄》</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">《致爱丽丝》</p>
+<p>回旋曲式 ABACA</p>
+</div>
+<h2 id="_34">浪漫主义<a class="headerlink" href="#_34" title="Permanent link">&para;</a></h2>
+<p>1820 - 1900</p>
+<p>势如破竹地反抗权威、传统、古典模式. 针对朴素、客观、平静的古典主义的反抗.</p>
+<div class="admonition tip">
+<p class="admonition-title">对比古典主义理解浪漫主义的特点</p>
+<ul>
+<li>主观感受取代客观现实；</li>
+<li>感性取代理性；</li>
+<li>夸张、激越手法取代严谨沉静的形式（哭就要大哭，笑就要笑得人仰马翻）；</li>
+<li>鲜明的个性取代共性；</li>
+</ul>
+</div>
+<p>浪漫主义还强调民族主义 / 民族觉醒 / 民族自豪感；</p>
+<h3 id="_35">舒伯特<a class="headerlink" href="#_35" title="Permanent link">&para;</a></h3>
+<p>舒伯特，1797 - 1828 ，奥地利音乐家，被认为是浪漫主义的奠基人.</p>
+<p>摇篮曲（有两首不同作家的）</p>
+<p>小夜曲</p>
+<p>圣母颂（同样有两首）</p>
+<p>舒伯特在交响乐上成就很高：第八未完成，两个乐章.</p>
+<h3 id="_36">柴可夫斯基<a class="headerlink" href="#_36" title="Permanent link">&para;</a></h3>
+<p>民族主义音乐</p>
+<div class="admonition note">
+<p class="admonition-title">《如歌的行板》</p>
+<p>《如歌的行板》（Andante cantabile）是老柴在 1871 所作的《D 大调第一弦乐四重奏》（String Quartet No. 1 in D major，Op. 11）的第二乐章.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">《四季》</p>
+<p>钢琴组曲，四季为主题，将十二个月份中代表的景物写入曲中.</p>
+<ol>
+<li>《壁炉边》January At the Fire Side</li>
+<li>《狂欢节》February Carnival</li>
+<li>《云雀之歌》March Song of the Lark</li>
+<li>《松雪草》April Snow Drop</li>
+<li>《清净之夜》May White Nights</li>
+<li>《船歌》June Barcarolle</li>
+<li>《刈者之歌》July Song of the Reapers</li>
+<li>《收获》August Harvest</li>
+<li>《狩猎之歌》September The Hunting</li>
+<li>《秋之歌》October Autumn Song</li>
+<li>《在马车上》November Troika</li>
+<li>《圣诞节》December Christmas</li>
+</ol>
+</div>
+<p>注：民族主义音乐国家 俄罗斯、杰特、挪威、芬兰</p>
+<p>天鹅湖</p>
+<h3 id="_37">格林卡<a class="headerlink" href="#_37" title="Permanent link">&para;</a></h3>
+<h3 id="_38">里姆斯基 柯萨科夫<a class="headerlink" href="#_38" title="Permanent link">&para;</a></h3>
+<p>俄罗斯作曲家.</p>
+<div class="admonition note">
+<p class="admonition-title">《天方夜谭》</p>
+<p>交响组曲《舍赫拉查德》（Scheherazade），又称《天方夜谭》，《一千零一夜》.</p>
+<p>四个乐章分别对应于四个不同的故事：</p>
+<ul>
+<li>第一乐章：海和辛巴达的故事；</li>
+<li>第二乐章：卡伦德王子的叙述；</li>
+</ul>
+</div>
+<h3 id="_39">拉维尔<a class="headerlink" href="#_39" title="Permanent link">&para;</a></h3>
+<p>拉维尔， 1875 - 1927 ，法国，印象派音乐家.</p>
+<div class="admonition tip">
+<p class="admonition-title">关于印象派</p>
+<p>印象画派的典型代表是莫奈的《日出印象》</p>
+</div>
+<h2 id="_40">二十世纪<a class="headerlink" href="#_40" title="Permanent link">&para;</a></h2>
+<h2 id="_41">临时<a class="headerlink" href="#_41" title="Permanent link">&para;</a></h2>
+<p>考试分成三部分：</p>
+<ol>
+<li>听：曲名 - 作者 - 国籍 （60 points）</li>
+<li>问答（35 points）</li>
+<li>欣赏体验（15 points）</li>
+</ol>
+<p><a href="https://music.163.com/#/song?id=25731824">晨曲</a> - 格里格 - 挪威<br />
+<a href="https://music.163.com/#/song?id=560091484">Farandole</a> - George Bizet - 法国</p>
+<p>如何辨别曲目：<br />
+- 起始音色：<u>低音提琴 / 大提琴</u>（舒伯特 第八未完成） / 木管？<br />
+- 主题音色：<u>双簧管</u></p>
+<p>对位： Counterpoint.</p>
+<h2 id="_42">钢琴的历史<a class="headerlink" href="#_42" title="Permanent link">&para;</a></h2>
+<p>钢琴的前身：羽管键琴；击弦键琴（或称为小键琴）.</p>
+<p>按照制作形式：重锤键盘（利用配重的重力）和力度键盘.</p>
+<p><strong>合成器</strong>.</p>
+<p>钢琴的演奏形式：</p>
+<ul>
+<li>独奏；</li>
+<li>协奏；</li>
+<li>重奏；<ul>
+<li>连奏；</li>
+<li>多重重奏；</li>
+</ul>
+</li>
+<li>创意；</li>
+</ul>
+<h2 id="_43">西洋管弦乐队<a class="headerlink" href="#_43" title="Permanent link">&para;</a></h2>
+<p>西洋管弦乐队由<u>弦乐组</u>、<u>管乐组</u>、<u>打击乐组</u>组成.</p>
+<p>分布上首先是指挥，距离观众席最近，其次是弦乐组，声音比较柔弱：<u>小提、中提、大提</u>；再往后是管乐组：分为木管和铜管两类，必备的有<u>长笛、双簧管、单簧管、大管、小号、圆号、长号、大号</u>，还可能有<u>短笛</u>；距离观众席最远的是打击乐组：固定音高乐器的有<u>定音鼓、鼓琴、钢片琴</u>，无固定音高的有<u>小鼓、大鼓</u>.</p>
+<p>总结：西洋管弦乐队组成：<br />
+- <strong>弦乐组</strong>：小提琴、中提琴、大提琴、低音提琴（倍大提琴）.<br />
+- <strong>木管乐组</strong>：短笛、长笛、双簧管、单簧管、大管、英国管、萨克斯风<br />
+- <strong>铜管乐组</strong>：小号、短号、圆号（法国号）、长号、大号.<br />
+- <strong>打击乐组</strong>：定音鼓、大鼓、小鼓、锣、镲、铃鼓、钢片琴、木琴、三角铁等.</p>
+<p>此外还可能有：</p>
+<ul>
+<li><strong>色彩乐器组</strong>：钢琴、竖琴、管风琴、电子琴、吉他等.</li>
+</ul>
+<p>《青少年管弦乐队指南》</p>
+<h2 id="_44">室内乐<a class="headerlink" href="#_44" title="Permanent link">&para;</a></h2>
+<p><a href="https://zh.wikipedia.org/zh-cn/%E5%AE%A4%E5%86%85%E4%B9%90">check-wiki</a></p>
+<p>有少数人演奏，每一个声部都由一个乐器担任的重奏曲；</p>
+<p>常见形式：</p>
+<table>
+<thead>
+<tr>
+<th>形式</th>
+<th>乐器</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>弦乐三重奏</td>
+<td>小、中、大提琴</td>
+</tr>
+<tr>
+<td>弦乐四重奏</td>
+<td>小一、小二、中、大提琴</td>
+</tr>
+<tr>
+<td>弦乐五重奏</td>
+<td>在弦乐四重奏乐器的基础上加上倍大 / 低音提琴</td>
+</tr>
+<tr>
+<td>钢琴三重奏</td>
+<td>小、大提琴、钢琴</td>
+</tr>
+<tr>
+<td>钢琴四重奏</td>
+<td>弦乐三重奏有乐器的基础上增加钢琴</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+  
+    
+  
+  
+    
+  
+
+
+  <aside class="md-source-file">
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="最后更新">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2024年5月7日</span>
+  </span>
+
+    
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="创建日期">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3h-2Z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2024年5月7日</span>
+  </span>
+
+    
+    
+    
+  </aside>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  回到页面顶部
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy 2024 zoeminus
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+    <a href="mailto:2210377@mail.nankai.edu.cn" target="_blank" rel="noopener" title="Email" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M498.1 5.6c10.1 7 15.4 19.1 13.5 31.2l-64 416c-1.5 9.7-7.4 18.2-16 23s-18.9 5.4-28 1.6L284 427.7l-68.5 74.1c-8.9 9.7-22.9 12.9-35.2 8.1S160 493.2 160 480v-83.6c0-4 1.5-7.8 4.2-10.7l167.6-182.9c5.8-6.3 5.6-16-.4-22s-15.7-6.4-22-.7L106 360.8l-88.3-44.2C7.1 311.3.3 300.7 0 288.9s5.9-22.8 16.1-28.7l448-256c10.7-6.1 23.9-5.5 34 1.4z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="https://github.com/zoeplus" target="_blank" rel="noopener" title="Github Profile" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["revision.date", "navigation.path", "navigation.top", "navigation.footer", "content.action.edit", "content.code.copy"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.bd41221c.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/copy-tex.min.js"></script>
+      
+        <script src="../../javascripts/katex.js"></script>
+      
+        <script src="../../javascripts/tabSync.js"></script>
+      
+    
+  </body>
+</html>

@@ -29,7 +29,12 @@ body {
 }
 
 /*提示框背景色*/
-.md-typeset .note > .admonition-title, .md-typeset .note > summary {
+.md-typeset .note>.admonition-title,
+.md-typeset .note>summary {
+  background-color: transparent
+}
+
+.md-typeset .question > .admonition-title, .md-typeset .question> summary {
   background-color: transparent;
 }
 
