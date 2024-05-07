@@ -1,4 +1,10 @@
+# 依赖与简介
+
+无依赖，但与之有关的有[[DSA]]
+
 # 编译器
+
+[GCC Compiler](https://gcc.gnu.org/)
 
 用高级语言编写好的程序称为**源代码**（source code），需要编译成可执行程序，即机器语言指令.
 
@@ -6,10 +12,280 @@
 
 **Compilers** / interpreters / assemblers : translating high level language to **machine language** ; 
 
-### g++ command
+## 编译时错误
+
+在编译阶段编译器的报错称为**编译时错误**（compile time error, CTE），例如下面定义的函数在运行时不被调用，但是编译器报错：
+
+```cpp title="编译时错误" linenums="1"
+#include <vector>
+using namespace std;
+
+void set_last_zero(const vector<int>& v) {
+    *v.end() = 0;
+}
+
+int main() {
+    vector<int> vec {1, 2, 3, 4, 5};
+    return 0;
+}
+```
+
+```shell title="CTE" linenums="1"
+constParam.cpp: In function ‘void set_last_zero(const std::vector<int>&)’:
+constParam.cpp:5:14: error: assignment of read-only location ‘(& v)->std::vector<int>::end().__gnu_cxx::__normal_iterator<const int*, std::vector<int> >::operator*()’
+    5 |     *v.end() = 0;
+      |     ~~~~~~~~~^~~
+```
+
+## 运行时错误与异常处理
+
+编译完成的程序在运行时仍然可能出错，例如一个不合法的输入造成程序无法运行，这类错误称为**运行时错误**（runtime error）；下面介绍如何处理运行时错误；
+
+### `abort()`
+
+=== "abort.cpp"
+
+    ```cpp title="abort()" linenums="1" hl_lines="15-19"
+    #include <iostream>
+    #include <cstdio>
+    #include <cstdlib>
+    using namespace std;
+    
+    double hMean(double a, double b);
+    
+    int main() {
+        double x, y;
+        scanf("%lf %lf", &x,  &y);
+        printf("Harmonic mean of %lf and %lf is %lf", x, y, hMean(x, y));
+        return 0;
+    }
+    
+    double hMean(double a, double b) {
+        if (a == -b) {
+            cout << "the denominator can't be zero" << endl;
+            abort();
+        }
+        return 2.0 * a * b / (a + b);
+    }
+    ```
+
+=== "Terminal"
+
+    ```shell linenums="1"
+    $ g++ -o a abort.cpp
+    $ ./a
+    1 -1
+    the denominator can't be zero
+    [1]    11863 IOT instruction (core dumped)  ./a
+    ```
+
+=== "abort.cpp"
+
+    ```cpp title="No abort()" linenums="1"
+    #include <iostream>
+    #include <cstdio>
+    #include <cstdlib>
+    using namespace std;
+    
+    double hMean(double a, double b);
+    
+    int main() {
+        double x, y;
+        scanf("%lf %lf", &x,  &y);
+        printf("Harmonic mean of %lf and %lf is %lf", x, y, hMean(x, y));
+        return 0;
+    }
+    
+    double hMean(double a, double b) {
+        // if (a == -b) {
+        //     cout << "the denominator can't be zero" << endl;
+        //     abort();
+        // }
+        return 2.0 * a * b / (a + b);
+    }
+    ```
+
+=== "Terminal"
+
+    ```shell linenums="1"
+    # 一些版本比较新的编译器（e.g. g++ 11.4.0）会处理这种错误
+    $ g++ -o a abort.cpp
+    $ ./a
+    1 -1
+    Harmonic mean of 1.000000 and -1.000000 is -inf% 
+    ```
+
+这里 `IOT instruction` 就说明 `abort()` 被调用了， [check-stackoverflow](https://stackoverflow.com/questions/75842144/can-anyone-explain-what-iot-instruction-core-dumped-refers-to)
+
+上述程序中，调用 `abort()` 将会直接终止程序，而不是返回到 `main()` 之后再终止.
+
+>[!hint] 如果 `abord()` 被调用，其将会向标准错误流（the standard error stream）中输入信息，并终止程序；此外：
+>
+>It also returns an implementation-dependent value that indicates failure to the operating system or, if the program was initiated by another program, to the parent process.
+
+### 通过函数返回值处理 RTE
+
+可以通过函数返回值来显示错误，但具体要看函数返回值类型而定，例如对于上面的 `hMean()` 函数，不能够返回某一数值表示错误（因为 $\frac{2ab}{a+b}$ 的取值范围是 $\mathbb{R}$ ），针对这种情况，可以修改函数的返回值类型，并利用传值调用或者指针：
+
+=== "bHMean. cpp"
+
+    ```cpp title="bool abort()" linenums="1"
+    #include <iostream>
+    #include <cstdio>
+    using namespace std;
+    
+    bool hMean(double a, double b, double& c);
+    
+    int main() {
+        double x, y, z;
+        scanf("%lf %lf", &x, &y);    if (!hMean(x, y, z)) { cout << "the denominator can't be zero" << endl; }
+        else { printf("Harmonic mean of %lf and %lf is %lf", x, y, z); }
+        return 0;
+    }
+    
+    bool hMean(double a, double b, double& z) {
+        if (a == -b) {
+            return false;
+        }
+        z =  2.0 * a * b / (a + b);
+        return true;
+    }
+    ```
+
+=== "Terminal"
+
+    ```shell linenums="1"
+    $ g++ -o a abort.cpp
+    $ ./a
+    2 3
+    Harmonic mean of 2.000000 and 3.000000 is 2.400000%         
+    $ ./a
+    1 -1
+    the denominator can't be zero
+    ```
+
+### 异常
+
+C++ 中的**异常**（exceptions）是对于程序运行时的异常情况的回应. 异常处理包括下面三个部分：
+
+1. `thorw`： 当程序运行出现问题时，**抛出**（throw）一个异常；
+2. Catch Block / Exception Handler： `catch(<exceptionType>)` 使用**处理**程序**捕获**（catch）异常；（`exceptionType` 通常是类）
+3. Try Block： **尝试**（try）运行可能会抛出异常的代码（e.g. 包含有 `throw` 的函数），如果接收到了 `throw` 则根据其返回的异常信息跳转到 Catch Block / Exception Handler ，进行处理.
+
+>[!quote] C++ Primer Plus
+>Executing the throw is a bit like executing a return statement in that it terminates function execution. However, instead of returning control to the calling program, a throw causes a program to back up through the sequence of current function calls until it finds the function that contains the try block.
+
+=== "exceptions.cpp"
+
+    ```cpp title="异常处理" linenums="1"
+    #include <iostream>
+    using namespace std;
+    
+    double hMean(double a, double b);
+    
+    int main() {
+        double x, y, z;
+        cout << "Enter two numbers" << endl;
+        while (cin >> x >> y) {
+            try { 
+                z = hMean(x, y);
+                cout << "The harmonic mean is " << z << endl;
+            }
+            catch (const char *s) {
+                cout << s << endl << "Enter two numbers again" << endl;
+                continue;
+            }
+            cout << "Enter next two numbers" << endl;
+        }
+        return 0;
+    }
+    
+    double hMean(double a, double b) {
+        if (a == -b) {
+            // 这里 exceptionType 是字符串 char*
+            throw "the denominator can't be zero";
+        }
+        return  2.0 * a * b / (a + b);
+    }
+    ```
+
+=== "Terminal"
+
+    ```shell linenums="1"
+    $ CppNotes g++ -o a abort.cpp
+    $ CppNotes ./a
+    Enter two numbers
+    1 3
+    The harmonic mean is 1.5
+    Enter next two numbers
+    1 -1
+    the denominator can't be zero
+    Enter two numbers again
+    10 1
+    The harmonic mean is 1.81818
+    Enter next two numbers
+    ```
+
+根据异常处理机制，通常将 `throw` 的返回类型设置为一个类，在 `catch` 中调用该类的函数进行输出. 这样使得 `catch(<exceptionType>)` 和 `throw` 返回的 `exceptionType` 匹配，并且扩展性更强.
+
+```cpp title="类作为异常返回类型" linenums="1"
+#include <string>
+#include <sstream>
+#include <exception>
+using namespace std;
+
+class BadLengthException {
+private:
+    int v;
+public:
+    BadLengthException(int n): v(n) {
+    };
+    int what() {
+        return v;
+    }
+};
+
+bool checkUsername(string username) {
+	bool isValid = true;
+	int n = username.length();
+	if(n < 5) {
+		throw BadLengthException(n);
+	}
+	for(int i = 0; i < n-1; i++) {
+		if(username[i] == 'w' && username[i+1] == 'w') {
+			isValid = false;
+		}
+	}
+	return isValid;
+}
+
+int main() {
+	int T; cin >> T;
+	while(T--) {
+		string username;
+		cin >> username;
+		try {
+			bool isValid = checkUsername(username);
+			if(isValid) {
+				cout << "Valid" << '\n';
+			} else {
+				cout << "Invalid" << '\n';
+			}
+		} catch (BadLengthException e) {
+			cout << "Too short: " << e.what() << '\n';
+		}
+	}
+	return 0;
+}
+```
+///
+## g++
 
 ```shell
 g++ -o hello -Wall hello.cpp
+
+# 输出标准错误
+g++ -o h hello.cpp 2> cte.md
 ```
 
 # 声明、作用域与内存分配
@@ -135,11 +411,16 @@ int main()
 
 ## 常量
 
-将非 `const` 值赋给 `const` 是合法的，反之是非法的.
+简单理解为：将非 `const` 值赋给 `const` 是合法的，反之是非法的.
 
-### 字面量
+>[!warning] 在某些情况下也是合法的，具体要看声明的常量是什么.
+>- 将指向地址为常量的指针传给非常量形参是合法的：[check](#函数中的常量)
 
-**literal constants** : integer, floating-point, characters, strings, Boolean, pointers, user-defined literals.
+### 字面量常量
+
+[字面量](https://stackoverflow.com/questions/485119/what-does-the-word-literal-mean)：指任何在源代码中出现的表示一个值的符号.
+
+C++ 中的**字面量常量**（literal constants） : integer, floating-point, characters, strings, Boolean, pointers, user-defined literals.
 
 ```cpp
 75 // decimal
@@ -328,22 +609,32 @@ person zoe =
 可以将**结构**（structure）视为多个字段（fields）组成的数据结构. 其一般的定义形式如下：
 
 ```cpp
+#include<iostream>
+using namespace std;
+
+template<class T>
 struct myStruct {
-	typeName value;
+	T val;
+    // 构造
+	myStruct(T v): val(v) {}
 };
 
-// 初始化
-
+int main() {
+    // myStruct s { 3 };
+    myStruct s = myStruct(3)
+    cout << s.val << endl;
+    return 0;
+}
 ```
 
-## 指针（pointers）
+## 指针
 
 [in structures](https://cplusplus.com/doc/tutorial/structures/)
 
 **address-of operator**
 
 ```cpp
-type * name; // here type is the one of variable pointer point to
+type* name;
 foo = &var;
 ```
 
@@ -351,18 +642,78 @@ foo = &var;
 
 **pointers**: variables storing other variables' address.
 
-**dereference operator**
-
-```cpp
+```cpp title="解除引用运算符"
 bar = *foo
 ```
 
-### Allocated & Delete Memory
-
-```cpp
+```cpp title="分配动态内存和释放" linenums="1"
 int* pvar = new int;
 int* parr = new int [5];
 ```
+
+### 常量指针
+
+| 类型            | 声明形式                         | 注                                         |
+| ------------- | ---------------------------- | ----------------------------------------- |
+| 指向常量          | `const T* pointerName`       | 声明指针指向常量，但指向的并不一定是常量；这种形式的意思是指针只有读，而无写权限. |
+| 指向的地址是常量      | `T* const pointerName`       | 同上，只对指针地址有读权限.                            |
+| 指向常量且指向的地址为常量 | `const T* const pointerName` |                                           |
+
+=== "声明指向常量的指针"
+
+    ```cpp title="指向常量" linenums="1" hl_lines="12"
+    #include <iostream>
+    #include <stdio.h>
+    using namespace std;
+    
+    int main() {
+    
+        int x = 5;
+        int y = 6;
+        const int* px = &x;
+        const int* py = &y;
+        y = 6;
+        *px = 3;
+        printf("%d,%d", x, y);
+    
+        return 0;
+    }
+    ```
+    
+    ```shell title="CTE" linenums="1"
+    pointers.cpp: In function ‘int main()’:
+    pointers.cpp:12:9: error: assignment of read-only location ‘* px’
+       12 |     *px = 3;
+          |     ~~~~^~~
+    ```
+
+=== "声明指向的地址是常量的指针"
+
+    ```cpp title="指向的地址为常量" linenums="1" hl_lines="14"
+    #include <iostream>
+    #include <stdio.h>
+    using namespace std;
+    
+    int main() {
+    
+        int x = 5;
+        int y = 6;
+        const int* px = &x;
+        const int* py = &y;
+        px = &y; // 允许
+        printf("%d,%d", *px, y);
+        int* const px_ = &x;
+        px_ = py; // 不可修改
+        return 0;
+    }
+    ```
+    
+    ```shell title="CTE" linenums="1"
+    pointers.cpp: In function ‘int main()’:
+    pointers.cpp:14:9: error: assignment of read-only variable ‘px_’
+       14 |     px_ = py;
+          |     ~~~~^~~~
+    ```
 
 ### 数组和指针
 
@@ -409,9 +760,7 @@ int main()
 
 ```cpp
 #include <iostream>
-
-int main()
-{  
+int main() {  
     using namespace std;
     const char* str = "hello"; // 注意这里需要声明是常量.
     while (*str)
@@ -428,7 +777,17 @@ int main()
 可以使用 `->` 访问指针指向的结构的成员，例如：
 
 ```cpp
-struct 
+template<class T>
+struct Node {
+    T val;
+    Node* next = nullptr;
+};
+
+int main() {
+    Node n0 = Node { 1 };
+    n0 -> next = new Node { 5 };
+    return 0;
+}
 ```
 
 # 运算符
@@ -481,7 +840,8 @@ a = (b=3, b+2); // a = 5
 
 1. also check [se](https://stackoverflow.com/questions/27850172/c-operator-priority-and)
 
-```shell title="C++ 中的 * 和 ++" linenums="1"
+/// collapse-code
+```shell title="* 和 ++（后缀） 的优先级" linenums="1"
 #include <iostream>
 using namespace std;
 
@@ -499,9 +859,9 @@ int main() {
     return 0;
 }
 ```
+///
 
 `&&` 和 `||` 的优先级在 `< > <= >= == !=` 之后，条件语句中可以不加括号，但是 `&&` 的优先级在 `||` 之前！
-
 
 # 表达式和语句
 
@@ -592,13 +952,12 @@ int main() {
 
 通常需要检查每个字符，包括空格、制表符、换行符. `cin` 所属的 `istream` 类（在 `iostream` 中定义的）中的成员函数 `get()` 可以满足这点. 上面的代码只需要修改为：
 
-```cpp
-// cinGet.cpp
+```cpp title="cin.get()" linenums="1"
 #include <iostream>
+using namespace std;
 
 int main()
 {
-	using namespace std;
 	char ch;
 	int count = 0;
 	cout << "Enter # to quit:\n";
@@ -628,7 +987,10 @@ cout << "Enter name:\n";
 cin.get(name, ArSize).get();
 ```
 
-#issue `cin.ignore()` 忽略之前输入的字符.
+| #issue `cin.ignore()` 忽略之前输入的字符.
+
+>[!hint] `get()` 的退出使用了 [[#通过函数返回值处理 RTE]]
+>For example, the `get (void)` member of the ostream class ordinarily returns the ASCII code for the next input character, but it returns the special value EOF if it encounters the end-of-file.
 
 ## stringstream
 
@@ -687,7 +1049,7 @@ using namespace std;
 
 char ch;
 double d;
-scanf("%c %lf", &ch, &d);
+scanf("%c %lf", &ch, &d); // 注意用空格隔开，不是 ,
 printf("%c %lf", ch, d);
 ```
 
@@ -907,21 +1269,21 @@ int main() {
 
 函数模板体现的是**泛型编程**（generic programming）的思想，例如：
 
-```cpp
+/// collapse-code
+```cpp title="模板" linenums="1"
 #include <iostream>
 using namespace std;
 
 template <class T> // 或者用 template <typename T>
-void Swap(T& a, T& b) // 这里直接引用，注意 std::swap ，不能重名
-{
+// 这里直接引用，注意 std::swap ，不能重名
+void Swap(T& a, T& b) {
 	T temp;
 	temp = a;
 	a = b;
 	b = temp;
 }
 
-int main()
-{
+int main() {
 	int i = 5, j = 10;
 	double k = 4.4, l = 2.2;
 	Swap(i, j);
@@ -932,6 +1294,7 @@ int main()
 }
 
 ```
+///
 
 ## Dynamic memory
 
@@ -973,7 +1336,7 @@ C 的**宏定义**，内联函数可以传入表达式. 例如：
 #define SQUARE(x) x * x;
 ```
 
-上面的代码在遇到 `SQUARE(2 + 3)` 时因为运算符的优先级就会出错. 但 C++ 不会：
+而上面的代码在遇到 `SQUARE(2 + 3)` 时因为运算符的优先级就会出错. 但 C++ 不会：
 
 ```cpp
 #include <iostream>
@@ -991,11 +1354,12 @@ inline double square(double x) {
 }
 ```
 
-## 引用
+## 引用与传引用调用
 
-**引用**对已经定义的变量定义一个别名. 调用引用将会直接调用对应的变量. 而不是复制.
+**引用**（refer）对已经定义的变量定义一个别名. 调用引用将会直接调用对应的变量. 而不是复制传值.
 
-```cpp
+/// collapse-code
+```cpp 
 #include <iostream>
 using namespace std;
 
@@ -1012,19 +1376,172 @@ int main()
 // zoe: 19, eplus: 19
 // zoe: 22, eplus: 22
 ```
+///
 
+可以声明函数返回的数据类型为对于某一数据数据对象的引用，修改该引用将会修改原数据的值：
+
+/// collapse-code
+```cpp title="函数返回对数据对象的引用" linenums="1"
+#include<iostream>
+using namespace std;
+
+class Array {
+private:
+    int data[5] = {1, 2, 3, 5, 6};
+public:
+    int& operator[](int p) {
+        return data[p];
+    };
+};
+
+int main() {
+    Array arr;
+    cout << "arr[4]: " << arr[4] << endl; 
+    // int ele = arr[4]; ele = 3; 将不会修改 arr[4] 的值; 因为 ele 只是被赋值的普通变量;
+    // int& ele = arr[4]; ele = 3; 修改引用变量 ele 将会修改 arr[4] 的值;
+    arr[4] = 10;
+    cout << "arr[4]: " << arr[4];
+    return 0;
+}
+```
+///
+
+区别于传值调用（实参被复制给形参），传引用调用中传入的是引用，在函数中修改引用将会直接修改引用的值.
+
+```cpp title="callByReference.cpp" linenums="1"
+#include <cstdio>
+using namespace std;
+
+void swap(int& a, int& b) {
+    int temp = a;
+    a = b;
+    b = temp; 
+}
+
+int main() {
+    int a = 1, b = 2;
+    swap(a, b);
+    printf("a: %d, b: %d", a, b);
+    return 0; 
+}
+// a: 2, b: 1
+```
 ### 左值
 
-**左值**是可以被引用的数据对象，包括：简单类型变量、数组元素、结构成员、指针、解除引用的指针等.
+**左值**是可以被引用的数据对象，包括：简单类型变量、数组元素、结构成员、指针、解除引用的指针等. 左值可以直接被赋值（ `=` 左边）.
 
 非左值有：字面常量（用引号扩起来的字符串除外，其由地址表示 #issue %%有点乱%%）
 
 若在引用参数时声明 `const` ：
 
-1. 实参类型复合，但是非左值；
+1. 实参类型符合，但是非左值；
 2. 实参类型不符合，但是可以转换为形参类型；
 
 则都会创建一个临时变量存储该参数的值（相当于按值传递）
+
+## 函数中的常量
+
+### 常量形参
+
+编译器不允许将[指向常量的指针](#常量指针)传入到函数的非常量参数（因为这样就可以通过地址修改，与声明指向常量矛盾）；而传入指向地址为常量的指针则是合法的，该指针允许修改变量；
+
+=== "不允许传入指向常量的指针"
+
+    ```cpp title="不允许传入指向常量的指针" linenums="1"
+    #include <iostream>
+    using namespace std;
+    
+    int foo(int* y) { return *y; }
+    
+    int main()
+    {
+        int z = 8;
+        const int* x = &z;
+        cout << foo(x);
+        return 0;
+    }
+    ```
+    
+    ```shell title="CTE" linenums="1"
+    temp.cpp: In function ‘int main()’:
+    temp.cpp:13:17: error: invalid conversion from ‘const int*’ to ‘int*’ [-fpermissive]
+       13 |     cout << foo(x);
+          |                 ^
+          |                 |
+          |                 const int*
+    temp.cpp:6:14: note:   initializing argument 1 of ‘int foo(int*)’
+        6 | int foo(int* y) { return *y; }
+          |         ~~~~~^
+    ```
+
+=== "允许传入指向地址为常量的指针"
+
+    ```cpp title="传入指向地址为常量的指针" linenums="1"
+    #include <iostream>
+    using namespace std;
+    
+    void printfunc(int* ptr)
+    {
+        cout << "Value :" << *ptr << endl;
+        cout << "Address of ptr :" << &ptr << endl;
+    }
+    
+    int main()
+    {
+        int x = 10;
+        int* const i = &x;
+        printfunc(i);
+        cout << "Address of i :" << &i << endl;
+    }
+    // Value :10
+    // Address of ptr :0x7fffd5c53078
+    // Address of i :0x7fffd5c530a0
+    ```
+
+### 常量函数
+
+- [[常量成员函数]]
+
+=== "函数返回常量"
+
+    ```cpp title="函数返回常量" linenums="1"
+    #include <iostream>
+    using namespace std;
+    
+    const int square(int& x) {
+        return x * x;
+    }
+    
+    int main() {
+        int y = 6;
+        y = square(y);
+        y = 3; // 允许修改
+        return 0;
+    }
+    ```
+
+=== "函数中的参数为常量"
+
+    ```cpp title="函数参数为常量" linenums="1"
+    #include <vector>
+    using namespace std;
+    
+    void set_last_zero(const vector<int>& v) {
+        *v.end() = 0;
+    }
+    
+    int main() {
+        vector<int> vec {1, 2, 3, 4, 5};
+        return 0;
+    }
+    ```
+    
+    ```shell title="CTE" linenums="1"
+    constParam.cpp: In function ‘void set_last_zero(const std::vector<int>&)’:
+    constParam.cpp:5:14: error: assignment of read-only location ‘(& v)->std::vector<int>::end().__gnu_cxx::__normal_iterator<const int*, std::vector<int> >::operator*()’
+        5 |     *v.end() = 0;
+          |     ~~~~~~~~~^~~
+    ```
 
 ## 函数指针
 
@@ -1176,7 +1693,44 @@ className::~className() {
 
 ## 常量成员函数
 
-不能修改类的成员变量（除非其被声明为 `mutable` ）.
+|                                   | 常量方法 | 非常量方法                             |
+| --------------------------------- | ---- | --------------------------------- |
+| 常量对象 `const ClassName objectName` | 可调用  | <font color="#ff0000">不可调用</font> |
+| 非常量对象 `ClassName objectName`      | 可调用  | 可调用                               |
+
+/// collapse-code
+```cpp title="常量对象不可调用非常量方法" linenums="1"
+#include <iostream>
+
+using namespace std;
+
+template<class T>
+class Box {
+private: T l; T b; T h;
+public:
+    Box(): l(0), b(0), h(0) {};
+    Box(T length, T breadth, T height): l(length), b(breadth), h(height) {};
+    Box(const Box<T>& B): l(B.getL()), b(B.getB()), h(B.getH()) {};
+    T getL() { return l; };
+    T getB() { return b; };
+    T getH() { return h; };
+    T calV() { return l * b * h; };
+    // 声明为 const 成员函数则是可行的
+    // T getL() const { return l; };
+    // T getB() const { return b; };
+    // T getH() const { return h; };
+    // T calV() const { return l * b * h; };
+};
+
+int main() {
+    // const Box<int> B(1, 2, 3)
+    Box<int> B(1, 2, 3);
+    Box<int> C(B);
+    cout << C.calV();
+    return 0;
+}
+```
+///
 
 ## 引用自身
 
