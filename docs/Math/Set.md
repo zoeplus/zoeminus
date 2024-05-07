@@ -1,5 +1,3 @@
-集合论.
-
 # 集合及其运算
 
 集合是基本的概念，不予定义，将集合理解为一个包含多个的整体. 
@@ -10,22 +8,25 @@
 
 **分离模式**： 设 $X$ 是集合 ， $\{x\in X:P(x)\}$ ；进而可以定义空集： $\emptyset=\{x\in X:x\neq x\}$ .
 
-**包含（于）** $\supset(\subset)$ 或者 $\supseteq(\subseteq)$ ，**真包含（于）** $\supsetneq(\subsetneq)$ . **相等** $(A=B)\Leftrightarrow \forall x(x\in A\Leftrightarrow x\in B)\Leftrightarrow A\subset B\wedge B\subset A$ . **幂集** $\mathcal{P}(A)=\{X:X\subset A\}$ . 只含有一个元素的集合称为**单点集**.
+**包含（于）** $\supset(\subset)$ 或者 $\supseteq(\subseteq)$ ，**真包含（于）** $\supsetneq(\subsetneq)$ . **相等** $(A=B)\Leftrightarrow \forall x(x\in A\Leftrightarrow x\in B)\Leftrightarrow A\subset B\wedge B\subset A$ . 
 
-运算：**并** $\cup$ ；**交** $\cap$ ；**差**运算 $A\backslash B$ （或者记作 $A-B$ ）；如果 $A\subset X$ ，称 $X\backslash A\overset{def}{=}A^c$ 为 $A$ 关于 $X$ 的**补**集 ；
+**幂集** $\mathcal{P}(A)=\{X:X\subset A\}$ . 只含有一个元素的集合称为**单点集**.
+
+运算：**并** $\cup$ ；**交** $\cap$ ；**差** $A\backslash B$ （或者记作 $A-B$ ）；如果 $A\subset X$ ，称 $X\backslash A\overset{def}{=}A^c$ 为 $A$ 关于 $X$ 的**补**集 ；
 
 集合 $A,B$ 的**乘积**（或笛卡尔积 Cartesian Product、卡式积，对积）. 记为： $A\times B=\{(a,b):a\in A,b\in B\}$ . 对于**有序对** $(a,b)$ 或可以记作 $\{a,\{b\}\}$ 或 $\{\{a\},\{a,b\} \}$ （用后者），其具有性质： $(a,b)=(c,d)\Leftrightarrow (a=c)\wedge (b=d)$ ；此外有 $\emptyset \times A=A\times \emptyset=\emptyset$ .
 
-并可以将乘积推广到多个集合，**直积**： $$\Pi_{k=1}^n A_k=\{(x_1,x_2,\cdots,x_n):x_i\in A_i,i=1,2,\cdots,n\}$$
+并可以将乘积推广到多个集合，**直积**： 
 
-**对称差**： $A\Delta B=(A\backslash B)\cup(B\backslash A)$ 其具有性质： 
+$$\Pi_{k=1}^n A_k=\{(x_1,x_2,\cdots,x_n):x_i\in A_i,i=1,2,\cdots,n\}$$
+
+**对称差**： $A\Delta B=(A\backslash B)\cup(B\backslash A)$ ，有结论： 
 
 $$\begin{aligned}
 &1)\ A\Delta B=(A\cup B)\backslash(A\cap B)\\
 &2)\ A\Delta B=B\Delta A
 \end{aligned}$$
 
-（ #imcomplete i) 的证明画 Venn 图就能理解，如果写成析取和合取形式的话是有公式可以推出吗? ) 
 
 **分配律**： 
 
@@ -58,7 +59,6 @@ $$\begin{aligned}
 >[!note]- $A\times B-C\times D=[(A-C)\times B]\cup[A\times (B-D)]$ .
 >证明：若 $(x,y)\in A\times B-C\times D$ ，则 $\cancel{x\in A-C,y\in B-D}$ $(x,y)\in A\times B,(x,y)\notin C\times D\rightarrow x\notin C\land y\in D$ 或者 $x\in C\land y\notin D$ 或者 $x\notin C\land y\notin D$ . 并且从而可知 $(x,y)\in[(A-C)\times B]\cup[A\times (B-D)]$ . 若 $(x,y)\in [(A-C)\times B]\cup[A\times (B-D)]$ ，则 $x\in (A-C),y\in B$ 或者 $x\in A,y\in (B-D)$ ，两者都可以得出 $(x,y)\in A\times B-C\times D$ .
 >^ProductMinus
-
 
 # 集族
 
@@ -112,9 +112,21 @@ $$\begin{aligned}
 
 >[!note]- 如果 $\{A_n\}_{n\geq1}$ 单调，则 $\varliminf_{n\rightarrow \infty}A_n=\varlimsup_{n\rightarrow \infty}A_n$ 
 >$$=\left\{\begin{aligned}
-&\bigcup_{n=1}^\infty A_n,A_n\text{ 单调递增}\\
-&\bigcap_{n=1}^\infty A_n,A_n\text{ 单调递减}
-\end{aligned}\right.$$
+>&\bigcup_{n=1}^\infty A_n,A_n\text{ 单调递增}\\
+>&\bigcap_{n=1}^\infty A_n,A_n\text{ 单调递减}
+>\end{aligned}\right.$$
+
+# 集合刻画
+
+设 $\{f_n\}_{n\geq1}$ 为 $\mathbb{R}$ 上的实值函数列，有： #issue %%为什么错误%%
+
+$$\begin{aligned}
+\{x:\varliminf_{n\rightarrow \infty}f_n(x)>0\}&=\{x\in \mathbb{R}:\sup_{n\geq1}\inf_{k\geq n}f_k(x)>0\}\\
+&=\bigcup_{n\geq1}\{x\in \mathbb{R}:\inf_{k\geq n}f_k(x)>0\}\\
+&=\bigcup_{n\geq1}\bigcap_{k\geq n}\{x:\in \mathbb{R}:f_k(x)>0\}
+\end{aligned}$$
+
+>[!example]- $\{f_n\}_{n\geq1}$ 为 $\mathbb{R}$ 上的实值函数列，则有 $\{x:\varliminf_{n\rightarrow \infty}f_n(x)>0\}\subset \varliminf_{n\rightarrow \infty}\{x\in \mathbb{R}:f_n(x)\}$ .
 
 # 关系
 
@@ -134,10 +146,14 @@ $$\begin{aligned}
 
 映射描述的是从集合 $X$ 到集合 $Y$ 的一个对应关系，**单射**、**满射**和**双射**是特殊的映射.
 
-此外还有一些特殊的映射： $1_X:X\rightarrow X,x\mapsto x$ 称为 $X$ 上的**恒等映射**； 设 $A\subset X,i:A\rightarrow X:x\mapsto x$ 称为 $A$ 在 $X$ 中的**含入映射**. **特征函数**或指示函数： $$A\subset X,\chi_A=\left\{\begin{aligned}
+此外还有一些特殊的映射： $1_X:X\rightarrow X,x\mapsto x$ 称为 $X$ 上的**恒等映射**；设 $A\subset X,i:A\rightarrow X:x\mapsto x$ 称为 $A$ 在 $X$ 中的**含入映射**. **特征函数**或指示函数： 
+
+$$A\subset X,\chi_A=\left\{\begin{aligned}
 &1,x\in A\\
 &0,x\notin X-A
-\end{aligned}\right.$$ 例如，对于 $\mathbb{Q}\subset \mathbb{R},\chi_\mathbb{Q}$ 为一特征函数，也即为**Dirichlet函数**.
+\end{aligned}\right.$$
+
+例如，对于 $\mathbb{Q}\subset \mathbb{R},\chi_\mathbb{Q}$ 为一特征函数，也即为**Dirichlet函数**.
 
 >[!example]- 设 $\{A_n\}_{n\geq1}$ 是一集列，证明： i) $\chi_{\varlimsup_{n\rightarrow \infty}A_n}(x)=\varlimsup_{n\rightarrow \infty}\chi_{A_n}(x)$ . ii) $\chi_{\varliminf_{n\rightarrow \infty}A_n}(x)=\varliminf_{n\rightarrow \infty}\chi_{A_n}(x)$ .
 >证明：
@@ -161,26 +177,32 @@ $$\begin{aligned}
 >[!example]- 只满足 $f\circ g=1_Y$ 或者 $g\circ f=1_X$ 的映射 $g$ 不一定是 $f$ 的逆映射.
 >以 $f\circ g=1_Y$ 为例，设 $g\circ f(x)=x'$ ，将 $f$ 作用在等式左右边得到 $f(x)=f(x')$ ，由此可见如果 $f$ 不是单射则 $g\neq f^{-1}$ 不成立.
 >
->设 $f=(x-1)^2:[0,+\infty)\rightarrow [0,+\infty)$ ， $$g=\left\{\begin{aligned}
-&\sqrt{x}+1,x>1\\
-&1-\sqrt{x},0\leq x\leq1
-\end{aligned}\right.$$ ，则 $g:[0,+\infty)\rightarrow [0,+\infty)$ ，则 $f\circ g=1_Y$  ，而 $g\circ f\left(\frac{3}{2}\right)=\frac{1}{2}$ .
+>设 $f=(x-1)^2:[0,+\infty)\rightarrow [0,+\infty)$ ， 
+>
+>$$g=\left\{\begin{aligned}
+>&\sqrt{x}+1,x>1\\
+>&1-\sqrt{x},0\leq x\leq1
+>\end{aligned}\right.$$
+>
+>则 $g:[0,+\infty)\rightarrow [0,+\infty)$ ，则 $f\circ g=1_Y$  ，而 $g\circ f\left(\frac{3}{2}\right)=\frac{1}{2}$ .
 
-此外对于 $f:X\rightarrow Y$ ，还可以定义 $Y$ 的**原像**： $$f^{-1}(Y)=\{x\in X:f(x)\in Y\}$$
+此外对于 $f:X\rightarrow Y$ ，还可以定义 $Y$ 的**原像**： $f^{-1}(Y)=\{x\in X:f(x)\in Y\}$
 
 $$\begin{aligned}
 &f\left(\bigcup_{\lambda\in \Lambda}A_\lambda\right)=\bigcup_{\lambda\in \Lambda}f(A_\lambda)\\
 &f\left(\bigcap_{\lambda\in \Lambda}A_\lambda\right)\overset{\textcolor{red}{?}}=\bigcap_{\lambda\in \Lambda}f(A_\lambda)
 \end{aligned}$$
 
-注意： $$f\left(\bigcap_{\lambda\in \Lambda}A_\lambda\right)\subset \bigcap_{\lambda\in \Lambda}f(A_\lambda)$$
+注意： $f\left(\bigcap_{\lambda\in \Lambda}A_\lambda\right)\subset \bigcap_{\lambda\in \Lambda}f(A_\lambda)$
 
 >[!note]- 反例以及对于 $f$ 是单射为上式取等的充分条件
->包含关系是显然的. 对于反例，可以取一非单射的 $f$ ： $$\begin{aligned}
-&A=\{1,2\},B=\{2,3\}\\
-&f(1)=f(3)=4,f(2)=2\\
-&f(A\cap B)=2,f(A)\cap f(B)=\{4,2\}
-\end{aligned}$$
+>包含关系是显然的. 对于反例，可以取一非单射的 $f$ ： 
+>
+>$$\begin{aligned}
+>&A=\{1,2\},B=\{2,3\}\\
+>&f(1)=f(3)=4,f(2)=2\\
+>&f(A\cap B)=2,f(A)\cap f(B)=\{4,2\}
+>\end{aligned}$$
 >
 >下面证明取等的充分条件为 $f$ 为单射.
 >- $\Leftarrow$ ：注意到对任意 $x\in\bigcap_{\lambda\in \Lambda}f(A_\lambda)$ ，则每一个集合 $A_\lambda$ 中都至少存在一个元素 $a_\lambda$ 满足 $x=f(a_\lambda)$ ，设 $A_\lambda,\lambda\in \Lambda$ 中满足 $x=f(a_\lambda)$ 的元素组成的集合为 $\Lambda'$. 并且由 $f$ 为单射，可知 $\Lambda'=\{x\}$ . 从而每一个集合中都有一个 $x$ ，进而可知 $f(x)\in f\left(\bigcap_{\lambda\in \Lambda}A_\lambda\right)$ . 由集合相互包含可得取等.
@@ -188,21 +210,24 @@ $$\begin{aligned}
 
 ## 势
 
-用**势**（cardinality）来衡量两个集合的大小，考虑集合 $A,B$ ，如果 $A$ 与 $B$ 等价（存在双射），则记 $\lvert A\rvert=\lvert B\rvert$ ；如果 $A$ 与 $B$ 的一个子集等价，则记 $\lvert A\rvert\leq \lvert B\rvert$ .  在此基础上，如果 $B$ 不与 $A$ 中的任何一个子集等价，则记 $\lvert A\rvert<\lvert B\rvert$ .
+用**势**（cardinality）衡量两个集合的大小，考虑集合 $A,B$ ，如果 $A$ 与 $B$ 等价（存在双射），则记 $\lvert A\rvert=\lvert B\rvert$ ；如果 $A$ 与 $B$ 的一个子集等价，则记 $\lvert A\rvert\leq \lvert B\rvert$ .  在此基础上，如果 $B$ 不与 $A$ 中的任何一个子集等价，则记 $\lvert A\rvert<\lvert B\rvert$ .
 
 可以证明： $\leq$ 具有自反性（ $\lvert A\rvert\leq \lvert A\rvert$ ）和传递性（ $\lvert A\rvert\leq \lvert B\rvert,\lvert B\rvert\leq \lvert C\rvert\rightarrow \lvert A\rvert\leq \lvert C\rvert$ ）.
 
 >[!note]- $\lvert A\rvert\leq \lvert B\rvert$ 并且 $\lvert B\rvert \leq \lvert A\rvert$ 的充分必要条件为 $\lvert A\rvert=\lvert B\rvert$ . 
->证明：由题可知 $A$ 与 $B$ 的一个子集 $B_1$ 等价， $B$ 则与 $A$ 的一个子集 $A_1$ 等价，则 $B_1$ 与 $A_2$ 的一个子集等价；从而 $A$ 与 $A_2$ 等价，而 $A\subset A_2$ ，所以 $\lvert A\rvert=\lvert A_2\rvert$ ，由 $A\subset A_1\subset A_2$ 从而 $\lvert A\rvert=\lvert A_1\rvert=\lvert B\rvert$ . （见下面定理）
+>证明：由题可知 $A$ 与 $B$ 的一个子集 $B_1$ 等价， $B$ 则与 $A$ 的一个子集 $A_1$ 等价，则 $B_1$ 与 $A_1$ 的一个子集 $A_2$ 等价；从而 $A_2$ 与 $A$ 等价，而 $A_2\subset A$ ，所以 $\lvert A\rvert=\lvert A_2\rvert$ ，由 $A\subset A_1\subset A_2$ 从而 $\lvert A\rvert=\lvert A_1\rvert=\lvert B\rvert$ . （见下面定理）
 >
 >反之显然.
 
 >[!note]- $\lvert A\rvert\leq\lvert B\rvert$ ，取等号当且仅当 $B$ 到 $A$ 存在满射.
->- $\Rightarrow$ ：因为 $\lvert A\rvert\leq\lvert B\rvert$ ，所以存在单射 $f:A\rightarrow B$ . 考虑从 $B$ 到 $A$ 的映射：取 $a_0\in A$ $$g(b)=\left\{\begin{aligned}
-&a\quad f(a)=b\\
-&a_0
-\end{aligned}\right.$$ 即为满射.
->- $\Leftarrow$ ：构造 $A$ 到 $B$ 的单射：考虑逆像 $g^{-1}(a),a\in A$ ，由 $g:B\rightarrow A$ 为满射可知 $g^{-1}(a)\neq\emptyset,\forall a\in A$ . 进而可以得到一个集合族： $\{g^{-1}(a):a\in A\}$ ，根据选择公理，可以定义 $f(a)\in g^{-1}(a)$ ，并且容易验证 $f$ 是单射.
+>$\Rightarrow$ ：因为 $\lvert A\rvert\leq\lvert B\rvert$ ，所以存在单射 $f:A\rightarrow B$ . 考虑从 $B$ 到 $A$ 的映射：取 $a_0\in A$ 
+>
+>$$g(b)=\left\{\begin{aligned}
+>&a\quad f(a)=b\\
+>&a_0
+>\end{aligned}\right.$$ 即为满射.
+>
+>$\Leftarrow$ ：构造 $A$ 到 $B$ 的单射：考虑逆像 $g^{-1}(a),a\in A$ ，由 $g:B\rightarrow A$ 为满射可知 $g^{-1}(a)\neq\emptyset,\forall a\in A$ . 进而可以得到一个集合族： $\{g^{-1}(a):a\in A\}$ ，根据选择公理，可以定义 $f(a)\in g^{-1}(a)$ ，并且容易验证 $f$ 是单射.
 
 对于势为 $n$ 的集合 $A$ ， $\mathcal{P}(A)$ 的势为 $2^n$ . 对于势为 $\mu$ 的集合 $A$，定义 $\mathcal{P}(A)=2^\mu$ . 考虑 $\mu$ 是无限基数时的情况. 有下定理： 
 
@@ -240,6 +265,9 @@ $$\begin{aligned}
 
 ### 可数集
 
+>[!summary]+ 自查表
+>- 可数集的任意并不是可数集的反例？
+
 $\exists n\in \mathbb{N},A\sim \{1,2,\cdots,n\}$ ，则称 $A$ 为**有限集**. 否则称 $A$ 为**无限集**. $A\sim \mathbb{N}$ 则称 $A$ 为**可数集**. 有限集和可数集统称为**至多可数集**.
 
 >[!note]- 任何一个无限集都包含一个可数集.
@@ -248,15 +276,19 @@ $\exists n\in \mathbb{N},A\sim \{1,2,\cdots,n\}$ ，则称 $A$ 为**有限集**.
 >[!note]- 可数集的任何一个无限子集都是可数集.
 >证明：考虑 $A\subset E$ ，设 $E=\{a_n\}_{n\geq1}$ ， $A$ 为无限集合，则取 $n_1=\arg\min\{a_n\in A\}$ ，$n_2=\arg\min\{a_n\in A\backslash a_{n_1}\},\cdots$ 进而可以将 $A$ 与 $\mathbb{N}$ 建立一一对应.
 
->[!note]- 至多可数集的并仍然为至多可数集.
+>[!note] 至多可数集的并仍然为至多可数集.
 >证明：直接按照对角线法则即可：
+>
 >$$\begin{aligned}
-&E_1:a_1^1,a_2^1,\cdots\\
-&E_2:a_1^2,a_2^2,\cdots\\
-&\cdots
-\end{aligned}$$ 
+>&E_1:a_1^1,a_2^1,\cdots\\
+>&E_2:a_1^2,a_2^2,\cdots\\
+>&\cdots
+>\end{aligned}$$ 
 
->[!note]- 有限个可数集的直积是可数集.
+>[!example]- 任意个可数集的并不一定是可数集.
+>$$\mathbb{R}=\bigcup_{x\in[0,1]}A_x,A_x=\{x+n:n\in \mathbb{Z}\}$$
+
+>[!note] 有限个可数集的直积是可数集.
 >Hint：对于有限个可数集 $X_1=\{x^1_n\}_{n\geq1},\cdots,X_k=\{x^k_n\}_{n\geq1}$ ，考虑用数学归纳法解决. 对于两个可数集的积，可以用对角线法则说明其可数. #imcomplete-whatever 
 
 >[!example]- 设 $f$ 是 $\mathbb{R}$ 上的实函数，若 $M>0$ ，使得对于任何有限个 $x_1,x_2,\cdots,x_n$ 有 $\lvert \sum\limits_{i=1}^{n}x_i\rvert\leq M$ ，证明 $\{x:f(x)\neq0\}$ 为至多可数集.
@@ -273,7 +305,6 @@ $\mathbb{N},\mathbb{Z},\mathbb{Q},\mathbb{N}\times \mathbb{N},\mathbb{Z}\times \
 >之前已经证明了 $\mathbb{R}$ 中的[所有开区间等价](#^OpenSim). 从而对于 $[a,b]=(a,b)\cup \{a,b\}$ 由 $\{a,b\}$ 为至多可数集即可推出其与 $(a,b)$ 等价，同理等价于 $[a,b),(a,b]$ .
 >^RAllEqual
 
-
 **阿列夫数**
 
 $\lvert \mathbb{N}\rvert=\aleph_0$ 
@@ -285,10 +316,14 @@ $\lvert\mathcal{P}(\mathbb{N})\rvert=2^{\aleph_0}$
 $\lvert \mathcal{P}(\mathcal{P}(\mathbb{N}))\rvert=2^{2^{\aleph_0}}$ .
 
 >[!example]- 设 $E\subset \mathbb{R}^3$ ， $E$ 中任何两点的距离都是有理数，求证 $E$ 至多可数.
->证明：任取 $x_1,x_2$ ，设映射 $$\begin{aligned}
-&f:E\rightarrow \mathbb{Q}\times \mathbb{Q}\\
-&x\mapsto(d_1,d_2)
-\end{aligned}$$ 其中 $d_1,d_2$ 分别为 $d(x,x_1),d(x,x_2)$ ， $d$ 为欧式距离度量. 如果若 $f(x)=f(x'),x\neq x'$ 即 $d_1=d_1',d_2=d_2'$ ，则 $x,x'$ 为以 $x_1$ 为圆心的圆与以 $x_2$ 为圆心的圆的交上. 又因为空间中的两个圆或者重合，或者至多相交两个点. 由圆心 $x_1\neq x_2$ 可知这两个圆不可能重合，从而至多相交两个点，如果如果只相交于一个点，则 $x=x'$ ，矛盾，因此只可能是相交于两个点. 定义映射 $g:E\rightarrow \{0,1\}$ ，并且满足若 $\exists x,x':f(x)=f(x'),g(x)+g(x')=1$ ，若不存在 $x,x':f(x)=f(x'),g(x)=0$ ，从而建立了 $E$ 到 $F=\{(d_1,d_2,g(x):x\in E\}\subset\mathbb{Q}\times \mathbb{Q}\times \mathbb{Q}$ 的一个双射. 对于任意的 $y=(h_1,h_2,h_3)\in F$ ，首先由 $(h_1,h_2)$ 对应于 $E$ 中至多两个点，至少一个点，并且由 $h_3$ 可以确定 $E$ 中的唯一点，所以该映射为满射；其次由构造规则可知该映射为单射. 综上 $E$ 至多可数.
+>证明：任取 $x_1,x_2$ ，设映射 
+>
+>$$\begin{aligned}
+>&f:E\rightarrow \mathbb{Q}\times \mathbb{Q}\\
+>&x\mapsto(d_1,d_2)
+>\end{aligned}$$ 
+>
+>其中 $d_1,d_2$ 分别为 $d(x,x_1),d(x,x_2)$ ， $d$ 为欧式距离度量. 如果若 $f(x)=f(x'),x\neq x'$ 即 $d_1=d_1',d_2=d_2'$ ，则 $x,x'$ 为以 $x_1$ 为圆心的圆与以 $x_2$ 为圆心的圆的交上. 又因为空间中的两个圆或者重合，或者至多相交两个点. 由圆心 $x_1\neq x_2$ 可知这两个圆不可能重合，从而至多相交两个点，如果如果只相交于一个点，则 $x=x'$ ，矛盾，因此只可能是相交于两个点. 定义映射 $g:E\rightarrow \{0,1\}$ ，并且满足若 $\exists x,x':f(x)=f(x'),g(x)+g(x')=1$ ，若不存在 $x,x':f(x)=f(x'),g(x)=0$ ，从而建立了 $E$ 到 $F=\{(d_1,d_2,g(x):x\in E\}\subset\mathbb{Q}\times \mathbb{Q}\times \mathbb{Q}$ 的一个双射. 对于任意的 $y=(h_1,h_2,h_3)\in F$ ，首先由 $(h_1,h_2)$ 对应于 $E$ 中至多两个点，至少一个点，并且由 $h_3$ 可以确定 $E$ 中的唯一点，所以该映射为满射；其次由构造规则可知该映射为单射. 综上 $E$ 至多可数.
 
 >[!example]- 有理系数多项式全体是可数集.
 >证明：在下面已经证明了有限 $n$ 元数列（只有有限个数非 $0$ ）是可数集. 对于任意有理系数多项式，可将其对应于一有限的 $\mathbb{Q}$ 上的数列，并进一步映射为有限 $n$ 元数列：
@@ -300,6 +335,10 @@ $\lvert \mathcal{P}(\mathcal{P}(\mathbb{N}))\rvert=2^{2^{\aleph_0}}$ .
 >（或者，直接将 $\mathcal{F}$ 对应于可数个 $\mathbb{Q}$ 的乘积.）
 
 ### 连续统势
+
+>[!summary]+ 自查表
+>- 连续统势的定义；
+>- 为什么可数个可数集的乘积具有连续统势；
 
 前面讨论的可数集具有的势是一种特殊的势，一般称 $A\sim \mathbb{N}$ ，则 $\lvert A\rvert=a$ . 对于与 $\{1,2,\cdots,n\}$ 等价的集合 $A$ ，记 $\lvert A\rvert=n$ ，下面考虑的是 $\mathbb{R}$ 的势. 
 
@@ -326,35 +365,49 @@ $\lvert \mathcal{P}(\mathcal{P}(\mathbb{N}))\rvert=2^{2^{\aleph_0}}$ .
 在[之前](#^Cantor)已经证明了集合的子集全体的势要大于原先集合的势，下面证明：
 
 >[!note]- 可数集的子集全体具有连续统势.
->不妨考虑 $\mathbb{N}$ ，对于任意 $A\subset \mathbb{N}$ ，考虑映射 $f(A)=\{a_n\}_{n\geq1}$ ，其中 $$a_n=\left\{\begin{aligned}
-&1,n\in A\\
-&0,n\notin A
-\end{aligned}\right.$$ 进而建立了 $\mathcal{P}(\mathbb{N})$ 与二元数列全体之间的一个映射，显然该映射为双射. 因此两者等价. 再由上结论可知 $\mathcal{P}(\mathbb{N})$ 具有连续统势.
+>不妨考虑 $\mathbb{N}$ ，对于任意 $A\subset \mathbb{N}$ ，考虑映射 $f(A)=\{a_n\}_{n\geq1}$ ，其中 
+>
+>$$a_n=\left\{\begin{aligned}
+>&1,n\in A\\
+>&0,n\notin A
+>\end{aligned}\right.$$ 
+>
+>进而建立了 $\mathcal{P}(\mathbb{N})$ 与二元数列全体之间的一个映射，显然该映射为双射. 因此两者等价. 再由上结论可知 $\mathcal{P}(\mathbb{N})$ 具有连续统势.
 >
 >从而，可数集的子集的全体具有连续统势. （对于一般的可数集，仍然可以效仿上述构造方法，只需要提前设可数集 $B=\{b_n\}_{n\geq1}$ 即可.
 
 之前提到，至多可数个至多可数集的并仍然是至多可数集. 下面考虑集合的积. 在证明集合的积时经常需要用到之前提到的 $n/2$ 元数列.
 
-不难看出：有限个可数集的直积为可数集，下面考虑可数个：
-
->[!note]- 可数个可数集的直积具有连续统势.
->考虑 $Y_n=\{0,1\}$ ，考虑 $X=\prod_{n=1}^{\infty}X_n$ ，其中 $X_n$ 为可数集，则 $\lvert Y_n\rvert\leq \lvert X_n\rvert$ ，从而可以构造 $\prod_{n=1}^{\infty}Y_n$ 到 $\prod_{n=1}^{\infty}X_n$ 的子集的双射，从而 $\lvert \mathbb{R}\rvert=\lvert \prod_{n=1}^{\infty}Y_n\rvert\leq \lvert \prod_{n=1}^{\infty}X_n\rvert$ ，又 $\lvert X_n\rvert\leq \lvert \mathbb{R}\rvert$ 所以可得 $\lvert \prod_{n=1}^{\infty}X_n\rvert\leq \lvert \prod_{n=1}^{\infty}\mathbb{R}\rvert$ ，综上 $\lvert \prod_{n=1}^{\infty}X_n\rvert=\lvert \mathbb{R}\rvert$ .
-
->[!note]- 可数个具有连续统势的集合的积具有连续统势.
+>[!note] 可数个具有连续统势的集合的积具有连续统势.
 >证明：考虑可数个二元数列的积 $X=\prod_{i=1}^{\infty}X_i$ ，下面证明 $X$ 与二元数列全体等价：对于任意的 $x=(x_1,x_2,\cdots,x_n,\cdots)\in \prod_{i=1}^{\infty}X_i$ ，按照对角线法则可以将其转换为一个新的二元数列，进而建立从 $X$ 到二元数列全体的一个新的映射，该映射显然为双射. 从而 $X$ 具有连续统势. 
 
 自然有如下结论：
 
 >[!note]- $\lvert \mathbb{R}\times \mathbb{R}\rvert=\lvert \mathbb{R}\rvert=\lvert \mathcal{P}(\mathbb{N})\rvert$
 
+之前已经证明有限个可数集的直积为可数集，下面考虑可数个可数集的直积：
+
+>[!note] 可数个可数集的直积具有连续统势.
+>考虑 $Y_n=\{0,1\}$ ，考虑 $X=\prod_{n=1}^{\infty}X_n$ ，其中 $X_n$ 为可数集，则 $\lvert Y_n\rvert\leq \lvert X_n\rvert$ ，从而可以构造 $\prod_{n=1}^{\infty}Y_n$ 到 $\prod_{n=1}^{\infty}X_n$ 的子集的双射，从而 $\lvert \mathbb{R}\rvert=\lvert \prod_{n=1}^{\infty}Y_n\rvert\leq \lvert \prod_{n=1}^{\infty}X_n\rvert$ ，又 $\lvert X_n\rvert\leq \lvert \mathbb{R}\rvert$ 所以可得 $\lvert \prod_{n=1}^{\infty}X_n\rvert\leq \lvert \prod_{n=1}^{\infty}\mathbb{R}\rvert$ ，综上 $\lvert \prod_{n=1}^{\infty}X_n\rvert=\lvert \mathbb{R}\rvert$ .
+
 按照上述方法，同样可以证明：
 
->[!note]- 有限个具有连续统势的集合的积仍然具有连续统势.
+>[!note]- 至多可数个具有连续统势的集合的积仍然具有连续统势.
 
 >[!example]- $[0,1]$ 上的连续实值函数全体 $\mathcal{F}$ 具有连续统势.
 >证明：将 $\mathcal{F}$ 映射到与 $\mathbb{R}$ 等势的集合的子集，将 $\mathbb{R}$ 映射到与 $\mathcal{F}$ 等势的子集：
 >
->对于任意的 $\lambda\in \mathbb{R}$ 取常值函数 $f(x)=\lambda,\forall x\in[0,1]$ ，该映射显然为双射，从而有 $\lvert R\rvert\leq \lvert \mathcal{F}\rvert$ ；反之，对于任意的 $f\in \mathcal{F}$ ，考虑 $\mathbb{Q}=\{q_n:n\geq1\}$ ，将 $f$ 作用到 $\{q_n:n\geq1\}$ ，从而建立了 $f$ 到 $\prod_{n=1}^{\infty}\mathbb{R}$ 的子集的一个映射，且可数个具有连续统势的集合的积仍然具有连续统势；下面只需证明该映射为双射即可注意到若 $f,g\in \mathcal{F}$ 的像相同，则对于任意的 $x\in[0,1]\backslash \mathbb{Q}$ ，可取 $\{x_n\}\rightarrow x$ #issue %%此处用到的定理？%% ，由 $f,g\in C([0,1])$ 可得 $f(x)=g(x)$ ，从而 $f=g$ ，则该映射为单射；反之，对于任给的序列都存在对应的函数，因此 $\lvert \mathcal{F}\rvert\leq \lvert \prod_{i=1}^{\infty}\mathbb{R}\rvert=\lvert \mathbb{R}\rvert$ ，综上 $\lvert \mathcal{F}\rvert=\lvert \mathbb{R}\rvert$ .
+>对于任意的 $\lambda\in \mathbb{R}$ 取常值函数 $f(x)=\lambda,\forall x\in[0,1]$ ，该映射显然为双射，从而有 $\lvert R\rvert\leq \lvert \mathcal{F}\rvert$ ；反之，对于任意的 $f\in \mathcal{F}$ ，考虑 $\mathbb{Q}=\{q_n:n\geq1\}$ ，将 $f$ 作用到 $\{q_n:n\geq1\}$ ，从而建立了 $f$ 到 $\prod_{n=1}^{\infty}\mathbb{R}$ 的子集的一个映射，且可数个具有连续统势的集合的积仍然具有连续统势；下面只需证明该映射为双射即可注意到若 $f,g\in \mathcal{F}$ 的像相同，则对于任意的 $x\in[0,1]\backslash \mathbb{Q}$ ，可取 $\{x_n\}_{n\geq1}\rightarrow x$ ，由 $f,g\in C([0,1])$ 可得 $f(x)=g(x)$ ，从而 $f=g$ ，则该映射为单射；反之，对于任给的序列都存在对应的函数，因此 $\lvert \mathcal{F}\rvert\leq \lvert \prod_{i=1}^{\infty}\mathbb{R}\rvert=\lvert \mathbb{R}\rvert$ ，综上 $\lvert \mathcal{F}\rvert=\lvert \mathbb{R}\rvert$ .
+
+>[!example]- $\mathbb{R}$ 上的单调函数的全体具有连续统势.
+>证明：记 $\mathbb{R}$ 上单调函数全体为 $\mathcal{F}$ ，同上，不难验证有 $c\leq \mathcal{F}$ ；设 $\mathbb{Q}=\{r_n\}_{n\geq1}$ 定义映射 $\varphi: \mathcal{F}\rightarrow \mathbb{R}^{\mathbb{N}},f\mapsto \{f(r_n)\}_{n\geq1}$ ，对于任意的 $f\in \mathcal{F},x\in \mathbb{R}\backslash \mathbb{Q}$ ，令 $f^{+}(x)=\inf_{r> x}f(r),f^{-}(x)=\sup_{r<x}f(r)$ ，因为 $f$ 是单调函数，所以 $\{(f^-(x),f^{+}(x))\}_{x\in \mathbb{R}\backslash \mathbb{Q}}$ 为不相交的区间，并且 $f^{-1}(x)\leq f(x)\leq f^{+}(x)$ ，如果 $(f^{-}(x),f^{+}(x))=\emptyset$ ，则 $f(x)=f^{-1}(x)=f^{+}(x)$ ，如果 $(f^{-}(x),f^{+}(x))\neq \emptyset$ ，注意到这样的区间只有至多可数多个，记 $D_f=\{x\in \mathbb{R}\backslash \mathbb{Q}:(f^{-1}(x),f^{+}(x))\neq \emptyset\}$ ，下面定义映射  $\varphi: \mathcal{F}\rightarrow \mathbb{R}^\mathbb{N}\times \mathbb{R}^\mathbb{N}$ 
+>
+>$$\begin{aligned}
+>&\varphi(f)=\{f(x_n):x_n\in D_f\}\times \{f(r_n)\}_{n\geq1}\quad \text{if }\lvert D_f\rvert=\mathbb{N}\\
+>&\varphi(f)=\{f(x_1),\cdots,f(x_{\lvert D_f\rvert},0,\cdots,0,\cdots)\}\times \{f(r_n)\}_{n\geq1}\quad \text{if }\lvert D_f\rvert<\mathbb{N}
+>\end{aligned}$$ 
+>
+>注意到 $\varphi(\mathcal{F})\subset\mathbb{R}^\mathbb{N}\times \mathbb{R}^\mathbb{N}$ ，所以 $\lvert \mathcal{F}\rvert\leq c$ ，从而可得 $\lvert \mathcal{F}\rvert=c$
 
 >[!example]- 设实数集 $E$ 不可数，求证：有 $x$ ，使得对于任意 $\delta>0$ ， $E\cap(x-\delta,x+\delta)$ 不可数. 进而证明 $E$ 中满足 $\forall \delta>0,E\cap(x-\delta,x+\delta)$ 不可数的 $x$ 的全体是不可数集.
 >证明：
@@ -372,10 +425,14 @@ $\lvert \mathcal{P}(\mathcal{P}(\mathbb{N}))\rvert=2^{2^{\aleph_0}}$ .
 下面考虑的是与 $\mathcal{P}(\mathcal{P}(\mathbb{N}))$ 等价的集合. [check](https://math.stackexchange.com/questions/17914/cardinality-of-the-set-of-all-real-functions-of-real-variable)
 
 >[!note]- 求证： $\mathbb{R}$ 上实函数全体具有基数 $2^c$ .
->证明：设映射 $$\begin{aligned}
-&\mathcal{F}:R[\mathbb{R}]\rightarrow \mathbb{R}\times \mathbb{R}\\
-&f\rightarrow \{(r,f(r)):r\times R\}
-\end{aligned}$$ 从而 $\lvert R[\mathbb{R}]\rvert\leq \lvert \mathcal{P}(\mathbb{R}\times \mathbb{R})\rvert=\lvert \mathcal{P}(R)\rvert$ .  （注意这里 $\mathcal{F}$ 并不是双射）
+>证明：设映射 
+>
+>$$\begin{aligned}
+>&\mathcal{F}:R[\mathbb{R}]\rightarrow \mathbb{R}\times \mathbb{R}\\
+>&f\rightarrow \{(r,f(r)):r\times R\}
+>\end{aligned}$$ 
+>
+>    从而 $\lvert R[\mathbb{R}]\rvert\leq \lvert \mathcal{P}(\mathbb{R}\times \mathbb{R})\rvert=\lvert \mathcal{P}(R)\rvert$ .  （注意这里 $\mathcal{F}$ 并不是双射）
 >
 >或者，注意到 $\mathcal{P}(\mathbb{R})$ 对应于 $2^\mathbb{R}=\{0,1\}^\mathbb{R}$ ，也即对应于 $\mathbb{R}$ 中的一个函数（唯一），该映射也为双射，从而 $\lvert \mathcal{P}\rvert=\lvert R[\mathbb{R}]\rvert$ .
 

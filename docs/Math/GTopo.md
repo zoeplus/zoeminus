@@ -209,7 +209,7 @@ x\in \bar{A}&\Leftrightarrow \forall \epsilon>0,B(x,\epsilon)\cap A\neq\emptyset
 
 类似的可以证明：
 
->[!noet]- 连续函数将紧集映射到紧集.
+>[!note]- 连续函数将紧集映射到紧集.
 >证明：设 $f:X\rightarrow Y$ ，其中 $X$ 为紧集，设 $f(X)$ 的一个开覆盖 $\{U_a\}_{a\in A}$ ，因为 $f$ 为连续函数，所以开集 $U_a$ 的原像 $f^{-1}(U_a)$ 仍然是开集. 并且 $f^{-1} \left(\bigcup_{a\in A}U_a\right)\subset\bigcup_{a\in A}f^{-1}(U_a)$ （对于任意的 $x:f^{x}\in \bigcup_{a\in A}U_a$ ，存在 $U_a:f(x)\in U_a$ ，从而 $x\in f^{-1}(U_a)\in \bigcup_{a\in A}f^{-1}(U_a)$ . 并且由 $Y\subset\{U_a\}_{a\in A}$ 可知 $X\subset f^{-1}(Y)\subset f^{-1}(\bigcup_{a\in A}U_a)\subset \bigcup_{a\in A}f^{-1}(U_a)$ ，又 $X$ 为紧集，所以存在有限子覆盖 $\{U_{a_1},U_{a_2},\cdots,U_{a_n}\}$ ， $X\subset \bigcup_{1\leq i\leq n}f^{-1}(U_{a_i})$ . 并且由 $f(f^{-1}(E))\subset E$ 可得 $$f(X)\subset f\left(\bigcup_{1\leq i\leq n}f^{-1}(U_{a_i})\right)\subset \bigcup_{1\leq i\leq n}f(f^{-1}(U_{a_i}))\subset \bigcup_{1\leq i\leq n}U_{a_i}$$ 所以 $\{U_a\}_{a\in A}$ 存在有限子覆盖，因此 $f(X)$ 为紧集.
 
 也可以将连续的概念离散化：
@@ -517,7 +517,7 @@ $C([0,1])$ 表示 $[0,1]$ 上所有的连续函数的集合.
 >
 >对于 Cantor 集中的任何一个点，都可以按照其构造方法将其对应到一个二元数列（比如，第 $i$ 层划分若该点位于左侧，则其对应数列的 $x_i=0$ ，位于右侧则 $x_i=1$ ），这是一个双射，又全体二元数列不可数，所以 Cantor集不可数.
 
->[!note]- Cantor 集是完备疏集.
+>[!note] Cantor 集是完备疏集.
 >证明：显然 Cantor 集是闭集，要证明其完备性考虑 Cauchy 列 $\{x_n\}_{n\geq1}\subset C$ #imcomplete ；由 $C$ 的定义即可得到. #issue %% [[RF#完备]] 和 [[#完备度量空间]] 是一回事吗？%%
 >对于 $C$ 是疏集的证明：因为上面已经证明了 $C$ 中没有内点，所以 $\bar{C}^\circ=C^\circ=\emptyset$ . 综上 $C$ 是完备疏集.
 
@@ -539,6 +539,10 @@ $C([0,1])$ 表示 $[0,1]$ 上所有的连续函数的集合.
 >用[[#二元数列]]中的度量 $d$ ，对于 $\{0,1\}^\mathbb{N}$ 中一开集 $U$ ，考虑： $f^{-1}(U)=\{x\in C,f(x)\in U\}$ ，进而 $\forall x\in f^{-1}(U)$ ，存在包含 $f(x)$ 的一个开球 $B_d(f(x),\epsilon)\subset U$ ，不妨设 $\epsilon\geq\frac{1}{2^k}$ ，由度量的定义： $d(f(x),*)$ 只能取 $\frac{1}{2},\cdots$ ，因此对于 $\epsilon\geq\frac{1}{2^k}$ ，只需要取 $C$ 中的开球 $B_{d'}(x,\frac{1}{3^{k+1}})$  即可，这样能够保证对于任意的 $x'\in B_{d'}(x,\frac{1}{3^{k+1}})$ ，均有 $f(x'),f(x)$ 在前 $k+1$ 位都完全一致，从而 $d(f(x'),f(x))<\frac{1}{2^{k+1}}<\epsilon$ . 因此 $f(x')\in U$ ，从而 $B_{d'}(x,\frac{1}{3^{k+1}})\subset U$ ，因此 $f^{-1}(U)$ 为开集. 所以 $f$ 是连续映射.
 >
 >证明 $C$ 具有连续统势还可将 $C$ 中的点对应到三元数列 $\{a_n\}_{n\geq1},a_n\in\{0,1,2\}$ . 对任意 $x\in[0,1]$ ， $x=\sum\limits_{n=1}^{\infty}\frac{a_n}{3^n}$ . 则 $c\leq \lvert C\rvert$ ，另一方面 $C$ 中的每一个元素都在 $[0,1]$ 中，直接可以用恒等映射构造一个 $C$ 到 $[0,1]$ 的子集的双射，从而 $\lvert C\rvert\leq c$ ，所以 $c=\lvert C\rvert$
+
+>[!note] $C$ 没有孤立点.
+
+由 $C$ 和 $2^\mathbb{N}$ 同胚，只需证明 $\{0,1\}^\mathbb{N}$ 没有孤立点即可. 对于任意的 $(x_n)_{n\geq1}\in\{0,1\}^\mathbb{N}$ ，对其任意邻域，不妨设存在基 $B_x=p_{1}^{-1}(U_1)\cap \cdots\cap p_m^{-1}(U_m)$ 包含 $(x_n)$ ，其中 $U_i=\{y_i\},1\leq i\leq m$ 为单点集，因此 $B_x=\prod_{1\leq i\leq m}^{}U_i \times \prod_{}^{}X_j$ ，显然包含除 $(x_n)$ 之外的点.
 
 >[!example]- $\mathbb{R}$ （ $[0,1]$ ）上不可数的稠密零测集. [check-mse](https://math.stackexchange.com/questions/1610098/example-of-an-uncountable-dense-set-with-measure-zero)
 > $C\cup\mathbb{Q}$ （ $C\cup ([0,1]\cap \mathbb{Q})$ ）
@@ -600,6 +604,8 @@ $$f(x)=\frac{2k-1}{2^n},x\in I_n^k,1\leq k\leq 2^{n-1}$$
 
 而在借助集合族对于拓扑进行刻画时，首先定义开集，下面定义**邻域**（neighborhood）：任给 $x\in X,A\subset X$ ，如果存在开集 $U$ 使得 $x\in U\subset A$ ，则称 $A$ 为 $x$ 的邻域，并且可知 $U$ 为开集当且仅当 $U$ 为 $x$ 中任何一个点的邻域（因为 $x\in U\subset U$ ）注意，这一定义并不要求 $x$ 的邻域是开集. ^Neighborhood
 
+定义**孤立点**：存在该点的一个邻域 $B$ ， $B\cap X$ 为单点集.
+
 >[!note]- $x\in A^\circ$ 当且仅当 $A$ 是 $x$ 的邻域.
 
 在度量空间中，[稠子集](#^Dense)是用开集刻画的，并且有两个等价定义.
@@ -639,13 +645,36 @@ $$\begin{aligned}&(\text{N}1)\ X\in \mathcal{N}(x),\forall x\in X\\&(\text{N}2)\
 
 ## 连续映射和同胚
 
+>[!summary]+ 自查表
+>- 连续映射的定义；
+
 连续映射是拓扑学的核心概念.
 
 设 $X,Y$ 为拓扑空间， $f:X\rightarrow Y$ 为映射，如果 $Y$ 的每一个开集 $V$ 在 $f$ 下的原像 $f^{-1}(V)$ 是开集则称 $f$ **连续**.
 
+>[!hint] 证明 $f$ 是 $Y\rightarrow X$ 上的连续映射.
+>还可证明 $X$ 中的子基的原像为 $Y$ 中开集，或 $X$ 中的子基的原像为 $Y$ 中开集.
+
 定义**开映射**：任给 $X$ 的开集 $U$ ， $f(U)$ 为开集；**闭映射**：任给 $X$ 的闭集 $F$ ， $f(F)$ 为闭集.
 
 称一个性质是**拓扑性质**，如果在同胚映射下保持该性质.
+
+### 同胚
+
+>[!warning] 从 $X$ 到 $Y$ 存在连续双射 $\not\Rightarrow$ $X$ 和 $Y$ 同胚.
+>如果 $X$ 是紧空间，  $Y$ 是 Hausdorff 空间，则该命题成立.
+
+设 $X,Y$ 为拓扑空间， $f: X\rightarrow Y$ 为连续映射，若存在连续映射 $g:Y\rightarrow X$ 满足 $g\circ f=1_X,f\circ g=1_Y$ ，则称 $f:X\rightarrow Y$ 为**同胚映射**. 
+
+如果 $X\rightarrow Y$ 存在同胚映射，则称 $X$ 和 $Y$ **同胚**. 
+
+> [!example] $f: X\rightarrow Y$ 是连续双射， $f^{-1}: Y\rightarrow X$ 不是连续映射（ $f$ 不是同胚映射）的例子？
+>$$f(x)=\left\{\begin{aligned}
+>&x,x\in[0,1)\\
+>&1+x,x\in[2,3]
+>\end{aligned}\right.$$
+
+拓扑空间同胚的例子： #imcomplete-lack-examples 
 
 ## 遗传性质
 
@@ -906,6 +935,7 @@ $$\{X\}\cup\{U_1\cap U_2\cap \cdots\cap U_n:U_i\in \mathcal{B},n\geq1\}$$
 >- 什么是 Hausforff 性质？是否遗传？
 >- 回顾：网收敛 $\lim \xi$ 不为单点集的例子？
 >- Hausdorff 性质与网收敛的关系？
+>- 紧空间到 Hasudorff 空间的连续映射具有什么性质？连续双射具有什么性质？
 
 如果拓扑空间 $X$ 中的任何两个点都有不相交的邻域，则称 $X$ 具有 **Hausdorff 性质**， Hausforff 性质是一种分离性质.
 
@@ -920,6 +950,9 @@ $$\{X\}\cup\{U_1\cap U_2\cap \cdots\cap U_n:U_i\in \mathcal{B},n\geq1\}$$
 >$\Leftarrow$ ：设存在 $x,y\in X,x\neq y$ ， $x,y$ 的任何邻域都相交，考虑定向集 $(D,\sqsubseteq)$ ： $D=\mathcal{N}(x)\times \mathcal{N}(y)$ ， $(U,V)\sqsubseteq (U',V')\leftrightarrow U\supset U'\land V\supset V'$ ，设网 $\xi:(U,V)\rightarrow x_{U,V}\in U\cap V$ ，则 $x,y\in \lim \xi$ ，矛盾！
 
 可以通过 $\lvert \lim \xi\rvert>1$ 说明拓扑空间 $X$ 不具备 Hausdorff 性质.
+
+>[!note] 紧空间到 Hasudorff 空间的连续映射是闭映射，连续双射是同胚映射. #ilp 
+>^CompactToHausdorff
 
 >[!note]- 设 $X,Y$ 是拓扑空间， $Y$ 是 Hausdorff 空间， $f,g: X\rightarrow Y$ 为连续映射，则 $E=\{x:f(x)=g(x)\}$ 是 $X$ 中的闭集.
 
@@ -1009,7 +1042,7 @@ $T_3$ 空间为正则的 $T_0$ 空间.
 
 ### $T_4$ 空间
 
-称拓扑空间 $X$ **正规**，如果任给不交闭集 $F,G\subset X$ ，存在不交开集 $U\supset F,V\supset G$ .
+称拓扑空间 $X$ **正规**（normal），如果任给不交闭集 $F,G\subset X$ ，存在不交开集 $U\supset F,V\supset G$ .
 
 $T_4$ 空间为正规的 $T_1$ 空间.
 
@@ -1023,6 +1056,97 @@ $T_4$ 空间为正规的 $T_1$ 空间.
 >1) i) $\emptyset,\mathbb{N}\in \mathcal{O}$ ，ii) 对于任意的 $U,V\in \mathcal{O}$ ，若 $U=\emptyset$ 则对任意 $V\in \mathcal{O}$ ， $U\cap V=\emptyset$ ，若 $U=\mathbb{N},V\in \{U\subset \mathbb{N}:\lvert X\backslash U\rvert<\infty\}$ ，则 $U\cap V=V$ ，若 $U,V\in\{U\subset \mathbb{N}:\lvert X\backslash U\rvert<\infty\}$ ，则 $X\backslash(U\cap V)=(X\backslash U)\cup(X\backslash V)$ 为有限集；
 >2) （不存在非空的不交闭集，主要原因是在 $\mathcal{O}$ 的定义下任何闭集都含有 $\{0\}$ ）假设 $A,B$ 为不交闭集， $A^c,B^c$ 为开集且非 $\{\emptyset,\mathbb{N}\}$ 中元素，并且 $0\notin A^c,0\notin B^c$ ，从而 $0\in A\cap B$ ，所以 $\mathbb{N},\mathcal{O}$ 中没有非平凡不交闭集，而如果 $A$ 取 $\emptyset$ 则 $A,B$ 交为空，取 $\emptyset\supset A,\mathbb{N}\supset B$ 即可，所以 $X$ 正规. 
 >3) （如 2) 陈述， $0\notin X$ ，因此可以定义非平凡的不交闭集，而这显然会产生矛盾）$\mathbb{N}\backslash \{0\},\mathcal{O}'$ 上的拓扑为： $\{\emptyset,\mathbb{N}\backslash\{0\}\}\cup\{U\backslash\{0\}:0\notin U,U\subset \mathbb{N},\lvert X\backslash U\rvert<\infty\}$ . 取不交闭集 $\{1\}=(\mathbb{N}\backslash\{0\})\cap\{0,1\},\{2\}=(\mathbb{N}\backslash\{0\})\cap\{0,2\}$ ，设存在开集 $U\backslash\{0\}\ni \{1\},V\backslash\{0\}\ni \{2\}$ ， $\mathbb{N}\backslash (U\cap V)=\mathbb{N}\backslash U\cup \mathbb{N}\backslash V$ 为有限集，所以 $U\cap V$ 为 $\mathbb{N}$ 中的无限集，进而 $U\backslash\{0\}\cap V\backslash\{0\}=U\cap V\backslash\{0\}$ 为 $\mathbb{N}\backslash\{0\}$ 中的无限集. 所以非正则空间.
+
+# 乘积空间
+
+设 $\{(X_i,\tau_i)\}_{i\in I}$ 为一族拓扑空间，定义 $\prod_{i\in I}^{}X_i=\{f:I\rightarrow \bigcup_{i\in I}X_i:f(i)\in X_i\}$ ，进而定义**投影映射** $P_{i_0}:\prod_{i\in I}^{}X_i\rightarrow X_{i_0},P_{i_0}(f)=f(i_0)$ ，定义**乘积拓扑**： $\prod_{i\in I}^{}\tau_i$ 是由<u>子基</u> $\{P_i^{-1}(U_i):i\in I,U_i\in \tau_i\}$ 生成的拓扑.
+
+>[!hint] 可以采取其他方式定义 $\prod_{i\in I}^{}X_i$ .
+>一种更符合直觉的做法是：
+>
+> $$\prod_{i\in I}^{}X_i=\{(x_i)_{i\in I}:x_i\in X_i,\forall i\in I\}$$
+> 
+>注意，这一定义需要用到选择公理. （对于非空的集族 $\{S_i\}_{i\in I}$ ，总是存在 $\{x_i\}_{i\in I}$ 使得 $x_i\in S_i$ ）
+
+由定义可以得出： $P_i^{-1}(U_i)=U_i\times \prod_{j\neq i}^{}X_j$ .
+
+>[!question] 采用 $\left\{\prod_{i\in I}^{}U_i:U_i\in \tau_i\right\}$ 作为基？
+>用 $\left\{\prod_{i\in I}^{}U_i:U_i\in \tau_i\right\}$ 作为基生成的拓扑空间称为 Box Topology ，其是比乘积拓扑更细的拓扑：乘积拓扑中的基为 $\prod_{i\in I',\lvert I'\rvert<\infty}^{}U_i \times \prod_{j\notin I'}^{}X_j$ （有限个限制 + 无限个限制）.
+>
+>可以证明，乘积拓扑是使得 $P_i,i\in I$ 连续的最粗拓扑，并且许多性质在 Box Topology 中不再保持.
+
+设 $P$ 是拓扑空间的某种性质，如果有限 / 可数 / 任意多个具有 $P$ 的拓扑空间的乘积仍然具有性质 $P$ ，则称性质 $P$ 是**有限 / 可数 / 任意可乘**的.
+
+>[!example] 证明第一可数和第二可数是可数可乘的.
+
+证明：设 $\{X_n\}_{n\geq1}$ 是一列第一可数空间，考虑 $\prod_{n\geq1}^{}X_n$ ，对于任意的 $(x_i)_{i\geq1}\in \prod_{n\geq1}^{}X_n$ ，对于任意的 $i\geq1$ ，因为 $X_i$ 是第一可数空间，所以存在 $x_i$ 的可数邻域基 $\mathcal{B}_i=\{B_i^n\}_{n\geq1}$ ，
+
+则取集族：
+
+$$\mathcal{B}=\bigcup_{I_n\subset \mathbb{N}}\{\prod_{i\in I_n}^{}B_i\times \prod_{j\notin I_n}^{}X_j:B_i\in \mathcal{B}_i,\forall i\geq1\}$$
+
+其中 $I_n=\{1,\cdots,n\}$ . 显然 $\mathcal{B}'_n=\{(B_i)_{i\in I_n}:B_i\in \mathcal{B}_i,\forall i\geq1\}$ 为有限个可数集族的积，因此该集族是可数的，并且可数个可数集的并可数，所以 $\mathcal{B}$ 是可数的.
+
+对于任意包含 $(x_i)_{i\geq1}$ 的邻域，存在基本开集 $U=\prod_{i\in I'}^{}U_i\times \prod_{j\notin I'}^{}X_i$ ，设 $\max\{ I'\}=i_0$ ，则存在 $B_i^{n_i}\subset U_i,\forall i\in I'$ ，进而 $\prod_{i\in I'}^{}B_i^{n_i}\times \prod_{j\notin I'}^{}B_j^1\subset U$ ，因此 $\mathcal{B}$ 为 $(x_i)_{i\geq1}$ 的一个可数邻域基.
+
+如果 $\{X_n\}_{n\geq1}$ 是一列第二可数空间，则对于 $n\geq1$ ，存在 $X_n$ 的可数基 $\mathcal{B}_n=\{B_n^i\}_{i\geq1}$ ，同理，构造集族：
+
+$$\mathcal{B}=\bigcup_{I_n\subset \mathbb{N}}\{(B_i)_{i\in I_n}:B_i\in \mathcal{B}_i,\forall i\geq1\}$$
+
+对于任何包含 $x$ 的邻域，首先存在基本开集 $U=\prod_{i\in I'}^{}U_i\times \prod_{j\notin I'}^{}X_i$ ，其次类似地可以找到包含于 $U$ 且包含 $x$ 的 $\mathcal{B}$ 中的元素，因此 $\mathcal{B}$ 是可数基.
+
+>[!example] 举出反例说明第一可数、第二可数不是任意可乘的.
+
+考虑第一（二）可数空间 $(\{0,1\},\mathcal{P}(\{0,1\}))$ ， $I$ 为不可数集合，对于 $\prod_{i\in I}^{}X_i$ ，如果其第一可数，则对于 $(x_i)_{i\in I}$ ，其具有可数邻域基，不妨设为 $\{B_j\}_{j\geq1}$ ， 并且（因为对任意基本开集总存在邻域基包含在其中） $B_j=\prod_{i\in I',\lvert I'\rvert<\infty}^{}U_i\times \prod_{j\notin I'}^{}\{0,1\}$ 可知， $\bigcup_{j\geq1}B_j$  可以写作 $\prod_{i\in I',\lvert I'\rvert\subset \mathbb{N}}^{}U_i\times \prod_{j\notin I'}^{}\{0,1\}$ 的形式，因此取 $\prod_{i\in I'}^{}U_i\times \{0\}\prod_{j\in I'\backslash\{j_0\}}^{}X_j$ 即可.
+
+假设其具有可数基，取该可数基的并，则同样有 （因为对任意基本开集总存在邻域基包含在其中） $B_j=\prod_{i\in I',\lvert I'\rvert<\infty}^{}U_i\times \prod_{j\notin I'}^{}\{0,1\}$ ，剩下的同理可证明.
+
+>[!hint] 关键：基 / 邻域基总包含在基本开集中，因此形如基本开集 #issue ；不可数集减去可数集总有多余的元素.
+
+>[!note] 序列紧可数可乘.
+
+证明：设 $\{X_n\}_{n\geq1}$ 为一列序列紧空间，考虑任意的 $\prod_{n\geq1}^{}X_n$ 中的子列 $\{(x^n_l)_{n\geq1}\}_{l\geq1}$ ，
+
+$$\begin{aligned}
+&x_1^1\ x_2^1\ x_3^1\ \cdots\ x_n^1\ \cdots\\
+&x_1^2\ x_2^2\ x_3^2\ \cdots\ x_n^2\ \cdots\\
+&\cdots
+\end{aligned}$$
+
+因为 $X_1$ 序列紧，所以可以在 $X_1$ 中得到收敛于 $x_1$ 的子列 $\{x^1_{i_{1,m}}\}_{m\geq1}$ ，对于 $X_2$ 中的子列 $\{x^2_{i_{1,m}}\}$ ，存在该序列的子列 $\{x^2_{i_{2,m}}\}$ 收敛到 $x_2\in X_2$ ，依次类推.
+
+>[!note] 可度量可数可乘.
+
+>[!example] 设 $\{(X_n,d_n)\}_{n\geq1}$ 为一列度量空间，任给 $x,y\in \prod_{n\geq1}^{}X_n$ ，令 $\rho(x,y)=\sup_{n\geq1}\frac{1}{2^n}\min\{d_n(x_n,y_n),1\}$ . 证明 $\rho$ 是 $\prod_{n\geq1}^{}X_n$ 上的度量并且诱导它的乘积拓扑.
+
+首先验证 $\rho$ 是 $\prod_{n\geq1}^{}X_n$ 上的度量：
+
+1) $\rho(x,y)\geq0$ ，若 $\rho(x,y)=0$ ，则对于任意的 $n\geq1$ ， $\frac{1}{2^n}\min\{d_n(x_n,y_n),1\}\leq 0$ ，从而 $d(x_n,y_n)=0$ 故 $x=y$ ，反之显然成立；
+2) $\rho(x,y)=\rho(y,x)$ ；
+3) $\rho(x,z)\leq \sup_{n\geq1}\frac{1}{2^n}\min\{d_n(x_n,y_n)+d_n(y_n,z_n),1\}$ ，注意到 $\min\{a+b,1\}\leq \min\{a,1\}+\min\{b,1\},\forall a,b\geq0$ . 从而可得结论.
+
+下面证明 $\rho$ 诱导的拓扑与 $\prod_{n\geq1}^{}X_n$ 的乘积拓扑相同：
+
+1) 首先说明 $\rho$ 在 $\prod_{n\geq1}^{}X_n$ 上诱导的拓扑 $\mathcal{O}$ 要粗于其乘积拓扑：对于任意的 $U\in \mathcal{O},x\in U$ ，存在包含 $r>0$ ， $B(x,r)\subset U$ ；取 $N$ 充分大使得 $\frac{1}{2^N}<r$ ，再取 $V_i=B(x_i,\min\{r,1\}/2),\forall i\leq N$ ，从而对于任意的 $y\in \prod_{i=1}^{N}V_i\times \prod_{j>N}^{}X_j$ ，都有 $\rho(x,y)<r$ ，所以 $x\in V\subset B(x,r)\subset U$ ，由 $x$ 的任意性， $U=\cup V_x$ 为乘积拓扑的开集.
+2) 说明 $\rho$ 在 $\prod_{n\geq1}^{}X_n$ 上诱导的拓扑 $\mathcal{O}$ 要细于其乘积拓扑：只需说明对于乘积拓扑中的开集 $p_n^{-1}(U_n)$ ，其都为 $\mathcal{O}$ 中的开集：对于任意的 $x\in p_n^{-1}(U_n)$ ， $p_n^{-1}(U_n)=U_n\times \prod_{j\neq n}^{}X_j$ ，又 $U_n$ 为 $X_n$ 中的开集，从而存在 $r>0$ 使得 $B(x_n,r)\subset U_n$ ，考虑 $V_\rho(x,r/2^n)$ ，则对于任意的 $y\in V_\rho(x,r/2^n)$ ， $d_n(x_n,y_n)<r$ ，从而可知 $y\in U_n$ ， $x\in V_\rho(x,r/2^n)\subset p_n^{-1}(U_n)$ ，所以 $p_n^{-1}(U_n)=\bigcup V_\rho(x,r/2^n)$ 是 $\mathcal{O}$ 中的开集.
+
+>[!note] 可分可数可乘.
+
+>[!note] $T_0,T_1,T_2,T_3$ 任意可乘.
+
+>[!note] 正规任意可乘.
+
+>[!note] Cantor 集同胚于离散空间 $\{0,1\}$ 的可数乘积（记为 $\prod_{n\in \mathbb{N}}^{}\{0,1\}=\{0,1\}=2^\mathbb{N}$ ）
+
+证明：只需要说明 $C$ 中的基本开集都是 $\{0,1\}^\mathbb{N}$ 中的基本开集，反之也是. 用度量 $d(x,y)=\frac{1}{2^n}$ 诱导 $C$ 上的拓扑. #imcomplete-lack-proofs 
+
+>[!note] Cantor 集 $C$ 同胚于其自身的可数次幂 $C^\mathbb{N}$ .
+
+已经证明了 $C$ 同胚于 $\{0,1\}^\mathbb{N}$ ，下面只需证明 $C$ 同胚于 $\{0,1\}^{\mathbb{N}\times \mathbb{N}}$ ，注意到 $\{0,1\}^\mathbb{N}$ 是紧空间，且具有 $T_2$ 性质，由 $T_2$ 可数可乘可知 $\{0,1\}^{\mathbb{N}\times \mathbb{N}}$ 具有 $T_2$ 性质，[进而](#^CompactToHausdorff)只需要证明存在 $\{0,1\}^\mathbb{N}$ 到 $\{0,1\}^{\mathbb{N}\times \mathbb{N}}$ 的连续双射即可， $\lvert \mathbb{N}\rvert=\lvert \mathbb{N}\times \mathbb{N}\rvert$ ，所以存在双射 $\varphi(n):\mathbb{N}\rightarrow \mathbb{N}\times \mathbb{N}$ ，对于任意的 $(x_n)_{n\geq1}\in\{0,1\}^\mathbb{N}$ ， $\{\varphi(n)\}_{n\geq1}$ 将 $\mathbb{N}$ 映射到 $\mathbb{N}\times \mathbb{N}$ 中，因此 $x_n$ 将对应于 $x_{\varphi(n)_0},x_{\varphi(n)_1}$ 两个元素，记为 $x_{\varphi(n)}\in\{0,1\}^{\mathbb{N}\times \mathbb{N}}$ . 由 $\varphi(n)$ 为双射， $f:(x_n)_{n\geq1}\mapsto (x_{\varphi(n)})_{n\geq1}$ 为双射. 对于连续性的证明：设投影映射 $p_j:\prod_{n\geq1}^{}X_i\rightarrow X_j,\forall j\geq1,X_l=\{0,1\}^\mathbb{N},\forall l\geq1$ .
+
+则对于 $p_j\circ f:\{0,1\}^\mathbb{N}\rightarrow \{0,1\}^\mathbb{N}$ ，考虑 $\{0,1\}^\mathbb{N}$ 中的子基 $\{P_l^{-1}(0),P_l^{-1}(1):l\geq1\}$ ，考虑 $(p_j\circ f)^{-1}(P_l^{-1}(0))=f^{-1}(p_j^{-1}(P_l^{-1}(0)))$ ，其中 $P_l^{-1}(0)=\prod_{i\neq l}^{}X_i\times\{0\}$ ， $p_j^{-1}(P_l^{-1}(0))$ 相当于将 $\prod_{i\geq1}^{}\{0,1\}^{\mathbb{N}\times \mathbb{N}}$ 中的第 $j$ 个 $\{0,1\}^\mathbb{N}$ 中的第 $l$ 个元素改为 $\{0\}$ ，其余均保持不变，然后再求在 $f$ 下的原像，根据双射 $f$ 的定义，这实际上相当于求 $\varphi^{-1}(j,l)$ ，等同于 $p^{-1}_{\varphi^{-1}(j,l)}(0)$ . #issue
+
+>[!note] Cantor 集没有孤立点.
 
 ## $\mathbb{R}$ 上拓扑
 
