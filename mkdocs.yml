@@ -101,24 +101,25 @@ theme:
     - navigation.top
     - navigation.footer
     # - toc.integrate 
+    - toc.follow
     - content.action.edit
     # - content.action.view
     - content.code.copy
   palette:
     # Palette toggle for light mode
-    - scheme: default
-      primary: amber
-      accent: amber
-      toggle:
-        icon: material/lightbulb-outline
-        name: 切暗色
+    # - scheme: default
+    #   primary: amber
+    #   accent: amber
+    #   toggle:
+    #     icon: material/lightbulb-outline
+    #     name: 切暗色
     # Palette toggle for dark mode
     - scheme: slate
       primary: amber
       accent: amber
-      toggle:
-        icon: material/lightbulb
-        name: 切亮色
+    #  toggle:
+    #    icon: material/lightbulb
+    #    name: 切亮色
 
 extra:
   social:
