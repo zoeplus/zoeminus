@@ -1148,6 +1148,36 @@ $$\begin{aligned}
 
 >[!note] Cantor 集没有孤立点.
 
+## 商映射
+
+设 $X,Y$ 是拓扑空间， $f:X\rightarrow Y$ ，如果 $f$ 是满射并且 $Y$ 的拓扑是由 $f$ 生成的终拓扑，则称 $f$ 为**商映射**（quotient map）.
+
+>[!note] 满映射 $f:X\rightarrow Y$ 是商映射当且仅当 $V$ 为 $Y$ 中的开集 $\Leftrightarrow$ $f^{-1}(V)$ 是 $X$ 中的开集.
+
+>[!example] 设 $f:X\rightarrow Y,g:Y\rightarrow Z$ 是连续映射，证明： 1) 若 $f,g$ 均为商映射，则 $g\circ f$ 也是商映射； 2) 若 $g\circ f$ 也是商映射，则 $g$ 也是商映射.
+
+证明：若 $f,g$ 均为商映射，则 $f,g$ 均为满射，对于任意的开集 $V\subset Z$ ， $(g\circ f)^{-1}(V)=f^{-1}(g^{-1}(V))$ 在 $X$ 中为开集，反之若 $(g\circ f)^{-1}(V)$ 为 $X$ 中的开集，则 $g^{-1}(V)$ 为 $Y$ 中的开集，进而 $V$ 为 $Z$ 中的开集；
+
+若 $g\circ f$ 也是商映射，则 $g\circ f$ 为满射，从而对于任意的 $z\in Z$ ，存在 $x\in X$ 使得 $z=g\circ f(x)$ ，而 $f(x)\in Y$ ，所以 $g$ 为连续满射；如果 $g^{-1}(V)$ 为 $Y$ 中的开集，则 $f^{-1}(g^{-1}(V))$ 为 $X$ 中的开集，由 $g\circ f$ 是商映射， $V$ 为 $Z$ 中的开集. 从而 $g$ 是商映射.
+
+>[!example] 设 $A=[0,1,1/2,1/3,\cdots]$ ，证明商空间 $[0,1]/A$ 同胚于 $\mathbb{R}^2$ 的子空间 $\bigcup_{n\geq1}S_n$ ，其中 $S_n$ 表示圆周 $\{(x,y):(x-1/n)^2+y^2=1/n^2\}$ .
+
+证明：构造从 $[0,1]$ 到 $\bigcup_{n\geq1}S_n$ 的商映射 $f$ ，并使得 $E(f)=A$ 即可. 定义 $f(1/n)=(0,0)$ ，以及 $f(0)=f(1)=(0,0)$ ，对于 $x\in\left(\frac{1}{n+1},\frac{1}{n}\right)$ ，将其映射到 $S_n$ 上即可. 从而 $E(f)=A$ .
+
+>[!note] 设 $f:X\rightarrow Y$ 是连续映射， $E(f)$ 是 $f$ 诱导的等价关系，则对映射 $\bar{f}:X\backslash E(f)\rightarrow Y,\bar{f}([x])=f(x)$ 有：1) $\bar{f}$ 连续；2) $\bar{f}$ 同胚当且仅当 $f$ 是满映射. 
+
+> [!example] 设 $X$ 是拓扑空间， $Y$ 是 Hausdorff 空间， $f:X\rightarrow Y$ 连续，证明 $X\backslash E(f)$ 是 Hausdorff 空间.
+
+证明：因为 $f$ 连续，所以诱导得到的 $\bar{f}:X\backslash E(f)\rightarrow Y$ 也连续，由 $Y$ 为 Hausdorff 空间，对于任意的 $[x]\neq [y]$ ， $f(x)\neq f(y)$ 即 $\bar{f}([x])\neq \bar{f}([y])$ ，存在开集 $V_1,V_2:V_1\cap V_2=\emptyset$ ，从而 $\bar{f}^{-1}(V_1),\bar{f}^{-1}(V_2)$ 分别为 $[x],[y]$ 的开邻域，若 $\exists [z]\in \bar{f}^{-1}(V_1)\cap \bar{f}^{-1}(V_2)$ 则 $f(z)\in V_1\cap V_2$ 矛盾！ 
+
+>[!example] 设 $X$ 是拓扑空间， $E$ 是 $X$ 上的等价关系，证明若 $E\subset X\times X$ 是闭集，并且 $q:X\rightarrow X\backslash E$ 是开映射，则 $X\backslash E$ 是 Hausdorff 空间.
+
+
+
+
+
+
+
 ## $\mathbb{R}$ 上拓扑
 
 $\mathbb{R}$ 上有八大拓扑. 对照上面介绍的拓扑的刻画分别进行分析：
