@@ -1,74 +1,112 @@
-# THE PHENOMENON
+对萨特所著的《存在与虚无》的阅读笔记，尝试用数学语言刻画（依据是作者的语言解释，刻画的合理性：在该刻画下可以推出下文的结论）。
+
+参考文献：
+
+- 中译本《存在与虚无》（陈宣良等译），以下提到时称陈本；
+- 英译本 <i>Being and Nothingness</i> .
+
+# 导论
 
 === "现代思想对于存在物的定义"
 
-    Modern thought has realized considerable progress by reducing the existent to the series of appearances which manifest it. Its aim was to overcome a certain number of dualisms which have embarrassed philosophy and to replace them by the monism of the phenomenon. Has the attempt been successful?
-    
-    现代思想通过<u>将存在物简化为一系列表现它的表象</u>取得了相当大的进步。其目的是克服一些使得哲学难以处理的「二元论」，并用「现象的一元论」替代。这种做法是否取得了成功？
-    
-    注 1：现代思想对于存在物的定义可以用分离模式刻画，为了方便之后的讨论写作 $\text{The Existent}\overset{def}{=}E=\{x:P_1(x)\land P_2(x)\land P_n(x)\}$ ，其中 $P_i,1\leq i\leq n$ 为关于 $x$ 的命题；
-    注 2：称 $P_i$ 为存在物的一个本质；
+Modern thought has realized considerable progress by reducing the existent to the series of appearances which manifest it. Its aim was to overcome a certain number of dualisms which have embarrassed philosophy and to replace them by the monism of the phenomenon. Has the attempt been successful?
+
+现代思想通过<u>将存在物简化为一系列表现它的表象</u>取得了相当大的进步。其目的是克服一些使得哲学难以处理的「二元论」，并用「现象的一元论」替代。这种做法是否取得了成功？
+
+注 1：现代思想对于存在物的定义可以用分离模式刻画，为了方便之后的讨论写作 $\text{The Existent}\overset{def}{=}E=\{x:P_1(x)\land P_2(x)\land P_n(x)\}$ ，其中 $P_i,1\leq i\leq n$ 为关于 $x$ 的命题；
+注 2：称 $P_i$ 为存在物的一个本质（ture nature）；
+注 3：表象，原文系 apparence ，陈本中译作「显象」，萨特将 apparence 和 apparition 一动词对应使用，后者在陈本中译作「显现」，本文一律称「表象」和「表现」.
 
 === "此定义下存在物没有外部"
 
-    In the first place we certainly thus get rid of that dualism which in the existent opposes interior to exterior. There is no longer an exterior for the existent if one means by that a superficial covering which hides from sight <u>the true nature of the object.</u> |
-    
-    首先，我们确实因这种做法摆脱了二元论——存在物的「内部」和「外部」是对立的（很快会发现这种看法是错误的）。如果一个人认为存在物的「外部」指的是<u>隐藏物体本质的表面覆盖</u>，那么存在物就没有「外部」
-    
-    注 1：认为 $\text{Exterior of the Existent}\overset{def}{=}EoE\supset E$ ， $\text{Interior of the Existent}\overset{def}{=}IoE\supset E$ ， $E=EoE\cap IoE$ ；
-    注 2：正如第一段所说：存在物被简化为一系列表现它的表象，按照以上对于外部的定义（掩盖物体本质的表象），一个存在的外部应该为 $EoE=\{x:\neg P_i(x),i\in I\subset [n]\}\not\supset \text{E}$ ，与注 1 矛盾！.
+In the first place we certainly thus get rid of that dualism which in the existent opposes interior to exterior. There is no longer an exterior for the existent if one means by that a superficial covering which hides from sight <u>the true nature of the object.</u> |
+
+首先，我们确实因这种做法摆脱了二元论——存在物的「内部」和「外部」是对立的。如果认为存在物的「外部」指的是<u>隐藏物体本质的表面覆盖</u>，那么存在物就没有「外部」
+
+注 1：存在物的外部和内部应该满足： $\text{Exterior of the Existent}\overset{def}{=}EoE\supset E$ ， $\text{Interior of the Existent}\overset{def}{=}IoE\supset E$ ， $E=EoE\cap IoE$ ；
+注 2：正如第一段所说：存在物被简化为一系列表现它的表象，按照文中以上对于外部的定义（隐藏物体本质的表面覆盖），一个存在的外部应该为 $EoE=\{x:\neg P_i(x),i\in I\subset [n]\}\not\supset \text{E}$ ，与注 1 矛盾！所以 $\text{EoE}$ 不可定义（而不是 $\text{EoE}=\emptyset$ ，正如下面会提到的：所有表象均平等，并不存在是外部的表象）
 
 === "此定义下存在物没有内部"
 
-    | And this true nature in turn, if it is to be the secret reality of the thing, which one can have a presentiment of or which one can suppose but can never reach because it is the “interior” of the object under consideration—this nature no longer exists. |
-    
-    反过来，如果物体的本质是物体的某种不为人所知的现实——可以被预感或者假设，但永远无法被揭露，因为物体的本质是所考虑对象的内部，所以物体的本质也不应存在。
-    
-    注：和对于外部的讨论相同，可以得出 $\text{IoE}\not\supset E$ .
+| And this true nature in turn, if it is to be the secret reality of the thing, which one can have a presentiment of or which one can suppose but can never reach because it is the “interior” of the object under consideration—this nature no longer exists. |
+
+反过来，如果物体的本质是物体的某种不为人所知的现实——可以被预感或者假设，但永远无法被揭露，因为物体的本质是所考虑对象的内部，所以物体的本质也不应存在。
+
+注：此处主要观点是如果认为内部是不可以刻画的，即不能用分离模式的形式表达，那么按照现代思想对于存在物的定义，存在物的内部也是不可定义的.
 
 === "所有表象均平等"
 
-    | The appearances which manifest the existent are neither interior nor exterior; they are all equal, they all refer to other appearances, and none of them is privileged. |
-    
-    按照对于存在物的外部和内部的定义，表现存在物的表象既不应该是外部也不应该是内部，所有表象都是平等的，他们都是指其他表象，没有一个是有特权的。
-    
-    注：没看懂这段想表达什么. #issue 
+| The appearances which manifest the existent are neither interior nor exterior; they are all equal, they all refer to other appearances, and none of them is privileged. |
+
+表现存在物的表象既不应该是外部也不应该是内部，所有表象都是平等的，他们都是指其他表象，没有一个是有特权的。
 
 === "表象均平等：举例 I"
 
-    | Force, for example, is not a metaphysical conatus of an unknown kind which hides behind its effects (accelerations, deviations, etc.); it is the totality of these effects. | 
-    
-    例如，力（作为一种存在物）不是隐藏在其效果（加速度、偏差等）背后的某种「形而上学」的概念；它是这些效果的总和。
-    
-    注：从这里可以看出之前对于存在物用分离模式的定义是可靠的.
+| Force, for example, is not a metaphysical conatus (1) of an unknown kind which hides behind its effects (accelerations, deviations, etc.); it is the totality of these effects. |
+{ .annotate } 
+
+1. From The Collaborative International Dictionary of English v.0.48 [gcide]: conatus \Co'na"tus\, n. A natural tendency inherent in a body to develop itself; an attempt; an effort. [1913 Webster] What conatus could give prickles to the porcupine or hedgehog, or to the sheep its fleece?    --Paley.
+
+例如，力（作为一种存在物）不是隐藏在其效果（加速度、偏差等）背后的某种「形而上学」的倾向；它 （只）是这些效果的总和。
 
 === "表象均平等：举例 II"
 
-    | Similarly an electric current does not have a secret reverse side; it is nothing but the totality of the physical-chemical actions which manifest it (electrolysis, the incandescence of a carbon filament, the displacement of the needle of a galvanometer, etc.). | 
-    
-    同样，电流也没有什么不为人知的反面，它不过是所有表现它的物理化学作用的总和（电解、碳丝的炽热、检流记指针的位移等）。
-    
-    注：意思就是谈论一个存在物，谈论的都是已知的性质，不考虑任何隐藏内容（就算有）和掩盖它的内容；
+| Similarly an electric current does not have a secret reverse side; it is nothing but the totality of the physical-chemical actions which manifest it (electrolysis, the incandescence of a carbon filament, the displacement of the needle of a galvanometer, etc.). | 
+
+同样，电流也没有什么不为人知的反面，它不过是所有表现它的物理化学作用的总和（电解、碳丝的炽热、检流记指针的位移等）。
+
+注：意思就是谈论一个存在物，谈论的都是已知的性质，不考虑任何隐藏的内容（就算有）和掩盖它本质的内容；
 
 | No one of these actions alone is sufficient to reveal it. But no action indicates anything which is behind itself; it indicates only itself and the total series. |
 
-以上任何一种作用都不足以单独表现存在物。但是这并不说明没有作用表现其背后的任何东西；它只表现自身和整个系列。
+以上任何一种作用都不足以单独表现存在物（在上面举的例子中，电流）。但是任何作用都不表现其背后的任何东西，这种作用反映的就是它自己，以及整个系列。
 
-注：对于 $E=\{x:P_1(x)\cap P_2(x)\cap \cdots\cap P_n(x)\}$ ， $\{x:P_i(x)\}\neq E,\forall 1\leq i \leq n$ ，并且 $\{x:P_i(x)\}\cap\{x:\neg P_1(x)\vee\cdots\vee \neg P_n(x)\}=\emptyset$ . 
+注 1：这里的整个系列应该指的是存在物。
+注 2：对于 $E=\{x:P_1(x)\land P_2(x)\land \cdots\land P_n(x)\}$ ， $\{x:P_i(x)\}\neq E,\forall 1\leq i \leq n$ ，并且 $\{x:P_i(x)\}\cap\{x:\neg P_1(x)\vee\cdots\vee \neg P_n(x)\}=\emptyset$ . 
 
-| The obvious conclusion is that the dualism of being and appearance is no longer entitled to any legal status within philosophy. The appearance refers to the total series of appearances and not to a hidden reality which would drain to itself all the being of the existent. And the appearance for its part is not an inconsistent manifestation of this being. | 
+| The obvious conclusion is that the dualism of being and appearance is no longer entitled to any legal status within philosophy. The appearance refers to the total series of appearances and not to a hidden reality which would drain (1) to itself all the being of the existent. And the appearance for its part is not an inconsistent manifestation of this being. |
+{ .annotate } 
 
-在上述讨论下，存在和表象的二元论（要么是内部要么是外部）不再成立。表象不是任何<u>试图将存在物的存在归功于自身的</u>隐藏的事实。并且表象不是这种存在的不一致的表现。
+1. From The Collaborative International Dictionary of English v.0.48 [gcide]: 1. To draw off by degrees; to cause to flow gradually out or off; hence, to cause the exhaustion of. [1913 Webster] Fountains drain the water from the ground adjacent. --Bacon. [1913 Webster] But it was not alone that the he drained their treasure and hampered their industry. --Motley.
 
-| To the extent that men had believed in noumenal realities, they have presented appearance as a pure negative. It was “that which is not being”; it had no other being than that of illusion and error. |
+显然可以得出结论：存在和表象的二元论（要么是内部要么是外部）不再成立。表象指的是一系列的表象，而不是任何<u>试图将存在物的存在归功于自身的</u>隐藏的事实。并且表象也不是与这个存在的不一致的表现。
 
-而在某种程度上，人们相信「本体现实」，他们将表象看作一个纯粹的否定。它是“不存在的东西”；除了幻觉和错误之外，表象说明不了任何其他东西。
+注：不明白为什么这里是 the dualism of <u>being</u> and apeearance. #issue . 上面的论断都是说表象不是二元的.
 
-| But even this being was borrowed, it was itself a pretence, and philosophers met with the greatest difficulty in maintaining cohesion and existence in the appearance so that it should not itself be reabsorbed in the depth of non-phenomenal being. |
+| To the extent that men had believed in noumenal (1) realities, they have presented appearance as a pure negative. It was “that which is not being”; it had no other being than that of illusion and error. |
+{ .annotate } 
 
-但是即使说这种存在是借来的，它本身就是一种伪装，哲学家在保持表象的凝聚力和非空洞的方面遇到了很大的困难，
+1. From The Collaborative International Dictionary of English v.0.48 [gcide] Noumenal \Nou"me*nal\, a. (Metaph.) Of or pertaining to the noumenon (1) ; real; -- opposed to {phenomenal}. --G. H. Lewes. 
+    { .annotate } 
 
-| But if we once get away from what Nietzsche called “the illusion of worlds-behind-the-scene,” and if we no longer believe in the being-behind-the-appearance, then the appearance becomes full positivity; its essence is an “appearing” which is no longer opposed to being but on the contrary is the measure of it. For the being of an existent is exactly what it appears. Thus we arrive at the idea of the phenomenon such as we can find, for example in the “phenomenology” of Husserl or of Heidegger—the phenomenon or the relative-absolute. Relative the phenomenon remains, for “to appear” supposes in essence somebody to whom to appear. But it does not have the double relativity of Kant’s Erscheinung. It does not point over its shoulder to a true being which would be, for it, absolute. What it is, it is absolutely, for it reveals itself as it is. The phenomenon can be studied and described as such, for it is absolutely indicative of itself.
+    1. Noumenon \Nou"me*non\ n. The of itself unknown and unknowable rational object, or thing in itself, which is distinguished from <u>the {phenomenon} through which it is apprehended by the senses, and by which it is interpreted and understood</u>; -- so used in the philosophy of Kant and his followers. [1913 Webster]
+
+从「本体现实」的角度来看，表象应当被看作一个纯粹的否定。它是“不存在的东西”；一个幻觉和错误的存在。
+
+| But even this being was borrowed, it was itself a pretence, and philosophers met with the greatest difficulty in maintaining cohesion (1) and existence in the appearance so that it should not itself be reabsorbed in the depth of non-phenomenal being. |
+{ .annotate } 
+
+1. From The Collaborative International Dictionary of English v.0.48 [gcide]: Cohesion \Co*he"sion\, n. 1. The act or state of sticking together; close union. [1913 Webster] 3. Logical agreement and dependence; as, the cohesion of ideas. --Locke. [1913 Webster]
+
+但是这种存在是借来的，它本身就是一种伪装，<u>哲学家在保持表象的逻辑一致性和非空洞的方面遇到了很大的困难</u>，使得表象被重新吸入到非现象存在的讨论中。
+
+注 1：上面仍然称表象是一个存在，但是其存在是借助于其他存在物表现的.
+注 2：陈本译作「显象中保持足够的凝聚力和存在」，「凝聚力」（英译是 cohension）不清楚是要表达什么意思.
+
+| But if we once get away from what Nietzsche called “the illusion of worlds-behind-the-scene,” and if we no longer believe in the being-behind-the-appearance, then the appearance becomes full positivity; its essence is an “appearing” which is no longer opposed to being but on the contrary is the measure of it. |
+
+一旦我们抛弃尼采所说的“幕后世界的幻觉”，不再相信表象背后的存在，那么表象就完全变得积极；表象的实质成了一种出现——不再与任何存在相对立，而是对于存在的衡量。
+
+| For the being of an existent is exactly what it appears. Thus we arrive at the idea of the phenomenon such as we can find, for example in the “phenomenology” of Husserl or of Heidegger—the phenomenon or the relative-absolute. |
+
+存在物的存在就是它表现出来的样子。因此我们得出了一种「现象」的概念——相对绝对。
+
+| Relative the phenomenon remains, for “to appear” supposes in essence somebody to whom to appear. But it does not have the double relativity of Kant’s Erscheinung. It does not point over its shoulder to a true being which would be, for it, absolute. <u>What it is, it is absolutely, for it reveals itself as it is</u>. The phenomenon can be studied and described as such, for it is absolutely indicative of itself.
+
+「现象」仍然是相对的，因为“表现”本质上假定了某人接受这种表现。但是它没有康特的 Erascheinung 的「双重相对性」。现象并没有指向一个对它来说是「绝对真实的存在」。<u>现象是什么，就绝对是什么</u>，因为它揭示了它的本来面目。现象因为其对自身的绝对表达，因此可以被研究和描述。
+
+注：：划线处翻译引自陈本；
+注 2：刻画「现象」这一概念； #issue q
 
 The duality of potency and act falls by the same stroke. The act is everything. Behind the act there is neither potency nor “hexis”1 nor virtue. We shall refuse, for example, to understand by “genius”—in the sense in which we say that Proust “had genius” or that he “was” a genius—a particular capacity to produce certain works, which was not exhausted exactly in producing them. The genius of Proust is neither the work considered in isolation nor the subjective ability to produce it; it is the work considered as the totality of the manifestations of the person.
 
