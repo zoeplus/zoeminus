@@ -1,6 +1,6 @@
 # 依赖与简介
 
-依赖： [C++](CPP.md)
+依赖： [C++](CPP.md) 
 
 数据结构主要分为**线性**和**非线性**两种，其中线性数据结构包含：数组、链表、栈、堆等，非线性数据结构分为树状和非树状两种.
 
@@ -8,18 +8,48 @@
 
 算法依托于数据结构进行，一般用时间复杂度和空间复杂度计算算法复杂度. 对于时间复杂度，由于硬件和广义上的操作系统（ e.g. 编译器）的不同，通常只考虑最基础操作的数量. 并且只考虑最高阶. 常见的时间复杂度有 $\mathcal{O}(1),\mathcal{O}(n),\mathcal{O}(n\log n),\mathcal{O}(n^2)$ .
 
+>[!hint] 数据结构到底是什么？
+>数据：值；
+>
+>数据结构，首先是数据的集合，并在该集合上定义了元素之间的<u>关系</u>（i.e. 前驱 / 后继），对该集合可执行的<u>操作</u>.
+
+>[!warning] 抽象数据类型与实现.
+>通常采取抽象数据类型（ADT）描述数据结构：该数据结构的成员、接口. #imcomplete %%模糊%%
+>
+>在具体实现时，一般采用顺序（物理存储连续）或者链式实现（物理存储不连续）. “链式”并不是数据结构，而是对要实现的抽象数据类型采取的实现方式.
+
+# 帮助
+
+[check-wiki](https://en.wikipedia.org/wiki/Data_structure)
+
 # 伪代码标准
 
-```cpp title="伪代码语句" linenums="1"
-// 当有多个语句时，为了后文便于解释加上序号
+```title="伪代码语句" linenums="1"
+# 当有多个语句时，为了后文便于解释或加上序号
 1. statement1;
 2. statement2;
+
+# 逻辑运算符
+AND OR NOT
+
+# 对集合中的元素进行遍历操作
+for s in S:
+    statements;
+
+# 对整数集子列进行遍历操作.
+for i = 1 to n, step = 1:
+    statements;
 
 while condition statement:
     statements;
 
 if condition statement:
-    statements:
+    statements;
+
+# 算法定义
+algorithm algorithmName(object_to_be_input):
+    statements;
+    return: objects;
 ```
 
 其他规定：
@@ -212,6 +242,47 @@ void ~LinkedList(LinkedList& L) {
 }
 ```
 
+=== "单结点链表插入操作"
+
+```cpp title="insert" linenums="1" hl_lines="8-12"
+SinglyLinkedListNode* insertNodeAtPosition(SinglyLinkedListNode* llist, int data, int position) {
+    SinglyLinkedListNode* head = llist;
+    if (llist == nullptr) {
+        llist = new SinglyLinkedListNode(data);
+        return llist;
+    }
+    SinglyLinkedListNode* newOne = new SinglyLinkedListNode(data);
+    for (int i = 0; i < position - 1; i++) {
+        head = head -> next;
+    }
+    newOne -> next = head -> next;
+    head -> next = newOne;
+    return llist;
+```
+
+=== "单结点删除操作"
+
+```cpp title="注意特殊情况" linenums="1"
+SinglyLinkedListNode* deleteNode(SinglyLinkedListNode* llist, int position) {
+    SinglyLinkedListNode* head = llist;
+    if (position == 0) {
+        llist = llist -> next;
+        return llist;
+    }
+    for (int i = 0; i < position - 1; i++) {
+        head = head -> next;
+    }
+    // 若要删除的结点为最后一个
+    if (head -> next -> next == nullptr) {
+        head -> next = nullptr;
+        return llist;
+    }
+    head -> next = head -> next -> next;
+    return llist;
+}
+// 以上代码，没有考虑到删除结点； #imcomplete-lack-codes 
+```
+
 以上实现的是单向链表，此外还有**循环链表**：尾部指针指向头；**双向链表**：每一个元素都分别有一个指向前驱和后继的指针.
 
 ## 线性表的应用
@@ -226,6 +297,10 @@ void ~LinkedList(LinkedList& L) {
 - $C = (a,(b,c,d))$ ；
 - $D = (A, B, C)$ ；
 - $E = (e, E)$
+
+# 串
+
+
 
 # 栈
 
@@ -272,11 +347,64 @@ C++ 中提供了实现栈的模板类 [stack](CPP.md#stack)
 
 称 $G$ 为**加权图**，如果定义 $f:E\rightarrow \mathbb{R}$ ， $G=(V,E,w)$ ， $w(e)$ 称为边 $e$ 的**权重**；
 
-定义**路径**：存在 $P=\{(i, v_1),\cdots, (v_n,i)\}\subset E$ 则称 $i,j$ 之间存在路径；定义**圈 / 回路**，存在 $i$ 到 $i$ 的路径；定义**连通图**：对于任意的 $i, j\in V$ ，存在 $i$ 到 $j$ 的路径；定义**连通区域** $(V',E')\subset (V,E)$ ：区域中的任意两点都有路径；
+定义**路径**：存在 $P=\{(i, v_1),\cdots, (v_n,i)\}\subset E$ 则称 $i,j$ 之间存在路径；定义**圈 / 回路**，存在 $i$ 到 $i$ 的路径；定义**连通图**：对于任意的 $i, j\in V$ ，存在 $i$ 到 $j$ 的路径；定义**连通区域** $(V',E')\subset (V,E)$ ：区域中的任意两点都有路径；称一个<u>有向图</u>是**强连通图**，如果任意两个顶点都有两个方向的连通；定义极大连通子图（**连通分量**）：在该子图上增加一个图中的点不再连通，类似地可以定义**强连通分量**；
 
 定义图中的结点的度 $d(v)=\#\{e: v\in e\}$ ，表示和 $v$ 相关联的边的个数（而不是定义作结点的个数，考虑重边）；
 
 定义**简单图**：无重边，无圈的无向图；**完全图**：图中的任意两个点都有边，此时 $\lvert E\rvert=C_{\lvert V\rvert}^2$ ，并且 $\sum\limits_{v\in V}^{}d(v)=2 \lvert E\rvert$ ， $d(v)=n-1,\lvert E\rvert=\frac{n(n-1)}{2}$ ；
+
+## 最短路
+
+对于加权图，定义点 $u,v$ 之间的**最短路**：路径 $u-v$ 全体中边权和最小的路；
+
+### Floyd 算法
+
+[check-wiki](https://en.wikipedia.org/wiki/Floyd%E2%80%93Warshall_algorithm)
+
+Floyd 算法可以用于求解加权图（默认有向，但也可以用于无向）中任意两个结点的最短路. 该算法要求所求解的图中没有负权重的环. 
+
+给定图 $G=(V,E,W),V=\{1,\cdots,N\}$ ，求 $i$ 到 $j\in V$ 之间的最短路. 采取递归的方式思考这一问题：
+
+假设已经有了一个函数 $\text{shortestPath}(i,j,k)$ ，其中 $i,j\in V,1\leq k\leq N$ ，该函数将会返回从 $i$ 到 $j$ 最多会经过 $\{1,\cdots,k\}$ 中的点的结点（注意并不要求 $i,j\in\{1,\cdots,k\}$ ）观察到：
+
+$$\begin{aligned}
+\text{shortestPath}(i,j,k)=\min\{&\text{shortestPath}(i,j,k-1),\\
+&\text{shortestPath}(i,k,k-1)+\text{shortestPath}(k,j,k-1)\}\\
+\end{aligned}$$
+
+上式是因为从 $i,j$ 最多会经过 $\{1,\cdots,k-1\}$ 的一定要大于最多会经过 $\{1,\cdots,k\}$ 的路径长度；如果大于，那么后者中的最短路径一定经过 $k$ ，进而可以拆为 $i$ 到 $k$ 和 $k$ 到 $j$ 的路径讨论.
+
+而且：
+
+$$\text{shortest}(i,j,0)=w(i,j)$$
+
+目标是求解 $\text{shortest}(i,j,N)$ ，由上递推公式可以得到 Floyd 算法（求出所有结点的最短路径）：
+
+```title="Floyd 算法伪代码" linenums="1"
+algorithm Floyd:
+    INPUT: V, w;
+    初始化 |V| * |V| 的邻接矩阵 W ， W 中的每一个元素均设为 +infty
+    for u in V:
+        for v in V:
+        W[u][v] = w(u, v);
+    for u in V:
+        W[u][u] = 0;
+    for k = 1 to |V|, step = 1:
+        for i = 1 to |V|, step = 1:
+            for j = 1 to |V|, step = 1:
+                # 即为上面的 shortestPath 函数
+                if W[i][j] > W[i][k] + W[k][j]:
+                    W[i][j] = W[i][k] + W[k][j];
+    OUTPUT: W;
+```
+
+当 Floyd 算法应用于含有负环的图时： #imcomplete-further-wanted 
+
+### Dijkstra 算法
+
+| 参考  | 状态  | 备注  |
+| --- | --- | --- |
+|     |     |     |
 
 # 树
 
@@ -311,6 +439,43 @@ C++ 中提供了实现栈的模板类 [stack](CPP.md#stack)
 结点 $n$ 与其后继 $n_1$ 之间的“连线” $(n,n_1)$ 称为**分支**， $s,t$  两个结点之间的路径则为 $(s,n_1),(n_1,n_2),\cdots,(n_{l-1},t)$ 组成的集合，其中 $n_m$ 为 $n_{m-1}$ 的后继（ $n_l=t,n_0=s,1\leq m\leq l$ ），记为 $(s,n_1,n_2,\cdots,n_{l-1}, t)$ ，由树的定义，如果两个结点之间存在路径，则路径唯一.
 
 树有多种类别：按照是否关心树的左右顺序有**有序树**和**无序树**.
+
+## 树的表示方法
+
+**双亲表示法**：对于一个结点，记录其值、父结点. 这种表示适合查找父结点，对于子结点的查找则需要遍历整个数据结构.
+
+```cpp title="树的双亲表示法" linenums="1"
+#include<iostream>
+#include<vector>
+using namespace std;
+
+template<class T>
+class TreePar {
+private:
+    vector<vector<T>> treeArr;
+public:
+    TreePar(vector<vector<T>> arr): treeArr(arr) {};
+    
+
+}
+```
+
+**孩子表示法**：对于用值和子结点表示每一个结点.
+
+在实现该表示法时，一种做法是以最大度为每一个结点分配指针数量，但这会造成冗余问题：
+
+```cpp title="树的孩子表示法" linenums="1"
+template<class T>
+struct TreeNode {
+    T data;
+    vector<TreeNode*> childs(int d);
+};
+```
+
+**孩子兄弟表示法** / 二叉树表示法：对有序树用二叉树进行表示：对于一个结点，将其第一个子结点转化为其左子结点，将其第一个兄弟结点转化为其右结点（兄弟当儿子）
+
+```
+```
 
 ## 有序平面树
 
@@ -478,7 +643,6 @@ void postOrderTraversal(TreeNode *root) {
 
 **逐层遍历** / 广度优先遍历：可以用队列实现，
 
-
 ### 满二叉树
 
 考虑前面提到的[满二叉树](#^BinaryTree)，记 $2n+1$ 个顶点的满二叉树的个数为 $tf(n)$ .
@@ -486,16 +650,16 @@ void postOrderTraversal(TreeNode *root) {
 >[!note]- $2n+1$ 顶点的满二叉树具有 $n+1$ 个叶结点和 $n$ 个内结点.
 > $n_0=n_2+1$ .
 
->[!note]- $tf(n)=C_n=\frac{1}{n+1}\binom{2n}{n}$ .
+>[!note] $tf(n)=C_n=\frac{1}{n+1}\binom{2n}{n}$ .
 >证明：构造从 $2n+1$ 顶点的满二叉树全体 $\mathcal{T}F_n$ 到 $n$ 长 Dyck 路全体 $D_n$ 的映射 $\varphi$ ：
 >
 >对于任意的 $T\in \mathcal{T}F_n$ ，首先对于 $T$ 进行后序遍历得到 $S_{2n+1}$ .
 >
->序列中的第一个元素（即移除 $T$ 中最左侧的叶结点）.
+>去掉 $S_{n+1}$ 序列中的第一个元素（即移除 $T$ 中最深且为最左侧的叶结点）.
 >
 >将剩下的序列 $S_{2n}$ 与 Dyck 路中的上升 / 下降步进行映射： $S_{2n}$ 中的 $T$ 中的叶结点对应上升步，内结点对应于下降步.
 >
->下面来证明这样映射得到的 $P$ 是一条 Dyck 路，首先在去掉一个叶结点之后剩余有 $n$ 个叶结点和 $n$ 个内结点；此外后序遍历先从叶结点开始访问，再由满二叉树（减去了一个叶结点）的完整子树仍然是满二叉树可知，任何子树的叶结点数量大于<u>等于</u>内结点的数量（等于是考虑到被去掉一个叶结点的树.）在后序遍历的过程中，每次都将遍历完当前子树的所有叶结点后归，因此被遍历的叶结点的数量在任一时刻都大于<u>等于</u>内结点. 所以 $P$ 是 Dyck 路. （关键：满二叉树的任何子树的叶结点比内结点多 $1$ 个）
+>下面来证明这样映射得到的 $P$ 是一条 Dyck 路，首先在去掉一个叶结点之后剩余有 $n$ 个叶结点和 $n$ 个内结点；此外后序遍历先从叶结点开始访问，再由满二叉树（减去了一个叶结点）的完整子树仍然是满二叉树可知，任何子树的叶结点数量大于<u>等于</u>内结点的数量（考虑到存在一个被去掉一个叶结点的树.）在后序遍历的过程中，每次都将遍历完当前子树的所有叶结点后归，因此被遍历的叶结点的数量在任一时刻都大于<u>等于</u>内结点. 所以 $P$ 是 Dyck 路. （关键：满二叉树的任何子树的叶结点比内结点多 $1$ 个）
 >
 >$\varphi$ 是单射是显然的，对于满射的验证，首先注意到 $P$ 对应于 $n$ 个叶结点和 $n$ 个根结点；其次，最后一步一定是 $D$ ，为方面起见举例说明，对于 $UUDDUD$ 这一 Dyck 路，以最后一个 $D$ 为根结点，从右到左，如果遇到 $D$ ，则将其作为上一个结点的右结点，遇到 $U$ 时仍然将其作为上一个结点的右结点，并且下一个不管是 $U$ 还是 $D$ 都不再作为一个右结点（因此该 $U$ 形成了一个右结点）将下一个 $U$ 或者 $D$ 作为最开始的 $D$ 的左结点，按照同样的规则构造，最后再添上一个左结点构成满二叉树. 具体见[[DSADraw]]
 >
@@ -553,15 +717,15 @@ for (node : S):
 
 ### 霍夫曼编码
 
-[refer-wiki](https://zh.wikipedia.org/zh-cn/%E9%9C%8D%E5%A4%AB%E6%9B%BC%E7%BC%96%E7%A0%81)
+[check-wiki](https://zh.wikipedia.org/zh-cn/%E9%9C%8D%E5%A4%AB%E6%9B%BC%E7%BC%96%E7%A0%81)
 
-考虑对一串字符进行二进制编码，例如 A, B, C, D，进行编码时一个很重要的问题是不能使得某一字符的编码与另一字符的编码的字串相同，例如： A - 0, B - 1, C - 10，则对于 1010 无法区分是 BAC，CC，BABA，CBA 等. 
+考虑对一串字符进行二进制编码，例如 A, B, C, D，进行编码时一个很重要的问题是不能使得某一字符的编码与另一字符的编码的字串相同，例如： A - 0, B - 1, C - 10，则对于 1010 无法区分是 BAC，CC，BABA，CBA . 
 
 稳妥的做法是采取<u>定长编码</u>，例如： A - 0001 ， B - 0010 ， C - 0011 ， D - 0100 . 但是在某些情况下，例如某一个字符出现的频率想当高，如果用简短的编码表示可以提高传输效率，这时地<u>变长编码</u>就值得采取.
 
-霍夫曼编码即为一种变长编码算法，其首先基于字符串中各个字符的频率构建一个二叉排序树，然后进行编码，具体实现如下：
+**霍夫曼编码**是一种变长编码算法，其首先基于字符串中各个字符的频率构建一个二叉排序树，然后进行编码，具体实现如下：
 
-首先定义**树的带权路径长度**：树中所有叶结点的带权路径长度的和 $\text{WPL}=\sum_{i=1}^nW_iL_i$ . 其中 $n$ 表示叶结点的数目， $W_i$ 表示第 $i$ 个叶结点的权重（视具体情况而定，例如对应的字符出现的频率）， $L_i$ 表示第 $i$ 个叶结点的层数.
+定义**树的带权路径长度**：树中所有叶结点的带权路径长度的和 $\text{WPL}=\sum_{i=1}^nW_iL_i$ . 其中 $n$ 表示叶结点的数目， $W_i$ 表示第 $i$ 个叶结点的权重（视具体情况而定，例如对应的字符出现的频率）， $L_i$ 表示第 $i$ 个叶结点的层数.
 
 称在具有相同的叶结点的二叉树中具有最小的带权路径长度的二叉树为**霍夫曼树 / 最优二叉树**：
 
@@ -590,7 +754,57 @@ for (node : S):
 
 哈夫曼解码：借助哈夫曼树完成；
 
-| #imcomplete-lack-examples 
+```cpp title="解码" linenums="1"
+void decode_huff(node * root, string s) {
+    node* head = root;
+    for (int i = 0; i < s.size(); i++) {
+        if (s[i] == '0') {
+            if (head -> left != nullptr) { 
+                head = head -> left;
+            }
+            else {
+                cout << head -> data;
+                head = root -> left;
+            }
+        } 
+        if (s[i] == '1') {
+            if (head -> right != nullptr) { 
+                head = head -> right;
+            }
+            else {
+                cout << head -> data;
+                head = root -> right;
+            }
+        } 
+    }
+```
+
+=== "一段有问题的代码"
+
+    ```cpp title="错误代码" linenums="1"
+    void decode_huff(node * root, string s) {
+        node* head = root;
+        for (int i = 0; i < s.size(); i++) {
+            if (s[i] == '0') {
+                if (head -> left != nullptr) { 
+                    head = head -> left;
+                }
+                else {
+                    cout << head -> data;
+                    head = root -> left;
+                }
+            } 
+            if (s[i] == '1') {
+                if (head -> right != nullptr) { 
+                    head = head -> right;
+                }
+                else {
+                    cout << head -> data;
+                    head = root -> right;
+                }
+            } 
+        }
+    ```
 
 ## 最小生成树算法
 
@@ -656,7 +870,7 @@ algorithm Kruskal(V, E, W) is:
 algorithm PruferEncoding(T) is:
     T_1 = T
     codes = emptyset
-    for i = 1 to n - 1, step = 1, do:
+    for i = 1 to n - 1, step= 1:
         取 T_i 中的编号最小的叶结点 u_i;
         从 T_i 删除 u_i 得到 T_i+1;
         
@@ -815,11 +1029,15 @@ $$\pi=\begin{bmatrix}1&0&0&0\\ 0&0&1&0\\ 0&1&0&0\\ 0&0&0&1\end{bmatrix}$$
 >[!example]- 计算 $\{0^2,1^2,2^2\}$ 能够生成的所有 $6$ 位数个数.
 >$\frac{6!}{2!2+2!2+2!2}-\frac{5!}{1!2!2!}=60$ .
 
-定义**第一类Stirling数**： $S_n$ 中圈表示的圈数为 $k$ 的排列的个数.（圈中只有单个数字的也算一个圈）记作 $c(n,k)$ . 可以证明**生成函数**（generative function）：$$\sum\limits_{k=1}^{n}c(n,k)x^k=x(x+1)\cdots(x+n-1)$$ 
+定义**第一类Stirling数**： $S_n$ 中圈表示的圈数为 $k$ 的排列的个数.（圈中只有单个数字的也算一个圈）记作 $s(n,k)$ . ^StirlingOne
+
+可以证明其**生成函数**（generative function）：
+
+$$\sum\limits_{k=1}^{n}s(n,k)x^k=x(x+1)\cdots(x+n-1)$$ 
 
 >[!note]+ 生成函数的证明
 >首先证明引理：
->>[!note]+ $c(n,k)=c(n-1,k-1)+(n-1)c(n-1,k)$
+>>[!note]+ $s(n,k)=c(n-1,k-1)+(n-1)s(n-1,k)$
 >>证明：在 $S_{n-1}$ 的基础上，1) 对于圈数为 $k-1$ 的排列 $\pi\in S_{n-1}$ 添加一个新的元素 $n$ 则 $n$ 作为一个单独的圈，可以获得一个圈数为 $k$ 的排列； 2) 对于圈数为 $k$ 的排列 $\pi\in S_{n-1}$ 添加一个新的元素（插入到已有的圈中），共有 $n-1$ 种插入方法.
 >
 >下面利用归纳法进行证明：
@@ -960,6 +1178,10 @@ class StackSorting
 
 ## R.S. 算法
 
+>[!summary]+ 自查表
+>- 整数分拆的定义；
+>- 杨图、杨表、标准杨表的定义；
+
 下面介绍的 R.S. 算法是另一种同时确定最长递增和最长递减子列长度的方法.
 
 首先定义**整数分拆**（integer partition）：设 $n\in \mathbb{N}$ ，称 $\lambda=(\lambda_1,\lambda_2,\cdots,\lambda_k)$ 为 $n$ 的分拆，如果 1. $\lambda_1+\lambda_2+\cdots+\lambda_k=n$ ； 2. $\lambda_1\geq \lambda_2\geq \cdots\geq \lambda_k$ （弱递降）. 记为 $\lambda\vdash n$ . 称 $k$ 为分拆 $\lambda$ 的长度，记为 $l(\lambda)$ ， $\lambda_i(1\leq i\leq k)$ 称为 $\lambda$ 的部分（part）.
@@ -973,7 +1195,7 @@ class StackSorting
 
 ![[YoungDiagram.png]]
 
-定义**杨表**（young tablean）：将 $n$ 个不同的正整数填入到 $\lambda$ 对应的杨图中，要求：每行从左至右<u>严格</u>递增，每列从上至下<u>严格</u>递增，称 $\lambda$ 为杨表的**形状**. 如果限制填入杨表的数字为 $\{1,2,\cdots,n\}$ 中的元素，则称对应的杨表为**标准杨表**，并记这种标准杨表的个数为 $f^\lambda$ . 定义**勾长**（hook length）：对 $u\in \lambda$ ， $h_u$ 表示 $u$ 所在同行右侧和同列下册的方块数目，包括 $u$ 本身.
+定义**杨表**（young tablean）：将 $n$ 个不同的正整数填入到 $\lambda$ 对应的杨图中，要求：每行从左至右<u>严格</u>递增，每列从上至下<u>严格</u>递增，称 $\lambda$ 为杨表的**形状**. 如果限制填入杨表的数字为 $\{1,2,\cdots,n\}$ 中的元素，则称对应的杨表为**标准杨表**，并记这种标准杨表的个数为 $f^\lambda$ . 定义**勾长**（hook length）：对 $u\in \lambda$ ， $h_u$ 表示 $u$ 所在同行右侧和同列下册的方块数目，包括 $u$ 本身. ^YoungTablean
 
 >[!example]- $3$ 的各个分拆 $\lambda$ 对应的标准杨表的个数 $f^\lambda$ .
 > $f^{(3)}=1,f^{(2,1)}=2,f^{(1,1,1)}=1$ ，具体见[[DSADraw]].
@@ -1066,33 +1288,51 @@ R.S 算法与耐心排序相比可以同时计算最长递增和递减子列的<
 
 ### Gauss 系数
 
-定义 $\begin{bmatrix}2n  \\ n\end{bmatrix}=\frac{[2n]!}{[n]![n]!}$ ，有结论： $\begin{bmatrix}2n \\ n\end{bmatrix}=\sum\limits_{\lambda\in \text{YoungDia}^{n\times n}}^{}q^{\lvert \lambda\rvert}$ . 其中 $\text{YoungDia}^{n\times n}$ 表示的是能够放入 $n\times n$ 个小方格排列成的正方形中的全体杨图. $\lvert \lambda\rvert$ 则表示杨图中的小方块的个数.
+记 $[m]=1+q+\cdots+q^{m-1}$ .
+
+定义 **Gauss 系数** $\begin{bmatrix}2n  \\ n\end{bmatrix}=\frac{[2n]!}{[n]![n]!}$ ，有结论： $\begin{bmatrix}2n \\ n\end{bmatrix}=\sum\limits_{\lambda\in \text{YoungDia}^{n\times n}}^{}q^{\lvert \lambda\rvert}$ . 其中 $\text{YoungDia}^{n\times n}$ 表示的是<u>能够放入</u> $n\times n$ 个小方格排列成的正方形中的全体杨图. $\lvert \lambda\rvert$ 则表示杨图中的小方块的个数.
 
 例如：考虑 $\begin{bmatrix}4  \\ 2\end{bmatrix}$ ，注意到能够放入 $2\times2$ 个小方格排列称的正方形中的杨图有 $\emptyset$ （空图）， $(1),(2),(1,1),(2,1),(2,2)$ ，从而 
 
 $$\begin{bmatrix}4 \\ 2\end{bmatrix}=1+q+2q^2+q^3+q^4$$
 
-并且观察到系数呈先递增后递降顺序，该结论可以推广到所有 $n\geq1$ 的情形.
+并且观察到系数呈先递增后递降顺序（单峰），该结论可以推广到所有 $n\geq1$ 的情形.
 
 # 格路
 
-**格路**（lattie path）指的是由邻接的格子（也可能是多边形）拼起来后，相邻的格子重叠的部分形成的路径. 例如 $\mathbb{Z}^2$ 形成的格路，在格路上可以定义移动，例如 $U,R,D,L$ .
+**格路**（lattie path）指的是由邻接的方格（也可能是多边形）拼起来后，相邻的格子重叠的部分形成的路径. 例如 $\mathbb{Z}^2$ 形成的格路，在格路上可以定义移动，例如 $U,R,D,L$ .
 
 ## Dyck 路
 
 首先介绍**自由 Dyck 路**（free dyck path）： $\mathbb{Z}^2$ 上由 $(0,0)$ 到 $(n,n)$ 的格路，只允许进行 $U,R$ 移动，称为 **n 长 Dyck 路**，则不难发现这样的 Dyck 路有 $\binom{2n}{n}$ 条.
 
-**n 长 Dyck 路**首先是自由 Dyck 路，并且满足始终位于 $y=x$ 的上方（允许触碰到 $y=x$ ）. 可以用符号抽象 Dyck 路，例如当 $n=2$ 时有 Dyck 路 $UURR,URUR$ . 一般地，对于 $n$ 长 Dyck 路，其有 $C_n=\frac{1}{n+1}\binom{2n}{n}$ 条 Dyck 路， $C_n$ 即为 [Cataland数](#^Cataland). 并且有这个公式可以看出 $n$ 长 Dyck 路占自由 Dyck 路的 $1/(n+1)$ .
+**n 长 Dyck 路**首先是自由 Dyck 路，并且满足始终位于 $y=x$ 的上方（允许触碰到 $y=x$ ）. 可以用符号抽象 Dyck 路，例如当 $n=2$ 时有 Dyck 路 $UURR,URUR$ . 一般地，对于 $n$ 长 Dyck 路，其有 $C_n=\frac{1}{n+1}\binom{2n}{n}$ 条 Dyck 路， $C_n$ 即为 [Cataland数](#^Cataland). 并且根据这个公式可以看出 $n$ 长 Dyck 路全体占自由 Dyck 路全体的 $1/(n+1)$ .
 
-对于 Cataland 数，可以先证明其递归公式： $C_n=\sum\limits_{i=1}^{n}C_{i-1}C_{n-i}$ .
+对于 Cataland 数，可以先证明其递归公式： $C_n=\sum\limits_{i=1}^{n}C_{i-1}C_{n-i}$ ，或写作 $C_n=\sum\limits_{i=0}^{n}C_iC_{n-1-i}$ .
 
->[!note]- 设 $C_n$ 为 $n$ 长 Dyck 路的个数，定义 $C_0=1$ ，证明 $C_n=\sum\limits_{i=1}^{n}C_{i-1}C_{n-i}$ .
->证明：用 $L$ 表示一个 $n$ 长 Dyck 路，按照如下规则将其划分为 $L_1,L_2$ 两条路：以除零点外第一个接触 $y=x$ 轴的点为分点划分 $L$ ，如果该点为 $(n,n)$ 则记 $L_2=\emptyset$ ，并设 $L_1$ 的落点位置为 $(i,i)$ ，则 $L_2$ 有 $C_{n-i}$ 种. 进一步，将 $L_1$ 的起始向上和终止向右曲调，则 $L_1$ 可以由一条 $i-1$ 长 Dyck 路决定，有 $C_i$ 种，从而 $C_n=\sum\limits_{i=1}^{n}C_{i-1}C_{n-i}$ .
+>[!note] 设 $C_n$ 为 $n$ 长 Dyck 路的个数，定义 $C_0=1$ ，证明 $C_n=\sum\limits_{i=1}^{n}C_{i-1}C_{n-i}$ .
+>证明：用 $L$ 表示一个 $n$ 长 Dyck 路，按照如下规则将其划分为 $L_1,L_2$ 两条路：以除零点外第一个接触 $y=x$ 轴的点为分点划分 $L$ ，如果该点为 $(n,n)$ 则记 $L_2=\emptyset$ ，并设 $L_1$ 的落点位置为 $(i,i)$ ，则 $L_2$ 有 $C_{n-i}$ 种. 进一步，将 $L_1$ 的起始向上和终止向右去掉，则 $L_1$ 可以由一条 $i-1$ 长 Dyck 路决定，有 $C_i$ 种，从而 $C_n=\sum\limits_{i=1}^{n}C_{i-1}C_{n-i}$ .
 
 除此之外， $n$ 长 Dyck 路、不含 231-pattern 的排列全体还有如下的等价结构：
 
 - 由 $n$ 个 $1$ 和 $n$ 个 $-1$ 构成的排列全体，并且满足 $\forall k\geq1,\sum\limits_{i=1}^{k}\pi_i\geq0$ ；
-- 考虑形状为 $(n,2)$ 的标准杨表，
+- 形状为 $(n,2)$ 的[标准杨表](#^YoungTablean)；
+
+>[!example]- 形状为 $(n,2)$ 标准杨表的数目为 Cataland 数举例
+>
+>考虑形状为 $(3,2)$ 的标准杨表，注意 $(3,2)$ 即为全满结构，而不是能填入 $(3,2)$ 的标准杨表.
+>
+>有：
+>
+>$$\begin{aligned}
+>&\begin{bmatrix}1 & 2& 3 \\ 4 &5&6\end{bmatrix}& \begin{bmatrix}1 & 2 & 4 \\ 3& 5& 6\end{bmatrix}\\
+>\\
+>&\begin{bmatrix}1 &  2 &5 \\ 3 &4&6\end{bmatrix}&\begin{bmatrix}1 & 3 & 4 \\ 2&5&6\end{bmatrix}\\
+>\\
+>&\begin{bmatrix}1&3&5 \\ 2&4&6\end{bmatrix}
+>\end{aligned}$$
+>
+>即为 $C_3=5$ . （注： $(n,2)$ 形状的标准杨表， $[1,1],[n,n]$ 位置的元素都是固定的. ）
 
 定义 Dyck 路的**峰**：相邻的一个上升步和一个下降步，记有 $k$ 个峰的 $n$ 阶 Dyck 路的个数为 $N(n,k)$ ，称为 **Narayana 数**. ^DyckPeak
 
@@ -1109,9 +1349,14 @@ $$\begin{bmatrix}4 \\ 2\end{bmatrix}=1+q+2q^2+q^3+q^4$$
 
 # 集合划分
 
+>[!summary]+ 自查表
+>- 回顾：第一类 Stirling 数的定义；
+>- 集合划分的定义，一个集合有多少个划分个数？
+>- 第二类 Stirling 数的定义；
+
 将集合 $[n]$ 划分为 $k$ 块，每一块中的元素个数大于等于 $0$ ，划分个数的计算：相当于 $y_1+\cdots+y_k=n,y_i\geq0(1\leq i\leq k)$ ，从而 $\sum\limits_{i=1}^{k}(y_i+1)=n+k$ ，对于 $n+k$ 个元素采取挡板法，有 $\binom{n+k-1}{k-1}$ 种分法.
 
-
+在之前定义了 [第一类 Stirling 数](#^StirlingOne) $s(n,k)$ ，定义**第二类 Stirling 数** $S(n,k)$ ： $n$ 元集合的 $k$ 块集合划分的个数. 并令 $S(0,0)=1$ .
 
 
 
@@ -1173,7 +1418,7 @@ $$\text{Ne}(M)=\#\{(i,j)\in[2n]^2:i<j<M(j)<M(i)\}$$
 >
 >其中 $a_k$ 表示第 $k$ 个上弧的位置，由映射中的构造可知 $a_k=\#\{m:m<k<M(k)<M(m)\}$ ，故结论成立.
 >
->另一方面，也可以用交叉数作为限制构造 $D_n\times A\rightarrow M_n$ 的映射，具体规则为自左向右第 $1$ 个下降弧与其左侧数第 $a_{i}+1$ 个上弧连接，并可以证明 $\sum\limits_{k=1}^{n}a_k=\text{Cr}(M)$ .
+>另一方面，也可以用交叉数作为限制构造 $D_n\times A\rightarrow M_n$ 的映射，具体规则为自左向右第 $i$ 个下降弧与其左侧数第 $a_{i}+1$ 个上弧连接，并可以证明 $\sum\limits_{k=1}^{n}a_k=\text{Cr}(M)$ .
 >
 >再考虑 $P_{n,k},Q_{n,k}$ ，可知 $\lvert P_{n,k}\rvert=\lvert Q_{n,k}\rvert=\#\{(a_i)_{1\leq i\leq n}\in A:\sum\limits_{i=1}^{n}a_i=k\}$ ，具体需要由 $A$ 的限制讨论 $\lvert P_{n,k}\rvert$ 的大小. （分拆加上上界限定） #imcomplete-further-wanted 
 >
@@ -1270,9 +1515,78 @@ prime_factors(1001)
 ```
 ///
 
+# 机械证明
+
+## 不定和
+
+定义**多项式函数**、**有理函数**、**超几何函数**；
+
+定义函数 $f(n)$ 的**不定和** $S(n)$ ，满足 $f(n)=S(n+1)-S(n)$
+
+### Gosper 算法
+
+输入：超几何项 $t_n$ ；
+输出： $z_n$ 如果存在 $z_n:z_{n+1}-z_n=t(n)$ ，否则输出 $\sum\limits_{k=0}^{n-1}t_k$ ；
+
+1. 计算 $r(n)=t_{n+1}/t_n$ ；
+2. 将 $r(n)$ 表示为 $\frac{a(n)}{b(n)}\frac{c(n+1)}{c(n)}$ 的形式，其中 $a(n),b(n),c(n)$ 是关于 $n$ 的多项式，并且有： $\text{gcd}(a(n),b(n+h))=1$ ；
+3. 求 $a(n)x(n+1)-b(n-1)x(n)=c(n)$ 的多项式解 $x(n)$ ，无解则输出 $\sum\limits_{k=0}^{n-1}t_k$ ，否则输出 $z_n=\frac{b(n-1)x(n)}{c(n)}t_n$ .
+
+>[!example] 利用 Gospher 算法计算 $S(n)=\sum\limits_{k=0}^{n}\frac{4k+3}{3^k}$ .
+
+解： $t_n=\frac{4n+3}{3^n}$ ， $r(n)=\frac{4n+7}{3(4n+3)}$ ，注意到： $a(n)=1,b(n)=3,c(n)=4n+3$ ，下面求解方程： $x(n+1)-3x(n)=4n+3$ ，其有多项式解： $x(n)=-2n-\frac{5}{2}$ . 所以： $z_n=\frac{-4n-5}{2\cdot 3^{n-1}}$ . 
+
+所以： $S(n)=z_{n+1}-z_0=\frac{15}{2}-\frac{4n+9}{2\cdot 3^n}$ .
+
+下面进行 Gosper 算法的详述.
+
+>[!note] 有理函数 $r(n)$ 可以表示为 $\frac{a(n)}{b(n)}\frac{c(n+1)}{c(n)}$ ，其中 $a(n),b(n),c(n)$ 均为多项式，并且 $\text{gcd}(a(n),b(n+h))=1,\forall h\in \mathbb{N}$ .
+
+设 $K$ 为特征为 $0$ 的域，并且 $f(n),g(n)\in K[n]$ 为其上的非零多项式，则存在 $N\in \mathbb{N}$ 使得 $\text{gcd}(f(n),g(n+h))=1,\forall h\geq N$ .
+
+设 $K$ 是一个域并且 $f(n),g(n)\in K[n]$ 为其上的多项式，集合
+
+$$\{h\in \mathbb{N}:\text{gcd}(f(n),g(n+h))\}\neq 1\overset{def}{=}\text{Dis}(f,g)$$
+
+称为 $f(n),g(n)$ 的**离差集**，当 $K$ 的特征为 $0$ 时，离差集为有限集，其最大元称为 $f(n)$ 和 $g(n)$ 的**离差**，记为 $\text{dis}(f,g)$ ，当 $\text{Dis}(f,g)=\emptyset$ 时，定义 $\text{dis}(f,g)=-1$ .
+
+$f(x)=a_0x^n+a_1x^{n-1}+\cdots+a_n,g(x)=b_0x^m+b_1x^{m-1}+\cdots+b_m$ 为非零多项式，称 $n+m$ 阶行列式：
+
+$$\left |  \begin{matrix}
+&a_0 & a_1 &  \cdots & \cdots & a_n  &  &  & & \\ 
+& & a_0 &  a_1  & \cdots & \cdots & a_n & & & \\ 
+& & & \ddots  & \ddots & \cdots & \cdots & \ddots &  \\ 
+& & & &  a_0 & a_1 & \cdots & \cdots & a_n \\ 
+&b_0 & \cdots &  \cdots & b_{m-1} & b_m  &  &  & & \\ 
+& & b_0 &  \cdots & \cdots & b_{m-1} & b_m & & & \\ 
+& & & \ddots  & \ddots & \cdots & \cdots & \ddots &  \\ 
+& & & & &  b_0 & \cdots & b_{m-1} & b_m \\ 
+\end{matrix}\right |$$
+
+为 $f,g$ 关于 $x$ 的**结式**（resultant），记为 $\text{Resultant}_x(f,g)$ ，或简记为 $R(f,g)$ .
+
+$h\in \text{Dis}(f,g)$ 当且仅当 $h$ 为 $R(f,g)$ 的非负整数根.
+
+```sage title="求解结式" linenums="1"
+%display latex
+
+f = n^2 + n
+g = (n + h)^3 - 3 * (n + h)^2 + 2 * (n + h)
+
+r = f.resultant(g, n)
+solve(r == 0, h)
+```
+
+
+
+
 # 附录：组合恒等式
 
-**乘法原理**，**加法原理**
+从 $n$ 个不同的元素中抽取 $r$ 个元素，不考虑其顺序，则称这 $r$ 个元素为此 $n$ 个不同元素的一个**组合**，组合的总数称为**组合数**：
+
+$$\binom{n}{k}=\frac{n!}{(n-k)!k!}$$
+
+其中 $\binom{n}{k}$ 或称为**二项系数**. 记 $A_n^k=\frac{n!}{(n-k)!}$ 为排列数. $A_n^k=\frac{\binom{n}{k}}{k!}$ .
 
 **多重组合数**： 
 
@@ -1282,13 +1596,43 @@ $$\begin{aligned}
 &=\frac{n!}{k_1!k_2!(n-k_1-k_2)!}
 \end{aligned}$$
 
-$$\begin{aligned}
-&2^n=\binom{n}{0}+\binom{n}{1}+\cdots+\binom{n}{n}\\
-&n2^{n-1}=\binom{n}{1}+2\binom{n}{2}+\cdots+n\binom{n}{n}
-\end{aligned}$$
+一般地有：
+
+$$\binom{n}{k_1\cdots k_n}=\frac{n!}{k_1!\cdots k_n!}$$
+
+其中 $\binom{n}{k_1\cdots k_n}$ 或称为**多项系数**.
+
+>[!note] **推广组合数**（和排列数）
+>注意到 $(1+x)^n=\sum\limits_{r=0}^{n}\binom{n}{r}x^r$ ，现在将 $n$ 推广到一般的实数：记 $A_n^r=n(n-1)\cdots (n-r+1)$ ，其中 $n\in \mathbb{R},r\in \mathbb{N}$ ，进而定义推广组合数：
+>
+>$$\binom{n}{r}=\frac{A_n^r}{r!}=\frac{n(n-1)\cdots (n-r+1)}{r!}$$
+>
+>以上在形式上都和一般的组合数无异，但有下面的结论：
+>
+>$$\binom{-n}{r}=\frac{(-1)^rn(n+1)\cdots(n+r-1)}{r!}=(-1)^r\binom{n+r-1}{r}$$
+>
+>并且：
+>
+>$$(1+x)^\alpha=\sum\limits_{r=0}^{\infty}\binom{\alpha}{r}x^r,\quad \forall \alpha\in \mathbb{R}$$
+>
+>在证明某些结论时可以利用推广的组合数，例如： [[Prob#Pascal 分布]] .
+
+>[!note] 对于 $n$ 个元素，如果其中有 $n_i$ 个下标为 $i$ 的元素（ $1\leq i\leq m$ ）并且 $\sum\limits_{i=1}^{m}n_i=n$ ，从中取出 $r$ 个元素，要求其中下标为 $i$ 的元素有 $r_i$ 个，并且 $\sum\limits_{i=1}^{m}r_i=r$ .
+>这种取法的个数有：
+>
+>$$\prod_{i=1}^{m}\binom{n_i}{r_i}$$
+
+>[!note] **有重复组合数**.
+>从 $n$ 个元素中有重复的抽取 $r$ 个元素，并且不考虑顺序，称取法总数为有重复组合数. $\binom{n+r-1}{r}$ . 具体分析见[[Prob#^NoRepeatReSample]]
+
+>[!note] 二项系数求和.
+>$$\begin{aligned}
+>&2^n=\binom{n}{0}+\binom{n}{1}+\cdots+\binom{n}{n}\\
+>&n2^{n-1}=\binom{n}{1}+2\binom{n}{2}+\cdots+n\binom{n}{n}
+>\end{aligned}$$
 
 >[!note]- $$\binom{n}{r}=\binom{n-1}{r-1}+\binom{n-1}{r}$$ 
->证明：包含和不包含 $n$ 
+>证明：包含和不包含元素 $n$ 
 
 >[!note]- Vandermonde 恒等式： $\binom{m+n}{r}=\sum\limits_{k=0}^{r}\binom{m}{k}\binom{n}{r-k}$ .
 >证明：考虑 $(1+x)^{m+n}=(1+x)^m(1+x)^n$
@@ -1331,8 +1675,6 @@ $1, 1, 2, 5, 14, 42, 132, 429, 1430, 4862,\cdots$ .
 Cataland 数的例子有：
 
 - 堆栈排序之后得到 $\text{id}$ 的排列的数量（不含 $231-$ pattern 的排列个数）；
-
 - $n$ 长 Dyck 路的个数；
-
 - [[#有序平面树]]： $n$ 边有序平面树的个数 $t_n$ ；
 - $2n+1$ 个顶点的 [满二叉树](#^BinaryTree) 的个数 $tf(n)$ ；
