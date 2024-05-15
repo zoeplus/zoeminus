@@ -8,6 +8,8 @@ nav:
   - 一:
     - '集合论': 'Math/Set.md'
     - '实数理论': 'Math/R.md'
+    - '数学分析': 'Math/MA.md'
+    - '高等代数': 'Math/LAlg.md'
     - '一般拓扑学': 'Math/GTopo.md'
     - '实变函数': 'Math/RF.md'
     - '矩阵代数': 'Math/MAlg.md'

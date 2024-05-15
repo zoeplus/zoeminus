@@ -24,9 +24,13 @@ $$F=\{x:c_i(x)=0,i=1,\cdots,m,c_j(x)\geq0,j=m+1,\cdots,p\}$$
 
 对于任意 $x\in F$ ，定义**指标集合**： 
 
-$\mathcal{A}(x)=\{1,2,\cdots ,n\}\backslash \{k:c_k(x)>0\}=\{1,\cdots,m\}\cup\{k:c_k(x)\leq 0\}$ 为 $x$ 的**积极约束**， $\{1,2,\cdots,n\}\backslash \mathcal{A}(x)$ 称为 $x$ 的**非积极约束**. （此处的积极，指的是对于 $x$ 进行轻微绕动之后是否影响约束条件，一般来说对于 $c_{i}(x)>0$ 约束，不会产生变化，因此称为非积极）. 定义**整体最优解** $x^*$ ，如果 $\forall x\in F,f(x^*)\leq f(x)$ ；并可以定义**严格整体最优解** $x^*$ ： $\forall x\in F,x\neq x^*,f(x^*)<f(x)$ . **局部最优解**则为：对于 $x^*$ ，存在某一邻域 $N$ ， $\forall x\in N\cap F,x\neq x^*,f(x^*)\leq f(x)$ ，**严格局部最优解**类似.
+$$\mathcal{A}(x)=\{1,2,\cdots ,n\}\backslash \{k:c_k(x)>0\}=\{1,\cdots,m\}\cup\{k:c_k(x)\leq 0\}$$
 
-按照可行集可以将优化问题划分为**凸优化**和**非凸优化**，多数情况下凸优化简单，凸优化情形下局部最优即为整体最优.
+为 $x$ 的**积极约束**， $\{1,2,\cdots,n\}\backslash \mathcal{A}(x)$ 称为 $x$ 的**非积极约束**. （此处的积极，指的是对于 $x$ 进行轻微绕动之后是否影响约束条件，一般来说对于 $c_{i}(x)>0$ 约束，不会产生变化，因此称为非积极）. 
+
+定义**整体最优解** $x^*$ ： $\forall x\in F,f(x^*)\leq f(x)$ ；定义**严格整体最优解** $x^*$ ： $\forall x\in F,x\neq x^*,f(x^*)<f(x)$ . **局部最优解**：对于 $x^*$ ，存在某一邻域 $N$ ， $\forall x\in N\cap F,x\neq x^*,f(x^*)\leq f(x)$ ，**严格局部最优解**类似.
+
+按照可行集可以将优化问题划分为**凸优化**和**非凸优化**，多数情况下凸优化简单，因为凸优化情形下局部最优即为整体最优.
 
 # 凸集和凸函数
 
@@ -48,7 +52,7 @@ $\mathcal{A}(x)=\{1,2,\cdots ,n\}\backslash \{k:c_k(x)>0\}=\{1,\cdots,m\}\cup\{k
 
 >[!note]- 对于 $D\subset \mathbb{R}^n$ ， $H(D)$ 是所有包含 $D$ 的凸集中最小的凸集.
 >证明：
->$$H(D)=\left\{\sum\limits_{i=1}^{k}\lambda_ix_i:k\in \mathbb{N},\lambda_i>0,\sum\limits_{i=1}^{k}\lambda_i=1,x_i\in D\right\}$$ 对于任意的 $\sum\limits_{i=1}^{k_1}\lambda^1_ix^1_i,\cdots,\sum\limits_{i=1}^{k_m}\lambda^m_ix^m_i$ ，考虑 $$\sum\limits_{j=1}^{m}\alpha_j\left(\sum\limits_{i=1}^{k_j}\lambda^j_ix_i^j\right)=\sum\limits_{j=1}^{m}\sum\limits_{i=1}^{k_j}\alpha_j\lambda_i^jx_i^j$$ 注意到 $\sum\limits_{j=1}^{m}\sum\limits_{i=1}^{k_j}\alpha_j\lambda_i^j=\sum\limits_{j=1}^{m}\alpha_j\sum\limits_{i=1}^{k_j}\lambda_i^j=\sum\limits_{j=1}^{m}\alpha_j=1$ . 从而可知 $H(D)$ 为凸集. 下面证明 $H(D)$ 为包含 $D$ 的最小凸集：设 $B_i\supset D$ 为凸集显然 $\bigcap_{i\in I}B_i$ 仍然为包含 $D$ 的凸集，显然 $H(D)$ 包含 $D$ 所以： $$H(D)\supset \bigcap_{i\in I}B_i$$ 另一方面注意到 $D\subset \bigcap_{i\in I}B_i$ ，所以 $$H(D)\subset H(\cap_{i\in I}B_i)\subset \cap_{i\in I}B_i$$ 所以 $H(D)=\bigcap_{i\in I}B_i$ .
+> $$H(D)=\left\{\sum\limits_{i=1}^{k}\lambda_ix_i:k\in \mathbb{N},\lambda_i>0,\sum\limits_{i=1}^{k}\lambda_i=1,x_i\in D\right\}$$ 对于任意的 $\sum\limits_{i=1}^{k_1}\lambda^1_ix^1_i,\cdots,\sum\limits_{i=1}^{k_m}\lambda^m_ix^m_i$ ，考虑 $$\sum\limits_{j=1}^{m}\alpha_j\left(\sum\limits_{i=1}^{k_j}\lambda^j_ix_i^j\right)=\sum\limits_{j=1}^{m}\sum\limits_{i=1}^{k_j}\alpha_j\lambda_i^jx_i^j$$ 注意到 $\sum\limits_{j=1}^{m}\sum\limits_{i=1}^{k_j}\alpha_j\lambda_i^j=\sum\limits_{j=1}^{m}\alpha_j\sum\limits_{i=1}^{k_j}\lambda_i^j=\sum\limits_{j=1}^{m}\alpha_j=1$ . 从而可知 $H(D)$ 为凸集. 下面证明 $H(D)$ 为包含 $D$ 的最小凸集：设 $B_i\supset D$ 为凸集显然 $\bigcap_{i\in I}B_i$ 仍然为包含 $D$ 的凸集，显然 $H(D)$ 包含 $D$ 所以： $$H(D)\supset \bigcap_{i\in I}B_i$$ 另一方面注意到 $D\subset \bigcap_{i\in I}B_i$ ，所以 $$H(D)\subset H(\cap_{i\in I}B_i)\subset \cap_{i\in I}B_i$$ 所以 $H(D)=\bigcap_{i\in I}B_i$ .
 
 注意这里没有限制 $D$ 本身是不是凸集. 
 
@@ -153,6 +157,14 @@ $\mathcal{A}(x)=\{1,2,\cdots ,n\}\backslash \{k:c_k(x)>0\}=\{1,\cdots,m\}\cup\{k
 
 之前已经介绍了[Farkas 引理](#^Farkas)，下面介绍的引理
 
+## 凸函数
+
+凸函数的局部最优点即为全局最优点.
+
+>[!note] 设 $f(x)$ 是定义在凸集 $D$ 上的连续可微函数，则 1) $f$ 为 $D$ 上的充分必要条件是 $f(y)\geq f(x)+\nabla f(x)^T(y-x),\forall x,y\in D$ ；2) $f$ 是 $D$ 上的严格凸函数的充要条件是 $f(y)>f(x)+\nabla f(x)^T(y-x),\forall y,x\in D,x\neq y$ .
+
+>[!note] 设 $f(x)$ 是<u>非空开凸集</u> $D\subset \mathbb{R}^n$ 上的<u>二阶连续可微</u>函数，则 1) $f$ 是 $D$ 上的凸函数的充要条件是 $\nabla^2f(x)$ 在 $D$ 中<u>半正定</u>；2) 若 $\nabla^2f(x)$ 在 $D$ 中正定，则 $f(x)$ 是 $D$ 上的严格凸函数.
+
 # 线性规划
 
 **线性规划**（linear programming ，LP）的标准形式为：
@@ -228,8 +240,854 @@ while (not Delta >= 0)
 return x
 ```
 
-
 ## 两阶段法
 
 ## M 法
 
+## 对偶单纯性法
+
+标准线性规划问题 $(P)$ 及其**对偶问题** $(D)$ ：
+
+$$\begin{aligned}
+&(P)\quad \begin{aligned}
+&\min\ c^Tx\\
+&\ \text{s.t.}\ Ax=b\\
+&\quad \quad x\geq0
+\end{aligned}\\
+\\
+&(D)\quad \begin{aligned}
+&\max\ b^Ty\\
+&\ \text{s.t.}\ A^Ty\leq c
+\end{aligned}
+\end{aligned}$$
+
+>[!note] 弱对偶定理： $x,y$ 分别为 $(P),(D)$ 的可行解，则有 $c^Tx\geq b^Ty$ .
+
+>[!note] 强对偶定理：如果 $(P)$ 有最优解，则 $D$ 有最优解，并且<u>两者最优目标值相同</u> .
+>对偶问题 $(D)$ 的最优解 $y^*=B^{-T}c_B$ .
+
+在单纯形法中， $(P)$ 的一个<u>基本可行解</u> $x$ 对应的检验向量 $\Delta=c_N^T-c_B^TB^{-1}N\geq0$ 时， $x$ 为 $(P)$ 的最优解. 
+
+在这种情况下令 $y=(B^{-1})^Tc_B$ 可得 $c_N^T-y^TN\geq0$ 从而 $A^Ty=(B^T\  N^T)y=(c_B\ N^Ty)\leq c$ . 称 $y=B^{-T}c_B$ 为 $x$ 的**对偶变量**.
+
+对偶单纯形算法如下： #imcomplete-lack-proofs 
+
+1. <u>选取</u> $(P)$ 的一个基矩阵 $B$ ，使得满足 $c_N^T-c_B^TB^{-1}N\geq0$ ，列出单纯形表；
+2. 求 $\bar{b}_{i_r}=\min\{(B^{-1}b)_{i_j}:j=1,\cdots,m\}$ ，其中基指标集 $I_B=\{i_1,\cdots,i_m\}$ ；
+3. 若 $\bar{b}_{i_r}\geq0$ ，停止，返回上述得到的解；否则继续到步骤 4.
+4. 获取 $B^{-1}N$ 的第 $i_r$ 行，若 $e_{i_r}^T(B^{-1}N)\geq0$ ，停止，对偶问题无解；否则继续到步骤 5；
+5. 求 $k=\arg\max\left\{\frac{c_j-c_B^TB^{-1}a_j}{e_{i_r}^TB^{-1}a_j}:e^{T}_{i_r}B^{-1}a_j<0\right\}$ 
+6. 以 $e^T_{i_r}B^{-1}a_k$ 为主元素（即 $(B^{-1}N)_{i_r,k}$ ）对单纯形表进行 Gauss-Jordan 消元，并以 $k$ 替换 $I_B$ 中的 $i_r$ ，转到步骤 2.
+
+# 整数线性规划
+
+**整数线性规划**（ILP）的标准型为：
+
+$$(P)\quad \begin{aligned}
+&\min\ c^Tx\\
+&s.t.\ Ax=b\\
+&\quad\quad x\geq0\\
+&\qquad x_i\in I,i=1,\cdots,n\\
+&\qquad I\subset \mathbb{N}
+\end{aligned}$$
+
+并定义松弛问题：
+
+$$(P_0)\quad \begin{aligned}
+&\min\ c^Tx\\
+&s.t.\ Ax=b\\
+&\quad\quad x\geq0
+\end{aligned}$$
+
+如果 $I=\{0,1\}$ 则称为 $0-1$ 规划问题（背包问题）.
+
+## 分枝界定法
+
+## Gemory 割平面法
+
+Gemory 割平面法讨论的问题是：
+
+$$(P)\quad \begin{aligned}
+&\min\ c^Tx\\
+&s.t.\ Ax=b\\
+&\quad\quad x\geq0\\
+&\qquad x_i\in \mathbb{N}
+\end{aligned}$$
+
+用单纯形法求解松弛问题 $(P_0)$ 之后得到： $\bar{x}=\begin{bmatrix}B^{-1}b  \\ 0\end{bmatrix}$ ，若 $\bar{x}$ 为整数变量，则为 $(P)$ 的解. 
+
+若 $B^{-1}b$ 中有<u>正分数分量</u>，考虑单纯形算法结束时：
+
+$$x_B+(B^{-1}N)x_N=B^{-1}b$$
+
+记 $I_N$ 为 $N$ 的列指标，上式等同于：
+
+$$x_B+\sum\limits_{j\in I_N}^{}(B^{-1}a_j)x_j=B^{-1}b$$
+
+记作：
+
+$$x_B+\sum\limits_{j\in I_N}^{}\bar{a}_jx_j=\bar{b}$$ 
+设 $B^{-1}b\overset{def}{=}\bar{b}$ 的第 $l$ 个分量 $\bar{b}_l$ 为分数，则 $(P_0)$ 的可行解应当满足：
+
+$$x_{B_l}+\sum\limits_{j\in I_N}^{}\bar{a}_{lj}x_j=\bar{b}_l$$
+
+进而：
+
+$$x_{B_l}+\sum\limits_{j\in I_N}^{}[\bar{a}_{lj}]x_j\leq \bar{b}_l$$
+
+并且因为 $(P)$ 的可行解为整数：
+
+$$x_{B_l}+\sum\limits_{j\in I_N}^{}[\bar{a}_{lj}]x_j\leq [\bar{b_l}]$$
+
+从而得到：
+
+$$\sum\limits_{j\in I_N}^{}(\bar{a}_{lj}-[\bar{a}_{lj}])x_j\geq \bar{b}_l-[\bar{b}_l]$$
+
+
+1. 用单纯形法求解 $(P_0)$ ，若无解，返回无解；若求得 $(P_0)$ 的解 $x_0$ ， $x_0$ 是整数向量，则返回 $x_0$ ；否则转步骤 2；
+2. 取 $x_0$ 的非整数分量 $\bar{b}$ ，求割平面方程；
+3. 将割平面方程加入到单纯形表中；用对偶单纯形算法求解问题. 若问题无界，停止；若解为整数解，返回；否则转入步骤 2.
+
+# 无约束优化
+
+无约束优化的形式为：
+
+$$\min\ f(x),f\in C(\mathbb{R})$$
+
+
+$$\begin{aligned}
+&x_{k+1}=x_k+\alpha_kd_k\\
+&\text{s.t.}\ f(x_{k+1})<f(x_k)
+\end{aligned}$$
+
+若记 $\varphi(\alpha)=f(x_k+\alpha d_k)$ ，则上式可以表示为：
+
+$$\varphi(\alpha_k)<\varphi(0)$$
+
+因此求解的 $\alpha_k$ 即为对应的 $\varphi$ 值小于原点对应的 $\varphi$ 值的点.
+
+**下降方向**（descent direction） ： $d_k\in\mathbb{R}^n$ ；
+**步长**（step length） $\alpha_k$ ；
+
+## 线性搜索
+
+**线性搜索**采取迭代算法不断获得新的点，以接近最优值：
+
+对于 $x_k$ ，确定搜索方向 $d_k$ 和步长 $\alpha_k$ ，下一个迭代点 $x_{k+1}=x_k+\alpha_k d_k$ .
+
+要求 $d_k$ 为下降方向 #imcomplete ，即 $d_k^T \nabla f(x_k)<0$ .
+
+线性搜索算法需要解决两个问题： $d_k$ 的选取和 $\alpha_k$ 的选取；
+
+假设已经确定了 $d_k$ ，构造辅助函数：
+
+$$\varphi(\alpha)=f(x_k+\alpha d_k)$$
+
+注意到 $\varphi(\alpha)$ 即为 $f|_{\{x_k+\alpha d_k:\alpha>0\}}$ ，且是一元函数，因此求解步长 $\alpha_k$ 使其满足 $\varphi(\alpha_k)<\varphi(0)$ 相当于在射线 $\{x_k+\alpha d_k:\alpha>0\}$ 上搜索得到 $f$ 的一个小于 $f(0)$ 的值，线性搜索因此得名. 
+
+>[!hint] 线性搜索算法将多元函数无约束问题转化为一元函数无约束问题，在这种情况下，针对 $\varphi(\alpha)$ 搜索只有两个方向， $d_k\in\{-1,1\}$ .
+
+$\alpha_k$ 的选取应该能够充分地降低 $\varphi$ 的值，同时不应在确定 $\alpha_k$ 上浪费太多时间.
+
+一种最理想的情况是： $\alpha_k=\arg\min_{\alpha>0}\varphi(\alpha)$ ，即最优步长，获取最优步长的线性搜索算法称为**精确线性搜索算法**，显然这不是必要的且难以实现. 实际应用中通常采用**非精确线性搜索算法**，要求 $\varphi(\alpha)$ 或者 $\alpha$ 满足某些性质以确定步长 $\alpha_k$ .
+
+### 线性搜索准则
+
+**线性搜索准则**是非精确线性搜索算法中对于 $\alpha$ （而不是对于 $\varphi(\alpha)$ ）的限制条件，将直接影响线性搜索算法是否收敛以及快慢.
+
+>[!note] Armijo 准则
+
+$$\text{Armijo})\quad f(x_k+\alpha d_k)\leq f(x_k)+c_1\alpha \nabla f(x_k)^Td_k,c_1\in(0,1)$$
+
+即为：
+
+$$\text{Armijo}')\quad \varphi(\alpha)\leq \varphi(0)+c_1 \varphi'(0)\cdot\alpha$$
+
+Armijo 准则要求 $(\alpha,\varphi(\alpha))$ 应在直线 $\{\varphi(0)+c_1 \nabla f(x_k)^Td_k \alpha:\alpha\geq0\}$ 下方，注意要求 $d_k$ 是下降方向，因此 $\nabla f(x_k)^Td_k<0$ ，所以 $\varphi(\alpha)\leq \varphi(0)$ ，这就保证 $\varphi(\alpha)$ 下降.
+
+通常选取 $c_1=10^{-3}$ 或者其他很小的数，这样可以很容易地满足 Armijo 准则. 但是 Armijo 准则并不能保证步长充分大，取一非常接近于 $0$ 的 $\alpha$ 即可. 因此通常需要和其他准则配合.
+
+>[!hint] 因为 $d_k$ 是下降方向，所以总能够找到 $\alpha$ 满足 Armijo 准则. #issue 
+
+>[!note] 回退法确定满足 Armijo 准则的步长.
+>首先给定 $\alpha_0$ ， $\gamma\in(0,1)$ 初始化 $\alpha\leftarrow \alpha_0$ ；当 $\alpha$ 不满足 Armijo 时： $\alpha\leftarrow \gamma \alpha$ . 最终输出 $\alpha_k\leftarrow \alpha$ .
+
+>[!note] Goldstein 准则
+
+Armijo 准则要求 $(\alpha,\varphi(\alpha))$ 在直线 $\{\varphi(0)+c \nabla f(x_k)^Td_k \alpha:\alpha\geq0\}$ 的下方，自然地，也可以要求其在某条直线的上方，这样可以保证 $\alpha$ 不会过小. **Goldstein** 准则（或 Armijo - Goldstein 准则）：
+
+$$\begin{aligned}
+&\text{Goldstein 1)}\quad f(x_k+\alpha d_k)\leq f(x_k)+c \alpha \nabla f(x_k)^Td_k\\
+&\text{Goldstein 2)}\quad f(x_k+\alpha d_k)\geq f(x_k)+(1-c)\alpha \nabla f(x_k)^Td_k
+\end{aligned}$$
+
+其中 $c\in(0,\frac{1}{2})$ .
+
+Goldstein 要求 $(\alpha,\varphi(\alpha))$ 在下面两条直线之间：
+
+$$\begin{aligned}
+&l_1:\quad \{(\alpha,\varphi(\alpha)+c \varphi'(0)\cdot \alpha):\alpha\ge0\}\\
+&l_2:\quad \{(\alpha,\varphi(\alpha)+(1-c)\varphi'(0)\cdot \alpha):\alpha\geq0\}
+\end{aligned}$$
+
+>[!note] 采用回退法确定满足 Goldstein 准则的步长.
+
+首先确定 Goldstein 准则成立的区间 $[a_0,b_0]$ ，给定 $\alpha_0\in[a_0,b_0],c\in(0,\frac{1}{2}),\gamma>1$ ， $k\leftarrow 0$ .
+
+当 $\alpha_0$ 不满足 Goldstein 1) 时： 
+
+$$\begin{aligned}
+&a_{k+1}\leftarrow a_k\\
+&b_{k+1}\leftarrow \alpha_k\\
+&\alpha_{k+1}\leftarrow \frac{a_{k+1}+b_{k+1}}{2}\\
+&k\leftarrow k+1
+\end{aligned}$$
+
+当 $\alpha_0$ 不满足 Goldstein 2) 时：
+
+$$\begin{aligned}
+&a_{k+1}\leftarrow \alpha_k\\
+&b_{k+1}\leftarrow b_k\\
+&\alpha_{k+1}\leftarrow t \alpha_k\\
+&k\leftarrow k+1
+\end{aligned}$$
+
+#### 黄金分割法
+
+设 $\varphi(\alpha)$ 定义在 $[a,b]$ 上，如果存在唯一的 $\alpha^*\in(a,b)$ 使得 $\varphi$ 在 $[a,\alpha^*]$ 上严格单调递减，在 $[\alpha^*,b]$ 上严格单调增加，则称 $\varphi$ 为单峰函数. 
+
+任取 $\lambda,\mu\in(a,b)$ ：
+
+1. 如果 $\varphi(\lambda)\leq \varphi(\mu)$ 则 $\alpha^*\in[a,\mu]$ ；
+2. 如果 $\varphi(\lambda)>\varphi(\mu)$ 则 $\alpha^*\in[\lambda,b]$ .
+
+黄金分割法：
+
+1. 初始化区间 $[a_1,b_1]$ ，给定精度 $\epsilon\geq0$ . 计算：
+
+$$\begin{aligned}
+&\lambda_1=a_1+0.382(b_1-a_1)\\
+&\mu_1=a_1+0.618(b_1-a_1)
+\end{aligned}$$
+
+2. 如果 $\varphi(\lambda_k)>\varphi(\mu_k)$ ，转步骤 $3.$ ，否则转入步骤 $4.$
+3. 若 $b_k-a_k\leq \epsilon$ ，停止，输出 $x^*=\mu_k$ ；否则 $a_{k+1}=\lambda_k,b_{k+1}=b_k$
+
+/// collapse-code
+```python title="黄金分割法" linenums="1"
+import math
+from math import exp
+
+def golden_section_search(f, a, b, ep=1e-6):
+    golden_ratio = (math.sqrt(5) - 1) / 2
+    
+    # 初始化 lam, mu
+    lam = a + (1 - golden_ratio) * (b - a)
+    mu = a + golden_ratio * (b - a)
+    
+    # 计算 f(lamda_1) f(mu_1)
+    f1 = f(lam)
+    f2 = f(mu)
+    
+    # 直到小于精度停止
+    while b - a > ep:
+        if f1 < f2:
+            if mu - a < ep: return mu, f(mu)
+            b = mu
+            mu = lam
+            lam = a + (1 - golden_ratio) * (b - a)
+            f2 = f1
+            f1 = f(lam)
+            print(f"a: {a:.6f}, b: {b:.6f}, b-a: {b-a:.6f}")
+        else:
+            a = lam
+            lam = mu
+            mu = a + golden_ratio * (b - a)
+            f1 = f2
+            f2 = f(mu)
+            print(f"a: {a:.6f}, b: {b:.6f}, b-a: {b-a:.6f}")
+    
+    return lam, f(lam)
+
+
+f = lambda x: exp(x) + exp(-x)
+
+a = -1
+b = 1
+
+x_min, min_value = golden_section_search(f, a, b)
+
+print("近似极小点:", x_min)
+print("近似极小值:", min_value)
+```
+///
+
+$$f(x_k+\alpha d_k)=f(x_k)+\alpha\nabla^Tf(x_k)d_k+\frac{\mathcal{o}(\alpha)}{\alpha}$$
+
+注意到右式的线性部分： $f(x_k)+\alpha\nabla^Tf(x_k)d_k$ ，考虑： 
+
+**Wolfe 条件**：包含 Armijo 条件和曲率条件：
+
+Armijo: $f(x_k+\alpha d_k)\leq f(x_k)+c_1\alpha d_k^T\nabla f(x_k),c_1\in(0,1)$ 该条件保证 $f(x_k+\alpha d_k)$ 取得的值比 $f(x_k)$ 要小；
+
+Goldstein 条件：
+
+### 精确线性搜索
+
+
+## 多元无约束优化问题
+
+### 最速下降法
+
+考虑无约束优化问题：
+
+$$\begin{aligned}
+&\min f(x),f\in C^1(\mathbb{R}^n)
+\end{aligned}$$
+
+>[!example] 取初始点 $x_0=[0,0]^T$ ，设定精确误差 $\epsilon=0.01$ ，利用最速下降法求解下面的优化问题： $\min_{x\in \mathbb{R}^2}\quad x_1^2-2x_1x_2+4x_2^2+x_1-3x_2$ .
+
+回顾： [[MA#极值理论]]
+
+$$\nabla f(x_1,x_2)=[2x_1-2x_2+1,-2x_1+8x_2-3]^T$$
+
+下面采用的是最速下降法，使用 Goldstein 算法确定步长：
+
+/// collapse-code
+```python title="Goldstein + 最速下降" linenums="1"
+import numpy as np
+import matplotlib.pyplot as plt
+
+def varphi(arr):
+    if (arr.ndim) != 1:
+        x_1 = arr[:, 0]
+        x_2 = arr[:, 1]
+    else:
+        x_1 = arr[0]
+        x_2 = arr[1]
+    return x_1 ** 2 - 2 * x_1 * x_2 + 4 * x_2 ** 2 + x_1 -3 * x_2
+
+def d(arr):
+    x_1 = arr[0]
+    x_2 = arr[1]
+    return -np.array([2 * x_1 - 2 * x_2 + 1, -2 * x_1 + 8 * x_2 -3])
+
+def varphi_p(arr):
+    return np.dot(d(arr), -d(arr))
+
+# 按照算法 4.14 Goldstein 算法设置的两个超参数，符号是一致的
+rho = 0.1
+t  = 2
+
+# 计算 Goldstein 条件
+def goldstein_condition(alpha, arr, rho = rho):
+    condition_1 = (varphi(arr) + rho * alpha * varphi_p(arr)) >= varphi(arr + alpha * d(arr))
+    # if not condition_1:
+    #     print(f"Condition 1 not satisfied")
+    condition_2 = (varphi(arr) + (1 - rho) * alpha * varphi_p(arr)) <= varphi(arr + alpha * d(arr))
+    # if not condition_2:
+    #     print(f"Condition 2 not satisfied")
+    return condition_1, condition_2
+
+def goldstein_cal_step(alpha, arr, rho=rho, t=t, ep=1e-4):
+    a = ep
+    b = 1
+    condition_1, condition_2 = goldstein_condition(alpha, arr, rho)
+    while not (condition_1 & condition_2):
+        if not condition_1:
+            b = alpha
+            alpha = (a + b) / 2
+        if not condition_2:
+            a = alpha
+            alpha = t * alpha
+        condition_1, condition_2 = goldstein_condition(alpha, arr, rho)
+    return alpha
+
+def plot_func(f, x_min=0, x_max=10):
+    x = np.linspace(x_min, x_max, 100)
+    y = f(x)
+    plt.plot(x, y)
+
+# 下面是试图通过图像找步长编写的函数，但是发现人工太慢了...
+def plot_goldstein(arr, rho = rho, x_min=0, x_max=5):
+    line_1 = lambda alpha: varphi(arr) + rho * alpha * varphi_p(arr)
+    line_2 = lambda alpha: varphi(arr) + (1 - rho) * alpha * varphi_p(arr)
+    graph_varphi = lambda alpha: varphi(arr + np.tile(alpha.reshape(-1,1), (1, 2)) * d(arr))
+    plot_func(line_1, x_min, x_max)
+    plot_func(line_2, x_min, x_max)
+    plot_func(graph_varphi, x_min, x_max)
+    plt.show()
+
+def update_arr(arr, alpha):
+    return arr + alpha * d(arr)
+
+def goldstein_steep(arr):
+    # 这里这个 1 是我提前通过绘制图像确定的
+    alpha = goldstein_cal_step(1, arr)
+    while (alpha >= 1e-03):
+        """当步长小于 1e-03 时停止迭代"""
+        alpha = goldstein_cal_step(1, arr)
+        arr = update_arr(arr, alpha)
+        print(f"alpha: {alpha}, x: {arr}")
+    return arr
+```
+///
+
+程序输出（在终端的 Python 交互模式下运行，Linux 环境，用的是 python3）：
+
+/// collapse-code
+```shell title="程序输出" linenums="1"
+$ python3 -i steepGoldstein.py
+>>> x = np.array([0,0])
+>>> goldstein_steep(x)
+alpha: 0.1250875, x: [-0.1250875  0.3752625]
+alpha: 0.1250875, x: [-0.12499994  0.34370605]
+alpha: 0.50005, x: [-0.15629708  0.34388193]
+alpha: 0.1250875, x: [-0.1562523   0.33592016]
+alpha: 0.50005, x: [-0.16408062  0.33598723]
+alpha: 0.1250875, x: [-0.16406365  0.33397844]
+alpha: 0.50005, x: [-0.16602176  0.33400104]
+alpha: 0.1250875, x: [-0.16601605  0.33349421]
+alpha: 0.50005, x: [-0.16650584  0.33350133]
+alpha: 0.1250875, x: [-0.16650405  0.33337345]
+alpha: 0.50005, x: [-0.16662656  0.3333756 ]
+alpha: 0.1250875, x: [-0.16662602  0.33334334]
+alpha: 0.50005, x: [-0.16665667  0.33334397]
+alpha: 0.1250875, x: [-0.16665651  0.33333583]
+alpha: 0.50005, x: [-0.16666417  0.33333601]
+alpha: 0.1250875, x: [-0.16666413  0.33333396]
+alpha: 0.50005, x: [-0.16666604  0.33333401]
+alpha: 0.1250875, x: [-0.16666603  0.33333349]
+alpha: 0.50005, x: [-0.16666651  0.3333335 ]
+alpha: 0.1250875, x: [-0.16666651  0.33333337]
+alpha: 0.50005, x: [-0.16666663  0.33333338]
+alpha: 0.1250875, x: [-0.16666663  0.33333334]
+alpha: 0.50005, x: [-0.16666666  0.33333334]
+alpha: 0.1250875, x: [-0.16666666  0.33333334]
+alpha: 1, x: [-0.16666667  0.33333334]
+alpha: 0.06259374999999999, x: [-0.16666667  0.33333333]
+alpha: 0.039183593749999995, x: [-0.16666667  0.33333333]
+alpha: 0.250075, x: [-0.16666667  0.33333333]
+alpha: 0.50005, x: [-0.16666667  0.33333334]
+alpha: 0.1250875, x: [-0.16666667  0.33333333]
+alpha: 1, x: [-0.16666667  0.33333334]
+alpha: 0.09389062499999998, x: [-0.16666667  0.33333333]
+alpha: 1, x: [-0.16666667  0.33333333]
+alpha: 0.1250875, x: [-0.16666667  0.33333333]
+alpha: 1, x: [-0.16666667  0.33333333]
+alpha: 0.06259374999999999, x: [-0.16666667  0.33333333]
+alpha: 0.5001720825195313, x: [-0.16666667  0.33333334]
+alpha: 0.1250875, x: [-0.16666667  0.33333333]
+alpha: 1, x: [-0.16666667  0.33333334]
+alpha: 0.250075, x: [-0.16666667  0.33333333]
+alpha: 0.1250875, x: [-0.16666667  0.33333333]
+alpha: 1, x: [-0.16666667  0.33333333]
+alpha: 0.250075, x: [-0.16666667  0.33333333]
+alpha: 0.1250875, x: [-0.16666667  0.33333333]
+alpha: 1, x: [-0.16666667  0.33333333]
+alpha: 0.50015, x: [-0.16666667  0.33333333]
+alpha: 0.1250875, x: [-0.16666667  0.33333333]
+alpha: 1, x: [-0.16666667  0.33333333]
+alpha: 0.250075, x: [-0.16666667  0.33333334]
+alpha: 0.0003441162109375, x: [-0.16666667  0.33333334]
+array([-0.16666667,  0.33333334])
+>>> 
+```
+///
+
+最终的解为： $[-0.16666667,  0.33333334]$ ，即为 $[-1/6,1/3]$ （和手算（由 $H_f(X_0)>0,\nabla f(X_0)=0$ 得到）的一致）
+
+>[!question] 从上面的输出可以看到算法早就收敛了，但是直到步长小于 $0.001$ 才停止，有没有可以解决这一问题的方法？比如早停？ #imcomplete-further-wanted 
+
+>[!example] 已知 Rosenbrock 函数： $f(x)=100(x_2-x_1^2)^2+(1-x_1)^2$ ，求 $\nabla f(x),\nabla^2f(x)$ ，说明 $x^*=[1,1]^T$ 是这个函数的<u>唯一局部极小点</u>，并且 $\nabla^2f(x)$ 在这个点是正定的.
+
+解：
+
+$$\begin{aligned}
+&\nabla f=[-400(x_2-x_1^2)x_1-2(1-x_1),200(x_2-x_1^2)]^T\\
+&\nabla^2f=\begin{bmatrix}-400x_2+1200x_1^2+2& -400x_1\\ -400x_1 &200\end{bmatrix}
+\end{aligned}$$
+
+$$\nabla^2f(x^*)=\begin{bmatrix}802& -400 \\ -400  &200\end{bmatrix}$$
+
+计算得到 $\nabla^2f(x^*)$ 的两个特征值均大于 $0$ ，因此正定；
+
+下面说明唯一性：任何极值点都应当满足 $\nabla f=0$ ，求解得到： $[1,1]^T$ .
+
+>[!warning] 上述， $f$ 并不是一个凸函数：因为 $H_f(X)$ 对于所有点（e.g. $[0,1]$ ）不总是半正定的.
+>因此，所求得的 $[1,1]^T$ 不一定是全局最优点.
+
+---
+
+非局部最小值的驻点（一阶导数为 $0$ 的点）称为**鞍点**. 数学含义是： 目标函数在此点上的梯度（一阶导数）值为 0， 但从改点出发的一个方向是函数的极大值点，而在另一个方向是函数的极小值点.
+
+>[!note] 鞍点的充分条件：函数在一阶导数为零处（驻点）的黑塞矩阵为不定矩阵。
+
+>[!example] 已知函数 $f(x)=8x_1+12x_2+x_1^2-2x_2^2$ ，说明其只有一个驻点，并且这个点既不是最小值点，也不是最大值点，而是这个函数的鞍点. 画出 $f$ 的轮廓线.
+
+证明：
+
+$$\begin{aligned}
+&\nabla f=[8+2x_1,12-4x_2]^T=0\\
+&\nabla^2 f=\begin{bmatrix}2 & 0  \\ 0 & -4\end{bmatrix}
+\end{aligned}$$
+
+得到： $[-4,3]^T$ . 然而 $\nabla^2f$ 为不定矩阵，所以 $[-4,3]^T$ 是鞍点.
+
+下面用 Sage 绘制函数 $f$ 的轮廓线：
+
+```sage title="绘制轮廓线" linenums="1"
+x1, x2 = var('x1, x2')
+f(x1, x2) = 8 * x1 + 12 * x2 + x1^2 - 2 * x2^2
+contour_plot(f, (-10, 10), (-10, 10), fill=False, contours=100)
+```
+
+![[contours.png|300]]
+
+>[!example]- $a$ 是给定的 $n$ 维向量， $A$ 是给定的 $n$ 阶对称矩阵，计算 $f_1(x)=a^TAx,f_2(x)=x^TAx$ 的梯度和 Hesse 阵.
+
+解：
+
+$$\begin{aligned}
+&\nabla f_1(x)=\begin{bmatrix}\sum\limits_{k=1}^{n}A_{k1}a_k & \cdots  & \sum\limits_{k=1}^{n}A_{kn}a_k\end{bmatrix}=a^TA\\
+&\nabla^2f_1(x)=0\\
+&\\
+&f_2(x)=\begin{bmatrix}\sum\limits_{l=1}^{n}\sum\limits_{k=1}^{n}(A_{k1}x_kx_l) & \cdots & \sum\limits_{l=1}^{n}\sum\limits_{k=1}^{n}(A_{kn}x_kx_l)\end{bmatrix}\\
+&\nabla f_2(x)=\begin{bmatrix}\end{bmatrix}
+\end{aligned}$$
+
+| #imcomplete 
+
+### Newton 迭代法
+
+>[!example] 使用 Newton 法求解： $\min_{x\in \mathbb{R}}\ f(x)=0.5[(x+1)^3+x^2]^2-3$ 的所有极小点.
+
+```sage title="Newton" linenums="1"
+x = var('x')
+f(x) = 0.5 * ((x + 1)^3 + x^2)^2 - 3
+df = diff(f,x);
+
+# 定义 Newton 迭代函数
+NewtonIt(x)=x - (f / df)(x);
+
+x = 1;
+n_iter = 100
+for i in range(n_iter):
+    if i < 10:
+        print(x)
+    x = N(NewtonIt(x), digits=20)
+print("...\n最优值为: ", x);
+```
+
+程序输出（只打印了前 10 次迭代的结果，但发现很快就收敛了）
+
+```sage
+1
+0.70238095238095243911
+0.48842897036899579621
+0.36779232931902688941
+0.33099276491496676389
+0.32799604485073835525
+0.32797749905441364593
+0.32797749834862277574
+0.32797749834862277574
+0.32797749834862277574
+...
+最优值为:  0.32797749834862277574
+```
+
+多元函数的 Newton 法：
+
+考虑： $\min\ f(x)\quad f\in C^2(\mathbb{R}^2)$ .
+
+对于迭代点 $x^k$ ，将 $f$ 在 $x^k$ Taylor 展开得到：
+
+$$f(x)=f(x^k)+\nabla f(x^k)^T(x-x^k)+\frac{1}{2}(x-x^k)^T\nabla^2f(x^k)(x-x^k)+\mathcal{o}(\lVert x-x^k\rVert_2^2)$$
+
+迭代：
+
+$$x^{k+1}\leftarrow x^k-(\nabla^2f(x^k))^{-1}\nabla f(x^k)$$
+
+>[!example] 用最速下降法、 Newton 法和阻尼 Newton 法求解： $\min x_1^2+2x_2^2$ .
+
+Newton 法：
+
+$$\begin{aligned}
+&\nabla f=\begin{bmatrix}2x_1 \\ 4x_2\end{bmatrix}\\
+&\nabla^2 f=\begin{bmatrix}2 &  0  \\ 0 & 4\end{bmatrix}\\
+&\nabla^2f^{-1}=\begin{bmatrix}\frac{1}{2} & 0 \\ 0 & \frac{1}{4}\end{bmatrix}
+\end{aligned}$$
+
+因为 $\nabla^2f$ 正定，所以 $f$ 是（强）凸函数.
+
+取 $x^0=[1,1]$ ，计算：
+
+$$x^1=x^0-(\nabla^2f)^{-1}\nabla f(x^0)= \begin{bmatrix}x_1 \\ x_2\end{bmatrix}-\begin{bmatrix}x_1 \\ x_2\end{bmatrix}=0$$
+
+并且此时 $\nabla f=0$ ，所以 $[0,0]$ 是最优解.
+
+下面用带步长的 Newton 方法求解：
+
+```sage title="多元函数 Newton 法"linenums="1"
+
+```
+
+收敛性分析：
+
+$$\lvert \frac{\partial^3{f}}{\partial{x_i}\partial{x_j}\partial{x_l}}\rvert\leq M$$
+
+### 共轭梯度法
+
+共轭梯度法中，每一次迭代的方向都与之前的方向共轭，并且，对于 $\mathbb{R}^n$ 上的无约束严格凸二次优化问题，可以证明至多经过 $n+1$ 次迭代就会收敛.
+
+设 $d_1,d_2\in \mathbb{R}^n,d_1,d_2\neq0$ ， $G$ 为 $n$ 阶对称正定阵，称 $d_1,d_2$ 是 $G$ 共轭的，如果 $d_1^TGd_2=0$ ，特别地，当 $G=I$ 时，称 $d_1,d_2$ 正交.
+
+>[!note] 如果 $d_1,\cdots,d_n\in \mathbb{R}^n$ 两两 $G$ 共轭，则其线性无关.
+>证明：对于任意的 $\sum\limits_{i=1}^{n}\alpha_id_i=0$ ，左乘 $d_j^TG$ ，由 $G$ 共轭可得 $\alpha_jd_j^TGd_j=0,1\leq j\leq n$ ，由 $G$ 正定并且 $d_j\neq0$ 可得 $\alpha_j=0,\forall 1\leq j\leq n$ . 所以 $d_1,\cdots,d_n$ 线性无关.
+
+给定一组共轭方向 $d_1,\cdots,d_n$ ，可以据此进行梯度下降法.
+
+**共轭方向法**：
+
+1. 初始化 $x_1,k\leftarrow 1$ ；
+2. 当 $\nabla f(x_k)\neq 0$ 时：精确搜索 $\alpha_k=\arg\min f(x_k+\alpha d_k)$ ， $x_{k+1}\leftarrow x_k+\alpha_kd_k,k\leftarrow k+1$ ；
+
+>[!note]- 若在 $\mathbb{R}^n$ 中有一组共轭方向 $d_1,\cdots,d_n$ ，可以证明共轭方向法至多经过 $n$ 步之后 $\frac{1}{2}x^TGx+b^Tx$ 就会收敛，其中 $G$ 为对称正定矩阵. $\frac{1}{2}x^TGx+b^Tx$ 称为严格二次凸函数.
+>不妨假设 $k\leq n$ 时， $\nabla f(x_k)\neq 0$ （迭代了 $n-1$ 步仍然不收敛.）
+>
+>$$\begin{aligned}
+>&f(x)=\frac{1}{2}x^TGx+b^Tx\\
+>&\nabla f(x)=Gx+b\\
+>&\nabla f(x_{k+1})=\nabla f(x_k+\alpha_k d_k)=\nabla f(x_k)+\alpha_kGd_k\\
+>&\alpha_k=\arg\min f(x_k+\alpha d_k)\rightarrow \nabla f(x_{k+1})d_k^T=0
+>\end{aligned}$$
+>
+>下面试图证明 $d_k^T\nabla f(x_{n+1})=0,\forall 1\leq k\leq n$ ，从而可以证明 $\nabla f(x_{n+1})=0$ .
+>
+>考虑：
+>
+>$$\nabla f(x_{n+1})=\nabla f(x_n)+\alpha_nGd_n=\nabla f(x_{k+1})+\sum\limits_{l=k+1}^{n}\alpha_kGd_k$$
+>
+>进而：
+>
+>$$d_k^T\nabla f(x_{n+1})=0,\forall 1\leq k\leq n-1$$
+>
+>并且： $d_n^T \nabla f(x_{n+1})=0$ ，所以 $\nabla f(x_{n+1})=0$ .
+
+下面讨论如何获取共轭方向，采取“生成”的方法： $d_{k+1}=-\nabla f(x_{k+1})+\beta_kd_k$ ，现在来反推 $\beta_k$ ，然后通过精确搜索得到的步长 $\alpha_k$ .
+
+取初始点 $x_1$ ， $d_1\leftarrow -\nabla f(x_1)$ .
+
+令：
+
+$$d_k^TGd_{k+1}=d_k^TG(-\nabla f(x_{k+1}+\beta_kd_k))=-d_k^TG\nabla f(x_{k+1})+\beta_k d_k^TGd_k=0$$
+
+得到： $\beta_k=\frac{d_k^TG\nabla f(x_{k+1})}{d_k^TGd_k}$ ，所以 $d_{k+1}=-\nabla f(x_{k+1})+\frac{d_k^TG\nabla f(x_{k+1})}{d_k^TGd_k}d_k$ .
+
+精确搜索 $\alpha_k$ ： 
+
+$$d_k^T\nabla f(x_k+\alpha_kd_k)=d_k^T(Gx_k+\alpha_kGd_k-b)=d_k^T\nabla f(x_k)+\alpha_kd_k^TGd_k=0$$
+
+从而 $\alpha_k=-d_k^T \nabla f(x_k)/d_k^TGd_k$ .
+
+记 $\nabla f(x_k)=\gamma_k$ ，注意到
+
+$$d_k^T\gamma_k=(-\nabla f(x_k)+\beta_{k-1}d_{k-1})^T\gamma_k=-\gamma_k^T\gamma_k,\forall k\geq 2$$
+
+（其中 $d_{k-1}^T\gamma_k=0$ 是精确搜索得到的.）并且 $d_1^T\gamma_1=-\gamma_1^T\gamma_1$ .
+
+因此，可以写作： $\alpha_k=\frac{\gamma_k^T\gamma_k}{d_k^TGd_k}$ ， $\beta_k=d_k^TG\nabla f(x_{k+1})/d_k^TGd_k$ .
+
+上面只说明了 $d_{k+1}$ 和 $d_k$ ， $G$ 共轭.
+
+>[!note] 上述算法生成的 $d_1,\cdots,d_n$ 是共轭的. #imcomplete-lack-proofs 
+>用归纳法解决. 只需要证明对于任意的 $2\leq k\leq n$ ，对于任意的 $i\leq k$ 有 $d_i^TGd_k=0$ .
+
+上述算法被称为 **Fletch-Reeves （FR）共轭梯度法**.
+
+1. 初始 $x_1$ ， $\gamma_1\leftarrow Gx_1-b,d_1\leftarrow -\gamma_1,k\leftarrow 1$ ；
+2. 当 $\gamma_k\neq 0$ 时进行如下更新：
+
+$$\begin{aligned}
+&\alpha_k\leftarrow\gamma_k^T\gamma_k/d_k^TGd_k\\
+&x_{k+1}\leftarrow x_k+\alpha_kd_k\\
+&\gamma_{k+1}\leftarrow \gamma_k+\alpha_kGd_k\\
+&\beta_k\leftarrow d_k^TG\gamma_{k+1}/d_k^TGd_k\\
+&d_{k+1}\leftarrow -\gamma_{k+1}+\beta_k d_k
+\end{aligned}$$
+
+```sage title="FR 共轭梯度法实现" linenums="1"
+G = 
+f(x_1, x_2) = 1 / 2 * x.transpose() * G * x - b.transpose() * x
+
+x = [1, 1]
+gamma = G * x - b
+alpha = gamma * gamma
+```
+
+>[!example] 用共轭梯度法求解下面的问题： $\min_{x\in \mathbb{R}^2}\ f(x)=x_1^2+x_2^2-4x_1-5x_2-x_1x_2-5$ .
+
+直接考虑 $f=x_1^2+x_2^2-4x_1-5x_2-x_1x_2$ .
+
+$$\begin{aligned}
+&f(x)=\frac{1}{2}x^TGx-b^Tx\\
+&G=\begin{bmatrix}2 & -1 \\ -1&2\end{bmatrix}\quad  b=\begin{bmatrix}4  \\ 5\end{bmatrix}
+\end{aligned}$$
+
+初始化 $x_1=\begin{bmatrix}1  \\  2\end{bmatrix}$ ，则 $\gamma_1=\begin{bmatrix}-4  \\ -2\end{bmatrix}$ ， $d=\begin{bmatrix}4  \\ 2\end{bmatrix}$ .
+
+$\gamma\neq 0$ ，计算得到 $\alpha_1=\frac{5}{6}$ ， $x_2=x+\alpha d=\begin{bmatrix}\frac{13}{3} \\  \frac{11}{3}\end{bmatrix}$ ， $\gamma_2=\begin{bmatrix}1 \\ -2\end{bmatrix}$ ， $\beta_1=\frac{1}{4}$ ， $d_2=\begin{bmatrix}0  \\ \frac{5}{2}\end{bmatrix}$ .
+
+$\gamma\neq 0$ ，计算得到 $\alpha_2=\frac{2}{5}$ ， $x_3=x_2+\alpha_2d=\begin{bmatrix}\frac{13}{3} \\ \frac{14}{3}\end{bmatrix}$ ， $\gamma_3=\begin{bmatrix}0 \\ 0\end{bmatrix}$ ， $\beta_2=0$ ， $d_3=\begin{bmatrix}0 \\ 0\end{bmatrix}$ .
+
+此时 $\gamma=0$ ，算法终止，最优解为： $\begin{bmatrix}\frac{13}{3} \\ \frac{14}{3}\end{bmatrix}$ . 此时 $\min f=\frac{-76}{3}$ .
+
+```python title="FR 共轭梯度法" linenums="1"
+import numpy as np
+
+def FR(G, b, x):
+    """FR 共轭梯度法"""
+    gamma = np.matmul(G, x) - b
+    d = -gamma
+    while not (gamma == 0).all():
+        alpha = np.vdot(gamma, gamma) / np.vdot(d, np.matmul(G, d))
+        x = x + alpha * d
+        gamma = gamma + alpha * np.matmul(G, d)
+        beta = np.vdot(d, np.matmul(G, gamma)) / np.vdot(d, np.matmul(G, d))
+        d = -gamma + beta * d
+        print('alpha: ', alpha, 'x: ', x,\
+             'gamma: ', gamma, 'beta: ', beta, 'd: ', d)
+    return x
+
+G = np.array([[2, -1],
+              [-1, 2]])
+b = np.array([[4], 
+              [5]])
+x = np.array([[1],
+              [2]])
+
+FR(G, b ,x)
+```
+
+程序输出：
+
+```
+alpha:  0.8333333333333334 x:  [[4.33333333]
+ [3.66666667]] gamma:  [[ 1.]
+ [-2.]] beta:  0.25 d:  [[0. ]
+ [2.5]]
+alpha:  0.4 x:  [[4.33333333]
+ [4.66666667]] gamma:  [[0.]
+ [0.]] beta:  0.0 d:  [[0.]
+ [0.]]
+[[𝟺.𝟹𝟹𝟹𝟹𝟹𝟹𝟹𝟹] [𝟺.𝟼𝟼𝟼𝟼𝟼𝟼𝟼𝟽]]
+```
+
+取 $G$ 为 Hilbert 矩阵， $b=[1,1,\cdots,1]^T$ ，初始点为 $x_0=0$ 取维数 $n=5,8,12,20$ ，记录每次使得误差小于 $10^{-6}$ 的迭代次数.
+
+终止条件为 $\lVert \gamma\rVert_2\leq 10^{-6}$ .
+
+代码如下：
+
+```python title="FR 共轭梯度法迭代次数" linenums="1"
+import numpy as np
+from numpy import linalg as LA
+
+ep = 1e-6 # 精确度
+n_dim_list = [5, 8, 12, 20]
+
+def hilmat(a, b):
+    """生成 Hilbert 矩阵"""
+    return [[1 / (i + j + 1) for j in range(b)] for i in range(a)]
+
+def FR(G, b, x):
+    """FR 共轭梯度法"""
+    count = 0;
+    gamma = np.matmul(G, x) - b
+    d = -gamma
+    # 采取 L-2 范数
+    while not (LA.norm(gamma) < ep):
+        alpha = np.vdot(gamma, gamma) / np.vdot(d, np.matmul(G, d))
+        x = x + alpha * d
+        gamma = gamma + alpha * np.matmul(G, d)
+        beta = np.vdot(d, np.matmul(G, gamma)) / np.vdot(d, np.matmul(G, d))
+        d = -gamma + beta * d
+        # print('alpha: ', alpha, 'x: ', x,\
+        #     'gamma: ', gamma, 'beta: ', beta, 'd: ', d)
+        count += 1
+    return count
+
+for n in n_dim_list:
+    G = np.array(hilmat(n, n))
+    b = np.ones(n).reshape(-1 ,1)
+    x = np.zeros(n).reshape(-1, 1)
+    count, x = FR(G, b, x)
+    print('迭代次数: \n', count, '\n', '结果：\n', x, '\n')
+```
+
+返回结果：
+
+/// collapse-code
+```shell
+迭代次数: 
+ 6 
+ 结果：
+ [[    5.00000021]
+ [ -120.0000001 ]
+ [  629.99999985]
+ [-1120.00000016]
+ [  629.99999985]] 
+
+迭代次数: 
+ 26 
+ 结果：
+ [[-8.00130020e+00]
+ [ 5.04071378e+02]
+ [-7.56095143e+03]
+ [ 4.62052387e+04]
+ [-1.38614311e+05]
+ [ 2.16236500e+05]
+ [-1.68182744e+05]
+ [ 5.14841978e+04]] 
+
+迭代次数: 
+ 309 
+ 结果：
+ [[ 8.46115026e+00]
+ [-9.67277295e+02]
+ [ 2.66031031e+04]
+ [-3.05707186e+05]
+ [ 1.79936600e+06]
+ [-5.87836224e+06]
+ [ 1.05367413e+07]
+ [-8.21501978e+06]
+ [-3.37319416e+06]
+ [ 1.21633461e+07]
+ [-9.14671830e+06]
+ [ 2.39402896e+06]] 
+
+迭代次数: 
+ 196 
+ 结果：
+ [[-1.09112145e+01]
+ [ 1.04606664e+03]
+ [-2.38661253e+04]
+ [ 2.19739467e+05]
+ [-9.62832640e+05]
+ [ 1.98576169e+06]
+ [-1.25054640e+06]
+ [-1.34104042e+06]
+ [ 8.82105153e+05]
+ [ 1.68565661e+06]
+ [ 3.87555790e+05]
+ [-1.30420795e+06]
+ [-1.70882582e+06]
+ [-5.27666626e+05]
+ [ 1.20779165e+06]
+ [ 2.00142866e+06]
+ [ 9.43916373e+05]
+ [-1.43324323e+06]
+ [-2.64951603e+06]
+ [ 1.88695398e+06]]
+```
+///
