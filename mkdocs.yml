@@ -24,10 +24,10 @@ nav:
     - '统计学习': 'Math/SL.md'
     - '深度学习': 'Math/DL.md'
   - 二十: 
+    - 'SageMath': 'Math/SageMath.md'
     - 'C': 'Coding/C.md'
     - 'C++': 'Coding/CPP.md'
     - 'Python': 'Coding/Python.md'
-    - 'Sage': 'Math/Sage.md'
   - 十九:
     - 'PyTorch': 'Cookbooks/DLCB.md'
     - 'Python DM & ML': 'Cookbooks/PyDCB.md'
