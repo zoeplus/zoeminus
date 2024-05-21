@@ -162,7 +162,9 @@ x\in \bar{A}&\Leftrightarrow \forall \epsilon>0,B(x,\epsilon)\cap A\neq\emptyset
 
 ### 点与集合间的距离
 
-借助度量的概念可以建立点到集合之间的距离：设 $A$ 为度量空间 $(X,d)$ 中的非空子集，定义函数 $d(-,A):X\rightarrow \mathbb{R}$ ： $$d(x,A)=\inf\{d(x,a):a\in A\}$$
+借助度量的概念可以建立点到集合之间的距离：设 $A$ 为度量空间 $(X,d)$ 中的非空子集，定义函数 $d(-,A):X\rightarrow \mathbb{R}$ ： 
+
+$$d(x,A)=\inf\{d(x,a):a\in A\}$$
 
 >[!note]- 任给 $x,y\in X$ ， $\lvert d(x,A)-d(y,A)\rvert\leq d(x,y)$ ，因此函数 $d(-,A)$ 一致连续.
 >证明： $\forall z\in A, d(x,z)\leq d(x,y)+d(y,z)$ ，从而 $$d(x,A)\leq d(x,z)\leq d(x,y)+d(y,z),\forall z\in A$$ 进而可得 $d(x,A)\leq d(x,y)+d(y,A)$ ，同理可得 $d(y,A)\leq d(x,y)+d(x,A)$ . 从而得到结论.
@@ -568,6 +570,7 @@ $$f(x)=\frac{2k-1}{2^n},x\in I_n^k,1\leq k\leq 2^{n-1}$$
 >- 拓扑、拓扑空间的定义；
 >- 开集、闭集、内部、闭包的定义；
 >- 邻域、邻域系的定义；
+>- 子空间的定义；
 
 集合 $X$ 上的**拓扑** $\mathcal{O}$ 指的是满足下列条件的 $X$ 的子集族：
 
@@ -579,7 +582,7 @@ $$f(x)=\frac{2k-1}{2^n},x\in I_n^k,1\leq k\leq 2^{n-1}$$
 
 设 $\mathcal{O}_1,\mathcal{O}_2$ 是 $X$ 上的拓扑，若 $\mathcal{O}_1\subset \mathcal{O}_2$ 则称 $\mathcal{O}_1$ 粗于（coarser than） $\mathcal{O}_2$ / $\mathcal{O}_2$ 细于（finer than） $\mathcal{O}_1$ ；或称 $\mathcal{O}_1$ 弱于（weaker） $\mathcal{O}_2$ ， $\mathcal{O}_2$ 强于（stronger） $\mathcal{O}_1$ .
 
->[!example]- $\{0,1\}$ 上的拓扑.
+>[!example] $\{0,1\}$ 上的拓扑.
 >$\{\emptyset,\{0,1\}\}$ ； $\{\emptyset,\{0\},\{1\},\{0,1\}\}$ ； $\{\emptyset,\{0\},\{0,1\}\}$ ； $\{\emptyset,\{1\},\{0,1\}\}$ .
 
 在[[#度量空间]]中讨论了 $(X,d)$ 中的开集 $W$ 定义为： $\forall x\in W,\exists r>0,B(x,r)\subset U$ ，并且可以验证这样定义的开集全体 $\mathcal{O}$ 是 $X$ 上的一个拓扑，称为由 $d$ 诱导的拓扑，或记为 $\mathcal{O}_d$ . 能够被度量诱导的拓扑称为**可度量拓扑**：对于 $(X,\mathcal{O})$ ，存在 $X$ 上的度量 $d$ 使得 $\mathcal{O}=\mathcal{O}_d$ . 另外也可以回顾[等价度量](#^EqualD)的概念，以 $d_1,d_2$ 诱导的拓扑是否相同来定义是否等价是非常自然的.
@@ -634,6 +637,8 @@ $$\begin{aligned}&(\text{N}1)\ X\in \mathcal{N}(x),\forall x\in X\\&(\text{N}2)\
 
 >[!note]- 邻域系刻画拓扑：设 $X$ 为一集合， $\mathcal{N}(x)$ 为 $X$ 的一个子集族，如果 $\{\mathcal{N}(x)\}_{x\in X}$ 满足 $(N1)\sim(N5)$ ，则存在 $X$ 上唯一拓扑 $\mathcal{O}$ ，使得对于任意 $x\in X$ ， $\mathcal{N}(x)$ 均为 $x$ 的邻域系.
 
+### 子空间
+
 设 $(X,\mathcal{O})$ 为拓扑空间， $Y\subset X$ ，则 $Y$ 的子集族 $\mathcal{O}|Y=\{U\cap Y:U\in \mathcal{O}\}$ 也为一个拓扑，称 $(Y,\mathcal{O}| Y)$ 为 $(X,\mathcal{O})$ 的一个**子空间**. 若 $Y$ 是 $X$ 的开（闭）集，则称 $(Y,\mathcal{O}|Y)$ 是 $(X,\mathcal{O})$ 的一个开（闭）子空间.
 
 >[!note]- 若 $(Y,\mathcal{O}|Y)$ 是 $(X,\mathcal{O})$ 的子空间，则 $Y$ 的子集 $A$ 是闭集当且仅当存在 $(X,\mathcal{O})$ 的闭集 $F$ 使得 $A=Y\cap F$ .
@@ -643,10 +648,16 @@ $$\begin{aligned}&(\text{N}1)\ X\in \mathcal{N}(x),\forall x\in X\\&(\text{N}2)\
 
 >[!note]- 闭集拼接定理
 
+承接下面的连续映射的概念，有子空间拓扑的一个刻画：
+
+>[!note] 设 $(X,\mathcal{O})$ 是拓扑空间， $Y\subset X$ ，则 $Y$ 的子空间拓扑是 $Y$ 上使得含入映射 $i: Y\rightarrow X$ 连续的最粗的拓扑. [[2420Su111353]]
+
+换言之，子拓扑是又一个映射确定的，在[[#乘积空间]]中会继续讨论，这种由映射确定的拓扑空间称为初始拓扑.
+
 ## 连续映射和同胚
 
 >[!summary]+ 自查表
->- 连续映射的定义；
+>- 连续映射的定义；等价刻画；
 
 连续映射是拓扑学的核心概念.
 
@@ -657,9 +668,9 @@ $$\begin{aligned}&(\text{N}1)\ X\in \mathcal{N}(x),\forall x\in X\\&(\text{N}2)\
 
 定义**开映射**：任给 $X$ 的开集 $U$ ， $f(U)$ 为开集；**闭映射**：任给 $X$ 的闭集 $F$ ， $f(F)$ 为闭集.
 
-称一个性质是**拓扑性质**，如果在同胚映射下保持该性质.
-
 ### 同胚
+
+称一个性质是**拓扑性质**，如果在同胚映射下保持该性质.
 
 >[!warning] 从 $X$ 到 $Y$ 存在连续双射 $\not\Rightarrow$ $X$ 和 $Y$ 同胚.
 >如果 $X$ 是紧空间，  $Y$ 是 Hausdorff 空间，则该命题成立.
@@ -716,7 +727,7 @@ $$\begin{aligned}
 设 $(X,\mathcal{O})$ 为拓扑空间， $\mathcal{B}$ 是一族开集，如果开集族 
 
 $$\{X\}\cup\{U_1\cap U_2\cap \cdots\cap U_n:U_i\in \mathcal{B},n\geq1\}$$ 
-是 $\mathcal{O}$ 的一个基，则称 $\mathcal{B}$ 为 $\mathcal{O}$ 的一个**子基**（subbasis）.
+是 $\mathcal{O}$ 的一个基，则称 $\mathcal{B}$ 为 $\mathcal{O}$ 的一个**子基**（subbasis）. 即为，基中的每一个元素都可以表示为子基的有限交.
 
 设 $X$ 为拓扑空间， $x\in X$ ， $\mathcal{A}$ 为 $x$ 的一族邻域. 若任给 $x$ 的邻域 $U$ ，存在 $A\in \mathcal{A}$ 使得 $A\subset U$ ，则称 $\mathcal{A}$ 为 $x$ 的一个**邻域基**.
 
@@ -1042,6 +1053,8 @@ $T_3$ 空间为正则的 $T_0$ 空间.
 
 ### $T_4$ 空间
 
+>[!note] 正规的定义； $T_4$ 空间的定义；
+
 称拓扑空间 $X$ **正规**（normal），如果任给不交闭集 $F,G\subset X$ ，存在不交开集 $U\supset F,V\supset G$ .
 
 $T_4$ 空间为正规的 $T_1$ 空间.
@@ -1057,7 +1070,27 @@ $T_4$ 空间为正规的 $T_1$ 空间.
 >2) （不存在非空的不交闭集，主要原因是在 $\mathcal{O}$ 的定义下任何闭集都含有 $\{0\}$ ）假设 $A,B$ 为不交闭集， $A^c,B^c$ 为开集且非 $\{\emptyset,\mathbb{N}\}$ 中元素，并且 $0\notin A^c,0\notin B^c$ ，从而 $0\in A\cap B$ ，所以 $\mathbb{N},\mathcal{O}$ 中没有非平凡不交闭集，而如果 $A$ 取 $\emptyset$ 则 $A,B$ 交为空，取 $\emptyset\supset A,\mathbb{N}\supset B$ 即可，所以 $X$ 正规. 
 >3) （如 2) 陈述， $0\notin X$ ，因此可以定义非平凡的不交闭集，而这显然会产生矛盾）$\mathbb{N}\backslash \{0\},\mathcal{O}'$ 上的拓扑为： $\{\emptyset,\mathbb{N}\backslash\{0\}\}\cup\{U\backslash\{0\}:0\notin U,U\subset \mathbb{N},\lvert X\backslash U\rvert<\infty\}$ . 取不交闭集 $\{1\}=(\mathbb{N}\backslash\{0\})\cap\{0,1\},\{2\}=(\mathbb{N}\backslash\{0\})\cap\{0,2\}$ ，设存在开集 $U\backslash\{0\}\ni \{1\},V\backslash\{0\}\ni \{2\}$ ， $\mathbb{N}\backslash (U\cap V)=\mathbb{N}\backslash U\cup \mathbb{N}\backslash V$ 为有限集，所以 $U\cap V$ 为 $\mathbb{N}$ 中的无限集，进而 $U\backslash\{0\}\cap V\backslash\{0\}=U\cap V\backslash\{0\}$ 为 $\mathbb{N}\backslash\{0\}$ 中的无限集. 所以非正则空间.
 
+>[!note] 度量空间是正规空间.
+>证明：构造连续函数 $f(x)=\frac{d(x,F)}{d(x,F)+d(x,G)}$
+
 # 乘积空间
+
+[[2420Sa101918]]
+
+设 $X,Y_i,1\leq i\leq n$ 为拓扑空间， $\{f_i:X\rightarrow Y_i\}_{1\leq i\leq n}$ 是一族映射.
+
+定义由映射族 $\{f_i\}_{1\leq i\leq n}$ 生成的 $X$ 上的**初始拓扑**（initial topology）或者**弱拓扑**（weak topology）为由：
+
+$$\mathcal{B}=\{f^{-1}_i(V_i):V_i\text{ 为 }Y_i\text{ 中的开集},i\in I\}$$
+
+作为子基生成的拓扑 $\mathcal{O}$ .
+
+>[!note] $f_i:(X,\mathcal{O})\rightarrow Y_i$ 连续.
+
+>[!note]- 任给 $X$ 上的拓扑 $\tau$ ，如果 $f_i:(X,\tau)\rightarrow Y$ 连续，则 $\mathcal{O}\subset \tau$ . 即 $\mathcal{O}$ 是使得 $X$ 上的 $\{f_i\}_{i\in I}$ 连续的最粗拓扑.
+>证明：对于 $\mathcal{O}$ 中的任意开集 $U$ ，其都可以表示为 $\mathcal{B}$ 中的元素的有限交的并，并且 $f_i$ 连续，从而 $\mathcal{B}$ 中的任何一个元素都是 $\tau$ 中的开集，从而 $U\in \tau$ .
+
+>[!example] 子空间是一个初始拓扑.
 
 设 $\{(X_i,\tau_i)\}_{i\in I}$ 为一族拓扑空间，定义 $\prod_{i\in I}^{}X_i=\{f:I\rightarrow \bigcup_{i\in I}X_i:f(i)\in X_i\}$ ，进而定义**投影映射** $P_{i_0}:\prod_{i\in I}^{}X_i\rightarrow X_{i_0},P_{i_0}(f)=f(i_0)$ ，定义**乘积拓扑**： $\prod_{i\in I}^{}\tau_i$ 是由<u>子基</u> $\{P_i^{-1}(U_i):i\in I,U_i\in \tau_i\}$ 生成的拓扑.
 
@@ -1173,6 +1206,81 @@ $$\begin{aligned}
 >[!example] 设 $X$ 是拓扑空间， $E$ 是 $X$ 上的等价关系，证明若 $E\subset X\times X$ 是闭集，并且 $q:X\rightarrow X\backslash E$ 是开映射，则 $X\backslash E$ 是 Hausdorff 空间.
 
 
+# 度量化定理
+
+## Urysohn 引理
+
+>[!note] Urysohn 引理：对于正规空间 $X$ 中任意两个不交非空闭集 $F,G$ ，存在连续函数 $f: X\rightarrow[0,1]$ 使得 $f(F)=\{0\},f(G)=1$ .
+
+Urysohn 引理建立起正规空间到闭区间 $[0,1]$ 之间的联系.
+
+首先给出 $X$ 上的连续函数 $f: X\rightarrow \mathbb{R}$ 的一个性质，设 $D$ 为 $\mathbb{R}$ 中的稠密子集，则有：
+
+>[!note] 若 $f: X\rightarrow \mathbb{R}$ 为连续函数则： $f(x)=\sup\{r\in D:x\in U_r\}$ ，其中 $U_r=f^{-1}(r,+\infty)$ .
+>证明：因为 $x\in U_r$ ，所以 $f(x)>r$ ，因为 $D$ 为 $\mathbb{R}$ 中的稠子集，所以对于任意的 $\epsilon>0$ ，存在 $r$ 使得： $r>f(x)-\epsilon$ ，所以 $\sup\{r\in D: x\in U_r\}=f(x)$ .
+
+并且具有以下性质：
+
+>[!note]- $\bigcup_{r\in D}U_r=X$ ； $\bigcap_{r\in D}U_r=\emptyset$ ； $\forall r<s,\overline{U_s}\subset U_r$ .
+>证明：前两个显然. 对于任意的 $r<s$ 有： $U_s\subset U_r$ ， $f^{-1}(s,+\infty)\subset f^{-1}([s,+\infty))\subset f^{-1}(r,+\infty)$ ，并且 $f^{-1}([s,+\infty))$ 是闭集，所以 $\overline{U_s}\subset f^{-1}([s,+\infty))\subset f^{-1}(r,+\infty)$ .
+
+反之，可以证明具有以上三条性质的集合族可以定义一个连续函数：
+
+>[!note] 设拓扑空间 $X$ ， $D$ 为 $\mathbb{R}$ 上的稠子集， $\{U_r\}_{r\in D}$ 为 $X$ 中的一族开集，如果满足： $\bigcup_{r\in D}U_r=X,\bigcap_{r\in D}U_r=\emptyset,\forall r<s(\overline{U_s}\subset U_r)$ ，则 $f(x)=\sup\{r:x\in U_r\}$ 是 $X\rightarrow \mathbb{R}$ 上的连续函数. 
+>证明：因为 $\{(-\infty,c),(c,+\infty):c\in \mathbb{R}\}$ 是 $\mathbb{R}$ 上的一组基，所以只需要证明 $f^{-1}(-\infty,c),f^{-1}(c,+\infty)$ 是 $X$ 中的开集即可.
+>
+>因为 $D$ 是 $\mathbb{R}$ 上的稠子集，所以 $f^{-1}(c,+\infty)=\bigcup_{r>c}U_r$ 为 $X$ 中的开集；
+>
+>对于 $x\in f^{-1}(-\infty,c)$ 有 $f(x)<c$ ，考虑 $X\backslash f^{-1}(-\infty,c)=f^{-1}([c,\infty)$ ， $x\in f^{-1}([c,\infty])$ 当且仅当对于任意的 $r<c,x\in U_r$ ，从而 $x\in f^{-1}(c,\infty)$ 当且仅当存在 $s<c$ 使得 $x\in X\backslash U_s$ ， $x\notin U_s$ ，所以对于任意的 $r\in \{r:x\in U_r\}$ ，有 $s>r$ ，从而 $U_s\subset \overline{U_s}\subsetneq U_r$ ，从而 $x\notin \overline{U_s}$ ，所以 $f^{-1}(-\infty,c)=\bigcup_{s<c}(X\backslash \overline{U_s})$ 为开集.
+
+下面证明 Urysohn 引理：对于不交闭集 $F,G$ ，首先取开集 $U_0=X\backslash F$ ，因为 $X$ 是正规空间，所以存在 $U_1$ 使得： $G\subset U_1\subset \overline{U_1}\subset U_0=X\backslash F$ . 再由正规的性质，存在开集 $U_{\frac{1}{2}}:\overline{U_1}\subset U_{\frac{1}{2}}\subset \overline{U_\frac{1}{2}}\subset U_0$ ， $U_1\subset \overline{U_1}\subset U_\frac{1}{2}\subset \overline{U_{\frac{1}{2}}}\subset U_0$ ，继续由正规性质即可得到 $[0,1]$ 中的稠子集 $\left\{\frac{k}{2^n}:0\leq k\leq 2^{n}\right\}_{n\ge1}$ . 再令 $U_s=X,\forall s>1,U_r=\emptyset,\forall s<0$ ，构造指标集 $E=(-\infty,0)\cup D\cup (1,\infty)$ ，其为 $\mathbb{R}$ 中的稠子集，并且集合族 $\{U_r\}_{r\in E}$ 满足上面的三个条件，定义函数 $f(x)=\sup\{r:x\in U_r\}$ ，则 $f$ 是连续函数，且对于任意的 $x\in G\subset U_1$ ，可知 $f(x)=1$ ，对任意的 $x\in F=X\backslash U_0$ ，有 $f(x)=0$ .从而可得结论.
+
+>[!note] 设 $F$ 是正规空间 $X$ 的非空闭子集，证明 $F$ 能写成可数个开集的交当且仅当存在连续函数 $f: X\rightarrow[0,1]$ 使得 $F=f^{-1}(0)$ .
+
+证明：
+
+$\Rightarrow$ ：设存在开集列 $\{U_n\}_{n\geq1}$ 使得 $F=\bigcap_{n\ge1}U_n\ne\emptyset$ ，则 $F\subset U_1$ ，取 $G=X\backslash U_1$ ，从而 $G,F$ 为不交的非空闭集，由 Urysohn 引理可知存在连续函数 $f$ 使得 $f(F)=\{0\}$ 即得结论.
+
+$\Leftarrow$ ： $F=f^{-1}(0)=f^{-1}\left(\bigcap_{n\geq1}\left[0,\frac{1}{n}\right)\right)=\bigcap_{n\geq1}f^{-1}\left(\left[0,\frac{1}{n}\right)\right)$ ，由 $f$ 连续可知 $F$ 为可数个开集的交.
+
+>[!example] 设 $X$ 是正规空间， $U_1,U_2,\cdots,U_n$ 为 $X$ 中的开集， $\bigcup_{i\leq n}U_i=X$ 则有： 1) 存在开集 $V_1,\cdots,V_n$ 为 $X$ 中的开集，使得 $\bigcup_{i\leq n}V_i=X$ ，并且对任意 $i\leq n,\overline{V_i}\subset U_i$ . 2) 存在连续函数 $f_1,f_2,\cdots,f_n:X\rightarrow[0,1]$ ，满足 i) $\forall x\in X,\sum\limits_{i\leq n}^{}f_i(x)=1$ ；ii) $\forall i\leq n,\overline{f^{-1}_i(0,1]}\subset U_i$ .
+
+证明：因为 $X=\bigcup_{i\leq n}U_i=U_1\cup\bigcup_{i=2}^nU_i$ ，所以 $X\backslash\bigcup_{i=2}^nU_i=\bigcap_{i=2}^nU_i^c\subset U_1$ ，进而由 $X$ 是正规空间，存在开集 $V_1$ 使得： $W_1=\bigcap_{i=2}^nU_i^c\subset V_1\subset \overline{V_1}\subset U_1$ ，同理可得 $V_i\subset U_i,\forall i\leq n$ . 并且： 
+
+$$\bigcup_{i\leq n}V_i\supset \bigcup_{i\leq n} X\backslash \bigcup_{j\neq i}U_j=X\backslash \bigcap_{i\leq n}\bigcup_{j\neq i}U_j=X$$
+
+从而 1) 成立.
+
+对于任意的 $i\leq n$ ，存在闭集 $W_i\subset V_i\subset \overline{V_i}\subset U_i$ ，进而 $W_i,X\backslash V_i$ 为不交的闭集，由 Urysohn 引理，存在连续函数 $g_i: X\rightarrow [0,1]$ 使得 $g_i(X\backslash V_i)=0,g(W_i)=1$ ，从而：
+
+$$g^{-1}(0,1]\subset V_1\Rightarrow \overline{g^{-1}(0,1]}\subset \overline{V_1}$$
+
+考虑 $\sum\limits_{i=1}^{n}g_i$ ，注意到对于任意的 $x\in X$ ，总存在 $W_i\in x$ ，从而 $\sum\limits_{i=1}^{n}g_i\neq 0$ . 
+
+令 $f_i=\frac{g_i}{\sum\limits_{j=1}^{n}g_i}$ ，则有 $\sum\limits_{i=1}^{n}f_i=1$ ，并且 $f_i^{-1}(0,1]=g^{-1}(0,1]$ ，从而有 ii) 成立.
+
+>[!example] 若拓扑空间 $X$ 中的每个子空间都是正规空间，则称 $X$ 完全正规，证明 $X$ 完全正规当且仅当任给 $X$ 的两个分离集 $A,B$ （ $\bar{A}\cap B=A\cap \bar{B}=\emptyset$ ），存在 $X$ 的不交开集 $U,V$ 使得 $A\subset U,B\subset V$ .
+
+证明：
+
+$\Rightarrow$ ： 取 $Y=X\backslash (\bar{A}\cap \bar{B})$ ，从而 $Y$ 为正规空间，则 $Y\cap \bar{A},Y\cap \bar{B}$ 为 $Y$ 中的不交闭集，因此存在不交开集 $U',V'$ 使得 $Y\cap \bar{A}\subset U',Y\cap \bar{B}\subset V'$ . 注意到：
+
+$$\begin{aligned}
+Y\cap \bar{A}&=(X\cap (\bar{A}\cap \bar{B})^c)\cap \bar{A}\\
+&=(X\cap (\bar{A}^c\cup \bar{B}^c))\cap \bar{A}\\
+&=((X\cap \bar{A}^c)\cup (X\cap \bar{B}^c))\cap \bar{A}\\
+&=X\cap \bar{B}^c\cap \bar{A}\\
+&=(X\backslash \bar{B})^c\cap \bar{A}\\
+&\supset A
+\end{aligned}$$
+
+其中由 $\bar{B}\cap A=\emptyset$ 可得到最后结论. 从而开集 $U'\supset A$ ，同理 $V'\supset B$ .
+
+$\Leftarrow$ ：设 $Y$ 为 $X$ 的子空间，对于 $Y$ 中任意两个不交闭集 $F=F'\cap X,G=G'\cap X$ ，假设 $\bar{F}\cap G\neq \emptyset$ ，则存在 $G$ 中的点 $x$ ， $x\in \overline{F}\subset F'\cap X$ ，从而 $x\in F'$ ，所以 $x\in F\cap G$ ，矛盾！因此 $F,G$ 是分离集，从而可得结论.
+
+## Urysohn 度量化定理
+
+有可数集的 $T_3$ 空间可以度量化，特别地，有可数集的紧 Hausdorff 空间可度量化.
 
 
 
