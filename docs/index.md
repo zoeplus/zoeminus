@@ -13,6 +13,7 @@ hide:
 - [一般拓扑学](Math/GTopo)
 - [抽象代数](Math/AAlg)
 - [实变函数](Math/RF)
+- [最优化理论](Math/Opt)
 
 # 编程基础
 
