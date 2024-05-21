@@ -33,9 +33,10 @@ nav:
     - 'Python DM & ML': 'Cookbooks/PyDCB.md'
   - 零零五五:
     - '遥望': 'Parrot/Divisadero.md'
-    - '感官刺激': 'Parrot/Senses.md'
-    - '清醒的梦': 'Parrot/LucidDreaming.md'
+    - '溶': 'Parrot/Relate.md'
+    - '异': 'Parrot/Different.md'
     - '落': 'Parrot/Falling.md'
+    - '清醒的梦': 'Parrot/LucidDreaming.md'
     - '对话': 'Parrot/WithLLM.md'
     - '存在主义': 
       - '存在 I': 'Parrot/Existential.md'
