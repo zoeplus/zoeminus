@@ -1,6 +1,6 @@
 # 概率论讨论对象
 
-概率论中的三个要素： $(\Omega,\mathcal{F},P)$ 其中 $\Omega$ 称为**样本空间**（sample space）由（一个随机过程中出现的）所有可能结果构成， $\mathcal{F}$ 为 $\Omega$ 的<u>一些</u>子集组成的一个集合，称为**事件集**（set of events）， $P:\mathcal{F}\rightarrow[0,1]$ 称为**概率函数**或者**概率测度**.
+概率论中的三个要素： $(\Omega,\mathcal{F},P)$ . 其中 $\Omega$ 称为**样本空间**（sample space）由（一个随机过程中出现的）所有可能结果构成， $\mathcal{F}$ 为 $\Omega$ 的<u>一些</u>子集组成的一个集合，称为**事件集**（set of events）， $P:\mathcal{F}\rightarrow[0,1]$ 称为**概率函数**或者**概率测度**.
 
 ## 样本空间
 
@@ -88,7 +88,6 @@ $\mathcal{F}$ 必须是 $\sigma-$ 域（**sigma-field**，或者称 $\sigma-$ �
 >[!note]- 求和公式： $\mathcal{P}(A\cup B)=\mathcal{P}(A)+\mathcal{P}(B)-\mathcal{P}(A\cap B)$ . 从而有 $\mathcal{P}(A\cap B)\geq \mathcal{P}(A)+\mathcal{P}(B)-1$ .
 
 >[!note] 一般求和公式.
->
 >$$\begin{aligned}
 >\mathcal{P}(A_1\cup A_2\cup \cdots\cup A_n)&=\sum\limits_{i=1}^{n}\mathcal{P}(A_i)-\sum\limits_{1\leq i<j\leq n}^{}\mathcal{P}(A_iA_j)\\
 >&+\sum\limits_{1\leq i<j<k\leq n}^{}\mathcal{P}(A_iA_jA_k)-\cdots\\
@@ -113,22 +112,34 @@ $\mathcal{F}$ 必须是 $\sigma-$ 域（**sigma-field**，或者称 $\sigma-$ �
 >从而 $\mathcal{P}(A_1\cup A_2\cup \cdots\cup A_n)=\sum\limits_{i=1}^{N}(-1)^{i-1}\binom{N}{i}\left(\frac{N-i}{N}\right)^n$ .
 
 >[!example]- 第一局由甲乙参加，丙轮空；第一局的优胜者和丙进行第二局比赛，失败者轮空；比赛一直进行直到某人连续获胜两次. 甲乙丙每局获胜概率各为 $\frac{1}{2}$ ，三者获胜的概率各为多少？
->见[[ProbDraw]]，用 $a,b,c$ 表示甲、乙、丙在当前对局中失败. 由规则一个人不能连续失败两次，因此 $aa,bb,cc$ 模式均不可能出现，并且对于当前字母 $a/b/c$ 其有 $1/2$ 的概率转换为另外两个字母之一. 最终甲获胜的情况即为出现 $bcb$ 或者 $cbc$ 的同时不出现 $aba,bab,cac,aca$ 中的任何一个情况，以及在最开始时的 $bc$ ，并且注意到起始三个元素将会决定所有后续 $abcabc\cdots,bacbac\cdots$），在这种情况下甲获胜的序列：
->1) 若长度为 $3k+1$ ，则最后几个元素为 $$\begin{aligned}
+>见 [[ProbDraw]] ，用 $a,b,c$ 表示甲、乙、丙在当前对局中失败. 由规则一个人不能连续失败两次，因此 $aa,bb,cc$ 模式均不可能出现，并且对于当前字母 $a/b/c$ 其有 $1/2$ 的概率转换为另外两个字母之一. 最终甲获胜的情况即为出现 $bcb$ 或者 $cbc$ 的同时不出现 $aba,bab,cac,aca$ 中的任何一个情况，以及在最开始时的 $bc$ ，并且注意到起始三个元素将会决定所有后续 $abcabc\cdots,bacbac\cdots$），在这种情况下甲获胜的序列：
+>1) 若长度为 $3k+1$ ，则最后几个元素为 
+>
+>$$\begin{aligned}
 >&abcabc\cdots abcb\\
 >&bacbac\cdots bac\times\\
 >\end{aligned}$$
->2) 若长度为 $3k+2$ ，则最后几个元素为： $$\begin{aligned}
+>
+>2) 若长度为 $3k+2$ ，则最后几个元素为： 
+>
+>$$\begin{aligned}
 >&abcabc\cdots abcbc(\text{repeat})\\
 >&bacbac\cdots bacbc\\
->\end{aligned}$$ 注意当 $k=0$ 时也有一种情况.
+>\end{aligned}$$
+>
+>注意当 $k=0$ 时也有一种情况.
+>
 >3) 若长度为 $3k$ ，情况不存在.
 >
-所以甲获胜的概率为 $$1\times \frac{1}{2^2}+\sum\limits_{k=1}^{\infty}\left[1\times\frac{1}{2^{3k+1}}+1\times \frac{1}{2^{3k+2}}\right]=\frac{1}{4}+\frac{1}{16}/\frac{7}{8}+\frac{1}{32}/\frac{7}{8}=\frac{5}{14}$$
+>所以甲获胜的概率为：
+>
+>$$1\times \frac{1}{2^2}+\sum\limits_{k=1}^{\infty}\left[1\times\frac{1}{2^{3k+1}}+1\times \frac{1}{2^{3k+2}}\right]=\frac{1}{4}+\frac{1}{16}/\frac{7}{8}+\frac{1}{32}/\frac{7}{8}=\frac{5}{14}$$
 >
 >进而可以得到之后的值.
 >
->另一方面：考虑的是丙在 $3k+1$ 时获胜的情形： $$\begin{aligned}
+>另一方面：考虑的是丙在 $3k+1$ 时获胜的情形： 
+>
+>$$\begin{aligned}
 >&abcabc\cdots abc\times\\
 >&bacbac\cdots bac\times\\
 >\end{aligned}$$ $3k+2:$ $$\begin{aligned}
@@ -141,7 +152,7 @@ $\mathcal{F}$ 必须是 $\sigma-$ 域（**sigma-field**，或者称 $\sigma-$ �
 >
 >则丙有 $2$ 种获胜可能. 所以丙的获胜概率（注意这里已经不是古典概率模型了，而只是出现这样的结果的概率）为 $$2\times \frac{1}{2^3}+2\times \frac{1}{2^6}+\cdots$$
 
->[!note]- 若 $A\supset B$ ，则 $\mathcal{P}(A\backslash B)=\mathcal{P}(A)-\mathcal{P}(B)$ . 若 $A,B$ 没有包含关系，则 $\mathcal{P}(A\backslash B)=\mathcal{P}(A)-\mathcal{P}(A\cap B)$ .
+>[!note] 若 $A\supset B$ ，则 $\mathcal{P}(A\backslash B)=\mathcal{P}(A)-\mathcal{P}(B)$ . 若 $A,B$ 没有包含关系，则 $\mathcal{P}(A\backslash B)=\mathcal{P}(A)-\mathcal{P}(A\cap B)$ .
 
 # 简单概率模型
 
@@ -158,7 +169,7 @@ $\mathcal{F}$ 必须是 $\sigma-$ 域（**sigma-field**，或者称 $\sigma-$ �
 
 在此情况下，对于一个事件 $A$ ，可以计算其概率： $\mathcal{P}(A)=\frac{\lvert A\rvert}{\lvert \Omega\rvert}$
 
->[!example]- 不是古典概率模型举例. #issue 
+>[!example] 不是古典概率模型举例. #issue 
 >课堂上举的例子 $\{1,2,2,3,3,3\}$ 有问题.
 
 计算古典概率模型需要用到[排列](DSA.md#排列)和[组合](DSA.md#组合)分析. 一般对于古典概型问题中直观上的相同元素（例如，同色小球）按照不同进行处理.
@@ -405,6 +416,8 @@ $$\mathcal{P}(\mu=k)=\mathcal{P}(B_k)\overset{def}{=}b(k;n,p),k=0,1,\cdots,n$$
 
 组成的事件域下面来证明 $\mathcal{P}$ 在由 $\{B_k\}_{1\leq k\leq n},\emptyset,\Omega$ 组成的有限 $\sigma$ 事件域上符合概率函数的定义：非负显然；对于规范性， $\mathcal{P}(\Omega)$ 可以转换为更小的 $\mathcal{P}(A_{i_1}\cdots A_{i_k}\bar{A}_{j_1}\cdots\bar{A}_{j_{n-k}})$ 的和，为 $1$ ；对于可列可加性也是类似的思想（由于不相容的限制，所以只能是 $B_k$ 的和，或者是更平凡的情况）.
 
+[[2420Sa083626]]
+
 >[!example]- **随机游走**（random work）：考虑一维坐标轴，从 $a\in \mathbb{Z}$ 出发，只能进行 $+1$ （前进） 或者 $-1$ （后退），分别考虑：1) 无约束情况：求在 $n$ 步之后到达 $a+k(k\in \mathbb{Z})$ 的概率；2) 有约束情况：游走到 $0$ 或者 $a+b$ 就会被吸附，无法继续游走，求则被吸附的概率.
 >无约束情况：最简单的二项分布，设前进 $x$ 步后退 $y$ 步，计算 $x+y=n,x-y=k$ 进而可得 $x=\frac{n+k}{2}$ ， $y=\frac{n-k}{2}$ ，再计算 $\binom{n}{k}p^x(1-p)^y$ 即可.
 >
@@ -425,14 +438,16 @@ $$\mathcal{P}(\mu=k)=\mathcal{P}(B_k)\overset{def}{=}b(k;n,p),k=0,1,\cdots,n$$
 
 ### 几何分布
 
->[!summary]+ 自查表
+>[!summary] 自查表
 >- 几何分布的定义；和几何概率模型有什么关系？
 
 不断进行相互独立的 Bernoulli 试验，每一次 Bernoulli 试验事件 $A$ 发生的概率为 $p$ ，考虑 $A$ <u>首次发生</u>出现在第 $k$ 次（记事件为 $W_k$ ）的概率.
 
 $$\mathcal{P}(W_k)=\mathcal{P}(\bar{A}_1\cdots \bar{A}_{k-1}A_k)=(1-p)^{k-1}p$$
 
-称 $g(k;p)=(1-p)^{k-1}p,k\geq1$ 为**几何分布**. 并且有： $$\sum\limits_{k=1}^{\infty}g(k;p)=1$$
+称 $g(k;p)=(1-p)^{k-1}p,k\geq1$ 为**几何分布**. 并且有： 
+
+$$\sum\limits_{k=1}^{\infty}g(k;p)=1$$
 
 $\mathcal{P}$ 是由 $W_1,W_2,\cdots,W_k,\emptyset,\Omega$ 组成的事件域 $\mathcal{F}$ 上的概率函数：非负性显然；规范性， $\Omega$ 可以拆分为不相交的事件；可列可加性；
 
@@ -1111,9 +1126,6 @@ $$\begin{aligned}
 
 进而定义 $\xi=F^{-1}(\theta)$ ， $F^{-1}$ 单调因而是 Borel 函数，从而 $\xi$ 是随机变量，并且同上证明可知 $\xi$ 的分布函数为 $F(x)$ .
 
-
-
-
 # 特征函数与数学期望
 
 ## 数学期望
@@ -1168,21 +1180,320 @@ $$E \xi=\sum\limits_{k=1}^{\infty}\mathcal{P}(\xi=k)k=\sum\limits_{k=1}^{\infty}
 
 ## 方差
 
-设 $\xi$ 为随机变量，如果 $E(\xi-E \xi)^2$ 存在，则定义 $\xi$ 的**方差**为 $E(\xi-E \xi)^2$ .
+设 $\xi$ 为随机变量，如果 $E(\xi-E \xi)^2$ 存在，则定义 $\xi$ 的**方差**为 $D\xi=E(\xi-E \xi)^2$ . 称 $\sqrt{D \xi}$ 为 $\xi$ 的根方差 / 均方差 / **标准差**.
 
 >[!note] $E(\xi-E \xi)^2=E(\xi^2)-(E \xi)^2$ .
 > $$E(\xi^2-2 \xi E\xi +(E \xi)^2)=E(\xi^2)-(E \xi)^2$$
 
+>[!note] $D(\xi+c)=D \xi$ .
 
+>[!note] $D(c \xi)=c^2D\xi$ .
+
+>[!note]- $D\xi\geq0$ 并且 $D\xi=0\Leftrightarrow \exists c,\mathcal{P}(\xi=c)=1$ .
+>证明：由定义 $D\xi\geq0$ .
+>
+>$\Rightarrow$ ：取 $c=E\xi$ ，则：
+>
+>$$\begin{aligned}
+>D\xi &=\int_{-\infty}^c(x-E\xi)^2dF(x)+\int_{c}^\infty(x-E\xi)^2dF(x)+\int_{\{c\}}(x-E\xi)^2dF(x)\\
+>&=0
+>\end{aligned}$$
+>
+>从而可得
+>
+>$$\int_{-\infty}^c(x-E\xi)^2dF(x)=\int_c^{\infty}(x-E\xi)^2dF(x)=0$$
+>
+>所以： $dF(x)=0,x\neq c$ ，所以 $F(c)=F(-\infty)=0,F(c+0)=F(+\infty)=1$ ，则 $F(c)=F(c+0)-F(c)=1$ . 
+
+有如下推论：
+
+>[!note] $E\xi^2=0\Rightarrow \mathcal{P}(\xi=0)=1$ .
+>证明： $E\xi^2=-\Rightarrow D\xi=0,E\xi=0\Rightarrow \mathcal{P}(\xi=0)=1$ .
+
+>[!note]- $E(\xi-E\xi)^2\leq E(\xi-c)^2$ 或 $D\xi=\min_{c\in \mathbb{R}}(\xi-c)^2$ .
+>证明：
+>
+>$$\begin{aligned}
+>E(\xi-E\xi)^2&=E(\xi-c+c-E\xi)^2\\
+>&=E(\xi-c)^2+2(c-E\xi)E(\xi-c)+E(c-E\xi)^2\\
+>&=E(\xi-c)^2-(E\xi -c)^2\leq E(\xi-c)^2
+>\end{aligned}$$
+
+>[!example]- 如果 $\xi\in[a,b]$ ，证明： $D\xi\leq \frac{(b-a)^2}{4}$ ，取等条件？
+>证明：
+>
+>$$D\xi\leq E\left(\xi-\frac{a+b}{2}\right)^2\leq E\left(\frac{(b-a)^2}{4}\right)=\frac{(b-a)^2}{4}$$
+>
+>从而得证. 当且仅当 $E\xi=\frac{a+b}{2}$ 时取等.
+
+有如下推论：
 
 >[!note] 服从正态分布 $N(\mu,\sigma^2)$ 的随机变量 $\xi$ 方差.
+> $$\begin{aligned}
+>D(\xi)&=\int_{-\infty}^\infty (x-\mu)^2\frac{1}{\sqrt{2\pi}\sigma}\exp\left(-\frac{(x-\mu)^2}{2\sigma^2}\right)dx\\
+>&\overset{z=\frac{x-\mu}{\sigma}}{=}\frac{1}{\sqrt{2\pi}\sigma}\sigma\int_{-\infty}^{\infty}(\sigma z)^2\exp\left(-\frac{z^2}{2}\right)dz\\
+>&=\frac{1}{\sqrt{2\pi}}\sigma^2\int_{-\infty}^\infty z^2\exp(-z^2/2)dz\\
+>&=-\frac{1}{\sqrt{2\pi}}\sigma^2\int_{\infty}^\infty z\ d(\exp (-z^2/2))\\
+>&=-\frac{1}{\sqrt{2\pi}}\sigma^2\left(z\exp(-z^2/2)|_{\infty}^\infty-\int_{-\infty}^\infty\exp(-z^2/2)dz\right)\\
+>&=\sigma^2
+>\end{aligned}$$
+
+[[2420Fr180734]]
+
+>[!example]- $\xi\sim U([a,b])$ ，则 $D\xi=\frac{(a-b)^2}{12}$ .
+>$$\begin{aligned}
+>E\xi^2&=\int_{a}^bx^2\frac{1}{b-a}dx\\
+>&=\frac{b^3-a^3}{3(b-a)}=\frac{b^2+a^2+ab}{3}\\
+>\end{aligned}$$
+>
+>从而 $D\xi=E\xi^2-(E\xi)^2=\frac{(b-a)^2}{12}$ .
+
+>[!example]- $\xi$ 服从参数为 $p$ 的 Bernoulli 分布，则 $D\xi=pq$
+>$E\xi^2=1^2\cdot p=p$ . 从而 $D\xi=pq$ .
+
+>[!example]- $\xi$ 服从二项分布 $b(n,k,p)$ ，则 $D \xi=np(1-p)$ .
+>$$\begin{aligned}
+>E \xi^2&=\sum\limits_{k=0}^{n}k^2\binom{n}{k}p^k(1-p)^{n-k}\\
+>&=\sum\limits_{k=1}^{n}kn\binom{n-1}{k-1}p^k(1-p)^{n-k}\\
+>&=n\sum\limits_{k=1}^{n}\left[(k-1)\binom{n-1}{k-1}+\binom{n-1}{k-1}\right]p^k(1-p)^{n-k}\\
+>&=n\sum\limits_{k=2}^{n}\left[(n-1)\binom{n-2}{k-2}\right]p^k(1-p)^{n-k}+\sum\limits_{k=1}^{n}\binom{n-1}{k-1}p^k(1-p)^{n-k}\\
+>&=n(n-1)p^2+np=n^2p^2+npq
+>\end{aligned}$$
+>
+>从而可得：
+>
+>$$D\xi =n^2p^2+npq-(np)^2=npq$$
+>
+>其中用到的组合等式：
+>
+>$$\begin{aligned}
+>k\binom{n-1}{k-1}&=(k-1)\binom{n-1}{k-1}+\binom{n-1}{k-1}\\
+>&=(n-1)\binom{n-2}{k-2}+\binom{n-1}{k-1}
+>\end{aligned}$$
+
+>[!example]- $\xi$ 服从几何分布 $g(p,k)$ ，则 $D\xi=$
+
+$p_k=(1-p)^{k-1}p$ .
 
 $$\begin{aligned}
-
+E\xi^2&=\sum\limits_{k\geq1}^{}q^{k-1}pk^2\\
+&=\sum\limits_{k\geq1}^{}q^{k-1}p \cdot k(k+1)-\sum\limits_{k\geq1}^{}q^{k-1}p\cdot k\\
+&=p\left(\sum\limits_{k\geq1}^{}k(k+1)x^{k-1}\right)\bigg|_{x=q}-p\left(\sum\limits_{k\ge1}^{}kx^{k-1}\right)\bigg|_{x=q}\\
+&=p\left(\sum\limits_{k\geq1}^{}x^{k+1}\right)^{(2)}\bigg|_{x=q}-p\left(\sum\limits_{k\geq1}^{}x^k\right)'\bigg|_{x=q}\\
+&=p\left(\frac{x^2}{1-x}\right)^{(2)}\bigg|_{x=q}-p\left(\frac{x}{1-x}\right)'\bigg|_{x=q}\\
+&=
 \end{aligned}$$
 
+>[!example]- $\xi$ 服从参数为 $\lambda$ 的泊松分布，其方差为 $\lambda$ . （泊松分布的期望、方差相同）
+>$$\begin{aligned}
+>E\xi^2 &=\sum\limits_{k\geq0}^{}k^2\frac{\lambda^k}{k!}e^{-\lambda}\\
+>&=e^{-\lambda}\lambda\left[\sum\limits_{k\geq1}^{}\left(\frac{\lambda^{k-1}}{(k-1)!}k\right)\right]\\
+>&=e^{-\lambda}\lambda\sum\limits_{k\geq0}^{}\frac{\lambda^k}{k!}(k+1)\\
+>&=e^{-\lambda}\lambda^2\sum\limits_{k\geq1}^{}\frac{\lambda^{k-1}}{(k-1)!}+e^{-\lambda}\lambda e^{-\lambda}\\
+>&=\lambda^2+\lambda
+>\end{aligned}$$
+>
+>从而可得 $D \xi=\lambda$ .
+
+>[!example] $\xi$ 服从 Laplace 分布（密度函数为 $p(x)=\frac{1}{2\lambda}e^{-\lvert x-\mu\rvert/\lambda},-\infty<x<\infty,\lambda>0$）， $D\xi=2\lambda^2$ . 
+
+## 切比雪夫不等式
+
+[[2420Fr133317]]
+
+对于任意方差有限的随机变量 $\xi$ 有：
+
+$$\mathcal{P}(\lvert \xi-E \xi\rvert\geq \epsilon)\leq \frac{D\xi}{\epsilon^2}$$
+
+证明：
+
+$$D\xi \geq\int_{\lvert \xi-E\xi\rvert\geq \epsilon}(x-E\xi)^2dF(x)\geq \epsilon^2\mathcal{P}(\lvert \xi-E\xi\rvert\geq \epsilon)$$
+
+注意，当 $\epsilon$ 接近于 $0$ 时，该式是平凡的，因为 $\mathcal{P}(\lvert \xi-E \xi\rvert\ge 0)\leq 1\leq \frac{D\xi}{\epsilon^2}$ ，当 $\epsilon$ 充分大时.
+
+>[!note] 变式： $\mathcal{P}\{\lvert \xi-E\xi\rvert<\epsilon\}>1-\frac{D\xi}{\epsilon^2}$ .
+
+>[!note] 变式： $\mathcal{P}\left(\left\lvert\left\{\frac{\xi-E\xi}{\sqrt{D\xi}}\right\} \right\rvert\ge \delta\right)\leq \frac{1}{\delta^2}$ .
+
+>[!note] 推广： $\mathcal{P}\{\lvert \xi-E\xi\rvert\ge \epsilon\}\le\frac{E\lvert \xi-E\xi\rvert^r}{\epsilon^r},r\ge0$ .
+
+特别地，有 Morkov 不等式（[check-wiki](https://en.wikipedia.org/wiki/Markov%27s_inequality)）
+
+>[!note] $\mathcal{P}(\{\lvert \xi\rvert\geq \epsilon\})\leq \frac{E\lvert \xi\rvert^r}{\epsilon^r},r\ge0$ .
+
+此外，切比雪夫不等式几乎是求概率收敛的唯一方法，其用期望和方差控制概率. 即 $\xi$ 落在 $(-\delta+E\xi,\delta+E\xi)$ 的概率低于 $1-\frac{1}{\delta^2}$ .
+
+>[!note] 推论：方差为 $0$ 的随机变量（几乎处处）为常数.
+
+证明：设 $\xi,D\xi=0$ .
+
+$$\begin{aligned}
+\mathcal{P}(\xi\neq E\xi)&=\mathcal{P}\left(\bigcup_{n\geq1}\{\lvert \xi-E\xi\rvert\ge 1/n\}\right)\\
+&\le\sum\limits_{n\geq1}^{}\mathcal{P}(\lvert \xi-E\xi \rvert\ge 1/n)\\
+&\leq \sum\limits_{n\geq1}^{}\frac{D\xi }{1/n^2}=0
+\end{aligned}$$
+
+也即 $\mathcal{P}(\xi=E\xi)=1$ （概率测度为 $1$ ） [[2420Sa082320]]
+
+## 协方差
+
+在之前已经提到过两个随机变量之间的一种特殊关系：独立 $F_{\xi,\eta}(x,y)=F_{\xi}(x)F_\eta(y)$ ，这个条件实际上不容易达到.
+
+下面引入相关这一概念，其是独立的必要条件.
+
+对随机变量 $\xi,\eta$ ，如果两者的均值、方差都存在，则定义 $\xi,\eta$ 的**协方差**（covariance）为 $\text{cov}(\xi,\eta)=E((\xi-E\xi)(\eta-E\eta))$ . 有以下结论：
+
+>[!note] $\text{cov}(\xi,\eta)=E(\xi \eta)-E \xi E \eta$ .
+
+>[!note] 如果 $E\xi,E\eta$ 存在，则 $E\xi \eta$ 也存在.
+
+证明：考虑证明 $(E(\xi\eta))^2\leq (E\xi^2)(E\eta^2)$ ，采取判别式法，欲 $\Delta=(2E(\xi,\eta))^2-4(E\xi)^2(E\eta)^2$ ，因此构造函数：
+
+$$f(t)=\xi^2t^2+2\xi\eta\ t+\eta^2=(\xi t+\eta)^2\geq0$$
+
+取期望得到：
+
+$$E(f(t))=E(\xi^2)t^2+2E(\xi \eta)t+E(\eta^2)$$
+
+1. $E(\xi^2)=0$ ，则 $\mathcal{P}(\xi=0)=1$ ，从而 $\mathcal{P}(\eta \xi=0)$ （因为 $\{\eta \xi=0\}=\{\eta=0\}\cup \{\eta=0\}\supset \{\xi=0\}$ ），从而 $E(\xi \eta)=E(\xi)=0$ ，此时 $(E(\xi\eta))^2=(E\xi^2)E(\eta^2)$ .
+2. $E(\xi^2)\neq0$ ，由 $f(t)\ge0,\forall t\in \mathbb{R}$ ， $\Delta\leq 0$ ，从而可得 $(E(\xi \eta))^2\leq (E \xi^2)E(\eta^2)$ ，当且仅当存在 $t_0$ 使得 $f(t_0)=0$ 即 $\xi t_0+\eta=0$ 时上式取等.
+
+>[!note] $\text{cov}(\xi,\eta)\leq \sqrt{D\xi D\eta}$ .
+
+在协方差的基础上，如果 $D\xi,D\eta\neq0$ ，则定义**相关系数**： $\gamma=\frac{\text{cov}(\xi,\eta)}{D\xi D\eta}$ .
+
+如果 $\gamma=\pm1$ ，则称 $\eta,\xi$ 具有线性关系或**相关**，如果 $\gamma=0$ ，则称 $\eta,\xi$ 不相关.
+
+>[!note] 如果 $\xi,\eta$ 独立，则 $\xi,\eta$ 不相关.
+
+>[!example] $\xi,\eta$ 不相关，但 $\xi,\eta$ 不独立.
+
+## 母函数（生成函数）
+
+类似于 [[DSA]] 中的计数问题中的生成函数，概率论中采取母函数辅助获取随机变量的数字特征.
+
+对于非负整数值离散型随机变量 $\xi$ ，定义其**母函数**（generating function）为：
+
+$$P(s)=Es^\xi=\sum\limits_{k\ge0}^{}\mathcal{P}(\xi=k)s^k,s\in[0,1]$$
+
+其中 $s\in[0,1]$ ，从而 $P(s)$ 在 $[0,1]$ 上一致收敛并且绝对收敛.
+
+>[!warning] 母函数是对于离散型非负整数值的随机变量定义的，其他随机变量，e.g. 连续型随机变量，没有母函数定义，其类似的定义是特征函数.
+
+>[!example] $\xi$ 服从二项分布 $b(k;n,p)$ ，求其母函数.
+>$$\begin{aligned}
+>P(s)&=\sum\limits_{k=0}^{n}s^k\binom{n}{k}p^{k}q^{n-k}\\
+>&=\sum\limits_{k=0}^{n}\binom{n}{k}(sp)^kq^{n-k}\\
+>&=(sp+q)^n=((s-1)p+1)^n
+>\end{aligned}$$
+
+>[!example] $\xi$ 服从参数为 $\lambda$ 的泊松分布，求其母函数.
+>$$\begin{aligned}
+>P(s)&=\sum\limits_{k=0}^{\infty}s^k\frac{\lambda^k}{k!}e^{-\lambda}\\
+>&=e^{(s-1)\lambda}
+>\end{aligned}$$
+
+>[!example] $\xi$ 服从超几何分布，求其母函数.
+>$$\begin{aligned}
+>P(s)&=\sum\limits_{k=0}^{n}\frac{\binom{M}{k}\binom{N-M}{n-k}}{\binom{N}{n}}s^k\\
+>\end{aligned}$$
+>
+>[[2421Mo104515]]
+
+>[!example] $\xi$ 服从参数为 $p$ 的几何分布，求其母函数.
+>$$\begin{aligned}
+>P(s)&=\sum\limits_{k=1}^{\infty}q^{k-1}ps^k=ps\frac{1}{1-qs}=\frac{ps}{1-(1-p)s}
+>\end{aligned}$$
+
+>[!note] 随机变量的母函数与其分布列互相确定.
+>由定义，分布列确定母函数；反之，可以证明： $\mathcal{P}(\xi=k)=\frac{P^{(k)}(0)}{k!}$ .
+
+可以用母函数求解随机变量的数字特征：
+
+$$\begin{aligned}
+&E\xi=P'(1)\\
+&D\xi=P''(1)+P'(1)-[P'(1)]^2
+\end{aligned}$$
+
+证明略，注意用到了一致收敛，所以可以换序.
+
+## 特征函数
+
+之前所提到的数字特征： $E\xi,D\xi$ 、矩等都不能够确定一个随机变量. 母函数可以确定一个整型随机变量.
+
+特征函数可以简单地视为对于母函数的推广.
+
+为了定义特征函数，首先需要定义**复随机变量**： $\zeta=\xi+i\eta$ ，其中 $\xi,\eta$ 是随机变量，定义 $\zeta$ 的期望为 $E\zeta=E\xi+i E\eta$ ，进而可以定义其他数字特征. 称复随机变量 $\zeta_1=\xi_1+i\eta_1,\zeta_2=\xi_2+i\eta_2$ 是独立的，如果 $(\xi_1,\eta_1)$ 和 $(\xi_2,\eta_2)$ 独立. 
+
+对于随机变量 $\xi$ ，定义其**特征函数** $f(t)=E e^{it \xi}=\int_{-\infty}^\infty e^{it x}dF(x)$ .
+
+>[!example] 非负整型随机变量 $\xi$ 的特征函数.
+
+$$f_\xi(t)=\sum\limits_{k=0}^{\infty}p(\xi=k)e^{itk}=P(e^{it})$$
+
+特征函数具有如下性质：
+
+>[!note]- $\overline{f(t)}=f(-t)$ .
+>$$\begin{aligned}
+>f(-t)&=\int_{-\infty}^\infty e^{-it x}dF(x)\\
+>&=\int_{-\infty}^\infty \cos txdF(x)-\int_{\infty}^\infty\sin txdF(x)\\
+>&=\overline{f(t)}
+>\end{aligned}$$
+
+>[!note]- $\lvert f(t)\rvert\leq f(0)=1$ .
+>$$\lvert f(t)\rvert\leq \int_{-\infty}^\infty \lvert e^{-itx}\rvert dF(x)\leq \int_{-\infty}^\infty dF(x)=f(0)=1$$
+
+>[!note]- $f(t)$ 关于 $t\in \mathbb{R}$ 一致连续.
+>证明：
+>
+>$$\begin{aligned}
+>\left\lvert f(t+\delta)-f(t)\right\rvert&=\left\lvert \int_{-\infty}^\infty e^{i(t+\delta)x}-e^{itx}dF(x)\right\rvert\\
+>&=\left\lvert \int_{-\infty}^\infty e^{itx}(e^{i\delta x}-1)dF(x)\right\rvert\\
+>&\leq \int_{-\infty}^\infty \lvert e^{itx}\rvert\cdot\lvert e^{i\delta x}-1\rvert dF(x)\\
+>&\leq \int_{-\infty}^\infty \lvert e^{i\delta x}-1\rvert dF(x)\\
+>&\overset{(1)}{\leq} \int_{-\infty}^\infty \delta xdF(x)=\delta E(\xi)
+>\end{aligned}$$
+>
+>[[2421Th212702]]
+>
+>或者：
+>
+>$$\begin{aligned}
+>\int_{-\infty}^\infty\lvert e^{i\delta x}-1\rvert dF(x)&=\int_{-\infty}^B\cdot\ dF(x)+\int_{B}^A\cdot\ dF(x)+\int_A^\infty\cdot \ dF(x)\\
+>\end{aligned}$$
+>
+>其中 $\int_{-\infty}^B\cdot\ dF(x)\leq 2\int_{-\infty}^BdF(x)=2F(B)$ ，并且 $\lim_{B\rightarrow -\infty}2F(B)=0$ ；并且 $\int_{B}^A\cdot\ dF(x)=2\int_{B}^A\left\lvert \sin\frac{\delta x}{2}\right\rvert dF(x)\rightarrow 0(\delta\rightarrow0)$ . 
+
+>[!note]- 特征函数是半正定的：对于任意的 $t_i,t_j\in \mathbb{R},\lambda_i,\lambda_j\in \mathbb{C}$ 有： $\sum\limits_{i,j}^{}f(t_i-t_j)\lambda_i\overline{\lambda_j}\geq0$ 
+>证明：
+>
+>$$\begin{aligned}
+>\text{原式}&=\sum\limits_{i,j}^{}\int_{-\infty}^\infty e^{i(t_i-t_j)x}\lambda_i\overline{\lambda_j}dF(x)\\
+>&=\int_{-\infty}^\infty \sum\limits_{i,j}^{}e^{i(t_i-t_j)x}\lambda_i\overline{\lambda_j}dF(x)\\
+>&=\int_{-\infty}^\infty \sum\limits_{i}^{}e^{it_ix}\lambda_i\sum\limits_{j}^{}e^{-it_jx}\overline{\lambda_j}dF(x)\\
+>&=\int_{\infty}^\infty \left|\sum\limits_{i}^{}e^{it_ix}\right|^2dF(x)\ge0
+>\end{aligned}$$
+
+>[!note]- 两个随机变量的和的特征函数为随机变量特征函数的积.
+
+证明：设 $\xi,\eta$ ：
+
+$$\int_{\xi+\eta}$$
+
+[[2421Th215544]]
+
+类似母函数，可以根据特征函数获取随机变量的数字特征：
+
+>[!note] 如果随机变量 $\xi$ 的 $1$ 到 $n$ 阶矩都存在，则 $E\xi^k=\frac{f^{(k)}(0)}{i^k}$ ，进而有：
+
+$f(t)=$
+
+### 逆转公式
+
+可以证明满足以上三条性质： $\overline{f(t)}=f(-t)$ ， $\lvert f(t)\rvert\leq f(0)=1$ ， $f$ 关于 $t$ 一致连续的函数 $f$ 唯一确定一个随机变量.
 
 
 
 
+# 附录 I 常见变量的数字特征
 
