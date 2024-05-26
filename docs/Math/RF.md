@@ -1,12 +1,46 @@
 # 依赖与简介
 
-[实数理论](R.md) ，[集合论](Set.md)中关于集合的势以及特殊集合（如 Cantor ）集.
+[实数理论](R.md) ，[集合论](Set.md)中关于集合运算、极限、势以及特殊集合（如 Cantor 集）.
 
-引入实变函数的原因：
+## Riemann 积分的局限性
 
-在极限与积分换序这一问题下 Riemann 积分的有不足之处 #issue . 需要引入 Lebegue 积分.
+>[!note] $f$ 在 $[a,b]$ 上 Riemann 可积的充分必要条件：
+> $$\lim_{\lvert \Delta\rvert\rightarrow0}\sum\limits_{i=1}^{n}(M_i-m_i)(x_i-x_{i-1})$$
+> 
+> 其中 $\lvert \Delta\rvert=\max\{x_i-x_{i-1}:i=1,\cdots,n\}$ 
+> 
+>$$\begin{aligned}
+>&M_i=\sup\{f(x):x\in[x_{i-1},x_i]\}\\
+>&m_i=\inf\{f(x):x\in[x_{i-1},x_i]\}
+>\end{aligned}$$
+
+Riemann 可积粗略上看是要求函数几乎处处连续，即对于函数的不连续点，可以用任意小的区间包含.
+
+数学分析中一个最常见的问题是极限与积分运算交换：
 
 $$\lim_{n\rightarrow \infty}\int_a^bf_n(x)dx\overset{?}{=}\int_a^b\lim_{n\rightarrow\infty}f_n(x)dx$$
+
+有以下命题成立：
+
+>[!note] 如果函数列 $f_n$ 一致收敛到 $f$ 则：
+> $$\lim_{n\rightarrow \infty}\int_a^bf_n(x)dx=\int_a^bfdx$$
+
+但一致收敛这一要求是不必要的.
+
+>[!note] 有界收敛定理：设 $f_n$ 在 $[a,b]$ 上 Riemann 可积， $\lvert f_n(x)\rvert\leq M,\forall n\geq1,x\in[a,b]$ ， $\lim_{n\rightarrow \infty}f_n=f,\forall x\in[a,b]$ ，并且 $f$ 在 $[a,b]$ 上 Riemann 可积，则有： $\lim_{n\rightarrow \infty}\int_a^bf_n(x)=\int_a^bfdx$ .
+
+这里其实不能让人满意的一点是 $f$ 必须是可积的，也就是从 $f_n$ 可积， $f_n$ 逐点收敛于 $f$ ，无法得到 $f$ 可积. 再看下面这一定理：
+
+>[!note] $\{f_n\}_{n\geq1}$ 是
+
+但 $\lim_{n\rightarrow \infty}f_ndx$ 的值实际上依赖于 $f$ .
+
+因此，为何不妨定义积分： $\int_a^bfdx=\lim_{n\rightarrow \infty}f_ndx$ ？这正是实变函数中的一般可测函数的 Lebesgue 积分定义.
+
+在极限与积分换序这一问题下 Riemann 积分的有不足之处： Riemann 积分要求函数必须是可积的，许多函数并不满足这样的性质. 
+
+需要引入 Lebegue 积分.
+
 
 其中 $f_n(x)\rightarrow f(x),x\in X$ . 以下两个问题都可以转换为对该问题的讨论 #issue  ：
 
@@ -201,6 +235,8 @@ Lebesgue 测度具有可数可加性 $m3)$ .
 >^MonotonousLimit
 
 >[!note]- 零测集可测.
+
+>[!example] 设 $A$ 可测并且 $m(A\Delta B)=0$ ，求证： $B$ 可测.
 
 >[!example]- 设 $F$ 是 $[0,1]$ 中的不可测集，求证：存在 $0<\epsilon<1$ ，使对 $[0,1]$ 中任何满足 $m(E)\geq \epsilon$ 的可测集 $E$ ， $F\cap E$ 也是不可测集.
 >反证：假设对于任意的 $n\geq 1$ ，存在 $E_n$ 满足 $m(E_n)\geq 1-1/n$ ， $E_n$ 为可测集，而 $F\cap E_n$ 为可测集，令 $E=\bigcup_{n\geq1}E_n$ ，从而 $m(E)\geq m(E_n)\geq1-1/n,\forall n\geq1$ ，从而可得 $m(E)=1$ ，所以 $m(F\cap E^c)\leq m(E^c)=0$ ，从而 $F\cap E^c$ 可测，并且 $F\cap E=\cap_{n\geq1}(F\cap E_n)$ 可测，所以 $F=(F\cap E^c)\cup (F\cap E)$ 可测，矛盾！
@@ -403,6 +439,11 @@ $$m(g(C))=m(g([0,1]-\cup_{n,k}I_{n,k}))=m(g[0,1])-m(g(\cup _{n,k}I_{n,k}))=1$$
 >[!example] 若 $f(x)$ 沿着可测集 $D$ 连续，则 $f$ 在 $D$ 上可测.
 >证明： $\{x\in D:f>\alpha\}=f^{-1}((\alpha,+\infty))\cap D$ ，并且 $f^{-1}((\alpha,+\infty))$ 为 $\mathbb{R}$ 的中开集，进而可测，所以 $\{x\in D:f>\alpha\}$ 为可测集，所以 $f$ 在 $D$ 上可测.
 
+>[!example]- 如果 $f$ 在 $\mathbb{R}$ 上是可微函数，则 $f'$ 可测.
+>因为 $f$ 可微，所以 $f\in C(\mathbb{R})$ ，从而 $f$ 可测；
+>
+> $f_n(x)=\frac{f(x+1/n)-f(x)}{1/n}$ 可测，所以 $f'=\lim_{n\rightarrow \infty}f_n$ 可测.
+
 >[!example] 可测集的特征函数 $\chi_D$ 可测： $\{\chi_D>\alpha\}=\left\{\begin{aligned}&\emptyset,\alpha\geq1\\&D,0\leq \alpha<1\\&\mathbb{R},\alpha<0\end{aligned}\right.$ .
 
 可测函数的定义不是唯一的，有下列等价定义：
@@ -490,6 +531,7 @@ $f+g,f-g$ 也是 $D'$ 上的可测函数：由 $\{f+g>\alpha\}=\bigcup_{n=1}^\in
 >如果 $f(x)\in\left[\frac{2k_n-2}{2^{n+1}},\frac{2k_n-1}{2^{n+1}}\right)$ ，由 $-(n+1)2^{n+1}+1=-n2^{n+1}\leq2k_n-2\leq n2^{n+1}-2\leq (n+1)2^{n+1}$  ，可得 $f_{n+1}(x)=\frac{2k_n-2}{2^{n+1}}$ ，从而 $f_{n+1}(x)=f_n(x)$ ，若 $f(x)\in \left[\frac{2k_n-1}{2^{n+1}},\frac{2k_n}{2^{n+1}}\right)$ ，同理可验证 $f_{n+1}(x)>f_n(x)$ ，所以 $\{f_n\}_{n\geq1}$ 单调递增；
 >
 >若 $f$ 有界，设 $\lvert f\rvert<M$ ，则当 $n>M$ 时，因为 $\{f\geq n\}=\emptyset=\{f<-n\}$ ，所以 $\lvert f_n-f\rvert<\frac{1}{2^n}$ ，从而 $\{f_n\}_{n\geq 1}$ 一致收敛于 $f$ .
+>^SimpleConverge
 
 据此，根据 $\lim_{n\rightarrow \infty}f_n$ 仍可测，可以从有收敛的简单函数列证明：若 $f,g$ 为可测集 $D$ 上的可测函数， $\forall \lambda\in \mathbb{R}$ ， $\lambda f,\lvert f\rvert,fg$ 均为可测函数.
 
@@ -639,7 +681,9 @@ $D$ 为一般可测集：
 
 >[!summary] 自查表
 >- 非负简单函数的 Lebesgue 积分定义； Lebesgue 可积和 Riemann 积分无关的反例；非负简单函数 Lebesgue 积分的性质；
->- 
+>- 非负可测函数的 Lebesgue 积分定义；
+>- 可测函数的 Lebesgue 积分定义；
+>- Levi 单增收敛定理， Fatou 定理，控制收敛定理；
 
 在之前介绍了可测集、可测函数的定义. 下面介绍可测函数在可测集上的积分.
 
@@ -660,41 +704,121 @@ $$\int_Df(x)dx=\sum\limits_{1\leq i\leq n}^{}a_im(E_i)$$
 
 非负简单函数的 $L$ 积分具有如下性质：
 
->[!note]- 设 $f,g$ 均为可测集 $D$ 上的非负简单函数，则 $i)$ 若 $f(x)\leq g(x),a.e.x\in D$ ，则 $\int_Dfdx\leq \int_Dgdx$ ； $ii)$ $\int_Dfdx\leq \max f(x)m(D)$ ； $iii)$ 对任意 $\lambda,\mu\geq0$ 有 $\int_D(\lambda f+\mu g)dx=\lambda\int_Dfdx+\mu\int_Dgdx$ ； $iv)$ 若 $A,B$ 为 $D$ 的两个不相交可测集，则 $\int_{A\cup B}fdx=\int_Afdx+\int_Bfdx$ ；
+>[!note] 设 $f,g$ 均为可测集 $D$ 上的非负简单函数，则
+>$i)$ 若 $f(x)\leq g(x),a.e.x\in D$ ，则 $\int_Dfdx\leq \int_Dgdx$ ； 
+>
+>$ii)$ $\int_Dfdx\leq \max f(x)m(D)$ ； 
+>
+>$iii)$ 对任意 $\lambda,\mu\geq0$ 有 $\int_D(\lambda f+\mu g)dx=\lambda\int_Dfdx+\mu\int_Dgdx$ ； 
+>
+>$iv)$ 若 $A,B$ 为 $D$ 的两个不相交可测集，则 $\int_{A\cup B}fdx=\int_Afdx+\int_Bfdx$ ；
 
 >[!note]- 设 $g,f_n(n\geq1)$ 都是可测集 $D$ 上的非负简单函数，并且满足： $i)$ $\{f_n\}_{n\geq1}$ 单调递增 $a.e. x\in D$ . $ii)$ $0\leq g(x)\leq\lim_{n\rightarrow \infty}f_n(x),a.e.x\in D$ ，则 $\int_Dgdx\leq \lim_{n\rightarrow \infty}\int_Df_ndx$ .
 
 之前已经证明，任意的非负可测函数都有单调递增的处处收敛子列. 因此在定义简单函数的 Lebesgue 积分之后，可以定义非负可测函数的积分为： $\int_Dfdx=\lim_{n\rightarrow \infty}\int_Df_ndx$ ，但不同的 $\{f_n\}_{n\geq1}$ 是否会影响 $\int_Dfdx$ 的取值？下面讨论这一问题.
 
-Lebesgue 积分区别与 Riemann 积分的一个方面：
+[[2420Sa140750]]
 
->[!note]- $f\in L(D)$ 的充分必要条件为 $\lvert f\rvert\in L(D)$ .
+有以下重要结论：
 
->[!example] 设 $f\in L(E)$ ，求证： $k\cdot m(\{\lvert f\rvert>k\})\rightarrow0(k\rightarrow \infty)$ .
-
-证明：由 $f\in L(E)$ 可知 $\lvert f\rvert\in L(E)$ ， $\lvert f\rvert\geq0$ ，所以存在单调收敛到 $\lvert f\rvert$ 的函数列 $\{f_n\}_{n\geq1}$ 并且 $\lim_{n\rightarrow \infty}\int_Ef_ndx<\infty$ ，所以当 $n$ 充分大时 $\int_Ef_ndx<\infty$ . 注意到对于给定的 $k$ ， $\{f_m>k\}_{m\geq1}$ 单调递增.
-
-注意到：
-
-$$\begin{aligned}
-m(\{\lvert f\rvert>k\})&=m\left(\left\{\lim_{n\rightarrow \infty}f_n>k\right\}\right)\\
-&=m \left(\lim_{n\rightarrow \infty}\left\{f_m>k\right\}\right)\\
-&=\lim_{n\rightarrow \infty}m(\{f_n>k\})
-\end{aligned}$$
-
-注意到：
-
-$$k \cdot m(\{f_n\geq k\})\leq \int_{[k,\infty)}\lvert f_n\rvert dx=\sum\limits_{i\in I}^{}a_i m(E_i)$$
-
-其中 $a_i>k$ ，而 $I$ 为有限集，并且 $f$ 几乎处处有限，所以当 $k$ 充分大时 $f_n$ 也处处有限，所以若 $a_{i_0}=\infty$ 那么 $m(E_{i_0})=0$ ，因此可得 $\sum\limits_{i\in I}^{}a_im(E_i)\rightarrow 0(k\rightarrow \infty)$ .
-
-证明：因为 $f\in L(E)$ ，所以对单调收敛到
-
-下面介绍三个重要定理，均关于<u>积分与极限是否能够换序</u>.
+>[!note] 设 $m(E)>0,f\in L(E)$ ， $f$ 非负并且 $\int_Ef(x)dx=0$ ，求证 $f(x)=0,a.e.$ .
+>证明：由 $f$ 非负，只需要证明 $m(\{f>0\})=m\left(\bigcup_{n\geq1}\left\{f\ge\frac{1}{n}\right\}\right)=0$ ，注意到：
+>
+>$$0=\int_Ef(x)dx\ge \int_{\{f\geq 1/n\}}f(x)dx\ge \frac{1}{n}m(\{f\geq 1/n\})$$
+>
+>可得： $m(\{f\geq 1/n\})=0$ ，从而 $m(\{f>0\})\leq \sum_{n\geq1}m\left(\left\{f\geq \frac{1}{n}\right\}\right)=0$ .
 
 >[!note] Levi 单调递增收敛定理：设 $f,f_n(n\geq1)$ 都是可测集 $D$ 上的<u>非负</u>可测函数，并且对几乎所有的 $x\in D$ ， $\{f_n\}_{n\geq1}$ 单调收敛于 $f$ ，则 $\int_Dfdx=\lim_{n\rightarrow \infty}\int_Df_ndx$ .
 
+根据 Levi 定理可以得到如下条件下的逐项积分：
+
+>[!note] 设 $\{f_k\}_{k\ge1}$ 为可测集 $D$ 上的一列非负可测函数，则 $\int_D\left(\sum\limits_{k\ge1}^{}f_k\right)dx=\sum\limits_{k\ge1}^{}\int_Df_kdx$ .
+
+>[!example]- 设 $\{E_k\}_{1\leq k\leq n}$ 为 $[0,1]$ 中的 $n$ 个可测集，如果 $[0,1]$ 中的每一个点至少属于这 $n$ 个集合中的 $q$ 个集，证明：这些集合中至少有一个测度不小于 $\frac{q}{n}$ .
+>证明： $\sum\limits_{k=1}^{n}\chi_{E_k}\ge q$ ，从而有：
+>
+>$$\int_{[0,1]}\sum\limits_{k=1}^{n}\chi_{E_k}\geq \int_{[0,1]}qdx=q$$
+>
+>所以 $\sum\limits_{k=1}^{n}m(E_k)\ge q$ ，从而可得结论.
+
+>[!example]- 设 $\{r_k\}_{k\ge1}$ 是 $[0,1]$ 中的有理数全体，求证： $f(x)=\sum\limits_{k=1}^{\infty}\frac{1}{k^2\sqrt{\lvert x-r_k\rvert}}$ 在 $[0,1]$ 上几乎处处收敛.
+>证明：
+>
+>注意到 $\{f_k\}_{k\ge1}$ 是一列非负可测函数，从而可得：
+>
+>$$\begin{aligned}
+>\int_{[0,1]} fdx &=\int_{[0,1]}\sum\limits_{k=1}^{\infty}\frac{1}{k^2\sqrt{\lvert x-r_k\rvert}}dx\\
+>&=\sum\limits_{k=1}^{\infty}\int_{[0,1]}\frac{1}{k^2\sqrt{\lvert x-r_k\rvert}}dx\\
+>&=\sum\limits_{k=1}^{\infty}\frac{1}{k^2}\left(\int_{[0,r_k]}\frac{1}{\sqrt{r_k-x}}dx+\int_{[r_k,1]}\frac{1}{\sqrt{x-r_k}}dx\right)\\
+>&=\sum\limits_{k=1}^{\infty}\frac{2}{k^2}[r_k^{\frac{1}{2}}+(1-r_k)^{\frac{1}{2}}]\\
+>&\leq \sum\limits_{k=1}^{\infty}\frac{4}{k^2}<\infty
+>\end{aligned}$$
+>
+>所以 $f$ 几乎处处有限，则在 $[0,1]$ 上几乎收敛.
+
+>[!example]- 设 $f\in L(\mathbb{R})$ ，求证 $\sum\limits_{n=-\infty}^{\infty}f(x+n)$ 几乎处处绝对收敛. [mse](https://math.stackexchange.com/questions/1137289/if-f-in-l1-mathbbr-then-sum-n-ge-1fxn-converges-for-a-e-x)
+>证明：
+>
+>$$\begin{aligned}
+>\int_{k}^{k+1}\sum\limits_{n=-\infty}^{\infty}f(x+n)dx &=\sum\limits_{n=-\infty}^{\infty}\int_{k}^{k+1}f(x+n)dx\\
+>&=\sum\limits_{n=-\infty}^{\infty}\int_{k+n}^{k+1+n}f(u)du\\
+>&=\int_\mathbb{R}f(u)du<\infty
+>\end{aligned}$$
+>
+>所以 $\sum\limits_{n=-\infty}^{\infty}f(x+n)$ 在 $[k,k+1]$ 上几乎处处收敛，进而由 $k$ 的任意性可得结论.
+
 >[!note] Fatou 定理：设 $f_n(n\geq1)$ 都是可测集 $D$ 上的<u>非负</u>可测函数，则 $\int_D\varliminf_{n\rightarrow \infty}f_ndx\leq \varliminf_{n\rightarrow \infty}\int_Df_ndx$ .
+
+>[!example]- 设 $f,f_k(k\ge1)\in L(E)$ 且非负， $f_k(x)\rightarrow f(x),a.e.$ 并且 $\int_Ef_k(x)dx\rightarrow\int_Efdx$ ，证明：对于 $E$ 的任一可测子集 $e$ 有 $\int_ef_kdx\rightarrow\int_efdx$ . 
+>证明：首先由 Fatou 定理： $\int_efdx\leq \lim_{n\rightarrow \infty}\int_e f_ndx$ .
+>
+>令 $e'=E-e$ 同理有： $\int_{e'}fdx\leq \lim_{n\rightarrow \infty}\int_{e'}f_ndx$ .
+>
+>因此：
+>
+>$$\int_Efdx\leq \lim_{n\rightarrow \infty}\int_ef_ndx+\lim_{n\rightarrow \infty}\int_{e'}f_ndx$$
+>
+>而 $\lim_{k\rightarrow \infty}\int_Ef_kdx=\int_Efdx$ ，所以 $\int_ef_kdx\rightarrow \int_efdx(k\rightarrow \infty)$ .
+
+在之前已经证明了对于可测函数 $f$ ，其正部和负部均为可测函数，[[#^fGreaterThanGMeasurable]]，对于一般地可测函数 $f$ 定义其 Lebesgue 积分为：
+
+$$\int_Ef(x)dx=\int_Ef_+(x)dx-\int_Ef_-(x)dx$$
+
+可以平行的得到一些相似的结论；[[2420Sa141112]]
+
+Lebesgue 积分区别与 Riemann 积分的一个方面：绝对可积和可积是等价的.
+
+>[!note]- $f\in L(D)$ 的充分必要条件为 $\lvert f\rvert\in L(D)$ .
+
+>[!note]- 推论：如果 $f$ 在测度有限的集 $D$ 上有界可测，则 $f\in L(D)$ ，特别地，如果 $f\in C([a,b])$ ，则 $f\in L([a,b])$ .
+>证明： $\lvert f\rvert<M,\forall x\in D$ ，从而 $\int_a^b\lvert f\rvert dx\leq Mm(D)<\infty$ . 闭区间上的连续函数是有界可测函数，因此也有结论.
+
+下面这个定理说得是：全体有理数值的简单函数在 $(L(D),d)$ 中稠密. 更多稠密的函数族见[[#函数在 $L$ 积分下的稠密性]]
+
+>[!note] 对于任意的 $\epsilon>0$ ，有 $D$ 上取有理数值的简单函数 $h$ 使得 $\int_D\lvert f-h\rvert dx<\epsilon$ .
+
+证明：采取之前证明任意非负可测函数都存在收敛的简单函数列的方法. [[2420Sa142234]]
+
+>[!example]- 设 $f\in L(E)$ ，求证： $k\cdot m(\{\lvert f\rvert>k\})\rightarrow0(k\rightarrow \infty)$ . [[2420Sa140922]]
+>证明：由 $f\in L(E)$ 可知 $\lvert f\rvert\in L(E)$ ， $\lvert f\rvert\geq0$ ，所以存在单调收敛到 $\lvert f\rvert$ 的函数列 $\{f_n\}_{n\geq1}$ 并且 $\lim_{n\rightarrow \infty}\int_Ef_ndx<\infty$ ，所以当 $n$ 充分大时 $\int_Ef_ndx<\infty$ . 注意到对于给定的 $k$ ， $\{f_m>k\}_{m\geq1}$ 单调递增.
+>
+>注意到：
+>
+>$$\begin{aligned}
+>m(\{\lvert f\rvert>k\})&=m\left(\left\{\lim_{n\rightarrow \infty}f_n>k\right\}\right)\\
+>&=m \left(\lim_{n\rightarrow \infty}\left\{f_m>k\right\}\right)\\
+>&=\lim_{n\rightarrow \infty}m(\{f_n>k\})
+>\end{aligned}$$
+>
+>注意到：
+>
+>$$k \cdot m(\{f_n\geq k\})\leq \int_{[k,\infty)}\lvert f_n\rvert dx=\sum\limits_{i\in I}^{}a_i m(E_i)$$
+>
+>其中 $a_i>k$ ，而 $I$ 为有限集，并且 $f$ 几乎处处有限，所以当 $k$ 充分大时 $f_n$ 也处处有限，所以若 $a_{i_0}=\infty$ 那么 $m(E_{i_0})=0$ ，因此可得 $\sum\limits_{i\in I}^{}a_im(E_i)\rightarrow 0(k\rightarrow \infty)$ .
+>
+>证明：因为 $f\in L(E)$ ，所以对单调收敛到
+
+之前已经介绍了 Levi 单增收敛定理和 Fatou 定理，下面介绍控制收敛定理，这三个重要定理均关于<u>积分与极限是否能够换序</u>.
 
 >[!note]- 控制收敛定理：设 $f,f_n$ 均为可测集 $D$ 上的可测函数，如果以下条件满足： 1) 存在 $g\in L(D)$ ，使得对于任意 $n\geq1$ ，在 $D$ 上几乎处处有 $\lvert f_n(x)\rvert\leq g(x)$ ；2) 在 $D$ 上 $f_n$ 几乎处处收敛于 $f$ . 则 $f,f_n(n\geq1)$ 都在 $D$ 上可积. 并且 $\lim_{n\rightarrow \infty}\int_Df_ndx=\int_Dfdx$ .
 >由 $\lvert f_n(x)\rvert\leq g(x)$ 可得 $\lvert f_n(x)-f(x)\rvert\leq 2g(x)$ ，由 Fatous 定理：
@@ -732,19 +856,195 @@ $$k \cdot m(\{f_n\geq k\})\leq \int_{[k,\infty)}\lvert f_n\rvert dx=\sum\limits_
 >从而可得结论.
 
 >[!example] 设 $f,f_k\in L(\mathbb{R})$ 并且 $\lvert f_k(x)\rvert\leq f(x)$ ，求证：  $\begin{aligned}\int_D \varliminf_{k\rightarrow \infty}f_k(x)dx &\leq \varliminf_{k\rightarrow \infty}\int_{\mathbb{R}}f_(x)dx\\&\leq \varlimsup_{k\rightarrow \infty}\int_\mathbb{R}f_k(x)dx\leq \int_\mathbb{R}\varlimsup_{k\rightarrow \infty}f_k(x)dx\end{aligned}$ #imcomplete-lack-proofs 
-    
+
+>[!example]- 设 $f\in L(\mathbb{R}),a>0$ ，求证： $n^{-a}f(nx)\rightarrow 0,a.e.$
+>证明：
+>
+>$$\begin{aligned}
+>\int_\mathbb{R}n^{-a}|f(nx)|dx &\overset{u=nx}{=}\int_\mathbb{R}n^{-a-1}|f(u)|du\\
+>&=n^{-a-1}\int_{\mathbb{R}}\lvert f(u)\rvert du\\
+>&\rightarrow 0(n\rightarrow \infty)
+>\end{aligned}$$
+>
+>由控制收敛定理：
+>
+>$$\lim_{n\rightarrow \infty}\int_{\mathbb{R}}n^{-a}\lvert f(nx)\rvert dx=\int_\mathbb{R}\lim_{n\rightarrow \infty}n^{-a}\lvert f(nx)\rvert dx=0$$
+>
+>从而 $n^{-a}\lvert f(nx)\rvert\rightarrow0(n\rightarrow \infty)$ ，从而 $n^{-a}f(nx)\rightarrow0,a.e.$ 
+
+>[!note] 控制收敛定理推论：设 $\{f_k\}_{k\ge1}$ 和 $\{g_k\}_{k\ge1}$ 为可测集 $E$ 上的两列可测函数，并且 $\lvert f_k\rvert\leq g_k(x)$ ，若 $f_k\rightarrow f,g_k\rightarrow g(k\rightarrow \infty),a.e.$ ，且 $\int_Eg_k(x)dx\rightarrow \int_Egdx<\infty$ ，求证 $\int_Ef_k(x)dx\rightarrow \int_Ef(x)dx$ .
+
+ $g_k$ 是可测函数，因为 $\int_Eg_k(x)dx\rightarrow \int_Egdx<\infty(k\rightarrow \infty)$ ，所以存在 $K\in \mathbb{N}$ ，当 $k>K$ 时 $g_k\in L(E)$ ，又 $\lvert f_k\rvert\leq g_k$ 
+ 
+  1. $m(E)\ne0$ ，由 $g_k\rightarrow g(k\rightarrow \infty)$ ，存在 $K'\in \mathbb{N}$ ，当 $k>\max\{K,K'\}$ 时 $g_k\leq g+\frac{1}{m((E))}$ ，进而有 $\lvert f_k\rvert\leq g+\frac{1}{m(E)},\forall k>\max\{K,K'\}$ ，又 $\int_Eg+\frac{1}{m(E)}dx\leq \int_Egdx+1<\infty$ ，从而由控制收敛定理， $f_k\rightarrow f(k\rightarrow \infty),a.e.$ 可知 $\int_Ef_k(x)dx\rightarrow \int_Ef(x)dx(k\rightarrow \infty)$ .
+  2. $m(E)\neq0$ ，由 $g_k\rightarrow g(k\rightarrow \infty)$ ，存在 $K'\in \mathbb{N}$ ，当 $k>\max\{K,K'\}$ 时 $g_k\leq g+1$ ，进而有 $\lvert f_k\rvert\leq g+1,\forall k>\max\{K,K'\}$ ，又 $\int_Eg+1dx\leq \int_Egdx<\infty$ ，从而由控制收敛定理， $f_k\rightarrow f(k\rightarrow \infty),a.e.$ 可知 $\int_Ef_k(x)dx\rightarrow \int_Ef(x)dx(k\rightarrow \infty)$ .
+
 >[!example]- 设在可测集- $E$ 上非负可测函数 $f_k\Rightarrow f$ ，求证： $\int_Ef(x)dx\leq \varliminf_{k\rightarrow \infty}\int_Ef_k(x)dx$ . [mse](https://math.stackexchange.com/questions/276138/if-f-n-geq-0-and-f-n-to-f-in-measure-then-int-f-leq-liminf-int-f-n)
 >证明：由下极限的性质，存在 $\{f_k\}_{k}$ 的子列 $\{f_{k_n}\}_{n\geq1}$ ，使得 $\lim_{n\rightarrow \infty}\int_Ef_{k_n}dx=\varliminf_{k\rightarrow \infty}\int_Ef_k(x)dx$ ，并且由 $f_k\Rightarrow f$ 可知 $f_{k_n}\Rightarrow f$ ，由 Riesz 定理可知，存在 $f_{k_n}$ 的收敛到 $f$ 的子列 $\{f_{k_{n_j}}\}_{j\geq1}$ ，再由 $f\geq0$ ，根据 Fatou 定理：
 >
 >$$\int_Ef(x)dx\leq \varliminf_{j\rightarrow \infty}\int_E f_{k_{n_j}}(x)dx\leq \lim_{j\rightarrow \infty}\int_Ef_{k_{n_j}}dx=\varliminf_{k\rightarrow \infty}\int_Ef_k(x)dx$$
+
+>[!example] 设 $f\in L(\mathbb{R})$ ，对于 $\mathbb{R}$ 中的任意可测集 $E$ ，求证： $\int_Ef(ax+b)dx=\frac{1}{\lvert a\rvert}\int_{aE+b}fdx$ .
+
+证明：如果 $f(x)$ 是简单函数，不妨设 $f=\sum\limits_{k=1}^{n}a_k\chi_{E_k}$ ，其中 $E_k$ 为两两不交的可测集， $\bigcup_{1\leq k\leq n}E_k=\mathbb{R}$ . 则有： $\bigcup_{1\leq k\leq n}(aE_k+b)=\mathbb{R}$ ，并且 $aE_i+b\cap aE_j+b=\emptyset,\forall 1\leq i<j\leq n$ . 则 $\{aE_k+b\cap aE+b\}_{1\leq k\leq n}$ 为 $aE+b$ 的一个分划.
+
+$$\int_{aE+b}fdx=\int_{aE+b}\sum\limits_{k=1}^{n}a_k\chi_{E_k}dx$$
+
+$$\int_Ef(ax+b)dx=\int_E\sum\limits_{k=1}^{n}a_k \chi_{E_k}(ax+b)dx$$
+
+>[!example] 设 $f$ 是 $\mathbb{R}$ 上的可测函数， $T$ 是其正周期， $f\in L([0,T])$ ，求证： $\frac{1}{x}\int_0^xf(t)dt\rightarrow \frac{1}{T}\int_0^Tf(t)dt(x\rightarrow \infty)$ .
+>不妨设 $x=kT+b,k\geq 1,b\in(0,T)$ . 则：
+>
+>$$\begin{aligned}
+>\frac{1}{x}\int_0^xf(t)dt &=\frac{1}{kT+b}\int_0^{kT+b}f(t)dt\\
+>&=\frac{1}{kT}\frac{kT}{kT+b}\left(\int_0^{kT}f(t)dt+\int_{kT}^{kT+b}f(t)dt\right)\\
+>&=\frac{kT}{kT+b}\frac{1}{kT}\left(k\int_0^Tf(t)dt+\int_0^bf(t)dt\right)\\
+>&=\frac{kT}{kT+b}\left(\frac{1}{T}\int_0^Tf(t)dt\right)+\frac{1}{kT+b}\int_0^bf(t)dt\\
+>\end{aligned}$$
+>
+>因为 $f\in L([0,T])$ ，所以 $\int_0^bf(t)dt$ 有限，所以当 $k\rightarrow \infty$ 时：
+>
+>$\frac{1}{x}\int_0^xf(t)dt\rightarrow \frac{1}{T}\int_0^Tf(t)dt$ ，再由 $b$ 的任意性可知上式成立
+
+>[!example] 设 $f$ 在 $\mathbb{R}$ 上连续， $\Delta_n(x)=n\left[f\left(x+\frac{1}{n})-f(x)\right)\right]$ ，如果对于任意 $x\in \mathbb{R}$ ， $\Delta_n(x)\rightarrow0$ ，并且有常数 $M$ 使得 $\lvert \Delta_n(x)\rvert\leq M$ ，求证 $f$ 是常数. 
 
 ## 函数在 $L$ 积分下的稠密性
 
 >[!hint] 从特殊（简单函数、多项式函数、有界）到一般.
 >方法如截断、三角不等式.
 
-讨论几种特殊的可测函数：简单函数、多项式函数、
+定义 $\lVert \cdot\rVert_L=(L)\int_{\mathbb{R}}\cdot dx$ ，可以证明这是一个度量，考虑度量空间 $(\mathcal{F},\lVert \cdot\rVert_L)$ ，其中 $\mathcal{F}$ 为可测函数全体，下面说明其中一些特殊的函数族在这一度量空间中的稠密性.
+
+设 $f\in L(E),\epsilon>0$ ，求证：
+
+>[!note] 存在有界可测函数 $g$ 使得 $\int_a^b\lvert f(x)-g(x)\rvert dx<\epsilon$ .
+
+证明：
+
+>[!note] 存在连续函数 $h$ 使得 $\int_a^b\lvert f(x)-h(x)\rvert dx<\epsilon$ .
+
+>[!note] 存在多项式函数 $P$ 使得 $\int_a^b \lvert f(x)-P(x)\rvert<\epsilon$
+
+>[!note] 存在阶梯函数 $S$ 使得 $\int_a^b\lvert f(x)-S(x)\rvert dx<\epsilon$ .
+
+>[!example] 设 $g$ 为 $[-1,1]$ 上的有界可测函数，若对 $[-1,1]$ 上的任何偶连续函数 $f$ 都有 $\int_{-1}^1f(x)g(x)dx=0$ ，证明： $g(x)=-g(-x),a.e.$
+
+证明：只需要证明 $m(\{g(x)+g(-x)\neq0\})=0$ .
+
+因为 $g$ 为 $[-1,1]$ 上的有界可测函数，所以 $g(-x)$ 为 $[-1,1]$ 上的有界可测函数，则由 Lusin 定理，对于任意的 $\epsilon>0$ ，存在沿着 $[-1,1]$ 连续的函数 $g_\epsilon$ 满足 $m(\{g(x)+g(-x)\neq g_\epsilon(x)+g_\epsilon(-x)\})=0$ .
+
+注意到：
+
+$$\begin{aligned}
+&\{g(x)+g(-x)\neq 0\}=\\
+&\{g(x)+g(-x)\ne0,g(x)+g(-x)=g_\epsilon(x)+g_\epsilon(-x)\}\\
+&\bigcup \{g(x)+g(-x)\neq0,g(x)+g(-x)\neq g_\epsilon(x)+g_\epsilon(-x)\}\\
+&\subset \{g(x)+g(-x)\ne0,g(x)+g(-x)=g_\epsilon(x)+g_\epsilon(-x)\}\\
+&\bigcup \{g(x)+g(-x)\neq g_\epsilon(x)+g_\epsilon(-x)\}
+\end{aligned}$$
+
+因此只需要证明：
+
+$$m(\{g_\epsilon(x)+g_\epsilon(-x)\neq 0\})\overset{def}{=}m(E)=0$$
+
+即可.
+
+并且：
+
+$$S=\int_{[-1,1]}(g_\epsilon(x)+g_\epsilon(-x))g(x)dx=0$$
+
+从而：
+
+$$S\ge \int_{E}(g_\epsilon(x)+g_\epsilon(-x))g(x)dx$$
+
+[[2421Su174316]]
+
+---
+
+>[!example] 设 $f\in L([0,1])$ ， $\int_0^1f(x)dx=a$ ，求证：对于任意的正整数 $n$ 有 $E\subset[0,1]$ ，使得 $m(E)=\frac{1}{n}$ 并且 $\int_Ef(x)dx=\frac{a}{n}$ .
+
+证明：不妨设 $f$ 非负，则存在简单可测函数列 $\{f_n\}_{n\ge1}$ 使得 $\int_{[0,1]}fdx=\lim_{n\rightarrow \infty}f_ndx$ .
+
+对于简单函数 $f=\sum\limits_{i=1}^{k}a_k\chi_{E_k}$ ，[[2421Su211307]]
+
+>[!example] 设 $f$ 在 $[0,1]$ 上非负可测，如果存在非负整数 $k$ 使得 $\int_0^1f^k(x)dx=\int_0^1f^{k+1}(x)dx=\int_0^1f^{k+2}(x)dx<\infty$ ，求证：存在可测集 $E\subset [0,1]$ 使得 $f(x)=\chi_E(x),a.e.$
+
+证明：
+
+$$\begin{aligned}
+\int_0^1f^k(1-f)^2dx=0\\
+\end{aligned}$$
+
+并且 $f\ge0$ ，所以 $f^k(1-f)^2=0,a.e.$
+
+若 $f=1,a.e.$ 则令 $E=[0,1]$ 即可.
+
+否则，令 $E=\{f=1\}$ ，当 $f\ne1$ 时 $f=0,a.e.$ 从而得证.
+
+>[!note] 为使得 $[a,b]$ 上的有界函数 $f$ 是 $R$ 可积的，充分必要条件为 $f$ 在 $[a,b]$ 上几乎处处连续.
+
+>[!note] 当 $f$ $R$ 可积时， $f$ 必然 $L$ 可积，并且积分值相同.
+
+>[!example] 设 $f,g$ 在 $[a,b]$ 上 Riemann 可积，且存在 $[a,b]$ 的稠子集 $D$ ， $f=g,\forall x\in D$ ，求证： $\int_{[a,b]}fdx=\int_{[a,b]}gdx$ 并且 $f=g,a.e.$
+
+证明：由题可知 $\overline{D}=[a,b]$ ，
 
 
 
 
+
+
+# 积分和微分
+
+>[!note] （Lebesgue）设 $f$ 是 $[a,b]$ 上的实值单调递增函数，则 $f$ 在 $[a,b]$ 上几乎处处可导， $f'\in L([a,b])$ 并且 $\int_{a}^bf'(x)dx\leq f(b)-f(a)$ .
+
+证明思路是：
+
+1. 首先说明 $f'$ 几乎处处存在，为此，证明 $\varliminf_{n\rightarrow \infty}\frac{f\left(x+\frac{1}{n}\right)-f(x)}{\frac{1}{n}}=\varlimsup_{n\rightarrow \infty}\frac{f\left(x+\frac{1}{n}\right)-f(x)}{\frac{1}{n}}$ .
+2. 进一步为了说明 $f$ 处处可导，需要证明 $f'$ 几乎处处有限，因此只需要证明 $f'\in L([a,b])$ .
+3. 用一列非负可积函数 $f'_n$ 逼近 $f'$ ，利用 Fatou 定理 $\int_{D}\varliminf_{n\rightarrow \infty}f_ndx\leq \lim_{n\rightarrow \infty}\int_Df_ndx$ 其中 $D=[a,b]$ .
+
+为了证明 $1.$ ，定义**左（右）邻域上下极限**：
+
+$$\begin{aligned}
+&D^+f(x)=\varlimsup_{h\rightarrow 0^+}\frac{f(x+h)-f(x)}{h}\\
+&D^{-}f(x)=\varlimsup_{h\rightarrow 0^-}\frac{f(x+h)-f(x)}{h}\\
+&D_+f(x)=\varliminf_{h\rightarrow 0^+}\frac{f(x+h)-f(x)}{h}\\
+&D_{-}f(x)=\varliminf_{h\rightarrow 0^-}\frac{f(x+h)-f(x)}{h}\\
+\end{aligned}$$
+
+只需要证明，对于 $\mathbb{R}$ 上的单增实值函数 $f$ ：
+
+$$D^+f=D^{-}f=D_+f=D_-f,a.e.x\in [a,b]$$
+
+假设已经证明该结论成立，对于区间 $[a,b]$ 上的函数 $f$ ，将其开拓为 $\mathbb{R}$ 上的单增实值函数：
+
+$$f=\left\{\begin{aligned}
+&f(a),x<a\\
+&f(x),x\in[a,b]\\
+&f(b),x>b
+\end{aligned}\right.$$
+
+则由上结论可知 $f'$ 几乎处处存在.
+
+令 $g_n=\frac{f\left(x+\frac{1}{n}\right)-f(x)}{\frac{1}{n}}$ ，则 $g_n$ 非负可测并且几乎处处收敛于 $f'$ ，因此由 Fatou 定理：
+
+$$\int_{[a,b]}f'(x)dx\leq\varliminf_{n\rightarrow \infty}\int_{[a,b]}g_n(x)dx$$
+
+$$\begin{aligned}
+\int_{[a,b]}g_n(x)dx &=n\int_{[a,b]}f\left(x+\frac{1}{n}\right)-f(x)dx\\
+&=n\int_{a+\frac{1}{n}}^{b+\frac{1}{n}}f(t)dt-n\int_{a}^bf(x)dx\\
+&=n\left(\int_{b}^{b+\frac{1}{n}}f(x)dx-\int_{a}^{a+\frac{1}{n}}f(x)dx\right)\\
+&=n\left(f(b)\cdot 1/n-\cdots\right)\\
+&\leq f(b)-n\int_{a}^{a+\frac{1}{n}}f(a)dx=f(b)-f(a)
+\end{aligned}$$
+
+从而 $\int_{[a,b]}f'dx\leq f(b)-f(a)$ ，因此 $f'\in L([a,b])$ ，所以 $f'$ 在 $[a,b]$ 上几乎处处有限，因此 $f$ 在 $[a,b]$ 上几乎处处可导.
+
+现在来考虑证明：
+
+$$D^+f=D^{-}f=D_+f=D_-f,a.e.x\in [a,b]$$
+
+为了证明这一命题，引入新的定义：
+
+设实数集 $E$ 和区间族 $\Lambda$ ，如果对于任意的 $x\in E,\epsilon>0$ ，
