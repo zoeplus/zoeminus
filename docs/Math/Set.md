@@ -91,7 +91,18 @@ $$\begin{aligned}
 
 如果 $\varlimsup_{n\rightarrow\infty}A_n=\varliminf_{n\rightarrow\infty}A_n$ ，则称 $\{A_n\}_{n\geq1}$ 存在极限.
 
+>[!hint] 直观上理解集合的上下极限：
+>$x\in\varlimsup_{n\rightarrow \infty}A_n \Leftrightarrow$ 有任意大的 $n$ 使得 $A_n$ 中含有 $x$ ；
+>
+>$x\in\varliminf_{n\rightarrow \infty}A_n \Leftrightarrow$ 当 $n$ 充分大时有 $x\in A_n$ .
+
 >[!tip]- 助记：上交.
+
+>[!note] 上下极限互补： 
+>$$\begin{aligned}
+>&\left(\varlimsup_{n\rightarrow \infty}A_n\right)^c=\varliminf_{n\rightarrow \infty}A_n^c\\
+>&\left(\varliminf_{n\rightarrow \infty}A_n\right)^c=\varlimsup_{n\rightarrow \infty}A_n^c
+>\end{aligned}$$
 
 >[!example]- 集合序列的极限： $\{A_n\}_{n\geq1},A_n=\{\frac{m}{n}:m\in \mathbb{Z}\}$ ，证明 $\varlimsup_{n\rightarrow \infty}A_n=\mathbb{Q}$ ， $\varliminf_{n\rightarrow \infty}A_n=\mathbb{Z}$ .
 >注意到： $$\mathbb{Z}\subset \varliminf_{n\rightarrow \infty}A_n,\varlimsup_{n\rightarrow \infty}A_n\subset \mathbb{Q}$$ . 
@@ -110,7 +121,7 @@ $$\begin{aligned}
 
 进而有取等时的充分条件：
 
->[!note]- 如果 $\{A_n\}_{n\geq1}$ 单调，则 $\varliminf_{n\rightarrow \infty}A_n=\varlimsup_{n\rightarrow \infty}A_n$ 
+>[!note] 如果 $\{A_n\}_{n\geq1}$ 单调，则 $\varliminf_{n\rightarrow \infty}A_n=\varlimsup_{n\rightarrow \infty}A_n$ 
 >$$=\left\{\begin{aligned}
 >&\bigcup_{n=1}^\infty A_n,A_n\text{ 单调递增}\\
 >&\bigcap_{n=1}^\infty A_n,A_n\text{ 单调递减}
@@ -127,6 +138,15 @@ $$\begin{aligned}
 \end{aligned}$$
 
 >[!example]- $\{f_n\}_{n\geq1}$ 为 $\mathbb{R}$ 上的实值函数列，则有 $\{x:\varliminf_{n\rightarrow \infty}f_n(x)>0\}\subset \varliminf_{n\rightarrow \infty}\{x\in \mathbb{R}:f_n(x)\}$ .
+
+>[!note] 用特征函数刻画集合运算：
+>$$\begin{aligned}
+>&A=B\Leftrightarrow \chi_A=\chi_B\\
+>&A\subset B\Leftrightarrow \chi_A\leq \chi_B\\
+>&\chi_{A\Delta B}=\lvert \chi_A-\chi_B\rvert\\
+>&\chi_{A\cap B}=\chi_A\chi_B\\
+>&\chi_{A\cup B}=
+>\end{aligned}$$
 
 # 关系
 
@@ -161,7 +181,7 @@ $$A\subset X,\chi_A=\left\{\begin{aligned}
 >
 >反之，如果 $x\notin \varlimsup_{n\rightarrow \infty}A_n$ ，则 $\forall n\geq1,x\notin \bigcup_{k=n}^\infty A_k$ ，从而 $x\notin A_n,\forall n\geq1$ ，因此 $\varliminf_{n\rightarrow \infty}\chi_{A_n}(x)=0$ .
 >
->ii) ：如果 $x\in\varliminf_{n\rightarrow \infty}A_n$ ，则显然有 $\varliminf_{n\rightarrow \infty}\chi_{A_n}(x)=1$ ，反之若 $x\notinf \varliminf_{n\rightarrow \infty}A_n$ ，则对于任意的 $n\geq1$ ，有 $x\notin \bigcap_{k=n}^\infty A_k$ ，从而 $x\notin A_k,k\feq 1$ ，进而有 $\varliminf_{n\rightarrow \infty}\chi_{A_n}(x)=0$ .
+>ii) ：如果 $x\in\varliminf_{n\rightarrow \infty}A_n$ ，则显然有 $\varliminf_{n\rightarrow \infty}\chi_{A_n}(x)=1$ ，反之若 $x\notin \varliminf_{n\rightarrow \infty}A_n$ ，则对于任意的 $n\geq1$ ，有 $x\notin \bigcap_{k=n}^\infty A_k$ ，从而 $x\notin A_k,k\geq 1$ ，进而有 $\varliminf_{n\rightarrow \infty}\chi_{A_n}(x)=0$ .
 
 特征函数还具有以下性质 [zhihu](https://zhuanlan.zhihu.com/p/616321641) #imcomplete 
 
@@ -188,6 +208,12 @@ $$A\subset X,\chi_A=\left\{\begin{aligned}
 
 此外对于 $f:X\rightarrow Y$ ，还可以定义 $Y$ 的**原像**： $f^{-1}(Y)=\{x\in X:f(x)\in Y\}$
 
+>[!note] $A\subset f^{-1}(f(A)),B\supset f(f^{-1}(B))$ . 
+
+>[!note] $f^{-1}\left(\bigcup_{\lambda \in \Lambda}A_\lambda\right)=\bigcup_{\lambda\in \Lambda}f^{-1}(A_\lambda)f^{-1}\left(\bigcap_{\lambda \in \Lambda}A_\lambda\right)=\bigcap_{\lambda\in \Lambda}f^{-1}(A_\lambda),$
+
+>[!note] $\left(f^{-1}(A)\right)^c=f^{-1}(A^c)$
+
 $$\begin{aligned}
 &f\left(\bigcup_{\lambda\in \Lambda}A_\lambda\right)=\bigcup_{\lambda\in \Lambda}f(A_\lambda)\\
 &f\left(\bigcap_{\lambda\in \Lambda}A_\lambda\right)\overset{\textcolor{red}{?}}=\bigcap_{\lambda\in \Lambda}f(A_\lambda)
@@ -195,7 +221,7 @@ $$\begin{aligned}
 
 注意： $f\left(\bigcap_{\lambda\in \Lambda}A_\lambda\right)\subset \bigcap_{\lambda\in \Lambda}f(A_\lambda)$
 
->[!note]- 反例以及对于 $f$ 是单射为上式取等的充分条件
+>[!note] 反例以及对于 $f$ 是单射为上式取等的充分条件
 >包含关系是显然的. 对于反例，可以取一非单射的 $f$ ： 
 >
 >$$\begin{aligned}
@@ -438,22 +464,32 @@ $\lvert \mathcal{P}(\mathcal{P}(\mathbb{N}))\rvert=2^{2^{\aleph_0}}$ .
 
 # 选择公理
 
-集合族 $\{S_i\}_{i\in I},S_i\neq0$ ，存在集合 $\{x_i:x_i\in S_i,i\in I\}$ .
+对于集合族 $\{S_i\}_{i\in I},S_i\neq0$ ，存在集合 $\{x_i:x_i\in S_i,i\in I\}$ .
 
 [知乎](https://www.zhihu.com/question/40197216)
+
+# Zorn 引理
+
+对于集合 $P$ ，称其上的一个二元关系 $\leq$ 为**偏序**，如果其满足： 1) 自反性， $\forall x\in P(x\leq x)$ ；2) 传递性， $(x\leq y,y\leq z)\Rightarrow x\leq z$ ，并称 $(P,\leq)$ 为**偏序集**.
+
+对于 $A\subset P$ ，定义 $A$ 的**上界** $a\in P$ ： $\forall x\in A(x\leq a)$ ；称 $A$ 是一条**链**，如果 $A$ 满足全序，即 $\forall x,y\in A((x\leq y)\vee y\leq x)$ .
+
+定义 $(P,\leq)$ 的**极大元** $m$ ： $x\in P,m\leq x\Rightarrow m=x$ .
+
+>[!note] Zorn 引理，如果偏序集 $(P,\leq)$ 的每一条链都有上界，则 $(P,\leq)$ 有极大元.
 
 # 拓扑
 
 对于集合 $S$ ，**闭集合**： $S$ 中任何收敛序列的极限都包含在 $S$ 中. 全空间和空集都是闭集. 闭集的任意多个交仍然为闭集；闭集的有限多个并仍然为闭集. 
 
->[!example]- 闭集的无限多个并是开集的例子
+>[!example] 闭集的无限多个并是开集的例子
 >- $[\frac{1}{n},1-\frac{1}{n}]_{n\geq1}$ 的并为开集 $(0,1)$ $0,1$ 无法取到，因为该集合族中没有集合包含之.
 
 **开集合**： 闭集的补集为开集；全空间和空集均为开集合；开集的任意多个并为开集；开集的有限多个交为开集；
 
 >[!note]- 每一个开集都为开球之并. #imcomplete-whatever 
 
->[!note]- 开集的无限多个交为闭集的例子
+>[!example] 开集的无限多个交为闭集的例子
 >- $(0,\frac{1}{n})$ 
 
 
