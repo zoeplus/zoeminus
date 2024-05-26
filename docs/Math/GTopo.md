@@ -300,7 +300,7 @@ $(X,d)$ 为度量空间， $f:X\rightarrow X,$ 是**压缩映射**，如果 $\ex
 
 #### 疏、稠
 
-可以将所有集合分为**第一纲集**（sets of first category, 稀疏集）和**第二纲集**（sets of second category，非稀疏集）. 需要说明的是：稠、无处稠等概念都是相对于具体的度量空间而言，e.g. $E\subset X$ 是稠子集的意思是 $E$ 是 $X$ 的稠子集. 具体定义如下：
+可以将所有集合分为**第一纲集**（sets of first category, 稀疏集）和**第二纲集**（sets of second category，非稀疏集）. 需要说明的是：以下的稠、无处稠等概念都是相对于具体的度量空间而言，e.g. $E\subset X$ 是稠子集的意思是 $E$ 是 $X$ 的稠子集. 具体定义如下：
 
 $E\subset X$ ， $\forall$ 非空开集 $G\subset X$ ，如果存在非空开集 $V\subset G$ 使得 $V\cap E=\emptyset$ ，则称 $E$ 为**疏集**（或者 $E$ 在 $X$ 中**无处稠密**（nowhere dense），或称 $E$ 为 $X$ 的**无处稠子集**），或者说任何与 $E$ 相交的开集都不包含在 $E$ 中. 疏集有以下等价刻画：
 
@@ -650,7 +650,15 @@ $$\begin{aligned}&(\text{N}1)\ X\in \mathcal{N}(x),\forall x\in X\\&(\text{N}2)\
 
 承接下面的连续映射的概念，有子空间拓扑的一个刻画：
 
->[!note] 设 $(X,\mathcal{O})$ 是拓扑空间， $Y\subset X$ ，则 $Y$ 的子空间拓扑是 $Y$ 上使得含入映射 $i: Y\rightarrow X$ 连续的最粗的拓扑. [[2420Su111353]]
+>[!note] 设 $(X,\mathcal{O})$ 是拓扑空间， $Y\subset X$ ，则 $Y$ 的子空间拓扑是 $Y$ 上使得含入映射 $i: Y\rightarrow X$ 连续的最粗的拓扑. 
+>证明：首先证明 $i$ 是连续映射：对于 $X$ 中的任意开集 $U$ 
+>
+>$$i^{-1}(U)=\{x\in Y:i(x)\in U\}=\{x\in Y: x\in U\}=Y\cap U$$
+>
+>从而 $i^{-1}(U)$ 为 $Y$ 中的开集.
+>
+>其次，设 $\mathcal{T}$ 为 $Y$ 中使得 $i: Y\rightarrow X$ 连续的拓扑，则对于任意的 $U\in \mathcal{O}$ ，由定义可知 $U=X\cap U'$ ，其中 $U'$ 为 $X$ 中的开集，由 $i^{-1}(U')\in \mathcal{T}$ 可得 $U\in \mathcal{T}$ ，从而 $\mathcal{O}\subset \mathcal{T}$ . 从而可得结论.
+
 
 换言之，子拓扑是又一个映射确定的，在[[#乘积空间]]中会继续讨论，这种由映射确定的拓扑空间称为初始拓扑.
 
@@ -658,6 +666,7 @@ $$\begin{aligned}&(\text{N}1)\ X\in \mathcal{N}(x),\forall x\in X\\&(\text{N}2)\
 
 >[!summary]+ 自查表
 >- 连续映射的定义；等价刻画；
+>- 含入映射的定义；
 
 连续映射是拓扑学的核心概念.
 
@@ -667,6 +676,12 @@ $$\begin{aligned}&(\text{N}1)\ X\in \mathcal{N}(x),\forall x\in X\\&(\text{N}2)\
 >还可证明 $X$ 中的子基的原像为 $Y$ 中开集，或 $X$ 中的子基的原像为 $Y$ 中开集.
 
 定义**开映射**：任给 $X$ 的开集 $U$ ， $f(U)$ 为开集；**闭映射**：任给 $X$ 的闭集 $F$ ， $f(F)$ 为闭集.
+
+定义**含入映射**：设 $f: X\rightarrow Y$ ，其中 $X$ 为 $Y$ 的子集，称 $f=\mathbb{1}_X$ 为含入映射. 即： $f: x\mapsto x,\forall x\in X\subset Y$ .
+
+连续映射有以下等价刻画：
+
+>[!note] 设拓扑空间 $X,Y$ ， $f:X\rightarrow Y$ ，有以下等价命题：1) $f$ 连续；2) $\forall x\in X$ ， $f$ 在 $x$ 连续；3) $\forall A\subset X(f(\overline{A})\subset \overline{f(A)})$ ；4) 任给闭集 $F\subset Y$ ， $f^{-1}(F)$ 为 $X$ 中的闭集；5) $\forall B\subset Y,f^{-1}(B^\circ)\subset f^{-1}(B)^\circ$ . [[2421Su153848]]
 
 ### 同胚
 
@@ -686,6 +701,8 @@ $$\begin{aligned}&(\text{N}1)\ X\in \mathcal{N}(x),\forall x\in X\\&(\text{N}2)\
 >\end{aligned}\right.$$
 
 拓扑空间同胚的例子： #imcomplete-lack-examples 
+
+设映射 $f:X\rightarrow Y$ ，称 $f$ 是**同胚嵌入**，如果 $X$ 与 $f(X)$ 同胚，其中 $f(X)$ 上的拓扑是 $Y$ 的子拓扑.
 
 ## 遗传性质
 
@@ -788,7 +805,7 @@ $$\{X\}\cup\{U_1\cap U_2\cap \cdots\cap U_n:U_i\in \mathcal{B},n\geq1\}$$
 >- 什么是子网？
 >- 聚点和子网有什么关系？
 
-序列收敛不能完全刻画拓扑空间中（的闭集），引入**网收敛**以刻画拓扑.
+序列收敛不能完全刻画拓扑空间中（的闭集，要求是第一可数空间），引入**网收敛**以刻画拓扑.
 
 首先定义**预序**的概念：设 $\sqsubseteq$ 为集合 $D$ 上的一个二元关系，其满足： 1) 自反性 $\forall d\in D,d\sqsubseteq d$ ；2) 传递性 $\forall d_1,d_2,d_2\in D,d_1\sqsubseteq d_2,d_2\sqsubseteq d_3\rightarrow d_1\sqsubseteq d_3$ ，则称 $\sqsubseteq$ 为 $D$ 上的预序.
 
@@ -811,7 +828,7 @@ $$\{X\}\cup\{U_1\cap U_2\cap \cdots\cap U_n:U_i\in \mathcal{B},n\geq1\}$$
 
 设 $\xi:(D,\sqsubseteq)\rightarrow X$ ， $A\subset X,x\in X$ ，如果存在 $d\in D,\forall e\sqsupseteq d,\xi(e)\in A$ ，则称 $\xi$ （或者 $\{\xi(d)\}_{d\in D}$ ）**终在** $A$ 中；如果 $\xi$ 终在 $x$ 的任何一个邻域中，则称 $\xi$ **收敛**于 $x$ ，用 $\lim \xi$ 表示 $\xi$ 的所有极限组成的集合.
 
->[!warning]- $\lim \xi\neq \emptyset$ 则称 $\xi$ 收敛.
+>[!warning] $\lim \xi\neq \emptyset$ 则称 $\xi$ 收敛.
 
 下面来讨论几个网的收敛，注意只要求存在一个点是网的极限即可.
 
@@ -877,10 +894,10 @@ $$\{X\}\cup\{U_1\cap U_2\cap \cdots\cap U_n:U_i\in \mathcal{B},n\geq1\}$$
 >[!note]- 紧是闭遗传性质.
 >证明：设 $K$ 为紧空间 $X$ 的闭子空间，对于任何 $K$ 的开覆盖 $\mathcal{U}=\{V\cap Y:V\in \mathcal{V}\}$ ，其中 $\mathcal{V}$ 为 $X$ 上的开集族，进而 $\mathcal{V}\cup \{X\backslash Y\}$ 为 $X$ 的一个覆盖，从而存在 $X$ 的有限子覆盖： $\{V_1,\cdots,V_n\in \mathcal{V},X\backslash Y\}$ ，从而 $Y=X\cap Y=\bigcup_{i=1}^nV_i\cap Y=\bigcup_{i=1}^nV_i\cap Y$ ， $\{V_i\cap Y\}_{1\leq i\leq n}$ 即为 $Y$ 的有限子覆盖.
 
->[!example]- 紧不是开遗传性质.
+>[!example] 紧不是开遗传性质.
 >显然的例子是 $(0,1)\subset [0,1]$ ， $(0,1)=\bigcup_{n\geq1}(1/n,1)$ . #imcomplete-lack-examples %%更多例子？%%
 
->[!warning]+ 紧空间的紧子集不一定闭.
+>[!warning] 紧空间的紧子集不一定闭.
 >证明：考虑 $X=\{0,1\}$ ，定义在 $X$ 上的拓扑空间为 $\{\emptyset,\{1\},X\}$ ，则 $\{1\}$ 为 $X$ 的紧集，而 $\{1\}$ 是开集.
 >
 
@@ -890,6 +907,10 @@ $$\{X\}\cup\{U_1\cap U_2\cap \cdots\cap U_n:U_i\in \mathcal{B},n\geq1\}$$
 >再如：考虑 $\mathbb{N}\cup\{e,\pi\}$ ，其拓扑为 $\mathbb{N}$ 的离散拓扑加上 $\{e\}\cup \mathbb{N},\{\pi\}\cup \mathbb{N}$ ， $\{e,\pi\}\cup \mathbb{N}$ . 可验证其是拓扑，但 $\mathbb{N}$ 不是紧子集.
 
 >[!warning]- 闭紧集的交不一定是紧集. #imcomplete-lack-proofs 
+
+从紧空间的定义出发很容易得到下面的条件：
+
+>[!note] 设 $(X,\mathcal{O})$ ，则 $X$ 紧当且仅当对于任意的开集族 $\mathcal{U}\subset \mathcal{O}$ ，如果 $\mathcal{U}$ 中任意的有限子族都不覆盖 $X$ ，则 $\mathcal{U}$ 也不覆盖 $X$ .
 
 下面给出紧空间的等价刻画. 设集族 $\mathcal{A}$ ，如果 $\mathcal{A}\neq\emptyset$ 并且对于 $\mathcal{A}$ 的任意有限个元素，其交非空，则称 $\mathcal{A}$ 具有**有限交性质**.
 
@@ -968,6 +989,110 @@ $$\{X\}\cup\{U_1\cap U_2\cap \cdots\cap U_n:U_i\in \mathcal{B},n\geq1\}$$
 >[!note]- 设 $X,Y$ 是拓扑空间， $Y$ 是 Hausdorff 空间， $f,g: X\rightarrow Y$ 为连续映射，则 $E=\{x:f(x)=g(x)\}$ 是 $X$ 中的闭集.
 
 >[!note]- Hausdorff 空间的紧子集是闭集.
+
+## 紧 Hausdorff 空间
+
+**滤子**是与理想相对的概念. 关于理想见 [[#Tychnoff 乘积定理]] .
+
+设 $X$ 是非空集， $\mathcal{F}$ 为 $X$ 的一个子集族，称 $\mathcal{F}$ 是 $X$ 上的一个**滤子**（filter），如果：
+
+1. $\emptyset\notin \mathcal{F},X\in \mathcal{F}$ ；
+2. $A\in \mathcal{F},B\supset A\Rightarrow B\in \mathcal{F}$ ；
+3. $A,B\in \mathcal{F}\Rightarrow \exists C\in \mathcal{F}(C\subset A\cap B)$ .
+
+其中由 $1,2,3$ 可以得出滤子满足有限交性质.
+
+>[!example] $\forall x\in X,\mathcal{N}(x)$ 为 $X$ 上的一个滤子.
+
+设 $\mathcal{A}\subset \mathcal{P}(X)$ 满足有限交性质且 $\mathcal{A}$ 非空，定义 $\mathcal{A}$ **生成的滤子**： （注：有限交性质，有限的交非空）
+
+$$\left\{B\subset X:\exists A_1,A_2,\cdots,A_n\in \mathcal{A}\left(\bigcap_{i\leq n}A_i\subset B\right)\right\}$$
+
+记 $X$ 上的全体滤子为 $\mathcal{F}(X)\subset \mathcal{P}\mathcal{P}(X)$ .
+
+>[!note] 设 $\mathcal{D}\subset \mathcal{F}(X)$ ，则： 1) $\bigcap \mathcal{D}$ 为 $X$ 上的滤子； 2) 如果 $(\mathcal{D},\subset)$ 为全序集 / 定向集，则 $\bigcup \mathcal{D}$ 为 $X$ 上的滤子. [[2421Su104450]]
+
+显然 $(\mathcal{F}(X),\subset)$ 是一个偏序集，并且由 $2)$ ， $\mathcal{F}(X)$ 中的每一条链（即全序的子集）具有上界，因此由 [[Set#Zorn 引理]] 可知 $\mathcal{F}(X)$ 有极大元.
+
+定义 $X$ 的**超滤**（ultrafilter） / **极大滤子**（maximal filter）： $(\mathcal{F}(X),\subset)$ 的极大元.
+
+>[!example] 主滤
+>设 $A\subset X,A\neq \emptyset$ ，则 $\uparrow A=\{B\subset X:A\subset B\}$ 为 $X$ 上的滤子；
+>
+>称 $\uparrow x=\{A\subset X:x\in A\}$ 为由 $x$ 生成的**主滤**（principal filter），主滤都是超滤.
+>
+>证明：若 $X$ 上的滤子 $\mathcal{F}\supset \uparrow x$ ，则存在 $A\in \mathcal{F},x\in A$ ， $\forall F\in \mathcal{F}$ ， $A\cap F\in \uparrow x$ ，因此存在 $C\in\uparrow x: x\in C\in A\cap F\Rightarrow x\in F$ ，从而 $F\in \uparrow x$ ，所以 $\mathcal{F}=\uparrow x$ .
+
+>[!example] Frechet 滤子
+>设无限集 $X$ ， $\mathcal{F}=\{A\subset X:\lvert X\backslash A\rvert<\infty\}$ 为 $X$ 上的滤子，称为 Frechet 滤子.
+>
+>包含 $\mathcal{F}$ 的超滤不是主滤.
+>
+>[[2421Su112722]]
+
+超滤有如下的等价定义：
+
+>[!note] 以下条件等价：1) $\mathcal{F}$ 是超滤；2) 若 $\forall F\in \mathcal{F}(A\cap F\neq \emptyset)$ ，则 $A\in \mathcal{F}$ ；3) $A\cup B\in \mathcal{F}\Rightarrow A\in \mathcal{F}\vee B\in \mathcal{F}$ ；4) $\forall A\subset X(A\subset \mathcal{F}\vee A^c\subset \mathcal{F})$ .
+
+>[!note] 每个滤子都能写为一族超滤的交.
+
+对于两个滤子 $\mathcal{F},\mathcal{G}$ ，称两者**相容**，如果 $\forall F\in \mathcal{F},G\in \mathcal{G}(F\cap G)\neq\emptyset$ .
+
+设拓扑空间 $X$ ， $X$ 上的滤子 $\mathcal{F}$ ， $x\in X$ ，称 $x$ 为 $\mathcal{F}$ 的**极限**或者 $\mathcal{F}$ 收敛到 $x$ ，如果 $\mathcal{F}\supset \mathcal{N}(x)$ ；称 $x$ 为 $\mathcal{F}$ 的一个**聚点**，如果 $\mathcal{F}$ 与 $\mathcal{N}(x)$ 相容.
+
+>[!note] $\mathcal{F}$ 是滤子， $x\in \text{clust}\mathcal{F}$ 当且仅当存在包含 $\mathcal{F}$ 的滤子收敛于 $x$ .
+>证明： $\Rightarrow$ $x\in \text{clust} \mathcal{F}$ ，则 $\forall F\in \mathcal{F},U\in \mathcal{N}(x)(F\cap U\neq \emptyset)$ ，考虑滤子：
+>
+>$$\mathcal{G}=\{G\subset X:\exists F\in \mathcal{F}(F\cap G\neq \emptyset)\}$$
+>
+>显然 $\mathcal{F}\subset \mathcal{G}$ ，并且 $\mathcal{N}(x)\subset \mathcal{G}$ ，且 $\emptyset\notin \mathcal{G},X\in \mathcal{G}$ ，若 $G\in \mathcal{G},H\supset G$ ，则 $H\in \mathcal{G}$ ，若 $A,B\in \mathcal{G}$ ，则存在 $F_1(A\cap F_1\neq \emptyset),F_2(B\cap F_2\neq \emptyset)$ ， $F_1,F_2\in \mathcal{F}$ ，从而 $F_1\cup F_2\in \mathcal{F}$ ，所以 $(A\cap B)\cap (F_1\cup F_2)\neq \emptyset$ ，因此 $A\cap B\in \mathcal{G}$ . 所以 $\mathcal{G}$ 收敛到 $x$ .
+>
+>$\Leftarrow$ ：存在 $\mathcal{G}\supset \mathcal{F}$ ， $\mathcal{G}\supset \mathcal{N}(x)$ ，则对于任意的 $F\in \mathcal{F},N\in \mathcal{N}(x)$ ，存在 $C\in \mathcal{G},C\neq \emptyset$ 使得 $C\in F\cap N$ ，所以 $F\cap N\neq \emptyset$ ，所以 $x\in \text{clust}\mathcal{F}$ .
+
+>[!note] 设拓扑空间 $X$ ， $\mathcal{F},\mathcal{G}\in \mathcal{F}(X)$ ，则有：1) $\text{clust}f=\bigcap_{F\in \mathcal{F}}\overline{F}$ ；2) $\mathcal{F}\subset \mathcal{G}\Rightarrow \lim \mathcal{F}\subset \lim \mathcal{G},\text{clust}\mathcal{F}\subset \text{clust}\mathcal{G}$ ；3) $\mathcal{F}$ 是 $X$ 上的超滤则有： $\lim \mathcal{F}=\text{clust}\mathcal{F}$ .
+
+下面用滤子的收敛刻画闭包：
+
+>[!note] 设 $X$ 为拓扑空间， $A\subset X,x\in X$ ，下列条件等价： 1) $x\in \bar{A}$ ；2) 存在 $X$ 上的超滤 $\mathcal{G}$ 使得 $A\in \mathcal{G}$ 并且 $x\in \lim \mathcal{G}$ ；3) 存在 $X$ 上的滤子 $\mathcal{F}$ 使得 $A\in \mathcal{F}$ 并且 $x\in\lim \mathcal{F}$ .
+
+设映射 $f:X\rightarrow Y,\mathcal{F}\in \mathcal{F}(X)$ ，定义滤子 $\mathcal{F}$ 在 $f$ 下的像为：
+
+$$f(\mathcal{F})=\{B\subset Y:f^{-1}(B)\in \mathcal{F}\}$$
+
+不难验证 $f(\mathcal{F})$ 是 $Y$ 上的滤子. [[2421Su151408]]
+
+>[!note] $f:X\rightarrow Y$ ，若 $\mathcal{F}$ 是 $X$ 上的超滤，则 $f(\mathcal{F})$ 是 $Y$ 上的超滤.
+
+下面用滤子刻画连续映射：
+
+>[!note]- 设 $X,Y$ 为拓扑空间， $f:X\rightarrow Y$ 为映射，以下命题等价：1) $f:X\rightarrow Y$ 连续；2) 任给 $X$ 上的滤子 $\mathcal{F}$ ，$f(\lim \mathcal{F})\subset \lim f(\mathcal{F})$ ；3) 任给 $X$ 上的超滤 $\mathcal{G}$ ， $f(\lim \mathcal{G})\subset \lim f(\mathcal{G})$ .
+>$1)\Rightarrow 2)$ ：对于任意的 $x\in\lim \mathcal{F}$ ， $\mathcal{F}\supset \mathcal{N}(x)$ ，下面证明 $f(x)\in\lim f(\mathcal{F})$ ，只需证明 $f(\mathcal{F})\supset \mathcal{N}(f(x))$ . $f(\mathcal{F})=\{B\subset Y:f^{-1}(B)\in \mathcal{F}\}$ ，对任意 $N\in \mathcal{N}(f(x))$ ，存在开集 $U:f(x)\in U\subset N$ ，从而 $x\in f^{-1}(f(x))\in f^{-1}(U)\subset f^{-1}(N)$ ，注意 $f^{-1}(U)$ 为开集，因此 $f^{-1}(N)\in N(x)\subset \mathcal{F}$ ，所以 $f(\mathcal{F})\supset \mathcal{N}(f(x))$ .
+>
+>$2)\Rightarrow3)$ ：显然；
+>
+>$3)\Rightarrow1)$ ：对于任意的 $Y$ 上的集合 $V$ ，考虑主滤 $\mathcal{G}=\{B\subset Y:V\subset B\}$ ，则有 $f(\lim \mathcal{G})\subset \lim f(\mathcal{G})$ .
+>
+>因为 $\mathcal{G}$ 是超滤，所以 $\lim \mathcal{G}=\text{clust}\mathcal{G}=\bigcap_{A\in \mathcal{G}}\bar{A}$ ，由 $G$ 的定义可知 $\lim \mathcal{G}=\bar{V}$ ，同理可得 $\lim f(\mathcal{G})=\overline{f(V)}$ ，因此 $f(\overline{V})\subset \overline{f(V)},\forall V\subset Y$ ，所以 $f$ 是连续映射.
+
+## Tychnoff 空间
+
+设 $X$ 为拓扑空间，定义 $X$ 的**紧化** $(Y,c)$ ，其中 $Y$ 为紧空间， $c:X\rightarrow Y$ 是同胚嵌入， $c(X)$ 是 $Y$ 的稠子集；当 $Y$ 还是 Hasudorff 空间时，称  $(Y,c)$ 为 $X$ 的 **Hausdorff 紧化**；定义紧化 $(Y,c)$ 的**剩于**为 $Y\backslash c(X)$ .
+
+设拓扑空间 $(X,\mathcal{O})$ ，若 $\forall U\in \mathcal{O},\forall x\in U$ ，存在连续函数 $f:X\rightarrow[0,1]$ 使得 $f(x)=0$ ， $f(X\backslash U)\subset\{1\}$ 则称 $X$ **完全正则**.
+
+完全正则的 $T_0$ 空间称为 Tychnoff 空间（ $T_{3.5}$ 空间）
+
+>[!note] 完全正则空间是正则空间.
+
+
+
+>[!example] 拓扑空间 $X$ 有一个由既开又闭的集构成的基，证明 $X$ 为完全正则空间.
+
+
+
+证明：
+
+>[!example] 设 $X$ 是完全正则空间， $C\subset X$ 为紧子集， $U\subset X$ 为开子集并且 $C\subset U$ ，证明存在连续映射 $k:X\rightarrow[0,1]$ 满足 $k(C)\subset\{ 0\},k(X\backslash U)\subset\{1\}$ .
 
 ## 分离公理
 
@@ -1053,7 +1178,8 @@ $T_3$ 空间为正则的 $T_0$ 空间.
 
 ### $T_4$ 空间
 
->[!note] 正规的定义； $T_4$ 空间的定义；
+>[!summary] 自查表
+>- 正规的定义； $T_4$ 空间的定义；
 
 称拓扑空间 $X$ **正规**（normal），如果任给不交闭集 $F,G\subset X$ ，存在不交开集 $U\supset F,V\supset G$ .
 
@@ -1075,15 +1201,13 @@ $T_4$ 空间为正规的 $T_1$ 空间.
 
 # 乘积空间
 
-[[2420Sa101918]]
-
 设 $X,Y_i,1\leq i\leq n$ 为拓扑空间， $\{f_i:X\rightarrow Y_i\}_{1\leq i\leq n}$ 是一族映射.
 
 定义由映射族 $\{f_i\}_{1\leq i\leq n}$ 生成的 $X$ 上的**初始拓扑**（initial topology）或者**弱拓扑**（weak topology）为由：
 
 $$\mathcal{B}=\{f^{-1}_i(V_i):V_i\text{ 为 }Y_i\text{ 中的开集},i\in I\}$$
 
-作为子基生成的拓扑 $\mathcal{O}$ .
+作为<u>子基</u>生成的拓扑 $\mathcal{O}$ .
 
 >[!note] $f_i:(X,\mathcal{O})\rightarrow Y_i$ 连续.
 
@@ -1091,6 +1215,29 @@ $$\mathcal{B}=\{f^{-1}_i(V_i):V_i\text{ 为 }Y_i\text{ 中的开集},i\in I\}$$
 >证明：对于 $\mathcal{O}$ 中的任意开集 $U$ ，其都可以表示为 $\mathcal{B}$ 中的元素的有限交的并，并且 $f_i$ 连续，从而 $\mathcal{B}$ 中的任何一个元素都是 $\tau$ 中的开集，从而 $U\in \tau$ .
 
 >[!example] 子空间是一个初始拓扑.
+>考虑含入映射： $i: X\rightarrow Y$ ，其中 $X$ 是拓扑空间 $Y$ 的子空间，由[[#子空间]]中的讨论可知含入映射 $i$ 生成的子基为 $\{U\cap X: U\subset Y\}$ ，即为子空间拓扑. $i$ 是使得 $X\rightarrow Y$ 连续的最粗拓扑.
+
+>[!note] 映射 $f: X\rightarrow Y$ 是同胚嵌入当且仅当 $f$ 是单射并且 $X$ 的拓扑恰好是 $f$ 生成的初始拓扑.
+>证明： $\Rightarrow$ ：因为 $f$ 同胚，所以 $f$ 是单射；设 $X$ 的拓扑为 $\mathcal{O}$ ， $f$ 生成的拓扑的子基为：
+>
+> $$\mathcal{T}=\{f^{-1}(U):U\text{ 为 }Y\text{ 中的开集}\}=\{U\cap X:U\text{ 为 }Y\text{ 中的开集}\}$$
+>
+>从而 $\mathcal{T}=\mathcal{O}$ .
+>
+>$\Leftarrow$ ：因为 $X$ 的拓扑恰好是 $f$ 生成的连续拓扑，所以 $f: X\rightarrow Y$ 连续，又因为 $f$ 是单射，对于 $Y$ 中的任意元素 $y\in Y$ ，有 $f^{-1}(Y)$ 为 $X$ 的子基，所以 $f$ 是满射，则 $f$ 是连续双射.
+>
+>所以对于 $X$ 中的任意基本开集 $W=f^{-1}(U_1)\cap \cdots\cap f^{-1}(U_m)$ ，令 $g=f^{-1}$ ，则 $g^{-1}=f$ ， $f(W)=U_1\cap \cdots\cap U_m$ 为 $Y$ 中的开集，从而 $g$ 连续，则 $f$ 是同胚映射，并且也是嵌入（单连续映射的逆映射还是连续的，则称该映射为同胚嵌入）
+
+>[!example] 度量诱导的拓扑是初始拓扑.
+>设 $X$ 上由度量诱导引导的拓扑空间为 $\mathcal{O}_d$
+>
+>考虑函数族： $\{h_x: X\rightarrow \mathbb{R}\}_{x\in \mathbb{R}}$ ，其中 $h_x(y)=d(x,y)$ . 设该函数族生成的初始拓扑为 $\mathcal{T}$ .
+>
+>注意到 $\mathcal{O}_d$ 使得 $h_x,x\in \mathbb{R}$ 连续：对于任意的开集 $U\in \mathbb{R}$ ， $h_x^{-1}(U)=\{y\in X:d(x,y)\in U\}$ 是 $\mathcal{O}_d$ 中的开集：对于任意的 $z\in h_y^{-1}(U)$ ，有 $r=d(x,z)\in U$ ，而 $U$ 是 $\mathbb{R}$ 中的开集，所以存在 $U\supset (r-\delta,r+\delta)$ ，而对于任意的 $z':d(z,z')<\delta$ ， $d(x,z')\leq r+d(z,z')\in U$ ，因此 $B(z,\delta)\subset U$ ，从而 $h^{-1}_x(U)$ 为 $\mathcal{O}_d$ 中的开集.
+>
+>因此由初始拓扑的性质： $\mathcal{T}$ 粗于 $\mathcal{O}_d$ .
+>
+>对于 $\mathcal{O}_d$ 中的任何一个开集 $U$ ，对于任意的 $x\in U$ ，存在 $B(x,r_x)\subset U$ ，对于 $\{y:d(x,y)<r_x\}=\{y:h_x(y)\in(0,r_x)\}=h_x^{-1}(0,r_x)$ 为 $\mathcal{T}$ 的子基中的元素，从而可得 $U=\bigcup_{x\in U}B(x,r_x)$ 为 $\mathcal{T}$ 中的开集.
 
 设 $\{(X_i,\tau_i)\}_{i\in I}$ 为一族拓扑空间，定义 $\prod_{i\in I}^{}X_i=\{f:I\rightarrow \bigcup_{i\in I}X_i:f(i)\in X_i\}$ ，进而定义**投影映射** $P_{i_0}:\prod_{i\in I}^{}X_i\rightarrow X_{i_0},P_{i_0}(f)=f(i_0)$ ，定义**乘积拓扑**： $\prod_{i\in I}^{}\tau_i$ 是由<u>子基</u> $\{P_i^{-1}(U_i):i\in I,U_i\in \tau_i\}$ 生成的拓扑.
 
@@ -1205,6 +1352,17 @@ $$\begin{aligned}
 
 >[!example] 设 $X$ 是拓扑空间， $E$ 是 $X$ 上的等价关系，证明若 $E\subset X\times X$ 是闭集，并且 $q:X\rightarrow X\backslash E$ 是开映射，则 $X\backslash E$ 是 Hausdorff 空间.
 
+## Tychnoff 乘积定理
+
+紧性是任意可乘的.
+
+引入**理想**的概念：对于拓扑空间 $(X,\mathcal{O})$ ，称 $\mathcal{I}\subset \mathcal{O}$ 是理想，如果：
+
+1. $\emptyset\in \mathcal{I},X\notin \mathcal{I}$ ；
+2. $U\in \mathcal{I},V\subset U\Rightarrow V\in \mathcal{I}$ ；
+3. $U,V\in \mathcal{I}\Rightarrow U\cup V\in \mathcal{I}$ .
+
+[[2421Su110351]]
 
 # 度量化定理
 
@@ -1285,8 +1443,7 @@ $\Leftarrow$ ：设 $Y$ 为 $X$ 的子空间，对于 $Y$ 中任意两个不交�
 
 
 
-
-## $\mathbb{R}$ 上拓扑
+# $\mathbb{R}$ 上拓扑
 
 $\mathbb{R}$ 上有八大拓扑. 对照上面介绍的拓扑的刻画分别进行分析：
 
