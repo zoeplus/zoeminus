@@ -979,8 +979,68 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#_39" class="md-nav__link">
+    <span class="md-ellipsis">
+      切比雪夫不等式
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_40" class="md-nav__link">
+    <span class="md-ellipsis">
+      协方差
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_41" class="md-nav__link">
+    <span class="md-ellipsis">
+      母函数（生成函数）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_42" class="md-nav__link">
+    <span class="md-ellipsis">
+      特征函数
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="特征函数">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_43" class="md-nav__link">
+    <span class="md-ellipsis">
+      逆转公式
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#i" class="md-nav__link">
+    <span class="md-ellipsis">
+      附录 I 常见变量的数字特征
+    </span>
+  </a>
   
 </li>
       
@@ -2123,8 +2183,68 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#_39" class="md-nav__link">
+    <span class="md-ellipsis">
+      切比雪夫不等式
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_40" class="md-nav__link">
+    <span class="md-ellipsis">
+      协方差
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_41" class="md-nav__link">
+    <span class="md-ellipsis">
+      母函数（生成函数）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_42" class="md-nav__link">
+    <span class="md-ellipsis">
+      特征函数
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="特征函数">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_43" class="md-nav__link">
+    <span class="md-ellipsis">
+      逆转公式
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#i" class="md-nav__link">
+    <span class="md-ellipsis">
+      附录 I 常见变量的数字特征
+    </span>
+  </a>
   
 </li>
       
@@ -2154,7 +2274,7 @@
   <h1>概率论</h1>
 
 <h2 id="_1">概率论讨论对象<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
-<p>概率论中的三个要素： <span class="arithmatex">\((\Omega,\mathcal{F},P)\)</span> 其中 <span class="arithmatex">\(\Omega\)</span> 称为<strong>样本空间</strong>（sample space）由（一个随机过程中出现的）所有可能结果构成， <span class="arithmatex">\(\mathcal{F}\)</span> 为 <span class="arithmatex">\(\Omega\)</span> 的<u>一些</u>子集组成的一个集合，称为<strong>事件集</strong>（set of events）， <span class="arithmatex">\(P:\mathcal{F}\rightarrow[0,1]\)</span> 称为<strong>概率函数</strong>或者<strong>概率测度</strong>.</p>
+<p>概率论中的三个要素： <span class="arithmatex">\((\Omega,\mathcal{F},P)\)</span> . 其中 <span class="arithmatex">\(\Omega\)</span> 称为<strong>样本空间</strong>（sample space）由（一个随机过程中出现的）所有可能结果构成， <span class="arithmatex">\(\mathcal{F}\)</span> 为 <span class="arithmatex">\(\Omega\)</span> 的<u>一些</u>子集组成的一个集合，称为<strong>事件集</strong>（set of events）， <span class="arithmatex">\(P:\mathcal{F}\rightarrow[0,1]\)</span> 称为<strong>概率函数</strong>或者<strong>概率测度</strong>.</p>
 <h3 id="_2">样本空间<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
 <p><span class="arithmatex">\(\omega\in \Omega\)</span> 称为<strong>样本点</strong>，<span class="arithmatex">\(A\subset \mathcal{F}\)</span> 称为<strong>事件</strong>，事件是对随机过程结果的一个抽象.</p>
 <p>事件具有以下运算：</p>
@@ -2259,35 +2379,38 @@
 </details>
 <details class="example">
 <summary>第一局由甲乙参加，丙轮空；第一局的优胜者和丙进行第二局比赛，失败者轮空；比赛一直进行直到某人连续获胜两次. 甲乙丙每局获胜概率各为 <span class="arithmatex">\(\frac{1}{2}\)</span> ，三者获胜的概率各为多少？</summary>
-<p>见[[ProbDraw]]，用 <span class="arithmatex">\(a,b,c\)</span> 表示甲、乙、丙在当前对局中失败. 由规则一个人不能连续失败两次，因此 <span class="arithmatex">\(aa,bb,cc\)</span> 模式均不可能出现，并且对于当前字母 <span class="arithmatex">\(a/b/c\)</span> 其有 <span class="arithmatex">\(1/2\)</span> 的概率转换为另外两个字母之一. 最终甲获胜的情况即为出现 <span class="arithmatex">\(bcb\)</span> 或者 <span class="arithmatex">\(cbc\)</span> 的同时不出现 <span class="arithmatex">\(aba,bab,cac,aca\)</span> 中的任何一个情况，以及在最开始时的 <span class="arithmatex">\(bc\)</span> ，并且注意到起始三个元素将会决定所有后续 <span class="arithmatex">\(abcabc\cdots,bacbac\cdots\)</span>），在这种情况下甲获胜的序列：<br />
-1) 若长度为 <span class="arithmatex">\(3k+1\)</span> ，则最后几个元素为 <span class="arithmatex">\(<span class="arithmatex">\(\begin{aligned}
+<p>见 [[ProbDraw]] ，用 <span class="arithmatex">\(a,b,c\)</span> 表示甲、乙、丙在当前对局中失败. 由规则一个人不能连续失败两次，因此 <span class="arithmatex">\(aa,bb,cc\)</span> 模式均不可能出现，并且对于当前字母 <span class="arithmatex">\(a/b/c\)</span> 其有 <span class="arithmatex">\(1/2\)</span> 的概率转换为另外两个字母之一. 最终甲获胜的情况即为出现 <span class="arithmatex">\(bcb\)</span> 或者 <span class="arithmatex">\(cbc\)</span> 的同时不出现 <span class="arithmatex">\(aba,bab,cac,aca\)</span> 中的任何一个情况，以及在最开始时的 <span class="arithmatex">\(bc\)</span> ，并且注意到起始三个元素将会决定所有后续 <span class="arithmatex">\(abcabc\cdots,bacbac\cdots\)</span>），在这种情况下甲获胜的序列：<br />
+1) 若长度为 <span class="arithmatex">\(3k+1\)</span> ，则最后几个元素为 </p>
+<div class="arithmatex">\[\begin{aligned}
 &amp;abcabc\cdots abcb\\
 &amp;bacbac\cdots bac\times\\
-\end{aligned}\)</span>\)</span><br />
-2) 若长度为 <span class="arithmatex">\(3k+2\)</span> ，则最后几个元素为： <span class="arithmatex">\(<span class="arithmatex">\(\begin{aligned}
+\end{aligned}\]</div>
+<p>2) 若长度为 <span class="arithmatex">\(3k+2\)</span> ，则最后几个元素为： </p>
+<div class="arithmatex">\[\begin{aligned}
 &amp;abcabc\cdots abcbc(\text{repeat})\\
 &amp;bacbac\cdots bacbc\\
-\end{aligned}\)</span>\)</span> 注意当 <span class="arithmatex">\(k=0\)</span> 时也有一种情况.<br />
-3) 若长度为 <span class="arithmatex">\(3k\)</span> ，情况不存在.</p>
-</details>
-<p>所以甲获胜的概率为 <span class="arithmatex">\(<span class="arithmatex">\(1\times \frac{1}{2^2}+\sum\limits_{k=1}^{\infty}\left[1\times\frac{1}{2^{3k+1}}+1\times \frac{1}{2^{3k+2}}\right]=\frac{1}{4}+\frac{1}{16}/\frac{7}{8}+\frac{1}{32}/\frac{7}{8}=\frac{5}{14}\)</span>\)</span></p>
-<blockquote>
+\end{aligned}\]</div>
+<p>注意当 <span class="arithmatex">\(k=0\)</span> 时也有一种情况.</p>
+<p>3) 若长度为 <span class="arithmatex">\(3k\)</span> ，情况不存在.</p>
+<p>所以甲获胜的概率为：</p>
+<div class="arithmatex">\[1\times \frac{1}{2^2}+\sum\limits_{k=1}^{\infty}\left[1\times\frac{1}{2^{3k+1}}+1\times \frac{1}{2^{3k+2}}\right]=\frac{1}{4}+\frac{1}{16}/\frac{7}{8}+\frac{1}{32}/\frac{7}{8}=\frac{5}{14}\]</div>
 <p>进而可以得到之后的值.</p>
-<p>另一方面：考虑的是丙在 <span class="arithmatex">\(3k+1\)</span> 时获胜的情形： <span class="arithmatex">\(<span class="arithmatex">\(\begin{aligned}
+<p>另一方面：考虑的是丙在 <span class="arithmatex">\(3k+1\)</span> 时获胜的情形： </p>
+<div class="arithmatex">\[\begin{aligned}
 &amp;abcabc\cdots abc\times\\
 &amp;bacbac\cdots bac\times\\
-\end{aligned}\)</span>\)</span> <span class="arithmatex">\(3k+2:\)</span> <span class="arithmatex">\(<span class="arithmatex">\(\begin{aligned}
+\end{aligned}$$ $3k+2:$ $$\begin{aligned}
 &amp;abcabc\cdots abc\times \\
 &amp;bacbac\cdots bac\times\\
-\end{aligned}\)</span>\)</span> <span class="arithmatex">\(3k:\)</span> <span class="arithmatex">\(<span class="arithmatex">\(\begin{aligned}
+\end{aligned}$$ $3k:$ $$\begin{aligned}
 &amp;abcabc\cdots abcaba\\
 &amp;bacbac\cdots bacbab\\
-\end{aligned}\)</span>\)</span></p>
+\end{aligned}\]</div>
 <p>则丙有 <span class="arithmatex">\(2\)</span> 种获胜可能. 所以丙的获胜概率（注意这里已经不是古典概率模型了，而只是出现这样的结果的概率）为 <span class="arithmatex">\(<span class="arithmatex">\(2\times \frac{1}{2^3}+2\times \frac{1}{2^6}+\cdots\)</span>\)</span></p>
-</blockquote>
-<details class="note">
-<summary>若 <span class="arithmatex">\(A\supset B\)</span> ，则 <span class="arithmatex">\(\mathcal{P}(A\backslash B)=\mathcal{P}(A)-\mathcal{P}(B)\)</span> . 若 <span class="arithmatex">\(A,B\)</span> 没有包含关系，则 <span class="arithmatex">\(\mathcal{P}(A\backslash B)=\mathcal{P}(A)-\mathcal{P}(A\cap B)\)</span> .</summary>
 </details>
+<div class="admonition note">
+<p class="admonition-title">若 <span class="arithmatex">\(A\supset B\)</span> ，则 <span class="arithmatex">\(\mathcal{P}(A\backslash B)=\mathcal{P}(A)-\mathcal{P}(B)\)</span> . 若 <span class="arithmatex">\(A,B\)</span> 没有包含关系，则 <span class="arithmatex">\(\mathcal{P}(A\backslash B)=\mathcal{P}(A)-\mathcal{P}(A\cap B)\)</span> .</p>
+</div>
 <h2 id="_4">简单概率模型<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
 <p>下面提出的概率模型对于概率函数 <span class="arithmatex">\(\mathcal{P}\)</span> 做估计.</p>
 <h3 id="_5">古典概率模型<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
@@ -2303,10 +2426,10 @@
 <li>每一个结果对应的概率等可能，均为 <span class="arithmatex">\(\frac{1}{\lvert \Omega\rvert}\)</span>. </li>
 </ul>
 <p>在此情况下，对于一个事件 <span class="arithmatex">\(A\)</span> ，可以计算其概率： <span class="arithmatex">\(\mathcal{P}(A)=\frac{\lvert A\rvert}{\lvert \Omega\rvert}\)</span></p>
-<details class="example">
-<summary>不是古典概率模型举例. #issue</summary>
+<div class="admonition example">
+<p class="admonition-title">不是古典概率模型举例. #issue</p>
 <p>课堂上举的例子 <span class="arithmatex">\(\{1,2,2,3,3,3\}\)</span> 有问题.</p>
-</details>
+</div>
 <p>计算古典概率模型需要用到<a href="../DSA/#排列">排列</a>和<a href="../DSA/#组合">组合</a>分析. 一般对于古典概型问题中直观上的相同元素（例如，同色小球）按照不同进行处理.</p>
 <details class="example" open="open">
 <summary>有重复组合数：从 <span class="arithmatex">\(n\)</span> 个小球中抽取 <span class="arithmatex">\(r(r\leq n)\)</span> 个小球. 考虑有无放回和有无顺序，各有多少种取法？</summary>
@@ -2534,6 +2657,7 @@
 <p>为<strong>二项分布</strong>（binomial distribution）. 显然有 <span class="arithmatex">\(\sum\limits_{k=0}^{n}b(k;n,p)=1\)</span> .</p>
 <p>已知 <span class="arithmatex">\(\mathcal{P}\)</span> 在由 <span class="arithmatex">\(A_1,\cdots,A_n,\emptyset,\Omega\)</span> 组成的事件域 <span class="arithmatex">\(\mathcal{F}\)</span> 上符合概率函数定义，下面所证明的是 <span class="arithmatex">\(\mathcal{P}\)</span> 在 <span class="arithmatex">\(\mathcal{F}\)</span> 的某个限制上仍然符合概率函数定义.</p>
 <p>组成的事件域下面来证明 <span class="arithmatex">\(\mathcal{P}\)</span> 在由 <span class="arithmatex">\(\{B_k\}_{1\leq k\leq n},\emptyset,\Omega\)</span> 组成的有限 <span class="arithmatex">\(\sigma\)</span> 事件域上符合概率函数的定义：非负显然；对于规范性， <span class="arithmatex">\(\mathcal{P}(\Omega)\)</span> 可以转换为更小的 <span class="arithmatex">\(\mathcal{P}(A_{i_1}\cdots A_{i_k}\bar{A}_{j_1}\cdots\bar{A}_{j_{n-k}})\)</span> 的和，为 <span class="arithmatex">\(1\)</span> ；对于可列可加性也是类似的思想（由于不相容的限制，所以只能是 <span class="arithmatex">\(B_k\)</span> 的和，或者是更平凡的情况）.</p>
+<p>[[2420Sa083626]]</p>
 <details class="example">
 <summary><strong>随机游走</strong>（random work）：考虑一维坐标轴，从 <span class="arithmatex">\(a\in \mathbb{Z}\)</span> 出发，只能进行 <span class="arithmatex">\(+1\)</span> （前进） 或者 <span class="arithmatex">\(-1\)</span> （后退），分别考虑：1) 无约束情况：求在 <span class="arithmatex">\(n\)</span> 步之后到达 <span class="arithmatex">\(a+k(k\in \mathbb{Z})\)</span> 的概率；2) 有约束情况：游走到 <span class="arithmatex">\(0\)</span> 或者 <span class="arithmatex">\(a+b\)</span> 就会被吸附，无法继续游走，求则被吸附的概率.</summary>
 <p>无约束情况：最简单的二项分布，设前进 <span class="arithmatex">\(x\)</span> 步后退 <span class="arithmatex">\(y\)</span> 步，计算 <span class="arithmatex">\(x+y=n,x-y=k\)</span> 进而可得 <span class="arithmatex">\(x=\frac{n+k}{2}\)</span> ， <span class="arithmatex">\(y=\frac{n-k}{2}\)</span> ，再计算 <span class="arithmatex">\(\binom{n}{k}p^x(1-p)^y\)</span> 即可.</p>
@@ -2551,15 +2675,16 @@
 </details>
 <p>设 <span class="arithmatex">\(p_n\)</span> ：最终被 <span class="arithmatex">\(0\)</span> 吸附的概率，则有 <span class="arithmatex">\(<span class="arithmatex">\(p_n=pp_{n+1}+(1-p)p_{n-1},n&gt;0,p_0=1\)</span>\)</span> 从而可以得到： <span class="arithmatex">\(<span class="arithmatex">\(p_{n+1}-p_n=\left(\frac{1}{p}-1\right)^n(p_1-1),n&gt;0\)</span>\)</span> 递推可得： <span class="arithmatex">\(<span class="arithmatex">\(p_{n+1}+1=\frac{1-\left(\frac{1}{p}-1\right)^{n+1}}{2-\frac{1}{p}}(p_1-1)\)</span>\)</span> 然后怎么求解？ #issue </p>
 <h4 id="_13">几何分布<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h4>
-<details class="abstract" open="open">
-<summary>自查表</summary>
+<div class="admonition abstract">
+<p class="admonition-title">自查表</p>
 <ul>
 <li>几何分布的定义；和几何概率模型有什么关系？</li>
 </ul>
-</details>
+</div>
 <p>不断进行相互独立的 Bernoulli 试验，每一次 Bernoulli 试验事件 <span class="arithmatex">\(A\)</span> 发生的概率为 <span class="arithmatex">\(p\)</span> ，考虑 <span class="arithmatex">\(A\)</span> <u>首次发生</u>出现在第 <span class="arithmatex">\(k\)</span> 次（记事件为 <span class="arithmatex">\(W_k\)</span> ）的概率.</p>
 <div class="arithmatex">\[\mathcal{P}(W_k)=\mathcal{P}(\bar{A}_1\cdots \bar{A}_{k-1}A_k)=(1-p)^{k-1}p\]</div>
-<p>称 <span class="arithmatex">\(g(k;p)=(1-p)^{k-1}p,k\geq1\)</span> 为<strong>几何分布</strong>. 并且有： <span class="arithmatex">\(<span class="arithmatex">\(\sum\limits_{k=1}^{\infty}g(k;p)=1\)</span>\)</span></p>
+<p>称 <span class="arithmatex">\(g(k;p)=(1-p)^{k-1}p,k\geq1\)</span> 为<strong>几何分布</strong>. 并且有： </p>
+<div class="arithmatex">\[\sum\limits_{k=1}^{\infty}g(k;p)=1\]</div>
 <p><span class="arithmatex">\(\mathcal{P}\)</span> 是由 <span class="arithmatex">\(W_1,W_2,\cdots,W_k,\emptyset,\Omega\)</span> 组成的事件域 <span class="arithmatex">\(\mathcal{F}\)</span> 上的概率函数：非负性显然；规范性， <span class="arithmatex">\(\Omega\)</span> 可以拆分为不相交的事件；可列可加性；</p>
 <p>几何分布是唯一一个具有无记忆性的离散型随机变量，见： <a href="#几何分布二">#几何分布（二）</a></p>
 <h4 id="pascal">Pascal 分布<a class="headerlink" href="#pascal" title="Permanent link">&para;</a></h4>
@@ -3137,16 +3262,286 @@ E\xi &amp;=\sum\limits_{k=1}^{\infty}\mathcal{P}(\xi=k)k\\
 <p>以上，或写作：</p>
 <div class="arithmatex">\[E \xi=\sum\limits_{k=1}^{\infty}\mathcal{P}(\xi=k)k=\sum\limits_{k=1}^{\infty}\sum\limits_{j=k}^{\infty}\mathcal{P}(\xi=j)\]</div>
 <h3 id="_38">方差<a class="headerlink" href="#_38" title="Permanent link">&para;</a></h3>
-<p>设 <span class="arithmatex">\(\xi\)</span> 为随机变量，如果 <span class="arithmatex">\(E(\xi-E \xi)^2\)</span> 存在，则定义 <span class="arithmatex">\(\xi\)</span> 的<strong>方差</strong>为 <span class="arithmatex">\(E(\xi-E \xi)^2\)</span> .</p>
+<p>设 <span class="arithmatex">\(\xi\)</span> 为随机变量，如果 <span class="arithmatex">\(E(\xi-E \xi)^2\)</span> 存在，则定义 <span class="arithmatex">\(\xi\)</span> 的<strong>方差</strong>为 <span class="arithmatex">\(D\xi=E(\xi-E \xi)^2\)</span> . 称 <span class="arithmatex">\(\sqrt{D \xi}\)</span> 为 <span class="arithmatex">\(\xi\)</span> 的根方差 / 均方差 / <strong>标准差</strong>.</p>
 <div class="admonition note">
 <p class="admonition-title"><span class="arithmatex">\(E(\xi-E \xi)^2=E(\xi^2)-(E \xi)^2\)</span> .</p>
 <div class="arithmatex">\[E(\xi^2-2 \xi E\xi +(E \xi)^2)=E(\xi^2)-(E \xi)^2\]</div>
 </div>
 <div class="admonition note">
-<p class="admonition-title">服从正态分布 <span class="arithmatex">\(N(\mu,\sigma^2)\)</span> 的随机变量 <span class="arithmatex">\(\xi\)</span> 方差.</p>
+<p class="admonition-title"><span class="arithmatex">\(D(\xi+c)=D \xi\)</span> .</p>
 </div>
-<p>$$\begin{aligned}</p>
-<p>\end{aligned}$$</p>
+<div class="admonition note">
+<p class="admonition-title"><span class="arithmatex">\(D(c \xi)=c^2D\xi\)</span> .</p>
+</div>
+<details class="note">
+<summary><span class="arithmatex">\(D\xi\geq0\)</span> 并且 <span class="arithmatex">\(D\xi=0\Leftrightarrow \exists c,\mathcal{P}(\xi=c)=1\)</span> .</summary>
+<p>证明：由定义 <span class="arithmatex">\(D\xi\geq0\)</span> .</p>
+<p><span class="arithmatex">\(\Rightarrow\)</span> ：取 <span class="arithmatex">\(c=E\xi\)</span> ，则：</p>
+<div class="arithmatex">\[\begin{aligned}
+D\xi &amp;=\int_{-\infty}^c(x-E\xi)^2dF(x)+\int_{c}^\infty(x-E\xi)^2dF(x)+\int_{\{c\}}(x-E\xi)^2dF(x)\\
+&amp;=0
+\end{aligned}\]</div>
+<p>从而可得</p>
+<div class="arithmatex">\[\int_{-\infty}^c(x-E\xi)^2dF(x)=\int_c^{\infty}(x-E\xi)^2dF(x)=0\]</div>
+<p>所以： <span class="arithmatex">\(dF(x)=0,x\neq c\)</span> ，所以 <span class="arithmatex">\(F(c)=F(-\infty)=0,F(c+0)=F(+\infty)=1\)</span> ，则 <span class="arithmatex">\(F(c)=F(c+0)-F(c)=1\)</span> . </p>
+</details>
+<p>有如下推论：</p>
+<div class="admonition note">
+<p class="admonition-title"><span class="arithmatex">\(E\xi^2=0\Rightarrow \mathcal{P}(\xi=0)=1\)</span> .</p>
+<p>证明： <span class="arithmatex">\(E\xi^2=-\Rightarrow D\xi=0,E\xi=0\Rightarrow \mathcal{P}(\xi=0)=1\)</span> .</p>
+</div>
+<details class="note">
+<summary><span class="arithmatex">\(E(\xi-E\xi)^2\leq E(\xi-c)^2\)</span> 或 <span class="arithmatex">\(D\xi=\min_{c\in \mathbb{R}}(\xi-c)^2\)</span> .</summary>
+<p>证明：</p>
+<div class="arithmatex">\[\begin{aligned}
+E(\xi-E\xi)^2&amp;=E(\xi-c+c-E\xi)^2\\
+&amp;=E(\xi-c)^2+2(c-E\xi)E(\xi-c)+E(c-E\xi)^2\\
+&amp;=E(\xi-c)^2-(E\xi -c)^2\leq E(\xi-c)^2
+\end{aligned}\]</div>
+</details>
+<details class="example">
+<summary>如果 <span class="arithmatex">\(\xi\in[a,b]\)</span> ，证明： <span class="arithmatex">\(D\xi\leq \frac{(b-a)^2}{4}\)</span> ，取等条件？</summary>
+<p>证明：</p>
+<div class="arithmatex">\[D\xi\leq E\left(\xi-\frac{a+b}{2}\right)^2\leq E\left(\frac{(b-a)^2}{4}\right)=\frac{(b-a)^2}{4}\]</div>
+<p>从而得证. 当且仅当 <span class="arithmatex">\(E\xi=\frac{a+b}{2}\)</span> 时取等.</p>
+</details>
+<p>有如下推论：</p>
+<div class="admonition note">
+<p class="admonition-title">服从正态分布 <span class="arithmatex">\(N(\mu,\sigma^2)\)</span> 的随机变量 <span class="arithmatex">\(\xi\)</span> 方差.</p>
+<div class="arithmatex">\[\begin{aligned}
+D(\xi)&amp;=\int_{-\infty}^\infty (x-\mu)^2\frac{1}{\sqrt{2\pi}\sigma}\exp\left(-\frac{(x-\mu)^2}{2\sigma^2}\right)dx\\
+&amp;\overset{z=\frac{x-\mu}{\sigma}}{=}\frac{1}{\sqrt{2\pi}\sigma}\sigma\int_{-\infty}^{\infty}(\sigma z)^2\exp\left(-\frac{z^2}{2}\right)dz\\
+&amp;=\frac{1}{\sqrt{2\pi}}\sigma^2\int_{-\infty}^\infty z^2\exp(-z^2/2)dz\\
+&amp;=-\frac{1}{\sqrt{2\pi}}\sigma^2\int_{\infty}^\infty z\ d(\exp (-z^2/2))\\
+&amp;=-\frac{1}{\sqrt{2\pi}}\sigma^2\left(z\exp(-z^2/2)|_{\infty}^\infty-\int_{-\infty}^\infty\exp(-z^2/2)dz\right)\\
+&amp;=\sigma^2
+\end{aligned}\]</div>
+</div>
+<p>[[2420Fr180734]]</p>
+<details class="example">
+<summary><span class="arithmatex">\(\xi\sim U([a,b])\)</span> ，则 <span class="arithmatex">\(D\xi=\frac{(a-b)^2}{12}\)</span> .</summary>
+<div class="arithmatex">\[\begin{aligned}
+E\xi^2&amp;=\int_{a}^bx^2\frac{1}{b-a}dx\\
+&amp;=\frac{b^3-a^3}{3(b-a)}=\frac{b^2+a^2+ab}{3}\\
+\end{aligned}\]</div>
+<p>从而 <span class="arithmatex">\(D\xi=E\xi^2-(E\xi)^2=\frac{(b-a)^2}{12}\)</span> .</p>
+</details>
+<details class="example">
+<summary><span class="arithmatex">\(\xi\)</span> 服从参数为 <span class="arithmatex">\(p\)</span> 的 Bernoulli 分布，则 <span class="arithmatex">\(D\xi=pq\)</span></summary>
+<p><span class="arithmatex">\(E\xi^2=1^2\cdot p=p\)</span> . 从而 <span class="arithmatex">\(D\xi=pq\)</span> .</p>
+</details>
+<details class="example">
+<summary><span class="arithmatex">\(\xi\)</span> 服从二项分布 <span class="arithmatex">\(b(n,k,p)\)</span> ，则 <span class="arithmatex">\(D \xi=np(1-p)\)</span> .</summary>
+<div class="arithmatex">\[\begin{aligned}
+E \xi^2&amp;=\sum\limits_{k=0}^{n}k^2\binom{n}{k}p^k(1-p)^{n-k}\\
+&amp;=\sum\limits_{k=1}^{n}kn\binom{n-1}{k-1}p^k(1-p)^{n-k}\\
+&amp;=n\sum\limits_{k=1}^{n}\left[(k-1)\binom{n-1}{k-1}+\binom{n-1}{k-1}\right]p^k(1-p)^{n-k}\\
+&amp;=n\sum\limits_{k=2}^{n}\left[(n-1)\binom{n-2}{k-2}\right]p^k(1-p)^{n-k}+\sum\limits_{k=1}^{n}\binom{n-1}{k-1}p^k(1-p)^{n-k}\\
+&amp;=n(n-1)p^2+np=n^2p^2+npq
+\end{aligned}\]</div>
+<p>从而可得：</p>
+<div class="arithmatex">\[D\xi =n^2p^2+npq-(np)^2=npq\]</div>
+<p>其中用到的组合等式：</p>
+<div class="arithmatex">\[\begin{aligned}
+k\binom{n-1}{k-1}&amp;=(k-1)\binom{n-1}{k-1}+\binom{n-1}{k-1}\\
+&amp;=(n-1)\binom{n-2}{k-2}+\binom{n-1}{k-1}
+\end{aligned}\]</div>
+</details>
+<details class="example">
+<summary><span class="arithmatex">\(\xi\)</span> 服从几何分布 <span class="arithmatex">\(g(p,k)\)</span> ，则 <span class="arithmatex">\(D\xi=\)</span></summary>
+</details>
+<p><span class="arithmatex">\(p_k=(1-p)^{k-1}p\)</span> .</p>
+<div class="arithmatex">\[\begin{aligned}
+E\xi^2&amp;=\sum\limits_{k\geq1}^{}q^{k-1}pk^2\\
+&amp;=\sum\limits_{k\geq1}^{}q^{k-1}p \cdot k(k+1)-\sum\limits_{k\geq1}^{}q^{k-1}p\cdot k\\
+&amp;=p\left(\sum\limits_{k\geq1}^{}k(k+1)x^{k-1}\right)\bigg|_{x=q}-p\left(\sum\limits_{k\ge1}^{}kx^{k-1}\right)\bigg|_{x=q}\\
+&amp;=p\left(\sum\limits_{k\geq1}^{}x^{k+1}\right)^{(2)}\bigg|_{x=q}-p\left(\sum\limits_{k\geq1}^{}x^k\right)'\bigg|_{x=q}\\
+&amp;=p\left(\frac{x^2}{1-x}\right)^{(2)}\bigg|_{x=q}-p\left(\frac{x}{1-x}\right)'\bigg|_{x=q}\\
+&amp;=
+\end{aligned}\]</div>
+<details class="example">
+<summary><span class="arithmatex">\(\xi\)</span> 服从参数为 <span class="arithmatex">\(\lambda\)</span> 的泊松分布，其方差为 <span class="arithmatex">\(\lambda\)</span> . （泊松分布的期望、方差相同）</summary>
+<div class="arithmatex">\[\begin{aligned}
+E\xi^2 &amp;=\sum\limits_{k\geq0}^{}k^2\frac{\lambda^k}{k!}e^{-\lambda}\\
+&amp;=e^{-\lambda}\lambda\left[\sum\limits_{k\geq1}^{}\left(\frac{\lambda^{k-1}}{(k-1)!}k\right)\right]\\
+&amp;=e^{-\lambda}\lambda\sum\limits_{k\geq0}^{}\frac{\lambda^k}{k!}(k+1)\\
+&amp;=e^{-\lambda}\lambda^2\sum\limits_{k\geq1}^{}\frac{\lambda^{k-1}}{(k-1)!}+e^{-\lambda}\lambda e^{-\lambda}\\
+&amp;=\lambda^2+\lambda
+\end{aligned}\]</div>
+<p>从而可得 <span class="arithmatex">\(D \xi=\lambda\)</span> .</p>
+</details>
+<div class="admonition example">
+<p class="admonition-title"><span class="arithmatex">\(\xi\)</span> 服从 Laplace 分布（密度函数为 <span class="arithmatex">\(p(x)=\frac{1}{2\lambda}e^{-\lvert x-\mu\rvert/\lambda},-\infty&lt;x&lt;\infty,\lambda&gt;0\)</span>）， <span class="arithmatex">\(D\xi=2\lambda^2\)</span> .</p>
+</div>
+<h3 id="_39">切比雪夫不等式<a class="headerlink" href="#_39" title="Permanent link">&para;</a></h3>
+<p>[[2420Fr133317]]</p>
+<p>对于任意方差有限的随机变量 <span class="arithmatex">\(\xi\)</span> 有：</p>
+<div class="arithmatex">\[\mathcal{P}(\lvert \xi-E \xi\rvert\geq \epsilon)\leq \frac{D\xi}{\epsilon^2}\]</div>
+<p>证明：</p>
+<div class="arithmatex">\[D\xi \geq\int_{\lvert \xi-E\xi\rvert\geq \epsilon}(x-E\xi)^2dF(x)\geq \epsilon^2\mathcal{P}(\lvert \xi-E\xi\rvert\geq \epsilon)\]</div>
+<p>注意，当 <span class="arithmatex">\(\epsilon\)</span> 接近于 <span class="arithmatex">\(0\)</span> 时，该式是平凡的，因为 <span class="arithmatex">\(\mathcal{P}(\lvert \xi-E \xi\rvert\ge 0)\leq 1\leq \frac{D\xi}{\epsilon^2}\)</span> ，当 <span class="arithmatex">\(\epsilon\)</span> 充分大时.</p>
+<div class="admonition note">
+<p class="admonition-title">变式： <span class="arithmatex">\(\mathcal{P}\{\lvert \xi-E\xi\rvert&lt;\epsilon\}&gt;1-\frac{D\xi}{\epsilon^2}\)</span> .</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">变式： <span class="arithmatex">\(\mathcal{P}\left(\left\lvert\left\{\frac{\xi-E\xi}{\sqrt{D\xi}}\right\} \right\rvert\ge \delta\right)\leq \frac{1}{\delta^2}\)</span> .</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">推广： <span class="arithmatex">\(\mathcal{P}\{\lvert \xi-E\xi\rvert\ge \epsilon\}\le\frac{E\lvert \xi-E\xi\rvert^r}{\epsilon^r},r\ge0\)</span> .</p>
+</div>
+<p>特别地，有 Morkov 不等式（<a href="https://en.wikipedia.org/wiki/Markov%27s_inequality">check-wiki</a>）</p>
+<div class="admonition note">
+<p class="admonition-title"><span class="arithmatex">\(\mathcal{P}(\{\lvert \xi\rvert\geq \epsilon\})\leq \frac{E\lvert \xi\rvert^r}{\epsilon^r},r\ge0\)</span> .</p>
+</div>
+<p>此外，切比雪夫不等式几乎是求概率收敛的唯一方法，其用期望和方差控制概率. 即 <span class="arithmatex">\(\xi\)</span> 落在 <span class="arithmatex">\((-\delta+E\xi,\delta+E\xi)\)</span> 的概率低于 <span class="arithmatex">\(1-\frac{1}{\delta^2}\)</span> .</p>
+<div class="admonition note">
+<p class="admonition-title">推论：方差为 <span class="arithmatex">\(0\)</span> 的随机变量（几乎处处）为常数.</p>
+</div>
+<p>证明：设 <span class="arithmatex">\(\xi,D\xi=0\)</span> .</p>
+<div class="arithmatex">\[\begin{aligned}
+\mathcal{P}(\xi\neq E\xi)&amp;=\mathcal{P}\left(\bigcup_{n\geq1}\{\lvert \xi-E\xi\rvert\ge 1/n\}\right)\\
+&amp;\le\sum\limits_{n\geq1}^{}\mathcal{P}(\lvert \xi-E\xi \rvert\ge 1/n)\\
+&amp;\leq \sum\limits_{n\geq1}^{}\frac{D\xi }{1/n^2}=0
+\end{aligned}\]</div>
+<p>也即 <span class="arithmatex">\(\mathcal{P}(\xi=E\xi)=1\)</span> （概率测度为 <span class="arithmatex">\(1\)</span> ） [[2420Sa082320]]</p>
+<h3 id="_40">协方差<a class="headerlink" href="#_40" title="Permanent link">&para;</a></h3>
+<p>在之前已经提到过两个随机变量之间的一种特殊关系：独立 <span class="arithmatex">\(F_{\xi,\eta}(x,y)=F_{\xi}(x)F_\eta(y)\)</span> ，这个条件实际上不容易达到.</p>
+<p>下面引入相关这一概念，其是独立的必要条件.</p>
+<p>对随机变量 <span class="arithmatex">\(\xi,\eta\)</span> ，如果两者的均值、方差都存在，则定义 <span class="arithmatex">\(\xi,\eta\)</span> 的<strong>协方差</strong>（covariance）为 <span class="arithmatex">\(\text{cov}(\xi,\eta)=E((\xi-E\xi)(\eta-E\eta))\)</span> . 有以下结论：</p>
+<div class="admonition note">
+<p class="admonition-title"><span class="arithmatex">\(\text{cov}(\xi,\eta)=E(\xi \eta)-E \xi E \eta\)</span> .</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">如果 <span class="arithmatex">\(E\xi,E\eta\)</span> 存在，则 <span class="arithmatex">\(E\xi \eta\)</span> 也存在.</p>
+</div>
+<p>证明：考虑证明 <span class="arithmatex">\((E(\xi\eta))^2\leq (E\xi^2)(E\eta^2)\)</span> ，采取判别式法，欲 <span class="arithmatex">\(\Delta=(2E(\xi,\eta))^2-4(E\xi)^2(E\eta)^2\)</span> ，因此构造函数：</p>
+<div class="arithmatex">\[f(t)=\xi^2t^2+2\xi\eta\ t+\eta^2=(\xi t+\eta)^2\geq0\]</div>
+<p>取期望得到：</p>
+<div class="arithmatex">\[E(f(t))=E(\xi^2)t^2+2E(\xi \eta)t+E(\eta^2)\]</div>
+<ol>
+<li><span class="arithmatex">\(E(\xi^2)=0\)</span> ，则 <span class="arithmatex">\(\mathcal{P}(\xi=0)=1\)</span> ，从而 <span class="arithmatex">\(\mathcal{P}(\eta \xi=0)\)</span> （因为 <span class="arithmatex">\(\{\eta \xi=0\}=\{\eta=0\}\cup \{\eta=0\}\supset \{\xi=0\}\)</span> ），从而 <span class="arithmatex">\(E(\xi \eta)=E(\xi)=0\)</span> ，此时 <span class="arithmatex">\((E(\xi\eta))^2=(E\xi^2)E(\eta^2)\)</span> .</li>
+<li><span class="arithmatex">\(E(\xi^2)\neq0\)</span> ，由 <span class="arithmatex">\(f(t)\ge0,\forall t\in \mathbb{R}\)</span> ， <span class="arithmatex">\(\Delta\leq 0\)</span> ，从而可得 <span class="arithmatex">\((E(\xi \eta))^2\leq (E \xi^2)E(\eta^2)\)</span> ，当且仅当存在 <span class="arithmatex">\(t_0\)</span> 使得 <span class="arithmatex">\(f(t_0)=0\)</span> 即 <span class="arithmatex">\(\xi t_0+\eta=0\)</span> 时上式取等.</li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title"><span class="arithmatex">\(\text{cov}(\xi,\eta)\leq \sqrt{D\xi D\eta}\)</span> .</p>
+</div>
+<p>在协方差的基础上，如果 <span class="arithmatex">\(D\xi,D\eta\neq0\)</span> ，则定义<strong>相关系数</strong>： <span class="arithmatex">\(\gamma=\frac{\text{cov}(\xi,\eta)}{D\xi D\eta}\)</span> .</p>
+<p>如果 <span class="arithmatex">\(\gamma=\pm1\)</span> ，则称 <span class="arithmatex">\(\eta,\xi\)</span> 具有线性关系或<strong>相关</strong>，如果 <span class="arithmatex">\(\gamma=0\)</span> ，则称 <span class="arithmatex">\(\eta,\xi\)</span> 不相关.</p>
+<div class="admonition note">
+<p class="admonition-title">如果 <span class="arithmatex">\(\xi,\eta\)</span> 独立，则 <span class="arithmatex">\(\xi,\eta\)</span> 不相关.</p>
+</div>
+<div class="admonition example">
+<p class="admonition-title"><span class="arithmatex">\(\xi,\eta\)</span> 不相关，但 <span class="arithmatex">\(\xi,\eta\)</span> 不独立.</p>
+</div>
+<h3 id="_41">母函数（生成函数）<a class="headerlink" href="#_41" title="Permanent link">&para;</a></h3>
+<p>类似于 <a href="../DSA/">DSA</a> 中的计数问题中的生成函数，概率论中采取母函数辅助获取随机变量的数字特征.</p>
+<p>对于非负整数值离散型随机变量 <span class="arithmatex">\(\xi\)</span> ，定义其<strong>母函数</strong>（generating function）为：</p>
+<div class="arithmatex">\[P(s)=Es^\xi=\sum\limits_{k\ge0}^{}\mathcal{P}(\xi=k)s^k,s\in[0,1]\]</div>
+<p>其中 <span class="arithmatex">\(s\in[0,1]\)</span> ，从而 <span class="arithmatex">\(P(s)\)</span> 在 <span class="arithmatex">\([0,1]\)</span> 上一致收敛并且绝对收敛.</p>
+<div class="admonition warning">
+<p class="admonition-title">母函数是对于离散型非负整数值的随机变量定义的，其他随机变量，e.g. 连续型随机变量，没有母函数定义，其类似的定义是特征函数.</p>
+</div>
+<div class="admonition example">
+<p class="admonition-title"><span class="arithmatex">\(\xi\)</span> 服从二项分布 <span class="arithmatex">\(b(k;n,p)\)</span> ，求其母函数.</p>
+<div class="arithmatex">\[\begin{aligned}
+P(s)&amp;=\sum\limits_{k=0}^{n}s^k\binom{n}{k}p^{k}q^{n-k}\\
+&amp;=\sum\limits_{k=0}^{n}\binom{n}{k}(sp)^kq^{n-k}\\
+&amp;=(sp+q)^n=((s-1)p+1)^n
+\end{aligned}\]</div>
+</div>
+<div class="admonition example">
+<p class="admonition-title"><span class="arithmatex">\(\xi\)</span> 服从参数为 <span class="arithmatex">\(\lambda\)</span> 的泊松分布，求其母函数.</p>
+<div class="arithmatex">\[\begin{aligned}
+P(s)&amp;=\sum\limits_{k=0}^{\infty}s^k\frac{\lambda^k}{k!}e^{-\lambda}\\
+&amp;=e^{(s-1)\lambda}
+\end{aligned}\]</div>
+</div>
+<div class="admonition example">
+<p class="admonition-title"><span class="arithmatex">\(\xi\)</span> 服从超几何分布，求其母函数.</p>
+<div class="arithmatex">\[\begin{aligned}
+P(s)&amp;=\sum\limits_{k=0}^{n}\frac{\binom{M}{k}\binom{N-M}{n-k}}{\binom{N}{n}}s^k\\
+\end{aligned}\]</div>
+<p>[[2421Mo104515]]</p>
+</div>
+<div class="admonition example">
+<p class="admonition-title"><span class="arithmatex">\(\xi\)</span> 服从参数为 <span class="arithmatex">\(p\)</span> 的几何分布，求其母函数.</p>
+<div class="arithmatex">\[\begin{aligned}
+P(s)&amp;=\sum\limits_{k=1}^{\infty}q^{k-1}ps^k=ps\frac{1}{1-qs}=\frac{ps}{1-(1-p)s}
+\end{aligned}\]</div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">随机变量的母函数与其分布列互相确定.</p>
+<p>由定义，分布列确定母函数；反之，可以证明： <span class="arithmatex">\(\mathcal{P}(\xi=k)=\frac{P^{(k)}(0)}{k!}\)</span> .</p>
+</div>
+<p>可以用母函数求解随机变量的数字特征：</p>
+<div class="arithmatex">\[\begin{aligned}
+&amp;E\xi=P'(1)\\
+&amp;D\xi=P''(1)+P'(1)-[P'(1)]^2
+\end{aligned}\]</div>
+<p>证明略，注意用到了一致收敛，所以可以换序.</p>
+<h3 id="_42">特征函数<a class="headerlink" href="#_42" title="Permanent link">&para;</a></h3>
+<p>之前所提到的数字特征： <span class="arithmatex">\(E\xi,D\xi\)</span> 、矩等都不能够确定一个随机变量. 母函数可以确定一个整型随机变量.</p>
+<p>特征函数可以简单地视为对于母函数的推广.</p>
+<p>为了定义特征函数，首先需要定义<strong>复随机变量</strong>： <span class="arithmatex">\(\zeta=\xi+i\eta\)</span> ，其中 <span class="arithmatex">\(\xi,\eta\)</span> 是随机变量，定义 <span class="arithmatex">\(\zeta\)</span> 的期望为 <span class="arithmatex">\(E\zeta=E\xi+i E\eta\)</span> ，进而可以定义其他数字特征. 称复随机变量 <span class="arithmatex">\(\zeta_1=\xi_1+i\eta_1,\zeta_2=\xi_2+i\eta_2\)</span> 是独立的，如果 <span class="arithmatex">\((\xi_1,\eta_1)\)</span> 和 <span class="arithmatex">\((\xi_2,\eta_2)\)</span> 独立. </p>
+<p>对于随机变量 <span class="arithmatex">\(\xi\)</span> ，定义其<strong>特征函数</strong> <span class="arithmatex">\(f(t)=E e^{it \xi}=\int_{-\infty}^\infty e^{it x}dF(x)\)</span> .</p>
+<div class="admonition example">
+<p class="admonition-title">非负整型随机变量 <span class="arithmatex">\(\xi\)</span> 的特征函数.</p>
+</div>
+<div class="arithmatex">\[f_\xi(t)=\sum\limits_{k=0}^{\infty}p(\xi=k)e^{itk}=P(e^{it})\]</div>
+<p>特征函数具有如下性质：</p>
+<details class="note">
+<summary><span class="arithmatex">\(\overline{f(t)}=f(-t)\)</span> .</summary>
+<div class="arithmatex">\[\begin{aligned}
+f(-t)&amp;=\int_{-\infty}^\infty e^{-it x}dF(x)\\
+&amp;=\int_{-\infty}^\infty \cos txdF(x)-\int_{\infty}^\infty\sin txdF(x)\\
+&amp;=\overline{f(t)}
+\end{aligned}\]</div>
+</details>
+<details class="note">
+<summary><span class="arithmatex">\(\lvert f(t)\rvert\leq f(0)=1\)</span> .</summary>
+<div class="arithmatex">\[\lvert f(t)\rvert\leq \int_{-\infty}^\infty \lvert e^{-itx}\rvert dF(x)\leq \int_{-\infty}^\infty dF(x)=f(0)=1\]</div>
+</details>
+<details class="note">
+<summary><span class="arithmatex">\(f(t)\)</span> 关于 <span class="arithmatex">\(t\in \mathbb{R}\)</span> 一致连续.</summary>
+<p>证明：</p>
+<div class="arithmatex">\[\begin{aligned}
+\left\lvert f(t+\delta)-f(t)\right\rvert&amp;=\left\lvert \int_{-\infty}^\infty e^{i(t+\delta)x}-e^{itx}dF(x)\right\rvert\\
+&amp;=\left\lvert \int_{-\infty}^\infty e^{itx}(e^{i\delta x}-1)dF(x)\right\rvert\\
+&amp;\leq \int_{-\infty}^\infty \lvert e^{itx}\rvert\cdot\lvert e^{i\delta x}-1\rvert dF(x)\\
+&amp;\leq \int_{-\infty}^\infty \lvert e^{i\delta x}-1\rvert dF(x)\\
+&amp;\overset{(1)}{\leq} \int_{-\infty}^\infty \delta xdF(x)=\delta E(\xi)
+\end{aligned}\]</div>
+<p>[[2421Th212702]]</p>
+<p>或者：</p>
+<div class="arithmatex">\[\begin{aligned}
+\int_{-\infty}^\infty\lvert e^{i\delta x}-1\rvert dF(x)&amp;=\int_{-\infty}^B\cdot\ dF(x)+\int_{B}^A\cdot\ dF(x)+\int_A^\infty\cdot \ dF(x)\\
+\end{aligned}\]</div>
+<p>其中 <span class="arithmatex">\(\int_{-\infty}^B\cdot\ dF(x)\leq 2\int_{-\infty}^BdF(x)=2F(B)\)</span> ，并且 <span class="arithmatex">\(\lim_{B\rightarrow -\infty}2F(B)=0\)</span> ；并且 <span class="arithmatex">\(\int_{B}^A\cdot\ dF(x)=2\int_{B}^A\left\lvert \sin\frac{\delta x}{2}\right\rvert dF(x)\rightarrow 0(\delta\rightarrow0)\)</span> . </p>
+</details>
+<details class="note">
+<summary>特征函数是半正定的：对于任意的 <span class="arithmatex">\(t_i,t_j\in \mathbb{R},\lambda_i,\lambda_j\in \mathbb{C}\)</span> 有： <span class="arithmatex">\(\sum\limits_{i,j}^{}f(t_i-t_j)\lambda_i\overline{\lambda_j}\geq0\)</span></summary>
+<p>证明：</p>
+<div class="arithmatex">\[\begin{aligned}
+\text{原式}&amp;=\sum\limits_{i,j}^{}\int_{-\infty}^\infty e^{i(t_i-t_j)x}\lambda_i\overline{\lambda_j}dF(x)\\
+&amp;=\int_{-\infty}^\infty \sum\limits_{i,j}^{}e^{i(t_i-t_j)x}\lambda_i\overline{\lambda_j}dF(x)\\
+&amp;=\int_{-\infty}^\infty \sum\limits_{i}^{}e^{it_ix}\lambda_i\sum\limits_{j}^{}e^{-it_jx}\overline{\lambda_j}dF(x)\\
+&amp;=\int_{\infty}^\infty \left|\sum\limits_{i}^{}e^{it_ix}\right|^2dF(x)\ge0
+\end{aligned}\]</div>
+</details>
+<details class="note">
+<summary>两个随机变量的和的特征函数为随机变量特征函数的积.</summary>
+</details>
+<p>证明：设 <span class="arithmatex">\(\xi,\eta\)</span> ：</p>
+<div class="arithmatex">\[\int_{\xi+\eta}\]</div>
+<p>[[2421Th215544]]</p>
+<p>类似母函数，可以根据特征函数获取随机变量的数字特征：</p>
+<div class="admonition note">
+<p class="admonition-title">如果随机变量 <span class="arithmatex">\(\xi\)</span> 的 <span class="arithmatex">\(1\)</span> 到 <span class="arithmatex">\(n\)</span> 阶矩都存在，则 <span class="arithmatex">\(E\xi^k=\frac{f^{(k)}(0)}{i^k}\)</span> ，进而有：</p>
+</div>
+<p><span class="arithmatex">\(f(t)=\)</span></p>
+<h4 id="_43">逆转公式<a class="headerlink" href="#_43" title="Permanent link">&para;</a></h4>
+<p>可以证明满足以上三条性质： <span class="arithmatex">\(\overline{f(t)}=f(-t)\)</span> ， <span class="arithmatex">\(\lvert f(t)\rvert\leq f(0)=1\)</span> ， <span class="arithmatex">\(f\)</span> 关于 <span class="arithmatex">\(t\)</span> 一致连续的函数 <span class="arithmatex">\(f\)</span> 唯一确定一个随机变量.</p>
+<h2 id="i">附录 I 常见变量的数字特征<a class="headerlink" href="#i" title="Permanent link">&para;</a></h2>
 
 
 
@@ -3169,7 +3564,7 @@ E\xi &amp;=\sum\limits_{k=1}^{\infty}\mathcal{P}(\xi=k)k\\
     <span class="md-icon" title="最后更新">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2024年5月15日</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2024年5月23日</span>
   </span>
 
     

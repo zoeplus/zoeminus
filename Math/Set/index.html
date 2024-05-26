@@ -466,6 +466,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#zorn" class="md-nav__link">
+    <span class="md-ellipsis">
+      Zorn 引理
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#_12" class="md-nav__link">
     <span class="md-ellipsis">
       拓扑
@@ -1478,6 +1487,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#zorn" class="md-nav__link">
+    <span class="md-ellipsis">
+      Zorn 引理
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#_12" class="md-nav__link">
     <span class="md-ellipsis">
       拓扑
@@ -1574,9 +1592,21 @@
 &amp;\varliminf_{n\rightarrow \infty}A_n=\bigcup_{k=1}^{\infty}C_k
 \end{aligned}\]</div>
 <p>如果 <span class="arithmatex">\(\varlimsup_{n\rightarrow\infty}A_n=\varliminf_{n\rightarrow\infty}A_n\)</span> ，则称 <span class="arithmatex">\(\{A_n\}_{n\geq1}\)</span> 存在极限.</p>
+<div class="admonition tip">
+<p class="admonition-title">直观上理解集合的上下极限：</p>
+<p><span class="arithmatex">\(x\in\varlimsup_{n\rightarrow \infty}A_n \Leftrightarrow\)</span> 有任意大的 <span class="arithmatex">\(n\)</span> 使得 <span class="arithmatex">\(A_n\)</span> 中含有 <span class="arithmatex">\(x\)</span> ；</p>
+<p><span class="arithmatex">\(x\in\varliminf_{n\rightarrow \infty}A_n \Leftrightarrow\)</span> 当 <span class="arithmatex">\(n\)</span> 充分大时有 <span class="arithmatex">\(x\in A_n\)</span> .</p>
+</div>
 <details class="tip">
 <summary>助记：上交.</summary>
 </details>
+<div class="admonition note">
+<p class="admonition-title">上下极限互补：</p>
+<div class="arithmatex">\[\begin{aligned}
+&amp;\left(\varlimsup_{n\rightarrow \infty}A_n\right)^c=\varliminf_{n\rightarrow \infty}A_n^c\\
+&amp;\left(\varliminf_{n\rightarrow \infty}A_n\right)^c=\varlimsup_{n\rightarrow \infty}A_n^c
+\end{aligned}\]</div>
+</div>
 <details class="example">
 <summary>集合序列的极限： <span class="arithmatex">\(\{A_n\}_{n\geq1},A_n=\{\frac{m}{n}:m\in \mathbb{Z}\}\)</span> ，证明 <span class="arithmatex">\(\varlimsup_{n\rightarrow \infty}A_n=\mathbb{Q}\)</span> ， <span class="arithmatex">\(\varliminf_{n\rightarrow \infty}A_n=\mathbb{Z}\)</span> .</summary>
 <p>注意到： <span class="arithmatex">\(<span class="arithmatex">\(\mathbb{Z}\subset \varliminf_{n\rightarrow \infty}A_n,\varlimsup_{n\rightarrow \infty}A_n\subset \mathbb{Q}\)</span>\)</span> . </p>
@@ -1597,13 +1627,13 @@
 <summary><span class="arithmatex">\(\varliminf_{n\rightarrow \infty}A_n\subset \varlimsup_{n\rightarrow \infty}A_n\)</span> .</summary>
 </details>
 <p>进而有取等时的充分条件：</p>
-<details class="note">
-<summary>如果 <span class="arithmatex">\(\{A_n\}_{n\geq1}\)</span> 单调，则 <span class="arithmatex">\(\varliminf_{n\rightarrow \infty}A_n=\varlimsup_{n\rightarrow \infty}A_n\)</span></summary>
+<div class="admonition note">
+<p class="admonition-title">如果 <span class="arithmatex">\(\{A_n\}_{n\geq1}\)</span> 单调，则 <span class="arithmatex">\(\varliminf_{n\rightarrow \infty}A_n=\varlimsup_{n\rightarrow \infty}A_n\)</span></p>
 <div class="arithmatex">\[=\left\{\begin{aligned}
 &amp;\bigcup_{n=1}^\infty A_n,A_n\text{ 单调递增}\\
 &amp;\bigcap_{n=1}^\infty A_n,A_n\text{ 单调递减}
 \end{aligned}\right.\]</div>
-</details>
+</div>
 <h2 id="_4">集合刻画<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
 <p>设 <span class="arithmatex">\(\{f_n\}_{n\geq1}\)</span> 为 <span class="arithmatex">\(\mathbb{R}\)</span> 上的实值函数列，有： #issue %%为什么错误%%</p>
 <div class="arithmatex">\[\begin{aligned}
@@ -1614,6 +1644,16 @@
 <details class="example">
 <summary><span class="arithmatex">\(\{f_n\}_{n\geq1}\)</span> 为 <span class="arithmatex">\(\mathbb{R}\)</span> 上的实值函数列，则有 <span class="arithmatex">\(\{x:\varliminf_{n\rightarrow \infty}f_n(x)&gt;0\}\subset \varliminf_{n\rightarrow \infty}\{x\in \mathbb{R}:f_n(x)\}\)</span> .</summary>
 </details>
+<div class="admonition note">
+<p class="admonition-title">用特征函数刻画集合运算：</p>
+<div class="arithmatex">\[\begin{aligned}
+&amp;A=B\Leftrightarrow \chi_A=\chi_B\\
+&amp;A\subset B\Leftrightarrow \chi_A\leq \chi_B\\
+&amp;\chi_{A\Delta B}=\lvert \chi_A-\chi_B\rvert\\
+&amp;\chi_{A\cap B}=\chi_A\chi_B\\
+&amp;\chi_{A\cup B}=
+\end{aligned}\]</div>
+</div>
 <h2 id="_5">关系<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
 <p>可以用集合定义两个元素之间的<strong>关系</strong>. 设集合 <span class="arithmatex">\(S\subset A\times B\)</span> . 如果 <span class="arithmatex">\((a,b)\in S\)</span> 则称 <span class="arithmatex">\(a,b\)</span> 之间关于存在由 <span class="arithmatex">\(S\)</span> 定义的关系，记为 <span class="arithmatex">\(a\sim b\)</span> 或者 <span class="arithmatex">\(aRb\)</span> .</p>
 <p><strong>对偶关系</strong></p>
@@ -1634,7 +1674,7 @@
 <p>证明：<br />
 i) ：如果 <span class="arithmatex">\(x\in\varlimsup_{n\rightarrow \infty}A_n\)</span> ，则 <span class="arithmatex">\(\forall n\geq1,x\in \bigcup_{k=n}^\infty A_n\)</span> ， 则存在 <span class="arithmatex">\(k_1\geq n,x\in A_{k_1}\)</span> ，依次类推可以得到 <span class="arithmatex">\(k_1&lt;k_2&lt;\cdots\)</span> ，有 <span class="arithmatex">\(x\in A_{k_i},i=1,2,\cdots\)</span> ，从而 <span class="arithmatex">\(\varlimsup_{n\rightarrow \infty}\chi_{A_n}(x)=1\)</span> . </p>
 <p>反之，如果 <span class="arithmatex">\(x\notin \varlimsup_{n\rightarrow \infty}A_n\)</span> ，则 <span class="arithmatex">\(\forall n\geq1,x\notin \bigcup_{k=n}^\infty A_k\)</span> ，从而 <span class="arithmatex">\(x\notin A_n,\forall n\geq1\)</span> ，因此 <span class="arithmatex">\(\varliminf_{n\rightarrow \infty}\chi_{A_n}(x)=0\)</span> .</p>
-<p>ii) ：如果 <span class="arithmatex">\(x\in\varliminf_{n\rightarrow \infty}A_n\)</span> ，则显然有 <span class="arithmatex">\(\varliminf_{n\rightarrow \infty}\chi_{A_n}(x)=1\)</span> ，反之若 <span class="arithmatex">\(x\notinf \varliminf_{n\rightarrow \infty}A_n\)</span> ，则对于任意的 <span class="arithmatex">\(n\geq1\)</span> ，有 <span class="arithmatex">\(x\notin \bigcap_{k=n}^\infty A_k\)</span> ，从而 <span class="arithmatex">\(x\notin A_k,k\feq 1\)</span> ，进而有 <span class="arithmatex">\(\varliminf_{n\rightarrow \infty}\chi_{A_n}(x)=0\)</span> .</p>
+<p>ii) ：如果 <span class="arithmatex">\(x\in\varliminf_{n\rightarrow \infty}A_n\)</span> ，则显然有 <span class="arithmatex">\(\varliminf_{n\rightarrow \infty}\chi_{A_n}(x)=1\)</span> ，反之若 <span class="arithmatex">\(x\notin \varliminf_{n\rightarrow \infty}A_n\)</span> ，则对于任意的 <span class="arithmatex">\(n\geq1\)</span> ，有 <span class="arithmatex">\(x\notin \bigcap_{k=n}^\infty A_k\)</span> ，从而 <span class="arithmatex">\(x\notin A_k,k\geq 1\)</span> ，进而有 <span class="arithmatex">\(\varliminf_{n\rightarrow \infty}\chi_{A_n}(x)=0\)</span> .</p>
 </details>
 <p>特征函数还具有以下性质 <a href="https://zhuanlan.zhihu.com/p/616321641">zhihu</a> #imcomplete </p>
 <p>定义映射的<strong>复合</strong>： <span class="arithmatex">\(f:X\rightarrow Y,g:Y\rightarrow Z\)</span> ，进而记 <span class="arithmatex">\(g\circ f(x)=g(f(x)),g\circ f:X\rightarrow Z\)</span> .</p>
@@ -1655,13 +1695,22 @@ i) ：如果 <span class="arithmatex">\(x\in\varlimsup_{n\rightarrow \infty}A_n\
 <p>则 <span class="arithmatex">\(g:[0,+\infty)\rightarrow [0,+\infty)\)</span> ，则 <span class="arithmatex">\(f\circ g=1_Y\)</span>  ，而 <span class="arithmatex">\(g\circ f\left(\frac{3}{2}\right)=\frac{1}{2}\)</span> .</p>
 </details>
 <p>此外对于 <span class="arithmatex">\(f:X\rightarrow Y\)</span> ，还可以定义 <span class="arithmatex">\(Y\)</span> 的<strong>原像</strong>： <span class="arithmatex">\(f^{-1}(Y)=\{x\in X:f(x)\in Y\}\)</span></p>
+<div class="admonition note">
+<p class="admonition-title"><span class="arithmatex">\(A\subset f^{-1}(f(A)),B\supset f(f^{-1}(B))\)</span> .</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title"><span class="arithmatex">\(f^{-1}\left(\bigcup_{\lambda \in \Lambda}A_\lambda\right)=\bigcup_{\lambda\in \Lambda}f^{-1}(A_\lambda)f^{-1}\left(\bigcap_{\lambda \in \Lambda}A_\lambda\right)=\bigcap_{\lambda\in \Lambda}f^{-1}(A_\lambda),\)</span></p>
+</div>
+<div class="admonition note">
+<p class="admonition-title"><span class="arithmatex">\(\left(f^{-1}(A)\right)^c=f^{-1}(A^c)\)</span></p>
+</div>
 <div class="arithmatex">\[\begin{aligned}
 &amp;f\left(\bigcup_{\lambda\in \Lambda}A_\lambda\right)=\bigcup_{\lambda\in \Lambda}f(A_\lambda)\\
 &amp;f\left(\bigcap_{\lambda\in \Lambda}A_\lambda\right)\overset{\textcolor{red}{?}}=\bigcap_{\lambda\in \Lambda}f(A_\lambda)
 \end{aligned}\]</div>
 <p>注意： <span class="arithmatex">\(f\left(\bigcap_{\lambda\in \Lambda}A_\lambda\right)\subset \bigcap_{\lambda\in \Lambda}f(A_\lambda)\)</span></p>
-<details class="note">
-<summary>反例以及对于 <span class="arithmatex">\(f\)</span> 是单射为上式取等的充分条件</summary>
+<div class="admonition note">
+<p class="admonition-title">反例以及对于 <span class="arithmatex">\(f\)</span> 是单射为上式取等的充分条件</p>
 <p>包含关系是显然的. 对于反例，可以取一非单射的 <span class="arithmatex">\(f\)</span> ： </p>
 <div class="arithmatex">\[\begin{aligned}
 &amp;A=\{1,2\},B=\{2,3\}\\
@@ -1673,7 +1722,7 @@ i) ：如果 <span class="arithmatex">\(x\in\varlimsup_{n\rightarrow \infty}A_n\
 <li><span class="arithmatex">\(\Leftarrow\)</span> ：注意到对任意 <span class="arithmatex">\(x\in\bigcap_{\lambda\in \Lambda}f(A_\lambda)\)</span> ，则每一个集合 <span class="arithmatex">\(A_\lambda\)</span> 中都至少存在一个元素 <span class="arithmatex">\(a_\lambda\)</span> 满足 <span class="arithmatex">\(x=f(a_\lambda)\)</span> ，设 <span class="arithmatex">\(A_\lambda,\lambda\in \Lambda\)</span> 中满足 <span class="arithmatex">\(x=f(a_\lambda)\)</span> 的元素组成的集合为 <span class="arithmatex">\(\Lambda'\)</span>. 并且由 <span class="arithmatex">\(f\)</span> 为单射，可知 <span class="arithmatex">\(\Lambda'=\{x\}\)</span> . 从而每一个集合中都有一个 <span class="arithmatex">\(x\)</span> ，进而可知 <span class="arithmatex">\(f(x)\in f\left(\bigcap_{\lambda\in \Lambda}A_\lambda\right)\)</span> . 由集合相互包含可得取等.</li>
 <li><span class="arithmatex">\(\Rightarrow\)</span> ：并不是必要条件，可以取 <span class="arithmatex">\(f\)</span> 为一个恒等映射.</li>
 </ul>
-</details>
+</div>
 <h3 id="_8">势<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
 <p>用<strong>势</strong>（cardinality）衡量两个集合的大小，考虑集合 <span class="arithmatex">\(A,B\)</span> ，如果 <span class="arithmatex">\(A\)</span> 与 <span class="arithmatex">\(B\)</span> 等价（存在双射），则记 <span class="arithmatex">\(\lvert A\rvert=\lvert B\rvert\)</span> ；如果 <span class="arithmatex">\(A\)</span> 与 <span class="arithmatex">\(B\)</span> 的一个子集等价，则记 <span class="arithmatex">\(\lvert A\rvert\leq \lvert B\rvert\)</span> .  在此基础上，如果 <span class="arithmatex">\(B\)</span> 不与 <span class="arithmatex">\(A\)</span> 中的任何一个子集等价，则记 <span class="arithmatex">\(\lvert A\rvert&lt;\lvert B\rvert\)</span> .</p>
 <p>可以证明： <span class="arithmatex">\(\leq\)</span> 具有自反性（ <span class="arithmatex">\(\lvert A\rvert\leq \lvert A\rvert\)</span> ）和传递性（ <span class="arithmatex">\(\lvert A\rvert\leq \lvert B\rvert,\lvert B\rvert\leq \lvert C\rvert\rightarrow \lvert A\rvert\leq \lvert C\rvert\)</span> ）.</p>
@@ -1885,26 +1934,33 @@ i) ：如果 <span class="arithmatex">\(x\in\varlimsup_{n\rightarrow \infty}A_n\
 <p>或者，注意到 <span class="arithmatex">\(\mathcal{P}(\mathbb{R})\)</span> 对应于 <span class="arithmatex">\(2^\mathbb{R}=\{0,1\}^\mathbb{R}\)</span> ，也即对应于 <span class="arithmatex">\(\mathbb{R}\)</span> 中的一个函数（唯一），该映射也为双射，从而 <span class="arithmatex">\(\lvert \mathcal{P}\rvert=\lvert R[\mathbb{R}]\rvert\)</span> .</p>
 </details>
 <h2 id="_11">选择公理<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h2>
-<p>集合族 <span class="arithmatex">\(\{S_i\}_{i\in I},S_i\neq0\)</span> ，存在集合 <span class="arithmatex">\(\{x_i:x_i\in S_i,i\in I\}\)</span> .</p>
+<p>对于集合族 <span class="arithmatex">\(\{S_i\}_{i\in I},S_i\neq0\)</span> ，存在集合 <span class="arithmatex">\(\{x_i:x_i\in S_i,i\in I\}\)</span> .</p>
 <p><a href="https://www.zhihu.com/question/40197216">知乎</a></p>
+<h2 id="zorn">Zorn 引理<a class="headerlink" href="#zorn" title="Permanent link">&para;</a></h2>
+<p>对于集合 <span class="arithmatex">\(P\)</span> ，称其上的一个二元关系 <span class="arithmatex">\(\leq\)</span> 为<strong>偏序</strong>，如果其满足： 1) 自反性， <span class="arithmatex">\(\forall x\in P(x\leq x)\)</span> ；2) 传递性， <span class="arithmatex">\((x\leq y,y\leq z)\Rightarrow x\leq z\)</span> ，并称 <span class="arithmatex">\((P,\leq)\)</span> 为<strong>偏序集</strong>.</p>
+<p>对于 <span class="arithmatex">\(A\subset P\)</span> ，定义 <span class="arithmatex">\(A\)</span> 的<strong>上界</strong> <span class="arithmatex">\(a\in P\)</span> ： <span class="arithmatex">\(\forall x\in A(x\leq a)\)</span> ；称 <span class="arithmatex">\(A\)</span> 是一条<strong>链</strong>，如果 <span class="arithmatex">\(A\)</span> 满足全序，即 <span class="arithmatex">\(\forall x,y\in A((x\leq y)\vee y\leq x)\)</span> .</p>
+<p>定义 <span class="arithmatex">\((P,\leq)\)</span> 的<strong>极大元</strong> <span class="arithmatex">\(m\)</span> ： <span class="arithmatex">\(x\in P,m\leq x\Rightarrow m=x\)</span> .</p>
+<div class="admonition note">
+<p class="admonition-title">Zorn 引理，如果偏序集 <span class="arithmatex">\((P,\leq)\)</span> 的每一条链都有上界，则 <span class="arithmatex">\((P,\leq)\)</span> 有极大元.</p>
+</div>
 <h2 id="_12">拓扑<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h2>
 <p>对于集合 <span class="arithmatex">\(S\)</span> ，<strong>闭集合</strong>： <span class="arithmatex">\(S\)</span> 中任何收敛序列的极限都包含在 <span class="arithmatex">\(S\)</span> 中. 全空间和空集都是闭集. 闭集的任意多个交仍然为闭集；闭集的有限多个并仍然为闭集. </p>
-<details class="example">
-<summary>闭集的无限多个并是开集的例子</summary>
+<div class="admonition example">
+<p class="admonition-title">闭集的无限多个并是开集的例子</p>
 <ul>
 <li><span class="arithmatex">\([\frac{1}{n},1-\frac{1}{n}]_{n\geq1}\)</span> 的并为开集 <span class="arithmatex">\((0,1)\)</span> <span class="arithmatex">\(0,1\)</span> 无法取到，因为该集合族中没有集合包含之.</li>
 </ul>
-</details>
+</div>
 <p><strong>开集合</strong>： 闭集的补集为开集；全空间和空集均为开集合；开集的任意多个并为开集；开集的有限多个交为开集；</p>
 <details class="note">
 <summary>每一个开集都为开球之并. #imcomplete-whatever</summary>
 </details>
-<details class="note">
-<summary>开集的无限多个交为闭集的例子</summary>
+<div class="admonition example">
+<p class="admonition-title">开集的无限多个交为闭集的例子</p>
 <ul>
 <li><span class="arithmatex">\((0,\frac{1}{n})\)</span> </li>
 </ul>
-</details>
+</div>
 
 
 
@@ -1927,7 +1983,7 @@ i) ：如果 <span class="arithmatex">\(x\in\varlimsup_{n\rightarrow \infty}A_n\
     <span class="md-icon" title="最后更新">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2024年5月7日</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2024年5月26日</span>
   </span>
 
     
