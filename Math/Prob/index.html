@@ -1025,6 +1025,15 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#_44" class="md-nav__link">
+    <span class="md-ellipsis">
+      多元随机变量的特征函数
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1032,6 +1041,15 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_45" class="md-nav__link">
+    <span class="md-ellipsis">
+      概率收敛
+    </span>
+  </a>
   
 </li>
       
@@ -2229,6 +2247,15 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#_44" class="md-nav__link">
+    <span class="md-ellipsis">
+      多元随机变量的特征函数
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2236,6 +2263,15 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_45" class="md-nav__link">
+    <span class="md-ellipsis">
+      概率收敛
+    </span>
+  </a>
   
 </li>
       
@@ -3080,8 +3116,14 @@ F(x,y)&amp;=\mathcal{P}(\xi&lt;x \,|\,\eta&lt;y)\mathcal{P}(\eta&lt;y)
 <p><span class="arithmatex">\(\xi\)</span> 和 <span class="arithmatex">\(\eta\)</span> 若相关，同样无法得到 <span class="arithmatex">\(F\)</span> .</p>
 <p>多个随机变量对应的分布函数族是什么样的？ #imcomplete-further-wanted </p>
 </details>
+<p>二元正态分布的<a href="#协方差">#协方差</a>矩阵为：</p>
+<div class="arithmatex">\[\begin{bmatrix}\sigma_1^2 &amp; \rho\sigma_1\sigma_2 \\ \rho\sigma_1\sigma_2 &amp; \sigma_2^2\end{bmatrix}\]</div>
+<p>对于一对随机变量而言，不相关 <span class="arithmatex">\(\not\Rightarrow\)</span> 不独立，然而二元正态分布有该性质：</p>
+<div class="admonition note">
+<p class="admonition-title">对于 <span class="arithmatex">\((\xi_1,\xi_2)\sim \mathcal{N}(\mu_1,\mu_2,\sigma_1^2,\sigma_2^2,\rho)\)</span> ， <span class="arithmatex">\(\xi_1,\xi_2\)</span> 不相关（ <span class="arithmatex">\(\rho=0\)</span> ） <span class="arithmatex">\(\Leftrightarrow\)</span> <span class="arithmatex">\(\xi_1,\xi_2\)</span> 独立.</p>
+</div>
 <p><strong>多元正态分布</strong>：设 <span class="arithmatex">\(\Sigma=(\sigma_{ij})_{n\times n}\)</span> 为正定对称矩阵， <span class="arithmatex">\(\mu=(\mu_1,\cdots,\mu_n)\)</span> . 若随机向量 <span class="arithmatex">\(\xi=(\xi_1,\cdots,\xi_n)\)</span> 的联合分布密度函数：</p>
-<div class="arithmatex">\[p(x_1,\cdots,x_n)=\frac{1}{(2n)^{\frac{n}{2}}(\det \Sigma)^{\frac{1}{2}}}\exp \left\{-\frac{1}{2}(x-\mu) \Sigma^{-1}(x-\mu)^T\right\}\]</div>
+<div class="arithmatex">\[p(x_1,\cdots,x_n)=\frac{1}{(2\pi)^{\frac{n}{2}}(\det \Sigma)^{\frac{1}{2}}}\exp \left\{-\frac{1}{2}(x-\mu)^T \Sigma^{-1}(x-\mu)\right\}\]</div>
 <h3 id="_33">随机向量的函数<a class="headerlink" href="#_33" title="Permanent link">&para;</a></h3>
 <details class="note">
 <summary>函数作用在离散型随机变量上得到的都是离散型随机变量. #issue</summary>
@@ -3389,7 +3431,7 @@ E\xi^2 &amp;=\sum\limits_{k\geq0}^{}k^2\frac{\lambda^k}{k!}e^{-\lambda}\\
 <div class="admonition note">
 <p class="admonition-title">推广： <span class="arithmatex">\(\mathcal{P}\{\lvert \xi-E\xi\rvert\ge \epsilon\}\le\frac{E\lvert \xi-E\xi\rvert^r}{\epsilon^r},r\ge0\)</span> .</p>
 </div>
-<p>特别地，有 Morkov 不等式（<a href="https://en.wikipedia.org/wiki/Markov%27s_inequality">check-wiki</a>）</p>
+<p>特别地，有 <strong>Morkov 不等式</strong>（<a href="https://en.wikipedia.org/wiki/Markov%27s_inequality">check-wiki</a>）</p>
 <div class="admonition note">
 <p class="admonition-title"><span class="arithmatex">\(\mathcal{P}(\{\lvert \xi\rvert\geq \epsilon\})\leq \frac{E\lvert \xi\rvert^r}{\epsilon^r},r\ge0\)</span> .</p>
 </div>
@@ -3529,7 +3571,7 @@ f(-t)&amp;=\int_{-\infty}^\infty e^{-it x}dF(x)\\
 \end{aligned}\]</div>
 </details>
 <details class="note">
-<summary>两个随机变量的和的特征函数为随机变量特征函数的积.</summary>
+<summary>两个独立随机变量的和的特征函数为随机变量特征函数的积.</summary>
 </details>
 <p>证明：设 <span class="arithmatex">\(\xi,\eta\)</span> ：</p>
 <div class="arithmatex">\[\int_{\xi+\eta}\]</div>
@@ -3541,6 +3583,51 @@ f(-t)&amp;=\int_{-\infty}^\infty e^{-it x}dF(x)\\
 <p><span class="arithmatex">\(f(t)=\)</span></p>
 <h4 id="_43">逆转公式<a class="headerlink" href="#_43" title="Permanent link">&para;</a></h4>
 <p>可以证明满足以上三条性质： <span class="arithmatex">\(\overline{f(t)}=f(-t)\)</span> ， <span class="arithmatex">\(\lvert f(t)\rvert\leq f(0)=1\)</span> ， <span class="arithmatex">\(f\)</span> 关于 <span class="arithmatex">\(t\)</span> 一致连续的函数 <span class="arithmatex">\(f\)</span> 唯一确定一个随机变量.</p>
+<h4 id="_44">多元随机变量的特征函数<a class="headerlink" href="#_44" title="Permanent link">&para;</a></h4>
+<p>下面对于多元正态分布进一步讨论，之前在 <a href="#多元正态分布">#多元正态分布</a> 中已经提到这一分布；</p>
+<div class="admonition note">
+<p class="admonition-title">如果 <span class="arithmatex">\(\xi\sim \mathcal{N}(\vec{\mu},\Sigma)\)</span> ，则 <span class="arithmatex">\(\xi\)</span> 的特征函数为 <span class="arithmatex">\(f(t)=\exp\left\{i\vec{\mu}t-\frac{1}{2}t^T\Sigma t\right\}\)</span> .</p>
+</div>
+<p>借助特征函数可以证明多元正态分布的一个很强的性质：</p>
+<div class="admonition note">
+<p class="admonition-title"><span class="arithmatex">\(\xi=(\xi_1,\cdots,\xi_n)\)</span> 服从正态分布当且仅当 <span class="arithmatex">\(\sum\limits_{i=1}^{n}k_i\xi_i\)</span> 服从正态分布， <span class="arithmatex">\(\forall i_i\in \mathbb{R}\)</span> .</p>
+</div>
+<h2 id="_45">概率收敛<a class="headerlink" href="#_45" title="Permanent link">&para;</a></h2>
+<p>设随机变量列 <span class="arithmatex">\(\{\xi_n\}_{n\ge1}\)</span> ，随机变量 <span class="arithmatex">\(\xi\)</span> ，分布函数分别为 <span class="arithmatex">\(F_n(x),F(x)\)</span> .</p>
+<p>定义 <span class="arithmatex">\(\{\xi_n\}_{n\ge1}\)</span> <strong>依分布收敛</strong> 到 <span class="arithmatex">\(\xi\)</span> ：对于 <span class="arithmatex">\(F\)</span> 的任意一个连续点都有 <span class="arithmatex">\(F_n(x)\rightarrow F(x)\)</span> (弱收敛). 记为 <span class="arithmatex">\(\xi_n\overset{l}{\rightarrow} \xi\)</span> . </p>
+<p>定义 <span class="arithmatex">\(\{\xi_n\}_{n\ge1}\)</span> <strong>依概率收敛</strong>到 <span class="arithmatex">\(\xi\)</span> ： <span class="arithmatex">\(\forall \epsilon&gt;0\)</span> 有 <span class="arithmatex">\(\lim_{n\rightarrow \infty}\mathcal{P}(\lvert \xi_n-\xi\rvert \ge \epsilon)=0\)</span> . 记为 <span class="arithmatex">\(\xi_n\overset{p}{\rightarrow}\xi\)</span> .</p>
+<p>定义 <span class="arithmatex">\(\{\xi_n\}_{n\ge1}\)</span> <strong>r 收敛</strong>到 <span class="arithmatex">\(\xi\)</span> ： <span class="arithmatex">\(r&gt;0,E \lvert \xi_n\rvert^r&lt;\infty,E\lvert \xi\rvert^r&lt;\infty\)</span> ，并且 <span class="arithmatex">\(E\lvert \xi_n-\xi\rvert^r\rightarrow0(n\rightarrow \infty)\)</span> . 记为 <span class="arithmatex">\(\xi_n\overset{r}{\rightarrow}\xi\)</span> .</p>
+<p>定义 <span class="arithmatex">\(\{\xi_n\}_{n\ge1}\)</span> <strong>以概率 1 收敛</strong>到 <span class="arithmatex">\(\xi\)</span> （几乎处处收敛）： <span class="arithmatex">\(\mathcal{P}(\lim_{n\rightarrow \infty}\xi_n=\xi)=1\)</span> . 记为 <span class="arithmatex">\(\xi_n\overset{a.s.}{\rightarrow}\xi\)</span> .</p>
+<details class="note">
+<summary><span class="arithmatex">\(\xi_n\overset{r}{\rightarrow}\xi \Rightarrow \xi_n\overset{p}{\rightarrow}\xi\Rightarrow \xi_n\overset{l}{\rightarrow}\xi\)</span> .</summary>
+<p>证明：</p>
+<div class="arithmatex">\[\begin{aligned}
+E\lvert \xi_n-\xi\rvert^r &amp;\overset{x=\xi_n-\xi}{=}E\lvert x\rvert^r\\
+&amp;=\int_{\mathbb{R}}\lvert x\rvert^rdF(x)\\
+&amp;\ge \int_{\lvert x\rvert\ge \epsilon}\lvert x\rvert^rdF(x)\\
+&amp;\ge\int_{\lvert x\rvert\ge \epsilon}\epsilon^r dF(x)\\
+&amp;=\epsilon^r\mathcal{P}(\lvert x\rvert\ge \epsilon)
+\end{aligned}\]</div>
+<p>从而可得 <strong>Markov 不等式</strong>：</p>
+<div class="arithmatex">\[\mathcal{P}(\lvert \xi_n-\xi\rvert\ge \epsilon)\leq \frac{E\lvert \xi_n-\xi\rvert^r}{\epsilon^r},\forall r&gt;0\]</div>
+<p>由 <span class="arithmatex">\(\{\xi_n\}_{n\ge1}\)</span> <span class="arithmatex">\(r\)</span> 收敛到 <span class="arithmatex">\(\xi\)</span> 可得 <span class="arithmatex">\(\lim_{n\rightarrow \infty}\mathcal{P}(\lvert \xi_n-\xi\rvert\ge \epsilon)=0\)</span> .</p>
+<p>下面从依概率收敛证明依分布收敛.</p>
+<p>证明思路是说明 <span class="arithmatex">\(\varlimsup_{n\rightarrow \infty}F_n(x)=\varliminf_{n\rightarrow \infty}F_n(x)\)</span> ，为此尝试利用 <span class="arithmatex">\(F(x)\)</span> 的任意性（注意，依分布收敛是对于 <span class="arithmatex">\(F\)</span> 的连续点而言）</p>
+<p>任取 <span class="arithmatex">\(x_1&lt;x&lt;x_2\)</span> ，试图证明： <span class="arithmatex">\(F(x_1)\leq \varlimsup_{n\rightarrow \infty}F_n(x)\leq \varlimsup_{n\rightarrow \infty}F_n(x)\leq F(x_2)\)</span> ，然后令 <span class="arithmatex">\(x_1\uparrow x,x_2\downarrow x\)</span> ，从而由 <span class="arithmatex">\(F\)</span> 在 <span class="arithmatex">\(x\)</span> 连续可以得到结论.</p>
+<div class="arithmatex">\[\begin{aligned}
+\{\xi&lt;x_1\}&amp;=\{\xi&lt;x_1,\xi_n&lt;x\}\cup\{\xi&lt;x_1,\xi_n\ge x\}\\
+&amp;\subset\{\xi_n&lt;x\}\cup\{\lvert \xi_n-\xi\rvert&gt;x-x_1\}
+\end{aligned}\]</div>
+<p>从而可以得到：</p>
+<div class="arithmatex">\[F(x_1)\leq F_n(x)+\mathcal{P}(\lvert \xi_n-\xi\rvert&gt;x-x_1)\]</div>
+<p>取 <span class="arithmatex">\(n\rightarrow \infty\)</span> ，由 <span class="arithmatex">\(\{\xi_n\}_{n\ge1}\)</span> 依概率收敛可得：</p>
+<div class="arithmatex">\[F(x)\leq \varliminf_{n\rightarrow \infty}F_n(x_1)\]</div>
+<p>注意：还未确定 <span class="arithmatex">\(F_n\)</span> 是否有极限，因此取下极限.</p>
+<p>同理可以得到： <span class="arithmatex">\(\varlimsup_{n\rightarrow \infty}F_n(x)\leq F(x_2)\)</span> ，从而得证.</p>
+</details>
+<div class="admonition note">
+<p class="admonition-title"><span class="arithmatex">\(\xi_n\overset{a.s.}{\rightarrow}\xi\Rightarrow \xi_n\overset{p}{\rightarrow}\xi\Rightarrow\xi_n\overset{l}{\rightarrow}\xi\)</span> .</p>
+</div>
 <h2 id="i">附录 I 常见变量的数字特征<a class="headerlink" href="#i" title="Permanent link">&para;</a></h2>
 
 
@@ -3564,7 +3651,7 @@ f(-t)&amp;=\int_{-\infty}^\infty e^{-it x}dF(x)\\
     <span class="md-icon" title="最后更新">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2024年5月23日</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2024年5月27日</span>
   </span>
 
     
