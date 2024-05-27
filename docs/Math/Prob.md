@@ -948,10 +948,17 @@ $$\begin{aligned}
 >
 >多个随机变量对应的分布函数族是什么样的？ #imcomplete-further-wanted 
 
+二元正态分布的[[#协方差]]矩阵为：
+
+$$\begin{bmatrix}\sigma_1^2 & \rho\sigma_1\sigma_2 \\ \rho\sigma_1\sigma_2 & \sigma_2^2\end{bmatrix}$$
+
+对于一对随机变量而言，不相关 $\not\Rightarrow$ 不独立，然而二元正态分布有该性质：
+
+>[!note] 对于 $(\xi_1,\xi_2)\sim \mathcal{N}(\mu_1,\mu_2,\sigma_1^2,\sigma_2^2,\rho)$ ， $\xi_1,\xi_2$ 不相关（ $\rho=0$ ） $\Leftrightarrow$ $\xi_1,\xi_2$ 独立.
+
 **多元正态分布**：设 $\Sigma=(\sigma_{ij})_{n\times n}$ 为正定对称矩阵， $\mu=(\mu_1,\cdots,\mu_n)$ . 若随机向量 $\xi=(\xi_1,\cdots,\xi_n)$ 的联合分布密度函数：
 
-$$p(x_1,\cdots,x_n)=\frac{1}{(2n)^{\frac{n}{2}}(\det \Sigma)^{\frac{1}{2}}}\exp \left\{-\frac{1}{2}(x-\mu) \Sigma^{-1}(x-\mu)^T\right\}$$
-
+$$p(x_1,\cdots,x_n)=\frac{1}{(2\pi)^{\frac{n}{2}}(\det \Sigma)^{\frac{1}{2}}}\exp \left\{-\frac{1}{2}(x-\mu)^T \Sigma^{-1}(x-\mu)\right\}$$
 
 ## 随机向量的函数
 
@@ -1317,7 +1324,7 @@ $$D\xi \geq\int_{\lvert \xi-E\xi\rvert\geq \epsilon}(x-E\xi)^2dF(x)\geq \epsilon
 
 >[!note] 推广： $\mathcal{P}\{\lvert \xi-E\xi\rvert\ge \epsilon\}\le\frac{E\lvert \xi-E\xi\rvert^r}{\epsilon^r},r\ge0$ .
 
-特别地，有 Morkov 不等式（[check-wiki](https://en.wikipedia.org/wiki/Markov%27s_inequality)）
+特别地，有 **Morkov 不等式**（[check-wiki](https://en.wikipedia.org/wiki/Markov%27s_inequality)）
 
 >[!note] $\mathcal{P}(\{\lvert \xi\rvert\geq \epsilon\})\leq \frac{E\lvert \xi\rvert^r}{\epsilon^r},r\ge0$ .
 
@@ -1474,7 +1481,7 @@ $$f_\xi(t)=\sum\limits_{k=0}^{\infty}p(\xi=k)e^{itk}=P(e^{it})$$
 >&=\int_{\infty}^\infty \left|\sum\limits_{i}^{}e^{it_ix}\right|^2dF(x)\ge0
 >\end{aligned}$$
 
->[!note]- 两个随机变量的和的特征函数为随机变量特征函数的积.
+>[!note]- 两个独立随机变量的和的特征函数为随机变量特征函数的积.
 
 证明：设 $\xi,\eta$ ：
 
@@ -1492,8 +1499,73 @@ $f(t)=$
 
 可以证明满足以上三条性质： $\overline{f(t)}=f(-t)$ ， $\lvert f(t)\rvert\leq f(0)=1$ ， $f$ 关于 $t$ 一致连续的函数 $f$ 唯一确定一个随机变量.
 
+### 多元随机变量的特征函数
+
+下面对于多元正态分布进一步讨论，之前在 [[#多元正态分布]] 中已经提到这一分布；
+
+>[!note] 如果 $\xi\sim \mathcal{N}(\vec{\mu},\Sigma)$ ，则 $\xi$ 的特征函数为 $f(t)=\exp\left\{i\vec{\mu}t-\frac{1}{2}t^T\Sigma t\right\}$ .
+
+借助特征函数可以证明多元正态分布的一个很强的性质：
+
+>[!note] $\xi=(\xi_1,\cdots,\xi_n)$ 服从正态分布当且仅当 $\sum\limits_{i=1}^{n}k_i\xi_i$ 服从正态分布， $\forall i_i\in \mathbb{R}$ .
 
 
+
+
+
+# 概率收敛
+
+设随机变量列 $\{\xi_n\}_{n\ge1}$ ，随机变量 $\xi$ ，分布函数分别为 $F_n(x),F(x)$ .
+
+定义 $\{\xi_n\}_{n\ge1}$ **依分布收敛** 到 $\xi$ ：对于 $F$ 的任意一个连续点都有 $F_n(x)\rightarrow F(x)$ (弱收敛). 记为 $\xi_n\overset{l}{\rightarrow} \xi$ . 
+
+定义 $\{\xi_n\}_{n\ge1}$ **依概率收敛**到 $\xi$ ： $\forall \epsilon>0$ 有 $\lim_{n\rightarrow \infty}\mathcal{P}(\lvert \xi_n-\xi\rvert \ge \epsilon)=0$ . 记为 $\xi_n\overset{p}{\rightarrow}\xi$ .
+
+定义 $\{\xi_n\}_{n\ge1}$ **r 收敛**到 $\xi$ ： $r>0,E \lvert \xi_n\rvert^r<\infty,E\lvert \xi\rvert^r<\infty$ ，并且 $E\lvert \xi_n-\xi\rvert^r\rightarrow0(n\rightarrow \infty)$ . 记为 $\xi_n\overset{r}{\rightarrow}\xi$ .
+
+定义 $\{\xi_n\}_{n\ge1}$ **以概率 1 收敛**到 $\xi$ （几乎处处收敛）： $\mathcal{P}(\lim_{n\rightarrow \infty}\xi_n=\xi)=1$ . 记为 $\xi_n\overset{a.s.}{\rightarrow}\xi$ .
+
+>[!note]- $\xi_n\overset{r}{\rightarrow}\xi \Rightarrow \xi_n\overset{p}{\rightarrow}\xi\Rightarrow \xi_n\overset{l}{\rightarrow}\xi$ .
+>证明：
+>
+>$$\begin{aligned}
+>E\lvert \xi_n-\xi\rvert^r &\overset{x=\xi_n-\xi}{=}E\lvert x\rvert^r\\
+>&=\int_{\mathbb{R}}\lvert x\rvert^rdF(x)\\
+>&\ge \int_{\lvert x\rvert\ge \epsilon}\lvert x\rvert^rdF(x)\\
+>&\ge\int_{\lvert x\rvert\ge \epsilon}\epsilon^r dF(x)\\
+>&=\epsilon^r\mathcal{P}(\lvert x\rvert\ge \epsilon)
+>\end{aligned}$$
+>
+>从而可得 **Markov 不等式**：
+>
+>$$\mathcal{P}(\lvert \xi_n-\xi\rvert\ge \epsilon)\leq \frac{E\lvert \xi_n-\xi\rvert^r}{\epsilon^r},\forall r>0$$
+>
+>由 $\{\xi_n\}_{n\ge1}$ $r$ 收敛到 $\xi$ 可得 $\lim_{n\rightarrow \infty}\mathcal{P}(\lvert \xi_n-\xi\rvert\ge \epsilon)=0$ .
+>
+>下面从依概率收敛证明依分布收敛.
+>
+>证明思路是说明 $\varlimsup_{n\rightarrow \infty}F_n(x)=\varliminf_{n\rightarrow \infty}F_n(x)$ ，为此尝试利用 $F(x)$ 的任意性（注意，依分布收敛是对于 $F$ 的连续点而言）
+>
+>任取 $x_1<x<x_2$ ，试图证明： $F(x_1)\leq \varlimsup_{n\rightarrow \infty}F_n(x)\leq \varlimsup_{n\rightarrow \infty}F_n(x)\leq F(x_2)$ ，然后令 $x_1\uparrow x,x_2\downarrow x$ ，从而由 $F$ 在 $x$ 连续可以得到结论.
+>
+>$$\begin{aligned}
+>\{\xi<x_1\}&=\{\xi<x_1,\xi_n<x\}\cup\{\xi<x_1,\xi_n\ge x\}\\
+>&\subset\{\xi_n<x\}\cup\{\lvert \xi_n-\xi\rvert>x-x_1\}
+>\end{aligned}$$
+>
+>从而可以得到：
+>
+>$$F(x_1)\leq F_n(x)+\mathcal{P}(\lvert \xi_n-\xi\rvert>x-x_1)$$
+>
+>取 $n\rightarrow \infty$ ，由 $\{\xi_n\}_{n\ge1}$ 依概率收敛可得：
+>
+>$$F(x)\leq \varliminf_{n\rightarrow \infty}F_n(x_1)$$
+>
+>注意：还未确定 $F_n$ 是否有极限，因此取下极限.
+>
+>同理可以得到： $\varlimsup_{n\rightarrow \infty}F_n(x)\leq F(x_2)$ ，从而得证.
+
+>[!note] $\xi_n\overset{a.s.}{\rightarrow}\xi\Rightarrow \xi_n\overset{p}{\rightarrow}\xi\Rightarrow\xi_n\overset{l}{\rightarrow}\xi$ .
 
 # 附录 I 常见变量的数字特征
 
