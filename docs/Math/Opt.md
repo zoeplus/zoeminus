@@ -34,13 +34,16 @@ $$\mathcal{A}(x)=\{1,2,\cdots ,n\}\backslash \{k:c_k(x)>0\}=\{1,\cdots,m\}\cup\{
 
 # 凸集和凸函数
 
+>[!summary] 自查表
+>- 凸集、凸组合、凸包定义；
+
 ## 凸集
 
-凸优化中的可行集是**凸集**：对于 $D\subset \mathbb{R}^n$ ，称 $D$ 为凸集，如果 $\forall x,y\in D,\forall \lambda\in(0,1)$ ， $\lambda x+(1-\lambda)y\in D$ . 定义**凸组合**：对于 $x_i\in \mathbb{R}^n$ ， $\alpha_i\in \mathbb{R}^n,\alpha_i>0,\sum\limits_{i=1}^{m}\alpha_i=1$ ， $,i=1,\cdots,m$ ，称 $\sum\limits_{i=1}^{m}\alpha_ix_i$ 为 $x_1,\cdots,x_m$ 的凸组合. 定义**凸包**： $D\subset \mathbb{R}^n$ ，称 $H(D)=\{D\text{ 中有限多个点的凸组合}\}$ 为 $D$ 的凸包.
+凸优化中的可行集是**凸集**：对于 $D\subset \mathbb{R}^n$ ，称 $D$ 为凸集，如果 $\forall x,y\in D,\forall \lambda\in(0,1)$ ， $\lambda x+(1-\lambda)y\in D$ . 定义**凸组合**：对于 $x_i\in \mathbb{R}^n$ ， $\alpha_i\in \mathbb{R}^n,\alpha_i>0,\sum\limits_{i=1}^{m}\alpha_i=1$ ， $,i=1,\cdots,m$ ，称 $\sum\limits_{i=1}^{m}\alpha_ix_i$ 为 $x_1,\cdots,x_m$ 的凸组合. 定义**凸包**： $D\subset \mathbb{R}^n$ ，称 $H(D)=\{D\text{ 中有限多个点的凸组合}\}$ 为 $D$ 的凸包，或者记为 $\text{conv}\ D$.
 
->[!warning]- 凸组合中 $\alpha_i>0$ ，而不是 $\geq$ .
+>[!warning] 凸组合中 $\alpha_i>0$ ，而不是 $\geq$ .
 
-注意上述对于凸包 $H(D)$ 的叙述并不要求 $D$ 为凸集，但若 $D$ 为凸集则有以下结论：
+注意上述对于凸包 $H(D)$ 的定义并不要求 $D$ 为凸集，但若 $D$ 为凸集则有以下结论：
 
 >[!note]- 设 $D$ 为凸集，则 $D$ 中任意 $m$ 个点的凸组合都在 $D$ 中. 也即有 $H(D)\subset D$ .
 >证明：用归纳法证明， $n=2$ 是显然成立，设 $n=k$ 时也成立，对于 $n=k+1$ ： 设 $x_1,\cdots,x_{k+1}$ ，注意到 $$\begin{aligned}
@@ -52,7 +55,24 @@ $$\mathcal{A}(x)=\{1,2,\cdots ,n\}\backslash \{k:c_k(x)>0\}=\{1,\cdots,m\}\cup\{
 
 >[!note]- 对于 $D\subset \mathbb{R}^n$ ， $H(D)$ 是所有包含 $D$ 的凸集中最小的凸集.
 >证明：
-> $$H(D)=\left\{\sum\limits_{i=1}^{k}\lambda_ix_i:k\in \mathbb{N},\lambda_i>0,\sum\limits_{i=1}^{k}\lambda_i=1,x_i\in D\right\}$$ 对于任意的 $\sum\limits_{i=1}^{k_1}\lambda^1_ix^1_i,\cdots,\sum\limits_{i=1}^{k_m}\lambda^m_ix^m_i$ ，考虑 $$\sum\limits_{j=1}^{m}\alpha_j\left(\sum\limits_{i=1}^{k_j}\lambda^j_ix_i^j\right)=\sum\limits_{j=1}^{m}\sum\limits_{i=1}^{k_j}\alpha_j\lambda_i^jx_i^j$$ 注意到 $\sum\limits_{j=1}^{m}\sum\limits_{i=1}^{k_j}\alpha_j\lambda_i^j=\sum\limits_{j=1}^{m}\alpha_j\sum\limits_{i=1}^{k_j}\lambda_i^j=\sum\limits_{j=1}^{m}\alpha_j=1$ . 从而可知 $H(D)$ 为凸集. 下面证明 $H(D)$ 为包含 $D$ 的最小凸集：设 $B_i\supset D$ 为凸集显然 $\bigcap_{i\in I}B_i$ 仍然为包含 $D$ 的凸集，显然 $H(D)$ 包含 $D$ 所以： $$H(D)\supset \bigcap_{i\in I}B_i$$ 另一方面注意到 $D\subset \bigcap_{i\in I}B_i$ ，所以 $$H(D)\subset H(\cap_{i\in I}B_i)\subset \cap_{i\in I}B_i$$ 所以 $H(D)=\bigcap_{i\in I}B_i$ .
+> $$H(D)=\left\{\sum\limits_{i=1}^{k}\lambda_ix_i:k\in \mathbb{N},\lambda_i>0,\sum\limits_{i=1}^{k}\lambda_i=1,x_i\in D\right\}$$ 
+>对于任意的 $\sum\limits_{i=1}^{k_1}\lambda^1_ix^1_i,\cdots,\sum\limits_{i=1}^{k_m}\lambda^m_ix^m_i$ ，考虑 
+>
+>$$\sum\limits_{j=1}^{m}\alpha_j\left(\sum\limits_{i=1}^{k_j}\lambda^j_ix_i^j\right)=\sum\limits_{j=1}^{m}\sum\limits_{i=1}^{k_j}\alpha_j\lambda_i^jx_i^j$$ 
+>
+>注意到 
+>
+>$$\sum\limits_{j=1}^{m}\sum\limits_{i=1}^{k_j}\alpha_j\lambda_i^j=\sum\limits_{j=1}^{m}\alpha_j\sum\limits_{i=1}^{k_j}\lambda_i^j=\sum\limits_{j=1}^{m}\alpha_j=1$$ 
+>
+>从而可知 $H(D)$ 为凸集. 
+>
+>下面证明 $H(D)$ 为包含 $D$ 的最小凸集：设 $B_i\supset D$ 为凸集，全体凸集的并 $\bigcap_{i\in I}B_i$ 仍然为包含 $D$ 的凸集，所以 $H(D)\supset \bigcap_{i\in I}B_i$ 
+>
+>另一方面注意到 $D\subset \bigcap_{i\in I}B_i$ ，所以由凸包的定义可得：
+>
+>$$H(D)\subset H(\cap_{i\in I}B_i)\subset \cap_{i\in I}B_i$$ 
+>
+>所以 $H(D)=\bigcap_{i\in I}B_i$ .
 
 注意这里没有限制 $D$ 本身是不是凸集. 
 
@@ -91,36 +111,70 @@ $$\mathcal{A}(x)=\{1,2,\cdots ,n\}\backslash \{k:c_k(x)>0\}=\{1,\cdots,m\}\cup\{
 >
 >另一方面： #imcomplete-whatever 
 
-**线性分式函数**则是由透视函数和仿射函数复合定义的：设 $g:\mathbb{R}^n\rightarrow \mathbb{R}^{m+1}$ ： $$g(x)=\begin{bmatrix}A \\ c^T\end{bmatrix}x+\begin{bmatrix}b  \\ d\end{bmatrix}$$ 其中 $A\in \mathbb{R}^{m\times n},c\in \mathbb{R}^{n},b\in \mathbb{R}^m,d\in \mathbb{R}$ ，定义线性分式函数： $f=P\circ g$ ，即： $$f(x)=(Ax+b)/(c^Tx+d)$$
+**线性分式函数**则是由透视函数和仿射函数复合定义的：设 $g:\mathbb{R}^n\rightarrow \mathbb{R}^{m+1}$ ： 
 
-下面定义凸集的**分离**：设 $D_1,D_2\subset \mathbb{R}^n$ 是两个凸集，如果存在 $\alpha\in \mathbb{R}^n,\alpha\neq0,\beta\in \mathbb{R}$ ，使得 $$\begin{aligned}
+$$g(x)=\begin{bmatrix}A \\ c^T\end{bmatrix}x+\begin{bmatrix}b  \\ d\end{bmatrix}$$
+
+其中 $A\in \mathbb{R}^{m\times n},c\in \mathbb{R}^{n},b\in \mathbb{R}^m,d\in \mathbb{R}$ ，定义线性分式函数： $f=P\circ g$ ，即： 
+
+$$f(x)=(Ax+b)/(c^Tx+d)$$
+
+下面定义凸集的**分离**：设 $D_1,D_2\subset \mathbb{R}^n$ 是两个凸集，如果存在 $\alpha\in \mathbb{R}^n,\alpha\neq0,\beta\in \mathbb{R}$ ，使得 
+
+$$\begin{aligned}
 &D_1\subset H^+=\{x\in \mathbb{R}^n:\alpha^Tx\geq \beta\}\\
 &D_2\subset H^-=\{x\in \mathbb{R}^n:\alpha^Tx\leq \beta\}
-\end{aligned}$$ 则称**超平面** $H=\{x\in \mathbb{R}^n:\alpha^Tx=\beta\}$ 为 $D_1,D_2$ 的**分离**. 若 $D_1,D_2$ 中取 $>,<$ 则称 $H$ 为 $D_1,D_2$ 的**严格分离**. ^SeperateHyperplane
+\end{aligned}$$
+
+则称**超平面** $H=\{x\in \mathbb{R}^n:\alpha^Tx=\beta\}$ 为 $D_1,D_2$ 的**分离**. 若 $D_1,D_2$ 中取 $>,<$ 则称 $H$ 为 $D_1,D_2$ 的**严格分离**. ^SeperateHyperplane
 
 类似于二维或者三维上的凸集，有下面的存在唯一最近点定理：
 
 >[!note]- 设 $D\subset \mathbb{R}^n$ 是非空<u>闭</u>凸集， $y\notin D$ ，则 1) 存在唯一 $\bar{x}\in D$ 满足 $\lVert \bar{x}-y\rVert=\inf_{x\in D}\lVert x-y\rVert$ ；2) $\bar{x}:\lVert \bar{x}-y\rVert=\inf_{x\in D}\lVert x-y\rVert$ 当且仅当 $(x-\bar{x})^T(\bar{x}-y)\geq0$ .
 >证明：利用连续函数可以在紧集（在 $\mathbb{R}^n$ 中，等价于有界闭集）中可以取得最小值. #imcomplete %%这里最好能更新一下[实数理论](R.md)%% 首先取 $z\in D$ . 取 $R=\lVert y-z\rVert$ ，从而可得 $C=\bar{B}(z,R)\cap D$ 为 $\mathbb{R}^n$ 上的有界闭集，又 $\lVert \cdot\rVert$ 为连续函数（事实上，一致连续），从而可在 $C$ 上取得 $\inf$ ，记 $\lVert \bar{x}-y\rVert=\inf_{x\in C}\lVert x-y\rVert$ ，当 $x\notin C$ 时， $\lVert x-y\rVert\geq R\geq \lVert \bar{x}-y\rVert$ 因此 $\lVert \bar{x}-y\rVert=\inf_{x\in D}\lVert x-y\rVert$ .
->对于唯一性的证明：考虑 $$\begin{aligned}
+>对于唯一性的证明：考虑 
+>
+>$$\begin{aligned}
 >\left\lVert \frac{1}{2}\bar{x}-\frac{1}{2}y-\frac{1}{2}y+\frac{1}{2}\bar{x}'\right\rVert &\leq \frac{1}{2}\left\lVert \bar{x}-y\right\rVert+\frac{1}{2}\lVert \bar{x}'-y\rVert\\
 >&=\lVert \bar{x}-y\rVert
->\end{aligned}$$ 并且 $$\left\lVert \frac{\bar{x}+\bar{x}'}{2}-y\right\rVert\geq\lVert \bar{x}-y\rVert$$ 则上不等式可取等，满足取等条件： $$\frac{1}{2}(\bar{x}-y)=\frac{\alpha}{2}(\bar{x}'-y)$$ 取模长可得 $\alpha=1$ ，从而可得 $\bar{x}=\bar{x}'$ .
+>\end{aligned}$$
 >
->对 2) ， $\rightarrow$ 观察可得 $$\begin{aligned}
+>并且 
+>
+>$$\left\lVert \frac{\bar{x}+\bar{x}'}{2}-y\right\rVert\geq\lVert \bar{x}-y\rVert$$
+>
+>则上不等式可取等，满足取等条件： $$\frac{1}{2}(\bar{x}-y)=\frac{\alpha}{2}(\bar{x}'-y)$$ 取模长可得 $\alpha=1$ ，从而可得 $\bar{x}=\bar{x}'$ .
+>
+>对 2) ， $\rightarrow$ 观察可得 
+>
+>$$\begin{aligned}
 >\lVert x-y\rVert^2 &=\lVert x-\bar{x}+\bar{x}-y\rVert^2\\
 >&=\lVert x-\bar{x}\rVert^2+\lVert \bar{x}-y\rVert^2+2(x-\bar{x})^T(\bar{x}-y)\\
->\end{aligned}$$ 但这一形式无法解决问题，因此考虑利用凸集的性质，和上面的 $$\begin{aligned}
+>\end{aligned}$$
+>
+>但这一形式无法解决问题，因此考虑利用凸集的性质，和上面的 
+>
+>$$\begin{aligned}
 >\lVert \lambda x+(1-\lambda)\bar{x}-y\rVert^2&=\lVert \bar{x}-y+\lambda(x-\bar{x})\rVert^2\\
 >&=\lVert \bar{x}-y\rVert^2+\lambda^2\lVert x-\bar{x}\rVert^2\\
 >&+2\lambda(x-\bar{x})^T(\bar{x}-y)\\
 >&\geq \lVert \bar{x}-y\rVert^2
->\end{aligned}$$ 从而可以得到 $$\lambda^2\lVert x-\bar{x}\rVert^2+2\lambda(x-\bar{x})^T(\bar{x}-y)\geq0$$ 其中 $\lambda\in(0,1)$ ，因此 $(x-\bar{x})^T(\bar{x}-y)\geq0$ . 利用参数的任意性求解，和[[#^AtMostnplus1]]相似.
+>\end{aligned}$$
 >
->$\Leftarrow$ ：直接由 $$\begin{aligned}\lVert x-y\rVert^2 &=\lVert x-\bar{x}+\bar{x}-y\rVert^2\\ 
+>从而可以得到
+>
+>$$\lambda^2\lVert x-\bar{x}\rVert^2+2\lambda(x-\bar{x})^T(\bar{x}-y)\geq0$$
+>
+>其中 $\lambda\in(0,1)$ ，因此 $(x-\bar{x})^T(\bar{x}-y)\geq0$ . 利用参数的任意性求解，和 [[#^AtMostnplus1]] 相似.
+>
+>$\Leftarrow$ ：直接由
+>
+>$$\begin{aligned}\lVert x-y\rVert^2 &=\lVert x-\bar{x}+\bar{x}-y\rVert^2\\ 
 >&=\lVert x-\bar{x}\rVert^2+\lVert \bar{x}-y\rVert^2+2(x-\bar{x})^T(\bar{x}-y)\\
 >\end{aligned}
->$$ 得到结论.
+>$$ 
+>
+>得到结论.
 
 下面是一个重要的引理，即存在超平面将位于非空闭凸集 $D$ 外的一点 $y$ 与凸集 $D$ 分开：
 
@@ -162,6 +216,12 @@ $$\mathcal{A}(x)=\{1,2,\cdots ,n\}\backslash \{k:c_k(x)>0\}=\{1,\cdots,m\}\cup\{
 凸函数的局部最优点即为全局最优点.
 
 >[!note] 设 $f(x)$ 是定义在凸集 $D$ 上的连续可微函数，则 1) $f$ 为 $D$ 上的充分必要条件是 $f(y)\geq f(x)+\nabla f(x)^T(y-x),\forall x,y\in D$ ；2) $f$ 是 $D$ 上的严格凸函数的充要条件是 $f(y)>f(x)+\nabla f(x)^T(y-x),\forall y,x\in D,x\neq y$ .
+
+因此有推论：
+
+>[!note] $f$ 为定义在凸集 $D$ 上的一阶连续可微函数，则 $x$ 为 $D$ 的全局最优点当且仅当 $\nabla f(x)=0$ .
+
+> $\Rightarrow$ ：
 
 >[!note] 设 $f(x)$ 是<u>非空开凸集</u> $D\subset \mathbb{R}^n$ 上的<u>二阶连续可微</u>函数，则 1) $f$ 是 $D$ 上的凸函数的充要条件是 $\nabla^2f(x)$ 在 $D$ 中<u>半正定</u>；2) 若 $\nabla^2f(x)$ 在 $D$ 中正定，则 $f(x)$ 是 $D$ 上的严格凸函数.
 
@@ -1091,3 +1151,261 @@ for n in n_dim_list:
  [ 1.88695398e+06]]
 ```
 ///
+
+### 拟 Newton 法
+
+Newton 法：
+
+$$x_{k+1}=x_k-(\nabla^2f(x_k))^{-1}\nabla f(x_k)$$
+
+终点在于如何求解 $\nabla^2f(x_k)^{-1}$ .
+
+拟 Newton 法用一个更容易求得的 $n$ 阶方阵 $H_k$ 代替 $\nabla^2f(x_k)^{-1}$ .
+
+#### DFR 算法
+
+$$\begin{aligned}
+&\nabla f(x)\approx \nabla f(x_k)+\nabla^2f(x_k)(x-x_k)\\
+&\nabla f(x_{k-1})\approx \nabla f(x_k)+\nabla^2f(x_k)(x_{k-1}-x_k)\\
+&x_{k-1}-x_k\approx \nabla^2f(x_k)^{-1}(\nabla f(x_{k-1})-\nabla f(x_k))
+\end{aligned}$$
+
+现在用一个 $n$ 阶矩阵 $H_k$ 替代上式，得到一个等式：
+
+$$\begin{aligned}
+&x_{k-1}-x_k=H_k(\nabla f(x_{k-1})-\nabla f(x_k))\\
+&s_{k-1}=H_ky_{k-1}
+\end{aligned}$$
+
+称为**拟 Newton 方程**，下面讨论 $H_k$ 的具体形式.
+
+设 $H_k=H_{k-1}+E_k$ ，从而：
+
+$$\begin{aligned}
+&s_{k-1}=H_{k-1}y_{k-1}+E_ky_{k-1}\\
+&E_ky_{k-1}=s_{k-1}-H_{k-1}y_{k-1}
+\end{aligned}$$
+
+设 $E_k$ 为一个秩为 $2$ 的矩阵，其可以被表示为：
+
+$$\begin{aligned}
+&E_k=\alpha_kuu^T+\beta_kvv^T\\
+&\alpha_kuu^Ty_{k-1}+\beta_kvv^Ty_{k-1}\overset{结合律}{=}\alpha_k(u^Ty_{k-1})u+\beta_k(v^Ty_{k-1})v\\
+&=s_{k-1}-H_{k-1}y_{k-1}
+\end{aligned}$$
+
+然后令：
+
+$$\left\{\begin{aligned}
+&\alpha_k(u^Ty_{k-1})=1\\
+&u=s_{k-1}
+\end{aligned}\right.\quad\left\{\begin{aligned}
+&\beta_k(v^Ty_{k-1})=-1\\
+&v=H_{k-1}y_{k-1}
+\end{aligned}\right.$$
+
+进而得到：
+
+$$E_k=\frac{s_{k-1}s^T_{k-1}}{s_{k-1}^Ty_{k-1}}-\frac{H_{k-1}y_{k-1}y^T_{k-1}H_{k-1}}{y^T_{k-1}H_{k-1}y_{k-1}}$$
+
+DFR 算法如下：
+
+对于 $\min_{x\in \mathbb{R}}\ f(x),\quad f\in C^2(\mathbb{R})$ .
+
+1. 初始化 $x_0$ 和对称正定阵 $H_0$ （通常取 $E$ ）， $d_0\leftarrow -H_0\nabla f(x_0),k\leftarrow 0$ ；
+2. 当 $\nabla f(x_0)\neq 0$ 时：由一维精确搜索确定 $\alpha_k$ ，更新 $x_{k+1}\leftarrow x_k+\alpha_kd_k$ ， $s_k\leftarrow x_{k+1}-x_k$ ， $y_k\leftarrow \nabla f(x_{k+1})-\nabla f(x_k)$ ， $H_{k+1}\leftarrow H_k+\frac{s_ks_k^T}{s_k^Ty_{k}}-\frac{H_{k}y_{k}y_{k}^TH_{k}}{y_{k}^TH_{k}y_{k}}$ ， $d_{k+1}\leftarrow -H_{k+1}\nabla f(x_{k+1})$ ， $k\leftarrow k+1$ ；
+
+称 $H_k$ 为 DFP 校正矩阵.
+
+其中 $\alpha_k$ 通常由求解方程： $d_k^T\nabla f(x_k+\alpha d_k)=0$ 得到，或者写作（以二元为例）：
+
+>[!note] 由精确搜索步长的 DFP 算法产生的矩阵序列 $\{H_k\}_k$ 对称正定.
+
+算法实现（以二元函数为例）：
+
+```python linenums="1"
+import numpy as np
+_ = var('x_1, x_2, alpha')
+
+f_tar = 
+varphi_tar = 
+
+f(x_1, x_2) = f_tar
+nabla_f(x_1, x_2) = f.diff()
+varphi(x_1, x_2, d_1, d_2, alpha) = varphi_tar
+
+# 用符号运算求解精确搜索得到的 alpha 的表达式
+S = solve(varphi_tar.diff(alpha) == 0, alpha, solution_dict = True)
+alpha_search(d_1, d_2, x_1, x_2) = S[0][alpha]
+
+# 初始化
+x_1, x_2 = 2, -4
+H = matrix.identity(2)
+d = - H * matrix(nabla_f(x_1, x_2)).transpose()
+d_1, d_2 = d[0][0], d[1][0]
+
+def DFR(x_1, x_2, d_1, d_2, H):
+    while (np.array(nabla_f(x_1, x_2)) != [0., 0.]):
+        alpha = alpha_search(d_1, d_2, x_1, x_2)
+        s = alpha * d
+        y = matrix(nabla_f(x_1 + alpha * d_1, x_2 + alpha * d_2) - nabla_f(x_1, x_2)).transpose()
+        x_1, x_2 = x_1 + alpha * d_1, x_2 + alpha * d_2
+        H = H + s * s.transpose() / (s.transpose() * y)[0][0] - (H * y * y.transpose() * H) / (y.transpose() * H * y)[0][0]
+        d = - H * matrix(nabla_f(x_1, x_2)).transpose()
+        d_1, d_2 = d_1, d_2 = d[0][0], d[1][0]
+        print(alpha, x_1, x_2, H, d, '\n')
+    return x_1, x_2
+```
+
+>[!example] 用 DFP 方法求解 $\min\quad \frac{3}{2}x_1^2+\frac{1}{2}x_2^2-x_1x_2-2x_1$ . 取 $x_0=[-2,4]^T,H_0=E_2$ .
+
+解：
+
+$$\begin{aligned}
+&f(x)=\frac{1}{2}x^TGx-bx\\
+&\nabla f(x)=Gx-b
+\end{aligned}$$
+
+精确搜索步长：
+
+$$d_k^T\nabla f(x_k+\alpha d_k)=d_k^T(Gx_k+)$$
+
+
+DFR 法不要求一定精确搜索，所以可以采用下面的方法：
+
+```python linenums="1"
+import numpy as np
+from numpy import linalg as LA
+
+_ = var('x_1, x_2, alpha, d_1, d_2')
+f_tar = (x_1 - 2)^4 + (x_1 - 2)^2 * x_2^2 + (x_2 + 1)^2
+nabla_f = f.diff()
+
+x_1, x_2 = 3, 1
+H = matrix.identity(2)
+d = - H * matrix(nabla_f(x_1, x_2)).transpose()
+d_1, d_2 = d[0][0], d[1][0]
+ep = 1e-6 # 精确度
+
+def DFR(x_1, x_2, d_1, d_2, H, d = d):
+    # while not (np.array(nabla_f(x_1, x_2)) == 0).all():
+    while not LA.norm(np.array(nabla_f(x_1, x_2))) < ep:
+        alpha = 1e-2
+        s = alpha * d
+        y = matrix(nabla_f(x_1 + alpha * d_1, x_2 + alpha * d_2) - nabla_f(x_1, x_2)).transpose()
+        x_1, x_2 = x_1 + alpha * d_1, x_2 + alpha * d_2
+        H = H + s * s.transpose() / (s.transpose() * y)[0][0] - (H * y * y.transpose() * H) / (y.transpose() * H * y)[0][0]
+        d = - H * matrix(nabla_f(x_1, x_2)).transpose()
+        d_1, d_2 = d_1, d_2 = d[0][0], d[1][0]
+    return x_1, x_2
+
+DFR(x_1, x_2, d_1, d_2, H)
+```
+
+程序返回结果：
+
+```shell
+(2.00000033869402,−0.999999638356904)
+```
+
+约为 $[2,-1]$ .
+
+>[!example] 分别用共轭梯度法和拟 Newton 法极小化 Powell 奇异函数： $f(x)=(x_1+10x_2)^2+5(x_3-x_4)^2+(x_2-2x_3)^4+10(x_1-x_4)^4$ ，取 $x_0=[3,-1,0,1]^T$ ，已知该函数的极小值点为 $x^*=[0,0,0,0]^T$ .
+
+>[!example] 在 DFP 校正公式中, 令 $A_k=\frac{s_ks_k^T}{s_k^Ty_k},B_k=-\frac{H_ky_ky_k^TH_k}{_k^TH_ky_k}$ ，设初始矩阵 $H_0$ 对称正定， $\nabla f(x_k)\neq 0,k=0,1,\cdots,n-1$ ，证明算法用于求解 $\min\quad \frac{1}{2}x^TAx+b^Tx+c$ 时有： $\sum\limits_{k=0}^{n-1}A_k=A^{-1},\sum\limits_{k=0}^{n-1}B_k=-H_0$ .
+
+## 信赖域方法
+
+对于：
+
+$$\begin{aligned}
+&\min_{x\in \mathbb{R}}\quad f(x)\\
+\end{aligned}$$
+
+之前的无约束优化算法都采取两个步骤： 1) 确定下降方向 $d_k$ ；2) 确定步长 $\alpha_k$ ；
+
+信赖域方法直接求解 $m_k=d_k\alpha_k$ . 类似于牛顿法，信赖域方法首先对于优化函数 $f$ 在 $x_k$ 的局部用一个函数 $q(s)=f(x_k+s)$ 进行近似，然后直接求解 $q_k(s)$ 在局部的优化步 $m_k$ ，作为 $f$ 的优化步，这一过程需要解决两个问题：
+
+1. 如何确定有效的局部以近似函数 $f$ （更新信赖域）；
+2. 如何求解 $q(s)$ 在信赖域内的优化步（求解子问题）.
+
+通常，用二元函数近似 $f$ ，得到该优化问题的**子问题**：
+
+$$\begin{aligned}
+&\min\quad q_k(s)=f(x_k)+\nabla f(x_k)^Ts+\frac{1}{2}s^TB_ks\\
+&s.t.\quad \ \lVert s\rVert\leq \Delta_k
+\end{aligned}$$
+
+$\lVert \cdot\rVert$ 为某范数， $\Omega_k=\{x_k+s:\lVert s\rVert\leq \Delta_k\}$ 称为 $x_k$ 的**信赖域**， $\Delta_k$ 则称为信赖域的半径； $B_k$ 为 Hesse 矩阵或者对 Hesse 矩阵的近似.
+
+为了确定有效的信赖域，需要确定在该信赖域中作出的优化是否有效，假设 $x_{k+1}=x_k+s_k$ ，定义下降比值：
+
+$$r_k=\frac{f(x_k)-f(x_{k+1})}{q_k(0)-q(s_k)}$$
+
+如果 $r_k\leq 0$ ，说明 $f(x_k)\leq f(x_{k+1})$ ，无效优化，因此应当拒绝 $s_k$ 并缩小信赖域半径以更近似 $f$ ；如果 $r_k$ 足够大，则应当适当增加信赖域的半径，加快优化.
+
+信赖域算法如下：
+
+1. 初始化 $x_0$ ，信赖域的上界 $\Delta_{\max}$ ，初始化 $\Delta_0\in(0,\Delta_{\max}),k\leftarrow0$ ，此外设置如下超参数：精确率 $\epsilon$ ，下降比值的两个接受度 $\eta_1,\eta_ 2:0<\eta_1\leq \eta_2<1$ ，信赖域半径改动的两个缩放系数： $0<\gamma_1<1<\gamma_k$ ；
+2. 当 $\lVert \Delta f(x_k)\rVert>\epsilon$ 时：
+
+求解子问题：
+
+$$\begin{aligned}
+&\min\quad q_k(s)=f(x_k)+\nabla f(x_k)^Ts+\frac{1}{2}s^TB_ks\\
+&s.t.\quad \ \lVert s\rVert\leq \Delta_k
+\end{aligned}$$
+
+得到 $s_k$ ；
+
+计算 $r_k=\frac{f(x_k)-f(x_k+s_k)}{q(0)-q(s_k)}$ .
+
+$$x_{k+1}\leftarrow \left\{\begin{aligned}
+&x_k+s_k\quad r_k\ge \eta_1\\
+&x_k,\quad r_k<\eta_1
+\end{aligned}\right.$$
+
+随后改进信赖域半径：
+
+$$\Delta_{k+1}\leftarrow \left\{\begin{aligned}
+&\gamma_1\Delta_k,\quad r_k<\eta_1\\
+&\Delta_k,\quad r_k\in[\eta_1,\eta_2)\\
+&\min\{\gamma_2\Delta_k,\Delta_{\max}\}
+\end{aligned}\right.$$
+
+注：这里可以灵活取更改方案；
+
+更新 $q_{k+1}(s)$ ， $k\leftarrow k+1$ .
+
+```python linenums="1"
+epsilon = 1e-5
+x = 
+delta_max = 
+delta = 
+eta_1, eta_2 = 
+gamma_1, gamma_2 = 
+
+while ( < epsilon):
+    # 求解优化步， q 为优化函数
+    q, s = solve_sub(f, x, delta_max)
+    r = (f(x) - f(x+s)) / (q(0) - q(s_k))
+    if (r >= eta_1):
+        x = x + s
+    # 更新信赖域半径
+    if (r < eta_1):
+        delta = gamma_1 * delta
+    else if (r > eta_2):
+        delta = max(gamma_2 * delta, delta_max)
+
+print(delta)
+```
+
+下面解决如何求解信赖域子问题
+
+
+
+### 信赖域算法收敛性分析
+
+[[2422Mo194928]]
+
+
