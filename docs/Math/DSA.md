@@ -120,7 +120,7 @@ $n!=n(n-1)\cdots1\overset{def}{=}[n]!$ ；
 组合数的表示，一般不用 $C_n^k$ ，用 
   
 $$\binom{n}{k}=\frac{n!}{k!(n-k)!}=\frac{n(n-1)\cdots(n-k+1)}{k!}$$
-  
+
 或称为**二项式系数**（binomial coefficient），二项式展开： 
  
 $$(x+y)^n=\sum\limits_{k=0}^{n}\binom{n}{k}x^ky^{n-k}$$
@@ -353,6 +353,57 @@ C++ 中提供了实现栈的模板类 [stack](CPP.md#stack)
 
 定义**简单图**：无重边，无圈的无向图；**完全图**：图中的任意两个点都有边，此时 $\lvert E\rvert=C_{\lvert V\rvert}^2$ ，并且 $\sum\limits_{v\in V}^{}d(v)=2 \lvert E\rvert$ ， $d(v)=n-1,\lvert E\rvert=\frac{n(n-1)}{2}$ ；
 
+## 图的存储结构
+
+[[2420Fr190932]]
+
+### 邻接矩阵
+
+对于一个顶点数为 $n$ 的图，定义其邻接矩阵 $A=(a_{ij})_{n\times n}$ .
+
+```cpp linenums="1"
+const int INFINITY
+```
+
+### 邻接表
+
+[Check-zhihu](https://zhuanlan.zhihu.com/p/665172781)
+
+用一个单链表存储与一个结点相关联的所有临界点.
+
+### 十字链表
+
+### 邻接多重表
+
+## 图的遍历
+
+和树的遍历一样，包括深度有限（DFS）和广度优先（BFS）；
+
+**深度优先搜索**
+
+```title="DFS" linenums="1"
+algorithm DFS(G, i):
+    if (existLinkNode(G, i)):
+        n = getLinkNode(G, i)
+
+    else:
+        n = getMin(G, i)
+    G = G - i
+    DFS(G, n)
+```
+
+**广度优先搜索**：每一次访问完当前结点的所有子结点；
+
+```title="BFS" linenums="1"
+algorithm BFS(G, i):
+    if (existLinkNode(G, i)):
+        n = getLinkNode(G, i)
+    else:
+        n = getMin(G, i)
+    G = G - i
+    DFS(G, i)
+```
+    
 ## 最短路
 
 对于加权图，定义点 $u,v$ 之间的**最短路**：路径 $u-v$ 全体中边权和最小的路；
@@ -398,9 +449,11 @@ algorithm Floyd:
     OUTPUT: W;
 ```
 
-当 Floyd 算法应用于含有负环的图时： #imcomplete-further-wanted 
+当 Floyd 算法应用于含有负环的图时： [[2420Fr183901]]
 
 ### Dijkstra 算法
+
+[[2420Fr183940]]
 
 | 参考  | 状态  | 备注  |
 | --- | --- | --- |
@@ -744,7 +797,7 @@ for (node : S):
 5. 更新 S：移除 T_p， T_q，加入 T_pq ，回到 2.
 ```
 
-| #imcomplete-lack-codes
+[[2420Fr183504]] 
 
 按照上述构造方法，霍夫曼树的结点的度均为 $0$ 或者 $2$ ，不可能为 $1$ .
 
@@ -830,7 +883,7 @@ void decode_huff(node * root, string s) {
 
 ### 最小生成树算法
 
-| #imcomplete 
+[[2420Fr201658]]
 
 对加权图 $G(V,E,w)$ ，定义 $G$ 的最小生成树（minimal spanning tree, MST）：边权重和最小的生成树；
 
@@ -849,10 +902,10 @@ algorithm Prime(V, E, W) is:
     return V, E, W;
 ```
 
-[Kruskal 算法](https://en.wikipedia.org/wiki/Kruskal%27s_algorithm)，在对于边进行排序之后，每次只需要在已有的边中选取不形成圈的最小边，算法复杂度为 $\mathcal{O}(\lvert E\rvert)$ ：
+[Kruskal 算法](https://en.wikipedia.org/wiki/Kruskal%27s_algorithm)，在对于边进行排序之后，每次只需在已有的边中选取不形成圈的最小边，算法复杂度为 $\mathcal{O}(\lvert E\rvert)$ ：
 
 ```title="Kruskal 算法伪代码" linenums="1"
-algorithm Kruskal(V, E, W) is:
+algorithm Kruskal(V, E, W):
     E' = emptyset;
     E_candidates = sort(E, W);
     while E' 不包含所有的 V:
@@ -876,6 +929,10 @@ algorithm PruferEncoding(T) is:
         
     return v_1, ..., v_n;
 ```
+
+## Steiner Problem
+
+[[2420Sa134232]]
 
 # 堆
 
@@ -1176,7 +1233,7 @@ class StackSorting
 
 | #imcomplete 经过耐心排序之后再经过一次插入排序就可以得到顺序排列.
 
-## R.S. 算法
+## R.S. 算法与整数分拆
 
 >[!summary]+ 自查表
 >- 整数分拆的定义；
@@ -1286,6 +1343,7 @@ R.S 算法与耐心排序相比可以同时计算最长递增和递减子列的<
 >[!example]- $101$ 个身高不同的人随机地排成一列，至少有 $11$ 个人严格递增或者严格递减.
 >证明：也就是对于任意 $\pi\in S_{101}$ ，其递增子列和递减子列的长度至少有一个大于 $11$ ，反证两者都 $<=10$ ，则 $\pi$ 对应的杨表中的元素 $\leq10^2=100$ 矛盾！
 
+
 ### Gauss 系数
 
 记 $[m]=1+q+\cdots+q^{m-1}$ .
@@ -1297,6 +1355,90 @@ R.S 算法与耐心排序相比可以同时计算最长递增和递减子列的<
 $$\begin{bmatrix}4 \\ 2\end{bmatrix}=1+q+2q^2+q^3+q^4$$
 
 并且观察到系数呈先递增后递降顺序（单峰），该结论可以推广到所有 $n\geq1$ 的情形.
+
+# 整数分拆
+
+在 [[#R.S. 算法与整数分拆]] 中已经介绍了分拆的概念.
+
+## 分拆的图表示
+
+可以用 Ferras 图表示分拆. [[2420Sa193626]] ，也可以用块表示，即杨图，需要注意的是额外添加的两个内角.
+
+也可以采取**二模图**的方式表示，如下：
+
+定义**钩**（hook），由第 $i$ 行和第 $i$ 列的元素组成.
+
+>[!note] 证明： $\mathcal{P}(n,\mathcal{O})=\mathcal{P}(n,\mathcal{D})$ . （Sylvester's Proof）
+
+证明，对于一个奇分拆，用二模图表示，则奇分拆的每一行有且仅有一个 $1$ ，并且两个相邻的 hook 的元素相异.
+
+对于奇分拆的二模图表示，每次读取一个 hook ，读两遍：第一次读取 hook 中的所有元素个数，第二次读取非 $1$ 的元素个数. 最终读取出的数是相异的.
+
+反之，也可以根据一个相异分拆还原一个二模图，进而得到一个奇分拆.
+
+### Bressoud 优美双射
+
+$\mathcal{P}(n:\text{部分超相异})=\mathcal{P}(n:\text{部分相异，并且偶数部分}>(\#\text{奇数部分}))$ .
+
+其中，部分超相异指的是任意两个相邻部分的差都大于 $2$ .
+
+对于一个部分超相异的分拆，采取错 $2$ 位的方法绘制 Ferras 图.
+
+[[2420Sa201809]]
+
+## Sylvester 对 Euler 定理的加细
+
+[[2421Su101140]]
+
+## Fine 对 Euler 定理的加细
+
+回顾分拆的秩的概念：最大部分减去部分数；
+
+整数 $n$ 分成秩为 $2r$ 或者 $2r+1$ 的相异分拆的数量等于其分成最大部分为 $2r+1$ 的奇分拆的数量.
+
+下面介绍 Andrews 算法，其建立其了上述两种分拆之间的一个双射.
+
+对于 $n$ 的一个相异分拆：
+
+- 如果秩为 $2r$ ，则删除最大部分，剩下每个的部分 $+1$ ；
+- 如果秩为 $2r+1$ ，则删除最大部分，剩下每个部分 $+1$ ，并插入 $1$ 作为新部分；
+
+
+## Euler 五角数定理
+
+>[!note] Euler 五角数： $\mathcal{P}(n:\text{部分相异，具有偶数个部分})=\mathcal{P}(n:\text{部分相异，具有奇数个部分})+e(n)$ . 其中 $\exists j\ge1\left(n=\frac{3j\pm1}{2}\right)$ 时， $e(n)=(-1)^j$ ，否则 $e(n)=0$ .
+
+## 整数分拆与 $q$ 级数
+
+下面构造整数分拆的生成函数，借助 $q$ 级数可以证明一些不显然的整数分拆计数相等问题.
+
+从一个简单的例子入手：
+
+>[!example] 考虑 $\mathcal{P}(n:n=\text{1 个小于 7 的偶数}+\text{1 个小于 7 的奇数})$ .
+>满足上述性质的 $n$ 可以写为 $2,4,6$ 和 $1,3,5$ 的两两组合，现在给定一个 $n$ 要求解相应分拆的个数.
+>
+>考虑： $(q^2+q^4+q^6)(q+q^3+q^5)$ ，可知 $q^n$ 前对应的系数即为 $n$ 的一个满足 $1$ 个小于 $7$ 的偶数 $+$ $1$ 个小于 $7$ 的奇数.
+
+一般地，设 $H\subset \mathbb{N}^*$ ，令 $"H"$ 表示分拆部分均属于 $H$ 的分拆的集合， $\mathcal{P}("H",n)$ 则代表所有的分拆部分均属于 $H$ 的 $n$ 的分拆个数.
+
+>[!example] $H=\{2k-1\}_{n\ge1}$ ，则 $\mathcal{P}("H",n)=\mathcal{P}(\mathcal{O},n)$ ，其中 $\mathcal{O}$ 为全体奇分拆的集合.
+
+令 $"H"(\leq d)$ 表示分拆部分均属于 $H$ 并且相同的部分出现的次数不超过 $d$ 的分拆的集合.
+
+>[!example] $H=\mathbb{N}\backslash\{0\}$ ，则 $\mathcal{P}("H"(\leq1),n)=\mathcal{P}(\mathcal{D},n)$ ，其中 $\mathcal{D}$ 为全体相异分拆的集合.
+
+下面用生成函数研究特殊性质的分拆的级数问题，注意为了保证收敛限制 $\lvert q\rvert<1$ .
+
+>[!note] 设 $H\subset \mathbb{N}$ ， $f(q)=\sum\limits_{n\ge0}^{}\mathcal{P}("H",n)q^n$ ， $f_d(q)=\sum\limits_{n\ge0}^{}\mathcal{P}("H"(\leq d),n)q^n$ ，则 $\forall q:\lvert q\rvert<1$ 有： $f(q)=\prod_{n\in H}^{}\frac{1}{1-q^n}$ ， $f_d(q)=\prod_{n\in H}^{}(1+q^n+\cdots+q^{dn})=\prod_{n\in H}^{}\frac{1-q^{(d+1)n}}{1-q^n}$ .
+
+利用上面的结论，下面证明 Euler 定理：
+
+>[!note] Euler 定理： $\mathcal{P}(\mathcal{O},n)=\mathcal{P}(\mathcal{D},n)$ .
+>证明：令 $H_1=\{2k-1\}_{k\ge1}$ ，从而 $f_{H_1}(q)=\sum\limits_{k\ge1}^{}\frac{1}{1-q^{2k-1}}$ . 令 $H_2=\mathbb{N}$ ，从而 $f_{H_2}(q)=\frac{\prod_{n\ge1}^{}1-q^{2n}}{\prod_{n\ge1}^{}1-q^n}$ ，从而可得 $f_{H_2}(q)=f_{H_1}(q)$ ，逐项系数相同即可得到 Euler 定理.
+
+>[!note] 推论 Glaisher：
+
+
 
 # 格路
 
