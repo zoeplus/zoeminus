@@ -724,9 +724,9 @@ $$\begin{aligned}&(\text{N}1)\ X\in \mathcal{N}(x),\forall x\in X\\&(\text{N}2)\
 
 注意到， $\mathbb{R}$ 中的每个开集都可以写成一族端点为有理数的开区间的并. 下面考虑对于一般的拓扑空间.
 
-设 $(X,\Omega)$ 为拓扑空间， $\mathcal{B}$ 为一族开集，若其满足： $(X,\mathcal{O})$ 中的每一个开集都可以表示为 $\mathcal{B}$ 中的一些元素的并，则称 $\mathcal{B}$ 为 $\mathcal{O}$ 的一个**基**（basis）. 
+设 $(X,\Omega)$ 为拓扑空间， $\mathcal{B}$ 为一族开集，若其满足： $(X,\mathcal{O})$ 中的每一个开集都可以表示为 $\mathcal{B}$ 中的一些元素的并，则称 $\mathcal{B}$ 为 $\mathcal{O}$ 的一个**基**（basis）. ^Basis
 
-基有如下等价定义：
+基的概念即为用部分开集刻画全体开集. 基有如下等价定义：
 
 >[!note]- 设 $(X,\mathcal{O})$ 是拓扑空间， $\mathcal{B}$ 为一组开集，则 $\mathcal{B}$ 是 $\mathcal{O}$ 的基当且仅当给开集 $U$ 以及 $x\in U$ ，存在 $B_x\in \mathcal{B}:x\in B_x\subset U$ . #imcomplete-lack-proofs 
 
@@ -769,7 +769,7 @@ $$\{X\}\cup\{U_1\cap U_2\cap \cdots\cap U_n:U_i\in \mathcal{B},n\geq1\}$$
 
 1) 因为 $\mathcal{O}_i$ 是 $X$ 上的拓扑（ $i\in I$ ），所以 $\emptyset,X\in \mathcal{O}_i,\forall i \in I$ ，所以 $\cap_{i\in I}\mathcal{O}_i\ni \emptyset,X$ ，对于 $V,U\in \bigcap_{i\in I}\mathcal{O}_i$ ，可知 $V\cap U\in \mathcal{O_i},\forall i\in I$ ，所以 $V\cap U\in \bigcap_{i\in I}\mathcal{O_i}$ ，同理可证对于 $\Omega\subset \bigcap_{i\in I}\mathcal{O}_i$ ， $\bigcup \Omega\subset \bigcap_{i\in I}\mathcal{O}_i$ . 所以 $\bigcap_{i\in I}\mathcal{O}_i$ 是 $X$ 上的拓扑. 因为 $\bigcap_{i\in I}\mathcal{O}_i\subset \mathcal{O}_i,\forall i\in I$ ，所以 $\bigcap_{i\in I}\mathcal{O}_i$ 比任何一个 $\mathcal{O}_i$ 都要粗. 此外对于任意的比每个 $\mathcal{O_i}$ 都要粗的拓扑 $\mathcal{W}$ ，其包含于 $\bigcap_{i\in I}\mathcal{O}_i$ ，所以 $\bigcap_{i\in I}\mathcal{O}_i$ .... 
 
-2) 设 $\mathcal{W}$ 为以 $\bigcup_{i\in I}\mathcal{O}_i$ 为子基生成的拓扑. 则开集族： $\{X\}\cup\{U_1\cap U_2\cap \cdots\cap U_n:U_i\in \bigcap_{i\in I}\mathcal{O}_i,n\geq1\}$ 是 $\mathcal{W}$ 的一个子基. 所以对于 $\mathcal{O}_i$ 中的任何一个开集 $U$ ，其
+2) 设 $\mathcal{W}$ 为以 $\bigcup_{i\in I}\mathcal{O}_i$ 为子基生成的拓扑. 则开集族： $\{X\}\cup\{U_1\cap U_2\cap \cdots\cap U_n:U_i\in \bigcap_{i\in I}\mathcal{O}_i,n\geq1\}$ 是 $\mathcal{W}$ 的一个子基. 所以对于 $\mathcal{O}_i$ 中的任何一个开集 $U$ ，其 [[2422Tu085950]]
 
 >[!note]- 设 $X$ 为第一可数空间，映射 $f:X\rightarrow Y$ 保持序列的极限，即任给 $X$ 的序列 $\{x_n\}_{n\geq1}$ ，如果 $\{x_n\}_{n}$ 收敛于 $x$ ，则 $\{f(x_n)\}_n$ 收敛于 $f(x)$ . 证明 $f$ 连续.
 >证明：任取 $A\subset X$ ，取 $x\in \bar{A}$ ，由 $X$ 为第一可数空间，根据命题 4.4.2 存在 $\{x_n\}_{n\geq1}\subset A,x_n\rightarrow x(n\rightarrow \infty)$ . 所以 $f(x_n)\rightarrow f(x)(n\rightarrow \infty)$ . 所以 $f(x)\in \overline{f(A)}$ . 所以 $f(\bar{A})\subset \overline{f(A)}$ . 所以 $f$ 为连续映射.
@@ -1076,7 +1076,7 @@ $$f(\mathcal{F})=\{B\subset Y:f^{-1}(B)\in \mathcal{F}\}$$
 
 ## Tychnoff 空间
 
-设 $X$ 为拓扑空间，定义 $X$ 的**紧化** $(Y,c)$ ，其中 $Y$ 为紧空间， $c:X\rightarrow Y$ 是同胚嵌入， $c(X)$ 是 $Y$ 的稠子集；当 $Y$ 还是 Hasudorff 空间时，称  $(Y,c)$ 为 $X$ 的 **Hausdorff 紧化**；定义紧化 $(Y,c)$ 的**剩于**为 $Y\backslash c(X)$ .
+设 $X$ 为拓扑空间，定义 $X$ 的**紧化** $(Y,c)$ ，其中 $Y$ 为紧空间， $c:X\rightarrow Y$ 是同胚嵌入， $c(X)$ 是 $Y$ 的稠子集；当 $Y$ 还是 Hasudorff 空间时，称  $(Y,c)$ 为 $X$ 的 **Hausdorff 紧化**；定义紧化 $(Y,c)$ 的**剩于**（remainder）为 $Y\backslash c(X)$ .
 
 设拓扑空间 $(X,\mathcal{O})$ ，若 $\forall U\in \mathcal{O},\forall x\in U$ ，存在连续函数 $f:X\rightarrow[0,1]$ 使得 $f(x)=0$ ， $f(X\backslash U)\subset\{1\}$ 则称 $X$ **完全正则**.
 
@@ -1084,15 +1084,26 @@ $$f(\mathcal{F})=\{B\subset Y:f^{-1}(B)\in \mathcal{F}\}$$
 
 >[!note] 完全正则空间是正则空间.
 
+>[!example]- 拓扑空间 $X$ 有一个由既开又闭的集构成的基，证明 $X$ 为完全正则空间.
+>证明：首先证明 $X$ 是正规空间，然后由 Urysohn 引理得到结论（并不能证明 $X$ 是 $T_1$ 空间，然后利用单点集是闭集）
+>
+>对于 $X$ 中的任意不交闭集 $F,G$ ，存在基中元素 $\{U_i\}_{i\in I},\{V_i\}_{i\in I'}$ 使得 $X\backslash F=\bigcup_{i\in I}U_i,X\backslash G=\bigcup_{i\in I}V_i$  ，从而 $W=X\backslash \bigcup_{i\in I}U_i,H=X\backslash \bigcup_{i\in I}V_i$ 为不交开集，并且包含 $F,G$ ，所以 $X$ 正规.
+>
+>对任意的 $U\in \mathcal{O},x\in U$ ，存在基中元素 $V: x\in V\subset U$ ， $V$ 既为开也闭， $X\backslash U\subset V^c$ . 进而有 Urysohn 引理，存在连续映射 $f$ 使得 $f(V^c)=\{1\},f(V)=0$ 从而可得结论.
 
-
->[!example] 拓扑空间 $X$ 有一个由既开又闭的集构成的基，证明 $X$ 为完全正则空间.
-
-
-
-证明：
-
->[!example] 设 $X$ 是完全正则空间， $C\subset X$ 为紧子集， $U\subset X$ 为开子集并且 $C\subset U$ ，证明存在连续映射 $k:X\rightarrow[0,1]$ 满足 $k(C)\subset\{ 0\},k(X\backslash U)\subset\{1\}$ .
+>[!example]- 设 $X$ 是完全正则空间， $C\subset X$ 为紧子集， $U\subset X$ 为开子集并且 $C\subset U$ ，证明存在连续映射 $k:X\rightarrow[0,1]$ 满足 $k(C)\subset\{ 0\},k(X\backslash U)\subset\{1\}$ .
+>证明：
+>
+>$\forall x\in C$ ，存在连续映射 $f_x$ 使得 $f_x(x)=0,f_x(X\backslash C)=\{1\}$ ，从而 $f_x(X\backslash U)\subset\{1\}$ .
+>
+>考虑包含 $x$ 的开集 $f_x^{-1}([0,1/2)$ ，则 $\{f_x^{-1}([0,1/2))\}_{x\in C}$ 为 $C$ 的一个开覆盖，由 $C$ 紧，存在 $C$ 的有限子覆盖： $\{f_{x_k}^{-1}([0,1/2))\}_{1\leq k\leq n}$ ，再取连续映射：
+>
+>$$g(x)=\left\{\begin{aligned}
+>&0,\quad x\in[0,1/2)\\
+>&2(x-1/2),x\in[1/2,1]
+>\end{aligned}\right.$$
+>
+>考虑映射： $k=\prod_{k=1}^{n}g\circ f_{x_n}$ ，对于任意的 $x\in C$ ，存在 $f_{x_m}^{-1}[0,1/2)\ni x$ ，从而 $k(x)=0$ ，并且 $f_{x_i}(X\backslash U)\subset\{1\}$ 从而 $g\circ f_{x_i}\subset\{1\},k(X\backslash U)\subset\{1\}$ .
 
 ## 分离公理
 
