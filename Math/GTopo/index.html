@@ -3033,8 +3033,8 @@ x\in \bar{A}&amp;\Leftrightarrow \forall \epsilon&gt;0,B(x,\epsilon)\cap A\neq\e
 </ul>
 </details>
 <p>注意到， <span class="arithmatex">\(\mathbb{R}\)</span> 中的每个开集都可以写成一族端点为有理数的开区间的并. 下面考虑对于一般的拓扑空间.</p>
-<p>设 <span class="arithmatex">\((X,\Omega)\)</span> 为拓扑空间， <span class="arithmatex">\(\mathcal{B}\)</span> 为一族开集，若其满足： <span class="arithmatex">\((X,\mathcal{O})\)</span> 中的每一个开集都可以表示为 <span class="arithmatex">\(\mathcal{B}\)</span> 中的一些元素的并，则称 <span class="arithmatex">\(\mathcal{B}\)</span> 为 <span class="arithmatex">\(\mathcal{O}\)</span> 的一个<strong>基</strong>（basis）. </p>
-<p>基有如下等价定义：</p>
+<p>设 <span class="arithmatex">\((X,\Omega)\)</span> 为拓扑空间， <span class="arithmatex">\(\mathcal{B}\)</span> 为一族开集，若其满足： <span class="arithmatex">\((X,\mathcal{O})\)</span> 中的每一个开集都可以表示为 <span class="arithmatex">\(\mathcal{B}\)</span> 中的一些元素的并，则称 <span class="arithmatex">\(\mathcal{B}\)</span> 为 <span class="arithmatex">\(\mathcal{O}\)</span> 的一个<strong>基</strong>（basis）. ^Basis</p>
+<p>基的概念即为用部分开集刻画全体开集. 基有如下等价定义：</p>
 <details class="note">
 <summary>设 <span class="arithmatex">\((X,\mathcal{O})\)</span> 是拓扑空间， <span class="arithmatex">\(\mathcal{B}\)</span> 为一组开集，则 <span class="arithmatex">\(\mathcal{B}\)</span> 是 <span class="arithmatex">\(\mathcal{O}\)</span> 的基当且仅当给开集 <span class="arithmatex">\(U\)</span> 以及 <span class="arithmatex">\(x\in U\)</span> ，存在 <span class="arithmatex">\(B_x\in \mathcal{B}:x\in B_x\subset U\)</span> . #imcomplete-lack-proofs</summary>
 </details>
@@ -3070,7 +3070,7 @@ x\in \bar{A}&amp;\Leftrightarrow \forall \epsilon&gt;0,B(x,\epsilon)\cap A\neq\e
 2) 以 <span class="arithmatex">\(\bigcup_{i\in I}\mathcal{O}_i\)</span> 为子基生成的拓扑是比每个 <span class="arithmatex">\(O_i\)</span> 都细的最粗的拓扑；</p>
 <p>证明：</p>
 <p>1) 因为 <span class="arithmatex">\(\mathcal{O}_i\)</span> 是 <span class="arithmatex">\(X\)</span> 上的拓扑（ <span class="arithmatex">\(i\in I\)</span> ），所以 <span class="arithmatex">\(\emptyset,X\in \mathcal{O}_i,\forall i \in I\)</span> ，所以 <span class="arithmatex">\(\cap_{i\in I}\mathcal{O}_i\ni \emptyset,X\)</span> ，对于 <span class="arithmatex">\(V,U\in \bigcap_{i\in I}\mathcal{O}_i\)</span> ，可知 <span class="arithmatex">\(V\cap U\in \mathcal{O_i},\forall i\in I\)</span> ，所以 <span class="arithmatex">\(V\cap U\in \bigcap_{i\in I}\mathcal{O_i}\)</span> ，同理可证对于 <span class="arithmatex">\(\Omega\subset \bigcap_{i\in I}\mathcal{O}_i\)</span> ， <span class="arithmatex">\(\bigcup \Omega\subset \bigcap_{i\in I}\mathcal{O}_i\)</span> . 所以 <span class="arithmatex">\(\bigcap_{i\in I}\mathcal{O}_i\)</span> 是 <span class="arithmatex">\(X\)</span> 上的拓扑. 因为 <span class="arithmatex">\(\bigcap_{i\in I}\mathcal{O}_i\subset \mathcal{O}_i,\forall i\in I\)</span> ，所以 <span class="arithmatex">\(\bigcap_{i\in I}\mathcal{O}_i\)</span> 比任何一个 <span class="arithmatex">\(\mathcal{O}_i\)</span> 都要粗. 此外对于任意的比每个 <span class="arithmatex">\(\mathcal{O_i}\)</span> 都要粗的拓扑 <span class="arithmatex">\(\mathcal{W}\)</span> ，其包含于 <span class="arithmatex">\(\bigcap_{i\in I}\mathcal{O}_i\)</span> ，所以 <span class="arithmatex">\(\bigcap_{i\in I}\mathcal{O}_i\)</span> .... </p>
-<p>2) 设 <span class="arithmatex">\(\mathcal{W}\)</span> 为以 <span class="arithmatex">\(\bigcup_{i\in I}\mathcal{O}_i\)</span> 为子基生成的拓扑. 则开集族： <span class="arithmatex">\(\{X\}\cup\{U_1\cap U_2\cap \cdots\cap U_n:U_i\in \bigcap_{i\in I}\mathcal{O}_i,n\geq1\}\)</span> 是 <span class="arithmatex">\(\mathcal{W}\)</span> 的一个子基. 所以对于 <span class="arithmatex">\(\mathcal{O}_i\)</span> 中的任何一个开集 <span class="arithmatex">\(U\)</span> ，其</p>
+<p>2) 设 <span class="arithmatex">\(\mathcal{W}\)</span> 为以 <span class="arithmatex">\(\bigcup_{i\in I}\mathcal{O}_i\)</span> 为子基生成的拓扑. 则开集族： <span class="arithmatex">\(\{X\}\cup\{U_1\cap U_2\cap \cdots\cap U_n:U_i\in \bigcap_{i\in I}\mathcal{O}_i,n\geq1\}\)</span> 是 <span class="arithmatex">\(\mathcal{W}\)</span> 的一个子基. 所以对于 <span class="arithmatex">\(\mathcal{O}_i\)</span> 中的任何一个开集 <span class="arithmatex">\(U\)</span> ，其 [[2422Tu085950]]</p>
 <details class="note">
 <summary>设 <span class="arithmatex">\(X\)</span> 为第一可数空间，映射 <span class="arithmatex">\(f:X\rightarrow Y\)</span> 保持序列的极限，即任给 <span class="arithmatex">\(X\)</span> 的序列 <span class="arithmatex">\(\{x_n\}_{n\geq1}\)</span> ，如果 <span class="arithmatex">\(\{x_n\}_{n}\)</span> 收敛于 <span class="arithmatex">\(x\)</span> ，则 <span class="arithmatex">\(\{f(x_n)\}_n\)</span> 收敛于 <span class="arithmatex">\(f(x)\)</span> . 证明 <span class="arithmatex">\(f\)</span> 连续.</summary>
 <p>证明：任取 <span class="arithmatex">\(A\subset X\)</span> ，取 <span class="arithmatex">\(x\in \bar{A}\)</span> ，由 <span class="arithmatex">\(X\)</span> 为第一可数空间，根据命题 4.4.2 存在 <span class="arithmatex">\(\{x_n\}_{n\geq1}\subset A,x_n\rightarrow x(n\rightarrow \infty)\)</span> . 所以 <span class="arithmatex">\(f(x_n)\rightarrow f(x)(n\rightarrow \infty)\)</span> . 所以 <span class="arithmatex">\(f(x)\in \overline{f(A)}\)</span> . 所以 <span class="arithmatex">\(f(\bar{A})\subset \overline{f(A)}\)</span> . 所以 <span class="arithmatex">\(f\)</span> 为连续映射.</p>
@@ -3362,19 +3362,29 @@ A_d &amp;=\{\xi(e):e\sqsupseteq d\}\\
 <p>因为 <span class="arithmatex">\(\mathcal{G}\)</span> 是超滤，所以 <span class="arithmatex">\(\lim \mathcal{G}=\text{clust}\mathcal{G}=\bigcap_{A\in \mathcal{G}}\bar{A}\)</span> ，由 <span class="arithmatex">\(G\)</span> 的定义可知 <span class="arithmatex">\(\lim \mathcal{G}=\bar{V}\)</span> ，同理可得 <span class="arithmatex">\(\lim f(\mathcal{G})=\overline{f(V)}\)</span> ，因此 <span class="arithmatex">\(f(\overline{V})\subset \overline{f(V)},\forall V\subset Y\)</span> ，所以 <span class="arithmatex">\(f\)</span> 是连续映射.</p>
 </details>
 <h3 id="tychnoff">Tychnoff 空间<a class="headerlink" href="#tychnoff" title="Permanent link">&para;</a></h3>
-<p>设 <span class="arithmatex">\(X\)</span> 为拓扑空间，定义 <span class="arithmatex">\(X\)</span> 的<strong>紧化</strong> <span class="arithmatex">\((Y,c)\)</span> ，其中 <span class="arithmatex">\(Y\)</span> 为紧空间， <span class="arithmatex">\(c:X\rightarrow Y\)</span> 是同胚嵌入， <span class="arithmatex">\(c(X)\)</span> 是 <span class="arithmatex">\(Y\)</span> 的稠子集；当 <span class="arithmatex">\(Y\)</span> 还是 Hasudorff 空间时，称  <span class="arithmatex">\((Y,c)\)</span> 为 <span class="arithmatex">\(X\)</span> 的 <strong>Hausdorff 紧化</strong>；定义紧化 <span class="arithmatex">\((Y,c)\)</span> 的<strong>剩于</strong>为 <span class="arithmatex">\(Y\backslash c(X)\)</span> .</p>
+<p>设 <span class="arithmatex">\(X\)</span> 为拓扑空间，定义 <span class="arithmatex">\(X\)</span> 的<strong>紧化</strong> <span class="arithmatex">\((Y,c)\)</span> ，其中 <span class="arithmatex">\(Y\)</span> 为紧空间， <span class="arithmatex">\(c:X\rightarrow Y\)</span> 是同胚嵌入， <span class="arithmatex">\(c(X)\)</span> 是 <span class="arithmatex">\(Y\)</span> 的稠子集；当 <span class="arithmatex">\(Y\)</span> 还是 Hasudorff 空间时，称  <span class="arithmatex">\((Y,c)\)</span> 为 <span class="arithmatex">\(X\)</span> 的 <strong>Hausdorff 紧化</strong>；定义紧化 <span class="arithmatex">\((Y,c)\)</span> 的<strong>剩于</strong>（remainder）为 <span class="arithmatex">\(Y\backslash c(X)\)</span> .</p>
 <p>设拓扑空间 <span class="arithmatex">\((X,\mathcal{O})\)</span> ，若 <span class="arithmatex">\(\forall U\in \mathcal{O},\forall x\in U\)</span> ，存在连续函数 <span class="arithmatex">\(f:X\rightarrow[0,1]\)</span> 使得 <span class="arithmatex">\(f(x)=0\)</span> ， <span class="arithmatex">\(f(X\backslash U)\subset\{1\}\)</span> 则称 <span class="arithmatex">\(X\)</span> <strong>完全正则</strong>.</p>
 <p>完全正则的 <span class="arithmatex">\(T_0\)</span> 空间称为 Tychnoff 空间（ <span class="arithmatex">\(T_{3.5}\)</span> 空间）</p>
 <div class="admonition note">
 <p class="admonition-title">完全正则空间是正则空间.</p>
 </div>
-<div class="admonition example">
-<p class="admonition-title">拓扑空间 <span class="arithmatex">\(X\)</span> 有一个由既开又闭的集构成的基，证明 <span class="arithmatex">\(X\)</span> 为完全正则空间.</p>
-</div>
+<details class="example">
+<summary>拓扑空间 <span class="arithmatex">\(X\)</span> 有一个由既开又闭的集构成的基，证明 <span class="arithmatex">\(X\)</span> 为完全正则空间.</summary>
+<p>证明：首先证明 <span class="arithmatex">\(X\)</span> 是正规空间，然后由 Urysohn 引理得到结论（并不能证明 <span class="arithmatex">\(X\)</span> 是 <span class="arithmatex">\(T_1\)</span> 空间，然后利用单点集是闭集）</p>
+<p>对于 <span class="arithmatex">\(X\)</span> 中的任意不交闭集 <span class="arithmatex">\(F,G\)</span> ，存在基中元素 <span class="arithmatex">\(\{U_i\}_{i\in I},\{V_i\}_{i\in I'}\)</span> 使得 <span class="arithmatex">\(X\backslash F=\bigcup_{i\in I}U_i,X\backslash G=\bigcup_{i\in I}V_i\)</span>  ，从而 <span class="arithmatex">\(W=X\backslash \bigcup_{i\in I}U_i,H=X\backslash \bigcup_{i\in I}V_i\)</span> 为不交开集，并且包含 <span class="arithmatex">\(F,G\)</span> ，所以 <span class="arithmatex">\(X\)</span> 正规.</p>
+<p>对任意的 <span class="arithmatex">\(U\in \mathcal{O},x\in U\)</span> ，存在基中元素 <span class="arithmatex">\(V: x\in V\subset U\)</span> ， <span class="arithmatex">\(V\)</span> 既为开也闭， <span class="arithmatex">\(X\backslash U\subset V^c\)</span> . 进而有 Urysohn 引理，存在连续映射 <span class="arithmatex">\(f\)</span> 使得 <span class="arithmatex">\(f(V^c)=\{1\},f(V)=0\)</span> 从而可得结论.</p>
+</details>
+<details class="example">
+<summary>设 <span class="arithmatex">\(X\)</span> 是完全正则空间， <span class="arithmatex">\(C\subset X\)</span> 为紧子集， <span class="arithmatex">\(U\subset X\)</span> 为开子集并且 <span class="arithmatex">\(C\subset U\)</span> ，证明存在连续映射 <span class="arithmatex">\(k:X\rightarrow[0,1]\)</span> 满足 <span class="arithmatex">\(k(C)\subset\{ 0\},k(X\backslash U)\subset\{1\}\)</span> .</summary>
 <p>证明：</p>
-<div class="admonition example">
-<p class="admonition-title">设 <span class="arithmatex">\(X\)</span> 是完全正则空间， <span class="arithmatex">\(C\subset X\)</span> 为紧子集， <span class="arithmatex">\(U\subset X\)</span> 为开子集并且 <span class="arithmatex">\(C\subset U\)</span> ，证明存在连续映射 <span class="arithmatex">\(k:X\rightarrow[0,1]\)</span> 满足 <span class="arithmatex">\(k(C)\subset\{ 0\},k(X\backslash U)\subset\{1\}\)</span> .</p>
-</div>
+<p><span class="arithmatex">\(\forall x\in C\)</span> ，存在连续映射 <span class="arithmatex">\(f_x\)</span> 使得 <span class="arithmatex">\(f_x(x)=0,f_x(X\backslash C)=\{1\}\)</span> ，从而 <span class="arithmatex">\(f_x(X\backslash U)\subset\{1\}\)</span> .</p>
+<p>考虑包含 <span class="arithmatex">\(x\)</span> 的开集 <span class="arithmatex">\(f_x^{-1}([0,1/2)\)</span> ，则 <span class="arithmatex">\(\{f_x^{-1}([0,1/2))\}_{x\in C}\)</span> 为 <span class="arithmatex">\(C\)</span> 的一个开覆盖，由 <span class="arithmatex">\(C\)</span> 紧，存在 <span class="arithmatex">\(C\)</span> 的有限子覆盖： <span class="arithmatex">\(\{f_{x_k}^{-1}([0,1/2))\}_{1\leq k\leq n}\)</span> ，再取连续映射：</p>
+<div class="arithmatex">\[g(x)=\left\{\begin{aligned}
+&amp;0,\quad x\in[0,1/2)\\
+&amp;2(x-1/2),x\in[1/2,1]
+\end{aligned}\right.\]</div>
+<p>考虑映射： <span class="arithmatex">\(k=\prod_{k=1}^{n}g\circ f_{x_n}\)</span> ，对于任意的 <span class="arithmatex">\(x\in C\)</span> ，存在 <span class="arithmatex">\(f_{x_m}^{-1}[0,1/2)\ni x\)</span> ，从而 <span class="arithmatex">\(k(x)=0\)</span> ，并且 <span class="arithmatex">\(f_{x_i}(X\backslash U)\subset\{1\}\)</span> 从而 <span class="arithmatex">\(g\circ f_{x_i}\subset\{1\},k(X\backslash U)\subset\{1\}\)</span> .</p>
+</details>
 <h3 id="_24">分离公理<a class="headerlink" href="#_24" title="Permanent link">&para;</a></h3>
 <p>上面提到的 Hausdoff 空间即为 T 2 空间，下面介绍 T 0, T 1, T 2, T 3, T 4.</p>
 <h4 id="t_0"><span class="arithmatex">\(T_0\)</span> 空间<a class="headerlink" href="#t_0" title="Permanent link">&para;</a></h4>
@@ -4152,7 +4162,7 @@ Y\cap \bar{A}&amp;=(X\cap (\bar{A}\cap \bar{B})^c)\cap \bar{A}\\
     <span class="md-icon" title="最后更新">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2024年5月26日</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2024年5月28日</span>
   </span>
 
     
