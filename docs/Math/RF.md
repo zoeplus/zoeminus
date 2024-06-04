@@ -76,14 +76,15 @@ Lebegue积分在理论上有用，但实际计算时一般使用 Riemann 积分.
 下面讨论 $\mathbb{R}$ 上开集，首先定义**构成区间**：设 $E\subset \mathbb{R}$ 为开集，则若 $(a,b)\subset E$ 并且 $a,b\neq E$ ，则称 $(a,b)$ 为 $E$ 的构成区间.
 
 >[!note]- 设 $X\subset \mathbb{R}$ 为开集， $\forall x\in X$ ，存在包含 $x$ 的 $E$ 的构成区间.
->证明：由 $E$ 为开集，可设 $a=\inf\{a':a'<x,(a',x)\subset E\}$ ， $b=\sup\{b':b'>x,(x,b')\subset b'\}$ . $\forall y\in (a,x)$ 由 $a$ 的定义可知 $(y,x)\subset E$ ，从而可知 $(a,x)\subset E$ ，同理可证 $(x,b)\subset E$ ，因此 $(a,b)\subset E$ ，如果 $a\in E$ ，则 $\exists \delta>0,(a-\delta,a+\delta)\subset E$ ，从而 $a-\frac{\delta}{2}\in E$ ，与 $a$ 的定义矛盾. 所以 $a\notin E$ ，同理可得 $b\notin E$ ，因此 $(a,b)$ 为 $E$ 的构造区间.
+>证明：由 $E$ 为开集，可设 $a=\inf\{a':a'<x,(a',x)\subset E\}$ ， $b=\sup\{b':b'>x,(x,b')\subset E\}$ . $\forall y\in (a,x)$ 由 $a$ 的定义可知 $(y,x)\subset E$ ，从而可知 $(a,x)\subset E$ ，同理可证 $(x,b)\subset E$ ，因此 $(a,b)\subset E$ ，如果 $a\in E$ ，则 $\exists \delta>0,(a-\delta,a+\delta)\subset E$ ，从而 $a-\frac{\delta}{2}\in E$ ，与 $a$ 的定义矛盾. 所以 $a\notin E$ ，同理可得 $b\notin E$ ，因此 $(a,b)$ 为 $E$ 的构造区间.
 
 >[!note]- 任何一开集都可以表示为至多可数个<u>两两不交</u>的开区间的并.
 >设 $E$ 为开集，对于任意 $x\in E$ ，存在构造区间 $I_x\ni x$ ，由构造区间的定义可知 $E=\cup_{x\in E}I_x$ . 而对于任意两个构造区间 $I_x=(a,b),I_y=(c,d),x\neq y$ ，若 $I_x\neq I_y$ ，则不妨设 $b<d$ 则 $b\leq c$ ，否则 $b\in (c,d)\subset E$ ，矛盾，因此两个构造区间要么不交要么重合. 下面说明构造区间的并为至多可数个：在每一个构造区间中取一有理数 $r_x\in I_x$ （重合的构造区间算作一个），进而得到一有理数集合 $\{r_x\}_{x\in I'}$ ，该有理数集合可以与可数集 $\mathbb{Q}\times \mathbb{Q}$ 的一个子集建立双射（还需要将每个有理数 $r_x$ 映射为 $(m,n):(m,n)=1$ ），从而至多可数. 从而得证.
 
 >[!hint] 上面这一定理在实变中说明任何开集都是可测集.
 
-设 $f:X\rightarrow \mathbb{R}$ .
+设 $f:X\rightarrow \mathbb{R}$ . [[2422Su152807]]
+
 $$\begin{aligned}
 &\limsup_{x\rightarrow x_0}f(x)=\lim_{\epsilon\rightarrow 0}\sup\{f(x):x\in X\cap B(x_0,\epsilon)\backslash\{x_0\}\}\\
 &\liminf_{x\rightarrow x_0}f(x)=\lim_{\epsilon\rightarrow 0}\inf\{f(x):x\in X\cap B(x_0,\epsilon)\backslash\{x_0\}\}
@@ -223,7 +224,8 @@ Lebesgue 测度具有可数可加性 $m3)$ .
 >其中 $E_0=\emptyset$ .
 >
 >若 $\{E_n\}_{n\geq1}$ 单调递减，则 $\{E_1-E_n\}_{n\geq1}$ 单调递增，所以 
->> >$$\begin{aligned}
+>
+>$$\begin{aligned}
 >m(\lim_{n\rightarrow \infty}(E_1-E_n))
 >&=m(E_1-\cap_{n\geq1}E_n)\\
 >&=m(E_1)-m(\cap_{n\geq1}E_n)\\
@@ -324,11 +326,12 @@ Lebesgue 测度具有可数可加性 $m3)$ .
 以下三个命题等价：
 
 >[!note]- 等价命题： 1) $E$ 是可测集；2) 对于任意的 $\epsilon>0$ 存在开集 $G\supset E$ 使得 $m(G\backslash E)<\epsilon$ ；3) 对于任意的 $\epsilon>0$ ，存在闭集 $F\subset E$ 使得 $m(E\backslash F)<\epsilon$ .
->证明： $1)\Rightarrow 2)$ 因为 $E$ 是可测集， <u>i)</u> 若 $m(E)<\infty$ 则对于任意的 $\epsilon>0$ 由定义可知存在 $\{I_n\}_{n\geq1},G=\bigcup_{n\geq1}I_n\supset E$ 满足 $m(G)\leq \sum\limits_{n\geq1}^{}m(I_n)<m(E)+\epsilon$ ，所以 $m(G\backslash E)\leq m(G)-m(E)<\epsilon$ <u>ii)</u> 若 $m(E)=\infty$ ，则取 $E=\bigcup_{n\in \mathbb{Z}}E\cap [n,n+1)\overset{def}{=}\bigcup_{n\geq1}E_n$ ，其中 $E_n$ 均为可测集，所以存在开集 $G_n\supset E_n,m(G_n\backslash E_n)<\frac{\epsilon}{2^{\lvert n\rvert+2}}$ 从而可得 $m(\bigcup_{n\in \mathbb{Z}}G_n\backslash E)=m\left(\bigcup_{n\in \mathbb{Z}}(G_n\backslash E_n)\right)\leq \sum\limits_{n\in \mathbb{Z}}^{}m(G_n\backslash E_n)\leq2\frac{\epsilon}{4}/\frac{1}{2}=\epsilon$ ，从而可得到结论；
->
-> $2)\Rightarrow 3)$ $E^c$ 是可测集，所以存在开集 $W\supset E^c$ 使得 $m(W\backslash E^c)<\epsilon$ ，令 $F=W^c\subset E$ ，注意到 $m(W\backslash E^c)=m(F^c\cap E)=m(E\backslash F)<\epsilon$ ； 
->
->$3)\Rightarrow1)$ 对于任意的 $n\geq1$ ，存在闭集 $F_n\subset E$ 使得 $m(E\backslash F_n)<\frac{1}{n}$ ，令 $F=\bigcup_{n\geq1}F_n$ ，可得 $m(E\backslash F)\leq m(E\backslash F_n)<\frac{1}{n},\forall n\geq1$ ，所以 $m(E\backslash F)=0$ ， $E\backslash F$ 可测，所以 $E=E\backslash F\cup F$ 可测.
+
+证明： $1)\Rightarrow 2)$ 因为 $E$ 是可测集， <u>i)</u> 若 $m(E)<\infty$ 则对于任意的 $\epsilon>0$ 由定义可知存在 $\{I_n\}_{n\geq1},G=\bigcup_{n\geq1}I_n\supset E$ 满足 $m(G)\leq \sum\limits_{n\geq1}^{}m(I_n)<m(E)+\epsilon$ ，所以 $m(G\backslash E)\leq m(G)-m(E)<\epsilon$ <u>ii)</u> 若 $m(E)=\infty$ ，则取 $E=\bigcup_{n\in \mathbb{Z}}E\cap [n,n+1)\overset{def}{=}\bigcup_{n\geq1}E_n$ ，其中 $E_n$ 均为可测集，所以存在开集 $G_n\supset E_n,m(G_n\backslash E_n)<\frac{\epsilon}{2^{\lvert n\rvert+2}}$ 从而可得 $m(\bigcup_{n\in \mathbb{Z}}G_n\backslash E)=m\left(\bigcup_{n\in \mathbb{Z}}(G_n\backslash E_n)\right)\leq \sum\limits_{n\in \mathbb{Z}}^{}m(G_n\backslash E_n)\leq2\frac{\epsilon}{4}/\frac{1}{2}=\epsilon$ ，从而可得到结论；
+
+ $2)\Rightarrow 3)$ $E^c$ 是可测集，所以存在开集 $W\supset E^c$ 使得 $m(W\backslash E^c)<\epsilon$ ，令 $F=W^c\subset E$ ，注意到 $m(W\backslash E^c)=m(F^c\cap E)=m(E\backslash F)<\epsilon$ ； 
+
+$3)\Rightarrow1)$ 对于任意的 $n\geq1$ ，存在闭集 $F_n\subset E$ 使得 $m(E\backslash F_n)<\frac{1}{n}$ ，令 $F=\bigcup_{n\geq1}F_n$ ，可得 $m(E\backslash F)\leq m(E\backslash F_n)<\frac{1}{n},\forall n\geq1$ ，所以 $m(E\backslash F)=0$ ， $E\backslash F$ 可测，所以 $E=E\backslash F\cup F$ 可测.
 
 这个命题相当有用，除了逼近之外，可以通过闭集和开集进行论证. 下面就用该命题证明一个重要结论，在上面用其说明任何一个可测集都存在一个不可测子集. [check-mse](https://math.stackexchange.com/questions/84491/does-the-set-of-differences-of-a-lebesgue-measurable-set-contains-elements-of-at/104126#104126)
 
@@ -350,10 +353,11 @@ Lebesgue 测度具有可数可加性 $m3)$ .
 
 设 $\mathcal{F}$ 为 $X$ 上的集族，考虑如下三条性质：
 
-1. $\mathcal{F}$ 对于补运算封闭；
-2. $\mathcal{F}$ 对于有限并运算封闭；
+1. $\emptyset\in \mathcal{F}$ ；
+2. $\mathcal{F}$ 对于补运算封闭；
+3. $\mathcal{F}$ 对于有限并运算封闭；
 
-如果 $\mathcal{F}$ 满足 1. 2. ，则称 $\mathcal{F}$ 为**代数**；如果 $\mathcal{F}$ 满足 1. 2. ，同时对可数并运算封闭（可以推出对有限并运算封闭），则称 $\mathcal{F}$ 是 $\sigma-$ 代数（可以证明 $\sigma-$ 代数是代数）.
+如果 $\mathcal{F}$ 满足以上三条性质，则称 $\mathcal{F}$ 为**代数**；如果 $\mathcal{F}$ 满足 1. 2. ，同时对可数并运算封闭（可以推出对有限并运算封闭），则称 $\mathcal{F}$ 是 $\sigma-$ 代数（可以证明 $\sigma-$ 代数是代数）.
 
 设 $\mathcal{F}$ 为 $X$ 上的子集族，记 $A(\mathcal{F})$ 为包含 $\mathcal{F}$ 的所有<u>代数</u>的交，为包含 $\mathcal{F}$ 的最小代数；记 $B(\mathcal{F})$ 为包含 $\mathcal{F}$ 的所有 $\sigma-$ 代数的交，称为由 $\mathcal{F}$ 生成的 $\sigma-$ 代数.
 
@@ -555,44 +559,45 @@ $f+g,f-g$ 也是 $D'$ 上的可测函数：由 $\{f+g>\alpha\}=\bigcup_{n=1}^\in
 
 下面这个定理说明了几乎处处收敛的几乎处处有限的可测函数列可以几乎没有损失地加强为一致收敛.
 
->[!note]- Egoroff 定理：设 $f,f_n(n\geq1)$ 都是有限可测集 $D$ 上的几乎处处有限的可测函数，如果 $f_n$ 在 $D$ 上几乎处处收敛于 $f$ ，则对于任意的 $\epsilon>0$ ，存在 $D$ 的闭子集 $F$ ， $m(D-F)<\epsilon$ 并且 $f_n$ 在 $F$ 上一致收敛于 $f$ .
->证明：首先证明存在可测集 $E$ 使得 $m(D-E)<\frac{\epsilon}{2}$ ，然后利用 [[#开闭集逼近可测集]]证明存在 $F$ 使得 $m(D-F)<\epsilon$ .
->
->首先刨去几乎处处之外的集合，令 $D_1=D_1^1\cap D_2^2$
->
->$$\begin{aligned}
->&D_1^1=\{x\in D:f_n(x),f(x)<\infty,\forall n\geq1\}\\
->&D_1^2=\{x\in D:f_n(x)\rightarrow f(x)(n\rightarrow \infty)\}
->\end{aligned}$$
->
->进而可知 $m(D-D_1)\leq m(D\cap D_1^1)+m(D\cap D_1^2)=0$ ，所以 $m(D_1)=m(D)$ ，只需要构造 $E\subset D_1$ 使得 $m(D_1-E)<\frac{\epsilon}{2}$ .
->
->令 
->
->$$A_n^r=D_1\cap \left[\bigcap_{k\geq n}\left\lvert f_k(x)-f(x)\right\rvert<\frac{1}{r}\right],n,r\in \mathbb{N}$$
->
->易证 $A_n^r$ 是可测集，并且
-> 
->$$\bigcup_{n\geq1}A_n^r=D_1\cap \left[\bigcup_{n\geq1}\bigcap_{k\geq n}\lvert f_k(x)-f(x)\rvert<\frac{1}{r}\right]$$
->
->由 $D_1$ 的定义可知 $D_1=\bigcup_{n\geq1}A_n^r$ ，并且 $\{A_n^r\}_{n\geq1}$ 单调递增，所以由 [[#^MonotonousLimit]] 可知 $m(\lim_{n\rightarrow \infty}A_n^r)=m(D_1)=\lim_{n\rightarrow \infty}m(A_n^r)$ . 
->
->对于任意的 $\epsilon>0$ 和给定的 $r$ ，存在 $n_r$ 使得 $m(D_1-A^r_{n_r})<\epsilon/2^{r+1}$ .
->
->考虑集合 $E=\bigcap_{r\geq1}A_{n_r}^r$ ，对于任意的 $\epsilon'>0$ ，存在 $r_0\geq 1$ ， $\frac{1}{r_0}<\epsilon'$ ，对任意的 $x\in E$ 由 $A_n^r$ 的定义可知，存在 $n_{r_1}$ 使得 $\forall k>n_{r_1}(\forall x\in E,\lvert f_k(x)-f(x)\rvert<\frac{1}{r_1})$ ，取 $r_2=\max\{r_0,r_1\}$ 可得对于任意的 $k>n_{r_2}$ 有 $\forall x\in E,\lvert f_k(x)-f(x)\rvert<\epsilon'$ ，所以 $\{f_n\}_{n\geq1}$ 在 $E$ 上一致收敛于 $f$ .
->
->因为 $E$ 是可测集，所以存在闭集 $F\subset E$ ， $m(E\backslash F)<\epsilon/2$ ，从而：
->
->$$\begin{aligned}
->m(D-F)&=m(D)-m(F)=m(D_1)-m(F)\\
->&=m(D_1-F)\\
->&\leq m(D_1-E)+m(E-F)= m(\cup_{r\geq1}(D_1-A_{n_r}^r))+\epsilon/2\\
->&\leq \sum\limits_{r\geq1}^{}m(D_1-A_{n_r}^r)+\epsilon/2\\
->&\leq \epsilon
->\end{aligned}$$
->
->从而可得结论.
+>[!note] Egoroff 定理：设 $f,f_n(n\geq1)$ 都是<u>有限</u>可测集 $D$ 上的几乎处处有限的可测函数，如果 $f_n$ 在 $D$ 上几乎处处收敛于 $f$ ，则对于任意的 $\epsilon>0$ ，存在 $D$ 的闭子集 $F$ ， $m(D-F)<\epsilon$ 并且 $f_n$ 在 $F$ 上一致收敛于 $f$ .
 >^Egoroff
+
+证明：首先证明存在可测集 $E$ 使得 $m(D-E)<\frac{\epsilon}{2}$ ，然后利用 [[#开闭集逼近可测集]]证明存在 $F$ 使得 $m(D-F)<\epsilon$ .
+
+首先刨去几乎处处之外的集合，令 $D_1=D_1^1\cap D_2^2$ ，其中 $D_1^1$ 为 $f_n,f$ 有限的集合， $D_1^2$ 为 $f_n$ 收敛于 $f$ 的集合.
+
+$$\begin{aligned}
+&D_1^1=\{x\in D:f_n(x),f(x)<\infty,\forall n\geq1\}\\
+&D_1^2=\{x\in D:f_n(x)\rightarrow f(x)(n\rightarrow \infty)\}
+\end{aligned}$$
+
+进而可知 $m(D-D_1)\leq m(D\backslash D_1^1)+m(D\backslash D_1^2)=0$ （因为 $D-D_1=D\cap(D_1^1\cap D_1^2)^c=(D_1\backslash D_1^1)\cup (D_1\backslash D_1^2)$ ），所以 $m(D_1)=m(D)$ ，只需要构造 $E\subset D_1$ 使得 $m(D_1-E)<\frac{\epsilon}{2}$ ，则由 $D-E\subset (D-D_1)\cup (D_1-E)$ 即可得到 $m(D-E)<\frac{\epsilon}{2}$ .
+
+令 
+
+$$A_n^r=D_1\cap \left[\bigcap_{k\geq n}\left\lvert f_k(x)-f(x)\right\rvert<\frac{1}{r}\right],n,r\in \mathbb{N}$$
+
+由 $f_k,k$ 可测易证 $A_n^r$ 是可测集，并且
+ 
+$$\bigcup_{n\geq1}A_n^r=D_1\cap \left[\bigcup_{n\geq1}\bigcap_{k\geq n}\lvert f_k(x)-f(x)\rvert<\frac{1}{r}\right]$$
+
+由 $D_1$ 的定义可知 $D_1=\bigcup_{n\geq1}A_n^r$ ，并且 $\{A_n^r\}_{n\geq1}$ 单调递增，所以由 [[#^MonotonousLimit]] 可知 $m(\lim_{n\rightarrow \infty}A_n^r)=m(D_1)=\lim_{n\rightarrow \infty}m(A_n^r)$ . 
+
+对于任意的 $\epsilon>0$ 和给定的 $r$ ，存在 $n_r$ 使得 $m(D_1-A^r_{n_r})<\epsilon/2^{r+1}$ .
+
+考虑集合 $E=\bigcap_{r\geq1}A_{n_r}^r$ ，对于任意的 $\epsilon'>0$ ，存在 $r_0\geq 1$ ， $\frac{1}{r_0}<\epsilon'$ ，对任意的 $x\in E$ 由 $A_n^r$ 的定义可知，存在 $n_{r_1}$ 使得 $\forall k>n_{r_1}(\forall x\in E,\lvert f_k(x)-f(x)\rvert<\frac{1}{r_1})$ ，取 $r_2=\max\{r_0,r_1\}$ 可得对于任意的 $k>n_{r_2}$ 有 $\forall x\in E,\lvert f_k(x)-f(x)\rvert<\epsilon'$ ，所以 $\{f_n\}_{n\geq1}$ 在 $E$ 上一致收敛于 $f$ .
+
+因为 $E$ 是可测集，所以存在闭集 $F\subset E$ ， $m(E\backslash F)<\epsilon/2$ ，从而：
+
+$$\begin{aligned}
+m(D-F)&=m(D)-m(F)=m(D_1)-m(F)\\
+&=m(D_1-F)\\
+&\leq m(D_1-E)+m(E-F)= m(\cup_{r\geq1}(D_1-A_{n_r}^r))+\epsilon/2\\
+&\leq \sum\limits_{r\geq1}^{}m(D_1-A_{n_r}^r)+\epsilon/2\\
+&\leq \epsilon
+\end{aligned}$$
+
+从而可得结论.
 
 >[!note]- Egoroff 定理的逆命题也成立.
 >证明：对于任意的 $k\geq1$ ，存在 $D$ 的闭子集 $F_k$ 使得 $m(D-F_k)\leq \frac{1}{k}$ 并且 $f_n$ 在 $F$ 上一致收敛于 $f$ . 令 $F=\bigcup_{k\geq1}F_k$ ，则 $m(D-F)=m\left(\bigcap_{k\geq1}D-F_k\right)\leq \frac{1}{k}$ ，所以 $m(D-F)=0$ . 并且对于任意的 $x\in F$ ，存在 $F_{k_0}\ni x$ ， $f_n$ 在 $F_{k_0}$ 上一致收敛于 $f$ ，从而 $\{f_n(x)\}_{n\geq1}$ 收敛到 $f(x)$ .
@@ -605,7 +610,7 @@ $f+g,f-g$ 也是 $D'$ 上的可测函数：由 $\{f+g>\alpha\}=\bigcup_{n=1}^\in
 
 ## 逼近可测函数
 
->[!note]- 延拓定理：设 $F\subset \mathbb{R}$ 为闭集， $f$ 沿着 $F$ 连续，则 $f$ 可以延拓为 $\mathbb{R}$ 上的连续函数 $f^*$ 并且 $\sup_{x\in \mathbb{R}}\lvert f^*(x)\rvert=\sup_{x\in \mathbb{F}}\lvert f(x)\rvert$ .
+>[!note] 延拓定理：设 $F\subset \mathbb{R}$ 为闭集， $f$ 沿着 $F$ 连续，则 $f$ 可以延拓为 $\mathbb{R}$ 上的连续函数 $f^*$ 并且 $\sup_{x\in \mathbb{R}}\lvert f^*(x)\rvert=\sup_{x\in \mathbb{F}}\lvert f(x)\rvert$ .
 >证明：对 $F^c$ 进行函数定义即可，由 $F^c$ 是开集，存在两两不交开区间列 $\{(a_n,b_n)\}_{n\geq1}$ ，令 $f^*(x)=f(x),x\in F$ ，对于每一个开区间 $(a_n,b_n)$ ，如果 $(a_n,b_n)$ 有界，则定义在 $[a_n,b_n]$ 上的连续函数（线性函数即可）并满足 $\lvert f^*\rvert\leq \sup_{x\in F}\lvert f(x)\rvert$ ；如果 $(a_n,b_n)$ 无界（即 $a_n=-\infty$ 或者 $b_n=\infty$ ）则将 $(-\infty,b_n]$ 上的函数值定义为 $f(b_n)$ ， $[a_n,+\infty)$ 上的函数值定义为 $f(a_n)$ 即可.
 >
 >下面来证明 $f^*$ 在 $\mathbb{R}$ 上连续，首先对于任意的 $x\in F^c$ ，存在 $F^c$ 的一个构成区间包含 $x$ ，因此连续是显然的；对于任意的 $x\in F$ ，由 $f$ 在 $F$ 上连续， $\forall \epsilon>0,\exists \delta>0,\forall y\in V(x,\delta)\cap F$ 有 $\lvert f(x)-f(y)\rvert<\epsilon$ . 
@@ -614,7 +619,7 @@ $f+g,f-g$ 也是 $D'$ 上的可测函数：由 $\{f+g>\alpha\}=\bigcup_{n=1}^\in
 
 以下这个定理说明了可测集 $D$ 上的可测函数都可以由一个连续函数逼近（但不是 $a.e$ ）
 
->[!note]- Lusin：设 $f$ 是可测集 $D$ 上的<u>几乎处处有限</u>的可测函数，则对于任意 $\epsilon>0$ ，存在沿着 $D$ 连续的函数 $f^*$ 使得 $m(\{f\neq f^*\})<\epsilon$ ，并且 $\sup_{x\in D}\lvert f^*(x)\rvert\leq \sup_{x\in D}\lvert f(x)\rvert$ .
+>[!note] Lusin：设 $f$ 是可测集 $D$ 上的<u>几乎处处有限</u>的可测函数，则对于任意 $\epsilon>0$ ，存在沿着 $D$ 连续的函数 $f^*$ 使得 $m(\{f\neq f^*\})<\epsilon$ ，并且 $\sup_{x\in D}\lvert f^*(x)\rvert\leq \sup_{x\in D}\lvert f(x)\rvert$ .
 
 $D$ 为有界可测集：
 
@@ -622,7 +627,7 @@ $D$ 为一般可测集：
 
 ## 依测度收敛
 
-在实数域中，处处收敛是建立在欧式距离上的. 类似地可以定义依测度收敛.
+在实数域中，处处收敛是建立在欧式距离上的. 类似地可以定义对于可测函数列全体定义度量：依测度收敛.
 
 设 $\{f_n\}_{n\geq1},f$ 为可测集 $D$ 上的<u>几乎处处有限</u>的可测函数列，称 $\{f_n\}_{n\geq1}$ **依测度收敛**于 $f$ ，如果对于任意的 $\delta>0$ ， $\lim_{n\rightarrow \infty}m(\{\lvert f_n-f\rvert\geq\delta\})=0$ . 注：用 $f_n\Rightarrow f$ 表示 $f_n$ 依测度收敛于 $f$ ，区别于 $f_n\rightarrow f$ .
 
@@ -673,9 +678,13 @@ $D$ 为一般可测集：
 
 设 $\{f_n\}_{n\geq1}$ 为定义在可测集 $D$ 上的几乎处处有限的可测函数列，如果 $\forall \delta>0$ ， $m(\lvert f_m-f_n\rvert>\delta)\rightarrow0(m,n\rightarrow \infty)$ ，则称 $\{f_n\}_{n\geq1}$ 为**测度基本列** / 测度 Cauchy 列.
 
->[!note]- 测度收敛列等价于测度基本列. $\{f_n\}_{n\geq1}$ 为定义在可测集 $D$ 上的几乎处处有限的可测函数列，则存在 $D$ 上几乎处处可测的函数 $f$ 使得 $\{f_n\}_{n\geq1}$ 处处收敛于 $f$ 等价于 $\{f_n\}_{n\geq1}$ 是基本列.
+>[!note]- （测度收敛列等价于测度基本列） $\{f_n\}_{n\geq1}$ 为定义在可测集 $D$ 上的几乎处处有限的可测函数列，存在 $D$ 上几乎处处有限的可测函数 $f$ 使得 $\{f_n\}_{n\geq1}$ 测度收敛于 $f$ ， $f$ 几乎处处有限等价于 $\{f_n\}_{n\geq1}$ 是基本列.
 
 证明：
+
+>[!example] 对于 $[0,1]$ 中的可测集 $A,B$ 定义 $\rho(A,B)=\int_0^1\lvert \chi_A-\chi_B\rvert dx$ ，如果 $[0,1]$ 中的可测集列 $\{A_n\}_{n\ge1}$ 满足 $\rho(A_m,A_n)\rightarrow0(m,n\rightarrow \infty)$ ，证明： $[0,1]$ 中有可测集 $A$ 使得 $\rho(A_m,A)\rightarrow0(n\rightarrow \infty)$ .
+
+[[2422Su215809]]
 
 # Lebesgue 积分
 
@@ -818,6 +827,39 @@ Lebesgue 积分区别与 Riemann 积分的一个方面：绝对可积和可积�
 >
 >证明：因为 $f\in L(E)$ ，所以对单调收敛到
 
+
+
+>[!example] 设在可测集- $E$ 上非负可测函数 $f_k\Rightarrow f$ ，求证： $\int_Ef(x)dx\leq \varliminf_{k\rightarrow \infty}\int_Ef_k(x)dx$ . [mse](https://math.stackexchange.com/questions/276138/if-f-n-geq-0-and-f-n-to-f-in-measure-then-int-f-leq-liminf-int-f-n)
+>证明：由下极限的性质，存在 $\{f_k\}_{k}$ 的子列 $\{f_{k_n}\}_{n\geq1}$ ，使得 $\lim_{n\rightarrow \infty}\int_Ef_{k_n}dx=\varliminf_{k\rightarrow \infty}\int_Ef_k(x)dx$ ，并且由 $f_k\Rightarrow f$ 可知 $f_{k_n}\Rightarrow f$ ，由 Riesz 定理可知，存在 $f_{k_n}$ 的收敛到 $f$ 的子列 $\{f_{k_{n_j}}\}_{j\geq1}$ ，再由 $f\geq0$ ，根据 Fatou 定理：
+>
+>$$\int_Ef(x)dx\leq \varliminf_{j\rightarrow \infty}\int_E f_{k_{n_j}}(x)dx\leq \lim_{j\rightarrow \infty}\int_Ef_{k_{n_j}}dx=\varliminf_{k\rightarrow \infty}\int_Ef_k(x)dx$$
+
+>[!example] 设 $f\in L(\mathbb{R})$ ，对于 $\mathbb{R}$ 中的任意可测集 $E$ ，求证： $\int_Ef(ax+b)dx=\frac{1}{\lvert a\rvert}\int_{aE+b}fdx$ .
+
+证明：如果 $f(x)$ 是简单函数，不妨设 $f=\sum\limits_{k=1}^{n}a_k\chi_{E_k}$ ，其中 $E_k$ 为两两不交的可测集， $\bigcup_{1\leq k\leq n}E_k=\mathbb{R}$ . 则有： $\bigcup_{1\leq k\leq n}(aE_k+b)=\mathbb{R}$ ，并且 $aE_i+b\cap aE_j+b=\emptyset,\forall 1\leq i<j\leq n$ . 则 $\{aE_k+b\cap aE+b\}_{1\leq k\leq n}$ 为 $aE+b$ 的一个分划.
+
+$$\int_{aE+b}fdx=\int_{aE+b}\sum\limits_{k=1}^{n}a_k\chi_{E_k}dx$$
+
+$$\int_Ef(ax+b)dx=\int_E\sum\limits_{k=1}^{n}a_k \chi_{E_k}(ax+b)dx$$
+
+>[!example] 设 $f$ 是 $\mathbb{R}$ 上的可测函数， $T$ 是其正周期， $f\in L([0,T])$ ，求证： $\frac{1}{x}\int_0^xf(t)dt\rightarrow \frac{1}{T}\int_0^Tf(t)dt(x\rightarrow \infty)$ .
+>不妨设 $x=kT+b,k\geq 1,b\in(0,T)$ . 则：
+>
+>$$\begin{aligned}
+>\frac{1}{x}\int_0^xf(t)dt &=\frac{1}{kT+b}\int_0^{kT+b}f(t)dt\\
+>&=\frac{1}{kT}\frac{kT}{kT+b}\left(\int_0^{kT}f(t)dt+\int_{kT}^{kT+b}f(t)dt\right)\\
+>&=\frac{kT}{kT+b}\frac{1}{kT}\left(k\int_0^Tf(t)dt+\int_0^bf(t)dt\right)\\
+>&=\frac{kT}{kT+b}\left(\frac{1}{T}\int_0^Tf(t)dt\right)+\frac{1}{kT+b}\int_0^bf(t)dt\\
+>\end{aligned}$$
+>
+>因为 $f\in L([0,T])$ ，所以 $\int_0^bf(t)dt$ 有限，所以当 $k\rightarrow \infty$ 时：
+>
+>$\frac{1}{x}\int_0^xf(t)dt\rightarrow \frac{1}{T}\int_0^Tf(t)dt$ ，再由 $b$ 的任意性可知上式成立
+
+>[!example] 设 $f$ 在 $\mathbb{R}$ 上连续， $\Delta_n(x)=n\left[f\left(x+\frac{1}{n})-f(x)\right)\right]$ ，如果对于任意 $x\in \mathbb{R}$ ， $\Delta_n(x)\rightarrow0$ ，并且有常数 $M$ 使得 $\lvert \Delta_n(x)\rvert\leq M$ ，求证 $f$ 是常数. 
+
+## 收敛理论
+
 之前已经介绍了 Levi 单增收敛定理和 Fatou 定理，下面介绍控制收敛定理，这三个重要定理均关于<u>积分与极限是否能够换序</u>.
 
 >[!note]- 控制收敛定理：设 $f,f_n$ 均为可测集 $D$ 上的可测函数，如果以下条件满足： 1) 存在 $g\in L(D)$ ，使得对于任意 $n\geq1$ ，在 $D$ 上几乎处处有 $\lvert f_n(x)\rvert\leq g(x)$ ；2) 在 $D$ 上 $f_n$ 几乎处处收敛于 $f$ . 则 $f,f_n(n\geq1)$ 都在 $D$ 上可积. 并且 $\lim_{n\rightarrow \infty}\int_Df_ndx=\int_Dfdx$ .
@@ -872,48 +914,45 @@ Lebesgue 积分区别与 Riemann 积分的一个方面：绝对可积和可积�
 >
 >从而 $n^{-a}\lvert f(nx)\rvert\rightarrow0(n\rightarrow \infty)$ ，从而 $n^{-a}f(nx)\rightarrow0,a.e.$ 
 
->[!note] 控制收敛定理推论：设 $\{f_k\}_{k\ge1}$ 和 $\{g_k\}_{k\ge1}$ 为可测集 $E$ 上的两列可测函数，并且 $\lvert f_k\rvert\leq g_k(x)$ ，若 $f_k\rightarrow f,g_k\rightarrow g(k\rightarrow \infty),a.e.$ ，且 $\int_Eg_k(x)dx\rightarrow \int_Egdx<\infty$ ，求证 $\int_Ef_k(x)dx\rightarrow \int_Ef(x)dx$ .
+>[!note] 控制收敛定理推论，有界收敛定理：设 $\{f_n\}_{n\ge1}$ 为 $E:m(E)<\infty$ 上的可测函数列 $\lvert f_n\rvert\leq M<\infty,\forall n\ge1$ 并且 $\lim f_n=f,a.e.$ ，则 $f\in L(E)$ 并且 $\lim_{n\rightarrow \infty}\int_Ef_n(x)dx=\int_Ef(x)dx)$
+>证明：首先 $f=\lim f_n$ 是可测函数，从而根据控制收敛定理： $\int_Ef(x)dx=\lim_{n\rightarrow \infty}\int_Ef_n(x)dx\leq Mm(E)<\infty$ ，从而 $f\in L(E)$ .
 
- $g_k$ 是可测函数，因为 $\int_Eg_k(x)dx\rightarrow \int_Egdx<\infty(k\rightarrow \infty)$ ，所以存在 $K\in \mathbb{N}$ ，当 $k>K$ 时 $g_k\in L(E)$ ，又 $\lvert f_k\rvert\leq g_k$ 
- 
-  1. $m(E)\ne0$ ，由 $g_k\rightarrow g(k\rightarrow \infty)$ ，存在 $K'\in \mathbb{N}$ ，当 $k>\max\{K,K'\}$ 时 $g_k\leq g+\frac{1}{m((E))}$ ，进而有 $\lvert f_k\rvert\leq g+\frac{1}{m(E)},\forall k>\max\{K,K'\}$ ，又 $\int_Eg+\frac{1}{m(E)}dx\leq \int_Egdx+1<\infty$ ，从而由控制收敛定理， $f_k\rightarrow f(k\rightarrow \infty),a.e.$ 可知 $\int_Ef_k(x)dx\rightarrow \int_Ef(x)dx(k\rightarrow \infty)$ .
-  2. $m(E)\neq0$ ，由 $g_k\rightarrow g(k\rightarrow \infty)$ ，存在 $K'\in \mathbb{N}$ ，当 $k>\max\{K,K'\}$ 时 $g_k\leq g+1$ ，进而有 $\lvert f_k\rvert\leq g+1,\forall k>\max\{K,K'\}$ ，又 $\int_Eg+1dx\leq \int_Egdx<\infty$ ，从而由控制收敛定理， $f_k\rightarrow f(k\rightarrow \infty),a.e.$ 可知 $\int_Ef_k(x)dx\rightarrow \int_Ef(x)dx(k\rightarrow \infty)$ .
+>[!note]- 控制收敛定理推论：设 $\{f_k\}_{k\ge1}$ 和 $\{g_k\}_{k\ge1}$ 为可测集 $E$ 上的两列可测函数，并且 $\lvert f_k\rvert\leq g_k(x)$ ，若 $f_k\rightarrow f,g_k\rightarrow g(k\rightarrow \infty),a.e.$ ，且 $\int_Eg_k(x)dx\rightarrow \int_Egdx<\infty$ ，求证 $\int_Ef_k(x)dx\rightarrow \int_Ef(x)dx$ .
+>$g_k$ 是可测函数，因为 $\int_Eg_k(x)dx\rightarrow \int_Egdx<\infty(k\rightarrow \infty)$ ，所以存在 $K\in \mathbb{N}$ ，当 $k>K$ 时 $g_k\in L(E)$ ，又 $\lvert f_k\rvert\leq g_k$ 
+> 
+>1. $m(E)\ne0$ ，由 $g_k\rightarrow g(k\rightarrow \infty)$ ，存在 $K'\in \mathbb{N}$ ，当 $k>\max\{K,K'\}$ 时 $g_k\leq g+\frac{1}{m((E))}$ ，进而有 $\lvert f_k\rvert\leq g+\frac{1}{m(E)},\forall k>\max\{K,K'\}$ ，又 $\int_Eg+\frac{1}{m(E)}dx\leq \int_Egdx+1<\infty$ ，从而由控制收敛定理， $f_k\rightarrow f(k\rightarrow \infty),a.e.$ 可知 $\int_Ef_k(x)dx\rightarrow \int_Ef(x)dx(k\rightarrow \infty)$ .
+>2. $m(E)\neq0$ ，由 $g_k\rightarrow g(k\rightarrow \infty)$ ，存在 $K'\in \mathbb{N}$ ，当 $k>\max\{K,K'\}$ 时 $g_k\leq g+1$ ，进而有 $\lvert f_k\rvert\leq g+1,\forall k>\max\{K,K'\}$ ，又 $\int_Eg+1dx\leq \int_Egdx<\infty$ ，从而由控制收敛定理， $f_k\rightarrow f(k\rightarrow \infty),a.e.$ 可知 $\int_Ef_k(x)dx\rightarrow \int_Ef(x)dx(k\rightarrow \infty)$ .
 
->[!example]- 设在可测集- $E$ 上非负可测函数 $f_k\Rightarrow f$ ，求证： $\int_Ef(x)dx\leq \varliminf_{k\rightarrow \infty}\int_Ef_k(x)dx$ . [mse](https://math.stackexchange.com/questions/276138/if-f-n-geq-0-and-f-n-to-f-in-measure-then-int-f-leq-liminf-int-f-n)
->证明：由下极限的性质，存在 $\{f_k\}_{k}$ 的子列 $\{f_{k_n}\}_{n\geq1}$ ，使得 $\lim_{n\rightarrow \infty}\int_Ef_{k_n}dx=\varliminf_{k\rightarrow \infty}\int_Ef_k(x)dx$ ，并且由 $f_k\Rightarrow f$ 可知 $f_{k_n}\Rightarrow f$ ，由 Riesz 定理可知，存在 $f_{k_n}$ 的收敛到 $f$ 的子列 $\{f_{k_{n_j}}\}_{j\geq1}$ ，再由 $f\geq0$ ，根据 Fatou 定理：
+>[!example]- 设 $\forall x\in \mathbb{R},f(x,y)$ 作为 $y$ 的函数在 $[a,b]$ 上可积；而对于每一 $y\in[a,b],f(x,y)$ 作为 $x$ 的函数在 $\mathbb{R}$ 上可微. $\exists g(y)\in L([a,b])$ 使得 $\forall x\in \mathbb{R},y\in [a,b],\left\lvert \frac{d}{dx}f(x,y)\right\rvert\leq g(y)$ 求证： $\forall x\in \mathbb{R}$ 有 $\frac{d}{dx}\int_a^bf(x,y)dy=\int_a^b\frac{d}{dx}f(x,y)dy$ .
+>证明：取任意 $\Delta_n\rightarrow 0$ .
 >
->$$\int_Ef(x)dx\leq \varliminf_{j\rightarrow \infty}\int_E f_{k_{n_j}}(x)dx\leq \lim_{j\rightarrow \infty}\int_Ef_{k_{n_j}}dx=\varliminf_{k\rightarrow \infty}\int_Ef_k(x)dx$$
-
->[!example] 设 $f\in L(\mathbb{R})$ ，对于 $\mathbb{R}$ 中的任意可测集 $E$ ，求证： $\int_Ef(ax+b)dx=\frac{1}{\lvert a\rvert}\int_{aE+b}fdx$ .
-
-证明：如果 $f(x)$ 是简单函数，不妨设 $f=\sum\limits_{k=1}^{n}a_k\chi_{E_k}$ ，其中 $E_k$ 为两两不交的可测集， $\bigcup_{1\leq k\leq n}E_k=\mathbb{R}$ . 则有： $\bigcup_{1\leq k\leq n}(aE_k+b)=\mathbb{R}$ ，并且 $aE_i+b\cap aE_j+b=\emptyset,\forall 1\leq i<j\leq n$ . 则 $\{aE_k+b\cap aE+b\}_{1\leq k\leq n}$ 为 $aE+b$ 的一个分划.
-
-$$\int_{aE+b}fdx=\int_{aE+b}\sum\limits_{k=1}^{n}a_k\chi_{E_k}dx$$
-
-$$\int_Ef(ax+b)dx=\int_E\sum\limits_{k=1}^{n}a_k \chi_{E_k}(ax+b)dx$$
-
->[!example] 设 $f$ 是 $\mathbb{R}$ 上的可测函数， $T$ 是其正周期， $f\in L([0,T])$ ，求证： $\frac{1}{x}\int_0^xf(t)dt\rightarrow \frac{1}{T}\int_0^Tf(t)dt(x\rightarrow \infty)$ .
->不妨设 $x=kT+b,k\geq 1,b\in(0,T)$ . 则：
+>$$f_n(x,y)=\frac{f(x+\Delta_n,y)-f(x,y)}{\Delta_n}$$
+>
+>因为 $\forall x\in \mathbb{R},y\in[a,b]$ 有 $\left\lvert \frac{d}{dx}f(x,y)\right\rvert=\left\lvert \lim_{n\rightarrow \infty}f_n(x,y)\right\rvert\leq g(y)$ ，所以当 $n$ 充分大时 $\lvert f_n(x,y)\rvert\leq g(y),\forall x\in \mathbb{R},y\in[a,b]$ 从而由控制收敛定理，对给定的 $x\in \mathbb{R}$ ，考虑 $f_n(y)=f_n(x,y)$ ，有：
 >
 >$$\begin{aligned}
->\frac{1}{x}\int_0^xf(t)dt &=\frac{1}{kT+b}\int_0^{kT+b}f(t)dt\\
->&=\frac{1}{kT}\frac{kT}{kT+b}\left(\int_0^{kT}f(t)dt+\int_{kT}^{kT+b}f(t)dt\right)\\
->&=\frac{kT}{kT+b}\frac{1}{kT}\left(k\int_0^Tf(t)dt+\int_0^bf(t)dt\right)\\
->&=\frac{kT}{kT+b}\left(\frac{1}{T}\int_0^Tf(t)dt\right)+\frac{1}{kT+b}\int_0^bf(t)dt\\
+>\int_a^b\lim_{n\rightarrow \infty}f_n(y)dy&=\lim_{n\rightarrow \infty}\int_a^bf_n(y)dy\\
+>&=\lim_{n\rightarrow \infty}\frac{1}{\Delta_n}\int_a^bf(x+\Delta_n,y)-f(x,y)dy\\
+>&=\lim_{n\rightarrow \infty}\frac{\int_a^bf(x+\Delta_n,y)dy-\int_a^bf(x,y)dy}{\Delta_n}\\
+>&=\frac{d}{dx}\int_a^bf(x,y)dy
 >\end{aligned}$$
->
->因为 $f\in L([0,T])$ ，所以 $\int_0^bf(t)dt$ 有限，所以当 $k\rightarrow \infty$ 时：
->
->$\frac{1}{x}\int_0^xf(t)dt\rightarrow \frac{1}{T}\int_0^Tf(t)dt$ ，再由 $b$ 的任意性可知上式成立
 
->[!example] 设 $f$ 在 $\mathbb{R}$ 上连续， $\Delta_n(x)=n\left[f\left(x+\frac{1}{n})-f(x)\right)\right]$ ，如果对于任意 $x\in \mathbb{R}$ ， $\Delta_n(x)\rightarrow0$ ，并且有常数 $M$ 使得 $\lvert \Delta_n(x)\rvert\leq M$ ，求证 $f$ 是常数. 
+>[!example] 设 $f\in L([0,1])$ ，则极限 $\lim_{n\rightarrow \infty}\frac{1}{n}\int_0^1\ln(1+e^{nf(x)})dx$ 是否存在？若存在时求极限.
 
-## 函数在 $L$ 积分下的稠密性
+类似 Levi 定理得到的逐项积分有如下结论：
+
+>[!note] 设 $f_n\in L(E),\forall n\ge1$ ，
+
+## 函数在 $L$ 积分下的稠密性 / $L_1$ 收敛
 
 >[!hint] 从特殊（简单函数、多项式函数、有界）到一般.
 >方法如截断、三角不等式.
 
-定义 $\lVert \cdot\rVert_L=(L)\int_{\mathbb{R}}\cdot dx$ ，可以证明这是一个度量，考虑度量空间 $(\mathcal{F},\lVert \cdot\rVert_L)$ ，其中 $\mathcal{F}$ 为可测函数全体，下面说明其中一些特殊的函数族在这一度量空间中的稠密性.
+定义 $\lVert \cdot\rVert_L=(L)\int_{\mathbb{R}}\cdot dx$ ，可以证明这是一个度量，考虑度量空间 $(\mathcal{F},\lVert \cdot\rVert_L)$ ，其中 $\mathcal{F}$ 为可测函数全体. 
+
+首先回顾之前的控制收敛定理，其实际上就蕴含了一个结论，如果可测函数列 $\{f_n\}_{n\ge1}$ 能够被可测函数 $g$ 控制，并且 $\{f_n\}_{n\ge1}$ 几乎处处收敛于 $f$ ，则有 $\lim\int_{E}\lvert f_n-f\rvert dx\rightarrow0$ .
+
+下面说明其中一些特殊的函数族在这一度量空间中的稠密性，或者说依 $L_1$ 收敛.
 
 设 $f\in L(E),\epsilon>0$ ，求证：
 
@@ -989,10 +1028,45 @@ $$\begin{aligned}
 
 证明：由题可知 $\overline{D}=[a,b]$ ，
 
+## 重积分与累次积分
 
+在 Riemann 积分中，如果 $f(x,y)\in C([a,b]\times[c,d])$ ，则有：
 
+$$\int_{[a,b]\times[c,d]}f(x,y)dxdy=\int_a^bdx\int_c^df(x,y)dy$$
 
+在 Lebesgue 中有类似的理论.
 
+首先定义 $\mathbb{R}^n$ 上的重积分和累次积分：
+
+对 $\mathbb{R}^n=\mathbb{R}^p\times \mathbb{R}^q,f(x,y),x\in \mathbb{R}^p,y\in \mathbb{R}^q$ ，如果 $f(x,y)\in L(\mathbb{R}^n)$ 则定义：
+
+$$\int_{\mathbb{R}^p\times \mathbb{R}^q}f(x,y)dxdy$$
+
+称为 $f(x,y)$ 在 $\mathbb{R}^p\times \mathbb{R}^q$ 上的**重积分**.
+
+如果 $\forall x\in \mathbb{R}^p$ ， $f(x,y)$ 在 $\mathbb{R}^q$ 上的 $L$ 积分<u>存在</u>（注意不要求有限，即 $L$ 可积）
+
+对于 $F(x)=\int_{\mathbb{R}^q}f(x,y)dy$ ，如果 $F(x)$ 在 $\mathbb{R}^p$ 上的 $L$ 积分<u>存在</u>，则定义：
+
+$$\int_{\mathbb{R}^q}dx\int_{\mathbb{R}^p}f(x,y)dy$$
+
+为 $f$ 的**累次积分**.
+
+下面讨论被积函数满足哪些条件时有重积分和累次积分相等：
+
+$$\int_{\mathbb{R}^q\times \mathbb{R}^p}f(x,y)dxdy=\int_{\mathbb{R}^q}dx\int_{\mathbb{R}^p}f(x,y)dy$$
+
+>[!note] （Tonelli, Fubini 定理对非负可测函数）设 $f(x,y)$ 为 $(x,y)\in \mathbb{R}^p\times \mathbb{R}^q$ 上的非负可测函数，则： 1) 对<u>几乎所有</u>的 $x\in \mathbb{R}^p,f(x,y)$ 作为 $y\in \mathbb{R}^q$ 非负可测；2)  $F(x)=\int_{\mathbb{R}^q}f(x,y)dy$ 作为 $x\in \mathbb{R}^p$ 的函数非负可测；3)  重积分和累次积分相等. [[2422Su094741]]
+
+>[!example] 求证：对任意实数 $\alpha,\{(x,y):xy=\alpha\}$ 为 $\mathbb{R}^2$ 中的零测集.
+
+更一般地，对上面这个例题有如下结论：
+
+>[!note] [check mse](https://math.stackexchange.com/questions/3672925/proving-that-set-z-x-y-f-x-y-0-has-measure-0)
+
+>[!note] （Fubini 定理）设 $f(x,y)\in L(\mathbb{R}^p\times \mathbb{R}^q)$ ，则：1) 对<u>几乎所有</u>的 $x\in \mathbb{R}^p,f(x,y)$ 作为 $y\in \mathbb{R}^q$ 可积；2)  $F(x)=\int_{\mathbb{R}^q}f(x,y)dy$ 作为 $x\in \mathbb{R}^p$ 的函数可积；3)  重积分和累次积分相等.
+
+>[!example] 设 $f,g\in C([a,b]),f(x)\leq g(x)$ ，令 $E=\{(x,y):x\in[a,b],\in[f(x),g(x)]\}$ . $h(x,y)\in L(E)$ ，证明： $\int_Eh(x,y)dxdy=\int_a^bdx\int_{f(x)}^{g(x)}h(x,y)dy$ .
 
 # 积分和微分
 
@@ -1001,8 +1075,8 @@ $$\begin{aligned}
 证明思路是：
 
 1. 首先说明 $f'$ 几乎处处存在，为此，证明 $\varliminf_{n\rightarrow \infty}\frac{f\left(x+\frac{1}{n}\right)-f(x)}{\frac{1}{n}}=\varlimsup_{n\rightarrow \infty}\frac{f\left(x+\frac{1}{n}\right)-f(x)}{\frac{1}{n}}$ .
-2. 进一步为了说明 $f$ 处处可导，需要证明 $f'$ 几乎处处有限，因此只需要证明 $f'\in L([a,b])$ .
-3. 用一列非负可积函数 $f'_n$ 逼近 $f'$ ，利用 Fatou 定理 $\int_{D}\varliminf_{n\rightarrow \infty}f_ndx\leq \lim_{n\rightarrow \infty}\int_Df_ndx$ 其中 $D=[a,b]$ .
+2. 进一步为了说明 $f$ 几乎处处可导，需要证明 $f'$ 几乎处处有限，因此只需要证明 $f'\in L([a,b])$ .
+3. 用一列非负可积函数 $f'_n$ 逼近 $f'$ ，利用 Fatou 定理 $\int_{D}\varliminf_{n\rightarrow \infty}f_ndx\leq \varliminf_{n\rightarrow \infty}\int_Df_ndx$ 其中 $D=[a,b]$ .
 
 为了证明 $1.$ ，定义**左（右）邻域上下极限**：
 
