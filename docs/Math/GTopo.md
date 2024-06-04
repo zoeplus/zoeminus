@@ -131,7 +131,9 @@ $$\begin{aligned}
 >证明：根据第一定义和 De Morgan 定律即可得. 在[[#Baire 纲定理]]中证明其推论时有用到.
 
 >[!note]- $A^\circ=X\backslash \overline{X\backslash A},\bar{A}=X\backslash(X\backslash A)^\circ$ .
->证明：由第二定义： $$\begin{aligned}
+>证明：由第二定义： 
+>
+>$$\begin{aligned}
 x\in A^\circ &\Leftrightarrow \exists B(x,\epsilon)\subset A\\
 &\Leftrightarrow B(x,\epsilon)\cap (X\backslash A)=\emptyset\\
 &\Leftrightarrow x\notin \overline{X\backslash A}
@@ -908,6 +910,9 @@ $$\{X\}\cup\{U_1\cap U_2\cap \cdots\cap U_n:U_i\in \mathcal{B},n\geq1\}$$
 
 >[!warning]- 闭紧集的交不一定是紧集. #imcomplete-lack-proofs 
 
+>[!note]- 连续映射保持紧.
+>设 $f$ 为定义在紧空间 $X$ 上的连续映射，则对于任意的 $X$ 的开覆盖 $\{U_i\}_{i\in I}$ ， $\{f^{-1}(U_i)\}_{i\in I}$ 为 $X$ 的开覆盖，进而存在 $X$ 的有限子覆盖，显然成立. 
+
 从紧空间的定义出发很容易得到下面的条件：
 
 >[!note] 设 $(X,\mathcal{O})$ ，则 $X$ 紧当且仅当对于任意的开集族 $\mathcal{U}\subset \mathcal{O}$ ，如果 $\mathcal{U}$ 中任意的有限子族都不覆盖 $X$ ，则 $\mathcal{U}$ 也不覆盖 $X$ .
@@ -1066,15 +1071,15 @@ $$f(\mathcal{F})=\{B\subset Y:f^{-1}(B)\in \mathcal{F}\}$$
 下面用滤子刻画连续映射：
 
 >[!note]- 设 $X,Y$ 为拓扑空间， $f:X\rightarrow Y$ 为映射，以下命题等价：1) $f:X\rightarrow Y$ 连续；2) 任给 $X$ 上的滤子 $\mathcal{F}$ ，$f(\lim \mathcal{F})\subset \lim f(\mathcal{F})$ ；3) 任给 $X$ 上的超滤 $\mathcal{G}$ ， $f(\lim \mathcal{G})\subset \lim f(\mathcal{G})$ .
->$1)\Rightarrow 2)$ ：对于任意的 $x\in\lim \mathcal{F}$ ， $\mathcal{F}\supset \mathcal{N}(x)$ ，下面证明 $f(x)\in\lim f(\mathcal{F})$ ，只需证明 $f(\mathcal{F})\supset \mathcal{N}(f(x))$ . $f(\mathcal{F})=\{B\subset Y:f^{-1}(B)\in \mathcal{F}\}$ ，对任意 $N\in \mathcal{N}(f(x))$ ，存在开集 $U:f(x)\in U\subset N$ ，从而 $x\in f^{-1}(f(x))\in f^{-1}(U)\subset f^{-1}(N)$ ，注意 $f^{-1}(U)$ 为开集，因此 $f^{-1}(N)\in N(x)\subset \mathcal{F}$ ，所以 $f(\mathcal{F})\supset \mathcal{N}(f(x))$ .
+>$1)\Rightarrow 2)$ ：对于任意的 $x\in\lim \mathcal{F}$ ， $\mathcal{F}\supset \mathcal{N}(x)$ ，下面证明 $f(x)\in\lim f(\mathcal{F})$ ，只需证明 $f(\mathcal{F})\supset \mathcal{N}(f(x))$ . $f(\mathcal{F})=\{B\subset Y:f^{-1}(B)\in \mathcal{F}\}$ ，对任意 $N\in \mathcal{N}(f(x))$ ，存在开集 $U:f(x)\in U\subset N$ ，从而 $x\in f^{-1}(f(x))\in f^{-1}(U)\subset f^{-1}(N)$ ，注意 $f^{-1}(U)$ 为开集，因此 $f^{-1}(N)\in \mathcal{N}(x)\subset \mathcal{F}$ ，所以 $f(\mathcal{F})\supset \mathcal{N}(f(x))$ .
 >
 >$2)\Rightarrow3)$ ：显然；
 >
 >$3)\Rightarrow1)$ ：对于任意的 $Y$ 上的集合 $V$ ，考虑主滤 $\mathcal{G}=\{B\subset Y:V\subset B\}$ ，则有 $f(\lim \mathcal{G})\subset \lim f(\mathcal{G})$ .
 >
->因为 $\mathcal{G}$ 是超滤，所以 $\lim \mathcal{G}=\text{clust}\mathcal{G}=\bigcap_{A\in \mathcal{G}}\bar{A}$ ，由 $G$ 的定义可知 $\lim \mathcal{G}=\bar{V}$ ，同理可得 $\lim f(\mathcal{G})=\overline{f(V)}$ ，因此 $f(\overline{V})\subset \overline{f(V)},\forall V\subset Y$ ，所以 $f$ 是连续映射.
+>因为 $\mathcal{G}$ 是超滤，所以 $\lim \mathcal{G}=\text{clust}\mathcal{G}=\bigcap_{A\in \mathcal{G}}\bar{A}$ ，由 $\mathcal{G}$ 的定义可知 $\lim \mathcal{G}=\bar{V}$ ，同理可得 $\lim f(\mathcal{G})=\overline{f(V)}$ ，因此 $f(\overline{V})\subset \overline{f(V)},\forall V\subset Y$ ，所以 $f$ 是连续映射.
 
-## Tychnoff 空间
+### Tychnoff 空间、Hausdorff 紧化
 
 设 $X$ 为拓扑空间，定义 $X$ 的**紧化** $(Y,c)$ ，其中 $Y$ 为紧空间， $c:X\rightarrow Y$ 是同胚嵌入， $c(X)$ 是 $Y$ 的稠子集；当 $Y$ 还是 Hasudorff 空间时，称  $(Y,c)$ 为 $X$ 的 **Hausdorff 紧化**；定义紧化 $(Y,c)$ 的**剩于**（remainder）为 $Y\backslash c(X)$ .
 
@@ -1089,7 +1094,7 @@ $$f(\mathcal{F})=\{B\subset Y:f^{-1}(B)\in \mathcal{F}\}$$
 >
 >对于 $X$ 中的任意不交闭集 $F,G$ ，存在基中元素 $\{U_i\}_{i\in I},\{V_i\}_{i\in I'}$ 使得 $X\backslash F=\bigcup_{i\in I}U_i,X\backslash G=\bigcup_{i\in I}V_i$  ，从而 $W=X\backslash \bigcup_{i\in I}U_i,H=X\backslash \bigcup_{i\in I}V_i$ 为不交开集，并且包含 $F,G$ ，所以 $X$ 正规.
 >
->对任意的 $U\in \mathcal{O},x\in U$ ，存在基中元素 $V: x\in V\subset U$ ， $V$ 既为开也闭， $X\backslash U\subset V^c$ . 进而有 Urysohn 引理，存在连续映射 $f$ 使得 $f(V^c)=\{1\},f(V)=0$ 从而可得结论.
+>对任意的 $U\in \mathcal{O},x\in U$ ，存在基中元素 $V: x\in V\subset U$ ， $V$ 既为开也闭， $X\backslash U\subset V^c$ . 进而有 Urysohn 引理，存在连续映射 $f$ 使得 $f(V^c)=\{1\},f(V)=\{0\}$ 从而可得结论.
 
 >[!example]- 设 $X$ 是完全正则空间， $C\subset X$ 为紧子集， $U\subset X$ 为开子集并且 $C\subset U$ ，证明存在连续映射 $k:X\rightarrow[0,1]$ 满足 $k(C)\subset\{ 0\},k(X\backslash U)\subset\{1\}$ .
 >证明：
@@ -1103,11 +1108,72 @@ $$f(\mathcal{F})=\{B\subset Y:f^{-1}(B)\in \mathcal{F}\}$$
 >&2(x-1/2),x\in[1/2,1]
 >\end{aligned}\right.$$
 >
->考虑映射： $k=\prod_{k=1}^{n}g\circ f_{x_n}$ ，对于任意的 $x\in C$ ，存在 $f_{x_m}^{-1}[0,1/2)\ni x$ ，从而 $k(x)=0$ ，并且 $f_{x_i}(X\backslash U)\subset\{1\}$ 从而 $g\circ f_{x_i}\subset\{1\},k(X\backslash U)\subset\{1\}$ .
+>考虑映射： $k=\prod_{k=1}^{n}g\circ f_{x_n}$ ，对于任意的 $x\in C$ ，存在 $f_{x_m}^{-1}([0,1/2))\ni x$ ，从而 $k(x)=0$ ，并且 $f_{x_i}(X\backslash U)\subset\{1\}$ 从而 $g\circ f_{x_i}\subset\{1\},k(X\backslash U)\subset\{1\}$ .
+
+### 最大 Hausdorff 紧化
+
+### 最小 Hasudorff 紧化
+
+对于拓扑空间 $X$ ， 定义**局部紧**：对任意的 $x\in X$ 和邻域 $U\ni x$ ，总存在 $X$ 中的紧子集 $K$ 使得 $x\in K^\circ\subset K\subset U$ .
+
+>[!note]- 局部紧是拓扑性质.
+>证明：局部紧空间的开连续像局部紧.
+>设 $f$ 为定义在局部紧空间 $X$ 上的开连续映射，对任意 $y\in f(X)$ 和 $y$ 的邻域 $U$ ，可知 $f^{-1}(y)\subset f^{-1}(U)$ ，设 $x\in f^{-1}(y)$ 则存在 $X$ 中的紧子集 $K$ 使得 $x\in K^\circ\subset K\subset f^{-1}(U)$ ，从而 $y\in f(K^\circ)\subset f(K)\subset U$ .
+>
+>因为 $f$ 连续开映射，所以 $f(K)$ 是紧集. 并且因为 $f$ 是开映射，所以 $f(K^\circ)=f(K)^\circ$ . 因此是局部紧空间.
+
+>[!note]- 设 $\{X_i\}_{i\in I}$ 是一族非空的局部紧空间，证明乘积空间 $\prod_{i\in I}^{}X_i$ 局部紧当且仅当每个 $X_i$ 局部紧，并且存在 $I$ 的有限子集 $J$ 使得对每个 $i\notin J$ ， $X_j$ 是紧空间.
+>$\Rightarrow$ ：考虑投影映射 $p_j:\prod_{i\in I}^{}X_i\rightarrow X_j$ ， $p_j$ 是连续开映射，进而由局部紧是拓扑性质可知 $X_j,\forall j\in I$ 是局部紧空间.
+>
+>对于 $(x_i)_{i\in I}\in\prod_{i\in I}^{}X_i$ ，和邻域 $W\ni (x_i)_{i\in I}$ ，存在紧集 $K$ 使得： $(x_i)_{i\in I}\in K^\circ\subset K\subset W$ ，因为 $K^\circ$ 是 $(x_i)_{i\in I}$ 的邻域（开集），所以存在包含 $(x_i)_{i\in I}$ 的开集 $U=\{U_{i_j}\}_{1\leq j\leq m}\times\prod_{i\neq i_1,\cdots,i_m}^{}X_i\subset K^\circ\subset K$ ，因此有 $X_j\subset p_j(U)\subset p_j(K)\subset X_j$ ，所以 $p_j(K)=X_j$ ，又 $p_j$ 是连续映射，所以 $X_j=p_j(K)$ 是紧集.
+>
+>$\Leftarrow$ ：对于任意的 $(x_i)_{i\in I}\in \prod_{i\in I}^{}X_i$ 和包含 $(x_i)_{i\in I}$ 的基本开集 $\prod_{1\leq j\leq m}^{}U_{i_j}\times\prod_{i\neq i_1,\cdots,i_m}^{}X_i$ ，其中 $U_{i_j}$ 为 $X_{i_j}$ 的开集.
+>
+>则由 $X_{i_j}$ 为局部紧可知存在紧集 $K_{i_j}$ 使得 $x_{i_j}\in K_{i_j}^\circ\subset K_{i_j}\subset U_{i_j}$ ，以及紧集 $K_i$ 使得 $x_{i}\in K_i^\circ\subset K_i\subset U_i,\forall i\neq i_1,\cdots,i_m$ . 进而由紧的任意可乘性（Tychnoff 乘积定理）可得结论. [[2422Su174730]]
+
+定义**单点紧化**：设 $X$ 是非紧的局部紧 Hasudorff 空间，令 $\alpha X=X\cup\{\infty\}$ ，其中 $\infty\not\in X$ ，在 $X$ 上定义拓扑：
+
+$$\mathcal{O}=\{X\text{ 的全体开集}\}\cup\{U\subset \alpha X:\infty\in U,X\backslash U\text{ 为 }X\text{ 的紧子集}\}$$
+
+有如下结论：
+
+>[!note] $(\alpha X,\mathcal{O})$ 为紧 Hausdorff 空间.
+
+>[!example]- 对 $\mathbb{N}$ 赋予离散拓扑，证明 $\mathbb{N}$ 的<u>单点紧化</u> $\alpha \mathbb{N}$ 同胚于实直线 $\mathbb{R}$ 的<u>子空间</u> $\{0\}\cup\{1/n:n=1,\cdots,n,\cdots\}$
+>证明：
+>
+>若 $U\subset \alpha \mathbb{N}$ ，即 $X\backslash U=\mathbb{N}\backslash U$ 为 $X$ 的紧子集，则 $X\backslash U$ 为有限集.
+>
+>$$\mathcal{O}=\mathcal{P}(\mathbb{N})\cup\{U\subset \alpha X:\lvert X\backslash U\rvert<\infty\}$$
+>
+>下面构造连续双射：
+>
+>$$\begin{aligned}
+>f:\quad &\alpha\mathbb{N}\rightarrow Y\\
+>&n\mapsto \frac{1}{n},0\rightarrow \infty
+>\end{aligned}$$
+>
+>对于任意的包含 $n$ 的 $\alpha \mathbb{N}$ 中的开集 $U$ ，若 $U\in \mathcal{P}(\mathbb{N})$ ，不妨设 $U=\{n_i\}_{i\in I\subset \mathbb{N}}$ ，则 $\mathcal{P}(U)=\{1/n_i\}_{i\in I\subset \mathbb{N}}$ 为 $Y$ 中的包含 $f(n)$ 的开集；若 $U\subset \alpha X:\lvert X\backslash U\rvert<\infty$ ，则同理可以得到 $Y$ 中的开集.
+>
+>（然而，注意到 $Y$ 是 Hausdorff 空间，紧空间到 Hausdorff 空间的连续双射是同胚映射，所以只需要证明 $f$ 是连续的即可）
+>
+>对于任意的 $Y$ 中的开集 $U$ ，如果 $U$ 包含 $0$ ，则 $Y\backslash U$ 中应当包含有限多个元素，从而 $X\backslash f^{-1}(U)$ 有限，因此 $f^{-1}(U)$ 在 $X$ 中开. [[2422Su180714]] ，如果 $\infty\notin U$ ，则 $f^{-1}(U)\in \mathcal{P}(\mathbb{N})$ 为开集.
+>
+>综上 $f$ 是同胚映射.
+
+>[!example] 证明商空间 $\mathbb{R}/\mathbb{Z}$ 不是局部紧空间. 由于商映射 $q:\mathbb{R}\rightarrow \mathbb{R}/\mathbb{Z}$ 是闭映射，因此局部紧 Hausdorff 空间的闭连续像不必是局部紧的.
+
+证明：
+
+假设 $\mathbb{R}/\mathbb{Z}$ 为局部紧空间，则存在紧集 $K\subset \mathbb{R}/Z$ 使得 $[0]\subset K^\circ\subset K\subset U$ . 从而对任意的 $n\in \mathbb{Z}$ ， $n\in q^{-1}(K^\circ)\subset q^{-1}(K)$ ，可以取 $r_n>0$ 使得 $(n-r_n,n+r_n)\subset q^{-1}(K^\circ)$ ，不妨设 $r_n<1/3$ .
+
+因为 $\mathbb{R}$ 是局部紧的，对于任意的 $n\in \mathbb{Z}$ ，存在紧子集 $K_n$ 使得：
+
+$$n\in K_n^\circ\subset K_n$$
 
 ## 分离公理
 
-上面提到的 Hausdoff 空间即为 T 2 空间，下面介绍 T 0, T 1, T 2, T 3, T 4.
+上面提到的 Hausdoff 空间即为 $T_2$ 空间，下面介绍 $T_0, T_1, T_2, T_3, T_4$ .
 
 ### $T_0$ 空间
 
@@ -1228,7 +1294,7 @@ $$\mathcal{B}=\{f^{-1}_i(V_i):V_i\text{ 为 }Y_i\text{ 中的开集},i\in I\}$$
 >[!example] 子空间是一个初始拓扑.
 >考虑含入映射： $i: X\rightarrow Y$ ，其中 $X$ 是拓扑空间 $Y$ 的子空间，由[[#子空间]]中的讨论可知含入映射 $i$ 生成的子基为 $\{U\cap X: U\subset Y\}$ ，即为子空间拓扑. $i$ 是使得 $X\rightarrow Y$ 连续的最粗拓扑.
 
->[!note] 映射 $f: X\rightarrow Y$ 是同胚嵌入当且仅当 $f$ 是单射并且 $X$ 的拓扑恰好是 $f$ 生成的初始拓扑.
+>[!note]- 映射 $f: X\rightarrow Y$ 是同胚嵌入当且仅当 $f$ 是单射并且 $X$ 的拓扑恰好是 $f$ 生成的初始拓扑.
 >证明： $\Rightarrow$ ：因为 $f$ 同胚，所以 $f$ 是单射；设 $X$ 的拓扑为 $\mathcal{O}$ ， $f$ 生成的拓扑的子基为：
 >
 > $$\mathcal{T}=\{f^{-1}(U):U\text{ 为 }Y\text{ 中的开集}\}=\{U\cap X:U\text{ 为 }Y\text{ 中的开集}\}$$
@@ -1239,7 +1305,7 @@ $$\mathcal{B}=\{f^{-1}_i(V_i):V_i\text{ 为 }Y_i\text{ 中的开集},i\in I\}$$
 >
 >所以对于 $X$ 中的任意基本开集 $W=f^{-1}(U_1)\cap \cdots\cap f^{-1}(U_m)$ ，令 $g=f^{-1}$ ，则 $g^{-1}=f$ ， $f(W)=U_1\cap \cdots\cap U_m$ 为 $Y$ 中的开集，从而 $g$ 连续，则 $f$ 是同胚映射，并且也是嵌入（单连续映射的逆映射还是连续的，则称该映射为同胚嵌入）
 
->[!example] 度量诱导的拓扑是初始拓扑.
+>[!example]- 度量诱导的拓扑是初始拓扑.
 >设 $X$ 上由度量诱导引导的拓扑空间为 $\mathcal{O}_d$
 >
 >考虑函数族： $\{h_x: X\rightarrow \mathbb{R}\}_{x\in \mathbb{R}}$ ，其中 $h_x(y)=d(x,y)$ . 设该函数族生成的初始拓扑为 $\mathcal{T}$ .
@@ -1266,9 +1332,23 @@ $$\mathcal{B}=\{f^{-1}_i(V_i):V_i\text{ 为 }Y_i\text{ 中的开集},i\in I\}$$
 >
 >可以证明，乘积拓扑是使得 $P_i,i\in I$ 连续的最粗拓扑，并且许多性质在 Box Topology 中不再保持.
 
+投影映射 $P_j$ 具有如下性质：
+
+>[!note] 投射 $p_j:\prod_{i\in I}^{}X_i\rightarrow X_j,\forall j\in I$ 是连续开映射.
+
+>[!note] 映射 $h:Z\rightarrow \prod_{i\in I}^{}X_i$ 连续当且仅当每个复合映射 $p_j\circ h:Z\rightarrow X_j$ 连续.
+
+定义对角映射 $\Delta_{i\in I}f_i:Z\rightarrow\prod_{i\in I}^{}X_i,\quad z\mapsto(f_i(z))_{i\in I}$ .
+
+则有如下结论：
+
+>[!note] 任给一族连续映射 $\{f_i:Z\rightarrow X_i\}_{i\in I}$ ，对角映射 $\Delta_{i\in I}f_i$ 连续.
+
+## 可乘
+
 设 $P$ 是拓扑空间的某种性质，如果有限 / 可数 / 任意多个具有 $P$ 的拓扑空间的乘积仍然具有性质 $P$ ，则称性质 $P$ 是**有限 / 可数 / 任意可乘**的.
 
->[!example] 证明第一可数和第二可数是可数可乘的.
+>[!note] 第一可数和第二可数是可数可乘的.
 
 证明：设 $\{X_n\}_{n\geq1}$ 是一列第一可数空间，考虑 $\prod_{n\geq1}^{}X_n$ ，对于任意的 $(x_i)_{i\geq1}\in \prod_{n\geq1}^{}X_n$ ，对于任意的 $i\geq1$ ，因为 $X_i$ 是第一可数空间，所以存在 $x_i$ 的可数邻域基 $\mathcal{B}_i=\{B_i^n\}_{n\geq1}$ ，
 
