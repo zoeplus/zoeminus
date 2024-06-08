@@ -46,16 +46,26 @@ $$\mathcal{A}(x)=\{1,2,\cdots ,n\}\backslash \{k:c_k(x)>0\}=\{1,\cdots,m\}\cup\{
 注意上述对于凸包 $H(D)$ 的定义并不要求 $D$ 为凸集，但若 $D$ 为凸集则有以下结论：
 
 >[!note]- 设 $D$ 为凸集，则 $D$ 中任意 $m$ 个点的凸组合都在 $D$ 中. 也即有 $H(D)\subset D$ .
->证明：用归纳法证明， $n=2$ 是显然成立，设 $n=k$ 时也成立，对于 $n=k+1$ ： 设 $x_1,\cdots,x_{k+1}$ ，注意到 $$\begin{aligned}
-\sum\limits_{i=1}^{k+1}\alpha_ix_i &=\alpha_{k+1}x_{k+1}+\sum\limits_{i=1}^{k}\alpha_ix_i\\
-&=\alpha_{k+1}x_{k+1}+(1-\alpha_{k+1})\sum\limits_{i=1}^{k}\frac{\alpha_i}{1-\alpha_{k+1}}x_i
-\end{aligned}$$ 注意到后者为凸组合包含于 $D$ 中，从而得证.
+>证明：用归纳法证明， $n=2$ 是显然成立，设 $n=k$ 时也成立，对于 $n=k+1$ ： 设 $x_1,\cdots,x_{k+1}$ ，注意到 
+>
+>$$\begin{aligned}
+>\sum\limits_{i=1}^{k+1}\alpha_ix_i &=\alpha_{k+1}x_{k+1}+\sum\limits_{i=1}^{k}\alpha_ix_i\\
+>&=\alpha_{k+1}x_{k+1}+(1-\alpha_{k+1})\sum\limits_{i=1}^{k}\frac{\alpha_i}{1-\alpha_{k+1}}x_i
+>\end{aligned}$$ 
+>
+>注意到后者为凸组合包含于 $D$ 中，从而得证.
+
+由定义易得：
+
+>[!note] 一族凸集的交仍然为凸集.
 
 进而可以证明：
 
 >[!note]- 对于 $D\subset \mathbb{R}^n$ ， $H(D)$ 是所有包含 $D$ 的凸集中最小的凸集.
 >证明：
-> $$H(D)=\left\{\sum\limits_{i=1}^{k}\lambda_ix_i:k\in \mathbb{N},\lambda_i>0,\sum\limits_{i=1}^{k}\lambda_i=1,x_i\in D\right\}$$ 
+>
+>$$H(D)=\left\{\sum\limits_{i=1}^{k}\lambda_ix_i:k\in \mathbb{N},\lambda_i>0,\sum\limits_{i=1}^{k}\lambda_i=1,x_i\in D\right\}$$
+> 
 >对于任意的 $\sum\limits_{i=1}^{k_1}\lambda^1_ix^1_i,\cdots,\sum\limits_{i=1}^{k_m}\lambda^m_ix^m_i$ ，考虑 
 >
 >$$\sum\limits_{j=1}^{m}\alpha_j\left(\sum\limits_{i=1}^{k_j}\lambda^j_ix_i^j\right)=\sum\limits_{j=1}^{m}\sum\limits_{i=1}^{k_j}\alpha_j\lambda_i^jx_i^j$$ 
@@ -64,9 +74,9 @@ $$\mathcal{A}(x)=\{1,2,\cdots ,n\}\backslash \{k:c_k(x)>0\}=\{1,\cdots,m\}\cup\{
 >
 >$$\sum\limits_{j=1}^{m}\sum\limits_{i=1}^{k_j}\alpha_j\lambda_i^j=\sum\limits_{j=1}^{m}\alpha_j\sum\limits_{i=1}^{k_j}\lambda_i^j=\sum\limits_{j=1}^{m}\alpha_j=1$$ 
 >
->从而可知 $H(D)$ 为凸集. 
+>从而可知 $H(D)$ 为凸集，并且 $H(D)\supset D$ .
 >
->下面证明 $H(D)$ 为包含 $D$ 的最小凸集：设 $B_i\supset D$ 为凸集，全体凸集的并 $\bigcap_{i\in I}B_i$ 仍然为包含 $D$ 的凸集，所以 $H(D)\supset \bigcap_{i\in I}B_i$ 
+>下面证明 $H(D)$ 为包含 $D$ 的最小凸集：设 $\{B_i\}_{i\in I},B_i\supset D$ 为包含 $D$ 的凸集全体，全体凸集的并 $\bigcap_{i\in I}B_i$ 仍然为包含 $D$ 的凸集，所以 $H(D)\supset \bigcap_{i\in I}B_i$ 
 >
 >另一方面注意到 $D\subset \bigcap_{i\in I}B_i$ ，所以由凸包的定义可得：
 >
@@ -74,15 +84,17 @@ $$\mathcal{A}(x)=\{1,2,\cdots ,n\}\backslash \{k:c_k(x)>0\}=\{1,\cdots,m\}\cup\{
 >
 >所以 $H(D)=\bigcap_{i\in I}B_i$ .
 
-注意这里没有限制 $D$ 本身是不是凸集. 
+注意：上面这一定理没有限制 $D$ 本身是不是凸集.
 
 >[!note]- 设 $D\subset \mathbb{R}^n$ ， $\forall x\in H(D)$ ，其可以表示为 $D$ 中至多 $n+1$ 个点的凸组合.
->证明：不妨设 $x=\sum\limits_{i=1}^{N}\lambda_ix_i,x_i\in D$ 并且 $\sum\limits_{i=1}^{N}\lambda_i=1,\lambda_i>0$ . 不妨设 $N>n+1$ ，则对于 $x_i,1\leq i\leq N$ ，存在不全为 $0$ 的数 $\mu_i,2\leq i\leq N,\sum\limits_{i=2}^{N}\mu_i(x_i-x_1)=0$ ，令 $\mu_1=-\sum\limits_{i=2}^{N}\mu_i$ ，则有 $\sum\limits_{i=1}^{N}\mu_ix_i=0$ . 断言： $\mu_i,1\leq i\leq N$ 中至少有一个正数，若不然 $\mu_1$ 则为正数，矛盾！下面取 $\alpha\geq0$ ，使得 $$x=\sum\limits_{i=1}^{N}\lambda_ix_i-\alpha \sum\limits_{i=1}^{N}\mu_ix_i=\sum\limits_{i=1}^{N}(\lambda_i-\alpha \mu_i)x_i$$ 因为 $\lambda_i>0$ ，所以对于 $\mu_i,1\leq i\leq N$ 中的正项（已经证明至少存在一个） $\{\mu_{i_1},\cdots \mu_{i_k}\}$可以取 $\alpha=\min\{\frac{\lambda_{i_m}}{\mu_{i_m}}:1\leq m\leq k\}=\frac{\lambda_j}{\mu_j}$ ，进而 $x=\sum\limits_{i\neq j}^{}(\lambda_i-\alpha \mu_i)x_i$ ，由归纳法即可得到结论.
+>证明：不妨设 $x=\sum\limits_{i=1}^{N}\lambda_ix_i,x_i\in D$ 并且 $\sum\limits_{i=1}^{N}\lambda_i=1,\lambda_i>0$ . 不妨设 $N>n+1$ ，则对于 $x_i,1\leq i\leq N$ ，存在不全为 $0$ 的数 $\mu_i,2\leq i\leq N,\sum\limits_{i=2}^{N}\mu_i(x_i-x_1)=0$ ，令 $\mu_1=-\sum\limits_{i=2}^{N}\mu_i$ ，则有 $\sum\limits_{i=1}^{N}\mu_ix_i=0$ . 断言： $\mu_i,1\leq i\leq N$ 中至少有一个正数，若不然 $\mu_1$ 则为正数，矛盾！下面取 $\alpha\geq0$ ，使得 
+>
+>$$x=\sum\limits_{i=1}^{N}\lambda_ix_i-\alpha \sum\limits_{i=1}^{N}\mu_ix_i=\sum\limits_{i=1}^{N}(\lambda_i-\alpha \mu_i)x_i$$ 
+>
+>因为 $\lambda_i>0$ ，所以对于 $\mu_i,1\leq i\leq N$ 中的正项（已经证明至少存在一个） $\{\mu_{i_1},\cdots \mu_{i_k}\}$可以取 $\alpha=\min\{\frac{\lambda_{i_m}}{\mu_{i_m}}:1\leq m\leq k\}=\frac{\lambda_j}{\mu_j}$ ，进而 $x=\sum\limits_{i\neq j}^{}(\lambda_i-\alpha \mu_i)x_i$ ，由归纳法即可得到结论.
 >^AtMostnplus1
 
-不难证明以下**保凸运算**：
-
->[!note]- 任意多个凸集的交仍然是凸集.
+除了一族凸集的交仍然为凸集外，不难证明以下**保凸运算**：
 
 >[!note]- 凸集的内部和闭包仍然为凸集.
 >证明：设 $D$ 为凸集，对于 $D^\circ$ ，首先固定 $t\in(0,1)$ ，对于 $U=tD^\circ+(1-t)D^\circ\subset D$ ，不难证明 $tD^\circ$ 是开集，注意到 $$U=\bigcup_{x\in (1-t)D^\circ}(tD^\circ+x)$$ 为开集，从而有 $U=U^\circ\subset D^\circ$ ，因此 $D^\circ$ 是凸集.
@@ -1911,6 +1923,59 @@ DFR(tri_expr, 1.2, 1.5)
 # 0.243072302873212,0.612680452675273
 ```
 
+# 约束优化方法
 
+讨论无约束优化问题：
 
+$$\begin{aligned}
+&\min\quad f(x)\\
+&s.t.\quad \ c_i(x)=0,i=1,\cdots,m\\
+&\qquad\quad c_j(x)\ge0,j=m+1,\cdots,p
+\end{aligned}$$
 
+记可行域为 $F$ .
+
+>[!note] 设 $f$ 在 $x$ 处连续可微. 若 $s$ 满足 $\nabla f^Ts<0$ ，则 $s$ 是 $f$ 在 $x$ 处的一个下降方向.
+
+设 $x\in F$ ， $s\neq0\in \mathbb{R}^n$ ，如果存在 $\delta>0$ 使得对于任意的 $\alpha\in(0,\delta],x+\alpha s\in F$ ，则称 $s$ 为 $x$ 处的一个**可行方向**，记 $x$ 处可行方向全体为 $FD(x)$ . 
+
+设 $x\in F,s\neq 0\in \mathbb{R}^n$ ，如果 $s$ 还满足以下条件：
+
+$$\begin{aligned}
+&s^T\nabla c_i(x)=0,i=1,\cdots,m\\
+&s^T\nabla c_i(x)=0,i=m+1,\cdots,p
+\end{aligned}$$
+
+则称 $s$ 为可行域 $F$ 在 $x$ 处的**约束线性化后的可行方向**. 
+
+称：
+
+$$\begin{aligned}
+&\nabla f(x)-\sum\limits_{i=1}^{p}\lambda_i\nabla c_i(x)=0\\
+&\lambda_i\ge0,i=m+1,\cdots,p\\
+&\lambda_ic_i(x)=0,i=m+1,\cdots,p
+\end{aligned}$$
+
+为 **KT 条件**（KKT 条件）.
+
+>[!note] 若 $f,-c_i,i=m+1,m+2,\cdots,p$ 是连续可微的凸函数， $c_j,i=1,\cdots,m$ 是线性函数. 若 $x^*$ 满足 KT 条件，则 $x^*$ 是优化问题的整体最优解.
+
+解该二次规划问题，并作图解释其集合意义.
+
+$$\begin{aligned}
+&\max\quad f(x)=2x_1+3x_2+4x_1^2+2x_1x_2+x_2^2\\
+&s.t.\quad \ x_1-x_2\ge0,x_1+x_2\le4,x_1\le3
+\end{aligned}$$
+
+## 障碍罚函数法
+ 考虑不等式约束优化问题： $$\begin{aligned} &\min\quad f(x)\\ &s.t.\quad\ c_i(x)\leq0,i=1,\cdots,p \end{aligned}$$ 常用的障碍罚函数为： 
+ 
+ $$\begin{aligned}
+&P(x;\mu)=f(x)-\mu\sum\limits_{i=1}^{p}\ln(-c_i(x))\\
+&P(x;\mu)=f(x)-\mu\sum\limits_{i=1}^{p}\frac{1}{c_i(x)}\\
+&\mu>0
+\end{aligned}$$
+
+从而可以得到局部近似解.
+
+令 $\mu\rightarrow 0$ 可以得到解.
