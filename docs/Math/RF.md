@@ -435,18 +435,41 @@ $$m(g(C))=m(g([0,1]-\cup_{n,k}I_{n,k}))=m(g[0,1])-m(g(\cup _{n,k}I_{n,k}))=1$$
 >[!note] $f$ 在 $D$ 上可测， $D_1$ 为 $D$ 的可测子集，则 $f$ 在 $D_1$ 上可测.
 > $\{x\in D_1:f>\alpha\}=\{f>\alpha\}\cap D_1$ 可测.
 
+事实上，对于可测集 $D$ ，只需要证明对于 $\mathbb{R}$ 的一个稠子集 $E$ ，对于任意的 $\alpha\in E$ 有 $\{f>\alpha\}$ 是可测集即可说明 $f$ 是 $D$ 上的可测函数：对于任意的 $\alpha\notin \mathbb{R}\backslash E$ ，存在 $\{\alpha_n\}_{n\ge1},\{\beta_n\}_{n\ge1}\subset E$ 并且 $\alpha_n\rightarrow \alpha$ ，从而： $\{f>\alpha\}=\bigcup_{n\ge1}\{f>\alpha_n\}$ .
+
+>[!example] 📍 $\forall \alpha\in E,\{f=\alpha\}$ 可测，其中 $E$ 为 $\mathbb{R}$ 的稠子集， $f$ 不一定是可测函数.
+>证明：考虑 $E=\mathbb{Q}$ ，取 $\mathbb{R}$ 上的不可测子集 $H$ ，并令：
+>
+>$$f=\left\{\begin{aligned}
+>&\sqrt{3},x\in H\\
+>&\sqrt{2},x\notin H
+>\end{aligned}\right.$$
+>
+>则 $\{f=\alpha\}=\emptyset$ 可测， $\forall \alpha\in \mathbb{Q}$ ，但是 $f$ 并不是可测函数： $H=\{f>1.5\}$ 不可测.
+
 >[!example] 常值函数是可测函数：若 $f(x)\equiv c,\text{dom}(f)=D$ ，则 $\{f>\alpha\}=\left\{\begin{aligned}&\emptyset,\alpha\geq c\\&D,\alpha<c\end{aligned}\right.$ .
 
->[!example]+ 定义在区间 $D$ 上的连续函数是可测函数.
+>[!example]- 定义在区间 $D$ 上的连续函数是可测函数. 更一般地，可测集上的连续函数都可测.
 >证明：因为 $f$ 连续，所以 $\{f>\alpha\}=f^{-1}((\alpha,+\infty))$ 是开集，所以 $\{f>\alpha\}$ 可测；对于一般的区间 $D$ 注意到 $\{x\in D^\circ:f(x)>\alpha\}$ 是可测的，并且 $D\backslash D^\circ$ 至多只有两个点，因此也是可测的（[[RF#^AtMostZero]]），所以 $D$ 可测.
 
->[!example] 若 $f(x)$ 沿着可测集 $D$ 连续，则 $f$ 在 $D$ 上可测.
->证明： $\{x\in D:f>\alpha\}=f^{-1}((\alpha,+\infty))\cap D$ ，并且 $f^{-1}((\alpha,+\infty))$ 为 $\mathbb{R}$ 的中开集，进而可测，所以 $\{x\in D:f>\alpha\}$ 为可测集，所以 $f$ 在 $D$ 上可测.
+>[!example]- 📍 若 $f(x)$ 沿着可测集 $D$ 连续，则 $f$ 在 $D$ 上可测.
+>因为 $f(x)$ 沿着可测集 $D$ 连续，所以存在 $\delta>0$ 使得 $\forall x'\in B(x,\delta)\cap D$ 有 $f(x')>\alpha$ （取 $\epsilon=\lvert f(x)-\alpha\rvert$ ），考虑 $G=\bigcup_{x':f(x')>\alpha}B(x,\delta)\cap D$ ，则有 $G=\{x\in D:f>\alpha\}$ . 并且 $G$ 为开集 $\bigcup_{x':f(x')>\alpha}B(x,\delta)$ 与可测集 $D$ 之并，所以可测.
 
->[!example]- 如果 $f$ 在 $\mathbb{R}$ 上是可微函数，则 $f'$ 可测.
->因为 $f$ 可微，所以 $f\in C(\mathbb{R})$ ，从而 $f$ 可测；
+>[!warning] 沿着 $D$ 连续和在 $D$ 上连续的区别.
+>上面这道题目的伪证： $\{x\in D:f>\alpha\}=f^{-1}((\alpha,+\infty))\cap D$ ，并且 $f^{-1}((\alpha,+\infty))$ 为 $\mathbb{R}$ 的中开集，进而可测，所以 $\{x\in D:f>\alpha\}$ 为可测集，所以 $f$ 在 $D$ 上可测.
 >
-> $f_n(x)=\frac{f(x+1/n)-f(x)}{1/n}$ 可测，所以 $f'=\lim_{n\rightarrow \infty}f_n$ 可测.
+>$f$ 在 $\mathbb{R}$ 上不连续；
+>
+>如果 $f$ 在 $D$ 上连续的话那么对于 $\{x\in D:f>\alpha\}$ 可以取得 $\delta_x$ 使得 $\{f>\alpha\}=\bigcup_{x':f(x')>\alpha}B(x',\delta_{x'})$ ，或者由连续的定义知 $\{f>\alpha\}$ 开即可.
+>
+>$f$ 沿着 $D$ 连续的意思是 $\forall x\in D,\forall \epsilon>0,\exists \delta>0,\forall x'\in B(x,\delta)\cap D$ 有 $\lvert f(x)-f(x')\rvert<\epsilon$ .
+>
+>而 $f$ 在 $D$ 上连续则是对于 $D$ 中的任意开集 $G$ ， $f^{-1}(G)$ 为开集. 而在度量空间上就有 $\forall x\in D,\forall \epsilon>0,\exists \delta>0$ 使得 $\forall x'\in B(x,\delta),|f(x)-f(x')|<\epsilon$ .
+
+>[!example]- 设 $f$ 为可测集 $D$ 上的可测函数，求证：对于任意开集 $G$ 和闭集 $F$ ， $f^{-1}(G)$ 和 $f^{-1}(F)$ 均为可测集.
+>证明：只需要证明开集情形， $f^{-1}(F)=D\backslash f^{-1}(\mathbb{R}\backslash F)$ .
+>
+>因为 $G$ 是开集，所以存在一列不交开区间 $\{I_n\}_{n\ge1},G=\bigcup_{n\ge1}I_n$ ，从而 $f^{-1}(G)=\bigcup_{n\ge1}f^{-1}(I_n)$ 为可测集.
 
 >[!example] 可测集的特征函数 $\chi_D$ 可测： $\{\chi_D>\alpha\}=\left\{\begin{aligned}&\emptyset,\alpha\geq1\\&D,0\leq \alpha<1\\&\mathbb{R},\alpha<0\end{aligned}\right.$ .
 
@@ -473,9 +496,18 @@ $f+g,f-g$ 也是 $D'$ 上的可测函数：由 $\{f+g>\alpha\}=\bigcup_{n=1}^\in
 
 若 $\{f_n\}_{n\geq1}$ 是可测函数，则 $\{\sup_{n\geq1}f_n>\alpha\}=\bigcup_{n=1}^\infty\{f_n>\alpha\}$ ， $\{\inf_{n\geq1}f_n<\alpha\}=\bigcup_{n=1}^\infty \{f_n<\alpha\}$ ；从而 $\varlimsup_{n\rightarrow \infty}f_n(x)=\inf_{n\geq1}\sup_{k\geq n}f_k(x)$ ， $\varliminf_{n\rightarrow \infty}f_n(x)=\sup_{n\geq1}\inf_{n\geq n}f_k(x)$ $\sup f_n,\inf f_n,\varlimsup f_n,\varliminf f_n$ 均为可测函数. 若 $\{f_n\}$ 存在极限，则 $\lim_{n\rightarrow \infty}f_n$ 也为可测函数.
 
->[!hint] 以上，证明一个函数是可测函数可以找一处处收敛于该函数的可测函数列（i.e. 连续函数、简单函数）.
+>[!example]- 如果 $f$ 在 $\mathbb{R}$ 上是可微函数，则 $f'$ 可测.
+>因为 $f$ 可微，所以 $f\in C(\mathbb{R})$ ，从而 $f$ 可测；
+>
+> $f_n(x)=\frac{f(x+1/n)-f(x)}{1/n}$ 可测，所以 $f'=\lim_{n\rightarrow \infty}f_n$ 可测.
 
->[!example]- $f$ 是可测集 $D$ 上的可测函数， $m(\{f>\alpha\})$ 为 $\alpha$ 的右连续函数， $m(\{f<\alpha\})$ 为 $\alpha$ 的左连续函数；进一步， $m(\{f\geq \alpha\})$ 为 $\alpha$ 的左连续函数， $m(\{f\leq \alpha\}$ 为 $\alpha$ 的右连续函数.
+>[!hint] 以上，证明一个函数是可测函数可以找一处处收敛于该函数的可测函数列（i.e. 连续函数、简单函数）.
+>比如 $f+g$ 是可测的，就可以从存在 $f_n\rightarrow f,g_n\rightarrow g$ ，从而 $f_n+g_n\rightarrow f+g(n\rightarrow \infty)$ ，并且 $f_n+g_n$ 为简单函数.
+
+>[!example]- 📍 设 $\{f_n\}_{n\ge1}$ 是可测集 $D$ 上的可测函数列，求证： $D$ 中使得 $\{f_n\}_{n\ge1}$ 收敛的点 $x$ 全体是可测集.
+>证明： $\{f_n\}_{n\ge1}$ 可测 $\Rightarrow$ $\varliminf_{n\rightarrow \infty}f_n,\varlimsup_{n\rightarrow \infty}f_n$ 可测，从而 $\{\varliminf_{n\rightarrow \infty}f_n=\varlimsup_{n\rightarrow \infty}f_n\}$ 可测.
+
+>[!example]- 📍 $f$ 是可测集 $D$ 上的可测函数， $m(\{f>\alpha\})$ 为 $\alpha$ 的右连续函数， $m(\{f<\alpha\})$ 为 $\alpha$ 的左连续函数；进一步， $m(\{f\geq \alpha\})$ 为 $\alpha$ 的左连续函数， $m(\{f\leq \alpha\}$ 为 $\alpha$ 的右连续函数.
 >证明：令 $g(\alpha)=m(\{f>\alpha\})$ ，则 $g(\alpha+1/n)=g(\alpha)-m(\{1/n+\alpha\geq f>\alpha\})$ . 注意到集列 $\{1/n+\alpha\geq f>\alpha\}_{n\geq1}$ 单调递减并且不妨设 $m(1+\alpha\geq f>\alpha)$ 有限（否则 $m\{f>\alpha+1/n\}=m\{f>\alpha\}\equiv\infty$ ），所以：
 >
 >$$\begin{aligned}
@@ -498,8 +530,11 @@ $f+g,f-g$ 也是 $D'$ 上的可测函数：由 $\{f+g>\alpha\}=\bigcup_{n=1}^\in
 >[!example]- 如果对于任意 $[\alpha,\beta]\subset (a,b)$ ， $f(x)$ 在 $[\alpha,\beta]$ 上可测，则 $f(x)$ 在 $(a,b)$ 上可测.
 >证明：由题可知，对于任意的 $a\in \mathbb{R}$ ， $\{x\in[a-1/n,b+1/n]:f(x)>a\}$ 为可测集，进而可得 $\{x\in(a,b):f(x)>a\}=\bigcup_{n\geq1}\{x\in[a-1/n,b+1/n]:f(x)>a\}$ 可测. 所以 $f(x)$ 在 $(a,b)$ 上可测.
 
->[!example]- 设 $f$ 定义在可测集 $D$ 上，如果 $f^2$ 在 $D$ 上可测并且 $\{f>0\}$ 是可测集，求证： $f$ 在 $D$ 上可测.
->证明：对任意 $\alpha<0$ ， $\{x\in D:f(x)^2>\alpha^2\}$ 为可测集，所以 $\{x\in D:f(x)<\alpha\}\cup \{x\in D:f(x)>-\alpha\}$ 为可测集，所以 $\{x\in D:\alpha\leq f(x)\leq -\alpha\}$ 为可测集，又 $\{f>0\}$ 是可测集，所以 $\{x\in D:0<f(x)\leq -\alpha\}$ 是可测集，所以 $\{f>-\alpha\}$ 是可测集.
+>[!example]- 📍 设 $f$ 定义在可测集 $D$ 上，如果 $f^2$ 在 $D$ 上可测并且 $\{f>0\}$ 是可测集，求证： $f$ 在 $D$ 上可测.
+>证明：因为 $f^2$ 在 $D$ 上可测并且 $\{f>0\}$ 是可测集，注意到 $f=\lvert f\rvert(\chi_{\{f>0\}}-\chi_{\{f\leq 0\}})$ ，并且 $\lvert f\rvert$ 是可测的，所以 $f$ 可测.
+
+>[!example] 设 $[0,1]$ 上的可测函数 $f$ 几乎处处有限，证明存在实数 $\alpha_0$ 使得 $m(\{f\ge \alpha_0\})\ge \frac{1}{2},m(\{f\leq \alpha_0\})\ge \frac{1}{2}$ .
+>证明：由反证知存在 $a_0$ 使得 $m(\{f\ge a_0\})\ge \frac{1}{2}$ ，以及 $b_0$ 使得 $m(\{f\leq b_0\})\ge \frac{1}{2}$ ，不妨设 $a_0<b_0$ ，取 $\frac{a_0+b_0}{2}$ ，利用闭区间套定理得到结论.
 
 定义**几乎处处成立**：若 $D-E=\{x\in D:P(x)\}$ ，其中 $E\subset D$ 为一零测集，则称性质 $P(x)$ 在 $D$ 上几乎处处成立，记为 $P(x)\ a.e.\ x\in D$ .
 
@@ -557,14 +592,22 @@ $f+g,f-g$ 也是 $D'$ 上的可测函数：由 $\{f+g>\alpha\}=\bigcup_{n=1}^\in
 >[!note]- 可测函数列几乎处处收敛的极限是可测的.
 >证明：设可测函数列 $\{f_n\}_{n\geq1}$ 在 $D-E$ 上收敛于 $f$ ， $m(E)=0$ ，则对于任意的 $\epsilon>0$ ，存在 $N,\forall n>N$ ， $\lvert f_n-f\rvert<\frac{\epsilon}{2}$ ，并且由 $f_n$ 可测，所以存在简单函数 $f_n'$ ， $\lvert f_n'-f_n\rvert<\frac{\epsilon}{2}$ ，所以 $\lvert f_n'-f\rvert<\epsilon$ ，所以简单函数列 $\{f_n'\}_{n\geq N}$ 在 $D-E$ 上逐点收敛到 $f$ ，所以 $f$ 可测.
 
+## 连续函数逼近可测函数
+
+在上面已经有了一个定理：任何一个可测函数都存在逐点收敛于其本身的简单函数列. [[#^SimpleConverge]] ，下面讨论用连续函数逼近可测函数，证明路线是 [[#^Egoroff]] 定理，延拓定理 [[#^Expand]] ，再到最后的结论 [[#^Lusin]] 定理.
+
 下面这个定理说明了几乎处处收敛的几乎处处有限的可测函数列可以几乎没有损失地加强为一致收敛.
 
 >[!note] Egoroff 定理：设 $f,f_n(n\geq1)$ 都是<u>有限</u>可测集 $D$ 上的几乎处处有限的可测函数，如果 $f_n$ 在 $D$ 上几乎处处收敛于 $f$ ，则对于任意的 $\epsilon>0$ ，存在 $D$ 的闭子集 $F$ ， $m(D-F)<\epsilon$ 并且 $f_n$ 在 $F$ 上一致收敛于 $f$ .
 >^Egoroff
 
-证明：首先证明存在可测集 $E$ 使得 $m(D-E)<\frac{\epsilon}{2}$ ，然后利用 [[#开闭集逼近可测集]]证明存在 $F$ 使得 $m(D-F)<\epsilon$ .
+分析：首先证明存在可测集 $E$ 使得 $m(D-E)<\frac{\epsilon}{2}$ ，然后利用 [[#开闭集逼近可测集]]证明存在 $F$ 使得 $m(D-F)<\epsilon$ .
 
-首先刨去几乎处处之外的集合，令 $D_1=D_1^1\cap D_2^2$ ，其中 $D_1^1$ 为 $f_n,f$ 有限的集合， $D_1^2$ 为 $f_n$ 收敛于 $f$ 的集合.
+为了解决这一问题，刻画 $f_n$ 一致收敛于 $f$ ，并且需要先后得到集合 $E,F$ .
+
+$$F\subset E\subset \bigcap_{r\ge1}^{}\bigcup_{n\ge1}\bigcap_{k\ge n}\left\{x:\left\lvert f_k(x)-f(x)\right\rvert<\frac{1}{r}\right\}$$
+
+证明：首先刨去几乎处处之外的集合，令 $D_1=D_1^1\cap D_2^2$ ，其中 $D_1^1$ 为 $f_n,f$ 有限的集合， $D_1^2$ 为 $f_n$ 收敛于 $f$ 的集合.
 
 $$\begin{aligned}
 &D_1^1=\{x\in D:f_n(x),f(x)<\infty,\forall n\geq1\}\\
@@ -572,16 +615,18 @@ $$\begin{aligned}
 \end{aligned}$$
 
 进而可知 $m(D-D_1)\leq m(D\backslash D_1^1)+m(D\backslash D_1^2)=0$ （因为 $D-D_1=D\cap(D_1^1\cap D_1^2)^c=(D_1\backslash D_1^1)\cup (D_1\backslash D_1^2)$ ），所以 $m(D_1)=m(D)$ ，只需要构造 $E\subset D_1$ 使得 $m(D_1-E)<\frac{\epsilon}{2}$ ，则由 $D-E\subset (D-D_1)\cup (D_1-E)$ 即可得到 $m(D-E)<\frac{\epsilon}{2}$ .
-
+ 
 令 
 
-$$A_n^r=D_1\cap \left[\bigcap_{k\geq n}\left\lvert f_k(x)-f(x)\right\rvert<\frac{1}{r}\right],n,r\in \mathbb{N}$$
+$$A_n^r=D_1\cap \left[\bigcap_{k\geq n}\left\{\left\lvert f_k(x)-f(x)\right\rvert<\frac{1}{r}\right\}\right],n,r\in \mathbb{N}$$
 
 由 $f_k,k$ 可测易证 $A_n^r$ 是可测集，并且
  
-$$\bigcup_{n\geq1}A_n^r=D_1\cap \left[\bigcup_{n\geq1}\bigcap_{k\geq n}\lvert f_k(x)-f(x)\rvert<\frac{1}{r}\right]$$
+$$\bigcup_{n\geq1}A_n^r=D_1\cap \left[\bigcup_{n\geq1}\bigcap_{k\geq n}\left\{\lvert f_k(x)-f(x)\rvert<\frac{1}{r}\right\}\right]$$
 
-由 $D_1$ 的定义可知 $D_1=\bigcup_{n\geq1}A_n^r$ ，并且 $\{A_n^r\}_{n\geq1}$ 单调递增，所以由 [[#^MonotonousLimit]] 可知 $m(\lim_{n\rightarrow \infty}A_n^r)=m(D_1)=\lim_{n\rightarrow \infty}m(A_n^r)$ . 
+由 $D_1$ 的定义可知 $D_1=\bigcup_{n\geq1}A_n^r$ ，事实上， $D_1$ 中的任意一点 $x$ 都在 $\bigcap_{r\ge1}\bigcup_{n\ge1}\bigcap_{k\ge n}\{|f_k-f|<1/r\}$ 中. 并且 $\{A_n^r\}_{n\geq1}$ 单调递增，所以由 [[#^MonotonousLimit]] 可知 $m(\lim_{n\rightarrow \infty}A_n^r)=m(D_1)=\lim_{n\rightarrow \infty}m(A_n^r)$ . 
+
+（下面，即为构造 $E:(D_1-E)<\epsilon$ ，利用已经有的条件不难有下面的思路）
 
 对于任意的 $\epsilon>0$ 和给定的 $r$ ，存在 $n_r$ 使得 $m(D_1-A^r_{n_r})<\epsilon/2^{r+1}$ .
 
@@ -602,28 +647,38 @@ m(D-F)&=m(D)-m(F)=m(D_1)-m(F)\\
 >[!note]- Egoroff 定理的逆命题也成立.
 >证明：对于任意的 $k\geq1$ ，存在 $D$ 的闭子集 $F_k$ 使得 $m(D-F_k)\leq \frac{1}{k}$ 并且 $f_n$ 在 $F$ 上一致收敛于 $f$ . 令 $F=\bigcup_{k\geq1}F_k$ ，则 $m(D-F)=m\left(\bigcap_{k\geq1}D-F_k\right)\leq \frac{1}{k}$ ，所以 $m(D-F)=0$ . 并且对于任意的 $x\in F$ ，存在 $F_{k_0}\ni x$ ， $f_n$ 在 $F_{k_0}$ 上一致收敛于 $f$ ，从而 $\{f_n(x)\}_{n\geq1}$ 收敛到 $f(x)$ .
 
->[!warning]+ 在满足 Egoroff 定理的条件下，即使存在 $D$ 的子集 $F$ 使得 $m(D-F)=0$ 也不能保证 $f_n$ 在 $F$ 上一致收敛于 $f$ .
+>[!warning] 在满足 Egoroff 定理的条件下，即使存在 $D$ 的子集 $F$ 使得 $m(D-F)=0$ 也不能保证 $f_n$ 在 $F$ 上一致收敛于 $f$ .
 >例如，对于 $f_n(x)=x^n,x\in[0,1]$ ，注意到 $\{f_n\}_{n\geq1}$ 在 $[0,1)$ 上并不一致收敛于 $0$ （而在 $[0,1-\delta)$ 上一致收敛）
 
->[!warning]+  $m(D)=\infty$ 时 Egoroff 定理不一定成立.
+>[!warning]  $m(D)=\infty$ 时 Egoroff 定理不一定成立.
 >考虑 $D=\mathbb{R}$ ， $f_n=\chi_{[n,+\infty)}$ ，注意到 $f_n$ 逐点收敛到 $f=0$ ，而不存在闭集 $F$ 满足 $m(D-F)<1$ 使得 $f_n$ 在 $F$ 上一致收敛于 $f=0$ . （ $\forall N\in \mathbb{N},\exists n_0>N$ ，$\lvert f_{n_0}-f\rvert=1,\forall x\in[n_0,+\infty)$ ）
 
-## 逼近可测函数
-
->[!note] 延拓定理：设 $F\subset \mathbb{R}$ 为闭集， $f$ 沿着 $F$ 连续，则 $f$ 可以延拓为 $\mathbb{R}$ 上的连续函数 $f^*$ 并且 $\sup_{x\in \mathbb{R}}\lvert f^*(x)\rvert=\sup_{x\in \mathbb{F}}\lvert f(x)\rvert$ .
+>[!note]- 延拓定理：设 $F\subset \mathbb{R}$ 为闭集， $f$ 沿着 $F$ 连续，则 $f$ 可以延拓为 $\mathbb{R}$ 上的连续函数 $f^*$ 并且 $\sup_{x\in \mathbb{R}}\lvert f^*(x)\rvert=\sup_{x\in \mathbb{F}}\lvert f(x)\rvert$ .
 >证明：对 $F^c$ 进行函数定义即可，由 $F^c$ 是开集，存在两两不交开区间列 $\{(a_n,b_n)\}_{n\geq1}$ ，令 $f^*(x)=f(x),x\in F$ ，对于每一个开区间 $(a_n,b_n)$ ，如果 $(a_n,b_n)$ 有界，则定义在 $[a_n,b_n]$ 上的连续函数（线性函数即可）并满足 $\lvert f^*\rvert\leq \sup_{x\in F}\lvert f(x)\rvert$ ；如果 $(a_n,b_n)$ 无界（即 $a_n=-\infty$ 或者 $b_n=\infty$ ）则将 $(-\infty,b_n]$ 上的函数值定义为 $f(b_n)$ ， $[a_n,+\infty)$ 上的函数值定义为 $f(a_n)$ 即可.
 >
 >下面来证明 $f^*$ 在 $\mathbb{R}$ 上连续，首先对于任意的 $x\in F^c$ ，存在 $F^c$ 的一个构成区间包含 $x$ ，因此连续是显然的；对于任意的 $x\in F$ ，由 $f$ 在 $F$ 上连续， $\forall \epsilon>0,\exists \delta>0,\forall y\in V(x,\delta)\cap F$ 有 $\lvert f(x)-f(y)\rvert<\epsilon$ . 
 >
 >证明 $\lim_{y\rightarrow x+}f^*(y)=f^*(x)$ 另一半同理. 如果 $(x,x+\delta)\cap F=\emptyset$ ，则 $(x,x+\delta)\subset F^c$ ，进而 $(x,x+\delta)$ 包含在 $F^c$ 的一个构成区间中，因此 $f^*$ 在 $[x,x+\delta]$ 上是线性函数，所以有 $\lim_{y\rightarrow x^+}f^*(y)=f^*(x)$ ；如果 $(x,x+\delta)\cap F\neq \emptyset$ ，则设 $x'\in (x,x+\delta)\cap F$ ，令 $\eta=x'-x$ ，对于任意的 $y\in(x,x+\eta)$ ，若 $y\in F$ ，则 $|f^*(y)-f^*(x)|=\lvert f(y)-f(x)\rvert<\epsilon$ ，如果 $y\notin F$ ，则存在 $F^c$ 的构成区间 $(x_1,x_2),x_1,x_2\in F,x_1\geq x$ ，并且 $f^*$ 在 $(x_1,x_2)$ 上是线性函数，所以存在 $c_1,c_2\in[0,1],f^*(x)=c_1f^*(x_1)+c_2f^*(x_2),c_1+c_2=1$ ，因此 $\lvert f^*(y)-f^*(x)\rvert=\lvert c_1f^*(x_1)+c_2f^*(x_2)-f^*(x)\rvert\leq \epsilon$ ，所以 $\lim_{y\rightarrow x^+}f^*(y)=f^*(x)$ .
+>^Expand
 
 以下这个定理说明了可测集 $D$ 上的可测函数都可以由一个连续函数逼近（但不是 $a.e$ ）
 
 >[!note] Lusin：设 $f$ 是可测集 $D$ 上的<u>几乎处处有限</u>的可测函数，则对于任意 $\epsilon>0$ ，存在沿着 $D$ 连续的函数 $f^*$ 使得 $m(\{f\neq f^*\})<\epsilon$ ，并且 $\sup_{x\in D}\lvert f^*(x)\rvert\leq \sup_{x\in D}\lvert f(x)\rvert$ .
+>^Lusin
+
+为了证明这一定理， $(1)$ 用简单函数逼近可测函数， $(2)$ 利用 Egoroff 定理将收敛在闭集上加强为一致收敛， $(3)$ 然后利用一致收敛的连续函数的极限仍然连续，进而 $(4)$ 将沿闭集连续的函数其开拓为沿着 $D$ 的连续函数 $f^*$ ，从而证明定理.
 
 $D$ 为有界可测集：
 
+>[!note] （数学分析）设 $F$ 是一紧集， $\{f_n\}_{n\ge1}$ 为一列沿着 $F$ 连续的函数，如果 $\{f_n\}_{n\ge1}$ 在 $F$ 上一致收敛于 $f$ ，则 $f$ 也沿着 $F$ 连续.
+
+>[!note] 设 $f$ 是可测集 $D$ 上的简单函数，则 $\forall \epsilon>0$ 存在沿着 $D$ 连续的函数 $f^*$ 使得 $m(\{f\neq f^*\})<\epsilon$ .
+
 $D$ 为一般可测集：
+
+>[!note] Lusin 定理推论：设 $f$ 为 $[a,b]$ 上的几乎处处有限的可测函数，则 $\forall \epsilon>0$ ，存在 $[a,b]$ 上的连续函数 $f^*$ 使得 $m(\{f\neq f^*\})<\epsilon$ 且 $\max\{|f^*|\}\leq \sup\{|f|\}$ .
+
+
 
 ## 依测度收敛
 
@@ -671,6 +726,54 @@ $D$ 为一般可测集：
 >证明：设 $\{f_p\}_{p\geq1}$ 在 $D_k$ 上测度收敛于 $f^k$ ，若 $D_i\cap D_j\neq\emptyset$ ，则可知 $\{f_p\}_{p\geq1}$ 在 $D_i,D_j$ 上分别测度收敛于 $f^i,f^j$ ，进而存在子列 $\{f_{p_n}\}_{n\geq1}$ 几乎处处收敛于 $f^i$ ，同时该子列也测度收敛于 $f^i$ ，因此有子列 $\{f_{p_{n_l}}\}_{l\geq1}$ 几乎处处收敛于 $f^j$ ，所以 $f^i=f^j,a.e. D_i\cap D_j$ . 因此可以取函数： $f=f^k,x\in D_k,k\geq1$ . 
 >
 >假设 $\{f_p\}_{p\geq1}$ 在 $D$ 上不测度收敛于 $f$ ，则可以取 $\delta_0,\epsilon_0,\{f_{p_k}\}_{n\geq1}$ 满足： $m(\{\lvert f_{p_k}-f\rvert>\delta_0\})\geq \epsilon_0$ ， #issue 
+
+>[!example]- 📍 设 $\{f_k\}_{k\ge1}$ 为 $[a,b]$ 上的一列实值可测函数，求证为使得 $f_k\rightarrow0,a.e.$ 充分必要条件是 $\forall \epsilon>0,m(\sup_{p\ge k}\lvert f_p\rvert>\epsilon)\rightarrow0(k\rightarrow \infty)$ .
+>证明：因为 $f_k\rightarrow 0,a.e.$ ，所以：
+>
+>$$\begin{aligned}
+>&m\left(\bigcup_{r\ge1}\bigcap_{n\ge1}\bigcup_{k\ge n}\left\{\left\lvert f_k\right\rvert>\frac{1}{r}\right\}\right)=0\\
+>&\Leftrightarrow \lim_{r\rightarrow \infty}m\left(\bigcap_{n\ge 1}\bigcup_{k\ge n}\left\{\lvert f_k\rvert>\frac{1}{r}\right\}\right)=0\\
+>&\overset{(1)}{\Leftrightarrow}\forall \epsilon>0,m\left(\bigcap_{n\ge 1}\bigcup_{k\ge n}\left\{|f_k|>\epsilon\right\}\right)<\epsilon\\
+>&\Leftrightarrow\forall \epsilon>0,\lim_{n\rightarrow \infty}m\left(\bigcup_{k\ge n}\{|f_k|>\epsilon\}\right)<\epsilon\\
+>&\overset{(2)}{\Leftrightarrow}\lim_{n\rightarrow \infty}m\left(\sup_{k\ge n}\{|f_k|>\epsilon\}\right)=0
+>\end{aligned}$$
+>
+>其中 $(2)$ 成立参考依测度收敛的等价定义.
+>
+>$(1)$ 的成立：对于任意的 $\epsilon>0$ ，存在 $r\ge 1$ 使得 $m(\cap\cup\{|f_k|>1/r\})<\epsilon$ ，再取 $r$ 足够大使得 $\epsilon>1/r$ ，由 $m(\cap\cup\{|f_k|>\epsilon\})\leq m(\cap\cup\{|f_k|>1/r\})$ 可以得到结论；另一方面，取 $\epsilon=\frac{1}{r}$ ，则 $m(\cap\cup\{|f_k|>1/r\})<1/r,\forall r\ge1$ 从而可以得到结论.
+
+>[!example]- 📍 对于上面的问题，如果将 $[a,b]$ 改为 $\mathbb{R}$ 结论是否仍然成立？
+>采取截断的方法，令 $\mathbb{R}=\bigcup_{n\ge1}[-n,n]$ . 则有：
+>
+>$$\begin{aligned}
+>&f_k\rightarrow 0,a.e.\\
+>&\overset{(1)}{\Leftrightarrow} f_k\rightarrow 0,a.e.x\in[-n,n],\forall n\ge1\\
+>&\Leftrightarrow \forall \epsilon>0,m\left(\{x\in[-n,n]:\sup_{p\ge k}|f_p|>\epsilon\}\right)\rightarrow 0(k\rightarrow \infty)\\
+>&\overset{(2)}{\Leftrightarrow} \forall \epsilon>0,m\left(\sup_{p\ge k}|f_p|>\epsilon\right)\rightarrow 0(k\rightarrow \infty)
+>\end{aligned}$$
+>
+>其中 $(1)$ 成立是因为 
+>
+>$$m(f_k\not\rightarrow0)=m\left(\bigcup_{n\ge 1}\{x\in [-n,n]:f_k\not\rightarrow 0\}\right)=\lim_{n\rightarrow \infty}\{x\in [-n,n]:f_k\not\rightarrow0\}$$
+>$(2)$ 成立同理.
+
+>[!hint] 上面这两个例子，实际上说明了测度收敛等价于近一致收敛： $\forall \epsilon>0,m\left(\sup_{p\ge k}|f_p-f|\ge \epsilon\right)$ .
+
+>[!note] （Borel - Cantelli 引理）设 $\{E_n\}_{n\ge1}$ 为一列可测集，如果 $\sum\limits_{n\ge 1}^{}m(E_n)<\infty$ ，则 $m\left(\varlimsup_{n\rightarrow \infty}E_n\right)=0$ .
+>这是一个概率论中的定理，对于 $\{E_n\}_{n\ge1}$ （事件列）取上极限得到的是出现在无数次事件中的结果.  Borel - Cantelli 引理陈述的是如果一个事件集列的概率和是有限的，那么出现无数次出现的结果的概率为 $0$ . [check-wiki](https://en.wikipedia.org/wiki/Borel%E2%80%93Cantelli_lemma),[check-mse](https://math.stackexchange.com/questions/279090/can-someone-explain-the-borel-cantelli-lemma).
+
+>[!example]- 设 $\{f_k\}_{k\ge1}$ 为 $[a,b]$ 上的一列实值可测函数. 证明：存在正整数列 $\{a_k\}_{k\ge1}$ 使得 $a_kf_k\rightarrow0,a.e.$ .
+>证明：首先利用之前已经证明的结论： $f_k\rightarrow 0(k\rightarrow \infty),a.e.$ 的充分必要条件为 $\forall \epsilon>0,m(\sup_{p\ge k }|f_p|>\epsilon)\rightarrow0$ .
+>
+>因此只需要证明：
+>
+>$$\lim_{k\rightarrow \infty}m(\sup_{p\ge k}|f_p|>\epsilon)\overset{(1)}{=}m\left(\varlimsup_{k\rightarrow \infty}\{|f_p|>\epsilon\}\right)=0,\forall \epsilon>0$$
+>
+>即可，在本题中即为证明存在正整数列 $\{a_k\}_{k\ge1}$ 使得：
+>
+>$$m\left(\varlimsup_{k\rightarrow \infty}\{|a_kf_k|>\epsilon\}\right)=0,\forall \epsilon>0$$
+>
+>由 Borel - Contelli 引理，充分条件为 $\sum\limits_{k\ge 1}^{}m(|a_kf_k|>\epsilon)<\infty$ 而这并不难做到，因为 $m(\lvert f_k\rvert=\infty)=0$ ，所以对于 $k\ge 1$ ，存在 $a_k$ 使得 $|f_k|>\frac{\epsilon}{|a_k|}$ 足够大，从而 $m(|a_kf_k|>\epsilon)<\frac{\epsilon'}{2^{k+1}}$ ，进而可以满足要求.
 
 在数学分析中，实数完备性指出： $\mathbb{R}$ 中的 Cauchy 列（也称基本列）和收敛列是等价的 #imcomplete .
 
@@ -827,8 +930,6 @@ Lebesgue 积分区别与 Riemann 积分的一个方面：绝对可积和可积�
 >
 >证明：因为 $f\in L(E)$ ，所以对单调收敛到
 
-
-
 >[!example] 设在可测集- $E$ 上非负可测函数 $f_k\Rightarrow f$ ，求证： $\int_Ef(x)dx\leq \varliminf_{k\rightarrow \infty}\int_Ef_k(x)dx$ . [mse](https://math.stackexchange.com/questions/276138/if-f-n-geq-0-and-f-n-to-f-in-measure-then-int-f-leq-liminf-int-f-n)
 >证明：由下极限的性质，存在 $\{f_k\}_{k}$ 的子列 $\{f_{k_n}\}_{n\geq1}$ ，使得 $\lim_{n\rightarrow \infty}\int_Ef_{k_n}dx=\varliminf_{k\rightarrow \infty}\int_Ef_k(x)dx$ ，并且由 $f_k\Rightarrow f$ 可知 $f_{k_n}\Rightarrow f$ ，由 Riesz 定理可知，存在 $f_{k_n}$ 的收敛到 $f$ 的子列 $\{f_{k_{n_j}}\}_{j\geq1}$ ，再由 $f\geq0$ ，根据 Fatou 定理：
 >
@@ -968,7 +1069,7 @@ $$\int_Ef(ax+b)dx=\int_E\sum\limits_{k=1}^{n}a_k \chi_{E_k}(ax+b)dx$$
 
 >[!example] 设 $g$ 为 $[-1,1]$ 上的有界可测函数，若对 $[-1,1]$ 上的任何偶连续函数 $f$ 都有 $\int_{-1}^1f(x)g(x)dx=0$ ，证明： $g(x)=-g(-x),a.e.$
 
-证明：只需要证明 $m(\{g(x)+g(-x)\neq0\})=0$ .
+证明：只需要证明 $m(\{g(x)+g(-x)\neq-2\})=0$ .
 
 因为 $g$ 为 $[-1,1]$ 上的有界可测函数，所以 $g(-x)$ 为 $[-1,1]$ 上的有界可测函数，则由 Lusin 定理，对于任意的 $\epsilon>0$ ，存在沿着 $[-1,1]$ 连续的函数 $g_\epsilon$ 满足 $m(\{g(x)+g(-x)\neq g_\epsilon(x)+g_\epsilon(-x)\})=0$ .
 
@@ -1027,6 +1128,11 @@ $$\begin{aligned}
 >[!example] 设 $f,g$ 在 $[a,b]$ 上 Riemann 可积，且存在 $[a,b]$ 的稠子集 $D$ ， $f=g,\forall x\in D$ ，求证： $\int_{[a,b]}fdx=\int_{[a,b]}gdx$ 并且 $f=g,a.e.$
 
 证明：由题可知 $\overline{D}=[a,b]$ ，
+
+## $L$ 积分与 $R$ 积分
+
+>[!note] 设 $f$ 为 $[a,b]$ 上的有界函数， $f\in R[a,b]$ 的充分必要条件为 $f$ 在 $[a,b]$ 上几乎处处连续. $f\in R[a,b]\Rightarrow f\in L([a,b])$ 并且 $(R)\int_{[a,b]}fdx=(L)\int_{[a,b]}fdx$ .
+>^RandL
 
 ## 重积分与累次积分
 
@@ -1122,3 +1228,31 @@ $$D^+f=D^{-}f=D_+f=D_-f,a.e.x\in [a,b]$$
 为了证明这一命题，引入新的定义：
 
 设实数集 $E$ 和区间族 $\Lambda$ ，如果对于任意的 $x\in E,\epsilon>0$ ，
+
+## 有界变差函数
+
+设 $f$ 为 $[a,b]$ 上的实值函数， $X=\{x_k\}_{0\leq k\leq n}$ 为 $[a,b]$ 上的一个网. $a=x_0<x_1<\cdots<x_n=b$ . 如果：
+
+$$T_a^b(f)=\sup_{X\subset [a,b]}\left\{\sum\limits_{k=1}^{n}\lvert f(x_k)-f(x_{k-1})\rvert\right\}<\infty$$
+
+则称 $f$ 为 $[a,b]$ 上的**有界变差函数**，记为 $f\in BV([a,b])$. 其中 $V(X)=\sum\limits_{k=1}^{n}|f(x_k)-f(x_{k-1})|$ 为 $f$ 对应网 $X$ 的**变差**， $T_a^b(f)$ 称为 $f$ 在 $[a,b]$ 上的**全变差**.
+
+>[!example] $[a,b]$ 上的单调实值函数有界变差.
+> $T_a^b(f)=|f(b)-f(a)|<\infty$
+
+最后得到如下推论：
+
+>[!note] $f\in BV([a,b])$ ，则 $f$ 几乎处处可导，并且 $f'$ 在 $[a,b]$ 上
+
+## 绝对连续函数
+
+>[!note] 若 $f$ 在 $[a,b]$ 上单增并且满足 Newton - Leibnitz 公式，则 $f$ 绝对连续.
+
+>[!note] 若 $f$ 在 $[a,b]$ 上可微，并且 $f'\in L([a,b])$ ，则 $f$ 在 $[a,b]$ 上绝对连续，从而有 Newton - Leibnitz 公式成立.
+
+
+
+
+
+
+
