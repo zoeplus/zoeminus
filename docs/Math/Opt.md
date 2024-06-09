@@ -255,35 +255,167 @@ $$\begin{aligned}
 &\quad\quad x\geq0
 \end{aligned}$$
 
-一般设 $\text{rank}(A)=m,b\geq0$ ，并且 $m\leq n$ . 
+设 $\text{rank}(A)=m,b\geq0$ ，并且 $m\leq n$ . 
 
-线性规划的可行域是一个**多面体**.
+线性规划的可行域是一个**多面体**，为凸集.
 
-可以通过引入变量的方式以将非标准形式的线性规划转化为标准形式. #imcomplete-lack-examples .
+可以通过引入变量的方式以将非标准形式的线性规划转化为标准形式，e.g. 满足约束条件 $x\ge 0$ .
 
-由 $\text{rank}(A)=m$ ，设 $A=(B\ N)$ ， $B$ 为 $m$ 阶非奇异矩阵，相应地令 $x=\begin{bmatrix}x_B & x_N\end{bmatrix}$ 从而可得 $Ax=Bx_B+Nx_N=b$ ，从而 $x_B=B^{-1}b-B^{-1}Nx_N$ ，所以 $Ax=b$ 有一解 $\begin{bmatrix}B^{-1}b\\ 0\end{bmatrix}$ ，称为**基本解**；如果 $B^{-1}b\geq0$ ，则 $\begin{bmatrix}B^{-1}b\\ 0\end{bmatrix}$ 即为该线性规划问题的解，称为**基本可行解**. （ $A$ 中的 $m$ 阶非奇异矩阵可能有多个，所以可能有多个基本可行解，此外注意，将 $A$ 写作 $(B,N)$ 只是方便表示，实际计算时，只需要确定 $A$ 中的 $m$ 个线性无关列对应的列索引（基指标）即可，下面的所有表示都是如此）
+由 $\text{rank}(A)=m$ ，设 $A=[B\ N]$ ， $B$ 为 $m$ 阶非奇异矩阵，相应地令 $x=\begin{bmatrix}x_B & x_N\end{bmatrix}$ 从而可得 $Ax=Bx_B+Nx_N=b$ ，从而 $x_B=B^{-1}b-B^{-1}Nx_N$ ，所以 $Ax=b$ 有一解 $\begin{bmatrix}B^{-1}b\\ 0\end{bmatrix}$ ，称为**基本解**；如果 $B^{-1}b\geq0$ ，则 $\begin{bmatrix}B^{-1}b\\ 0\end{bmatrix}$ 即为该线性规划问题的解，称为**基本可行解**. 
 
-在处理简单的二维线性规划问题时，极值一般都在多边形（多面体）的顶点处取得，在线性规划中也有这一结论.
+>[!warning] 提醒
+>$A$ 中的 $m$ 阶非奇异矩阵可能有多个，所以可能有多个基本可行解，此外注意，将 $A$ 写作 $[B,N]$ 只是方便表示，实际计算时，只需要确定 $A$ 中的 $m$ 个线性无关列对应的列索引（基指标）即可，下面的所有表示都是如此.
 
-定义**顶点**（极点）：设 $S\subset \mathbb{R}^n$ 是凸集，如果对于任意的 $\lambda\in(0,1),y,z\in S$ ， $x=\lambda y+(1-\lambda)z\Rightarrow x=y=z$ .  
+在处理简单的二维线性规划问题时，极值一般都在多边形（多面体）的顶点处取得，在线性规划中也有这一结论，但首先需要明确顶点的定义.
+
+定义**顶点**（极点）：设 $S\subset \mathbb{R}^n$ 是凸集，如果<u>存在</u> $\lambda\in(0,1),y,z\in S$ ， $x=\lambda y+(1-\lambda)z\Rightarrow x=y=z$ .
 
 >[!example]- 闭球体 $S:\{x:x^Tx=1\}$ 的顶点全体为 $\partial{S}$ .
 
 >[!example]- $\{x:x_1+x_2+x_3\leq1,x_i\geq0,i=1,2,3\}$ 的顶点为 $(1,0,0)^T,(0,1,0)^T,(0,0,1)^T$ .
 
->[!note]- $x$ 是可行域 $F=\{x:Ax=b,x\geq0\}$ 的一个顶点的充要条件是 $x$ 是 LP 标准形式的一个基本可行解 $\begin{bmatrix}B^{-1}b\\ 0\end{bmatrix}$ .  #imcomplete-lack-proofs 
+>[!note] $x$ 是可行域 $F=\{x:Ax=b,x\geq0\}$ 的一个顶点的充要条件是 $x$ 是 LP 标准形式的一个基本可行解 $\begin{bmatrix}B^{-1}b\\ 0\end{bmatrix}$ .
 
-由上结论，依据 $B^{-1}$ 为从 $A$ 的线性无关列中选取而组成的可知，线性规划的可行域 $F$ 的顶点有限.
+由上结论，依据 $B^{-1}$ 为从 $A$ 的线性无关列中选取而组成的可知，线性规划的可行域 $F$ 的顶点有限. 因此可以通过穷举的方法找到基本可行解，但是否是最优解？需要进一步讨论.
 
->[!note]- 若 $F$ 有界，则 $F=\{F\text{ 的顶点的凸组合}\}$ . #imcomplete-lack-proofs 
+>[!warning] 此处，<u>基本可行解</u>等同于顶点.
+>可行解不一定是顶点，在可行域 $F$ 中.
 
 设 $D$ 是一个凸集， $d$ 是一个向量，如果 $\forall x\in D,\alpha\geq0$ ，都有 $x+\alpha d\in D$ 则称 $d$ 为 $D$ 的一个**方向**.
 
->[!note]- 若 $F$ 无界，则任一可行域中的点 $x$ 都可以表示为 $x=\sum\limits_{i=1}^{k}\alpha_iv_i+\alpha d$ ，其中 $\sum\limits_{i=1}^{k}\alpha_i=1,\alpha_i\geq0$ ， $v_i$ 为 $F$ 的顶点， $\alpha\geq0$ ， $d$ 为 $F$ 的一个方向.
+下面则是两个多面题理论的定理，从直观上对于可行域和顶点有一个感知.
 
->[!note]- 若线性规划标准形式有解，则其必然在可行域 $F$ 的某个顶点处达到最优值.
+>[!note] 若 $F$ 有界，则 $F=\{F\text{ 的顶点的凸组合}\}$ .
+
+>[!note] 若 $F$ 无界，则任一可行域中的点 $x$ 都可以表示为 $x=\sum\limits_{i=1}^{k}\alpha_iv_i+\alpha d$ ，其中 $\sum\limits_{i=1}^{k}\alpha_i=1,\alpha_i\geq0$ ， $v_i$ 为 $F$ 的顶点， $\alpha\geq0$ ， $d$ 为 $F$ 的一个方向.
+
+最后，可以证明最优解为顶点，即为基本可行解.
+
+>[!note] 若线性规划标准形式有解，则其必然在可行域 $F$ 的某个<u>顶点</u>处达到最优值.
+
+自然想要知道，是否存在一种算法能够求解顶点.
 
 ## 单纯形算法
+
+$$\begin{aligned}
+&\min\ c^Tx\\
+&s.t.\ Ax=b\\
+&\quad\quad x\geq0
+\end{aligned}$$
+
+设 $A\in \mathbb{R}^{m\times n},b\ge0,\text{rank}(A)=m\leq n$ ，
+
+设 $A=[B\ N]$ ，其中 $\text{rank}(B)=m$ ，称 $B$ 为**基矩阵**， $N$ 为**非基阵**. 并记 $B$ 和 $N$ 的列标号为**基指标**和**非基指标**. 按照基、非基指标，可以将 $x$ 划分为 $\begin{bmatrix}x_B \\ x_N\end{bmatrix}$ ，其中 $x_B,x_N$ 分别称为**基变量**和**非基变量**. 
+
+单纯形算法提供了一种从基本可行解转换到另一个基本可行解的方法，直到达到最优解.
+
+为理解单纯形算法，需要分析两点：1) 如何判定达到最优解；2) 如何变换基本可行解.
+
+首先有如下的最优解辨别条件：
+
+>[!note] 设 $x=\begin{bmatrix}B^{-1}b \\ 0\end{bmatrix}$ 为线性规划问题的一个基本可行解，当 $\Delta=c_N-c_BB^{-1}N\ge0$ 时 $x$ 为最优解.
+>证明：设 $x'=\begin{bmatrix}x_B \\ x_N\end{bmatrix}$ 为线性规划问题的一个可行解，其中 $x_B,x_N$ 是按照 $x$ 的 $B,N$ 划分的，并且注意到 $Bx_B+Nx_N=b\Rightarrow x_B=B^{-1}(b-Nx_N)$
+>
+>则有：
+>
+>$$\begin{aligned}
+>c_B^Tx_B+c_N^Tx_N&=c_B^TB^{-1}b+(c_N^T-c_B^TB^{-1}N)x_N\\
+>&\ge c_B^TB^{-1}b
+>\end{aligned}$$
+>
+>注意这里用到了 $x\ge0$ ，即标准线性规划问题.
+
+单纯形算法步骤如下：
+
+1. 初始化<u>基本可行解</u> $x_0$ ，确定 $A$ 中的基阵 $B$ 和非基阵 $N$ ；基指标 $I_B=\{i_1,\cdots,i_m\}$ ，非基指标 $I_N=[n]\backslash I_B$ .
+2. 当 $\Delta=c_N^T-c_B^TB^{-1}N\not\ge0$ 时：
+    1. 求非基指标 $k:c_k-c_B^TB^{-1}a_k=\min\{c_i-c_B^TB^{-1}a_i:i\in I_N\}$ ；
+    2. 求基指标 $i_r:\frac{(B^{-1}b)_{i_r}}{(B^{-1}a_k)_{i_r}}=\min\left\{\frac{(B^{-1}b)_{i_j}}{(B^{-1}a_k)_{i_j}}:1\leq j\leq m\right\}$ ；
+    3. 交换 $k$ 和 $i_r$ ，得到新的基阵 $B$ 和非基阵 $N$ ；
+3. 输出 $B^{-1}b$ .
+
+原始单纯形算法的缺点在于 $B^{-1}$ 需要从头计算. 而实际上每一次只修改了 $B$ 的一列.
+
+### 修正单纯形算法：
+
+单纯形表如下：
+
+|       | $x_B^T$ | $x_N^T$              |           |
+| ----- | ------- | -------------------- | --------- |
+|       | $0$     | $c_N^T-c_B^TB^{-1}N$ |           |
+| $I_B$ | $I$     | $B^{-1}N$            | $B^{-1}b$ |
+
+1. 初始化<u>基本可行解</u> $x_0$ ，确定 $A$ 中的基阵 $B$ 和非基阵 $N$ ；基指标 $I_B=\{i_1,\cdots,i_m\}$ ，非基指标 $I_N=[n]\backslash I_B$ .
+2. 当 $\Delta=c_N^T-c_B^TB^{-1}N\not\geq0$ 时：
+    1. 求非基指标 $k:c_k-c_B^TB^{-1}a_k=\min\{c_i-c_B^TB^{-1}a_i:i\in I_N\}$ ；
+    2. 求基指标 $i_r:\frac{(B^{-1}b)_{i_r}}{(B^{-1}a_k)_{i_r}}=\min\left\{\frac{(B^{-1}b)_{i_j}}{(B^{-1}a_k)_{i_j}}:1\leq j\leq m\right\}$ ；
+    3. 以 $(B^{-1}a_{k})_{i_r}$ 为主元素对于单纯形表进行 Gauss - Jordan 消元，并将 $k$ 替换 $i_r$ 作为基指标.
+3. 输出 $B^{-1}b$ .
+
+使用 Python 中的 `scipy` 实现单纯形算法如下，注意 `scipy 1.11.0` 之后 `simplex` 就被放弃，因为 `highs` 更高效.
+
+格式为：
+
+$$\begin{aligned}
+&\min\quad c^Tx\\
+&s.t.\quad\ A_{ub}x\leq b_{ub}\\
+&\qquad \quad A_{eq}x=b_{eq}\\
+&\qquad \quad l\leq x\leq u
+\end{aligned}$$
+
+下面的实现，习惯上把转化为限制条件是等式的情况.
+
+```python linenums="1" title="单纯形算法"
+ import numpy as np
+ from scipy.optimize import linprog
+ 
+ c = np.array([2, -3, 0, 0])
+ A_eq = np.array([[-1, 1, 1, 0],
+               [1, 1, 0, 1]])
+ b_eq = np.array([6, 4])
+ 
+ solu = linprog(c, A_eq=A_eq, b_eq=b_eq)
+ print(solu) 
+```
+
+/// collapse-code
+```shell linenums="1" title="输出"
+# 我没搞懂为什么 scipy 版本一样， Linux 的 Python3 (3.11.5) 和 Conda 的 Python (3.11.5) 跑出来的结果不同
+
+# scipy==1.12.0
+$ python3 simplex_method.py 
+     con: array([3.97332833e-10, 7.94608823e-11])
+     fun: -11.999999999208926
+ message: 'Optimization terminated successfully.'
+     nit: 4
+   slack: array([], dtype=float64)
+  status: 0
+ success: True
+       x: array([4.29208920e-11, 4.00000000e+00, 2.00000000e+00, 1.12695494e-10])
+
+# scipy==1.12.0
+(base) $ python simplex_method.py
+       message: Optimization terminated successfully. (HiGHS Status 7: Optimal)
+        success: True
+         status: 0
+            fun: -12.0
+              x: [ 0.000e+00  4.000e+00  2.000e+00  0.000e+00]
+            nit: 3
+          lower:  residual: [ 0.000e+00  4.000e+00  2.000e+00  0.000e+00]
+                 marginals: [ 5.000e+00  0.000e+00  0.000e+00  3.000e+00]
+          upper:  residual: [       inf        inf        inf        inf]
+                 marginals: [ 0.000e+00  0.000e+00  0.000e+00  0.000e+00]
+          eqlin:  residual: [ 0.000e+00  0.000e+00]
+                 marginals: [-0.000e+00 -3.000e+00]
+        ineqlin:  residual: []
+                 marginals: []
+ mip_node_count: 0
+ mip_dual_bound: 0.0
+        mip_gap: 0.0
+```
+///
+
+下面用 Python 编程单纯形算法.
 
 ```python title="修正单纯形算法" linenums="1"
 输入： 初始基本可行解 x_0, c, A, b
@@ -312,11 +444,13 @@ while (not Delta >= 0)
 return x
 ```
 
-## 两阶段法
+### 两阶段法
 
-## M 法
 
-## 对偶单纯性法
+
+### M 法
+
+### 对偶单纯性法
 
 标准线性规划问题 $(P)$ 及其**对偶问题** $(D)$ ：
 
@@ -1086,7 +1220,9 @@ $$\lvert \frac{\partial^3{f}}{\partial{x_i}\partial{x_j}\partial{x_l}}\rvert\leq
 1. 初始化 $x_1,k\leftarrow 1$ ；
 2. 当 $\nabla f(x_k)\neq 0$ 时：精确搜索 $\alpha_k=\arg\min f(x_k+\alpha d_k)$ ， $x_{k+1}\leftarrow x_k+\alpha_kd_k,k\leftarrow k+1$ ；
 
->[!note]- 若在 $\mathbb{R}^n$ 中有一组共轭方向 $d_1,\cdots,d_n$ ，可以证明共轭方向法至多经过 $n$ 步之后 $\frac{1}{2}x^TGx+b^Tx$ 就会收敛，其中 $G$ 为对称正定矩阵. $\frac{1}{2}x^TGx+b^Tx$ 称为严格二次凸函数.
+下面来说明共轭方向法求解严格二次凸函数时的良好性质：最多进行 $n$ 次迭代（使用 $n$ 次共轭方向）之后收敛. 为证明这点，根据凸函数的性质以及 $\mathbb{R}^n$ 为凸集，只需要说明经过 $n$ 次迭代之后一定有 $\nabla f=0$ ，为此不妨设 $\nabla f(x_k)\neq 0,\forall 1\leq k\leq n$ ，进而证明 $d_{i}^T\nabla f(x_{n+1}),\forall 1\leq k\leq n$ ，利用 $d_i,1\leq i\leq n$ 线性无关得到结论.
+
+>[!note] 📍 若在 $\mathbb{R}^n$ 中有一组共轭方向 $d_1,\cdots,d_n$ ，可以证明共轭方向法至多经过 $n$ 步之后 $\frac{1}{2}x^TGx+b^Tx$ 就会收敛，其中 $G$ 为对称正定矩阵. $\frac{1}{2}x^TGx+b^Tx$ 称为严格二次凸函数.
 >不妨假设 $k\leq n$ 时， $\nabla f(x_k)\neq 0$ （迭代了 $n-1$ 步仍然不收敛.）
 >
 >$$\begin{aligned}
@@ -1100,19 +1236,21 @@ $$\lvert \frac{\partial^3{f}}{\partial{x_i}\partial{x_j}\partial{x_l}}\rvert\leq
 >
 >考虑：
 >
->$$\nabla f(x_{n+1})=\nabla f(x_n)+\alpha_nGd_n=\nabla f(x_{k+1})+\sum\limits_{l=k+1}^{n}\alpha_kGd_k$$
+>$$\nabla f(x_{n+1})=\nabla f(x_n)+\alpha_nGd_n=\nabla f(x_{k+1})+\sum\limits_{l=k+1}^{n}\alpha_lGd_l$$
 >
 >进而：
 >
 >$$d_k^T\nabla f(x_{n+1})=0,\forall 1\leq k\leq n-1$$
 >
->并且： $d_n^T \nabla f(x_{n+1})=0$ ，所以 $\nabla f(x_{n+1})=0$ .
+>并且： $d_n^T \nabla f(x_{n+1})=0$ ，所以 $\nabla f(x_{n+1})=0$ ，因为 $d_i,i=1,\cdots,n$ 线性无关.  
 
-下面讨论如何获取共轭方向，采取“生成”的方法： $d_{k+1}=-\nabla f(x_{k+1})+\beta_kd_k$ ，现在来反推 $\beta_k$ ，然后通过精确搜索得到的步长 $\alpha_k$ .
+下面讨论如何获取共轭方向，对于严格凸二次函数 $f(x)=\frac{1}{2}x^TGx-b^Tx$ .
 
-取初始点 $x_1$ ， $d_1\leftarrow -\nabla f(x_1)$ .
+采取“生成”的方法：令 $d_{k+1}=-\nabla f(x_{k+1})+\beta_kd_k$ ，现在来反推 $\beta_k$ ，然后通过精确搜索得到的步长 $\alpha_k$ .
 
-令：
+取初始点 $x_1$ ， $d_1\leftarrow -\nabla f(x_1)=-G_1x_1+b$ .
+
+一般地有：
 
 $$d_k^TGd_{k+1}=d_k^TG(-\nabla f(x_{k+1}+\beta_kd_k))=-d_k^TG\nabla f(x_{k+1})+\beta_k d_k^TGd_k=0$$
 
@@ -1137,6 +1275,10 @@ $$d_k^T\gamma_k=(-\nabla f(x_k)+\beta_{k-1}d_{k-1})^T\gamma_k=-\gamma_k^T\gamma_
 >[!note] 上述算法生成的 $d_1,\cdots,d_n$ 是共轭的. #imcomplete-lack-proofs 
 >用归纳法解决. 只需要证明对于任意的 $2\leq k\leq n$ ，对于任意的 $i\leq k$ 有 $d_i^TGd_k=0$ .
 
+因此由之前的讨论可以得到下面的结论：
+
+>[!note] 用 FR 共轭梯度法求解无约束严格凸二次规划 $\min\frac{1}{2}x^TGx-b^Tx$ ，至多 $n$ 步一定得到最优解. 其中 $G\sim s^{++}(n)$ .
+
 上述算法被称为 **Fletch-Reeves （FR）共轭梯度法**.
 
 1. 初始 $x_1$ ， $\gamma_1\leftarrow Gx_1-b,d_1\leftarrow -\gamma_1,k\leftarrow 1$ ；
@@ -1150,14 +1292,7 @@ $$\begin{aligned}
 &d_{k+1}\leftarrow -\gamma_{k+1}+\beta_k d_k
 \end{aligned}$$
 
-```sage title="FR 共轭梯度法实现" linenums="1"
-G = 
-f(x_1, x_2) = 1 / 2 * x.transpose() * G * x - b.transpose() * x
 
-x = [1, 1]
-gamma = G * x - b
-alpha = gamma * gamma
-```
 
 >[!example] 用共轭梯度法求解下面的问题： $\min_{x\in \mathbb{R}^2}\ f(x)=x_1^2+x_2^2-4x_1-5x_2-x_1x_2-5$ .
 
