@@ -2070,20 +2070,45 @@ $$\begin{aligned}
 
 记可行域为 $F$ .
 
->[!note] 设 $f$ 在 $x$ 处连续可微. 若 $s$ 满足 $\nabla f^Ts<0$ ，则 $s$ 是 $f$ 在 $x$ 处的一个下降方向.
+称 $s\in \mathbb{R}^m$ 为 $x\in \mathbb{R}^m$ 处**下降方向**，如果存在 $\delta>0$ ，使得对于任意的 $\alpha\in(0,\delta)$ 都有 $f(x+\alpha s)<f(x)$ .
 
-设 $x\in F$ ， $s\neq0\in \mathbb{R}^n$ ，如果存在 $\delta>0$ 使得对于任意的 $\alpha\in(0,\delta],x+\alpha s\in F$ ，则称 $s$ 为 $x$ 处的一个**可行方向**，记 $x$ 处可行方向全体为 $FD(x)$ . 
+>[!note]- 设 $f$ 在 $x$ 处连续可微. 若 $s$ 满足 $\nabla f^Ts<0$ ，则 $s$ 是 $f$ 在 $x$ 处的一个下降方向.
+>证明：
+>
+>$$f(x+\alpha s)=f(x)+\nabla f(x)^T\alpha s+\mathcal{o}(\alpha)$$
+>
+>则当 $\alpha>0$ 充分小时 $f(x+\alpha s)<f(x)$ .
+
+设 $x\in F$ ， $s\neq0\in \mathbb{R}^m$ ，如果存在 $\delta>0$ 使得对于任意的 $\alpha\in(0,\delta],x+\alpha s\in F$ ，则称 $s$ 为 $x$ 处的一个**可行方向**，记 $x$ 处可行方向全体为 $FD(x)$ .
+
+定义减弱的可行方向：称 $s\neq 0\in \mathbb{R}^m$ 是**序列化可行方向**，如果存在 $\mathbb{R}^m$ 上的序列 $\{s_k\}_{k\ge1}$ 和 $\{\delta_k\}_{k\ge1},\delta_k>0$ 满足 $\{x+\delta_ks_k\}_{k\ge1}\subset F$ 并且 $f(x+\delta_ks_k)<f(x)$ ，以及 $s_k\rightarrow s(k\rightarrow \infty),\delta_k\rightarrow0$ . 并记序列可行化方向全体为 $SFD(x)$ .
 
 设 $x\in F,s\neq 0\in \mathbb{R}^n$ ，如果 $s$ 还满足以下条件：
 
 $$\begin{aligned}
 &s^T\nabla c_i(x)=0,i=1,\cdots,m\\
-&s^T\nabla c_i(x)=0,i=m+1,\cdots,p
+&s^T\nabla c_i(x)\ge0,i=m+1,\cdots,p
 \end{aligned}$$
 
-则称 $s$ 为可行域 $F$ 在 $x$ 处的**约束线性化后的可行方向**. 
+则称 $s$ 为可行域 $F$ 在 $x$ 处的**约束线性化后的可行方向**，记 $x$ 处约束线性化后的可行方向为 $LFD(x)$ . 约束线性化即为：
 
-称：
+$$\begin{aligned}
+&c_i(x+\alpha s)=c_i(x)+\alpha s^T\nabla c_i(x)+\mathcal{o}(\alpha)=\mathcal{o}(\alpha)\rightarrow0\\
+&c_i(x+\alpha s)=c_i(x)+\alpha s^T\nabla c_i(x)+\mathcal{o}(\alpha)\ge0(\alpha\rightarrow0)\\
+\end{aligned}$$
+
+>[!note]- 对于 $x\in F$ ，在其上定义的方向全体 $D,FD,SFD,LFD$ 均为锥.
+>证明： $s\in D$ ，设对应的为 $\delta>0$ ，对于 $t>0$ ，取 $\delta'=\frac{\delta}{t}$ 即可. $s\in FD$ 同理. 对于 $s\in SFD,t>0$ ，取 $\{ts_k\}_{k\ge1}$ 和 $\{\delta_k/t\}_{k\ge1}$ . 对于 $LFD$ 显然.
+
+对于上面定义的各种方向集，其关系如下：
+
+>[!note] 若约束函数在 $x\in F$ 处连续可微，则 $FD(x)\subset SFD(x)\subset LFD(x)$ .
+
+>[!note] 若 $x$ 为约束优化问题的局部最优解，并且 $f,c_i,i=1,\cdots,p$ 连续可微，那么 $SFD(x)\cap LFD(x)=\emptyset$ ，于是 $FD(x)\cap LFD(x)=\emptyset$ .
+
+>[!note] 约束函数 $c_i$ 在 $x\in F$ 处连续可微，且 $c_i$ 为线性函数 ( $i=1,\cdots,p$ ) 或者 $\nabla c_i(x),i=1,\cdots,m$ 线性无关，则 $FD(x)=LFD(x)$ ，从而 $FD(x)=SFD(x)=LFD(x)$ .
+
+定义 **Lagrange 乘子** $\lambda_i,i=1,\cdots,p$ ，如果其满足下面的约束条件：
 
 $$\begin{aligned}
 &\nabla f(x)-\sum\limits_{i=1}^{p}\lambda_i\nabla c_i(x)=0\\
@@ -2091,7 +2116,22 @@ $$\begin{aligned}
 &\lambda_ic_i(x)=0,i=m+1,\cdots,p
 \end{aligned}$$
 
-为 **KT 条件**（KKT 条件）.
+称上述约束条件为 **KT 条件**（KKT 条件）.
+
+>[!hint] Lagrange 乘子由原约束优化问题中的不等式约束确定.
+
+关于 Lagrange 乘子的存在性有如下定理：
+
+>[!note] 设 $x\in F$ 为约束无优化问题的一个局部最优解，如果 $f,c_i,i=1,\cdots,p$ 在 $x$ 的某邻域内连续可微，并且 $SFD(x)=LFD(x)$ ，则存在该约束无优化问题的 Lagrange 乘子.
+
+同时， $KT$ 条件是 $x\in F$ 是约束优化问题的<u>局部</u>最优解的必要条件. 
+
+>[!example]- 考虑问题 $\min\ (x_2+100)^2+0.01x_1^2,s.t.x_2-\cos x_1\ge 0$ ，其局部解是有限的还是无限的？用 KT 条件证明结论.
+>Hint：KT 条件，若 $\lambda=0$ ，则 $[x_1,x_2]=[0,1]$ ，若 $\lambda>0$ ，则最后需要求解： $0.02x_1=\sin 2x_1+200\sin x_1$ ，这个等式只有有限个解.
+
+特别地，满足以下情形时 $x$ 为全局最优解. 
+
+>[!note] 如果 $f,-c_i,i=m+1,m+2,\cdots,p$ 为连续可微的凸函数. $c_j,j=1,\cdots,m$ 为线性函数. 如果 $x$ 满足 $KT$ 条件，则 $x$ 为约束优化问题的全局最优解.
 
 >[!note] 若 $f,-c_i,i=m+1,m+2,\cdots,p$ 是连续可微的凸函数， $c_j,i=1,\cdots,m$ 是线性函数. 若 $x^*$ 满足 KT 条件，则 $x^*$ 是优化问题的整体最优解.
 
@@ -2102,8 +2142,36 @@ $$\begin{aligned}
 &s.t.\quad \ x_1-x_2\ge0,x_1+x_2\le4,x_1\le3
 \end{aligned}$$
 
+## 罚函数法
+
+**罚函数法**将约束优化问题转化为无约束优化问题.
+
+对于等式优化问题：
+
+$$\begin{aligned}
+&\min\quad f(x)\\
+&s.t.\quad\ c_i(x)=0,i=1,\cdots,m
+\end{aligned}$$
+
+可以定义**二次罚函数**：
+
+$$Q(x,\mu)=f(x)+\frac{1}{2\mu}\sum\limits_{i=1}^{m}c_i^2(x)$$
+
+其中 $\frac{1}{2\mu}\sum\limits_{i=1}^{m}c_i^2(x)$ 被称为**惩罚项**， $\mu>0$ .
+
+如果 $c_i(x)\neq 0$ ，当 $\mu\rightarrow \infty$ 时，惩罚项 $\rightarrow \infty$ .
+
+而对于含有不等式约束条件的约束优化问题，对 $c_j(x)\ge 0$ ，令 $c_j'(x)=\min\{c_i(x),0\}$ ，转化为求解 $c_j'(x)=0$ .
+
+
+
 ## 障碍罚函数法
- 考虑不等式约束优化问题： $$\begin{aligned} &\min\quad f(x)\\ &s.t.\quad\ c_i(x)\leq0,i=1,\cdots,p \end{aligned}$$ 常用的障碍罚函数为： 
+
+考虑不等式约束优化问题： 
+
+$$\begin{aligned} &\min\quad f(x)\\ &s.t.\quad\ c_i(x)\leq0,i=1,\cdots,p \end{aligned}$$
+
+常用的障碍罚函数为： 
  
  $$\begin{aligned}
 &P(x;\mu)=f(x)-\mu\sum\limits_{i=1}^{p}\ln(-c_i(x))\\
@@ -2114,3 +2182,26 @@ $$\begin{aligned}
 从而可以得到局部近似解.
 
 令 $\mu\rightarrow 0$ 可以得到解.
+
+>[!question] 关于罚函数方法
+>如果最优值在接近边界的地方取到怎么办？
+
+## 二次规划
+
+### 等式约束二次规划问题
+
+定义等式约束的 $QP$ 问题：
+
+$$\begin{aligned}
+&\min\quad \frac{1}{2}x^TGx+g^Tx\\
+&s.t.\quad\ A^Tx=b
+\end{aligned}$$
+
+下面介绍 Lagrange 法，其是求解该问题的 KT 条件的一种方法：
+
+$$\left\{\begin{aligned}
+&Gx+g-A\lambda=0\\
+&A^Tx=b
+\end{aligned}\right.\Leftrightarrow \begin{bmatrix}G & -A \\ -A^T & 0\end{bmatrix}\begin{bmatrix}x \\ \lambda\end{bmatrix}=-\begin{bmatrix}g \\ b\end{bmatrix}$$
+
+>[!note] 设 $A$ 为列满秩的， $Z$ 为 $A^T$ 的零空间 $\{p:A^Tp=0\}$ 的一组基，如果 $Z^TGZ$ 正定，则上述 KT 条件的解 $x,\lambda$ 唯一，并且 $x$ 是原问题的解.
