@@ -1574,10 +1574,12 @@
 <h2 id="_2">集族<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <p>称集合 <span class="arithmatex">\(\Lambda\)</span> 为指标集，如果 <span class="arithmatex">\(\forall \lambda\in \Lambda\)</span> ，都有一个集合 <span class="arithmatex">\(A_\lambda\)</span> 与之对应，并称 <span class="arithmatex">\(\mathcal{A}=\{A_\lambda\}_{\lambda\in\Lambda}\)</span> 为集族. 从而可以定义集族 <span class="arithmatex">\(\mathcal{A}\)</span> 的交 <span class="arithmatex">\(\bigcap_{\lambda\in\Lambda}A_\lambda\)</span> 和集族的并 <span class="arithmatex">\(\bigcup_{\lambda\in \Lambda}A_\lambda\)</span> .  </p>
 <p>如果指标集是空集，则称对应的集合族为<strong>空族</strong>（空族的并为空集，不考虑空族的交）. 如果集族中的每一个集合都为一个集合 <span class="arithmatex">\(X\)</span> 的子集，则称该集族为 <span class="arithmatex">\(X\)</span> 的<strong>子集族</strong>. <span class="arithmatex">\(\{A_\lambda\}_{\lambda\in \Lambda}\)</span> 即为 <span class="arithmatex">\(\bigcup_{\lambda\in \Lambda}A_\lambda\)</span> 的子集族.</p>
-<p><strong>De Mogan定理</strong>（集合族）： <span class="arithmatex">\(<span class="arithmatex">\(\begin{aligned}
+<p><strong>De Mogan定理</strong>（集合族）： </p>
+<div class="arithmatex">\[\begin{aligned}
 &amp;\left(\bigcup_{\lambda\in\Lambda}A_\lambda\right)^c=\bigcap_{\lambda\in \Lambda}A_\lambda^c\\
 &amp;\left(\bigcap_{\lambda\in\Lambda}A_\lambda\right)^c=\bigcup_{\lambda\in \Lambda}A^c_\lambda
-\end{aligned}\)</span>\)</span> 证明从定义即可.</p>
+\end{aligned}\]</div>
+<p>证明从定义即可.</p>
 <p><strong>集合序列</strong>：如果 <span class="arithmatex">\(\Lambda=\mathbb{N}\)</span> ，则称 <span class="arithmatex">\(\mathcal{A}\)</span> 为集合序列，一般记为 <span class="arithmatex">\(\{A_n\}_{n\geq1}\)</span> .</p>
 <h2 id="_3">集合极限<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <p>考虑集合序列 <span class="arithmatex">\(\{A_n\}_{n\geq1}\)</span> . 称 <span class="arithmatex">\(A_1\subset A_2\subset \cdots\subset A_n\subset \cdots\)</span> 为单调递增， <span class="arithmatex">\(A_1\supset A_2\supset \cdots\supset A_n\supset \cdots\)</span> 为单调递减.</p>
@@ -1597,9 +1599,9 @@
 <p><span class="arithmatex">\(x\in\varlimsup_{n\rightarrow \infty}A_n \Leftrightarrow\)</span> 有任意大的 <span class="arithmatex">\(n\)</span> 使得 <span class="arithmatex">\(A_n\)</span> 中含有 <span class="arithmatex">\(x\)</span> ；</p>
 <p><span class="arithmatex">\(x\in\varliminf_{n\rightarrow \infty}A_n \Leftrightarrow\)</span> 当 <span class="arithmatex">\(n\)</span> 充分大时有 <span class="arithmatex">\(x\in A_n\)</span> .</p>
 </div>
-<details class="tip">
-<summary>助记：上交.</summary>
-</details>
+<div class="admonition tip">
+<p class="admonition-title">助记：上交.</p>
+</div>
 <div class="admonition note">
 <p class="admonition-title">上下极限互补：</p>
 <div class="arithmatex">\[\begin{aligned}
@@ -1609,23 +1611,23 @@
 </div>
 <details class="example">
 <summary>集合序列的极限： <span class="arithmatex">\(\{A_n\}_{n\geq1},A_n=\{\frac{m}{n}:m\in \mathbb{Z}\}\)</span> ，证明 <span class="arithmatex">\(\varlimsup_{n\rightarrow \infty}A_n=\mathbb{Q}\)</span> ， <span class="arithmatex">\(\varliminf_{n\rightarrow \infty}A_n=\mathbb{Z}\)</span> .</summary>
-<p>注意到： <span class="arithmatex">\(<span class="arithmatex">\(\mathbb{Z}\subset \varliminf_{n\rightarrow \infty}A_n,\varlimsup_{n\rightarrow \infty}A_n\subset \mathbb{Q}\)</span>\)</span> . </p>
+<p>注意到： </p>
+<div class="arithmatex">\[\mathbb{Z}\subset \varliminf_{n\rightarrow \infty}A_n,\varlimsup_{n\rightarrow \infty}A_n\subset \mathbb{Q}\]</div>
 <ul>
 <li>对于 <span class="arithmatex">\(x\in \bigcup_{n\geq1}\bigcap_{k\geq n}A_k\)</span> ，存在 <span class="arithmatex">\(n_1\)</span> 使得 <span class="arithmatex">\(x\in \bigcap_{k\geq n_1}A_k\)</span> ，进而一定存在 <span class="arithmatex">\(n_1\)</span> 使得 <span class="arithmatex">\(x\in A_{n_2}\cap A_{n_2+1}\)</span> . 从而可以得到 <span class="arithmatex">\(x=\frac{m_1}{n_2}=\frac{m_2}{n_2+1}\)</span> ，进而 <span class="arithmatex">\(x=m_2-m_1\in \mathbb{N}\)</span> . 从而取等.</li>
 <li>由于 <span class="arithmatex">\(\frac{p}{q}=\frac{np}{nq},\forall n\in \mathbb{Z}\)</span> ，所以 <span class="arithmatex">\(\frac{p}{q}\in \bigcup_{k\geq n}A_k,\forall n\geq1\)</span> ，从而可得 <span class="arithmatex">\(\frac{p}{q}\in \bigcap_{n\geq1}\bigcup_{k\geq n}A_k\)</span> ，最后由 <span class="arithmatex">\(\frac{p}{q}\)</span> 的任意性等式成立 .</li>
 </ul>
 </details>
 <p>根据定义有以下结论：</p>
-<details class="note">
-<summary><span class="arithmatex">\(x\in\varlimsup_{n\rightarrow \infty}A_n\Leftrightarrow \forall n\geq1(\exists N\geq n,x\in A_N)\)</span> 即有无穷多个包含 <span class="arithmatex">\(x\)</span> 的 <span class="arithmatex">\(A_N\)</span></summary>
-</details>
-<details class="note">
-<summary><span class="arithmatex">\(x\in\varliminf_{n\rightarrow \infty}A_n\Leftrightarrow \exists N\geq1(\forall n\geq N,x\in A_n)\)</span> 或者不包含 <span class="arithmatex">\(x\)</span> 的集合只有有限多个.</summary>
-</details>
-<p>根据上面两条可以得到：</p>
-<details class="note">
-<summary><span class="arithmatex">\(\varliminf_{n\rightarrow \infty}A_n\subset \varlimsup_{n\rightarrow \infty}A_n\)</span> .</summary>
-</details>
+<div class="admonition note">
+<p class="admonition-title"><span class="arithmatex">\(x\in\varlimsup_{n\rightarrow \infty}A_n\Leftrightarrow \forall n\geq1(\exists N\geq n,x\in A_N)\)</span> 即有无穷多个包含 <span class="arithmatex">\(x\)</span> 的 <span class="arithmatex">\(A_N\)</span></p>
+</div>
+<div class="admonition note">
+<p class="admonition-title"><span class="arithmatex">\(x\in\varliminf_{n\rightarrow \infty}A_n\Leftrightarrow \exists N\geq1(\forall n\geq N,x\in A_n)\)</span> 或者不包含 <span class="arithmatex">\(x\)</span> 的集合只有有限多个.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title"><span class="arithmatex">\(\varliminf_{n\rightarrow \infty}A_n\subset \varlimsup_{n\rightarrow \infty}A_n\)</span> .</p>
+</div>
 <p>进而有取等时的充分条件：</p>
 <div class="admonition note">
 <p class="admonition-title">如果 <span class="arithmatex">\(\{A_n\}_{n\geq1}\)</span> 单调，则 <span class="arithmatex">\(\varliminf_{n\rightarrow \infty}A_n=\varlimsup_{n\rightarrow \infty}A_n\)</span></p>
@@ -1983,7 +1985,7 @@ i) ：如果 <span class="arithmatex">\(x\in\varlimsup_{n\rightarrow \infty}A_n\
     <span class="md-icon" title="最后更新">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2024年5月26日</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2024年6月10日</span>
   </span>
 
     

@@ -598,7 +598,7 @@
           <li class="md-nav__item">
   <a href="#_9" class="md-nav__link">
     <span class="md-ellipsis">
-      逼近可测函数
+      连续函数逼近可测函数
     </span>
   </a>
   
@@ -647,6 +647,15 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#l-r" class="md-nav__link">
+    <span class="md-ellipsis">
+      \(L\) 积分与 \(R\) 积分
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#_12" class="md-nav__link">
     <span class="md-ellipsis">
       重积分与累次积分
@@ -666,6 +675,30 @@
       积分和微分
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="积分和微分">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      有界变差函数
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      绝对连续函数
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1595,7 +1628,7 @@
           <li class="md-nav__item">
   <a href="#_9" class="md-nav__link">
     <span class="md-ellipsis">
-      逼近可测函数
+      连续函数逼近可测函数
     </span>
   </a>
   
@@ -1644,6 +1677,15 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#l-r" class="md-nav__link">
+    <span class="md-ellipsis">
+      \(L\) 积分与 \(R\) 积分
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#_12" class="md-nav__link">
     <span class="md-ellipsis">
       重积分与累次积分
@@ -1663,6 +1705,30 @@
       积分和微分
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="积分和微分">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      有界变差函数
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      绝对连续函数
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -2051,21 +2117,39 @@ m(P\times Q)&amp;=m\left(\bigcup_{n\geq1}P_n\times Q_n\right)\\
 <p class="admonition-title"><span class="arithmatex">\(f\)</span> 在 <span class="arithmatex">\(D\)</span> 上可测， <span class="arithmatex">\(D_1\)</span> 为 <span class="arithmatex">\(D\)</span> 的可测子集，则 <span class="arithmatex">\(f\)</span> 在 <span class="arithmatex">\(D_1\)</span> 上可测.</p>
 <p><span class="arithmatex">\(\{x\in D_1:f&gt;\alpha\}=\{f&gt;\alpha\}\cap D_1\)</span> 可测.</p>
 </div>
+<p>事实上，对于可测集 <span class="arithmatex">\(D\)</span> ，只需要证明对于 <span class="arithmatex">\(\mathbb{R}\)</span> 的一个稠子集 <span class="arithmatex">\(E\)</span> ，对于任意的 <span class="arithmatex">\(\alpha\in E\)</span> 有 <span class="arithmatex">\(\{f&gt;\alpha\}\)</span> 是可测集即可说明 <span class="arithmatex">\(f\)</span> 是 <span class="arithmatex">\(D\)</span> 上的可测函数：对于任意的 <span class="arithmatex">\(\alpha\notin \mathbb{R}\backslash E\)</span> ，存在 <span class="arithmatex">\(\{\alpha_n\}_{n\ge1},\{\beta_n\}_{n\ge1}\subset E\)</span> 并且 <span class="arithmatex">\(\alpha_n\rightarrow \alpha\)</span> ，从而： <span class="arithmatex">\(\{f&gt;\alpha\}=\bigcup_{n\ge1}\{f&gt;\alpha_n\}\)</span> .</p>
+<div class="admonition example">
+<p class="admonition-title">📍 <span class="arithmatex">\(\forall \alpha\in E,\{f=\alpha\}\)</span> 可测，其中 <span class="arithmatex">\(E\)</span> 为 <span class="arithmatex">\(\mathbb{R}\)</span> 的稠子集， <span class="arithmatex">\(f\)</span> 不一定是可测函数.</p>
+<p>证明：考虑 <span class="arithmatex">\(E=\mathbb{Q}\)</span> ，取 <span class="arithmatex">\(\mathbb{R}\)</span> 上的不可测子集 <span class="arithmatex">\(H\)</span> ，并令：</p>
+<div class="arithmatex">\[f=\left\{\begin{aligned}
+&amp;\sqrt{3},x\in H\\
+&amp;\sqrt{2},x\notin H
+\end{aligned}\right.\]</div>
+<p>则 <span class="arithmatex">\(\{f=\alpha\}=\emptyset\)</span> 可测， <span class="arithmatex">\(\forall \alpha\in \mathbb{Q}\)</span> ，但是 <span class="arithmatex">\(f\)</span> 并不是可测函数： <span class="arithmatex">\(H=\{f&gt;1.5\}\)</span> 不可测.</p>
+</div>
 <div class="admonition example">
 <p class="admonition-title">常值函数是可测函数：若 <span class="arithmatex">\(f(x)\equiv c,\text{dom}(f)=D\)</span> ，则 <span class="arithmatex">\(\{f&gt;\alpha\}=\left\{\begin{aligned}&amp;\emptyset,\alpha\geq c\\&amp;D,\alpha&lt;c\end{aligned}\right.\)</span> .</p>
 </div>
-<details class="example" open="open">
-<summary>定义在区间 <span class="arithmatex">\(D\)</span> 上的连续函数是可测函数.</summary>
+<details class="example">
+<summary>定义在区间 <span class="arithmatex">\(D\)</span> 上的连续函数是可测函数. 更一般地，可测集上的连续函数都可测.</summary>
 <p>证明：因为 <span class="arithmatex">\(f\)</span> 连续，所以 <span class="arithmatex">\(\{f&gt;\alpha\}=f^{-1}((\alpha,+\infty))\)</span> 是开集，所以 <span class="arithmatex">\(\{f&gt;\alpha\}\)</span> 可测；对于一般的区间 <span class="arithmatex">\(D\)</span> 注意到 <span class="arithmatex">\(\{x\in D^\circ:f(x)&gt;\alpha\}\)</span> 是可测的，并且 <span class="arithmatex">\(D\backslash D^\circ\)</span> 至多只有两个点，因此也是可测的（<a href="./#atmostzero">RF#^AtMostZero</a>），所以 <span class="arithmatex">\(D\)</span> 可测.</p>
 </details>
-<div class="admonition example">
-<p class="admonition-title">若 <span class="arithmatex">\(f(x)\)</span> 沿着可测集 <span class="arithmatex">\(D\)</span> 连续，则 <span class="arithmatex">\(f\)</span> 在 <span class="arithmatex">\(D\)</span> 上可测.</p>
-<p>证明： <span class="arithmatex">\(\{x\in D:f&gt;\alpha\}=f^{-1}((\alpha,+\infty))\cap D\)</span> ，并且 <span class="arithmatex">\(f^{-1}((\alpha,+\infty))\)</span> 为 <span class="arithmatex">\(\mathbb{R}\)</span> 的中开集，进而可测，所以 <span class="arithmatex">\(\{x\in D:f&gt;\alpha\}\)</span> 为可测集，所以 <span class="arithmatex">\(f\)</span> 在 <span class="arithmatex">\(D\)</span> 上可测.</p>
+<details class="example">
+<summary>📍 若 <span class="arithmatex">\(f(x)\)</span> 沿着可测集 <span class="arithmatex">\(D\)</span> 连续，则 <span class="arithmatex">\(f\)</span> 在 <span class="arithmatex">\(D\)</span> 上可测.</summary>
+<p>因为 <span class="arithmatex">\(f(x)\)</span> 沿着可测集 <span class="arithmatex">\(D\)</span> 连续，所以存在 <span class="arithmatex">\(\delta&gt;0\)</span> 使得 <span class="arithmatex">\(\forall x'\in B(x,\delta)\cap D\)</span> 有 <span class="arithmatex">\(f(x')&gt;\alpha\)</span> （取 <span class="arithmatex">\(\epsilon=\lvert f(x)-\alpha\rvert\)</span> ），考虑 <span class="arithmatex">\(G=\bigcup_{x':f(x')&gt;\alpha}B(x,\delta)\cap D\)</span> ，则有 <span class="arithmatex">\(G=\{x\in D:f&gt;\alpha\}\)</span> . 并且 <span class="arithmatex">\(G\)</span> 为开集 <span class="arithmatex">\(\bigcup_{x':f(x')&gt;\alpha}B(x,\delta)\)</span> 与可测集 <span class="arithmatex">\(D\)</span> 之并，所以可测.</p>
+</details>
+<div class="admonition warning">
+<p class="admonition-title">沿着 <span class="arithmatex">\(D\)</span> 连续和在 <span class="arithmatex">\(D\)</span> 上连续的区别.</p>
+<p>上面这道题目的伪证： <span class="arithmatex">\(\{x\in D:f&gt;\alpha\}=f^{-1}((\alpha,+\infty))\cap D\)</span> ，并且 <span class="arithmatex">\(f^{-1}((\alpha,+\infty))\)</span> 为 <span class="arithmatex">\(\mathbb{R}\)</span> 的中开集，进而可测，所以 <span class="arithmatex">\(\{x\in D:f&gt;\alpha\}\)</span> 为可测集，所以 <span class="arithmatex">\(f\)</span> 在 <span class="arithmatex">\(D\)</span> 上可测.</p>
+<p><span class="arithmatex">\(f\)</span> 在 <span class="arithmatex">\(\mathbb{R}\)</span> 上不连续；</p>
+<p>如果 <span class="arithmatex">\(f\)</span> 在 <span class="arithmatex">\(D\)</span> 上连续的话那么对于 <span class="arithmatex">\(\{x\in D:f&gt;\alpha\}\)</span> 可以取得 <span class="arithmatex">\(\delta_x\)</span> 使得 <span class="arithmatex">\(\{f&gt;\alpha\}=\bigcup_{x':f(x')&gt;\alpha}B(x',\delta_{x'})\)</span> ，或者由连续的定义知 <span class="arithmatex">\(\{f&gt;\alpha\}\)</span> 开即可.</p>
+<p><span class="arithmatex">\(f\)</span> 沿着 <span class="arithmatex">\(D\)</span> 连续的意思是 <span class="arithmatex">\(\forall x\in D,\forall \epsilon&gt;0,\exists \delta&gt;0,\forall x'\in B(x,\delta)\cap D\)</span> 有 <span class="arithmatex">\(\lvert f(x)-f(x')\rvert&lt;\epsilon\)</span> .</p>
+<p>而 <span class="arithmatex">\(f\)</span> 在 <span class="arithmatex">\(D\)</span> 上连续则是对于 <span class="arithmatex">\(D\)</span> 中的任意开集 <span class="arithmatex">\(G\)</span> ， <span class="arithmatex">\(f^{-1}(G)\)</span> 为开集. 而在度量空间上就有 <span class="arithmatex">\(\forall x\in D,\forall \epsilon&gt;0,\exists \delta&gt;0\)</span> 使得 <span class="arithmatex">\(\forall x'\in B(x,\delta),|f(x)-f(x')|&lt;\epsilon\)</span> .</p>
 </div>
 <details class="example">
-<summary>如果 <span class="arithmatex">\(f\)</span> 在 <span class="arithmatex">\(\mathbb{R}\)</span> 上是可微函数，则 <span class="arithmatex">\(f'\)</span> 可测.</summary>
-<p>因为 <span class="arithmatex">\(f\)</span> 可微，所以 <span class="arithmatex">\(f\in C(\mathbb{R})\)</span> ，从而 <span class="arithmatex">\(f\)</span> 可测；</p>
-<p><span class="arithmatex">\(f_n(x)=\frac{f(x+1/n)-f(x)}{1/n}\)</span> 可测，所以 <span class="arithmatex">\(f'=\lim_{n\rightarrow \infty}f_n\)</span> 可测.</p>
+<summary>设 <span class="arithmatex">\(f\)</span> 为可测集 <span class="arithmatex">\(D\)</span> 上的可测函数，求证：对于任意开集 <span class="arithmatex">\(G\)</span> 和闭集 <span class="arithmatex">\(F\)</span> ， <span class="arithmatex">\(f^{-1}(G)\)</span> 和 <span class="arithmatex">\(f^{-1}(F)\)</span> 均为可测集.</summary>
+<p>证明：只需要证明开集情形， <span class="arithmatex">\(f^{-1}(F)=D\backslash f^{-1}(\mathbb{R}\backslash F)\)</span> .</p>
+<p>因为 <span class="arithmatex">\(G\)</span> 是开集，所以存在一列不交开区间 <span class="arithmatex">\(\{I_n\}_{n\ge1},G=\bigcup_{n\ge1}I_n\)</span> ，从而 <span class="arithmatex">\(f^{-1}(G)=\bigcup_{n\ge1}f^{-1}(I_n)\)</span> 为可测集.</p>
 </details>
 <div class="admonition example">
 <p class="admonition-title">可测集的特征函数 <span class="arithmatex">\(\chi_D\)</span> 可测： <span class="arithmatex">\(\{\chi_D&gt;\alpha\}=\left\{\begin{aligned}&amp;\emptyset,\alpha\geq1\\&amp;D,0\leq \alpha&lt;1\\&amp;\mathbb{R},\alpha&lt;0\end{aligned}\right.\)</span> .</p>
@@ -2089,11 +2173,21 @@ m(P\times Q)&amp;=m\left(\bigcup_{n\geq1}P_n\times Q_n\right)\\
 <p>注： <span class="arithmatex">\(\{f&gt;g\}\)</span> 是可测的这一命题很有用，在之后处理收敛一类的命题是可保证构造的集合是可测的，例如 <a href="#egoroff">#^Egoroff</a></p>
 <p><span class="arithmatex">\(f+g,f-g\)</span> 也是 <span class="arithmatex">\(D'\)</span> 上的可测函数：由 <span class="arithmatex">\(\{f+g&gt;\alpha\}=\bigcup_{n=1}^\infty\{f&gt;r_n\}\cap \{g&gt;\alpha-r_n\}\)</span> （证明：若 <span class="arithmatex">\(x\in \{f+g&gt;\alpha\}\)</span> ，则 <span class="arithmatex">\(\exists r_n\in \mathbb{Q},f(x)&gt;r_n&gt;\alpha-g(x)\)</span> ，并且 <span class="arithmatex">\(g(x)&gt;\alpha-r_n\)</span> ，另一方面显然），注意为保持定义的合理性（广义实数没有定义 <span class="arithmatex">\(-\infty+\infty\)</span> ） <span class="arithmatex">\(f+g\)</span> 的定义域为 <span class="arithmatex">\(D-(\{f=-\infty\}\cap\{g=+\infty\})-(\{f=+\infty\}\cap\{g=-\infty\})\)</span> ； ^fAddGMeasurable</p>
 <p>若 <span class="arithmatex">\(\{f_n\}_{n\geq1}\)</span> 是可测函数，则 <span class="arithmatex">\(\{\sup_{n\geq1}f_n&gt;\alpha\}=\bigcup_{n=1}^\infty\{f_n&gt;\alpha\}\)</span> ， <span class="arithmatex">\(\{\inf_{n\geq1}f_n&lt;\alpha\}=\bigcup_{n=1}^\infty \{f_n&lt;\alpha\}\)</span> ；从而 <span class="arithmatex">\(\varlimsup_{n\rightarrow \infty}f_n(x)=\inf_{n\geq1}\sup_{k\geq n}f_k(x)\)</span> ， <span class="arithmatex">\(\varliminf_{n\rightarrow \infty}f_n(x)=\sup_{n\geq1}\inf_{n\geq n}f_k(x)\)</span> <span class="arithmatex">\(\sup f_n,\inf f_n,\varlimsup f_n,\varliminf f_n\)</span> 均为可测函数. 若 <span class="arithmatex">\(\{f_n\}\)</span> 存在极限，则 <span class="arithmatex">\(\lim_{n\rightarrow \infty}f_n\)</span> 也为可测函数.</p>
+<details class="example">
+<summary>如果 <span class="arithmatex">\(f\)</span> 在 <span class="arithmatex">\(\mathbb{R}\)</span> 上是可微函数，则 <span class="arithmatex">\(f'\)</span> 可测.</summary>
+<p>因为 <span class="arithmatex">\(f\)</span> 可微，所以 <span class="arithmatex">\(f\in C(\mathbb{R})\)</span> ，从而 <span class="arithmatex">\(f\)</span> 可测；</p>
+<p><span class="arithmatex">\(f_n(x)=\frac{f(x+1/n)-f(x)}{1/n}\)</span> 可测，所以 <span class="arithmatex">\(f'=\lim_{n\rightarrow \infty}f_n\)</span> 可测.</p>
+</details>
 <div class="admonition tip">
 <p class="admonition-title">以上，证明一个函数是可测函数可以找一处处收敛于该函数的可测函数列（i.e. 连续函数、简单函数）.</p>
+<p>比如 <span class="arithmatex">\(f+g\)</span> 是可测的，就可以从存在 <span class="arithmatex">\(f_n\rightarrow f,g_n\rightarrow g\)</span> ，从而 <span class="arithmatex">\(f_n+g_n\rightarrow f+g(n\rightarrow \infty)\)</span> ，并且 <span class="arithmatex">\(f_n+g_n\)</span> 为简单函数.</p>
 </div>
 <details class="example">
-<summary><span class="arithmatex">\(f\)</span> 是可测集 <span class="arithmatex">\(D\)</span> 上的可测函数， <span class="arithmatex">\(m(\{f&gt;\alpha\})\)</span> 为 <span class="arithmatex">\(\alpha\)</span> 的右连续函数， <span class="arithmatex">\(m(\{f&lt;\alpha\})\)</span> 为 <span class="arithmatex">\(\alpha\)</span> 的左连续函数；进一步， <span class="arithmatex">\(m(\{f\geq \alpha\})\)</span> 为 <span class="arithmatex">\(\alpha\)</span> 的左连续函数， <span class="arithmatex">\(m(\{f\leq \alpha\}\)</span> 为 <span class="arithmatex">\(\alpha\)</span> 的右连续函数.</summary>
+<summary>📍 设 <span class="arithmatex">\(\{f_n\}_{n\ge1}\)</span> 是可测集 <span class="arithmatex">\(D\)</span> 上的可测函数列，求证： <span class="arithmatex">\(D\)</span> 中使得 <span class="arithmatex">\(\{f_n\}_{n\ge1}\)</span> 收敛的点 <span class="arithmatex">\(x\)</span> 全体是可测集.</summary>
+<p>证明： <span class="arithmatex">\(\{f_n\}_{n\ge1}\)</span> 可测 <span class="arithmatex">\(\Rightarrow\)</span> <span class="arithmatex">\(\varliminf_{n\rightarrow \infty}f_n,\varlimsup_{n\rightarrow \infty}f_n\)</span> 可测，从而 <span class="arithmatex">\(\{\varliminf_{n\rightarrow \infty}f_n=\varlimsup_{n\rightarrow \infty}f_n\}\)</span> 可测.</p>
+</details>
+<details class="example">
+<summary>📍 <span class="arithmatex">\(f\)</span> 是可测集 <span class="arithmatex">\(D\)</span> 上的可测函数， <span class="arithmatex">\(m(\{f&gt;\alpha\})\)</span> 为 <span class="arithmatex">\(\alpha\)</span> 的右连续函数， <span class="arithmatex">\(m(\{f&lt;\alpha\})\)</span> 为 <span class="arithmatex">\(\alpha\)</span> 的左连续函数；进一步， <span class="arithmatex">\(m(\{f\geq \alpha\})\)</span> 为 <span class="arithmatex">\(\alpha\)</span> 的左连续函数， <span class="arithmatex">\(m(\{f\leq \alpha\}\)</span> 为 <span class="arithmatex">\(\alpha\)</span> 的右连续函数.</summary>
 <p>证明：令 <span class="arithmatex">\(g(\alpha)=m(\{f&gt;\alpha\})\)</span> ，则 <span class="arithmatex">\(g(\alpha+1/n)=g(\alpha)-m(\{1/n+\alpha\geq f&gt;\alpha\})\)</span> . 注意到集列 <span class="arithmatex">\(\{1/n+\alpha\geq f&gt;\alpha\}_{n\geq1}\)</span> 单调递减并且不妨设 <span class="arithmatex">\(m(1+\alpha\geq f&gt;\alpha)\)</span> 有限（否则 <span class="arithmatex">\(m\{f&gt;\alpha+1/n\}=m\{f&gt;\alpha\}\equiv\infty\)</span> ），所以：</p>
 <div class="arithmatex">\[\begin{aligned}
 \lim_{n\rightarrow \infty}(g(\alpha+1/n))&amp;=g(\alpha)-\lim_{n\rightarrow \infty}m(\{1/n+\alpha\geq f&gt;\alpha\})\\
@@ -2113,9 +2207,13 @@ m(P\times Q)&amp;=m\left(\bigcup_{n\geq1}P_n\times Q_n\right)\\
 <p>证明：由题可知，对于任意的 <span class="arithmatex">\(a\in \mathbb{R}\)</span> ， <span class="arithmatex">\(\{x\in[a-1/n,b+1/n]:f(x)&gt;a\}\)</span> 为可测集，进而可得 <span class="arithmatex">\(\{x\in(a,b):f(x)&gt;a\}=\bigcup_{n\geq1}\{x\in[a-1/n,b+1/n]:f(x)&gt;a\}\)</span> 可测. 所以 <span class="arithmatex">\(f(x)\)</span> 在 <span class="arithmatex">\((a,b)\)</span> 上可测.</p>
 </details>
 <details class="example">
-<summary>设 <span class="arithmatex">\(f\)</span> 定义在可测集 <span class="arithmatex">\(D\)</span> 上，如果 <span class="arithmatex">\(f^2\)</span> 在 <span class="arithmatex">\(D\)</span> 上可测并且 <span class="arithmatex">\(\{f&gt;0\}\)</span> 是可测集，求证： <span class="arithmatex">\(f\)</span> 在 <span class="arithmatex">\(D\)</span> 上可测.</summary>
-<p>证明：对任意 <span class="arithmatex">\(\alpha&lt;0\)</span> ， <span class="arithmatex">\(\{x\in D:f(x)^2&gt;\alpha^2\}\)</span> 为可测集，所以 <span class="arithmatex">\(\{x\in D:f(x)&lt;\alpha\}\cup \{x\in D:f(x)&gt;-\alpha\}\)</span> 为可测集，所以 <span class="arithmatex">\(\{x\in D:\alpha\leq f(x)\leq -\alpha\}\)</span> 为可测集，又 <span class="arithmatex">\(\{f&gt;0\}\)</span> 是可测集，所以 <span class="arithmatex">\(\{x\in D:0&lt;f(x)\leq -\alpha\}\)</span> 是可测集，所以 <span class="arithmatex">\(\{f&gt;-\alpha\}\)</span> 是可测集.</p>
+<summary>📍 设 <span class="arithmatex">\(f\)</span> 定义在可测集 <span class="arithmatex">\(D\)</span> 上，如果 <span class="arithmatex">\(f^2\)</span> 在 <span class="arithmatex">\(D\)</span> 上可测并且 <span class="arithmatex">\(\{f&gt;0\}\)</span> 是可测集，求证： <span class="arithmatex">\(f\)</span> 在 <span class="arithmatex">\(D\)</span> 上可测.</summary>
+<p>证明：因为 <span class="arithmatex">\(f^2\)</span> 在 <span class="arithmatex">\(D\)</span> 上可测并且 <span class="arithmatex">\(\{f&gt;0\}\)</span> 是可测集，注意到 <span class="arithmatex">\(f=\lvert f\rvert(\chi_{\{f&gt;0\}}-\chi_{\{f\leq 0\}})\)</span> ，并且 <span class="arithmatex">\(\lvert f\rvert\)</span> 是可测的，所以 <span class="arithmatex">\(f\)</span> 可测.</p>
 </details>
+<div class="admonition example">
+<p class="admonition-title">设 <span class="arithmatex">\([0,1]\)</span> 上的可测函数 <span class="arithmatex">\(f\)</span> 几乎处处有限，证明存在实数 <span class="arithmatex">\(\alpha_0\)</span> 使得 <span class="arithmatex">\(m(\{f\ge \alpha_0\})\ge \frac{1}{2},m(\{f\leq \alpha_0\})\ge \frac{1}{2}\)</span> .</p>
+<p>证明：由反证知存在 <span class="arithmatex">\(a_0\)</span> 使得 <span class="arithmatex">\(m(\{f\ge a_0\})\ge \frac{1}{2}\)</span> ，以及 <span class="arithmatex">\(b_0\)</span> 使得 <span class="arithmatex">\(m(\{f\leq b_0\})\ge \frac{1}{2}\)</span> ，不妨设 <span class="arithmatex">\(a_0&lt;b_0\)</span> ，取 <span class="arithmatex">\(\frac{a_0+b_0}{2}\)</span> ，利用闭区间套定理得到结论.</p>
+</div>
 <p>定义<strong>几乎处处成立</strong>：若 <span class="arithmatex">\(D-E=\{x\in D:P(x)\}\)</span> ，其中 <span class="arithmatex">\(E\subset D\)</span> 为一零测集，则称性质 <span class="arithmatex">\(P(x)\)</span> 在 <span class="arithmatex">\(D\)</span> 上几乎处处成立，记为 <span class="arithmatex">\(P(x)\ a.e.\ x\in D\)</span> .</p>
 <div class="admonition example">
 <p class="admonition-title"><span class="arithmatex">\(\sin x\)</span> 在 <span class="arithmatex">\(\mathbb{R}\)</span> 上几乎处处非 <span class="arithmatex">\(0\)</span> ， <span class="arithmatex">\(\sin^nx\)</span> 在 <span class="arithmatex">\(\mathbb{R}\)</span> 上几乎处处收敛于 <span class="arithmatex">\(0\)</span> .</p>
@@ -2165,23 +2263,28 @@ m(P\times Q)&amp;=m\left(\bigcup_{n\geq1}P_n\times Q_n\right)\\
 <summary>可测函数列几乎处处收敛的极限是可测的.</summary>
 <p>证明：设可测函数列 <span class="arithmatex">\(\{f_n\}_{n\geq1}\)</span> 在 <span class="arithmatex">\(D-E\)</span> 上收敛于 <span class="arithmatex">\(f\)</span> ， <span class="arithmatex">\(m(E)=0\)</span> ，则对于任意的 <span class="arithmatex">\(\epsilon&gt;0\)</span> ，存在 <span class="arithmatex">\(N,\forall n&gt;N\)</span> ， <span class="arithmatex">\(\lvert f_n-f\rvert&lt;\frac{\epsilon}{2}\)</span> ，并且由 <span class="arithmatex">\(f_n\)</span> 可测，所以存在简单函数 <span class="arithmatex">\(f_n'\)</span> ， <span class="arithmatex">\(\lvert f_n'-f_n\rvert&lt;\frac{\epsilon}{2}\)</span> ，所以 <span class="arithmatex">\(\lvert f_n'-f\rvert&lt;\epsilon\)</span> ，所以简单函数列 <span class="arithmatex">\(\{f_n'\}_{n\geq N}\)</span> 在 <span class="arithmatex">\(D-E\)</span> 上逐点收敛到 <span class="arithmatex">\(f\)</span> ，所以 <span class="arithmatex">\(f\)</span> 可测.</p>
 </details>
+<h3 id="_9">连续函数逼近可测函数<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h3>
+<p>在上面已经有了一个定理：任何一个可测函数都存在逐点收敛于其本身的简单函数列. <a href="#simpleconverge">#^SimpleConverge</a> ，下面讨论用连续函数逼近可测函数，证明路线是 <a href="#egoroff">#^Egoroff</a> 定理，延拓定理 <a href="#expand">#^Expand</a> ，再到最后的结论 <a href="#lusin">#^Lusin</a> 定理.</p>
 <p>下面这个定理说明了几乎处处收敛的几乎处处有限的可测函数列可以几乎没有损失地加强为一致收敛.</p>
 <div class="admonition note">
 <p class="admonition-title">Egoroff 定理：设 <span class="arithmatex">\(f,f_n(n\geq1)\)</span> 都是<u>有限</u>可测集 <span class="arithmatex">\(D\)</span> 上的几乎处处有限的可测函数，如果 <span class="arithmatex">\(f_n\)</span> 在 <span class="arithmatex">\(D\)</span> 上几乎处处收敛于 <span class="arithmatex">\(f\)</span> ，则对于任意的 <span class="arithmatex">\(\epsilon&gt;0\)</span> ，存在 <span class="arithmatex">\(D\)</span> 的闭子集 <span class="arithmatex">\(F\)</span> ， <span class="arithmatex">\(m(D-F)&lt;\epsilon\)</span> 并且 <span class="arithmatex">\(f_n\)</span> 在 <span class="arithmatex">\(F\)</span> 上一致收敛于 <span class="arithmatex">\(f\)</span> .</p>
 <p>^Egoroff</p>
 </div>
-<p>证明：首先证明存在可测集 <span class="arithmatex">\(E\)</span> 使得 <span class="arithmatex">\(m(D-E)&lt;\frac{\epsilon}{2}\)</span> ，然后利用 <a href="#开闭集逼近可测集">#开闭集逼近可测集</a>证明存在 <span class="arithmatex">\(F\)</span> 使得 <span class="arithmatex">\(m(D-F)&lt;\epsilon\)</span> .</p>
-<p>首先刨去几乎处处之外的集合，令 <span class="arithmatex">\(D_1=D_1^1\cap D_2^2\)</span> ，其中 <span class="arithmatex">\(D_1^1\)</span> 为 <span class="arithmatex">\(f_n,f\)</span> 有限的集合， <span class="arithmatex">\(D_1^2\)</span> 为 <span class="arithmatex">\(f_n\)</span> 收敛于 <span class="arithmatex">\(f\)</span> 的集合.</p>
+<p>分析：首先证明存在可测集 <span class="arithmatex">\(E\)</span> 使得 <span class="arithmatex">\(m(D-E)&lt;\frac{\epsilon}{2}\)</span> ，然后利用 <a href="#开闭集逼近可测集">#开闭集逼近可测集</a>证明存在 <span class="arithmatex">\(F\)</span> 使得 <span class="arithmatex">\(m(D-F)&lt;\epsilon\)</span> .</p>
+<p>为了解决这一问题，刻画 <span class="arithmatex">\(f_n\)</span> 一致收敛于 <span class="arithmatex">\(f\)</span> ，并且需要先后得到集合 <span class="arithmatex">\(E,F\)</span> .</p>
+<div class="arithmatex">\[F\subset E\subset \bigcap_{r\ge1}^{}\bigcup_{n\ge1}\bigcap_{k\ge n}\left\{x:\left\lvert f_k(x)-f(x)\right\rvert&lt;\frac{1}{r}\right\}\]</div>
+<p>证明：首先刨去几乎处处之外的集合，令 <span class="arithmatex">\(D_1=D_1^1\cap D_2^2\)</span> ，其中 <span class="arithmatex">\(D_1^1\)</span> 为 <span class="arithmatex">\(f_n,f\)</span> 有限的集合， <span class="arithmatex">\(D_1^2\)</span> 为 <span class="arithmatex">\(f_n\)</span> 收敛于 <span class="arithmatex">\(f\)</span> 的集合.</p>
 <div class="arithmatex">\[\begin{aligned}
 &amp;D_1^1=\{x\in D:f_n(x),f(x)&lt;\infty,\forall n\geq1\}\\
 &amp;D_1^2=\{x\in D:f_n(x)\rightarrow f(x)(n\rightarrow \infty)\}
 \end{aligned}\]</div>
 <p>进而可知 <span class="arithmatex">\(m(D-D_1)\leq m(D\backslash D_1^1)+m(D\backslash D_1^2)=0\)</span> （因为 <span class="arithmatex">\(D-D_1=D\cap(D_1^1\cap D_1^2)^c=(D_1\backslash D_1^1)\cup (D_1\backslash D_1^2)\)</span> ），所以 <span class="arithmatex">\(m(D_1)=m(D)\)</span> ，只需要构造 <span class="arithmatex">\(E\subset D_1\)</span> 使得 <span class="arithmatex">\(m(D_1-E)&lt;\frac{\epsilon}{2}\)</span> ，则由 <span class="arithmatex">\(D-E\subset (D-D_1)\cup (D_1-E)\)</span> 即可得到 <span class="arithmatex">\(m(D-E)&lt;\frac{\epsilon}{2}\)</span> .</p>
 <p>令 </p>
-<div class="arithmatex">\[A_n^r=D_1\cap \left[\bigcap_{k\geq n}\left\lvert f_k(x)-f(x)\right\rvert&lt;\frac{1}{r}\right],n,r\in \mathbb{N}\]</div>
+<div class="arithmatex">\[A_n^r=D_1\cap \left[\bigcap_{k\geq n}\left\{\left\lvert f_k(x)-f(x)\right\rvert&lt;\frac{1}{r}\right\}\right],n,r\in \mathbb{N}\]</div>
 <p>由 <span class="arithmatex">\(f_k,k\)</span> 可测易证 <span class="arithmatex">\(A_n^r\)</span> 是可测集，并且</p>
-<div class="arithmatex">\[\bigcup_{n\geq1}A_n^r=D_1\cap \left[\bigcup_{n\geq1}\bigcap_{k\geq n}\lvert f_k(x)-f(x)\rvert&lt;\frac{1}{r}\right]\]</div>
-<p>由 <span class="arithmatex">\(D_1\)</span> 的定义可知 <span class="arithmatex">\(D_1=\bigcup_{n\geq1}A_n^r\)</span> ，并且 <span class="arithmatex">\(\{A_n^r\}_{n\geq1}\)</span> 单调递增，所以由 <a href="#monotonouslimit">#^MonotonousLimit</a> 可知 <span class="arithmatex">\(m(\lim_{n\rightarrow \infty}A_n^r)=m(D_1)=\lim_{n\rightarrow \infty}m(A_n^r)\)</span> . </p>
+<div class="arithmatex">\[\bigcup_{n\geq1}A_n^r=D_1\cap \left[\bigcup_{n\geq1}\bigcap_{k\geq n}\left\{\lvert f_k(x)-f(x)\rvert&lt;\frac{1}{r}\right\}\right]\]</div>
+<p>由 <span class="arithmatex">\(D_1\)</span> 的定义可知 <span class="arithmatex">\(D_1=\bigcup_{n\geq1}A_n^r\)</span> ，事实上， <span class="arithmatex">\(D_1\)</span> 中的任意一点 <span class="arithmatex">\(x\)</span> 都在 <span class="arithmatex">\(\bigcap_{r\ge1}\bigcup_{n\ge1}\bigcap_{k\ge n}\{|f_k-f|&lt;1/r\}\)</span> 中. 并且 <span class="arithmatex">\(\{A_n^r\}_{n\geq1}\)</span> 单调递增，所以由 <a href="#monotonouslimit">#^MonotonousLimit</a> 可知 <span class="arithmatex">\(m(\lim_{n\rightarrow \infty}A_n^r)=m(D_1)=\lim_{n\rightarrow \infty}m(A_n^r)\)</span> . </p>
+<p>（下面，即为构造 <span class="arithmatex">\(E:(D_1-E)&lt;\epsilon\)</span> ，利用已经有的条件不难有下面的思路）</p>
 <p>对于任意的 <span class="arithmatex">\(\epsilon&gt;0\)</span> 和给定的 <span class="arithmatex">\(r\)</span> ，存在 <span class="arithmatex">\(n_r\)</span> 使得 <span class="arithmatex">\(m(D_1-A^r_{n_r})&lt;\epsilon/2^{r+1}\)</span> .</p>
 <p>考虑集合 <span class="arithmatex">\(E=\bigcap_{r\geq1}A_{n_r}^r\)</span> ，对于任意的 <span class="arithmatex">\(\epsilon'&gt;0\)</span> ，存在 <span class="arithmatex">\(r_0\geq 1\)</span> ， <span class="arithmatex">\(\frac{1}{r_0}&lt;\epsilon'\)</span> ，对任意的 <span class="arithmatex">\(x\in E\)</span> 由 <span class="arithmatex">\(A_n^r\)</span> 的定义可知，存在 <span class="arithmatex">\(n_{r_1}\)</span> 使得 <span class="arithmatex">\(\forall k&gt;n_{r_1}(\forall x\in E,\lvert f_k(x)-f(x)\rvert&lt;\frac{1}{r_1})\)</span> ，取 <span class="arithmatex">\(r_2=\max\{r_0,r_1\}\)</span> 可得对于任意的 <span class="arithmatex">\(k&gt;n_{r_2}\)</span> 有 <span class="arithmatex">\(\forall x\in E,\lvert f_k(x)-f(x)\rvert&lt;\epsilon'\)</span> ，所以 <span class="arithmatex">\(\{f_n\}_{n\geq1}\)</span> 在 <span class="arithmatex">\(E\)</span> 上一致收敛于 <span class="arithmatex">\(f\)</span> .</p>
 <p>因为 <span class="arithmatex">\(E\)</span> 是可测集，所以存在闭集 <span class="arithmatex">\(F\subset E\)</span> ， <span class="arithmatex">\(m(E\backslash F)&lt;\epsilon/2\)</span> ，从而：</p>
@@ -2197,27 +2300,38 @@ m(D-F)&amp;=m(D)-m(F)=m(D_1)-m(F)\\
 <summary>Egoroff 定理的逆命题也成立.</summary>
 <p>证明：对于任意的 <span class="arithmatex">\(k\geq1\)</span> ，存在 <span class="arithmatex">\(D\)</span> 的闭子集 <span class="arithmatex">\(F_k\)</span> 使得 <span class="arithmatex">\(m(D-F_k)\leq \frac{1}{k}\)</span> 并且 <span class="arithmatex">\(f_n\)</span> 在 <span class="arithmatex">\(F\)</span> 上一致收敛于 <span class="arithmatex">\(f\)</span> . 令 <span class="arithmatex">\(F=\bigcup_{k\geq1}F_k\)</span> ，则 <span class="arithmatex">\(m(D-F)=m\left(\bigcap_{k\geq1}D-F_k\right)\leq \frac{1}{k}\)</span> ，所以 <span class="arithmatex">\(m(D-F)=0\)</span> . 并且对于任意的 <span class="arithmatex">\(x\in F\)</span> ，存在 <span class="arithmatex">\(F_{k_0}\ni x\)</span> ， <span class="arithmatex">\(f_n\)</span> 在 <span class="arithmatex">\(F_{k_0}\)</span> 上一致收敛于 <span class="arithmatex">\(f\)</span> ，从而 <span class="arithmatex">\(\{f_n(x)\}_{n\geq1}\)</span> 收敛到 <span class="arithmatex">\(f(x)\)</span> .</p>
 </details>
-<details class="warning" open="open">
-<summary>在满足 Egoroff 定理的条件下，即使存在 <span class="arithmatex">\(D\)</span> 的子集 <span class="arithmatex">\(F\)</span> 使得 <span class="arithmatex">\(m(D-F)=0\)</span> 也不能保证 <span class="arithmatex">\(f_n\)</span> 在 <span class="arithmatex">\(F\)</span> 上一致收敛于 <span class="arithmatex">\(f\)</span> .</summary>
+<div class="admonition warning">
+<p class="admonition-title">在满足 Egoroff 定理的条件下，即使存在 <span class="arithmatex">\(D\)</span> 的子集 <span class="arithmatex">\(F\)</span> 使得 <span class="arithmatex">\(m(D-F)=0\)</span> 也不能保证 <span class="arithmatex">\(f_n\)</span> 在 <span class="arithmatex">\(F\)</span> 上一致收敛于 <span class="arithmatex">\(f\)</span> .</p>
 <p>例如，对于 <span class="arithmatex">\(f_n(x)=x^n,x\in[0,1]\)</span> ，注意到 <span class="arithmatex">\(\{f_n\}_{n\geq1}\)</span> 在 <span class="arithmatex">\([0,1)\)</span> 上并不一致收敛于 <span class="arithmatex">\(0\)</span> （而在 <span class="arithmatex">\([0,1-\delta)\)</span> 上一致收敛）</p>
-</details>
-<details class="warning" open="open">
-<summary><span class="arithmatex">\(m(D)=\infty\)</span> 时 Egoroff 定理不一定成立.</summary>
+</div>
+<div class="admonition warning">
+<p class="admonition-title"><span class="arithmatex">\(m(D)=\infty\)</span> 时 Egoroff 定理不一定成立.</p>
 <p>考虑 <span class="arithmatex">\(D=\mathbb{R}\)</span> ， <span class="arithmatex">\(f_n=\chi_{[n,+\infty)}\)</span> ，注意到 <span class="arithmatex">\(f_n\)</span> 逐点收敛到 <span class="arithmatex">\(f=0\)</span> ，而不存在闭集 <span class="arithmatex">\(F\)</span> 满足 <span class="arithmatex">\(m(D-F)&lt;1\)</span> 使得 <span class="arithmatex">\(f_n\)</span> 在 <span class="arithmatex">\(F\)</span> 上一致收敛于 <span class="arithmatex">\(f=0\)</span> . （ <span class="arithmatex">\(\forall N\in \mathbb{N},\exists n_0&gt;N\)</span> ，<span class="arithmatex">\(\lvert f_{n_0}-f\rvert=1,\forall x\in[n_0,+\infty)\)</span> ）</p>
-</details>
-<h3 id="_9">逼近可测函数<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h3>
-<div class="admonition note">
-<p class="admonition-title">延拓定理：设 <span class="arithmatex">\(F\subset \mathbb{R}\)</span> 为闭集， <span class="arithmatex">\(f\)</span> 沿着 <span class="arithmatex">\(F\)</span> 连续，则 <span class="arithmatex">\(f\)</span> 可以延拓为 <span class="arithmatex">\(\mathbb{R}\)</span> 上的连续函数 <span class="arithmatex">\(f^*\)</span> 并且 <span class="arithmatex">\(\sup_{x\in \mathbb{R}}\lvert f^*(x)\rvert=\sup_{x\in \mathbb{F}}\lvert f(x)\rvert\)</span> .</p>
+</div>
+<details class="note">
+<summary>延拓定理：设 <span class="arithmatex">\(F\subset \mathbb{R}\)</span> 为闭集， <span class="arithmatex">\(f\)</span> 沿着 <span class="arithmatex">\(F\)</span> 连续，则 <span class="arithmatex">\(f\)</span> 可以延拓为 <span class="arithmatex">\(\mathbb{R}\)</span> 上的连续函数 <span class="arithmatex">\(f^*\)</span> 并且 <span class="arithmatex">\(\sup_{x\in \mathbb{R}}\lvert f^*(x)\rvert=\sup_{x\in \mathbb{F}}\lvert f(x)\rvert\)</span> .</summary>
 <p>证明：对 <span class="arithmatex">\(F^c\)</span> 进行函数定义即可，由 <span class="arithmatex">\(F^c\)</span> 是开集，存在两两不交开区间列 <span class="arithmatex">\(\{(a_n,b_n)\}_{n\geq1}\)</span> ，令 <span class="arithmatex">\(f^*(x)=f(x),x\in F\)</span> ，对于每一个开区间 <span class="arithmatex">\((a_n,b_n)\)</span> ，如果 <span class="arithmatex">\((a_n,b_n)\)</span> 有界，则定义在 <span class="arithmatex">\([a_n,b_n]\)</span> 上的连续函数（线性函数即可）并满足 <span class="arithmatex">\(\lvert f^*\rvert\leq \sup_{x\in F}\lvert f(x)\rvert\)</span> ；如果 <span class="arithmatex">\((a_n,b_n)\)</span> 无界（即 <span class="arithmatex">\(a_n=-\infty\)</span> 或者 <span class="arithmatex">\(b_n=\infty\)</span> ）则将 <span class="arithmatex">\((-\infty,b_n]\)</span> 上的函数值定义为 <span class="arithmatex">\(f(b_n)\)</span> ， <span class="arithmatex">\([a_n,+\infty)\)</span> 上的函数值定义为 <span class="arithmatex">\(f(a_n)\)</span> 即可.</p>
 <p>下面来证明 <span class="arithmatex">\(f^*\)</span> 在 <span class="arithmatex">\(\mathbb{R}\)</span> 上连续，首先对于任意的 <span class="arithmatex">\(x\in F^c\)</span> ，存在 <span class="arithmatex">\(F^c\)</span> 的一个构成区间包含 <span class="arithmatex">\(x\)</span> ，因此连续是显然的；对于任意的 <span class="arithmatex">\(x\in F\)</span> ，由 <span class="arithmatex">\(f\)</span> 在 <span class="arithmatex">\(F\)</span> 上连续， <span class="arithmatex">\(\forall \epsilon&gt;0,\exists \delta&gt;0,\forall y\in V(x,\delta)\cap F\)</span> 有 <span class="arithmatex">\(\lvert f(x)-f(y)\rvert&lt;\epsilon\)</span> . </p>
-<p>证明 <span class="arithmatex">\(\lim_{y\rightarrow x+}f^*(y)=f^*(x)\)</span> 另一半同理. 如果 <span class="arithmatex">\((x,x+\delta)\cap F=\emptyset\)</span> ，则 <span class="arithmatex">\((x,x+\delta)\subset F^c\)</span> ，进而 <span class="arithmatex">\((x,x+\delta)\)</span> 包含在 <span class="arithmatex">\(F^c\)</span> 的一个构成区间中，因此 <span class="arithmatex">\(f^*\)</span> 在 <span class="arithmatex">\([x,x+\delta]\)</span> 上是线性函数，所以有 <span class="arithmatex">\(\lim_{y\rightarrow x^+}f^*(y)=f^*(x)\)</span> ；如果 <span class="arithmatex">\((x,x+\delta)\cap F\neq \emptyset\)</span> ，则设 <span class="arithmatex">\(x'\in (x,x+\delta)\cap F\)</span> ，令 <span class="arithmatex">\(\eta=x'-x\)</span> ，对于任意的 <span class="arithmatex">\(y\in(x,x+\eta)\)</span> ，若 <span class="arithmatex">\(y\in F\)</span> ，则 <span class="arithmatex">\(|f^*(y)-f^*(x)|=\lvert f(y)-f(x)\rvert&lt;\epsilon\)</span> ，如果 <span class="arithmatex">\(y\notin F\)</span> ，则存在 <span class="arithmatex">\(F^c\)</span> 的构成区间 <span class="arithmatex">\((x_1,x_2),x_1,x_2\in F,x_1\geq x\)</span> ，并且 <span class="arithmatex">\(f^*\)</span> 在 <span class="arithmatex">\((x_1,x_2)\)</span> 上是线性函数，所以存在 <span class="arithmatex">\(c_1,c_2\in[0,1],f^*(x)=c_1f^*(x_1)+c_2f^*(x_2),c_1+c_2=1\)</span> ，因此 <span class="arithmatex">\(\lvert f^*(y)-f^*(x)\rvert=\lvert c_1f^*(x_1)+c_2f^*(x_2)-f^*(x)\rvert\leq \epsilon\)</span> ，所以 <span class="arithmatex">\(\lim_{y\rightarrow x^+}f^*(y)=f^*(x)\)</span> .</p>
-</div>
+<p>证明 <span class="arithmatex">\(\lim_{y\rightarrow x+}f^*(y)=f^*(x)\)</span> 另一半同理. 如果 <span class="arithmatex">\((x,x+\delta)\cap F=\emptyset\)</span> ，则 <span class="arithmatex">\((x,x+\delta)\subset F^c\)</span> ，进而 <span class="arithmatex">\((x,x+\delta)\)</span> 包含在 <span class="arithmatex">\(F^c\)</span> 的一个构成区间中，因此 <span class="arithmatex">\(f^*\)</span> 在 <span class="arithmatex">\([x,x+\delta]\)</span> 上是线性函数，所以有 <span class="arithmatex">\(\lim_{y\rightarrow x^+}f^*(y)=f^*(x)\)</span> ；如果 <span class="arithmatex">\((x,x+\delta)\cap F\neq \emptyset\)</span> ，则设 <span class="arithmatex">\(x'\in (x,x+\delta)\cap F\)</span> ，令 <span class="arithmatex">\(\eta=x'-x\)</span> ，对于任意的 <span class="arithmatex">\(y\in(x,x+\eta)\)</span> ，若 <span class="arithmatex">\(y\in F\)</span> ，则 <span class="arithmatex">\(|f^*(y)-f^*(x)|=\lvert f(y)-f(x)\rvert&lt;\epsilon\)</span> ，如果 <span class="arithmatex">\(y\notin F\)</span> ，则存在 <span class="arithmatex">\(F^c\)</span> 的构成区间 <span class="arithmatex">\((x_1,x_2),x_1,x_2\in F,x_1\geq x\)</span> ，并且 <span class="arithmatex">\(f^*\)</span> 在 <span class="arithmatex">\((x_1,x_2)\)</span> 上是线性函数，所以存在 <span class="arithmatex">\(c_1,c_2\in[0,1],f^*(x)=c_1f^*(x_1)+c_2f^*(x_2),c_1+c_2=1\)</span> ，因此 <span class="arithmatex">\(\lvert f^*(y)-f^*(x)\rvert=\lvert c_1f^*(x_1)+c_2f^*(x_2)-f^*(x)\rvert\leq \epsilon\)</span> ，所以 <span class="arithmatex">\(\lim_{y\rightarrow x^+}f^*(y)=f^*(x)\)</span> .<br />
+^Expand</p>
+</details>
 <p>以下这个定理说明了可测集 <span class="arithmatex">\(D\)</span> 上的可测函数都可以由一个连续函数逼近（但不是 <span class="arithmatex">\(a.e\)</span> ）</p>
 <div class="admonition note">
 <p class="admonition-title">Lusin：设 <span class="arithmatex">\(f\)</span> 是可测集 <span class="arithmatex">\(D\)</span> 上的<u>几乎处处有限</u>的可测函数，则对于任意 <span class="arithmatex">\(\epsilon&gt;0\)</span> ，存在沿着 <span class="arithmatex">\(D\)</span> 连续的函数 <span class="arithmatex">\(f^*\)</span> 使得 <span class="arithmatex">\(m(\{f\neq f^*\})&lt;\epsilon\)</span> ，并且 <span class="arithmatex">\(\sup_{x\in D}\lvert f^*(x)\rvert\leq \sup_{x\in D}\lvert f(x)\rvert\)</span> .</p>
+<p>^Lusin</p>
 </div>
+<p>为了证明这一定理， <span class="arithmatex">\((1)\)</span> 用简单函数逼近可测函数， <span class="arithmatex">\((2)\)</span> 利用 Egoroff 定理将收敛在闭集上加强为一致收敛， <span class="arithmatex">\((3)\)</span> 然后利用一致收敛的连续函数的极限仍然连续，进而 <span class="arithmatex">\((4)\)</span> 将沿闭集连续的函数其开拓为沿着 <span class="arithmatex">\(D\)</span> 的连续函数 <span class="arithmatex">\(f^*\)</span> ，从而证明定理.</p>
 <p><span class="arithmatex">\(D\)</span> 为有界可测集：</p>
+<div class="admonition note">
+<p class="admonition-title">（数学分析）设 <span class="arithmatex">\(F\)</span> 是一紧集， <span class="arithmatex">\(\{f_n\}_{n\ge1}\)</span> 为一列沿着 <span class="arithmatex">\(F\)</span> 连续的函数，如果 <span class="arithmatex">\(\{f_n\}_{n\ge1}\)</span> 在 <span class="arithmatex">\(F\)</span> 上一致收敛于 <span class="arithmatex">\(f\)</span> ，则 <span class="arithmatex">\(f\)</span> 也沿着 <span class="arithmatex">\(F\)</span> 连续.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">设 <span class="arithmatex">\(f\)</span> 是可测集 <span class="arithmatex">\(D\)</span> 上的简单函数，则 <span class="arithmatex">\(\forall \epsilon&gt;0\)</span> 存在沿着 <span class="arithmatex">\(D\)</span> 连续的函数 <span class="arithmatex">\(f^*\)</span> 使得 <span class="arithmatex">\(m(\{f\neq f^*\})&lt;\epsilon\)</span> .</p>
+</div>
 <p><span class="arithmatex">\(D\)</span> 为一般可测集：</p>
+<div class="admonition note">
+<p class="admonition-title">Lusin 定理推论：设 <span class="arithmatex">\(f\)</span> 为 <span class="arithmatex">\([a,b]\)</span> 上的几乎处处有限的可测函数，则 <span class="arithmatex">\(\forall \epsilon&gt;0\)</span> ，存在 <span class="arithmatex">\([a,b]\)</span> 上的连续函数 <span class="arithmatex">\(f^*\)</span> 使得 <span class="arithmatex">\(m(\{f\neq f^*\})&lt;\epsilon\)</span> 且 <span class="arithmatex">\(\max\{|f^*|\}\leq \sup\{|f|\}\)</span> .</p>
+</div>
 <h3 id="_10">依测度收敛<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h3>
 <p>在实数域中，处处收敛是建立在欧式距离上的. 类似地可以定义对于可测函数列全体定义度量：依测度收敛.</p>
 <p>设 <span class="arithmatex">\(\{f_n\}_{n\geq1},f\)</span> 为可测集 <span class="arithmatex">\(D\)</span> 上的<u>几乎处处有限</u>的可测函数列，称 <span class="arithmatex">\(\{f_n\}_{n\geq1}\)</span> <strong>依测度收敛</strong>于 <span class="arithmatex">\(f\)</span> ，如果对于任意的 <span class="arithmatex">\(\delta&gt;0\)</span> ， <span class="arithmatex">\(\lim_{n\rightarrow \infty}m(\{\lvert f_n-f\rvert\geq\delta\})=0\)</span> . 注：用 <span class="arithmatex">\(f_n\Rightarrow f\)</span> 表示 <span class="arithmatex">\(f_n\)</span> 依测度收敛于 <span class="arithmatex">\(f\)</span> ，区别于 <span class="arithmatex">\(f_n\rightarrow f\)</span> .</p>
@@ -2264,6 +2378,48 @@ m(\{\lvert f_k\rvert&gt;\delta\})&amp;&lt;m\left(\left\{\lvert f_k\rvert&gt;\fra
 <p>证明：设 <span class="arithmatex">\(\{f_p\}_{p\geq1}\)</span> 在 <span class="arithmatex">\(D_k\)</span> 上测度收敛于 <span class="arithmatex">\(f^k\)</span> ，若 <span class="arithmatex">\(D_i\cap D_j\neq\emptyset\)</span> ，则可知 <span class="arithmatex">\(\{f_p\}_{p\geq1}\)</span> 在 <span class="arithmatex">\(D_i,D_j\)</span> 上分别测度收敛于 <span class="arithmatex">\(f^i,f^j\)</span> ，进而存在子列 <span class="arithmatex">\(\{f_{p_n}\}_{n\geq1}\)</span> 几乎处处收敛于 <span class="arithmatex">\(f^i\)</span> ，同时该子列也测度收敛于 <span class="arithmatex">\(f^i\)</span> ，因此有子列 <span class="arithmatex">\(\{f_{p_{n_l}}\}_{l\geq1}\)</span> 几乎处处收敛于 <span class="arithmatex">\(f^j\)</span> ，所以 <span class="arithmatex">\(f^i=f^j,a.e. D_i\cap D_j\)</span> . 因此可以取函数： <span class="arithmatex">\(f=f^k,x\in D_k,k\geq1\)</span> . </p>
 <p>假设 <span class="arithmatex">\(\{f_p\}_{p\geq1}\)</span> 在 <span class="arithmatex">\(D\)</span> 上不测度收敛于 <span class="arithmatex">\(f\)</span> ，则可以取 <span class="arithmatex">\(\delta_0,\epsilon_0,\{f_{p_k}\}_{n\geq1}\)</span> 满足： <span class="arithmatex">\(m(\{\lvert f_{p_k}-f\rvert&gt;\delta_0\})\geq \epsilon_0\)</span> ， #issue </p>
 </div>
+<details class="example">
+<summary>📍 设 <span class="arithmatex">\(\{f_k\}_{k\ge1}\)</span> 为 <span class="arithmatex">\([a,b]\)</span> 上的一列实值可测函数，求证为使得 <span class="arithmatex">\(f_k\rightarrow0,a.e.\)</span> 充分必要条件是 <span class="arithmatex">\(\forall \epsilon&gt;0,m(\sup_{p\ge k}\lvert f_p\rvert&gt;\epsilon)\rightarrow0(k\rightarrow \infty)\)</span> .</summary>
+<p>证明：因为 <span class="arithmatex">\(f_k\rightarrow 0,a.e.\)</span> ，所以：</p>
+<div class="arithmatex">\[\begin{aligned}
+&amp;m\left(\bigcup_{r\ge1}\bigcap_{n\ge1}\bigcup_{k\ge n}\left\{\left\lvert f_k\right\rvert&gt;\frac{1}{r}\right\}\right)=0\\
+&amp;\Leftrightarrow \lim_{r\rightarrow \infty}m\left(\bigcap_{n\ge 1}\bigcup_{k\ge n}\left\{\lvert f_k\rvert&gt;\frac{1}{r}\right\}\right)=0\\
+&amp;\overset{(1)}{\Leftrightarrow}\forall \epsilon&gt;0,m\left(\bigcap_{n\ge 1}\bigcup_{k\ge n}\left\{|f_k|&gt;\epsilon\right\}\right)&lt;\epsilon\\
+&amp;\Leftrightarrow\forall \epsilon&gt;0,\lim_{n\rightarrow \infty}m\left(\bigcup_{k\ge n}\{|f_k|&gt;\epsilon\}\right)&lt;\epsilon\\
+&amp;\overset{(2)}{\Leftrightarrow}\lim_{n\rightarrow \infty}m\left(\sup_{k\ge n}\{|f_k|&gt;\epsilon\}\right)=0
+\end{aligned}\]</div>
+<p>其中 <span class="arithmatex">\((2)\)</span> 成立参考依测度收敛的等价定义.</p>
+<p><span class="arithmatex">\((1)\)</span> 的成立：对于任意的 <span class="arithmatex">\(\epsilon&gt;0\)</span> ，存在 <span class="arithmatex">\(r\ge 1\)</span> 使得 <span class="arithmatex">\(m(\cap\cup\{|f_k|&gt;1/r\})&lt;\epsilon\)</span> ，再取 <span class="arithmatex">\(r\)</span> 足够大使得 <span class="arithmatex">\(\epsilon&gt;1/r\)</span> ，由 <span class="arithmatex">\(m(\cap\cup\{|f_k|&gt;\epsilon\})\leq m(\cap\cup\{|f_k|&gt;1/r\})\)</span> 可以得到结论；另一方面，取 <span class="arithmatex">\(\epsilon=\frac{1}{r}\)</span> ，则 <span class="arithmatex">\(m(\cap\cup\{|f_k|&gt;1/r\})&lt;1/r,\forall r\ge1\)</span> 从而可以得到结论.</p>
+</details>
+<details class="example">
+<summary>📍 对于上面的问题，如果将 <span class="arithmatex">\([a,b]\)</span> 改为 <span class="arithmatex">\(\mathbb{R}\)</span> 结论是否仍然成立？</summary>
+<p>采取截断的方法，令 <span class="arithmatex">\(\mathbb{R}=\bigcup_{n\ge1}[-n,n]\)</span> . 则有：</p>
+<div class="arithmatex">\[\begin{aligned}
+&amp;f_k\rightarrow 0,a.e.\\
+&amp;\overset{(1)}{\Leftrightarrow} f_k\rightarrow 0,a.e.x\in[-n,n],\forall n\ge1\\
+&amp;\Leftrightarrow \forall \epsilon&gt;0,m\left(\{x\in[-n,n]:\sup_{p\ge k}|f_p|&gt;\epsilon\}\right)\rightarrow 0(k\rightarrow \infty)\\
+&amp;\overset{(2)}{\Leftrightarrow} \forall \epsilon&gt;0,m\left(\sup_{p\ge k}|f_p|&gt;\epsilon\right)\rightarrow 0(k\rightarrow \infty)
+\end{aligned}\]</div>
+<p>其中 <span class="arithmatex">\((1)\)</span> 成立是因为 </p>
+<p><span class="arithmatex">\(<span class="arithmatex">\(m(f_k\not\rightarrow0)=m\left(\bigcup_{n\ge 1}\{x\in [-n,n]:f_k\not\rightarrow 0\}\right)=\lim_{n\rightarrow \infty}\{x\in [-n,n]:f_k\not\rightarrow0\}\)</span>\)</span><br />
+<span class="arithmatex">\((2)\)</span> 成立同理.</p>
+</details>
+<div class="admonition tip">
+<p class="admonition-title">上面这两个例子，实际上说明了测度收敛等价于近一致收敛： <span class="arithmatex">\(\forall \epsilon&gt;0,m\left(\sup_{p\ge k}|f_p-f|\ge \epsilon\right)\)</span> .</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">（Borel - Cantelli 引理）设 <span class="arithmatex">\(\{E_n\}_{n\ge1}\)</span> 为一列可测集，如果 <span class="arithmatex">\(\sum\limits_{n\ge 1}^{}m(E_n)&lt;\infty\)</span> ，则 <span class="arithmatex">\(m\left(\varlimsup_{n\rightarrow \infty}E_n\right)=0\)</span> .</p>
+<p>这是一个概率论中的定理，对于 <span class="arithmatex">\(\{E_n\}_{n\ge1}\)</span> （事件列）取上极限得到的是出现在无数次事件中的结果.  Borel - Cantelli 引理陈述的是如果一个事件集列的概率和是有限的，那么出现无数次出现的结果的概率为 <span class="arithmatex">\(0\)</span> . <a href="https://en.wikipedia.org/wiki/Borel%E2%80%93Cantelli_lemma">check-wiki</a>,<a href="https://math.stackexchange.com/questions/279090/can-someone-explain-the-borel-cantelli-lemma">check-mse</a>.</p>
+</div>
+<details class="example">
+<summary>设 <span class="arithmatex">\(\{f_k\}_{k\ge1}\)</span> 为 <span class="arithmatex">\([a,b]\)</span> 上的一列实值可测函数. 证明：存在正整数列 <span class="arithmatex">\(\{a_k\}_{k\ge1}\)</span> 使得 <span class="arithmatex">\(a_kf_k\rightarrow0,a.e.\)</span> .</summary>
+<p>证明：首先利用之前已经证明的结论： <span class="arithmatex">\(f_k\rightarrow 0(k\rightarrow \infty),a.e.\)</span> 的充分必要条件为 <span class="arithmatex">\(\forall \epsilon&gt;0,m(\sup_{p\ge k }|f_p|&gt;\epsilon)\rightarrow0\)</span> .</p>
+<p>因此只需要证明：</p>
+<div class="arithmatex">\[\lim_{k\rightarrow \infty}m(\sup_{p\ge k}|f_p|&gt;\epsilon)\overset{(1)}{=}m\left(\varlimsup_{k\rightarrow \infty}\{|f_p|&gt;\epsilon\}\right)=0,\forall \epsilon&gt;0\]</div>
+<p>即可，在本题中即为证明存在正整数列 <span class="arithmatex">\(\{a_k\}_{k\ge1}\)</span> 使得：</p>
+<div class="arithmatex">\[m\left(\varlimsup_{k\rightarrow \infty}\{|a_kf_k|&gt;\epsilon\}\right)=0,\forall \epsilon&gt;0\]</div>
+<p>由 Borel - Contelli 引理，充分条件为 <span class="arithmatex">\(\sum\limits_{k\ge 1}^{}m(|a_kf_k|&gt;\epsilon)&lt;\infty\)</span> 而这并不难做到，因为 <span class="arithmatex">\(m(\lvert f_k\rvert=\infty)=0\)</span> ，所以对于 <span class="arithmatex">\(k\ge 1\)</span> ，存在 <span class="arithmatex">\(a_k\)</span> 使得 <span class="arithmatex">\(|f_k|&gt;\frac{\epsilon}{|a_k|}\)</span> 足够大，从而 <span class="arithmatex">\(m(|a_kf_k|&gt;\epsilon)&lt;\frac{\epsilon'}{2^{k+1}}\)</span> ，进而可以满足要求.</p>
+</details>
 <p>在数学分析中，实数完备性指出： <span class="arithmatex">\(\mathbb{R}\)</span> 中的 Cauchy 列（也称基本列）和收敛列是等价的 #imcomplete .</p>
 <p>对于测度收敛也具有相同的结论. 首先定义何为测度中的基本列.</p>
 <p>设 <span class="arithmatex">\(\{f_n\}_{n\geq1}\)</span> 为定义在可测集 <span class="arithmatex">\(D\)</span> 上的几乎处处有限的可测函数列，如果 <span class="arithmatex">\(\forall \delta&gt;0\)</span> ， <span class="arithmatex">\(m(\lvert f_m-f_n\rvert&gt;\delta)\rightarrow0(m,n\rightarrow \infty)\)</span> ，则称 <span class="arithmatex">\(\{f_n\}_{n\geq1}\)</span> 为<strong>测度基本列</strong> / 测度 Cauchy 列.</p>
@@ -2519,7 +2675,7 @@ m(\{\lvert f\rvert&gt;k\})&amp;=m\left(\left\{\lim_{n\rightarrow \infty}f_n&gt;k
 <div class="admonition example">
 <p class="admonition-title">设 <span class="arithmatex">\(g\)</span> 为 <span class="arithmatex">\([-1,1]\)</span> 上的有界可测函数，若对 <span class="arithmatex">\([-1,1]\)</span> 上的任何偶连续函数 <span class="arithmatex">\(f\)</span> 都有 <span class="arithmatex">\(\int_{-1}^1f(x)g(x)dx=0\)</span> ，证明： <span class="arithmatex">\(g(x)=-g(-x),a.e.\)</span></p>
 </div>
-<p>证明：只需要证明 <span class="arithmatex">\(m(\{g(x)+g(-x)\neq0\})=0\)</span> .</p>
+<p>证明：只需要证明 <span class="arithmatex">\(m(\{g(x)+g(-x)\neq-2\})=0\)</span> .</p>
 <p>因为 <span class="arithmatex">\(g\)</span> 为 <span class="arithmatex">\([-1,1]\)</span> 上的有界可测函数，所以 <span class="arithmatex">\(g(-x)\)</span> 为 <span class="arithmatex">\([-1,1]\)</span> 上的有界可测函数，则由 Lusin 定理，对于任意的 <span class="arithmatex">\(\epsilon&gt;0\)</span> ，存在沿着 <span class="arithmatex">\([-1,1]\)</span> 连续的函数 <span class="arithmatex">\(g_\epsilon\)</span> 满足 <span class="arithmatex">\(m(\{g(x)+g(-x)\neq g_\epsilon(x)+g_\epsilon(-x)\})=0\)</span> .</p>
 <p>注意到：</p>
 <div class="arithmatex">\[\begin{aligned}
@@ -2563,6 +2719,11 @@ m(\{\lvert f\rvert&gt;k\})&amp;=m\left(\left\{\lim_{n\rightarrow \infty}f_n&gt;k
 <p class="admonition-title">设 <span class="arithmatex">\(f,g\)</span> 在 <span class="arithmatex">\([a,b]\)</span> 上 Riemann 可积，且存在 <span class="arithmatex">\([a,b]\)</span> 的稠子集 <span class="arithmatex">\(D\)</span> ， <span class="arithmatex">\(f=g,\forall x\in D\)</span> ，求证： <span class="arithmatex">\(\int_{[a,b]}fdx=\int_{[a,b]}gdx\)</span> 并且 <span class="arithmatex">\(f=g,a.e.\)</span></p>
 </div>
 <p>证明：由题可知 <span class="arithmatex">\(\overline{D}=[a,b]\)</span> ，</p>
+<h3 id="l-r"><span class="arithmatex">\(L\)</span> 积分与 <span class="arithmatex">\(R\)</span> 积分<a class="headerlink" href="#l-r" title="Permanent link">&para;</a></h3>
+<div class="admonition note">
+<p class="admonition-title">设 <span class="arithmatex">\(f\)</span> 为 <span class="arithmatex">\([a,b]\)</span> 上的有界函数， <span class="arithmatex">\(f\in R[a,b]\)</span> 的充分必要条件为 <span class="arithmatex">\(f\)</span> 在 <span class="arithmatex">\([a,b]\)</span> 上几乎处处连续. <span class="arithmatex">\(f\in R[a,b]\Rightarrow f\in L([a,b])\)</span> 并且 <span class="arithmatex">\((R)\int_{[a,b]}fdx=(L)\int_{[a,b]}fdx\)</span> .</p>
+<p>^RandL</p>
+</div>
 <h3 id="_12">重积分与累次积分<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h3>
 <p>在 Riemann 积分中，如果 <span class="arithmatex">\(f(x,y)\in C([a,b]\times[c,d])\)</span> ，则有：</p>
 <div class="arithmatex">\[\int_{[a,b]\times[c,d]}f(x,y)dxdy=\int_a^bdx\int_c^df(x,y)dy\]</div>
@@ -2633,6 +2794,25 @@ m(\{\lvert f\rvert&gt;k\})&amp;=m\left(\left\{\lim_{n\rightarrow \infty}f_n&gt;k
 <div class="arithmatex">\[D^+f=D^{-}f=D_+f=D_-f,a.e.x\in [a,b]\]</div>
 <p>为了证明这一命题，引入新的定义：</p>
 <p>设实数集 <span class="arithmatex">\(E\)</span> 和区间族 <span class="arithmatex">\(\Lambda\)</span> ，如果对于任意的 <span class="arithmatex">\(x\in E,\epsilon&gt;0\)</span> ，</p>
+<h3 id="_14">有界变差函数<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h3>
+<p>设 <span class="arithmatex">\(f\)</span> 为 <span class="arithmatex">\([a,b]\)</span> 上的实值函数， <span class="arithmatex">\(X=\{x_k\}_{0\leq k\leq n}\)</span> 为 <span class="arithmatex">\([a,b]\)</span> 上的一个网. <span class="arithmatex">\(a=x_0&lt;x_1&lt;\cdots&lt;x_n=b\)</span> . 如果：</p>
+<div class="arithmatex">\[T_a^b(f)=\sup_{X\subset [a,b]}\left\{\sum\limits_{k=1}^{n}\lvert f(x_k)-f(x_{k-1})\rvert\right\}&lt;\infty\]</div>
+<p>则称 <span class="arithmatex">\(f\)</span> 为 <span class="arithmatex">\([a,b]\)</span> 上的<strong>有界变差函数</strong>，记为 <span class="arithmatex">\(f\in BV([a,b])\)</span>. 其中 <span class="arithmatex">\(V(X)=\sum\limits_{k=1}^{n}|f(x_k)-f(x_{k-1})|\)</span> 为 <span class="arithmatex">\(f\)</span> 对应网 <span class="arithmatex">\(X\)</span> 的<strong>变差</strong>， <span class="arithmatex">\(T_a^b(f)\)</span> 称为 <span class="arithmatex">\(f\)</span> 在 <span class="arithmatex">\([a,b]\)</span> 上的<strong>全变差</strong>.</p>
+<div class="admonition example">
+<p class="admonition-title"><span class="arithmatex">\([a,b]\)</span> 上的单调实值函数有界变差.</p>
+<p><span class="arithmatex">\(T_a^b(f)=|f(b)-f(a)|&lt;\infty\)</span></p>
+</div>
+<p>最后得到如下推论：</p>
+<div class="admonition note">
+<p class="admonition-title"><span class="arithmatex">\(f\in BV([a,b])\)</span> ，则 <span class="arithmatex">\(f\)</span> 几乎处处可导，并且 <span class="arithmatex">\(f'\)</span> 在 <span class="arithmatex">\([a,b]\)</span> 上</p>
+</div>
+<h3 id="_15">绝对连续函数<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h3>
+<div class="admonition note">
+<p class="admonition-title">若 <span class="arithmatex">\(f\)</span> 在 <span class="arithmatex">\([a,b]\)</span> 上单增并且满足 Newton - Leibnitz 公式，则 <span class="arithmatex">\(f\)</span> 绝对连续.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">若 <span class="arithmatex">\(f\)</span> 在 <span class="arithmatex">\([a,b]\)</span> 上可微，并且 <span class="arithmatex">\(f'\in L([a,b])\)</span> ，则 <span class="arithmatex">\(f\)</span> 在 <span class="arithmatex">\([a,b]\)</span> 上绝对连续，从而有 Newton - Leibnitz 公式成立.</p>
+</div>
 
 
 
@@ -2655,7 +2835,7 @@ m(\{\lvert f\rvert&gt;k\})&amp;=m\left(\left\{\lim_{n\rightarrow \infty}f_n&gt;k
     <span class="md-icon" title="最后更新">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2024年6月4日</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2024年6月9日</span>
   </span>
 
     
