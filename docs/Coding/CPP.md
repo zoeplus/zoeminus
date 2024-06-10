@@ -279,7 +279,7 @@ int main() {
 }
 ```
 ///
-## g++
+## G++
 
 ```shell
 g++ -o hello -Wall hello.cpp
@@ -603,6 +603,35 @@ person zoe =
 # 复合数据结构
 
 ## 数组（arrays）
+
+```cpp
+#include<iostream>
+using namespace std;
+int* arr = new int[5];
+int** ndArr = new int*[3];
+int main() {
+    // 定义 3 * 2 int 数组
+    for (int i = 0; i < 3; i++) {
+        ndArr[i] = new int[2];
+    }
+    for (int i = 0; i < 5; i++) {
+        cin >> arr[i];
+    }
+    cout << arr[0] << endl;
+    for (int i = 0; i < 3; i++) {
+        for (int j = 0; j < 2; j++) {
+            cin >> ndArr[i][j];
+        }
+    }
+    cout << ndArr[1][0] << endl;
+    delete arr;
+    for (int i = 0; i < 3; i++) {
+        delete[] ndArr[i];
+    }
+    delete[] ndArr;
+    return 0;
+}
+```
 
 ## 结构（structures）和共同体（union）
 
@@ -1021,6 +1050,24 @@ ss >> a >> ch >> b >> ch >> c;
 
 | #issue 服务器与本地之间的文件传输.
 
+### `ostringstream`
+
+```cpp linenums="1" title="创建 5 * 5 的二元对字符串"
+#include<sstream>
+using namespace std;
+
+string nestedForLoop(int n) {
+    ostringstream res;
+    for (int i = 1; i <= n; ++i) {
+        for (int j = 1; j <= n; ++j) {
+            res << "(" << i << ", " << j << "), ";
+        }
+        res << "\n";
+    }
+    return res.str();
+}
+```
+
 ## Input / Ouput with files
 
 - `ofstream`: stream class to write on files;
@@ -1064,9 +1111,8 @@ printf("%c %lf", ch, d);
 for 循环是**入口条件**（entry-condition）循环:：在循环之前都会首先计算测试表达式 `loopTest` 的值.
 
 ```cpp
-for (initial; loopTest; loopUpdate)
-{
-	// 
+for (initial; loopTest; loopUpdate) {
+	// STATEMENTS
 }
 ```
 
@@ -1074,8 +1120,7 @@ for (initial; loopTest; loopUpdate)
 
 ```cpp title="C++ range-basd for 循环" linenums="1"
 string str {"Hello!"}
-for (char c : str)
-{
+for (char c : str) {
 	cout << c;
 }
 
@@ -1789,6 +1834,8 @@ int main()
 
 ## vector
 
+[check-cpp](https://cplusplus.com/reference/vector/vector/)
+
 ```cpp title="C++ vector 示例" linenums="1"
 #include <vector>
 #include <iostream>
@@ -1906,6 +1953,28 @@ stack<int> st;
 st.push(10); st.push(20);
 cout << st.top();
 st.pop();
+```
+
+```c++ linenums="1" title="模拟函数递归调用栈"
+/* 使用迭代模拟递归 */
+int forLoopRecur(int n) {
+    // 使用一个显式的栈来模拟系统调用栈
+    stack<int> stack;
+    int res = 0;
+    // 递：递归调用
+    for (int i = n; i > 0; i--) {
+        // 通过“入栈操作”模拟“递”
+        stack.push(i);
+    }
+    // 归：返回结果
+    while (!stack.empty()) {
+        // 通过“出栈操作”模拟“归”
+        res += stack.top();
+        stack.pop();
+    }
+    // res = 1+2+3+...+n
+    return res;
+}
 ```
 
 # 其他
