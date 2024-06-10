@@ -2,6 +2,39 @@
 
 ## 上下极限
 
+[[2423Su181045]]
+
+对于数列 $\{a_n\}_{n\ge1}$ ，定义其**上极限**为 $\lim_{n\rightarrow \infty}\sup_{k\ge n}a_k$ ，**下极限**为 $\lim_{n\rightarrow \infty}\inf_{k\ge n}a_k$ .
+
+>[!note] 任意数列都存在上下极限，考虑 $\pm\infty$ .
+
+最直观理解上下极限的方法是如下的等价定义：
+
+称 $\{a_n\}_{n\ge1}$ 的一个子列的极限为 $\{a_n\}_{n\ge1}$ 的一个**极限点**. 并将 $\pm\infty$ 也作为极限点. 数列的上（下）极限有等价定义：最大（小）极限点.
+
+上下极限有如下的性质：
+
+>[!note] $\{a_n\}_{n\ge1}$ 收敛的充分必要条件为 $\varliminf_{n\rightarrow \infty}a_n=\varlimsup_{n\rightarrow \infty}a_n$ . 
+
+>[!note] $\varliminf_{n\rightarrow \infty}-a_n=-\varlimsup_{n\rightarrow \infty}a_n,\ \varlimsup_{n\rightarrow \infty}-a_n=-\varliminf_{n\rightarrow \infty}a_n$ . 
+
+>[!note] $C>0,\varlimsup_{n\rightarrow \infty}Ca_n=C\varlimsup_{n\rightarrow \infty}a_n$ . $C<0,\varlimsup_{n\rightarrow \infty}Ca_n=C\varliminf_{n\rightarrow \infty}a_n$ .
+
+上下极限有如下的不等式：
+
+>[!note] $\varliminf_{n\rightarrow \infty}a_n\leq \varlimsup_{n\rightarrow \infty}a_n$ .
+
+>[!note]- $\varlimsup_{n\rightarrow \infty}(x_n+y_n)\leq \varlimsup_{n\rightarrow \infty}x_n+\varlimsup_{n\rightarrow \infty}y_n$ . $\varliminf_{n\rightarrow \infty}(x_n+y_n)\ge \varliminf_{n\rightarrow \infty}x_n+\varliminf_{n\rightarrow \infty}y_n$ .
+>证明： $\sup_{n\ge1}(x_n+y_n)\ge \sup_{n\ge1}x_n+\sup_{n\ge1}y_n$ .
+
+从而可得：
+
+>[!note] $\varliminf_{n\rightarrow \infty}(x_n+y_n)\leq \varliminf_{n\rightarrow \infty}x_n+\varlimsup_{n\rightarrow \infty}y_n\leq \varlimsup_{n\rightarrow \infty}(x_n+y_n)$ .
+
+并由上结论的证明过程可以得到：
+
+>[!note] 对 $\{x_n\}_{n\geq1},\{y_n\}_{n\ge1}$ ，如果 $\{y_n\}_{n\ge1}$ 收敛，那么 $\varliminf_{n\rightarrow \infty}(x_n+y_n)=\varliminf_{n\rightarrow \infty}x_n+\lim_{n\rightarrow \infty}y_n$ , $\varlimsup_{n\rightarrow \infty}(x_n+y_n)=\varlimsup_{n\rightarrow \infty}x_n+\lim_{n\rightarrow \infty}y_n$ . 
+
 # 连续
 
 
@@ -75,7 +108,6 @@
 
 >[!note]- 区间上单调函数的间断点至多可数.
 
-
 # 数列
 
 Stolz定理 其主要解决的是$\frac{0}{0}$型和$\frac{*}{\infty}$型的极限问题
@@ -105,6 +137,26 @@ Stolz定理 其主要解决的是$\frac{0}{0}$型和$\frac{*}{\infty}$型的极�
 # 积分
 
 ## Riemann积分
+
+### 可积条件
+
+>[!note] （可积的必要条件） $f\in R[a,b]$ ，则 $f$ 在 $[a,b]$ 上有界.
+
+>[!note] （可积第一充分必要条件）有界函数 $f$ 在 $[a,b]$ 上可积的充分必要条件为 $\lim_{\lVert P\rVert\rightarrow 0}\sum\limits_{i=1}^{n}\omega_i\Delta x_i=0$ ，其中 $P$ 为 $[a,b]$ 上的分划.
+
+第一充分必要条件要求对于 $\epsilon>0$ ，存在 $\delta>0$ 任意满足 $\lVert P\rVert<\delta$ 的分划 $P$ 都满足 $\sum\limits_{i=1}^{n}\omega_w\Delta x_i<\epsilon$ .
+
+第二充分必要条件则只要求对于 $\epsilon>0$ ，存在一个满足条件的分划即可.
+
+>[!note] （可积第二充分必要条件）有界函数 $f$ 在 $[a,b]$ 上可积的充分必要条件为 $\forall \epsilon>0$ ，存在区间 $[a,b]$ 上的一个分划 $P$ 使得 $\sum\limits_{P}^{}\omega_i\Delta x_i<\epsilon$ .
+
+此外，可以得到如下可积的充分条件：
+
+>[!note] $f\in C[a,b]\Rightarrow f\in R[a,b]$ .
+
+>[!note] $f$ 在 $[a,b]$ 上有界并且只有有限个间断点，则 $f\in R[a,b]$ .
+
+>[!note] 设 $f$ 在 $[a,b]$ 上单调，则 $f\in R[a,b]$ .
 
 ## 广义积分
 
@@ -520,10 +572,12 @@ $$B(1/2,1/2)=\int_0^1t^{-\frac{1}{2}}(1-t)^{-\frac{1}{2}} dt$$
 
 ## 函数项级数
 
->[!summary]- 一致收敛
->称函数列$\{S_n(x)\}$在数集$E$上一致收敛于$S(x)$，如果：
->- 若函数项级数$\sum\limits_{n=1}^{\infty}u_n(x)$在开区间$I$中的每一个<u>有界闭区间</u>上都一致收敛，则称该级数在$I$上**内闭一致收敛**；
->- 如果$\sum\limits_{n=1}^{\infty}\lvert u_n(x)\rvert$在数集$E$上一致收敛，则称$\sum\limits_{n=1}^{\infty}u_n(x)$在$E$上**绝对一致收敛**.
+定义一致收敛的概念：
+
+称函数列$\{S_n(x)\}$在数集 $E$ 上一致收敛于 $S(x)$ ，如果：
+
+- 若函数项级数 $\sum\limits_{n=1}^{\infty}u_n(x)$ 在开区间 $I$ 中的每一个<u>有界闭区间</u>上都一致收敛，则称该级数在$I$上**内闭一致收敛**；
+- 如果$\sum\limits_{n=1}^{\infty}\lvert u_n(x)\rvert$在数集$E$上一致收敛，则称 $\sum\limits_{n=1}^{\infty}u_n(x)$ 在$E$上**绝对一致收敛**.
 
 >[!note]- 求收敛域
 >对级数$\sum\limits_{n=1}^{\infty}u_n(x)$：
@@ -579,9 +633,13 @@ $$B(1/2,1/2)=\int_0^1t^{-\frac{1}{2}}(1-t)^{-\frac{1}{2}} dt$$
 >2) $$\lVert f\rVert=\sup_{x\in[0,1]}\lvert n^\alpha\cdot xe^{-n  x}\rvert=\lvert f_n(\frac{1}{n})\rvert=n^{\alpha-1}e^{-1}$$则$\alpha<1$时一致收敛.
 >3) 上式右边为$0$，左边：$$\int_0^1f_n(x)dx=\int_0^1n^\alpha xe^{-nx}=n^{\alpha-2}(1-(n+1)e^{-n})$$则$\alpha<2$（注意，一致收敛可换序，但可换序不要求一致收敛）
 
->[!summary]- 幂级数
->$\sum\limits_{n=1}^{\infty}a_n(x-x_0)^n$是一个函数项级数，可以视为多项式的推广
->- **收敛域**：以$x_0$为中心的区间，收敛半径：$$R=\frac{1}{\overline{\lim}_{n\rightarrow \infty}\sqrt[n]{a_n}}=\lim_{n\rightarrow in }\left\lvert \frac{a_n}{a_{n+1}}\right\rvert$$当$\lvert x-x_0\rvert=R$时单独讨论（即为对$\sum\limits_{n=1}^{\infty}a_nR^n$的收敛性的讨论.）最后得到收敛区间
+定义**幂级数**： $\sum\limits_{n=1}^{\infty}a_n(x-x_0)^n$是一个函数项级数，可以视为多项式的推广
+
+**收敛域**：以$x_0$为中心的区间，收敛半径：
+
+$$R=\frac{1}{\overline{\lim}_{n\rightarrow \infty}\sqrt[n]{a_n}}=\lim_{n\rightarrow in }\left\lvert \frac{a_n}{a_{n+1}}\right\rvert$$
+
+当$\lvert x-x_0\rvert=R$时单独讨论（即为对$\sum\limits_{n=1}^{\infty}a_nR^n$的收敛性的讨论.）最后得到收敛区间
 
 >[!example]- 求$\sum\limits_{n=1}^{\infty}\frac{(-1)^n}{2n-1}\left(\frac{1-x}{1+x}\right)^n$的收敛域
 >考虑：$$\lim_{n\rightarrow \infty}\frac{1}{\sqrt[n]{2n-1}}\left\lvert \frac{1-x}{1+x}\right\rvert=\left\lvert \frac{1-x}{1+x}\right\rvert<1$$时收敛，单独讨论$x=0$时，考虑$\sum\limits_{n=1}^{\infty}\frac{(-1)^n}{2n-1}$收敛，因此收敛域为$[0,+\infty)$
