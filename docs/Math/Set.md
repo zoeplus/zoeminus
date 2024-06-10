@@ -66,10 +66,14 @@ $$\begin{aligned}
 
 如果指标集是空集，则称对应的集合族为**空族**（空族的并为空集，不考虑空族的交）. 如果集族中的每一个集合都为一个集合 $X$ 的子集，则称该集族为 $X$ 的**子集族**. $\{A_\lambda\}_{\lambda\in \Lambda}$ 即为 $\bigcup_{\lambda\in \Lambda}A_\lambda$ 的子集族.
 
-**De Mogan定理**（集合族）： $$\begin{aligned}
+**De Mogan定理**（集合族）： 
+
+$$\begin{aligned}
 &\left(\bigcup_{\lambda\in\Lambda}A_\lambda\right)^c=\bigcap_{\lambda\in \Lambda}A_\lambda^c\\
 &\left(\bigcap_{\lambda\in\Lambda}A_\lambda\right)^c=\bigcup_{\lambda\in \Lambda}A^c_\lambda
-\end{aligned}$$ 证明从定义即可.
+\end{aligned}$$
+
+证明从定义即可.
 
 **集合序列**：如果 $\Lambda=\mathbb{N}$ ，则称 $\mathcal{A}$ 为集合序列，一般记为 $\{A_n\}_{n\geq1}$ .
 
@@ -96,7 +100,7 @@ $$\begin{aligned}
 >
 >$x\in\varliminf_{n\rightarrow \infty}A_n \Leftrightarrow$ 当 $n$ 充分大时有 $x\in A_n$ .
 
->[!tip]- 助记：上交.
+>[!tip] 助记：上交.
 
 >[!note] 上下极限互补： 
 >$$\begin{aligned}
@@ -105,19 +109,20 @@ $$\begin{aligned}
 >\end{aligned}$$
 
 >[!example]- 集合序列的极限： $\{A_n\}_{n\geq1},A_n=\{\frac{m}{n}:m\in \mathbb{Z}\}$ ，证明 $\varlimsup_{n\rightarrow \infty}A_n=\mathbb{Q}$ ， $\varliminf_{n\rightarrow \infty}A_n=\mathbb{Z}$ .
->注意到： $$\mathbb{Z}\subset \varliminf_{n\rightarrow \infty}A_n,\varlimsup_{n\rightarrow \infty}A_n\subset \mathbb{Q}$$ . 
+>注意到： 
+>
+>$$\mathbb{Z}\subset \varliminf_{n\rightarrow \infty}A_n,\varlimsup_{n\rightarrow \infty}A_n\subset \mathbb{Q}$$ 
+>
 >- 对于 $x\in \bigcup_{n\geq1}\bigcap_{k\geq n}A_k$ ，存在 $n_1$ 使得 $x\in \bigcap_{k\geq n_1}A_k$ ，进而一定存在 $n_1$ 使得 $x\in A_{n_2}\cap A_{n_2+1}$ . 从而可以得到 $x=\frac{m_1}{n_2}=\frac{m_2}{n_2+1}$ ，进而 $x=m_2-m_1\in \mathbb{N}$ . 从而取等.
 >- 由于 $\frac{p}{q}=\frac{np}{nq},\forall n\in \mathbb{Z}$ ，所以 $\frac{p}{q}\in \bigcup_{k\geq n}A_k,\forall n\geq1$ ，从而可得 $\frac{p}{q}\in \bigcap_{n\geq1}\bigcup_{k\geq n}A_k$ ，最后由 $\frac{p}{q}$ 的任意性等式成立 .
 
 根据定义有以下结论：
 
->[!note]- $x\in\varlimsup_{n\rightarrow \infty}A_n\Leftrightarrow \forall n\geq1(\exists N\geq n,x\in A_N)$ 即有无穷多个包含 $x$ 的 $A_N$
+>[!note] $x\in\varlimsup_{n\rightarrow \infty}A_n\Leftrightarrow \forall n\geq1(\exists N\geq n,x\in A_N)$ 即有无穷多个包含 $x$ 的 $A_N$
 
->[!note]- $x\in\varliminf_{n\rightarrow \infty}A_n\Leftrightarrow \exists N\geq1(\forall n\geq N,x\in A_n)$ 或者不包含 $x$ 的集合只有有限多个.
+>[!note] $x\in\varliminf_{n\rightarrow \infty}A_n\Leftrightarrow \exists N\geq1(\forall n\geq N,x\in A_n)$ 或者不包含 $x$ 的集合只有有限多个.
 
-根据上面两条可以得到：
-
->[!note]- $\varliminf_{n\rightarrow \infty}A_n\subset \varlimsup_{n\rightarrow \infty}A_n$ .
+>[!note] $\varliminf_{n\rightarrow \infty}A_n\subset \varlimsup_{n\rightarrow \infty}A_n$ .
 
 进而有取等时的充分条件：
 
