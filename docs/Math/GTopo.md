@@ -587,7 +587,7 @@ $$f(x)=\frac{2k-1}{2^n},x\in I_n^k,1\leq k\leq 2^{n-1}$$
 >[!example] $\{0,1\}$ 上的拓扑.
 >$\{\emptyset,\{0,1\}\}$ ； $\{\emptyset,\{0\},\{1\},\{0,1\}\}$ ； $\{\emptyset,\{0\},\{0,1\}\}$ ； $\{\emptyset,\{1\},\{0,1\}\}$ .
 
-在[[#度量空间]]中讨论了 $(X,d)$ 中的开集 $W$ 定义为： $\forall x\in W,\exists r>0,B(x,r)\subset U$ ，并且可以验证这样定义的开集全体 $\mathcal{O}$ 是 $X$ 上的一个拓扑，称为由 $d$ 诱导的拓扑，或记为 $\mathcal{O}_d$ . 能够被度量诱导的拓扑称为**可度量拓扑**：对于 $(X,\mathcal{O})$ ，存在 $X$ 上的度量 $d$ 使得 $\mathcal{O}=\mathcal{O}_d$ . 另外也可以回顾[等价度量](#^EqualD)的概念，以 $d_1,d_2$ 诱导的拓扑是否相同来定义是否等价是非常自然的.
+在[[#度量空间]]中讨论了 $(X,d)$ 中的开集 $W$ 定义为： $\forall x\in W,\exists r>0,B(x,r)\subset U$ ，并且可以验证这样定义的开集全体 $\mathcal{O}$ 是 $X$ 上的一个拓扑，称为由 $d$ 诱导的拓扑，或记为 $\mathcal{O}_d$ . 能够被度量诱导的拓扑称为**可度量拓扑**：对于 $(X,\mathcal{O})$ ，存在 $X$ 上的度量 $d$ 使得 $\mathcal{O}=\mathcal{O}_d$ . 另外也可以回顾[等价度量](#^EqualD)的概念，以 $d_1,d_2$ 诱导的拓扑是否相同来定义是否等价是非常自然的. ^dable
 
 定义**闭集**：若 $X\backslash A$ 是开集，则称 $A$ 为闭集. 则可以由下面的**闭集族公理**刻画拓扑空间：设 $\mathcal{F}$ 为拓扑空间 $X$ 的闭集族，则有：
 
@@ -995,6 +995,191 @@ $$\{X\}\cup\{U_1\cap U_2\cap \cdots\cap U_n:U_i\in \mathcal{B},n\geq1\}$$
 
 >[!note]- Hausdorff 空间的紧子集是闭集.
 
+# 乘积空间
+
+设 $X,Y_i,1\leq i\leq n$ 为拓扑空间， $\{f_i:X\rightarrow Y_i\}_{1\leq i\leq n}$ 是一族映射.
+
+定义由映射族 $\{f_i\}_{1\leq i\leq n}$ 生成的 $X$ 上的**初始拓扑**（initial topology）或者**弱拓扑**（weak topology）为由：
+
+$$\mathcal{B}=\{f^{-1}_i(V_i):V_i\text{ 为 }Y_i\text{ 中的开集},i\in I\}$$
+
+作为<u>子基</u>生成的拓扑 $\mathcal{O}$ .
+
+>[!note] $f_i:(X,\mathcal{O})\rightarrow Y_i$ 连续.
+
+>[!note]- 任给 $X$ 上的拓扑 $\tau$ ，如果 $f_i:(X,\tau)\rightarrow Y$ 连续，则 $\mathcal{O}\subset \tau$ . 即 $\mathcal{O}$ 是使得 $X$ 上的 $\{f_i\}_{i\in I}$ 连续的最粗拓扑.
+>证明：对于 $\mathcal{O}$ 中的任意开集 $U$ ，其都可以表示为 $\mathcal{B}$ 中的元素的有限交的并，并且 $f_i$ 连续，从而 $\mathcal{B}$ 中的任何一个元素都是 $\tau$ 中的开集，从而 $U\in \tau$ .
+
+>[!example] 子空间是一个初始拓扑.
+>考虑含入映射： $i: X\rightarrow Y$ ，其中 $X$ 是拓扑空间 $Y$ 的子空间，由[[#子空间]]中的讨论可知含入映射 $i$ 生成的子基为 $\{U\cap X: U\subset Y\}$ ，即为子空间拓扑. $i$ 是使得 $X\rightarrow Y$ 连续的最粗拓扑.
+
+>[!note]- 映射 $f: X\rightarrow Y$ 是同胚嵌入当且仅当 $f$ 是单射并且 $X$ 的拓扑恰好是 $f$ 生成的初始拓扑.
+>证明： $\Rightarrow$ ：因为 $f$ 同胚，所以 $f$ 是单射；设 $X$ 的拓扑为 $\mathcal{O}$ ， $f$ 生成的拓扑的子基为：
+>
+> $$\mathcal{T}=\{f^{-1}(U):U\text{ 为 }Y\text{ 中的开集}\}=\{U\cap X:U\text{ 为 }Y\text{ 中的开集}\}$$
+>
+>从而 $\mathcal{T}=\mathcal{O}$ .
+>
+>$\Leftarrow$ ：因为 $X$ 的拓扑恰好是 $f$ 生成的连续拓扑，所以 $f: X\rightarrow Y$ 连续，又因为 $f$ 是单射，对于 $Y$ 中的任意元素 $y\in Y$ ，有 $f^{-1}(Y)$ 为 $X$ 的子基，所以 $f$ 是满射，则 $f$ 是连续双射.
+>
+>所以对于 $X$ 中的任意基本开集 $W=f^{-1}(U_1)\cap \cdots\cap f^{-1}(U_m)$ ，令 $g=f^{-1}$ ，则 $g^{-1}=f$ ， $f(W)=U_1\cap \cdots\cap U_m$ 为 $Y$ 中的开集，从而 $g$ 连续，则 $f$ 是同胚映射，并且也是嵌入（单连续映射的逆映射还是连续的，则称该映射为同胚嵌入）
+
+>[!example]- 度量诱导的拓扑是初始拓扑.
+>设 $X$ 上由度量诱导引导的拓扑空间为 $\mathcal{O}_d$
+>
+>考虑函数族： $\{h_x: X\rightarrow \mathbb{R}\}_{x\in \mathbb{R}}$ ，其中 $h_x(y)=d(x,y)$ . 设该函数族生成的初始拓扑为 $\mathcal{T}$ .
+>
+>注意到 $\mathcal{O}_d$ 使得 $h_x,x\in \mathbb{R}$ 连续：对于任意的开集 $U\in \mathbb{R}$ ， $h_x^{-1}(U)=\{y\in X:d(x,y)\in U\}$ 是 $\mathcal{O}_d$ 中的开集：对于任意的 $z\in h_y^{-1}(U)$ ，有 $r=d(x,z)\in U$ ，而 $U$ 是 $\mathbb{R}$ 中的开集，所以存在 $U\supset (r-\delta,r+\delta)$ ，而对于任意的 $z':d(z,z')<\delta$ ， $d(x,z')\leq r+d(z,z')\in U$ ，因此 $B(z,\delta)\subset U$ ，从而 $h^{-1}_x(U)$ 为 $\mathcal{O}_d$ 中的开集.
+>
+>因此由初始拓扑的性质： $\mathcal{T}$ 粗于 $\mathcal{O}_d$ .
+>
+>对于 $\mathcal{O}_d$ 中的任何一个开集 $U$ ，对于任意的 $x\in U$ ，存在 $B(x,r_x)\subset U$ ，对于 $\{y:d(x,y)<r_x\}=\{y:h_x(y)\in(0,r_x)\}=h_x^{-1}(0,r_x)$ 为 $\mathcal{T}$ 的子基中的元素，从而可得 $U=\bigcup_{x\in U}B(x,r_x)$ 为 $\mathcal{T}$ 中的开集.
+
+设 $\{(X_i,\tau_i)\}_{i\in I}$ 为一族拓扑空间，定义 $\prod_{i\in I}^{}X_i=\{f:I\rightarrow \bigcup_{i\in I}X_i:f(i)\in X_i\}$ ，进而定义**投影映射** $P_{i_0}:\prod_{i\in I}^{}X_i\rightarrow X_{i_0},P_{i_0}(f)=f(i_0)$ ，定义**乘积拓扑**： $\prod_{i\in I}^{}\tau_i$ 是由<u>子基</u> $\{P_i^{-1}(U_i):i\in I,U_i\in \tau_i\}$ 生成的拓扑.
+
+>[!hint] 可以采取其他方式定义 $\prod_{i\in I}^{}X_i$ .
+>一种更符合直觉的做法是：
+>
+> $$\prod_{i\in I}^{}X_i=\{(x_i)_{i\in I}:x_i\in X_i,\forall i\in I\}$$
+> 
+>注意，这一定义需要用到选择公理. （对于非空的集族 $\{S_i\}_{i\in I}$ ，总是存在 $\{x_i\}_{i\in I}$ 使得 $x_i\in S_i$ ）
+
+由定义可以得出： $P_i^{-1}(U_i)=U_i\times \prod_{j\neq i}^{}X_j$ .
+
+>[!question] 采用 $\left\{\prod_{i\in I}^{}U_i:U_i\in \tau_i\right\}$ 作为基？
+>用 $\left\{\prod_{i\in I}^{}U_i:U_i\in \tau_i\right\}$ 作为基生成的拓扑空间称为 Box Topology ，其是比乘积拓扑更细的拓扑：乘积拓扑中的基为 $\prod_{i\in I',\lvert I'\rvert<\infty}^{}U_i \times \prod_{j\notin I'}^{}X_j$ （有限个限制 + 无限个限制）.
+>
+>可以证明，乘积拓扑是使得 $P_i,i\in I$ 连续的最粗拓扑，并且许多性质在 Box Topology 中不再保持.
+
+投影映射 $P_j$ 具有如下性质：
+
+>[!note] 投射 $p_j:\prod_{i\in I}^{}X_i\rightarrow X_j,\forall j\in I$ 是连续开映射.
+
+>[!note] 映射 $h:Z\rightarrow \prod_{i\in I}^{}X_i$ 连续当且仅当每个复合映射 $p_j\circ h:Z\rightarrow X_j$ 连续.
+
+定义对角映射 $\Delta_{i\in I}f_i:Z\rightarrow\prod_{i\in I}^{}X_i,\quad z\mapsto(f_i(z))_{i\in I}$ .
+
+则有如下结论：
+
+>[!note] 任给一族连续映射 $\{f_i:Z\rightarrow X_i\}_{i\in I}$ ，对角映射 $\Delta_{i\in I}f_i$ 连续.
+
+## 可乘
+
+| 性质   | 是否可乘 | 备注  |
+| ---- | ---- | --- |
+| 可度量化 | 可数可乘 |     |
+|      |      |     |
+
+
+设 $P$ 是拓扑空间的某种性质，如果有限 / 可数 / 任意多个具有 $P$ 的拓扑空间的乘积仍然具有性质 $P$ ，则称性质 $P$ 是**有限 / 可数 / 任意可乘**的.
+
+>[!note] 第一可数和第二可数是可数可乘的.
+
+证明：设 $\{X_n\}_{n\geq1}$ 是一列第一可数空间，考虑 $\prod_{n\geq1}^{}X_n$ ，对于任意的 $(x_i)_{i\geq1}\in \prod_{n\geq1}^{}X_n$ ，对于任意的 $i\geq1$ ，因为 $X_i$ 是第一可数空间，所以存在 $x_i$ 的可数邻域基 $\mathcal{B}_i=\{B_i^n\}_{n\geq1}$ ，
+
+则取集族：
+
+$$\mathcal{B}=\bigcup_{I_n\subset \mathbb{N}}\{\prod_{i\in I_n}^{}B_i\times \prod_{j\notin I_n}^{}X_j:B_i\in \mathcal{B}_i,\forall i\geq1\}$$
+
+其中 $I_n=\{1,\cdots,n\}$ . 显然 $\mathcal{B}'_n=\{(B_i)_{i\in I_n}:B_i\in \mathcal{B}_i,\forall i\geq1\}$ 为有限个可数集族的积，因此该集族是可数的，并且可数个可数集的并可数，所以 $\mathcal{B}$ 是可数的.
+
+对于任意包含 $(x_i)_{i\geq1}$ 的邻域，存在基本开集 $U=\prod_{i\in I'}^{}U_i\times \prod_{j\notin I'}^{}X_i$ ，设 $\max\{ I'\}=i_0$ ，则存在 $B_i^{n_i}\subset U_i,\forall i\in I'$ ，进而 $\prod_{i\in I'}^{}B_i^{n_i}\times \prod_{j\notin I'}^{}B_j^1\subset U$ ，因此 $\mathcal{B}$ 为 $(x_i)_{i\geq1}$ 的一个可数邻域基.
+
+如果 $\{X_n\}_{n\geq1}$ 是一列第二可数空间，则对于 $n\geq1$ ，存在 $X_n$ 的可数基 $\mathcal{B}_n=\{B_n^i\}_{i\geq1}$ ，同理，构造集族：
+
+$$\mathcal{B}=\bigcup_{I_n\subset \mathbb{N}}\{(B_i)_{i\in I_n}:B_i\in \mathcal{B}_i,\forall i\geq1\}$$
+
+对于任何包含 $x$ 的邻域，首先存在基本开集 $U=\prod_{i\in I'}^{}U_i\times \prod_{j\notin I'}^{}X_i$ ，其次类似地可以找到包含于 $U$ 且包含 $x$ 的 $\mathcal{B}$ 中的元素，因此 $\mathcal{B}$ 是可数基.
+
+>[!example] 举出反例说明第一可数、第二可数不是任意可乘的.
+
+考虑第一（二）可数空间 $(\{0,1\},\mathcal{P}(\{0,1\}))$ ， $I$ 为不可数集合，对于 $\prod_{i\in I}^{}X_i$ ，如果其第一可数，则对于 $(x_i)_{i\in I}$ ，其具有可数邻域基，不妨设为 $\{B_j\}_{j\geq1}$ ， 并且（因为对任意基本开集总存在邻域基包含在其中） $B_j=\prod_{i\in I',\lvert I'\rvert<\infty}^{}U_i\times \prod_{j\notin I'}^{}\{0,1\}$ 可知， $\bigcup_{j\geq1}B_j$  可以写作 $\prod_{i\in I',\lvert I'\rvert\subset \mathbb{N}}^{}U_i\times \prod_{j\notin I'}^{}\{0,1\}$ 的形式，因此取 $\prod_{i\in I'}^{}U_i\times \{0\}\prod_{j\in I'\backslash\{j_0\}}^{}X_j$ 即可.
+
+假设其具有可数基，取该可数基的并，则同样有 （因为对任意基本开集总存在邻域基包含在其中） $B_j=\prod_{i\in I',\lvert I'\rvert<\infty}^{}U_i\times \prod_{j\notin I'}^{}\{0,1\}$ ，剩下的同理可证明.
+
+>[!hint] 关键：基 / 邻域基总包含在基本开集中，因此形如基本开集 #issue ；不可数集减去可数集总有多余的元素.
+
+>[!note] 序列紧可数可乘.
+
+证明：设 $\{X_n\}_{n\geq1}$ 为一列序列紧空间，考虑任意的 $\prod_{n\geq1}^{}X_n$ 中的子列 $\{(x^n_l)_{n\geq1}\}_{l\geq1}$ ，
+
+$$\begin{aligned}
+&x_1^1\ x_2^1\ x_3^1\ \cdots\ x_n^1\ \cdots\\
+&x_1^2\ x_2^2\ x_3^2\ \cdots\ x_n^2\ \cdots\\
+&\cdots
+\end{aligned}$$
+
+因为 $X_1$ 序列紧，所以可以在 $X_1$ 中得到收敛于 $x_1$ 的子列 $\{x^1_{i_{1,m}}\}_{m\geq1}$ ，对于 $X_2$ 中的子列 $\{x^2_{i_{1,m}}\}$ ，存在该序列的子列 $\{x^2_{i_{2,m}}\}$ 收敛到 $x_2\in X_2$ ，依次类推.
+
+>[!note] 可度量可数可乘.
+
+>[!example] 设 $\{(X_n,d_n)\}_{n\geq1}$ 为一列度量空间，任给 $x,y\in \prod_{n\geq1}^{}X_n$ ，令 $\rho(x,y)=\sup_{n\geq1}\frac{1}{2^n}\min\{d_n(x_n,y_n),1\}$ . 证明 $\rho$ 是 $\prod_{n\geq1}^{}X_n$ 上的度量并且诱导它的乘积拓扑.
+
+首先验证 $\rho$ 是 $\prod_{n\geq1}^{}X_n$ 上的度量：
+
+1) $\rho(x,y)\geq0$ ，若 $\rho(x,y)=0$ ，则对于任意的 $n\geq1$ ， $\frac{1}{2^n}\min\{d_n(x_n,y_n),1\}\leq 0$ ，从而 $d(x_n,y_n)=0$ 故 $x=y$ ，反之显然成立；
+2) $\rho(x,y)=\rho(y,x)$ ；
+3) $\rho(x,z)\leq \sup_{n\geq1}\frac{1}{2^n}\min\{d_n(x_n,y_n)+d_n(y_n,z_n),1\}$ ，注意到 $\min\{a+b,1\}\leq \min\{a,1\}+\min\{b,1\},\forall a,b\geq0$ . 从而可得结论.
+
+下面证明 $\rho$ 诱导的拓扑与 $\prod_{n\geq1}^{}X_n$ 的乘积拓扑相同：
+
+1) 首先说明 $\rho$ 在 $\prod_{n\geq1}^{}X_n$ 上诱导的拓扑 $\mathcal{O}$ 要粗于其乘积拓扑：对于任意的 $U\in \mathcal{O},x\in U$ ，存在包含 $r>0$ ， $B(x,r)\subset U$ ；取 $N$ 充分大使得 $\frac{1}{2^N}<r$ ，再取 $V_i=B(x_i,\min\{r,1\}/2),\forall i\leq N$ ，从而对于任意的 $y\in \prod_{i=1}^{N}V_i\times \prod_{j>N}^{}X_j$ ，都有 $\rho(x,y)<r$ ，所以 $x\in V\subset B(x,r)\subset U$ ，由 $x$ 的任意性， $U=\cup V_x$ 为乘积拓扑的开集.
+2) 说明 $\rho$ 在 $\prod_{n\geq1}^{}X_n$ 上诱导的拓扑 $\mathcal{O}$ 要细于其乘积拓扑：只需说明对于乘积拓扑中的开集 $p_n^{-1}(U_n)$ ，其都为 $\mathcal{O}$ 中的开集：对于任意的 $x\in p_n^{-1}(U_n)$ ， $p_n^{-1}(U_n)=U_n\times \prod_{j\neq n}^{}X_j$ ，又 $U_n$ 为 $X_n$ 中的开集，从而存在 $r>0$ 使得 $B(x_n,r)\subset U_n$ ，考虑 $V_\rho(x,r/2^n)$ ，则对于任意的 $y\in V_\rho(x,r/2^n)$ ， $d_n(x_n,y_n)<r$ ，从而可知 $y\in U_n$ ， $x\in V_\rho(x,r/2^n)\subset p_n^{-1}(U_n)$ ，所以 $p_n^{-1}(U_n)=\bigcup V_\rho(x,r/2^n)$ 是 $\mathcal{O}$ 中的开集.
+
+>[!note] 可分可数可乘.
+
+>[!note] $T_0,T_1,T_2,T_3$ 任意可乘.
+
+>[!note] 正规任意可乘.
+
+>[!note] Cantor 集同胚于离散空间 $\{0,1\}$ 的可数乘积（记为 $\prod_{n\in \mathbb{N}}^{}\{0,1\}=\{0,1\}=2^\mathbb{N}$ ）
+
+证明：只需要说明 $C$ 中的基本开集都是 $\{0,1\}^\mathbb{N}$ 中的基本开集，反之也是. 用度量 $d(x,y)=\frac{1}{2^n}$ 诱导 $C$ 上的拓扑. #imcomplete-lack-proofs 
+
+>[!note] Cantor 集 $C$ 同胚于其自身的可数次幂 $C^\mathbb{N}$ .
+
+已经证明了 $C$ 同胚于 $\{0,1\}^\mathbb{N}$ ，下面只需证明 $C$ 同胚于 $\{0,1\}^{\mathbb{N}\times \mathbb{N}}$ ，注意到 $\{0,1\}^\mathbb{N}$ 是紧空间，且具有 $T_2$ 性质，由 $T_2$ 可数可乘可知 $\{0,1\}^{\mathbb{N}\times \mathbb{N}}$ 具有 $T_2$ 性质，[进而](#^CompactToHausdorff)只需要证明存在 $\{0,1\}^\mathbb{N}$ 到 $\{0,1\}^{\mathbb{N}\times \mathbb{N}}$ 的连续双射即可， $\lvert \mathbb{N}\rvert=\lvert \mathbb{N}\times \mathbb{N}\rvert$ ，所以存在双射 $\varphi(n):\mathbb{N}\rightarrow \mathbb{N}\times \mathbb{N}$ ，对于任意的 $(x_n)_{n\geq1}\in\{0,1\}^\mathbb{N}$ ， $\{\varphi(n)\}_{n\geq1}$ 将 $\mathbb{N}$ 映射到 $\mathbb{N}\times \mathbb{N}$ 中，因此 $x_n$ 将对应于 $x_{\varphi(n)_0},x_{\varphi(n)_1}$ 两个元素，记为 $x_{\varphi(n)}\in\{0,1\}^{\mathbb{N}\times \mathbb{N}}$ . 由 $\varphi(n)$ 为双射， $f:(x_n)_{n\geq1}\mapsto (x_{\varphi(n)})_{n\geq1}$ 为双射. 对于连续性的证明：设投影映射 $p_j:\prod_{n\geq1}^{}X_i\rightarrow X_j,\forall j\geq1,X_l=\{0,1\}^\mathbb{N},\forall l\geq1$ .
+
+则对于 $p_j\circ f:\{0,1\}^\mathbb{N}\rightarrow \{0,1\}^\mathbb{N}$ ，考虑 $\{0,1\}^\mathbb{N}$ 中的子基 $\{P_l^{-1}(0),P_l^{-1}(1):l\geq1\}$ ，考虑 $(p_j\circ f)^{-1}(P_l^{-1}(0))=f^{-1}(p_j^{-1}(P_l^{-1}(0)))$ ，其中 $P_l^{-1}(0)=\prod_{i\neq l}^{}X_i\times\{0\}$ ， $p_j^{-1}(P_l^{-1}(0))$ 相当于将 $\prod_{i\geq1}^{}\{0,1\}^{\mathbb{N}\times \mathbb{N}}$ 中的第 $j$ 个 $\{0,1\}^\mathbb{N}$ 中的第 $l$ 个元素改为 $\{0\}$ ，其余均保持不变，然后再求在 $f$ 下的原像，根据双射 $f$ 的定义，这实际上相当于求 $\varphi^{-1}(j,l)$ ，等同于 $p^{-1}_{\varphi^{-1}(j,l)}(0)$ . #issue
+
+>[!note] Cantor 集没有孤立点.
+
+## 商映射
+
+设 $X,Y$ 是拓扑空间， $f:X\rightarrow Y$ ，如果 $f$ 是满射并且 $Y$ 的拓扑是由 $f$ 生成的终拓扑，则称 $f$ 为**商映射**（quotient map）.
+
+>[!note] 满映射 $f:X\rightarrow Y$ 是商映射当且仅当 $V$ 为 $Y$ 中的开集 $\Leftrightarrow$ $f^{-1}(V)$ 是 $X$ 中的开集.
+
+>[!example] 设 $f:X\rightarrow Y,g:Y\rightarrow Z$ 是连续映射，证明： 1) 若 $f,g$ 均为商映射，则 $g\circ f$ 也是商映射； 2) 若 $g\circ f$ 也是商映射，则 $g$ 也是商映射.
+
+证明：若 $f,g$ 均为商映射，则 $f,g$ 均为满射，对于任意的开集 $V\subset Z$ ， $(g\circ f)^{-1}(V)=f^{-1}(g^{-1}(V))$ 在 $X$ 中为开集，反之若 $(g\circ f)^{-1}(V)$ 为 $X$ 中的开集，则 $g^{-1}(V)$ 为 $Y$ 中的开集，进而 $V$ 为 $Z$ 中的开集；
+
+若 $g\circ f$ 也是商映射，则 $g\circ f$ 为满射，从而对于任意的 $z\in Z$ ，存在 $x\in X$ 使得 $z=g\circ f(x)$ ，而 $f(x)\in Y$ ，所以 $g$ 为连续满射；如果 $g^{-1}(V)$ 为 $Y$ 中的开集，则 $f^{-1}(g^{-1}(V))$ 为 $X$ 中的开集，由 $g\circ f$ 是商映射， $V$ 为 $Z$ 中的开集. 从而 $g$ 是商映射.
+
+>[!example] 设 $A=[0,1,1/2,1/3,\cdots]$ ，证明商空间 $[0,1]/A$ 同胚于 $\mathbb{R}^2$ 的子空间 $\bigcup_{n\geq1}S_n$ ，其中 $S_n$ 表示圆周 $\{(x,y):(x-1/n)^2+y^2=1/n^2\}$ .
+
+证明：构造从 $[0,1]$ 到 $\bigcup_{n\geq1}S_n$ 的商映射 $f$ ，并使得 $E(f)=A$ 即可. 定义 $f(1/n)=(0,0)$ ，以及 $f(0)=f(1)=(0,0)$ ，对于 $x\in\left(\frac{1}{n+1},\frac{1}{n}\right)$ ，将其映射到 $S_n$ 上即可. 从而 $E(f)=A$ .
+
+>[!note] 设 $f:X\rightarrow Y$ 是连续映射， $E(f)$ 是 $f$ 诱导的等价关系，则对映射 $\bar{f}:X\backslash E(f)\rightarrow Y,\bar{f}([x])=f(x)$ 有：1) $\bar{f}$ 连续；2) $\bar{f}$ 同胚当且仅当 $f$ 是满映射. 
+
+> [!example] 设 $X$ 是拓扑空间， $Y$ 是 Hausdorff 空间， $f:X\rightarrow Y$ 连续，证明 $X\backslash E(f)$ 是 Hausdorff 空间.
+
+证明：因为 $f$ 连续，所以诱导得到的 $\bar{f}:X\backslash E(f)\rightarrow Y$ 也连续，由 $Y$ 为 Hausdorff 空间，对于任意的 $[x]\neq [y]$ ， $f(x)\neq f(y)$ 即 $\bar{f}([x])\neq \bar{f}([y])$ ，存在开集 $V_1,V_2:V_1\cap V_2=\emptyset$ ，从而 $\bar{f}^{-1}(V_1),\bar{f}^{-1}(V_2)$ 分别为 $[x],[y]$ 的开邻域，若 $\exists [z]\in \bar{f}^{-1}(V_1)\cap \bar{f}^{-1}(V_2)$ 则 $f(z)\in V_1\cap V_2$ 矛盾！ 
+
+>[!example] 设 $X$ 是拓扑空间， $E$ 是 $X$ 上的等价关系，证明若 $E\subset X\times X$ 是闭集，并且 $q:X\rightarrow X\backslash E$ 是开映射，则 $X\backslash E$ 是 Hausdorff 空间.
+
+## Tychnoff 乘积定理
+
+紧性是任意可乘的.
+
+引入**理想**的概念：对于拓扑空间 $(X,\mathcal{O})$ ，称 $\mathcal{I}\subset \mathcal{O}$ 是理想，如果：
+
+1. $\emptyset\in \mathcal{I},X\notin \mathcal{I}$ ；
+2. $U\in \mathcal{I},V\subset U\Rightarrow V\in \mathcal{I}$ ；
+3. $U,V\in \mathcal{I}\Rightarrow U\cup V\in \mathcal{I}$ .
+
+[[2421Su110351]]
+
 ## 紧 Hausdorff 空间
 
 **滤子**是与理想相对的概念. 关于理想见 [[#Tychnoff 乘积定理]] .
@@ -1276,184 +1461,37 @@ $T_4$ 空间为正规的 $T_1$ 空间.
 >[!note] 度量空间是正规空间.
 >证明：构造连续函数 $f(x)=\frac{d(x,F)}{d(x,F)+d(x,G)}$
 
-# 乘积空间
+## 拓扑完备
 
-设 $X,Y_i,1\leq i\leq n$ 为拓扑空间， $\{f_i:X\rightarrow Y_i\}_{1\leq i\leq n}$ 是一族映射.
+设拓扑空间 $X$ ，如果 $X$ 可<u>完备</u>度量化：存在 $X$ 上的度量 $d$ 诱导 $X$ 上的拓扑，则称 $X$ 是**拓扑完备**的.
 
-定义由映射族 $\{f_i\}_{1\leq i\leq n}$ 生成的 $X$ 上的**初始拓扑**（initial topology）或者**弱拓扑**（weak topology）为由：
+>[!note] 拓扑完备是闭遗传性质.
 
-$$\mathcal{B}=\{f^{-1}_i(V_i):V_i\text{ 为 }Y_i\text{ 中的开集},i\in I\}$$
+>[!note] 拓扑完备是开遗传性质.
 
-作为<u>子基</u>生成的拓扑 $\mathcal{O}$ .
+>[!note] 拓扑完备可数可乘.
 
->[!note] $f_i:(X,\mathcal{O})\rightarrow Y_i$ 连续.
+称 $A$ 是 $G_\sigma$ 集，若 $A$ 可以表示为 $X$ 的可数个开集的交；称 $B$ 是 $F_\sigma$ 集，如果 $B$ 可以表示为 $X$ 的可数个闭集的并.
 
->[!note]- 任给 $X$ 上的拓扑 $\tau$ ，如果 $f_i:(X,\tau)\rightarrow Y$ 连续，则 $\mathcal{O}\subset \tau$ . 即 $\mathcal{O}$ 是使得 $X$ 上的 $\{f_i\}_{i\in I}$ 连续的最粗拓扑.
->证明：对于 $\mathcal{O}$ 中的任意开集 $U$ ，其都可以表示为 $\mathcal{B}$ 中的元素的有限交的并，并且 $f_i$ 连续，从而 $\mathcal{B}$ 中的任何一个元素都是 $\tau$ 中的开集，从而 $U\in \tau$ .
+>[!note] 若 $X$ 拓扑完备， $A\subset X$ 是 $G_\sigma$ 集，则 $A$ 拓扑完备.
 
->[!example] 子空间是一个初始拓扑.
->考虑含入映射： $i: X\rightarrow Y$ ，其中 $X$ 是拓扑空间 $Y$ 的子空间，由[[#子空间]]中的讨论可知含入映射 $i$ 生成的子基为 $\{U\cap X: U\subset Y\}$ ，即为子空间拓扑. $i$ 是使得 $X\rightarrow Y$ 连续的最粗拓扑.
+>[!note] 若 $A$ 拓扑完备， $X$ 可度量化，则 $A$ 为 $G_\sigma$ 集.
 
->[!note]- 映射 $f: X\rightarrow Y$ 是同胚嵌入当且仅当 $f$ 是单射并且 $X$ 的拓扑恰好是 $f$ 生成的初始拓扑.
->证明： $\Rightarrow$ ：因为 $f$ 同胚，所以 $f$ 是单射；设 $X$ 的拓扑为 $\mathcal{O}$ ， $f$ 生成的拓扑的子基为：
->
-> $$\mathcal{T}=\{f^{-1}(U):U\text{ 为 }Y\text{ 中的开集}\}=\{U\cap X:U\text{ 为 }Y\text{ 中的开集}\}$$
->
->从而 $\mathcal{T}=\mathcal{O}$ .
->
->$\Leftarrow$ ：因为 $X$ 的拓扑恰好是 $f$ 生成的连续拓扑，所以 $f: X\rightarrow Y$ 连续，又因为 $f$ 是单射，对于 $Y$ 中的任意元素 $y\in Y$ ，有 $f^{-1}(Y)$ 为 $X$ 的子基，所以 $f$ 是满射，则 $f$ 是连续双射.
->
->所以对于 $X$ 中的任意基本开集 $W=f^{-1}(U_1)\cap \cdots\cap f^{-1}(U_m)$ ，令 $g=f^{-1}$ ，则 $g^{-1}=f$ ， $f(W)=U_1\cap \cdots\cap U_m$ 为 $Y$ 中的开集，从而 $g$ 连续，则 $f$ 是同胚映射，并且也是嵌入（单连续映射的逆映射还是连续的，则称该映射为同胚嵌入）
+>[!example] 设 $A$ 为度量空间 $(X,d)$ 的一个子集， $(Y,d)$ 是完备度量空间， $f: A\rightarrow Y$ 连续. $\forall x\in \bar{A}$ ，定义 $f$ 在 $x$ 处的振幅： $\text{osc}(f,x)=\inf_{U\in \mathcal{N}(x)}\sup_{y,z\in A\cap U}\rho(f(y),f(z))$ . 证明：1) $A^\sharp=\{x\in \overline{A}:\text{osc}(f,x)=0\}$ 是 $x$ 的 $G_\delta$ 集；2) $f$ 可以连续延拓到 $A^\sharp$ 上.
 
->[!example]- 度量诱导的拓扑是初始拓扑.
->设 $X$ 上由度量诱导引导的拓扑空间为 $\mathcal{O}_d$
->
->考虑函数族： $\{h_x: X\rightarrow \mathbb{R}\}_{x\in \mathbb{R}}$ ，其中 $h_x(y)=d(x,y)$ . 设该函数族生成的初始拓扑为 $\mathcal{T}$ .
->
->注意到 $\mathcal{O}_d$ 使得 $h_x,x\in \mathbb{R}$ 连续：对于任意的开集 $U\in \mathbb{R}$ ， $h_x^{-1}(U)=\{y\in X:d(x,y)\in U\}$ 是 $\mathcal{O}_d$ 中的开集：对于任意的 $z\in h_y^{-1}(U)$ ，有 $r=d(x,z)\in U$ ，而 $U$ 是 $\mathbb{R}$ 中的开集，所以存在 $U\supset (r-\delta,r+\delta)$ ，而对于任意的 $z':d(z,z')<\delta$ ， $d(x,z')\leq r+d(z,z')\in U$ ，因此 $B(z,\delta)\subset U$ ，从而 $h^{-1}_x(U)$ 为 $\mathcal{O}_d$ 中的开集.
->
->因此由初始拓扑的性质： $\mathcal{T}$ 粗于 $\mathcal{O}_d$ .
->
->对于 $\mathcal{O}_d$ 中的任何一个开集 $U$ ，对于任意的 $x\in U$ ，存在 $B(x,r_x)\subset U$ ，对于 $\{y:d(x,y)<r_x\}=\{y:h_x(y)\in(0,r_x)\}=h_x^{-1}(0,r_x)$ 为 $\mathcal{T}$ 的子基中的元素，从而可得 $U=\bigcup_{x\in U}B(x,r_x)$ 为 $\mathcal{T}$ 中的开集.
+称拓扑空间 $X$ 是 **Cech 完备**的，如果 $X$ 同胚于某一紧 Hasudorff 空间的一个可度量化 $G_\sigma$ 集.
 
-设 $\{(X_i,\tau_i)\}_{i\in I}$ 为一族拓扑空间，定义 $\prod_{i\in I}^{}X_i=\{f:I\rightarrow \bigcup_{i\in I}X_i:f(i)\in X_i\}$ ，进而定义**投影映射** $P_{i_0}:\prod_{i\in I}^{}X_i\rightarrow X_{i_0},P_{i_0}(f)=f(i_0)$ ，定义**乘积拓扑**： $\prod_{i\in I}^{}\tau_i$ 是由<u>子基</u> $\{P_i^{-1}(U_i):i\in I,U_i\in \tau_i\}$ 生成的拓扑.
+>[!note] Cech 完备可数可乘.
 
->[!hint] 可以采取其他方式定义 $\prod_{i\in I}^{}X_i$ .
->一种更符合直觉的做法是：
->
-> $$\prod_{i\in I}^{}X_i=\{(x_i)_{i\in I}:x_i\in X_i,\forall i\in I\}$$
-> 
->注意，这一定义需要用到选择公理. （对于非空的集族 $\{S_i\}_{i\in I}$ ，总是存在 $\{x_i\}_{i\in I}$ 使得 $x_i\in S_i$ ）
+证明：设 $\{X_n\}_{n\ge1}$ 是一列 Cech 完备空间，则存在 $\{Y_n\}_{n\ge1}$ ， $X_n$ 同胚于 $Y_n$ 的一个可度量化 $G_\sigma$ 集 $H_n=\bigcap_{k\ge1}H_n^{k}$ ，其中 $H_n^k$ 为 $Y_n$ 中的开集，并且 $Y_n$ 是紧 Hasudorff 空间. 
 
-由定义可以得出： $P_i^{-1}(U_i)=U_i\times \prod_{j\neq i}^{}X_j$ .
+可数个紧 Hausdorff 空间的乘积仍然为紧 Hausdorff 空间？
 
->[!question] 采用 $\left\{\prod_{i\in I}^{}U_i:U_i\in \tau_i\right\}$ 作为基？
->用 $\left\{\prod_{i\in I}^{}U_i:U_i\in \tau_i\right\}$ 作为基生成的拓扑空间称为 Box Topology ，其是比乘积拓扑更细的拓扑：乘积拓扑中的基为 $\prod_{i\in I',\lvert I'\rvert<\infty}^{}U_i \times \prod_{j\notin I'}^{}X_j$ （有限个限制 + 无限个限制）.
->
->可以证明，乘积拓扑是使得 $P_i,i\in I$ 连续的最粗拓扑，并且许多性质在 Box Topology 中不再保持.
+$\prod_{n\ge1}^{}X_n$ 同胚于 $\prod_{n\ge1}^{}H_n$ ，并且 $\prod_{n\ge1}^{}H_n$ 为 $\prod_{n\ge1}^{}Y_n$ 的 $G_\sigma$ 集，并且该 $G_\sigma$ 集可度量化.
 
-投影映射 $P_j$ 具有如下性质：
 
->[!note] 投射 $p_j:\prod_{i\in I}^{}X_i\rightarrow X_j,\forall j\in I$ 是连续开映射.
 
->[!note] 映射 $h:Z\rightarrow \prod_{i\in I}^{}X_i$ 连续当且仅当每个复合映射 $p_j\circ h:Z\rightarrow X_j$ 连续.
 
-定义对角映射 $\Delta_{i\in I}f_i:Z\rightarrow\prod_{i\in I}^{}X_i,\quad z\mapsto(f_i(z))_{i\in I}$ .
-
-则有如下结论：
-
->[!note] 任给一族连续映射 $\{f_i:Z\rightarrow X_i\}_{i\in I}$ ，对角映射 $\Delta_{i\in I}f_i$ 连续.
-
-## 可乘
-
-设 $P$ 是拓扑空间的某种性质，如果有限 / 可数 / 任意多个具有 $P$ 的拓扑空间的乘积仍然具有性质 $P$ ，则称性质 $P$ 是**有限 / 可数 / 任意可乘**的.
-
->[!note] 第一可数和第二可数是可数可乘的.
-
-证明：设 $\{X_n\}_{n\geq1}$ 是一列第一可数空间，考虑 $\prod_{n\geq1}^{}X_n$ ，对于任意的 $(x_i)_{i\geq1}\in \prod_{n\geq1}^{}X_n$ ，对于任意的 $i\geq1$ ，因为 $X_i$ 是第一可数空间，所以存在 $x_i$ 的可数邻域基 $\mathcal{B}_i=\{B_i^n\}_{n\geq1}$ ，
-
-则取集族：
-
-$$\mathcal{B}=\bigcup_{I_n\subset \mathbb{N}}\{\prod_{i\in I_n}^{}B_i\times \prod_{j\notin I_n}^{}X_j:B_i\in \mathcal{B}_i,\forall i\geq1\}$$
-
-其中 $I_n=\{1,\cdots,n\}$ . 显然 $\mathcal{B}'_n=\{(B_i)_{i\in I_n}:B_i\in \mathcal{B}_i,\forall i\geq1\}$ 为有限个可数集族的积，因此该集族是可数的，并且可数个可数集的并可数，所以 $\mathcal{B}$ 是可数的.
-
-对于任意包含 $(x_i)_{i\geq1}$ 的邻域，存在基本开集 $U=\prod_{i\in I'}^{}U_i\times \prod_{j\notin I'}^{}X_i$ ，设 $\max\{ I'\}=i_0$ ，则存在 $B_i^{n_i}\subset U_i,\forall i\in I'$ ，进而 $\prod_{i\in I'}^{}B_i^{n_i}\times \prod_{j\notin I'}^{}B_j^1\subset U$ ，因此 $\mathcal{B}$ 为 $(x_i)_{i\geq1}$ 的一个可数邻域基.
-
-如果 $\{X_n\}_{n\geq1}$ 是一列第二可数空间，则对于 $n\geq1$ ，存在 $X_n$ 的可数基 $\mathcal{B}_n=\{B_n^i\}_{i\geq1}$ ，同理，构造集族：
-
-$$\mathcal{B}=\bigcup_{I_n\subset \mathbb{N}}\{(B_i)_{i\in I_n}:B_i\in \mathcal{B}_i,\forall i\geq1\}$$
-
-对于任何包含 $x$ 的邻域，首先存在基本开集 $U=\prod_{i\in I'}^{}U_i\times \prod_{j\notin I'}^{}X_i$ ，其次类似地可以找到包含于 $U$ 且包含 $x$ 的 $\mathcal{B}$ 中的元素，因此 $\mathcal{B}$ 是可数基.
-
->[!example] 举出反例说明第一可数、第二可数不是任意可乘的.
-
-考虑第一（二）可数空间 $(\{0,1\},\mathcal{P}(\{0,1\}))$ ， $I$ 为不可数集合，对于 $\prod_{i\in I}^{}X_i$ ，如果其第一可数，则对于 $(x_i)_{i\in I}$ ，其具有可数邻域基，不妨设为 $\{B_j\}_{j\geq1}$ ， 并且（因为对任意基本开集总存在邻域基包含在其中） $B_j=\prod_{i\in I',\lvert I'\rvert<\infty}^{}U_i\times \prod_{j\notin I'}^{}\{0,1\}$ 可知， $\bigcup_{j\geq1}B_j$  可以写作 $\prod_{i\in I',\lvert I'\rvert\subset \mathbb{N}}^{}U_i\times \prod_{j\notin I'}^{}\{0,1\}$ 的形式，因此取 $\prod_{i\in I'}^{}U_i\times \{0\}\prod_{j\in I'\backslash\{j_0\}}^{}X_j$ 即可.
-
-假设其具有可数基，取该可数基的并，则同样有 （因为对任意基本开集总存在邻域基包含在其中） $B_j=\prod_{i\in I',\lvert I'\rvert<\infty}^{}U_i\times \prod_{j\notin I'}^{}\{0,1\}$ ，剩下的同理可证明.
-
->[!hint] 关键：基 / 邻域基总包含在基本开集中，因此形如基本开集 #issue ；不可数集减去可数集总有多余的元素.
-
->[!note] 序列紧可数可乘.
-
-证明：设 $\{X_n\}_{n\geq1}$ 为一列序列紧空间，考虑任意的 $\prod_{n\geq1}^{}X_n$ 中的子列 $\{(x^n_l)_{n\geq1}\}_{l\geq1}$ ，
-
-$$\begin{aligned}
-&x_1^1\ x_2^1\ x_3^1\ \cdots\ x_n^1\ \cdots\\
-&x_1^2\ x_2^2\ x_3^2\ \cdots\ x_n^2\ \cdots\\
-&\cdots
-\end{aligned}$$
-
-因为 $X_1$ 序列紧，所以可以在 $X_1$ 中得到收敛于 $x_1$ 的子列 $\{x^1_{i_{1,m}}\}_{m\geq1}$ ，对于 $X_2$ 中的子列 $\{x^2_{i_{1,m}}\}$ ，存在该序列的子列 $\{x^2_{i_{2,m}}\}$ 收敛到 $x_2\in X_2$ ，依次类推.
-
->[!note] 可度量可数可乘.
-
->[!example] 设 $\{(X_n,d_n)\}_{n\geq1}$ 为一列度量空间，任给 $x,y\in \prod_{n\geq1}^{}X_n$ ，令 $\rho(x,y)=\sup_{n\geq1}\frac{1}{2^n}\min\{d_n(x_n,y_n),1\}$ . 证明 $\rho$ 是 $\prod_{n\geq1}^{}X_n$ 上的度量并且诱导它的乘积拓扑.
-
-首先验证 $\rho$ 是 $\prod_{n\geq1}^{}X_n$ 上的度量：
-
-1) $\rho(x,y)\geq0$ ，若 $\rho(x,y)=0$ ，则对于任意的 $n\geq1$ ， $\frac{1}{2^n}\min\{d_n(x_n,y_n),1\}\leq 0$ ，从而 $d(x_n,y_n)=0$ 故 $x=y$ ，反之显然成立；
-2) $\rho(x,y)=\rho(y,x)$ ；
-3) $\rho(x,z)\leq \sup_{n\geq1}\frac{1}{2^n}\min\{d_n(x_n,y_n)+d_n(y_n,z_n),1\}$ ，注意到 $\min\{a+b,1\}\leq \min\{a,1\}+\min\{b,1\},\forall a,b\geq0$ . 从而可得结论.
-
-下面证明 $\rho$ 诱导的拓扑与 $\prod_{n\geq1}^{}X_n$ 的乘积拓扑相同：
-
-1) 首先说明 $\rho$ 在 $\prod_{n\geq1}^{}X_n$ 上诱导的拓扑 $\mathcal{O}$ 要粗于其乘积拓扑：对于任意的 $U\in \mathcal{O},x\in U$ ，存在包含 $r>0$ ， $B(x,r)\subset U$ ；取 $N$ 充分大使得 $\frac{1}{2^N}<r$ ，再取 $V_i=B(x_i,\min\{r,1\}/2),\forall i\leq N$ ，从而对于任意的 $y\in \prod_{i=1}^{N}V_i\times \prod_{j>N}^{}X_j$ ，都有 $\rho(x,y)<r$ ，所以 $x\in V\subset B(x,r)\subset U$ ，由 $x$ 的任意性， $U=\cup V_x$ 为乘积拓扑的开集.
-2) 说明 $\rho$ 在 $\prod_{n\geq1}^{}X_n$ 上诱导的拓扑 $\mathcal{O}$ 要细于其乘积拓扑：只需说明对于乘积拓扑中的开集 $p_n^{-1}(U_n)$ ，其都为 $\mathcal{O}$ 中的开集：对于任意的 $x\in p_n^{-1}(U_n)$ ， $p_n^{-1}(U_n)=U_n\times \prod_{j\neq n}^{}X_j$ ，又 $U_n$ 为 $X_n$ 中的开集，从而存在 $r>0$ 使得 $B(x_n,r)\subset U_n$ ，考虑 $V_\rho(x,r/2^n)$ ，则对于任意的 $y\in V_\rho(x,r/2^n)$ ， $d_n(x_n,y_n)<r$ ，从而可知 $y\in U_n$ ， $x\in V_\rho(x,r/2^n)\subset p_n^{-1}(U_n)$ ，所以 $p_n^{-1}(U_n)=\bigcup V_\rho(x,r/2^n)$ 是 $\mathcal{O}$ 中的开集.
-
->[!note] 可分可数可乘.
-
->[!note] $T_0,T_1,T_2,T_3$ 任意可乘.
-
->[!note] 正规任意可乘.
-
->[!note] Cantor 集同胚于离散空间 $\{0,1\}$ 的可数乘积（记为 $\prod_{n\in \mathbb{N}}^{}\{0,1\}=\{0,1\}=2^\mathbb{N}$ ）
-
-证明：只需要说明 $C$ 中的基本开集都是 $\{0,1\}^\mathbb{N}$ 中的基本开集，反之也是. 用度量 $d(x,y)=\frac{1}{2^n}$ 诱导 $C$ 上的拓扑. #imcomplete-lack-proofs 
-
->[!note] Cantor 集 $C$ 同胚于其自身的可数次幂 $C^\mathbb{N}$ .
-
-已经证明了 $C$ 同胚于 $\{0,1\}^\mathbb{N}$ ，下面只需证明 $C$ 同胚于 $\{0,1\}^{\mathbb{N}\times \mathbb{N}}$ ，注意到 $\{0,1\}^\mathbb{N}$ 是紧空间，且具有 $T_2$ 性质，由 $T_2$ 可数可乘可知 $\{0,1\}^{\mathbb{N}\times \mathbb{N}}$ 具有 $T_2$ 性质，[进而](#^CompactToHausdorff)只需要证明存在 $\{0,1\}^\mathbb{N}$ 到 $\{0,1\}^{\mathbb{N}\times \mathbb{N}}$ 的连续双射即可， $\lvert \mathbb{N}\rvert=\lvert \mathbb{N}\times \mathbb{N}\rvert$ ，所以存在双射 $\varphi(n):\mathbb{N}\rightarrow \mathbb{N}\times \mathbb{N}$ ，对于任意的 $(x_n)_{n\geq1}\in\{0,1\}^\mathbb{N}$ ， $\{\varphi(n)\}_{n\geq1}$ 将 $\mathbb{N}$ 映射到 $\mathbb{N}\times \mathbb{N}$ 中，因此 $x_n$ 将对应于 $x_{\varphi(n)_0},x_{\varphi(n)_1}$ 两个元素，记为 $x_{\varphi(n)}\in\{0,1\}^{\mathbb{N}\times \mathbb{N}}$ . 由 $\varphi(n)$ 为双射， $f:(x_n)_{n\geq1}\mapsto (x_{\varphi(n)})_{n\geq1}$ 为双射. 对于连续性的证明：设投影映射 $p_j:\prod_{n\geq1}^{}X_i\rightarrow X_j,\forall j\geq1,X_l=\{0,1\}^\mathbb{N},\forall l\geq1$ .
-
-则对于 $p_j\circ f:\{0,1\}^\mathbb{N}\rightarrow \{0,1\}^\mathbb{N}$ ，考虑 $\{0,1\}^\mathbb{N}$ 中的子基 $\{P_l^{-1}(0),P_l^{-1}(1):l\geq1\}$ ，考虑 $(p_j\circ f)^{-1}(P_l^{-1}(0))=f^{-1}(p_j^{-1}(P_l^{-1}(0)))$ ，其中 $P_l^{-1}(0)=\prod_{i\neq l}^{}X_i\times\{0\}$ ， $p_j^{-1}(P_l^{-1}(0))$ 相当于将 $\prod_{i\geq1}^{}\{0,1\}^{\mathbb{N}\times \mathbb{N}}$ 中的第 $j$ 个 $\{0,1\}^\mathbb{N}$ 中的第 $l$ 个元素改为 $\{0\}$ ，其余均保持不变，然后再求在 $f$ 下的原像，根据双射 $f$ 的定义，这实际上相当于求 $\varphi^{-1}(j,l)$ ，等同于 $p^{-1}_{\varphi^{-1}(j,l)}(0)$ . #issue
-
->[!note] Cantor 集没有孤立点.
-
-## 商映射
-
-设 $X,Y$ 是拓扑空间， $f:X\rightarrow Y$ ，如果 $f$ 是满射并且 $Y$ 的拓扑是由 $f$ 生成的终拓扑，则称 $f$ 为**商映射**（quotient map）.
-
->[!note] 满映射 $f:X\rightarrow Y$ 是商映射当且仅当 $V$ 为 $Y$ 中的开集 $\Leftrightarrow$ $f^{-1}(V)$ 是 $X$ 中的开集.
-
->[!example] 设 $f:X\rightarrow Y,g:Y\rightarrow Z$ 是连续映射，证明： 1) 若 $f,g$ 均为商映射，则 $g\circ f$ 也是商映射； 2) 若 $g\circ f$ 也是商映射，则 $g$ 也是商映射.
-
-证明：若 $f,g$ 均为商映射，则 $f,g$ 均为满射，对于任意的开集 $V\subset Z$ ， $(g\circ f)^{-1}(V)=f^{-1}(g^{-1}(V))$ 在 $X$ 中为开集，反之若 $(g\circ f)^{-1}(V)$ 为 $X$ 中的开集，则 $g^{-1}(V)$ 为 $Y$ 中的开集，进而 $V$ 为 $Z$ 中的开集；
-
-若 $g\circ f$ 也是商映射，则 $g\circ f$ 为满射，从而对于任意的 $z\in Z$ ，存在 $x\in X$ 使得 $z=g\circ f(x)$ ，而 $f(x)\in Y$ ，所以 $g$ 为连续满射；如果 $g^{-1}(V)$ 为 $Y$ 中的开集，则 $f^{-1}(g^{-1}(V))$ 为 $X$ 中的开集，由 $g\circ f$ 是商映射， $V$ 为 $Z$ 中的开集. 从而 $g$ 是商映射.
-
->[!example] 设 $A=[0,1,1/2,1/3,\cdots]$ ，证明商空间 $[0,1]/A$ 同胚于 $\mathbb{R}^2$ 的子空间 $\bigcup_{n\geq1}S_n$ ，其中 $S_n$ 表示圆周 $\{(x,y):(x-1/n)^2+y^2=1/n^2\}$ .
-
-证明：构造从 $[0,1]$ 到 $\bigcup_{n\geq1}S_n$ 的商映射 $f$ ，并使得 $E(f)=A$ 即可. 定义 $f(1/n)=(0,0)$ ，以及 $f(0)=f(1)=(0,0)$ ，对于 $x\in\left(\frac{1}{n+1},\frac{1}{n}\right)$ ，将其映射到 $S_n$ 上即可. 从而 $E(f)=A$ .
-
->[!note] 设 $f:X\rightarrow Y$ 是连续映射， $E(f)$ 是 $f$ 诱导的等价关系，则对映射 $\bar{f}:X\backslash E(f)\rightarrow Y,\bar{f}([x])=f(x)$ 有：1) $\bar{f}$ 连续；2) $\bar{f}$ 同胚当且仅当 $f$ 是满映射. 
-
-> [!example] 设 $X$ 是拓扑空间， $Y$ 是 Hausdorff 空间， $f:X\rightarrow Y$ 连续，证明 $X\backslash E(f)$ 是 Hausdorff 空间.
-
-证明：因为 $f$ 连续，所以诱导得到的 $\bar{f}:X\backslash E(f)\rightarrow Y$ 也连续，由 $Y$ 为 Hausdorff 空间，对于任意的 $[x]\neq [y]$ ， $f(x)\neq f(y)$ 即 $\bar{f}([x])\neq \bar{f}([y])$ ，存在开集 $V_1,V_2:V_1\cap V_2=\emptyset$ ，从而 $\bar{f}^{-1}(V_1),\bar{f}^{-1}(V_2)$ 分别为 $[x],[y]$ 的开邻域，若 $\exists [z]\in \bar{f}^{-1}(V_1)\cap \bar{f}^{-1}(V_2)$ 则 $f(z)\in V_1\cap V_2$ 矛盾！ 
-
->[!example] 设 $X$ 是拓扑空间， $E$ 是 $X$ 上的等价关系，证明若 $E\subset X\times X$ 是闭集，并且 $q:X\rightarrow X\backslash E$ 是开映射，则 $X\backslash E$ 是 Hausdorff 空间.
-
-## Tychnoff 乘积定理
-
-紧性是任意可乘的.
-
-引入**理想**的概念：对于拓扑空间 $(X,\mathcal{O})$ ，称 $\mathcal{I}\subset \mathcal{O}$ 是理想，如果：
-
-1. $\emptyset\in \mathcal{I},X\notin \mathcal{I}$ ；
-2. $U\in \mathcal{I},V\subset U\Rightarrow V\in \mathcal{I}$ ；
-3. $U,V\in \mathcal{I}\Rightarrow U\cup V\in \mathcal{I}$ .
-
-[[2421Su110351]]
 
 # 度量化定理
 
