@@ -755,21 +755,6 @@
   
 </li>
         
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#wolfe" class="md-nav__link">
-    <span class="md-ellipsis">
-      Wolfe
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Wolfe">
-      <ul class="md-nav__list">
-        
           <li class="md-nav__item">
   <a href="#_16" class="md-nav__link">
     <span class="md-ellipsis">
@@ -957,12 +942,30 @@
         <li class="md-nav__item">
   <a href="#_26" class="md-nav__link">
     <span class="md-ellipsis">
-      约束优化方法
+      约束优化
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="约束优化方法">
+    <nav class="md-nav" aria-label="约束优化">
       <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#lagrange" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lagrange 对偶问题
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kt" class="md-nav__link">
+    <span class="md-ellipsis">
+      KT 算法
+    </span>
+  </a>
+  
+</li>
         
           <li class="md-nav__item">
   <a href="#_27" class="md-nav__link">
@@ -1842,21 +1845,6 @@
   
 </li>
         
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#wolfe" class="md-nav__link">
-    <span class="md-ellipsis">
-      Wolfe
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Wolfe">
-      <ul class="md-nav__list">
-        
           <li class="md-nav__item">
   <a href="#_16" class="md-nav__link">
     <span class="md-ellipsis">
@@ -2044,12 +2032,30 @@
         <li class="md-nav__item">
   <a href="#_26" class="md-nav__link">
     <span class="md-ellipsis">
-      约束优化方法
+      约束优化
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="约束优化方法">
+    <nav class="md-nav" aria-label="约束优化">
       <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#lagrange" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lagrange 对偶问题
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kt" class="md-nav__link">
+    <span class="md-ellipsis">
+      KT 算法
+    </span>
+  </a>
+  
+</li>
         
           <li class="md-nav__item">
   <a href="#_27" class="md-nav__link">
@@ -2126,8 +2132,44 @@
 <h2 id="_1">依赖和简介<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <p>对于范数和矩阵理论的<a href="../MAlg/#范数">介绍</a>.</p>
 <p>最优化方法主要分为两个步骤：<strong>优化建模</strong>和<strong>求解</strong>. 优化建模与特定的专业领域有关，本篇专述求解（算法）.</p>
-<p>最优化方法的分类：<strong>离散</strong> &amp; <strong>连续</strong>；<strong>有限维</strong> &amp; <strong>无限维</strong>. 本篇考虑的是 <span class="arithmatex">\(\mathbb{R}^n\)</span> 上的连续有限维优化.</p>
+<p>最优化方法的分类：<strong>离散</strong> &amp; <strong>连续</strong>；<strong>有限维</strong> &amp; <strong>无限维</strong>. 本篇主要考虑的是 <span class="arithmatex">\(\mathbb{R}^n\)</span> 上的连续有限维优化. 首先介绍<a href="#凸集和凸函数">#凸集和凸函数</a>，并说明凸优化问题的性质：局部最优解即为全局最优解；随后处理<a href="#线性规划">#线性规划</a>问题，介绍<a href="#单纯形算法">#单纯形算法</a>及其变种；现实中处理的很多线性规划问题都是<a href="#整数线性规划">#整数线性规划</a>，对于该问题主要介绍 <a href="#gemory-割平面法">#Gemory 割平面法</a>. 之后进入到两个重要问题：<a href="#无约束优化">#无约束优化</a>和<a href="#约束优化">#约束优化</a>. 无约束优化从可以分为两个部分，一种是确定优化方向 <span class="arithmatex">\(d_k\)</span> 后确定优化步长 <span class="arithmatex">\(\alpha_k\)</span> 的迭代法： <a href="#最速下降法">#最速下降法</a>、<a href="#newton-迭代法">#Newton 迭代法</a>、<a href="#拟-newton-法">#拟 Newton 法</a>，另一种是将 <span class="arithmatex">\(\alpha_k d_k\)</span> 视为一个整体求解： <a href="#信赖域方法">#信赖域方法</a>，此外对于求步长的问题提出了各种准则和方法，见<a href="#线性搜索">#线性搜索</a>. 对于约束优化问题，与无约束优化问题的区别在于求解出的优化步长可能不在可行域内. 对此提出了 <a href="#kt-算法">#KT 算法</a>（KKT 算法）、<a href="#罚函数法">#罚函数法</a>、<a href="#障碍罚函数法">#障碍罚函数法</a>.</p>
+<p>下面介绍一些术语.</p>
 <p>对于 <span class="arithmatex">\(\mathbb{R}^n\)</span> 中的优化问题. 通常记<strong>标准内积</strong> <span class="arithmatex">\(x,y\in \mathbb{R}^n,\langle x,y \rangle=\sum\limits_{i=1}^{n}x_iy_i\)</span> ，给定一个<a href="../LAlg/#正定矩阵">正定</a>对称矩阵 <span class="arithmatex">\(P\)</span> ，记 <span class="arithmatex">\(\langle x,y \rangle_P=x^TPy\)</span> . 并可以定义<strong>矩阵内积</strong> <span class="arithmatex">\(A,B\in \mathbb{R}^{m\times n}, \langle A,B \rangle=\sum\limits_{i=1}^{m}\sum\limits_{j=1}^{n}a_{ij}b_{ij}=\text{tr}(A^TB)=\text{tr}(B^TA)\)</span> .</p>
+<p>符号说明：</p>
+<table>
+<thead>
+<tr>
+<th>符号</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="arithmatex">\(d_k\)</span></td>
+<td>第 <span class="arithmatex">\(k\)</span> 步的下降方向</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(g_k\)</span></td>
+<td>若 <span class="arithmatex">\(f\)</span> 可微，用 <span class="arithmatex">\(g_k\)</span> 表示 <span class="arithmatex">\(\nabla f(x_k)\)</span></td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(\alpha_k\)</span></td>
+<td>第 <span class="arithmatex">\(k\)</span> 步的优化步长</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(\varphi_k(\alpha)\)</span></td>
+<td><span class="arithmatex">\(\varphi_k(\alpha)=f(x_k+\alpha d_k)\)</span></td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(\rho,c\)</span></td>
+<td>两种符号都使用，用于表示一些超参数</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(c_i(x)\)</span></td>
+<td>第 <span class="arithmatex">\(i\)</span> 个约束条件</td>
+</tr>
+</tbody>
+</table>
 <p>连续优化的形式为： </p>
 <div class="arithmatex">\[\begin{aligned}
 &amp;\min_{x} f(x)\\
@@ -2601,7 +2643,28 @@ $<span class="w"> </span>python3<span class="w"> </span>simplex_method.py<span c
 <span class="k">return</span> <span class="n">x</span>
 </code></pre></div></td></tr></table></div>
 <h4 id="_8">两阶段法<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h4>
+<p>对于一般的线性规划问题不能很容易地找到基矩阵 <span class="arithmatex">\(B\)</span> ，对于原线性规划问题：</p>
+<div class="arithmatex">\[(P)\quad\begin{aligned}
+&amp;\min\ c^Tx\\
+&amp;s.t.\ Ax=b\\
+&amp;\quad\quad x\geq0
+\end{aligned}\]</div>
+<p>设 <span class="arithmatex">\(A\in \mathbb{R}^{m\times n},\text{rank}(A)=m\)</span> ， <span class="arithmatex">\(b\ge0\)</span> .</p>
+<p>两阶段法构造如下的辅助问题：</p>
+<div class="arithmatex">\[(T)\quad \begin{aligned}
+&amp;\min\quad \sum\limits_{i=n+1}^{n+m}x_i\\
+&amp;s.t.\quad \ Ax+x_\alpha=b\\
+&amp;\qquad\quad x,x_\alpha\ge0
+\end{aligned}\]</div>
+<p>则  <span class="arithmatex">\(x\)</span> 为 <span class="arithmatex">\((P)\)</span> 的可行解 <span class="arithmatex">\(\Leftrightarrow\)</span> <span class="arithmatex">\([x,0]^T\)</span> 为 <span class="arithmatex">\((T)\)</span> 的可行解 <span class="arithmatex">\(\Leftrightarrow\)</span> <span class="arithmatex">\((T)\)</span> 的最优值为 <span class="arithmatex">\(0\)</span> .</p>
+<p>因此，最开始时可以取 <span class="arithmatex">\(\begin{bmatrix}0 \\ I_\alpha\end{bmatrix}\)</span> 作为辅助问题的基本可行解，用单纯形方法求解得到最优解，如果最优解对应的目标值非 <span class="arithmatex">\(0\)</span> ，则 <span class="arithmatex">\((P)\)</span> 无可行解，否则将会得到原问题的一个基本可行解.</p>
 <h4 id="m">M 法<a class="headerlink" href="#m" title="Permanent link">&para;</a></h4>
+<p><span class="arithmatex">\(M\)</span> 法引入一个充分大的参数 <span class="arithmatex">\(M\)</span> （可以理解为 <span class="arithmatex">\(+\infty\)</span> ，但是有系数），构造如下的辅助问题：</p>
+<div class="arithmatex">\[(M)\quad \begin{aligned}
+&amp;\min\quad c^Tx+Me^Tx_\alpha\\
+&amp;s.t.\quad\ Ax+x_\alpha=b\\
+&amp;\qquad\quad x\ge0,x_\alpha\ge0
+\end{aligned}\]</div>
 <h4 id="_9">对偶单纯性法<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h4>
 <p>标准线性规划问题 <span class="arithmatex">\((P)\)</span> 及其<strong>对偶问题</strong> <span class="arithmatex">\((D)\)</span> ：</p>
 <div class="arithmatex">\[\begin{aligned}
@@ -2634,6 +2697,7 @@ $<span class="w"> </span>python3<span class="w"> </span>simplex_method.py<span c
 <li>求 <span class="arithmatex">\(k=\arg\max\left\{\frac{c_j-c_B^TB^{-1}a_j}{e_{i_r}^TB^{-1}a_j}:e^{T}_{i_r}B^{-1}a_j&lt;0\right\}\)</span> </li>
 <li>以 <span class="arithmatex">\(e^T_{i_r}B^{-1}a_k\)</span> 为主元素（即 <span class="arithmatex">\((B^{-1}N)_{i_r,k}\)</span> ）对单纯形表进行 Gauss-Jordan 消元，并以 <span class="arithmatex">\(k\)</span> 替换 <span class="arithmatex">\(I_B\)</span> 中的 <span class="arithmatex">\(i_r\)</span> ，转到步骤 2.</li>
 </ol>
+<p>就算法而言，与单纯形算法的区别在于确定 <span class="arithmatex">\(i_r\)</span> 之后确定 <span class="arithmatex">\(k\)</span> 时的计算.</p>
 <h2 id="_10">整数线性规划<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h2>
 <p><strong>整数线性规划</strong>（ILP）的标准型为：</p>
 <div class="arithmatex">\[(P)\quad \begin{aligned}
@@ -2659,21 +2723,24 @@ $<span class="w"> </span>python3<span class="w"> </span>simplex_method.py<span c
 &amp;\quad\quad x\geq0\\
 &amp;\qquad x_i\in \mathbb{N}
 \end{aligned}\]</div>
-<p>用单纯形法求解松弛问题 <span class="arithmatex">\((P_0)\)</span> 之后得到： <span class="arithmatex">\(\bar{x}=\begin{bmatrix}B^{-1}b  \\ 0\end{bmatrix}\)</span> ，若 <span class="arithmatex">\(\bar{x}\)</span> 为整数变量，则为 <span class="arithmatex">\((P)\)</span> 的解. </p>
-<p>若 <span class="arithmatex">\(B^{-1}b\)</span> 中有<u>正分数分量</u>，考虑单纯形算法结束时：</p>
+<p>用单纯形法求解松弛问题 <span class="arithmatex">\((P_0)\)</span> 之后得到： <span class="arithmatex">\(\bar{x}=\begin{bmatrix}B^{-1}b  \\ 0\end{bmatrix}\)</span> ，若 <span class="arithmatex">\(\bar{x}\)</span> 为整数变量，则为 <span class="arithmatex">\((P)\)</span> 的解；否则，可以确定该解对应的最优值为 <span class="arithmatex">\((P)\)</span> 的最优值的一个下界. 在这种情况下， <span class="arithmatex">\(B^{-1}b\)</span> 中有正分数分量，考虑单纯形算法结束时的约束条件：</p>
 <div class="arithmatex">\[x_B+(B^{-1}N)x_N=B^{-1}b\]</div>
 <p>记 <span class="arithmatex">\(I_N\)</span> 为 <span class="arithmatex">\(N\)</span> 的列指标，上式等同于：</p>
 <div class="arithmatex">\[x_B+\sum\limits_{j\in I_N}^{}(B^{-1}a_j)x_j=B^{-1}b\]</div>
 <p>记作：</p>
-<p><span class="arithmatex">\(<span class="arithmatex">\(x_B+\sum\limits_{j\in I_N}^{}\bar{a}_jx_j=\bar{b}\)</span>\)</span> <br />
-设 <span class="arithmatex">\(B^{-1}b\overset{def}{=}\bar{b}\)</span> 的第 <span class="arithmatex">\(l\)</span> 个分量 <span class="arithmatex">\(\bar{b}_l\)</span> 为分数，则 <span class="arithmatex">\((P_0)\)</span> 的可行解应当满足：</p>
+<div class="arithmatex">\[x_B+\sum\limits_{j\in I_N}^{}\bar{a}_jx_j=\bar{b}\]</div>
+<p>设 <span class="arithmatex">\(B^{-1}b\overset{def}{=}\bar{b}\)</span> 的第 <span class="arithmatex">\(l\)</span> 个分量 <span class="arithmatex">\(\bar{b}_l\)</span> 为分数，松弛问题 <span class="arithmatex">\((P_0)\)</span> 的可行解满足：</p>
 <div class="arithmatex">\[x_{B_l}+\sum\limits_{j\in I_N}^{}\bar{a}_{lj}x_j=\bar{b}_l\]</div>
-<p>进而：</p>
+<p>进而由 <span class="arithmatex">\(x_j\ge0\)</span> ：</p>
 <div class="arithmatex">\[x_{B_l}+\sum\limits_{j\in I_N}^{}[\bar{a}_{lj}]x_j\leq \bar{b}_l\]</div>
-<p>并且因为 <span class="arithmatex">\((P)\)</span> 的可行解为整数：</p>
+<p>并且因为 <span class="arithmatex">\((P)\)</span> 的可行解满足上不等式以及为整数：</p>
 <div class="arithmatex">\[x_{B_l}+\sum\limits_{j\in I_N}^{}[\bar{a}_{lj}]x_j\leq [\bar{b_l}]\]</div>
 <p>从而得到：</p>
 <div class="arithmatex">\[\sum\limits_{j\in I_N}^{}(\bar{a}_{lj}-[\bar{a}_{lj}])x_j\geq \bar{b}_l-[\bar{b}_l]\]</div>
+<p>因此，可以引入一松弛变量 <span class="arithmatex">\(s\ge0\)</span> ，得到一个新的约束等式：</p>
+<div class="arithmatex">\[\sum\limits_{j\in I_N}^{}(\bar{a}_{lj}-[\bar{a}_{lj}])x_j\ge \bar{b}_l-[\bar{b}_l]\]</div>
+<p>将其加入到原先的方程中，这会将 <span class="arithmatex">\(\begin{bmatrix}B^{-1}b \\ 0\end{bmatrix}\)</span> 排除在外，并且排除了其他不可能是最优解的点，这个方程称为<strong>割平面方程</strong>.</p>
+<p>Gemory 割平面算法如下：</p>
 <ol>
 <li>用单纯形法求解 <span class="arithmatex">\((P_0)\)</span> ，若无解，返回无解；若求得 <span class="arithmatex">\((P_0)\)</span> 的解 <span class="arithmatex">\(x_0\)</span> ， <span class="arithmatex">\(x_0\)</span> 是整数向量，则返回 <span class="arithmatex">\(x_0\)</span> ；否则转步骤 2；</li>
 <li>取 <span class="arithmatex">\(x_0\)</span> 的非整数分量 <span class="arithmatex">\(\bar{b}\)</span> ，求割平面方程；</li>
@@ -2706,14 +2773,11 @@ $<span class="w"> </span>python3<span class="w"> </span>simplex_method.py<span c
 <p>一种最理想的情况是： <span class="arithmatex">\(\alpha_k=\arg\min_{\alpha&gt;0}\varphi(\alpha)\)</span> ，即最优步长，获取最优步长的线性搜索算法称为<strong>精确线性搜索算法</strong>，显然这不是必要的且难以实现. 实际应用中通常采用<strong>非精确线性搜索算法</strong>，要求 <span class="arithmatex">\(\varphi(\alpha)\)</span> 或者 <span class="arithmatex">\(\alpha\)</span> 满足某些性质以确定步长 <span class="arithmatex">\(\alpha_k\)</span> .</p>
 <h4 id="_14">线性搜索准则<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h4>
 <p><strong>线性搜索准则</strong>是非精确线性搜索算法中对于 <span class="arithmatex">\(\alpha\)</span> （而不是对于 <span class="arithmatex">\(\varphi(\alpha)\)</span> ）的限制条件，将直接影响线性搜索算法是否收敛以及快慢.</p>
-<div class="admonition note">
-<p class="admonition-title">Armijo 准则</p>
-</div>
 <div class="arithmatex">\[\text{Armijo})\quad f(x_k+\alpha d_k)\leq f(x_k)+c_1\alpha \nabla f(x_k)^Td_k,c_1\in(0,1)\]</div>
 <p>即为：</p>
 <div class="arithmatex">\[\text{Armijo}')\quad \varphi(\alpha)\leq \varphi(0)+c_1 \varphi'(0)\cdot\alpha\]</div>
 <p>Armijo 准则要求 <span class="arithmatex">\((\alpha,\varphi(\alpha))\)</span> 应在直线 <span class="arithmatex">\(\{\varphi(0)+c_1 \nabla f(x_k)^Td_k \alpha:\alpha\geq0\}\)</span> 下方，注意要求 <span class="arithmatex">\(d_k\)</span> 是下降方向，因此 <span class="arithmatex">\(\nabla f(x_k)^Td_k&lt;0\)</span> ，所以 <span class="arithmatex">\(\varphi(\alpha)\leq \varphi(0)\)</span> ，这就保证 <span class="arithmatex">\(\varphi(\alpha)\)</span> 下降.</p>
-<p>通常选取 <span class="arithmatex">\(c_1=10^{-3}\)</span> 或者其他很小的数，这样可以很容易地满足 Armijo 准则. 但是 Armijo 准则并不能保证步长充分大，取一非常接近于 <span class="arithmatex">\(0\)</span> 的 <span class="arithmatex">\(\alpha\)</span> 即可. 因此通常需要和其他准则配合.</p>
+<p>通常选取 <span class="arithmatex">\(c_1=10^{-3}\)</span> 或者其他很小的数，这样可以很容易地满足 Armijo 准则. 但是 Armijo 准则并不能保证步长充分大（下降充分大），取一非常接近于 <span class="arithmatex">\(0\)</span> 的 <span class="arithmatex">\(\alpha\)</span> 即可. 因此通常需要和其他准则配合.</p>
 <div class="admonition tip">
 <p class="admonition-title">因为 <span class="arithmatex">\(d_k\)</span> 是下降方向，所以总能够找到 <span class="arithmatex">\(\alpha\)</span> 满足 Armijo 准则. #issue</p>
 </div>
@@ -2732,10 +2796,7 @@ $<span class="w"> </span>python3<span class="w"> </span>simplex_method.py<span c
 &amp;l_1:\quad \{(\alpha,\varphi(\alpha)+c \varphi'(0)\cdot \alpha):\alpha\ge0\}\\
 &amp;l_2:\quad \{(\alpha,\varphi(\alpha)+(1-c)\varphi'(0)\cdot \alpha):\alpha\geq0\}
 \end{aligned}\]</div>
-<div class="admonition note">
-<p class="admonition-title">采用回退法确定满足 Goldstein 准则的步长.</p>
-</div>
-<p>首先确定 Goldstein 准则成立的区间 <span class="arithmatex">\([a_0,b_0]\)</span> ，给定 <span class="arithmatex">\(\alpha_0\in[a_0,b_0],c\in(0,\frac{1}{2}),\gamma&gt;1\)</span> ， <span class="arithmatex">\(k\leftarrow 0\)</span> .</p>
+<p>可以采用回退法确定满足 Goldstein 准则的步长. 首先确定 Goldstein 准则成立的区间 <span class="arithmatex">\([a_0,b_0]\)</span> ，给定 <span class="arithmatex">\(\alpha_0\in[a_0,b_0],c\in(0,\frac{1}{2}),\gamma&gt;1\)</span> ， <span class="arithmatex">\(k\leftarrow 0\)</span> .</p>
 <p>当 <span class="arithmatex">\(\alpha_0\)</span> 不满足 Goldstein 1) 时： </p>
 <div class="arithmatex">\[\begin{aligned}
 &amp;a_{k+1}\leftarrow a_k\\
@@ -2759,6 +2820,19 @@ $<span class="w"> </span>python3<span class="w"> </span>simplex_method.py<span c
 &amp;\varphi(t_0+\alpha)\geq \varphi(t_0)+(1-\rho)\alpha \varphi'(t_0)\\
 \end{aligned}\]</div>
 </details>
+<p>设 <span class="arithmatex">\(f\in C^1(\mathbb{R}^n)\)</span> ，并设 <span class="arithmatex">\(f\)</span> 在 <span class="arithmatex">\(x_k\)</span> 处的下降方向 <span class="arithmatex">\(d_k\)</span> 满足： <span class="arithmatex">\(g_k^Td_k&lt;0\)</span> .</p>
+<div class="arithmatex">\[f(x_k+\alpha d_k)=f(x_k)+\alpha\nabla^Tf(x_k)d_k+\frac{\mathcal{o}(\alpha)}{\alpha}\]</div>
+<p>注意到右式的线性部分： <span class="arithmatex">\(f(x_k)+\alpha\nabla^Tf(x_k)d_k\)</span> ，考虑： </p>
+<div class="arithmatex">\[\begin{aligned}
+&amp;f(x_k+\alpha d_k)\leq f(x_k)+\rho_1\alpha_kg_k^Td_k\quad (1)\\
+&amp;-\nabla f(x_k+\alpha_kd_k)^Td_k\leq -\rho_2 g_k^Td_k\quad (2)\\
+&amp;0&lt;\rho_1&lt;\rho_2&lt;1
+\end{aligned}\]</div>
+<p>其中 <span class="arithmatex">\((1)\)</span> 是上述提到的 Armijo 准则， <span class="arithmatex">\((2)\)</span> 被称为曲率条件（curvatur condition）</p>
+<div class="admonition tip">
+<p class="admonition-title">参数选择</p>
+<p><span class="arithmatex">\(\rho_1\)</span> 通常取很小的值， <span class="arithmatex">\(\rho_2\)</span> 则取较大的值.</p>
+</div>
 <h4 id="_15">黄金分割法<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h4>
 <p>设 <span class="arithmatex">\(\varphi(\alpha)\)</span> 定义在 <span class="arithmatex">\([a,b]\)</span> 上，如果存在唯一的 <span class="arithmatex">\(\alpha^*\in(a,b)\)</span> 使得 <span class="arithmatex">\(\varphi\)</span> 在 <span class="arithmatex">\([a,\alpha^*]\)</span> 上严格单调递减，在 <span class="arithmatex">\([\alpha^*,b]\)</span> 上严格单调增加，则称 <span class="arithmatex">\(\varphi\)</span> 为单峰函数. </p>
 <p>任取 <span class="arithmatex">\(\lambda,\mu\in(a,b)\)</span> ：</p>
@@ -2895,11 +2969,6 @@ $<span class="w"> </span>python3<span class="w"> </span>simplex_method.py<span c
 <div class="code-footer"><label class="expand" for="__collapse2" tabindex="0" title="展"></label><label class="collapse" for="__collapse2" tabindex="0" title="折"></label></div>
 </div>
 <p>结果：在限制 <span class="arithmatex">\(\epsilon=1\times 10^{-6}\)</span> ，极大值约为为 <span class="arithmatex">\(4.11\times10^{10}\)</span> .</p>
-<h3 id="wolfe">Wolfe<a class="headerlink" href="#wolfe" title="Permanent link">&para;</a></h3>
-<div class="arithmatex">\[f(x_k+\alpha d_k)=f(x_k)+\alpha\nabla^Tf(x_k)d_k+\frac{\mathcal{o}(\alpha)}{\alpha}\]</div>
-<p>注意到右式的线性部分： <span class="arithmatex">\(f(x_k)+\alpha\nabla^Tf(x_k)d_k\)</span> ，考虑： </p>
-<p><strong>Wolfe 条件</strong>：包含 Armijo 条件和曲率条件：</p>
-<p>Armijo: <span class="arithmatex">\(f(x_k+\alpha d_k)\leq f(x_k)+c_1\alpha d_k^T\nabla f(x_k),c_1\in(0,1)\)</span> 该条件保证 <span class="arithmatex">\(f(x_k+\alpha d_k)\)</span> 取得的值比 <span class="arithmatex">\(f(x_k)\)</span> 要小；</p>
 <h4 id="_16">精确线性搜索<a class="headerlink" href="#_16" title="Permanent link">&para;</a></h4>
 <h3 id="_17">多元无约束优化问题<a class="headerlink" href="#_17" title="Permanent link">&para;</a></h3>
 <h4 id="_18">最速下降法<a class="headerlink" href="#_18" title="Permanent link">&para;</a></h4>
@@ -4051,209 +4120,15 @@ alpha:  0.4 x:  [[4.33333333]
 <p>求解立方体函数：</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">trust_region</span><span class="p">(</span><span class="n">cube_expr</span><span class="p">,</span> <span class="n">x_1_val</span><span class="p">,</span> <span class="n">x_2_val</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
-<p>输出结果：</p>
-<div class="collapse-code"><input checked="checked" id="__collapse8" name="__collapse8" type="checkbox" /><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span>
-<span class="normal">18</span>
-<span class="normal">19</span>
-<span class="normal">20</span>
-<span class="normal">21</span>
-<span class="normal">22</span>
-<span class="normal">23</span>
-<span class="normal">24</span>
-<span class="normal">25</span>
-<span class="normal">26</span>
-<span class="normal">27</span>
-<span class="normal">28</span>
-<span class="normal">29</span>
-<span class="normal">30</span>
-<span class="normal">31</span>
-<span class="normal">32</span>
-<span class="normal">33</span>
-<span class="normal">34</span>
-<span class="normal">35</span>
-<span class="normal">36</span>
-<span class="normal">37</span>
-<span class="normal">38</span>
-<span class="normal">39</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="m">1</span>.19878905303948<span class="w"> </span><span class="m">1</span>.72276870913054
-<span class="m">1</span>.19878905303948<span class="w"> </span><span class="m">1</span>.72276870913054
-<span class="m">1</span>.19670177491777<span class="w"> </span><span class="m">1</span>.71423108688279
-<span class="m">1</span>.19272909707311<span class="w"> </span><span class="m">1</span>.69546645673245
-<span class="m">1</span>.19272909707311<span class="w"> </span><span class="m">1</span>.69546645673245
-<span class="m">1</span>.19272909707311<span class="w"> </span><span class="m">1</span>.69546645673245
-<span class="m">1</span>.19134655353694<span class="w"> </span><span class="m">1</span>.69130702831896
-<span class="m">1</span>.18603467779554<span class="w"> </span><span class="m">1</span>.67068470892689
-<span class="m">1</span>.18932427837573<span class="w"> </span><span class="m">1</span>.68265894493626
-<span class="m">1</span>.18932427837573<span class="w"> </span><span class="m">1</span>.68265894493626
-<span class="m">1</span>.18667867642933<span class="w"> </span><span class="m">1</span>.67166460735022
-<span class="m">1</span>.18355463719180<span class="w"> </span><span class="m">1</span>.65824324420497
-<span class="m">1</span>.18355463719180<span class="w"> </span><span class="m">1</span>.65824324420497
-<span class="m">1</span>.18112896398946<span class="w"> </span><span class="m">1</span>.64824114633273
-<span class="m">1</span>.18112896398946<span class="w"> </span><span class="m">1</span>.64824114633273
-<span class="m">1</span>.17838948816512<span class="w"> </span><span class="m">1</span>.63657307882991
-<span class="m">1</span>.17615022738497<span class="w"> </span><span class="m">1</span>.62745039783577
-<span class="m">1</span>.17615022738497<span class="w"> </span><span class="m">1</span>.62745039783577
-<span class="m">1</span>.17360408408766<span class="w"> </span><span class="m">1</span>.61663314751242
-<span class="m">1</span>.17360408408766<span class="w"> </span><span class="m">1</span>.61663314751242
-<span class="m">1</span>.17156015867982<span class="w"> </span><span class="m">1</span>.60844763915149
-<span class="m">1</span>.16913630400298<span class="w"> </span><span class="m">1</span>.59808376831097
-<span class="m">1</span>.16913630400298<span class="w"> </span><span class="m">1</span>.59808376831097
-<span class="m">1</span>.16733052251298<span class="w"> </span><span class="m">1</span>.59107284921400
-<span class="m">1</span>.16482434962377<span class="w"> </span><span class="m">1</span>.58003667772557
-<span class="m">1</span>.16482434962377<span class="w"> </span><span class="m">1</span>.58003667772557
-<span class="m">1</span>.16482434962377<span class="w"> </span><span class="m">1</span>.58003667772557
-<span class="m">1</span>.16335631556876<span class="w"> </span><span class="m">1</span>.57486489184944
-<span class="m">1</span>.14449939936811<span class="w"> </span><span class="m">1</span>.49311960809928
-<span class="m">1</span>.11641347078141<span class="w"> </span><span class="m">1</span>.38878809222429
-<span class="m">1</span>.07482806611855<span class="w"> </span><span class="m">1</span>.23598081749151
-<span class="m">1</span>.05886937969121<span class="w"> </span><span class="m">1</span>.18639182239257
-<span class="m">1</span>.02011787148179<span class="w"> </span><span class="m">1</span>.05686388835862
-<span class="m">1</span>.01493834053357<span class="w"> </span><span class="m">1</span>.04540585439760
-<span class="m">1</span>.00071016139468<span class="w"> </span><span class="m">1</span>.00151848225152
-<span class="m">1</span>.00019117815795<span class="w"> </span><span class="m">1</span>.00057283566326
-<span class="m">1</span>.00000009270925<span class="w"> </span><span class="m">1</span>.00000016857288
-<span class="m">1</span>.00000000000607<span class="w"> </span><span class="m">1</span>.00000000001820
-<span class="m">0</span>.999999999999971<span class="w"> </span><span class="m">0</span>.999999999999912
-</code></pre></div></td></tr></table></div>
-<div class="code-footer"><label class="expand" for="__collapse8" tabindex="0" title="展"></label><label class="collapse" for="__collapse8" tabindex="0" title="折"></label></div>
-</div>
 <p>求解 Rosenbrock</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">trust_region</span><span class="p">(</span><span class="n">rb_expr</span><span class="p">,</span> <span class="n">x_1_val</span><span class="p">,</span> <span class="n">x_2_val</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
-<p>输出结果</p>
-<div class="collapse-code"><input checked="checked" id="__collapse9" name="__collapse9" type="checkbox" /><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span>
-<span class="normal">18</span>
-<span class="normal">19</span>
-<span class="normal">20</span>
-<span class="normal">21</span>
-<span class="normal">22</span>
-<span class="normal">23</span>
-<span class="normal">24</span>
-<span class="normal">25</span>
-<span class="normal">26</span>
-<span class="normal">27</span>
-<span class="normal">28</span>
-<span class="normal">29</span>
-<span class="normal">30</span>
-<span class="normal">31</span>
-<span class="normal">32</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="m">1</span>.21818181818182<span class="w"> </span><span class="m">1</span>.48363636363636
-<span class="m">1</span>.21818181818182<span class="w"> </span><span class="m">1</span>.48363636363636
-<span class="m">1</span>.21818181818182<span class="w"> </span><span class="m">1</span>.48363636363636
-<span class="m">1</span>.21567461592991<span class="w"> </span><span class="m">1</span>.47870460476965
-<span class="m">1</span>.21282275176820<span class="w"> </span><span class="m">1</span>.47049407430432
-<span class="m">1</span>.21282275176820<span class="w"> </span><span class="m">1</span>.47049407430432
-<span class="m">1</span>.21037707446354<span class="w"> </span><span class="m">1</span>.46582621830012
-<span class="m">1</span>.20748546676836<span class="w"> </span><span class="m">1</span>.45744064359908
-<span class="m">1</span>.20748546676836<span class="w"> </span><span class="m">1</span>.45744064359908
-<span class="m">1</span>.20509662061744<span class="w"> </span><span class="m">1</span>.45304543540833
-<span class="m">1</span>.20509662061744<span class="w"> </span><span class="m">1</span>.45304543540833
-<span class="m">1</span>.20210933468898<span class="w"> </span><span class="m">1</span>.44431995858498
-<span class="m">1</span>.20210933468898<span class="w"> </span><span class="m">1</span>.44431995858498
-<span class="m">1</span>.19977148285194<span class="w"> </span><span class="m">1</span>.44021318219269
-<span class="m">1</span>.19659226216299<span class="w"> </span><span class="m">1</span>.43087206869446
-<span class="m">1</span>.19659226216299<span class="w"> </span><span class="m">1</span>.43087206869446
-<span class="m">1</span>.19429719901227<span class="w"> </span><span class="m">1</span>.42708087529518
-<span class="m">1</span>.19073847933811<span class="w"> </span><span class="m">1</span>.41660239928940
-<span class="m">1</span>.19073847933811<span class="w"> </span><span class="m">1</span>.41660239928940
-<span class="m">1</span>.18847264633898<span class="w"> </span><span class="m">1</span>.41317443076037
-<span class="m">1</span>.18409393062922<span class="w"> </span><span class="m">1</span>.40037076045782
-<span class="m">1</span>.18409393062922<span class="w"> </span><span class="m">1</span>.40037076045782
-<span class="m">1</span>.18409393062922<span class="w"> </span><span class="m">1</span>.40037076045782
-<span class="m">1</span>.18182950808018<span class="w"> </span><span class="m">1</span>.39739694051050
-<span class="m">1</span>.17518815376367<span class="w"> </span><span class="m">1</span>.37851090352549
-<span class="m">1</span>.05926613443445<span class="w"> </span><span class="m">1</span>.10860682899435
-<span class="m">1</span>.04319432375751<span class="w"> </span><span class="m">1</span>.08799609402145
-<span class="m">1</span>.00212183045605<span class="w"> </span><span class="m">1</span>.00256121337059
-<span class="m">1</span>.00053528460979<span class="w"> </span><span class="m">1</span>.00106833862146
-<span class="m">1</span>.00000026934035<span class="w"> </span><span class="m">1</span>.00000025243944
-<span class="m">1</span>.00000000001540<span class="w"> </span><span class="m">1</span>.00000000003073
-<span class="m">1</span>.00000000000002<span class="w"> </span><span class="m">1</span>.00000000000004
-</code></pre></div></td></tr></table></div>
-<div class="code-footer"><label class="expand" for="__collapse9" tabindex="0" title="展"></label><label class="collapse" for="__collapse9" tabindex="0" title="折"></label></div>
-</div>
 <p>求解三角函数：</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">trust_region</span><span class="p">(</span><span class="n">tri_expr</span><span class="p">,</span> <span class="n">x_1_val</span><span class="p">,</span> <span class="n">x_2_val</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
-<div class="collapse-code"><input checked="checked" id="__collapse10" name="__collapse10" type="checkbox" /><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span>
-<span class="normal">18</span>
-<span class="normal">19</span>
-<span class="normal">20</span>
-<span class="normal">21</span>
-<span class="normal">22</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="m">0</span>.909589142706614<span class="w"> </span><span class="m">0</span>.931687575399694
-<span class="m">0</span>.723607097773950<span class="w"> </span><span class="m">0</span>.716337920878024
-<span class="m">0</span>.608061216547561<span class="w"> </span><span class="m">0</span>.606867765385909
-<span class="m">0</span>.469062197828027<span class="w"> </span><span class="m">0</span>.598366329892657
-<span class="m">0</span>.469062197828027<span class="w"> </span><span class="m">0</span>.598366329892657
-<span class="m">0</span>.469062197828027<span class="w"> </span><span class="m">0</span>.598366329892657
-<span class="m">0</span>.469062197828027<span class="w"> </span><span class="m">0</span>.598366329892657
-<span class="m">0</span>.469062197828027<span class="w"> </span><span class="m">0</span>.598366329892657
-<span class="m">0</span>.469062197828027<span class="w"> </span><span class="m">0</span>.598366329892657
-<span class="m">0</span>.469062197828027<span class="w"> </span><span class="m">0</span>.598366329892657
-<span class="m">0</span>.424160293919865<span class="w"> </span><span class="m">0</span>.564582166106411
-<span class="m">0</span>.404314121560402<span class="w"> </span><span class="m">0</span>.601738932337862
-<span class="m">0</span>.374983917520241<span class="w"> </span><span class="m">0</span>.596461269394729
-<span class="m">0</span>.358849805639434<span class="w"> </span><span class="m">0</span>.603279514766732
-<span class="m">0</span>.337294124512735<span class="w"> </span><span class="m">0</span>.607617188107350
-<span class="m">0</span>.337294124512735<span class="w"> </span><span class="m">0</span>.607617188107350
-<span class="m">0</span>.312388100605839<span class="w"> </span><span class="m">0</span>.610898471050756
-<span class="m">0</span>.211444389299614<span class="w"> </span><span class="m">0</span>.619269152413002
-<span class="m">0</span>.238571864341964<span class="w"> </span><span class="m">0</span>.613221877602338
-<span class="m">0</span>.242967505973105<span class="w"> </span><span class="m">0</span>.612689269129207
-<span class="m">0</span>.243064155219690<span class="w"> </span><span class="m">0</span>.612676123576699
-<span class="m">0</span>.243064202201551<span class="w"> </span><span class="m">0</span>.612676117137335
-</code></pre></div></td></tr></table></div>
-<div class="code-footer"><label class="expand" for="__collapse10" tabindex="0" title="展"></label><label class="collapse" for="__collapse10" tabindex="0" title="折"></label></div>
-</div>
 <h3 id="newton_2">拟 Newton 法<a class="headerlink" href="#newton_2" title="Permanent link">&para;</a></h3>
 <p>重构了之前的函数以适用于一般情形：</p>
-<div class="collapse-code"><input checked="checked" id="__collapse11" name="__collapse11" type="checkbox" /><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<div class="collapse-code"><input checked="checked" id="__collapse8" name="__collapse8" type="checkbox" /><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -4291,22 +4166,10 @@ alpha:  0.4 x:  [[4.33333333]
         <span class="nb">print</span><span class="p">(</span><span class="n">x_1_val</span><span class="p">,</span> <span class="n">x_2_val</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">x_1_val</span><span class="p">,</span> <span class="n">x_2_val</span>
 </code></pre></div></td></tr></table></div>
-<div class="code-footer"><label class="expand" for="__collapse11" tabindex="0" title="展"></label><label class="collapse" for="__collapse11" tabindex="0" title="折"></label></div>
+<div class="code-footer"><label class="expand" for="__collapse8" tabindex="0" title="展"></label><label class="collapse" for="__collapse8" tabindex="0" title="折"></label></div>
 </div>
 <p>三种函数计算如下，结果和信赖域算法基本一样，输出结果很长故略去，具体计算迭代步的输出见 HTML 文件.</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">DFR</span><span class="p">(</span><span class="n">rb_expr</span><span class="p">,</span> <span class="mf">1.2</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">)</span>
-<span class="c1"># 1.00000103180926,1.00000204568565</span>
-<span class="n">DFR</span><span class="p">(</span><span class="n">cube_expr</span><span class="p">,</span> <span class="mf">1.2</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">1e-3</span><span class="p">)</span>
-<span class="c1"># 0.999999973390000,0.999999935896561</span>
-<span class="n">DFR</span><span class="p">(</span><span class="n">tri_expr</span><span class="p">,</span> <span class="mf">1.2</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">)</span>
-<span class="c1"># 0.243072302873212,0.612680452675273</span>
-</code></pre></div></td></tr></table></div>
-<h2 id="_26">约束优化方法<a class="headerlink" href="#_26" title="Permanent link">&para;</a></h2>
+<h2 id="_26">约束优化<a class="headerlink" href="#_26" title="Permanent link">&para;</a></h2>
 <p>讨论无约束优化问题：</p>
 <div class="arithmatex">\[\begin{aligned}
 &amp;\min\quad f(x)\\
@@ -4347,6 +4210,17 @@ alpha:  0.4 x:  [[4.33333333]
 <div class="admonition note">
 <p class="admonition-title">约束函数 <span class="arithmatex">\(c_i\)</span> 在 <span class="arithmatex">\(x\in F\)</span> 处连续可微，且 <span class="arithmatex">\(c_i\)</span> 为线性函数 ( <span class="arithmatex">\(i=1,\cdots,p\)</span> ) 或者 <span class="arithmatex">\(\nabla c_i(x),i=1,\cdots,m\)</span> 线性无关，则 <span class="arithmatex">\(FD(x)=LFD(x)\)</span> ，从而 <span class="arithmatex">\(FD(x)=SFD(x)=LFD(x)\)</span> .</p>
 </div>
+<h3 id="lagrange">Lagrange 对偶问题<a class="headerlink" href="#lagrange" title="Permanent link">&para;</a></h3>
+<p>对于约束优化问题，定义其 <strong>Lagrange 函数</strong>：</p>
+<div class="arithmatex">\[L(x,\lambda,\mu)=f(x)-\sum\limits_{i=1}^{m}\mu_ic_i(x)-\sum\limits_{i=m+1}^{p}\lambda_ic_i(x)\]</div>
+<div class="admonition example">
+<p class="admonition-title">线性规划的对偶问题.</p>
+<div class="arithmatex">\[(D)\quad \begin{aligned}
+&amp;\max\quad b^Ty\\
+&amp;s.t.\quad\ A^Ty\leq c
+\end{aligned}\]</div>
+</div>
+<h3 id="kt">KT 算法<a class="headerlink" href="#kt" title="Permanent link">&para;</a></h3>
 <p>定义 <strong>Lagrange 乘子</strong> <span class="arithmatex">\(\lambda_i,i=1,\cdots,p\)</span> ，如果其满足下面的约束条件：</p>
 <div class="arithmatex">\[\begin{aligned}
 &amp;\nabla f(x)-\sum\limits_{i=1}^{p}\lambda_i\nabla c_i(x)=0\\
@@ -4442,7 +4316,7 @@ alpha:  0.4 x:  [[4.33333333]
     <span class="md-icon" title="最后更新">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2024年6月11日</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2024年6月12日</span>
   </span>
 
     
