@@ -6,7 +6,7 @@
 
 最优化方法的分类：**离散** & **连续**；**有限维** & **无限维**. 本篇考虑的是 $\mathbb{R}^n$ 上的连续有限维优化.
 
-$\mathbb{R}^n$ 中的优化问题. 通常记**标准内积** $x,y\in \mathbb{R}^n,\langle x,y \rangle=\sum\limits_{i=1}^{n}x_iy_i$ ，给定一个[正定](LAlg.md#正定矩阵)对称矩阵 $P$ ，记 $\langle x,y \rangle_P=x^TPy$ . 并可以定义**矩阵内积** $A,B\in \mathbb{R}^{m\times n}, \langle A,B \rangle=\sum\limits_{i=1}^{m}\sum\limits_{j=1}^{n}a_{ij}b_{ij}=\text{tr}(A^TB)=\text{tr}(B^TA)$ .
+对于 $\mathbb{R}^n$ 中的优化问题. 通常记**标准内积** $x,y\in \mathbb{R}^n,\langle x,y \rangle=\sum\limits_{i=1}^{n}x_iy_i$ ，给定一个[正定](LAlg.md#正定矩阵)对称矩阵 $P$ ，记 $\langle x,y \rangle_P=x^TPy$ . 并可以定义**矩阵内积** $A,B\in \mathbb{R}^{m\times n}, \langle A,B \rangle=\sum\limits_{i=1}^{m}\sum\limits_{j=1}^{n}a_{ij}b_{ij}=\text{tr}(A^TB)=\text{tr}(B^TA)$ .
 
 连续优化的形式为： 
 
@@ -225,17 +225,51 @@ $$\begin{aligned}
 
 ## 凸函数
 
-凸函数的局部最优点即为全局最优点.
+设 $f:D\subset \mathbb{R}^n\rightarrow \mathbb{R}$ ，其中 $D$ 为凸集，称 $f$ 是 $D$ 上的**凸函数**，如果对于任意的 $x,y\in D,\lambda\in (0,1)$ 有： $f(\lambda x+(1-\lambda)y)\leq \lambda f(x)+(1-\lambda)f(y)$ .
 
->[!note] 设 $f(x)$ 是定义在凸集 $D$ 上的连续可微函数，则 1) $f$ 为 $D$ 上的充分必要条件是 $f(y)\geq f(x)+\nabla f(x)^T(y-x),\forall x,y\in D$ ；2) $f$ 是 $D$ 上的严格凸函数的充要条件是 $f(y)>f(x)+\nabla f(x)^T(y-x),\forall y,x\in D,x\neq y$ .
+当被优化函数为凸函数时称为凸优化问题，其具有如下的良好性质：
+
+>[!note] 凸函数的局部最优点即为全局最优点.
+
+下面给出如何判断一个函数是凸函数. 从 $C^1,C^2$ 分别考虑.
+
+>[!note] 📍 设 $f(x)$ 是定义在凸集 $D$ 上的连续可微函数，则 1) $f$ 为 $D$ 上凸函数的充分必要条件是 $f(y)\geq f(x)+\nabla f(x)^T(y-x),\forall x,y\in D$ ；2) $f$ 是 $D$ 上的严格凸函数的充要条件是 $f(y)>f(x)+\nabla f(x)^T(y-x),\forall y,x\in D,x\neq y$ .
+>证明： $\Rightarrow$ ：对于任意的 $x,y\in D,\lambda\in(0,1)$ 
+>
+>$$\begin{aligned}
+>&f(\lambda x+(1-\lambda)y)\leq \lambda f(x)+(1-\lambda)f(y)\\
+>&\frac{f(y+\lambda(x-y))-f(y)}{\lambda}\leq f(x)-f(y)
+>\end{aligned}$$
+>
+>令 $\lambda\rightarrow 0$ 可得： $\nabla f(y)^T(x-y)\leq f(x)-f(y)$ .
+>
+>$\Leftarrow$ ：对于任意的 $x,y\in D,\lambda\in(0,1)$ ，取 $z=\lambda x+(1-\lambda)y$ ，从而可以得到：
+>
+>$$\begin{aligned}
+>&f(z)+\nabla f(z)^T(y-z)\leq f(y)\quad (1)\\
+>&f(z)+\nabla f(z)^T(x-z)\leq f(x)\quad (2)\\
+>\end{aligned}$$
+>
+>$\lambda(1)+(1-\lambda)(2)$ 可以得到：
+>
+>$$f(z)\leq \lambda f(y)+(1-\lambda)f(y)$$
+>
+>对于严格凸的情形， $\Leftarrow$ 是类似的，但对于 $\Rightarrow$ 不能确定是严格不等. 为此，不妨假设 $\exists x,y\in D$ 使得 $f(y)=f(x)+\nabla f(x)^T(y-x)$ . 因此可以得到：
+>
+>$$\begin{aligned}
+>\frac{f(y)+f(x)}{2}&=f(x)+\nabla f(x)^T\left(\frac{x+y}{2}-x\right)\\
+>&\geq f\left(\frac{x+y}{2}\right)
+>\end{aligned}$$
+>
+>矛盾！因此取严格不等.
 
 因此有推论：
 
 >[!note] $f$ 为定义在凸集 $D$ 上的一阶连续可微函数，则 $x$ 为 $D$ 的全局最优点当且仅当 $\nabla f(x)=0$ .
 
-> $\Rightarrow$ ：
-
 >[!note] 设 $f(x)$ 是<u>非空开凸集</u> $D\subset \mathbb{R}^n$ 上的<u>二阶连续可微</u>函数，则 1) $f$ 是 $D$ 上的凸函数的充要条件是 $\nabla^2f(x)$ 在 $D$ 中<u>半正定</u>；2) 若 $\nabla^2f(x)$ 在 $D$ 中正定，则 $f(x)$ 是 $D$ 上的严格凸函数.
+
+下面讨论凸函数的哪些运算仍然是凸函数.
 
 # 线性规划
 
@@ -618,8 +652,6 @@ Armijo 准则要求 $(\alpha,\varphi(\alpha))$ 应在直线 $\{\varphi(0)+c_1 \n
 >[!note] 回退法确定满足 Armijo 准则的步长.
 >首先给定 $\alpha_0$ ， $\gamma\in(0,1)$ 初始化 $\alpha\leftarrow \alpha_0$ ；当 $\alpha$ 不满足 Armijo 时： $\alpha\leftarrow \gamma \alpha$ . 最终输出 $\alpha_k\leftarrow \alpha$ .
 
->[!note] Goldstein 准则
-
 Armijo 准则要求 $(\alpha,\varphi(\alpha))$ 在直线 $\{\varphi(0)+c \nabla f(x_k)^Td_k \alpha:\alpha\geq0\}$ 的下方，自然地，也可以要求其在某条直线的上方，这样可以保证 $\alpha$ 不会过小. **Goldstein** 准则（或 Armijo - Goldstein 准则）：
 
 $$\begin{aligned}
@@ -658,7 +690,17 @@ $$\begin{aligned}
 &k\leftarrow k+1
 \end{aligned}$$
 
-#### 黄金分割法
+>[!example]- 使用 Goldstein 准则求 $\varphi(t)=-2t^3+21t^2-60t+50$ 在 $t_0=0.5$ 的一个步长， $\rho=0.1$ .
+>解：优化函数为 $\varphi(t)$ ，并设置超参树 $\rho=0.1$ . $\varphi'(t)=-6t^2+42t-60$ ， $\varphi'(0.5)<0$ ，因此下降方向为 $d=+1$ .  [[2422We121404]]
+>
+>因此有如下的 Goldstein 准则：
+>
+>$$\begin{aligned}
+>&\varphi(t_0+\alpha)\leq \varphi(t_0)+\rho \alpha \varphi'(t_0)\\
+>&\varphi(t_0+\alpha)\geq \varphi(t_0)+(1-\rho)\alpha \varphi'(t_0)\\
+>\end{aligned}$$
+
+### 黄金分割法
 
 设 $\varphi(\alpha)$ 定义在 $[a,b]$ 上，如果存在唯一的 $\alpha^*\in(a,b)$ 使得 $\varphi$ 在 $[a,\alpha^*]$ 上严格单调递减，在 $[\alpha^*,b]$ 上严格单调增加，则称 $\varphi$ 为单峰函数. 
 
@@ -730,45 +772,6 @@ print("近似极小值:", min_value)
 
 程序运行输出（注：输出时限制了小数点后的位数（计算时没有，按照默认位数），并打印了每一次迭代的情况）：
 
-/// collapse-code
-```shell
-$ python3 golden_search.py
-a: -0.236068, b: 1.000000, b-a: 1.236068
-a: -0.236068, b: 0.527864, b-a: 0.763932
-a: -0.236068, b: 0.236068, b-a: 0.472136
-a: -0.055728, b: 0.236068, b-a: 0.291796
-a: -0.055728, b: 0.124612, b-a: 0.180340
-a: -0.055728, b: 0.055728, b-a: 0.111456
-a: -0.013156, b: 0.055728, b-a: 0.068884
-a: -0.013156, b: 0.029417, b-a: 0.042572
-a: -0.013156, b: 0.013156, b-a: 0.026311
-a: -0.003106, b: 0.013156, b-a: 0.016261
-a: -0.003106, b: 0.006944, b-a: 0.010050
-a: -0.003106, b: 0.003106, b-a: 0.006211
-a: -0.000733, b: 0.003106, b-a: 0.003839
-a: -0.000733, b: 0.001639, b-a: 0.002372
-a: -0.000733, b: 0.000733, b-a: 0.001466
-a: -0.000173, b: 0.000733, b-a: 0.000906
-a: -0.000173, b: 0.000387, b-a: 0.000560
-a: -0.000173, b: 0.000173, b-a: 0.000346
-a: -0.000041, b: 0.000173, b-a: 0.000214
-a: -0.000041, b: 0.000091, b-a: 0.000132
-a: -0.000041, b: 0.000041, b-a: 0.000082
-a: -0.000010, b: 0.000041, b-a: 0.000051
-a: -0.000010, b: 0.000022, b-a: 0.000031
-a: -0.000010, b: 0.000010, b-a: 0.000019
-a: -0.000002, b: 0.000010, b-a: 0.000012
-a: -0.000002, b: 0.000005, b-a: 0.000007
-a: -0.000002, b: 0.000002, b-a: 0.000005
-a: -0.000001, b: 0.000002, b-a: 0.000003
-a: -0.000001, b: 0.000001, b-a: 0.000002
-a: -0.000001, b: 0.000001, b-a: 0.000001
-a: -0.000000, b: 0.000001, b-a: 0.000001
-近似极小点: 1.2688429515779048e-07
-近似极小值: 2.000000000000016
-```
-///
-
 **结果**：在限制 $\epsilon=1\times 10^{-6}$ ，最终的近似极小值为 $1.27\times 10^{-7}$ ，接近 $0$ .
 
 另一个使用该函数的例子：
@@ -798,45 +801,6 @@ print("极大值: ", - min_value)
 ```
 ///
 
-程序运行输出（打印了每一次迭代的情况）：
-
-/// collapse-code
-```shell
-$ python3 golden_search_1.py
-a: 0.381966, b: 1.000000, b-a: 0.618034
-a: 0.618034, b: 1.000000, b-a: 0.381966
-a: 0.763932, b: 1.000000, b-a: 0.236068
-a: 0.854102, b: 1.000000, b-a: 0.145898
-a: 0.909830, b: 1.000000, b-a: 0.090170
-a: 0.944272, b: 1.000000, b-a: 0.055728
-a: 0.944272, b: 0.978714, b-a: 0.034442
-a: 0.957428, b: 0.978714, b-a: 0.021286
-a: 0.965558, b: 0.978714, b-a: 0.013156
-a: 0.965558, b: 0.973689, b-a: 0.008131
-a: 0.968664, b: 0.973689, b-a: 0.005025
-a: 0.968664, b: 0.971769, b-a: 0.003106
-a: 0.969850, b: 0.971769, b-a: 0.001919
-a: 0.969850, b: 0.971036, b-a: 0.001186
-a: 0.970303, b: 0.971036, b-a: 0.000733
-a: 0.970303, b: 0.970756, b-a: 0.000453
-a: 0.970476, b: 0.970756, b-a: 0.000280
-a: 0.970583, b: 0.970756, b-a: 0.000173
-a: 0.970583, b: 0.970690, b-a: 0.000107
-a: 0.970624, b: 0.970690, b-a: 0.000066
-a: 0.970649, b: 0.970690, b-a: 0.000041
-a: 0.970649, b: 0.970675, b-a: 0.000025
-a: 0.970659, b: 0.970675, b-a: 0.000016
-a: 0.970659, b: 0.970669, b-a: 0.000010
-a: 0.970659, b: 0.970665, b-a: 0.000006
-a: 0.970661, b: 0.970665, b-a: 0.000004
-a: 0.970661, b: 0.970663, b-a: 0.000002
-a: 0.970662, b: 0.970663, b-a: 0.000001
-a: 0.970663, b: 0.970663, b-a: 0.000001
-极大值点:  0.9706629130311282
-极大值:  41085981016.083954
-```
-///
-
 结果：在限制 $\epsilon=1\times 10^{-6}$ ，极大值约为为 $4.11\times10^{10}$ .
 
 ## Wolfe
@@ -848,57 +812,6 @@ $$f(x_k+\alpha d_k)=f(x_k)+\alpha\nabla^Tf(x_k)d_k+\frac{\mathcal{o}(\alpha)}{\a
 **Wolfe 条件**：包含 Armijo 条件和曲率条件：
 
 Armijo: $f(x_k+\alpha d_k)\leq f(x_k)+c_1\alpha d_k^T\nabla f(x_k),c_1\in(0,1)$ 该条件保证 $f(x_k+\alpha d_k)$ 取得的值比 $f(x_k)$ 要小；
-
-## Goldstein
-
-[[2422We121404]]
-
-使用 Goldstein 准则求 $\varphi(t)=-2t^3+21t^2-60t+50$ 在 $t_0=0.5$ 的一个步长， $\rho=0.1$ .
-
-则：
-
-$$\begin{aligned}
-&\varphi'(t)=-6t^2+42t-60\\
-\end{aligned}$$
-
-根据 Goldstein 准则， $\alpha$ 应当满足：
-
-$$\begin{aligned}
-(1)\quad &\varphi(\alpha)\leq  \varphi(0)+\rho \alpha \varphi'(0)\\
-(2)\quad &\varphi(\alpha)\geq \varphi(0)+(1-\rho)\alpha \varphi'(0)
-\end{aligned}$$
-
-带入 $\rho,\varphi(0)',\varphi(0)$ 得到：
-
-$$\begin{aligned}
-&(1)\quad 2\alpha^3-21\alpha^2+54\alpha\geq0\\
-&(2)\quad -2\alpha^3+21\alpha^2-6\alpha\geq0
-\end{aligned}$$
-
-带入初始点 $t_0=0.5$ ：
-
-```python
-# Goldstein 求步长算法
-condition_1 = lambda x: 2 * x ** 3 - 21 * x ** 2 + 54 * x
-condition_2 = lambda x: -2 * x ** 3 + 21 * x ** 2 - 6 * x
-
-t  = 0.5
-a = 0
-b = 1
-
-while (not (condition_1(t) >=0 and condition_2(t) >= 0)):
-    if condition_1(t) < 0:
-        a, b = a, t
-        t = (a + b) / 2
-    else:
-        a, b = t, a
-        t = (a + b) / 2
-
-print(t)
-```
-
-输出结果为 $0.5$ ，因此可以取步长 $0.5$ .
-
 
 ### 精确线性搜索
 
