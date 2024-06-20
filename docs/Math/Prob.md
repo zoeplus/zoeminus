@@ -1,3 +1,17 @@
+# 依赖与简介
+
+概率论中对于数字特征的计算、概率收敛的计算需要[[MA#级数]]、[[MA#积分]]中的一些技巧，以及一些实数理论 [[zoeminus/docs/Math/R|R]] . 在求解或证明简单概率模型（古典、几何）时需要一些组合数方面的知识，见[[DSA#附录：组合恒等式]].
+
+首先刻画 [[#概率论讨论对象]]：样本空间、事件、概率函数（[[#概率公理]]），随后就事件和概率函数的角度讨论[[#古典概率模型]]、[[#几何概率模型]]，谈论这些看起来很基础的概率模型的意义是——所谓的事件大多数都可以被抽象为随机变量限制在 $\mathbb{R}$ 的某个子集上对应的原像，于是研究事件发生的概率也就转换为研究随机变量.
+
+不过为什么？讨论随机变量限制在 $\mathbb{R}$ 的某个子集上对应的原像有什么好处？
+
+就实际而言，通常我们不关心单个事件的概率. 比如考虑随机变量 $\eta,\xi$ ，今天的 $22:10$ 的温度是 $19.19^\circ$ 的概率是多少，e.g. $\mathcal{P}(\xi=22:10,\eta=19.19^\circ)$  ？我们相对而言更关心的问题是：今天 $22:00-24:00$ 的温度为 $>30^\circ$ 的概率 $\mathcal{P}(22:00<\xi<24:00,\eta>30^\circ)$ ？，这样可能就该开空调了（津六月晚上 $22:00$ 温度 $32^\circ$ 👍）.
+
+于是就会定义分布函数、密度函数，并依据实际情况将随机变量分为离散型和连续型；随后讨论随机变量之间的关系：条件概率、独立性；然后就会进入到概括性强的数字特征：期望、方差、母函数、特征函数.
+
+最后，讨论一些更优雅的结论，因为实际上在上述对于随机变量的讨论中几乎未染指如何计算概率. 在[[#概率收敛]]中，将给出一些定理，说明如何估计随机变量分布函数.
+
 # 概率论讨论对象
 
 概率论中的三个要素： $(\Omega,\mathcal{F},P)$ . 其中 $\Omega$ 称为**样本空间**（sample space）由（一个随机过程中出现的）所有可能结果构成， $\mathcal{F}$ 为 $\Omega$ 的<u>一些</u>子集组成的一个集合，称为**事件集**（set of events）， $P:\mathcal{F}\rightarrow[0,1]$ 称为**概率函数**或者**概率测度**.
@@ -13,7 +27,7 @@ $\omega\in \Omega$ 称为**样本点**，$A\subset \mathcal{F}$ 称为**事件**
 - **积**： $A\cap B$ 或 $AB$ ，表示 $A,B$ 同时发生；
 - **和**： $A\cup B$ 或 $A+B$ ，表示 $A,B$ 中至少发生一个；并且有 $A+B=A+\bar{A}B$ ；
 - **差**： $A\backslash B$ 或 $A-B$ ，表示 $A$ 发生但 $B$ 不发生；并且有 $A-B=A-AB$ ；
-- **补**： $\Omega\backslash A$ 或 $\bar{A}$ （注意合理性用到了 $\mathcal{F}$ 是 sigma-代数）.
+- **补**： $\Omega\backslash A$ 或 $\bar{A}$ （注意合理性用到了 $\mathcal{F}$ 是 sigma-代数，下面提及）.
 
 >[!example]- $M=A+B-B,N=A-B+B$ 与 $A$ 之间的关系.
 >- $M\subset A$ ，当且仅当 $A\cap B=\emptyset$ 时 $A=M$ ；
@@ -31,15 +45,15 @@ $\mathcal{F}$ 必须是 $\sigma-$ 域（**sigma-field**，或者称 $\sigma-$ �
 2. 如果 $E\in \mathcal{F}$ 则 $E^c\in \mathcal{F}$ ；
 3. 如果 $E_i\in \mathcal{F},i\in I$ ，其中 $I$ 为至多可数集，则 $\sum\limits_{i\in I}^{}E_i\in \mathcal{F}$ . （直和写法，表示并）
 
-根据 1. 2. 可以得出 $\Omega\in \mathcal{F}$ .
+根据 1. 2. 可以得出 $\Omega\in \mathcal{F}$ . $\sigma-$ 代数指的是对于集合的任意个交、并、差、补运算都封闭.
 
-上述要求 $\mathcal{F}$ 是 $\sigma-$ 域是为了对于确保概率定义的合理性. #issue %%不理解%% 可以将 $\mathcal{F}$ 理解为 available events .
+上述要求 $\mathcal{F}$ 是 $\sigma-$ 域是为了对于确保概率定义的合理性. 也即事件集是可以进行上述提到的操作的.
 
 根据定义可知，最小的 $\sigma$ 代数为 $\{\emptyset,\Omega\}$ ，最大的 $\sigma$ 代数为 $\mathcal{P}(\Omega)$ ；包含 $A$ 的最小 $\sigma$ 代数为 $\mathcal{F}=\{\emptyset,\Omega,A,\bar{A}\}$ .
 
 ## 概率公理
 
->[!summary]+ 自查表
+>[!summary] 自查表
 >- 什么是概率公理？从概率公理出发能得到哪些结论？
 
 对于概率函数，其需要满足下面三个条件：
@@ -48,7 +62,7 @@ $\mathcal{F}$ 必须是 $\sigma-$ 域（**sigma-field**，或者称 $\sigma-$ �
 2. 规范： $\mathcal{P}(\Omega)=1$ ；
 3. 可列可加： $E_i\in \mathcal{F},i\in I$ 其中 $I$ 为至多可数集，如果 $E_i$ 两两**互斥**（ $E_i\cap E_j=\emptyset,\forall i,j\in I$ ，或称**不相容**），则 $\mathcal{P}(\sum\limits_{i\in I}^{}E_i)=\sum\limits_{i\in I}\mathcal{P}(E_i)$ . 
 
-注：可以将上述概率公理减弱.
+注：可以将上述概率公理减弱为：
 
 1. $\forall E\in\mathcal{F}(\mathcal{P}(E)\geq0)$ ；
 2. $\mathcal{P}(\Omega)=1$ ；
@@ -156,7 +170,7 @@ $\mathcal{F}$ 必须是 $\sigma-$ 域（**sigma-field**，或者称 $\sigma-$ �
 
 # 简单概率模型
 
-下面提出的概率模型对于概率函数 $\mathcal{P}$ 做估计.
+下面提出的概率模型对于概率函数 $\mathcal{P}$ 做出估计.
 
 ## 古典概率模型
 
@@ -251,7 +265,7 @@ $\mathcal{F}$ 必须是 $\sigma-$ 域（**sigma-field**，或者称 $\sigma-$ �
 >[!example]- 约会问题： $A,B$ 约定在 $7:00-8:00$ 之间会面，有一方超过 $20$ 分钟未见到对方则离开， $A,B$ 出现在 $7:00-8:00$ 的任一时刻等可能. 两人能够相见的概率？
 >首先确定 $G=\{(x,y):0\leq x,y\leq 60\}$ . 然后 $g=\{(x,y):\lvert x-y\rvert\leq 20\}$ ，通过面积法可求得 $p=\frac{5}{9}$ .
 
->[!note]- 蒲丰问题（投针估计圆周率）考虑一组间距为 $a$ 的平行线，现在随机地向纸上丢一个针（意思是，针的位置和角度都是均匀分布的），假设纸也是无限大的，针的长度为 $l(l\leq n)$ ，则针触碰到任意一条线的概率为？
+>[!example]- 蒲丰问题（投针估计圆周率）考虑一组间距为 $a$ 的平行线，现在随机地向纸上丢一个针（意思是，针的位置和角度都是均匀分布的），假设纸也是无限大的，针的长度为 $l(l\leq n)$ ，则针触碰到任意一条线的概率为？
 >首先 $G=\{(\theta,x):0\leq \theta\leq \pi,0\leq x\leq \frac{a}{2}\}$ ，其中 $x$ 为针的中心距离最近的平行线的距离. 则 $g=\{(\theta,x):0\leq \theta\leq \pi,0\leq x\leq \frac{l}{2}\sin\theta\}$ . 进而可得： 
 >
 >$$p=\frac{\int_0^\pi\frac{l}{2}\sin\theta d\theta}{\frac{a}{2}\pi}=\frac{2l}{\pi a}$$
@@ -274,10 +288,6 @@ $\mathcal{F}$ 必须是 $\sigma-$ 域（**sigma-field**，或者称 $\sigma-$ �
 >[!example]- 考虑一等腰直角三角形 $ABC$ ，腰长为 $1$ ， 其中 $B$ 为直角顶点，在 $BC$ 上任取一点 $P$ ， $AP>\sqrt{5}/2$ 的概率为？
 
 # 条件概率和统计独立性
-
->[!summary]+ 自查表
->- 条件概率的定义；
->- 什么是 PolyaUrn 模型？首步分析法？
 
 实际应用中一个常见的问题即为：在 $B$ 已经发生的情况下， $A$ 发生的可能性？对此引入**条件概率**：
 
@@ -376,7 +386,7 @@ $$\mathcal{P}(B_j|A)=\frac{\mathcal{P}(A|B_j)\mathcal{P}(B_j)}{\sum_{k=1}^{n}\ma
 
 >[!note]- 巴拿赫火柴盒：左右口袋各放有一个装有 $N$ 个火柴的火柴盒，每次任取一根，在发现一盒用光时，另一盒中有 $r$ 根的概率为？并证明恒等式 $\sum\limits_{k=0}^{N}\binom{N+k}{k}\frac{1}{2^k}=2^N$ .
 
-## 伯努利随机试验
+## 伯努利随机试验AA
 
 >[!summary]+ 自查表
 >- 什么是 Bernoulli 随机试验？其事件域 $\mathcal{F}$ 是什么样的？
@@ -530,28 +540,35 @@ $$\begin{aligned}
 
 # 随机变量
 
-[随机变量](https://en.wikipedia.org/wiki/Random_variable)是一个将样本空间 $\Omega$ 映射到可测空间 $E$ 的函数. 称映射 $\xi:(\Omega,\mathcal{F},\mathcal{P})\rightarrow \mathbb{R},w\in \Omega\mapsto \xi(w)$ 为**随机变量**，如果 $\forall x\in \mathbb{R},\{\omega\in \Omega:\xi(\omega)<x\}\overset{def}{=}\{\xi<x\}\in\mathcal{F}$ ，换言之 $\{\xi<x\}$ 是一个事件. 并记 $F(x)=\mathcal{P}(\xi<x)$ 是随机变量 $\xi$ 的**分布函数** / 概率分布.
+[随机变量](https://en.wikipedia.org/wiki/Random_variable)是一个将样本空间 $\Omega$ 映射到可测空间 $E$ 的函数. 称映射 $\xi:(\Omega,\mathcal{F},\mathcal{P})\rightarrow \mathbb{R},w\in \Omega\mapsto \xi(w)$ 为**随机变量**，如果： 
+
+$$\forall x\in \mathbb{R},\{\omega\in \Omega:\xi(\omega)<x\}\overset{def}{=}\{\xi<x\}\in\mathcal{F}$$
+
+换言之 $\{\xi<x\}$ 是一个事件. 
+
+定义 $F(x)=\mathcal{P}(\xi<x)$ 是随机变量 $\xi$ 的**分布函数** / 概率分布.
 
 随机变量有如下等价定义：设 $\xi:(\Omega,\mathcal{F},\mathcal{P})\rightarrow \mathbb{R}$ ，若对于任一 Borel 集（[[RF#Borel $ sigma-$ 代数]]） $B$ ， $\{\omega\in \Omega:\xi(\omega)\in B\}\in \mathcal{F}$ ，则称 $\xi$ 是随机变量.
 
 >[!note]- 两种对于随机变量的定义是等价的.
 >分别记为第一定义和第二定义. 
 >
->当第一定义成立时，注意到 $\{\omega\in \Omega:\xi(w)<x\}=\{\omega\in \Omega:\xi(w)\in(-\infty,x)\}$ 并且 $\mathcal{F}$ 是 $\sigma-$ 代数，所以 $\{\omega\in \Omega:\xi(\omega)\in (a,b)\}\in \mathcal{F}$ ，进一步可以推得 $\{\omega\in \Omega:\xi(\omega)\in W: W\in \mathcal{W}\}\in \mathcal{F}$ ，其中 $\mathcal{W}$ 为包含所有开区间的一个 $\sigma-$ 代数，从而由 $\mathcal{B}\subset \mathcal{W}$ 可得第二定义；当第二定义成立时，因为 $(-\infty,x)$ 也是 Borel 集，可知有第一定义. #imcomplete-whatever %%感觉写得不透彻，从 $\mathcal{F}$ 到 $\mathcal{W}$ 这块%%
+>当第一定义成立时，注意到 $\{\omega\in \Omega:\xi(w)<x\}=\{\omega\in \Omega:\xi(w)\in(-\infty,x)\}$ 并且 $\mathcal{F}$ 是 $\sigma-$ 代数，所以 $\{\omega\in \Omega:\xi(\omega)\in (a,b)\}\in \mathcal{F}$ ，进一步可以推得 $\{\omega\in \Omega:\xi(\omega)\in W: W\in \mathcal{W}\}\in \mathcal{F}$ ，其中 $\mathcal{W}$ 为包含所有开区间的一个 $\sigma-$ 代数，从而由 $\mathcal{B}\subset \mathcal{W}$ 可得第二定义；当第二定义成立时，因为 $(-\infty,x)$ 也是 Borel 集，可知有第一定义. [[2424Th144102]]
 
-下面均使用随机变量的第一定义.
+>[!warning] 本篇均使用随机变量的第一定义.
 
 下面讨论更一般的分布函数：
 
--  $\mathcal{P}(a\leq \xi<b)=\mathcal{P}(\xi<b)-\mathcal{P}(\xi<a)=F(b)-F(a)$ （ $\mathcal{P}(\xi<b)=\mathcal{P}(\xi<a)+\mathcal{P}(a\leq \xi<b)$ 其中 $\{a\leq \xi<b\}=\{\xi<a\}-\{\xi<b\}\in \mathcal{F}$）；
+>[!note]-  $\mathcal{P}(a\leq \xi<b)=\mathcal{P}(\xi<b)-\mathcal{P}(\xi<a)=F(b)-F(a)$ 
+> $\mathcal{P}(\xi<b)=\mathcal{P}(\xi<a)+\mathcal{P}(a\leq \xi<b)$ 但需要说明 $\{a\leq \xi<b\}=\{\xi<a\}-\{\xi<b\}\in \mathcal{F}$
 
 可以将分布函数进一步推广，首先分析 $F$ 的性质（也称为特征）：
 
 1. 单调性： $\forall a<b,F(a)\leq F(b)$ ；
-2. 标准型： $\lim_{a\rightarrow -\infty}F(a)=0,\lim_{b\rightarrow +\infty}=1$ ；
+2. 标准性： $\lim_{a\rightarrow -\infty}F(a)\overset{def}{=}F(-\infty)=0,\lim_{b\rightarrow +\infty}F(b)\overset{def}{=}F(+\infty)=1$ ；
 3. 左连续性： $\lim_{x_n\rightarrow x^-}F(x_n)\overset{def}{=}F(x-0)=F(x)$ . （如果在对 $\xi$ 的定义中改为 $\leq$ 时，这里的性质是右连续性） ^DistributionFunctionProperty
 
-其中对于左连续性，考虑 $x_0<x_1<\cdots<x_k<\cdots,\forall n\geq1(x_n<x_0)$ ，
+其中对于左连续性的证明，考虑 $x_0<x_1<\cdots<x_k<\cdots,\forall n\geq1(x_n<x_0)$ ，
 
 $$\begin{aligned}
 F(x)-F(x_0)&=\mathcal{P}(x_0\leq \xi<x)\\
@@ -560,28 +577,45 @@ F(x)-F(x_0)&=\mathcal{P}(x_0\leq \xi<x)\\
 &=\sum\limits_{n\geq1}^{}(F(x_n)-F(x_{n-1}))\\
 &=\lim_{n\rightarrow \infty}F(x_n)-F(x_0)
 \end{aligned}$$ 
-从而可得结论.
+从而可得如下结论.
 
-- $\mathcal{P}(\xi\leq a)=F(a+0)$ （和上面说明左连续性的思路类似，但要取一个补，首先不妨取单调列 $\{a+1/n\}_{n\geq1}$ ，因为 $\mathcal{P}(\xi\leq a)=\mathcal{P}\left(\bigcap_{1\leq n}\{\xi<a+1/n\}\right)$ ，所以 $1-\mathcal{P}(\xi\leq a)=\mathcal{P}\left(\bigcup_{1\leq n}\{\xi\geq a+1/n\}\right)$ 右式进一步可以写为： $\mathcal{P}(\xi>a+1)+F(a+1)-\lim_{n\rightarrow \infty}F(a+1/(n+1))$ ，从而可以得到结论. ）；
-- $\mathcal{P}(\xi>a)=1-F(a+0)$ ；
-- $\mathcal{P}(\xi\geq a)=1-F(a)$ .
+>[!note] $\mathcal{P}(\xi\leq a)=F(a+0)$ 
+>和上面说明左连续性的思路类似，但要取一个补，首先不妨取单调列 $\{a+1/n\}_{n\geq1}$ ，因为：
+>
+>$$\mathcal{P}(\xi\leq a)=\mathcal{P}\left(\bigcap_{1\leq n}\{\xi<a+1/n\}\right)$$
+> 
+>所以：
+>
+>$$1-\mathcal{P}(\xi\leq a)=\mathcal{P}\left(\bigcup_{1\leq n}\{\xi\geq a+1/n\}\right)$$ 
+>
+>注意到：
+>
+>$$\begin{aligned}
+>&=\mathcal{P}\left(\xi\ge a+1\right)+\mathcal{P}\left(\bigcup_{n\ge2}\left\{a+1/(n-1)>\xi\ge a+1/n\right\}\right)\\
+>&=\mathcal{P}(\xi\ge a+1)+\sum\limits_{n\ge2}^{}\mathcal{P}\left(\left\{a+\frac{1}{n}\leq \xi<a+\frac{1}{n-1}\right\}\right)\\
+>&=\mathcal{P}(\xi\ge a+1)+\sum\limits_{n\ge2}^{}\left[F\left(a+\frac{1}{n-1}\right)-F\left(a+\frac{1}{n}\right)\right]\\
+>&=\mathcal{P}(\xi\ge a+1)+\lim_{n\rightarrow \infty}[F(a+1)-F(a+1/n)\\
+>&=1-\lim_{n\rightarrow \infty}F(a+1/n)=1-F(a+0)
+\end{aligned}$$
+
+自然有下面的结论：
+
+>[!note] $\mathcal{P}(\xi>a)=1-F(a+0)$ ； $\mathcal{P}(\xi\geq a)=1-F(a)$ .
 
 进而可以得到：
 
-- $\mathcal{P}(\mathcal{a\leq \xi\leq b})=F(b+0)-F(a)$ ；
-- $\mathcal{P}(a<\xi\leq b)=F(b+0)-F(a+0)$ ；
-- $\mathcal{P}(a<\xi<b)=F(b)-F(a+0)$ ；
-- $\mathcal{P}(\xi=x_0)=F(x_0+0)-F(x_0)$ ；
+>[!note] 自然而然的结论.
+>- $\mathcal{P}(\mathcal{a\leq \xi\leq b})=F(b+0)-F(a)$ ；
+>- $\mathcal{P}(a<\xi\leq b)=F(b+0)-F(a+0)$ ；
+>- $\mathcal{P}(a<\xi<b)=F(b)-F(a+0)$ ；
+>- $\mathcal{P}(\xi=x_0)=F(x_0+0)-F(x_0)$ ；
 
 >[!example]- 假设 $\xi$ 只能取值 $-1,0,1$ ，并且 $\mathcal{P}(\xi=-1)=p,\mathcal{P}(\xi=0)=q,\mathcal{P}(\xi=1)=r$ ，$p+q+r=1$ ，则 $F(x)$ ？
 >$$F(x)=\left\{\begin{aligned}&p,x\leq -1\\&p+q,-1<x\leq 0\\&1,0<x\end{aligned}\right.$$
 
-## 离散型随机变量
+习惯上，对于一些分布函数 $F$ 会有一些特定的名称， e.g. 正态分布、伯努利分布，称对应的随机变量服从 XX 分布.
 
->[!summary]+ 自查表
->- 回顾：Bernoulli 分布，二项分布，几何分布，Pascal 分布，超几何分布，泊松分布；
->- 离散型随机变量的定义；
->- 离散型随机变量的分布列是什么？分布函数？两者有什么关系？
+## 离散型随机变量
 
 设 $\{x_n\}_{n\geq1}$ 为 $\xi$ 的所有可能取值，并记 $\mathcal{P}(\xi=x_i)=p(x_i),i\geq1$ ，称 $\{p(x_i):i\geq1\}$ 为随机变量 $\xi$ 的**分布列**，满足 $p(x_i)\geq0,\forall i\geq1,\sum\limits_{n\geq1}^{}p(x_n)=1$ .
 
@@ -640,7 +674,6 @@ $$\mathcal{P}(\xi=k)=\frac{\binom{N-M}{n-k}\binom{M}{k}}{\binom{N}{n}}$$
 
 **泊松分布** $P(\xi=k)=\frac{\lambda^k}{k!}e^{-\lambda},\lambda>0$ ；记分布列为泊松分布的随机变量 $\xi\sim \mathcal{P}(\lambda)$ .
 
----
 
 ## 简单随机变量
 
@@ -1159,7 +1192,7 @@ E \mu &=\sum\limits_{1\leq n\leq a}^{}\mathcal{P}_\mu(\mu=n)n\\
 &=\ ?
 \end{aligned}$$
 
-| #issue %%上述这个组合恒等式不会求；
+| #issue %%上述这个组合恒等式不会求；%%
 
 记 $\xi_i$ 为第 $i$ 次摸到白球的期望，则：
 
@@ -1288,7 +1321,7 @@ E\xi^2&=\sum\limits_{k\geq1}^{}q^{k-1}pk^2\\
 &=p\left(\sum\limits_{k\geq1}^{}k(k+1)x^{k-1}\right)\bigg|_{x=q}-p\left(\sum\limits_{k\ge1}^{}kx^{k-1}\right)\bigg|_{x=q}\\
 &=p\left(\sum\limits_{k\geq1}^{}x^{k+1}\right)^{(2)}\bigg|_{x=q}-p\left(\sum\limits_{k\geq1}^{}x^k\right)'\bigg|_{x=q}\\
 &=p\left(\frac{x^2}{1-x}\right)^{(2)}\bigg|_{x=q}-p\left(\frac{x}{1-x}\right)'\bigg|_{x=q}\\
-&=
+&
 \end{aligned}$$
 
 >[!example]- $\xi$ 服从参数为 $\lambda$ 的泊松分布，其方差为 $\lambda$ . （泊松分布的期望、方差相同）
@@ -1300,9 +1333,10 @@ E\xi^2&=\sum\limits_{k\geq1}^{}q^{k-1}pk^2\\
 >&=\lambda^2+\lambda
 >\end{aligned}$$
 >
->从而可得 $D \xi=\lambda$ .
+>从而可得 $D\xi=\lambda$ .
 
->[!example] $\xi$ 服从 Laplace 分布（密度函数为 $p(x)=\frac{1}{2\lambda}e^{-\lvert x-\mu\rvert/\lambda},-\infty<x<\infty,\lambda>0$）， $D\xi=2\lambda^2$ . 
+>[!example] $\xi$ 服从 Laplace 分布（密度函数为 $p(x)=\frac{1}{2\lambda}e^{-\lvert x-\mu\rvert/\lambda},-\infty<x<\infty,\lambda>0$ ）， $D\xi=2\lambda^2$ . 
+>
 
 ## 切比雪夫不等式
 
@@ -1375,6 +1409,15 @@ $$E(f(t))=E(\xi^2)t^2+2E(\xi \eta)t+E(\eta^2)$$
 
 >[!example] $\xi,\eta$ 不相关，但 $\xi,\eta$ 不独立.
 
+之前提到方差的概念，对于一列随机变量 $\{\xi_i\}_{1\leq i\leq n}$ ：
+
+$$\begin{aligned}
+D\left(\sum\limits_{i=1}^{n}\xi_i\right)&=E\left(\sum\limits_{i=1}^{n}\xi_i-\sum\limits_{i=1}^{n}E\xi_i\right)^2\\
+&=\sum\limits_{i=1}^{n}D(\xi_i)+\sum\limits_{1\leq i<j\leq n}^{}\text{cov}(\xi_i,\xi_j)
+\end{aligned}$$
+
+因此当随机变量不相关时 $D$ 可加.
+
 ## 母函数（生成函数）
 
 类似于 [[DSA]] 中的计数问题中的生成函数，概率论中采取母函数辅助获取随机变量的数字特征.
@@ -1428,15 +1471,14 @@ $$\begin{aligned}
 
 之前所提到的数字特征： $E\xi,D\xi$ 、矩等都不能够确定一个随机变量. 母函数可以确定一个整型随机变量.
 
-特征函数可以简单地视为对于母函数的推广.
+特征函数可以视为对于母函数的推广.
 
 为了定义特征函数，首先需要定义**复随机变量**： $\zeta=\xi+i\eta$ ，其中 $\xi,\eta$ 是随机变量，定义 $\zeta$ 的期望为 $E\zeta=E\xi+i E\eta$ ，进而可以定义其他数字特征. 称复随机变量 $\zeta_1=\xi_1+i\eta_1,\zeta_2=\xi_2+i\eta_2$ 是独立的，如果 $(\xi_1,\eta_1)$ 和 $(\xi_2,\eta_2)$ 独立. 
 
 对于随机变量 $\xi$ ，定义其**特征函数** $f(t)=E e^{it \xi}=\int_{-\infty}^\infty e^{it x}dF(x)$ .
 
->[!example] 非负整型随机变量 $\xi$ 的特征函数.
-
-$$f_\xi(t)=\sum\limits_{k=0}^{\infty}p(\xi=k)e^{itk}=P(e^{it})$$
+>[!example] 非负整型随机变量 $\xi$ 的特征函数与母函数.
+>$$f_\xi(t)=\sum\limits_{k=0}^{\infty}p(\xi=k)e^{itk}=P(e^{it})$$
 
 特征函数具有如下性质：
 
@@ -1447,7 +1489,7 @@ $$f_\xi(t)=\sum\limits_{k=0}^{\infty}p(\xi=k)e^{itk}=P(e^{it})$$
 >&=\overline{f(t)}
 >\end{aligned}$$
 
->[!note]- $\lvert f(t)\rvert\leq f(0)=1$ .
+>[!note] 一致有界： $\lvert f(t)\rvert\leq f(0)=1$ .
 >$$\lvert f(t)\rvert\leq \int_{-\infty}^\infty \lvert e^{-itx}\rvert dF(x)\leq \int_{-\infty}^\infty dF(x)=f(0)=1$$
 
 >[!note]- $f(t)$ 关于 $t\in \mathbb{R}$ 一致连续.
@@ -1509,10 +1551,6 @@ $f(t)=$
 
 >[!note] $\xi=(\xi_1,\cdots,\xi_n)$ 服从正态分布当且仅当 $\sum\limits_{i=1}^{n}k_i\xi_i$ 服从正态分布， $\forall i_i\in \mathbb{R}$ .
 
-
-
-
-
 # 概率收敛
 
 设随机变量列 $\{\xi_n\}_{n\ge1}$ ，随机变量 $\xi$ ，分布函数分别为 $F_n(x),F(x)$ .
@@ -1567,5 +1605,136 @@ $f(t)=$
 
 >[!note] $\xi_n\overset{a.s.}{\rightarrow}\xi\Rightarrow \xi_n\overset{p}{\rightarrow}\xi\Rightarrow\xi_n\overset{l}{\rightarrow}\xi$ .
 
+## 大数定律
+
+称随机变量列 $\{\xi_n\}_{n\ge1}$ 服从**大数定律**，如果存在常数列 $\{a_n\}_{n\ge1}$ 使得 $\forall \epsilon>0,\mathcal{P}\left(\left\{\left\lvert \frac{1}{n}\sum\limits_{i=1}^{n}\xi_i-\frac{1}{n}a_n\right\rvert\ge \epsilon\right\}\right)\rightarrow0(n\rightarrow \infty)$ . 或者等价定义为存在常数列 $\{b_n\}_{n\ge1}$ 使得 $\forall \epsilon>0,\mathcal{P}\left(\left\{\left\lvert \frac{1}{n}\sum\limits_{i=1}^{n}\xi_n-b_n\right\rvert\ge \epsilon\right\}\right)\rightarrow0$ .
+
+大数定律刻画的是<u>均值收敛</u>.
+
+>[!note] 切比雪夫大数定律：设 $\{\xi_n\}_{n\ge1}$ 两两不相关， $D\xi_i\leq C,\forall i\ge1$ ，则 $\{\xi_i\}_{i\ge1}$ 服从大数定律.
+>证明：令 $\zeta_n=\frac{1}{n}\sum\limits_{i=1}^{n}\xi_i$ ，则由切比雪夫不等式可得：
+>
+>$$\mathcal{P}\left(\left\lvert \zeta_n-E\zeta_n\right\rvert>\epsilon\right)\leq \frac{D(\zeta_n)}{\epsilon^2}$$
+>
+>由 $\{\xi_n\}_{n\ge1}$ 两两不相关可得 $D(\zeta_n)=\frac{1}{n}\sum\limits_{i=1}^{n}D(\xi_i)\leq \frac{C}{n}$ .
+>
+>因此取 $a_n=E\xi_n$ 即可得到结论.
+
+## Helly 定理
+
+>[!note] 对于非降函数列 $\{F_n\}_{n\ge1}$ ，若存在 $\mathbb{R}$ 上的稠密子集 $D$ 使得 $F_n\rightarrow F(n\rightarrow \infty),\forall x\in D$ ，那么 $F_n\overset{w}{\rightarrow}F,\forall x\in \mathbb{R}$ .
+
+证明：对于任意的 $x\in \mathbb{R}\backslash D,x_1,x_2\in D,x_1<x<x_2)$ 由 $F_n$ 非递降可得： $F_n(x_1)\leq F_n(x)\leq F_n(x_2)$ ，从而可得：
+
+$$F(x_1)\leq \varliminf_{n\rightarrow \infty} F_n(x)\leq \varlimsup_{n\rightarrow \infty}F_n(x)\leq F(x_2)$$
+
+于是：
+
+$$F(x-0)\leq \varliminf_{n\rightarrow \infty}F_n(x)\leq \varlimsup_{n\rightarrow \infty}F_n(x)\leq F(x+0)$$
+
+当 $x$ 为 $\mathbb{R}\backslash D$ 上的连续点时，有 $\varliminf_{n\rightarrow \infty}F_n(x)=\lim_{n\rightarrow \infty}F_n(x)=F(x)$ . 所以 $F_n\overset{w}{\rightarrow}F,\forall x\in \mathbb{R}$ .
+
+>[!note] 📍 Helly 第一定理：任意一致有界的非降函数列 $\{F_n\}_{n\ge1}$ 中必然有子序列 $\{F_{n_k}\}_{k\ge1}$ 弱收敛于某一有界非降函数.
+
+证明：取 $D=\{r_n\}_{n\ge1}$ ，只需要证明存在子序列 $\{F_{n_k}\}_{k\ge1}$ 在 $D$ 上收敛于（不是弱收敛）某一有界函数 $F$ 即可.
+
+考虑 $\mathbb{R}$ 上的有界数列 $\{F_n(r_1)\}_{n\ge1}$ ，由 [[zoeminus/docs/Math/R#^BolzanoWeierstrass|Bolzano-Weirstrass]] 定理可知存在收敛子列 $\{F_{n}^{(1)}\}$ ，则取 $F(r_1)=\lim_{n\rightarrow \infty}F_n^{(1)}(r_1)$ . 一般情形 $k\ge2$ ，对于 $\{F_n^{(k-1)}(r_k)\}$ ，其仍然为有界数列，则存在 $\{F_n^{(k)}\}\subset \{F_n^{(k-1)}\}$ 收敛，令 $F(r_k)=\lim_{n\rightarrow \infty}F_n^{(k)}(r_k)$ .
+
+对于 $x\in \mathbb{R}\backslash D$ ，取：
+
+$$F(x)=\sup_{r_n<x}F(r_n)$$
+
+从而可以得到 $F$ ， 注意到对于任意的 $r_1<x<r_2$ 有 $F(r_1)\leq F(x)\leq F(r_2)$ ，再由 $D$ 的稠密性可以得到对于任意的 $x_1<x_2$ 有 $F(x_1)\leq F(x_2)$ ， $F$ 有界显然.
+
+>[!note] 📍 Helly 第二定理： $f$ 为 $[a,b]$ 上的连续函数， $\{F_n\}_{n\ge1}$ 在 $[a,b]$ 上一致有界非降并且弱收敛于 $F$ ，其中 $a,b$ 为 $F$ 的连续点. 则 $\lim_{n\rightarrow \infty}\int_a^bf(x)dF_n(x)=\int_a^bf(x)dF(x)$ .
+
+证明思路还是一样的三角不等式：
+
+$$\begin{aligned}
+\left\lvert \int_a^bfdF-\int_a^bfdF_n\right\rvert &=\left\lvert \int_a^b(f-f_\epsilon)dF\right\vert+\left\vert\int_a^bf_\epsilon dF-\int_a^bf_\epsilon dF_n\right\rvert\\
+&+\left\lvert \int_a^bf_\epsilon dF_n-\right\rvert
+\end{aligned}$$
+
+由 Cantor 定理可知 $f$ 在 $[a,b]$ 上一致连续，因此对于任意的 $\epsilon>0$ ，存在 $\delta>0$ ，当 $\lvert x_1-x_2\rvert<\delta$ 时 $\lvert f(x_1)-f(x_2)\rvert<\epsilon$ .
+
+>[!note] 推广 Helly 第二定理：设 $f$ 是 $(-\infty,\infty)$ 上的<u>有界</u>连续函数， $\{F_n\}_{n\ge1}$ 是 $(-\infty,\infty)$ 上弱收敛于函数 $F$ 的一致有界非降函数列，<u>并且</u> $\lim_{n\rightarrow \infty}F_n(-\infty)=F(-\infty),\lim_{n\rightarrow \infty}F_n(+\infty)=F(+\infty)$ ，则：$\lim_{n\rightarrow \infty}\int_{-\infty}^\infty fdF_n=\int_{-\infty}^\infty fdF$ .
+
+注意到 $F$ 在 $(-\infty,\infty)$ 上有界非降，所以其有有限个不连续点，取 $a,b$ 为 $F$ 上的连续点.
+
+做如下分段：
+
+$$\begin{aligned}
+&J_1=\left\lvert \int_{-\infty}^a fdF_n-\int_{-\infty}^afdF\right\rvert\\
+&J_2=\left\lvert \int_{a}^bfdF_n-\int_a^bfdF\right\rvert\\
+&J_3=\left\lvert \int_b^\infty fdF_n-\int_b^\infty fdF\right\rvert
+\end{aligned}$$
+
+$J_2$ 的情形已经讨论过，考虑 $J_1,J_2$ . 设 $\lvert f\rvert<M$
+
+$$\begin{aligned}
+J_1&\leq M(F_n(a)-F_n(-\infty))+M(F(a)-F(-\infty))\\
+&=M(F_n(a)-F(a)+F(a)-F(-\infty)+F(-\infty)-F_n(-\infty))\\
+&+M(F(a)-F(-\infty))\\
+\end{aligned}$$
+
+以上，因为 $a$ 是 $F$ 的连续点，所以 $\lim_{n\rightarrow \infty}F_n(a)=F(a)$ ，并且有 $\lim_{n\rightarrow \infty}F_n(-\infty)=F(-\infty)$ ，以及因为 $a$ 是 $F$ 的连续点，所以 $\lim_{a\rightarrow -\infty}F_n(a)=F(-\infty)$ .
+
+所以首先取 $a$ 充分小，然后取 $n$ 充分大即可得到结论.
+
+对于 $J_3$ ：
+
+$$\begin{aligned}
+J_3&\leq M(F_n(+\infty)-F_n(b))+M(F(+\infty)-F(b))\\
+&=M(F_n(+\infty)-F(+\infty)+F(+\infty)-F(b)+F(b)-F_n(b))\\
+&+M(F(+\infty)-F(b))
+\end{aligned}$$
+
+同理可证.
+
+## 连续性定理
+
+>[!note] 正极限定理：分布函数列 $\{F_n\}_{n\ge1}$ 弱收敛于某一分布函数 $F(x)$ ，则其相应的特征函数列 $\{f_n(t)\}_{n\ge1}$ 收敛于特征函数 $f(t)$ ，并且在 $t$ 的任一有限区间内一致收敛.
+
+分布函数列在 $\mathbb{R}$ 上一致有界非降，且 $e^{itx}$ 在 $\mathbb{R}$ 上有界连续，且由分布函数的性质 $\lim_{n\rightarrow \infty}F_n(\pm\infty)=F_n(\pm\infty)$. 所以由推广的 Helly 第二定理： $\lim_{n\rightarrow \infty}\int_\mathbb{R}e^{itx}dF_n(x)=\int_\mathbb{R}e^{itx}dF(x)$ . 对于 $t$ 的任一有限区间，有界连续函数 $e^{itx}$ 在其上一致收敛.
+
+>[!note] 逆极限定理：特征函数列 $\{f_n(t)\}_{n\ge1}$ 收敛于函数 $f(t)$ ，并且 $f(t)$ 在 $t=0$ 处连续，则对应分布函数列 $\{F_n(x)\}_{n\ge1}$ <u>弱收敛</u>于某一分布函数 $F(x)$ ，其对应的特征函数为 $f(t)$ .
+
+$\{F_n\}_{n\ge1}$  一致有界并且非降，所以由 Helly 第一定理可知存在 $\{F_{n_k}\}_{k\ge1}$ 弱收敛于某一有界非降函数 $F(x)$ ，从而 $F(-\infty)\ge0,F(+\infty)\leq1$ .
+
+首先证明 $F(x)$ 是分布函数，只需证明 $F(-\infty)=0,F(+\infty)=1$ ，反证：设 $F(+\infty)-F(-\infty)\overset{def}{=}\delta<1$ . 取 $\epsilon<1-\delta$ .
+
+因为 $f(0)=\lim_{n\rightarrow \infty}f_n(0)=0$ ，所以存在 $\tau>0$ 使得：
+
+$$\frac{1}{2\tau}\left\lvert \int_{-\tau}^{\tau}f(t)dt\right\rvert\ge 1-\frac{\epsilon}{2}>\delta+\frac{\epsilon}{2}$$
+
+接下来试图证明：
+
+$$\frac{1}{2\tau}\left\lvert \int_{-\tau}^{\tau}f(t)dt\right\rvert\le\delta+\frac{\epsilon}{2}$$
+
+为此，试图找到一个函数列 $\{f_{n_k}\}_{k\ge1}$ 满足：
+
+$$\frac{1}{2\tau}\left\lvert \int_{-\tau}^\tau f_{n_k}(t)dt\right\rvert\leq \delta+\frac{\epsilon}{2}$$
+
+因为：
+
+$$\frac{1}{2\tau}\left\lvert \int_{-\tau}^\tau f_{n_k}(t)dt\right\rvert\leq 1$$
+
+所以由控制收敛定理即可得到结论.
+
+注意到：
+
+$$\begin{aligned}
+\left\lvert \int_{-\tau}^\tau f_{n_k}dt\right\rvert &\leq \left\lvert \int_{\lvert x\rvert\leq X} \int_{-\tau}^\tau e^{itx}dtdF_{n_k}\right\rvert+\left\lvert \int_{\lvert x\rvert>X}\int_{-\tau}^\tau e^{itx}dtdF_{n_k}\right\rvert\\
+&\leq 2\tau [F_{n_k}(X)-F_{n_k}(-X)]+\int_{\lvert x\rvert>X}\left\lvert \frac{2}{x}\sin\tau x\right\rvert dF_{n_k}(x)\\
+&< 2\tau[F_{n_k}(X)-F_{n_k}(X)]+\int_{\mathbb{R}}\frac{2}{X} dF_{n_k}\\
+&=2\tau[F_{n_k}(X)-F_{n_k}(X)]+\frac{2}{X}\\
+\end{aligned}$$
+
+记 $\delta_{n_k}=F_{n_k}(X)-F_{n_k}(-X)$ ，因为 $F_{n_k}$ 弱收敛于 $F$ ，所以存在 $X,k$ 使得：
+
+$\delta_k\leq \delta+\frac{\epsilon}{4}$ .
+
 # 附录 I 常见变量的数字特征
+
+
 
