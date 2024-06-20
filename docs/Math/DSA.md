@@ -1,75 +1,154 @@
 # 依赖与简介
 
-依赖： [C++](CPP.md) 
+参考：
 
-**数据结构**（data structure）存储数据（值）并定义数据之间的关系，以及可以对数据执行的操作（e.g. 增删访问更新）. 可以刻画为 $S\times R$ ，加上操作集.
+- [Wikipedia: Data Structure](https://en.wikipedia.org/wiki/Data_structure)
+- [Hello 算法：图解数据结构与算法](https://www.hello-algo.com/)
+- [DSA Cheat Sheets](https://www.reddit.com/r/learnprogramming/comments/3gpvyx/algorithms_and_data_structures_cheat_sheets/)
+- [OI Wiki](https://oi-wiki.org/)
 
-数据结构主要分为**线性**和**非线性**两种，其中线性数据结构包含：数组、链表、栈、堆等，非线性数据结构分为树状和非树状两种.
+该部分的目录：
 
-以上讨论的是数据结构的**逻辑结构**，其实现依赖于物理上的**存储结构**：使用连续（如数组）或者离散的存储空间（基于指针）.
+- [[#数据类型]]
+- [[#面向对象编程]]
+- [[#伪代码标准]]
+- [[#符号说明]]
 
-算法在数据结构上进行，一般用时间复杂度和空间复杂度衡量算法优劣. 对于时间复杂度，由于硬件和广义上的操作系统（ e.g. 编译器）的不同，通常只考虑最基础操作的数量. 并且只考虑最高阶. 常见的时间复杂度有 $\mathcal{O}(1),\mathcal{O}(n),\mathcal{O}(n\log n),\mathcal{O}(n^2)$ .
+依赖： [C++](CPP.md)；本文实现数据结构主要使用 C 和 C++ ，以及少量的 Python 代码.
 
->[!hint] 数据结构到底是什么？
->数据：值；
->
->数据结构，首先是数据的集合，并在该集合上定义了元素之间的<u>关系</u>（i.e. 前驱 / 后继），对该集合可执行的<u>操作</u>.
+**数据结构**（data structure）1) 存储**数据**；2) 定义数据之间的关系，e.g. 前驱、后继、关联，以及 3) 可以对数据执行的操作，e.g. 增、删、访问、更新. 数据结构存储多个数据，每个数据可能有一个或多个**数据项**.
 
->[!warning] 抽象数据类型与实现.
->通常采取抽象数据类型（ADT）描述数据结构：该数据结构的成员、接口. #imcomplete %%模糊%%
->
->在具体实现时，一般采用顺序（物理存储连续）或者链式实现（物理存储不连续）. “链式”并不是数据结构，而是对要实现的抽象数据类型采取的实现方式.
+数据结构主要分为**线性**和**非线性**两种，其中线性数据结构包含：数组、链表、栈、堆等，非线性数据结构分为树状和非树状（图）两种.
 
-## 基本数据类型
+以上讨论的是数据结构的**逻辑结构**，数据结构的实现依赖物理上的**存储结构**：使用连续（如数组）或者离散的存储空间（基于指针）.
 
-数据结构的基本单位是数据，计算机的数据有不同的组织形式，但都由以下的基本数据类型的数据组成.
+算法在数据结构上进行，用时间复杂度和空间复杂度衡量算法优劣. 对于时间复杂度，由于硬件和广义上的操作系统（e.g. 编译器）的不同，通常只考虑最基础操作的数量. 并且只考虑最高阶. 常见的时间复杂度有 $\mathcal{O}(1),\mathcal{O}(n),\mathcal{O}(n\log n),\mathcal{O}(n^2)$ .
 
-**基本数据类型**指的是 CPU 可以直接运算的类型（相对而言，例如图片、音乐不是），主要包括：
+## 数据类型
+
+### 基本数据类型
+
+数据结构由数据组成，计算机的数据有不同的组织形式，但都由以下的基本数据类型的数据组成.
+
+**基本数据类型**指的是 CPU 可以直接运算的类型（相对而言，例如图片、音乐就不是基本数据类型），主要包括：
 
 - 整数类型 `short`, `int`, `long`, `long long` ；
 - 浮点数类型 `float`, `double` ；
 - 字符类型 `char` ；
 - 布尔类型 `bool` ；
 
+```cpp linenums="1" title="基本数据类型"
+// 整数
+short sd;
+int d;
+long ld;
+long long lld;
+// 浮点数
+float f;
+double df;
+// 字符
+char c;
+// 布尔
+bool b;
+```
+
+### 复合数据类型
+
+对于基本数据类型进行组合，得到一个的数据的类型称为**复合数据类型**，复合数据类型不是数据结构，因为没有在其上定义操作.
+
+```cpp linenums="1" title="复合数据类型"
+struct foo {
+    int num;
+    string name;
+    foo(d, s) {
+        string = d;
+        name = s;    
+    }
+};
+```
+
+## 线性与非线性数据结构
+
+下面规范本篇中使用的术语：
+
+线性数据结构：偏移量，长度；
+
 ## 面向对象编程
 
-**OOP**（object-oriented-programming）并不首先关注内部实现，而是将问题转换为多个对象之间传递信息，设计每一个对象用于接收信息的接口和响应（在 C++ 对应于类设计中的声明）. 这个过程中会将数据（**成员变量**）和函数（**成员函数 / 方法**）**封装**为对象. 不同的对象可能具有相同的特征，可以抽象为**类**. 类可以视为一个**抽象数据类型**（abstract data type, ADT），可以表示为一个三元组 $(D,R,P)$ ，对应数据、关系和处理（processing）.
+面向对象编程（object-oriented programming，OOP）将问题转换为多个对象之间传递信息，设计每一个对象接收并处理信息的**接口**（interface），将数据（**成员变量**）和函数（**成员函数 / 方法**）**封装**在一起，称为对象. 不同的对象可能具有相同的特征，可以抽象为**类**. 类可以视为一个**抽象数据类型**（abstract data type, ADT），可以表示为一个三元组 $(D,R,P)$ ，对应数据、关系和处理（processing）.
+
+```cpp linenums="1" title="类"
+class Foo {
+private:
+    int d;
+    string s;
+public:
+    foo(int num, string str) {
+        num = d;
+        s = str;
+    };
+};
+```
 
 每个对象具有可以接收消息的接口，根据接口调用相应的方法. 从而限制用户对于对象内部的的访问，保护内部实现.
 
-类与类之间可以存在**继承**关系，分别称为**基类** / 父类和**派生类** / 子类. 子类可以继承父类的特征，**重写**或者添加新的特征.
+### 继承
 
-/// collapse-code
-```python title="Python 中定义类" linenums="1" 
-class ParentClass():
-	def __init__(self):
-		self.attr1 = "";
-		self.attr2 = "";
+类与类之间可能存在**继承**关系，分别称为**基类**（base class） / 父类和**派生类**（derived class） / 子类. 子类可以继承父类的函数，**重写**或者添加新的函数.
 
-	def method1(self):
-		print(attr1)
+```cpp linenums="1" title="继承"
+class BaseClass {
+    // 基类的成员变量和成员函数
+};
 
-class ChildClass(ParentClass):
-	def __init__(self):
-		super().__init__() # 调用父类的初始化方法
-		self.attr3 = ""
-	
-	def method1(self):
-		super().method1()
-		print("rewrite parent's method1")
-	
-	def method2(self):
-		print("add a new method")
+class DerivedClass : [access-specifier] BaseClass {
+    // 派生类的成员变量和成员函数
+};
 ```
-///
+
+C++ 中的继承按照访问运算符可以分为如下三种：
+
+```cpp linenums="1" title="公有、保护、私有继承"
+class Base {
+public:
+    int publicVar;
+protected:
+    int protectedVar;
+private:
+    int privateVar;
+};
+
+class DerivedBase : public Base {
+public:
+void func() {
+    publicVar = 1;       // 可以访问
+    protectedVar = 2;    // 可以访问
+    // privateVar = 3;   // 不可访问
+    };
+};
+
+class DerivedProtected : protected Base {
+public:
+    void func() {
+        publicVar = 1;       // 可以访问
+        protectedVar = 2;    // 可以访问
+        // privateVar = 3;   // 不可访问
+    };
+};
+
+class DerivedPrivate : private Base {
+public:
+    void func() {
+        publicVar = 1;       // 可以访问
+        protectedVar = 2;    // 可以访问
+        // privateVar = 3;   // 不可访问
+    };
+};
+```
 
 从同一个基类继承得到的子类具有**多态**：对于同一消息有不同的响应（方法）.
 
-# 帮助
-
-[check-wiki](https://en.wikipedia.org/wiki/Data_structure)
-
-# 伪代码标准
+## 伪代码标准
 
 ```title="伪代码语句" linenums="1"
 # 当有多个语句时，为了后文便于解释或加上序号
@@ -118,7 +197,7 @@ sort(S, reverse = false)
 sort(S, W)
 ```
 
-# 符号说明
+## 符号说明
 
 $[n]=\{1,\cdots,n\}$ ；
 
@@ -196,7 +275,7 @@ int whileLoop(int n) {
 
 **递归**（recursion）：函数调用自身. 递：即为不断调用的过程，直到达到终止条件；归：触发终止条件之后，从最后一次被调用的函数开始，返回输出到调用该函数的函数，依次进行.
 
-```c++ linenums="1" title="递归"
+```cpp linenums="1" title="递归"
 int recur(int n) {
     if (n == 1)
         return 1;
@@ -223,7 +302,7 @@ int recur(int n) {
 
 一些编程语言会对于尾递归进行优化，将不再保留上下文信息.
 
-```c++ linenums="1" title="尾递归"
+```cpp linenums="1" title="尾递归"
 int tailRecur(int n, int sum) {
     if (n == 0)
         return sum;
@@ -426,7 +505,7 @@ SinglyLinkedListNode* deleteNode(SinglyLinkedListNode* llist, int position) {
 
 | #imcomplete-further-wanted 
 
-## 广义表
+
 
 广义表（向量）：线性表的推广，不要求线性表中的元素具有相同的数据类型；可表示为 $V=\{V[0],\cdots,V[n-1]\}$ ，定义元素的**秩**（rank）为其前驱元素的数量，通过秩访问元素的方式被称为**循秩访问**（call-by-rank）. 例如：
 
@@ -437,7 +516,22 @@ SinglyLinkedListNode* deleteNode(SinglyLinkedListNode* llist, int position) {
 
 # 串
 
+**串**（string）中的数据均为字符类型，线性关系.
 
+| 操作             | 说明  |
+| -------------- | --- |
+| `strCopy()`    |     |
+| `strCompare()` |     |
+| `strConcat()`  |     |
+| `subString()`  |     |
+
+串的表示与实现：
+
+采取顺序存储表示；
+
+堆分配存储表示；
+
+块链存储表示；
 
 # 栈
 
@@ -504,15 +598,11 @@ C++ 中提供了实现栈的模板类 [stack](CPP.md#stack)
 
 对于一个顶点数为 $n$ 的图，定义其邻接矩阵 $A=(a_{ij})_{n\times n}$ .
 
-```cpp linenums="1"
-const int INFINITY
-```
-
 ### 邻接表
 
-[Check-zhihu](https://zhuanlan.zhihu.com/p/665172781)
+[check-zhihu](https://zhuanlan.zhihu.com/p/665172781)
 
-用一个单链表存储与一个结点相关联的所有临界点.
+**邻接表**是图的一种链式存储结构. 邻接表对于图中的每一个顶点都建立一个单链表， $v_i$ 对应的单链表中的每一个结点表示于以 $v_i$ 为结点（有向图是尾）的一条<u>弧</u>，该结点存储的信息有：1) 该弧指向的另一个结点 `adjvex`；2) 用于保持单链表结构的 `next` 指针；3) 该弧的权值等信息 `info` .
 
 ### 十字链表
 
@@ -520,34 +610,90 @@ const int INFINITY
 
 ## 图的遍历
 
-和树的遍历一样，包括深度有限（DFS）和广度优先（BFS）；
+和树的遍历一样，包括深度优先搜索（DFS）和广度优先（BFS）；
 
 **深度优先搜索**
 
-```title="DFS" linenums="1"
-algorithm DFS(G, i):
-    if (existLinkNode(G, i)):
-        n = getLinkNode(G, i)
+```title="DFS 伪代码" linenums="1"
+输入: 图 G, 起始顶点 v;
+操作: 对于 G 中的所有顶点进行遍历;
 
-    else:
-        n = getMin(G, i)
-    G = G - i
-    DFS(G, n)
+DFS(v):
+    v.visited = true;
+    for u in v.neighbors():
+        if u.visited == false:
+            DFS(u);
 ```
+
+DFS 的时间复杂度为 $\mathcal{O}(n+m)$ ，空间复杂度为 $\mathcal{O}(n)$ . DFS 可借助栈实现.
 
 **广度优先搜索**：每一次访问完当前结点的所有子结点；
 
-```title="BFS" linenums="1"
-algorithm BFS(G, i):
-    if (existLinkNode(G, i)):
-        n = getLinkNode(G, i)
-    else:
-        n = getMin(G, i)
-    G = G - i
-    DFS(G, i)
+```title="BFS 伪代码" linenums="1"
+输入: 图 G, 起始顶点 s;
+操作: 对于 G 中的所有顶点进行遍历;
+
+q = new queue()
+q.push(s)
+s.visited = true;
+while (!q.empty()):
+    u = q.pop();
+    for v in u.neighbors():
+        if v.visited == false:
+            q.push(v);
+            v.visited = true;
 ```
-    
+
+BFS 用队列实现.
+
+## 有向无环图
+
+有向无环图（DAG）在解决需要拆分为多个小工程进行的任务时很有用；
+
+为了检查图中是否存在环：对于无向图，可以采取深度优先遍历，如果遇到了回边（指向已经访问过的顶点的边）；
+
+### 拓扑排序
+
+对于一个有向无环图的所有节点进行排序，输出的序列中的每一个结点在图中的前驱都在该结点之前 / 不已靠后结点作为前驱.
+
+定义 **AOV 网**（activity on vetex network）：用顶点表示活动，用弧表示活动间的优先关系的有向无环图.
+
+为了检测构造的图中是否会出现有向环：对于有向图构造进行拓扑排序，如果输出的序列中包含了图中所有的顶点，那么该图无有向环，从而是 AOV 网.
+
+拓扑排序算法如下：
+
+```linenums="1" title="拓扑排序伪代码"
+while 存在无前驱的顶点：
+    1. 在有向图中选取一个无前驱的结点输出;
+    2. 从图中删去该结点，以及对应的弧.
+```
+
+## AOE 网
+
+**AOE 网**（activity on edge network）为边表示活动，顶点表示事件，权重表示活动持续时间的加权有向无边图.
+
+AOE 网通常用于估算工程完成时间.
+
+对于一个 AOE 网，定义**关键路径**：图中路径权和最大的路径，该路径对应于完成工程的最短时间. 定义事件（顶点） $v_i$ 的**最早发生时间** $e(i)$ ：源点 $s$ 到 $v_i$ 的最大路径权值和；定义事件 $v_i$ 的**最迟发生时间** $l(i)$ ：不推迟整个工程完成的情况下该活动最晚开始的时间.
+
+进而，称 $v_i$ 是**关键事件**，如果 $e(i)=l(i)$ ，关键路径上的结点均为关键事件.
+
+为了缩短工期，需要找出关键路径，即为找出关键事件.
+
+```linenums="1" title="AOE 网确定关键事件伪代码"
+输入: 有向无环图 G;
+输出: 关键事件 s, v_1, ..., v_k, t;
+
+1. 确定每个事件的最早开始时间: ve[0] = 0; 
+   ve[j] = max_i(ve[i] + w[i,j]);
+2. 确定每个事件的最晚开始时间: vl[n-1] = ve[n-1];
+   vl[i] = min_j(vl[j] - w[i,j]);
+3. 对于具有边 (j, k) 的顶点 v_i: e[i] = ve[j]; l[i] = vl[k] - w[j,k];
+```
+
 ## 最短路
+
+给定图 $G$ ，为了寻找从顶点 $A$ 到 $B$ 的经过边最少的路径，可以从顶点 $A$ 开始对于图进行广度优先遍历，直到遇到 $B$ 时停止.
 
 对于加权图，定义点 $u,v$ 之间的**最短路**：路径 $u-v$ 全体中边权和最小的路；
 
@@ -555,7 +701,7 @@ algorithm BFS(G, i):
 
 [check-wiki](https://en.wikipedia.org/wiki/Floyd%E2%80%93Warshall_algorithm)
 
-Floyd 算法可以用于求解加权图（默认有向，但也可以用于无向）中任意两个结点的最短路. 该算法要求所求解的图中没有负权重的环. 
+Floyd 算法可以用于求解加权图（默认有向，但也可以用于无向）中<u>每一对结点的最短路</u>. 该算法要求所求解的图中没有负权重的环. 
 
 给定图 $G=(V,E,W),V=\{1,\cdots,N\}$ ，求 $i$ 到 $j\in V$ 之间的最短路. 采取递归的方式思考这一问题：
 
@@ -596,11 +742,21 @@ algorithm Floyd:
 
 ### Dijkstra 算法
 
-[[2420Fr183940]]
+**Dijkstra 算法**可用于求解从某个源点到达其余各个顶点的最短路径；算法的核心思想是：按照路径长度递增的次序产生最短路径. 用 $S$ 表示已经求得的最短路径的结点的集合，对于任意的 $x\notin S$ ，从源点 $s$ 到 $x$ 最短路径或者为 $(s,x)$ ，或者<u>只</u>经过 $S$ 中的顶点.
 
-| 参考  | 状态  | 备注  |
-| --- | --- | --- |
-|     |     |     |
+```linenums="1" title="Dijkstra 算法伪代码"
+输入: 图 G = (V, E, W), W[i,j] 表示图 G 中 i, j 的边的权值，如果不存在则为 infty;
+输出: 从源点 s 到各个顶点的最短路径.
+
+1. 初始化 S = {}; |G| 大小的空数组 D; 令 D[i] = w[1, j];
+2. 求 v_j: D[j] = min(D[i]: i in V - S);
+   S = S + {v_j};
+3. for k in V - S:
+       if D[j] + W[j, k] < D[k]:
+           D[k] = D[j] + W[j, k];
+```
+
+Dijkstra 算法的复杂度为 $\mathcal{O}(n^2)$ .
 
 # 树
 
@@ -879,10 +1035,6 @@ void postOrderTraversal(TreeNode *root) {
 
 ## 二叉排序树
 
->[!summary]+ 自查表
->- 二叉排序树的定义；
->- 平衡二叉排序树的概念；
-
 **二叉排序树**（二叉查找树）：若非空树，则具有如下性质：
 
 - 若左子树非空，则左子树的所有结点的值小于根结点，左子树也是二叉排序树；
@@ -913,37 +1065,43 @@ for (node : S):
     }
 ```
 
-二叉排序树的查询：与每一个结点进行对比，然后进入到下一个子树中；
+二叉排序树的查找算法：与每一个结点进行对比，然后进入到下一个子树中；
 
-二叉排序树的查找效率：如果原先的数据集是有序的，生成二叉排序树之后的结构等同于链表，二叉排序树查询效率与线性表查询一致；
+二叉排序树的查找效率：如果原先的数据集是有序的，生成二叉排序树之后的结构等同于链表，二叉排序树查询效率与线性表查询一致；而在随机情况下，二叉树的平均查找长度为 $\log n$ .
+
+>[!hint] 对于二叉排序树中的删除操作
+>保持中序遍历后的序列相同即可.
+
+### 📍平衡二叉树
 
 为使得二叉排序树的查找效率提高，需要生成的二叉排序树左右尽量均衡（AVL）；
 
-具体地，每加入一个新的结点，若形成的左右子树的深度差超过 1 ，则对深度大的子树进行调整. #imcomplete-further-wanted 
+具体地，每加入一个新的结点，若形成的左右子树的深度差（定义为 BF, balance factor）的绝对值超过 1 ，则对深度大的子树进行调整.
 
-下面介绍二叉排序树的应用： #imcomplete-further-wanted 
+对于二叉树进行调整时，需要先锁定由于在二叉排序树上插入结点而失去平衡的<u>最小子树</u>的根结点的位置. 随后可以分为如下两种情况讨论：
 
-### 霍夫曼编码
+1. 单向旋转：
+2. 双向旋转：
+
+## Huffman 编码
 
 [check-wiki](https://zh.wikipedia.org/zh-cn/%E9%9C%8D%E5%A4%AB%E6%9B%BC%E7%BC%96%E7%A0%81)
 
-考虑对一串字符进行二进制编码，例如 A, B, C, D，进行编码时一个很重要的问题是不能使得某一字符的编码与另一字符的编码的字串相同，例如： A - 0, B - 1, C - 10，则对于 1010 无法区分是 BAC，CC，BABA，CBA . 
+问题背景：考虑对一串字符进行二进制编码，例如 A, B, C, D，进行编码时一个很重要的问题是不能使得某一字符的编码与另一字符的编码的字串相同，例如： A - 0, B - 1, C - 10，则对于 1010 无法区分是 BAC，CC，BABA，CBA . 
 
-稳妥的做法是采取<u>定长编码</u>，例如： A - 0001 ， B - 0010 ， C - 0011 ， D - 0100 . 但是在某些情况下，例如某一个字符出现的频率想当高，如果用简短的编码表示可以提高传输效率，这时地<u>变长编码</u>就值得采取.
+稳妥的做法是采取<u>定长编码</u>，例如： A - 0001 ， B - 0010 ， C - 0011 ， D - 0100 . 但是在某些情况下，例如某一个字符出现的频率相当高，如果用简短的编码表示可以提高传输效率，这时<u>变长编码</u>就值得采取.
 
 **霍夫曼编码**是一种变长编码算法，其首先基于字符串中各个字符的频率构建一个二叉排序树，然后进行编码，具体实现如下：
 
-定义**树的带权路径长度**：树中所有叶结点的带权路径长度的和 $\text{WPL}=\sum_{i=1}^nW_iL_i$ . 其中 $n$ 表示叶结点的数目， $W_i$ 表示第 $i$ 个叶结点的权重（视具体情况而定，例如对应的字符出现的频率）， $L_i$ 表示第 $i$ 个叶结点的层数.
+首先定义**树的带权路径长度**：树中所有叶结点的带权路径长度的和 $\text{WPL}=\sum_{i=1}^nW_iL_i$ . 其中 $n$ 表示叶结点的数目， $W_i$ 表示第 $i$ 个叶结点的权重（视具体情况而定，例如对应的字符出现的频率）， $L_i$ 表示第 $i$ 个叶结点的层数.
 
 称在具有相同的叶结点的二叉树中具有最小的带权路径长度的二叉树为**霍夫曼树 / 最优二叉树**：
 
 下面介绍霍夫曼树的构造方法：
 
 ```cpp title="霍夫曼树构造伪代码" linenums="1"
-// 算法名称：霍夫曼树构造
-
-// 输入：结点集合 {N_1, N_2, ..., N_m} ，权重 {W_1, W_2, ..., W_m}
-// 输出：霍夫曼树
+输入：结点集合 {N_1, N_2, ..., N_m} ，权重 {W_1, W_2, ..., W_m}
+输出：霍夫曼树
 
 1. 以 N_i 作为根结点，构造 n 个只有根结点的树，记为 S = {T_1, T_2, ..., T_m}；
 2. 从 S 中选取带权路径长度最小的两个树 T_p, T_q；
@@ -958,7 +1116,182 @@ for (node : S):
 
 在完成霍夫曼树的构造之后，根结点的编码设为 $1/0$ ，子结点继承父结点的编码，每一层的左结点编码在继承的编码上添加 $0$ ，右结点编码添加 $1$ （或者反之，无所谓）； $S$ 中的所有元素均为霍夫曼树的叶结点；因此不可能出现编码包含. #imcomplete-lack-proofs 
 
+```C++ linenums="1" title="Huffman 树编码和解码"
+#include <iostream>
+#include <vector>
+#include <queue>
+#include <unordered_map>
+#include <string>
+
+using namespace std;
+
+// 定义霍夫曼树的节点结构
+struct HuffmanNode {
+    char ch;
+    int freq;
+    HuffmanNode* left;
+    HuffmanNode* right;
+
+    HuffmanNode(char ch, int freq) : ch(ch), freq(freq), left(nullptr), right(nullptr) {}
+};
+
+// 比较器，用于优先队列
+struct Compare {
+    bool operator()(HuffmanNode* l, HuffmanNode* r) {
+        return l->freq > r->freq;
+    }
+};
+
+// 递归生成霍夫曼编码
+void generateCodes(HuffmanNode* root, const string& str, unordered_map<char, string>& huffmanCode) {
+    if (!root)
+        return;
+
+    // 叶子节点
+    if (!root->left && !root->right) {
+        huffmanCode[root->ch] = str;
+    }
+
+    generateCodes(root->left, str + "0", huffmanCode);
+    generateCodes(root->right, str + "1", huffmanCode);
+}
+
+// 构建霍夫曼树并生成霍夫曼编码表
+HuffmanNode* buildHuffmanTree(const string& text, unordered_map<char, string>& huffmanCode) {
+    // 计算字符频率
+    unordered_map<char, int> freq;
+    for (char ch : text) {
+        freq[ch]++;
+    }
+
+    // 创建优先队列
+    priority_queue<HuffmanNode*, vector<HuffmanNode*>, Compare> pq;
+
+    // 创建叶子节点并加入优先队列
+    for (auto pair : freq) {
+        pq.push(new HuffmanNode(pair.first, pair.second));
+    }
+
+    // 构建霍夫曼树
+    while (pq.size() != 1) {
+        HuffmanNode* left = pq.top();
+        pq.pop();
+        HuffmanNode* right = pq.top();
+        pq.pop();
+
+        int sum = left->freq + right->freq;
+        HuffmanNode* node = new HuffmanNode('\0', sum);
+        node->left = left;
+        node->right = right;
+        pq.push(node);
+    }
+
+    // 根节点
+    HuffmanNode* root = pq.top();
+
+    // 生成霍夫曼编码
+    generateCodes(root, "", huffmanCode);
+
+    return root;
+}
+
+// 编码
+string encode(const string& text, unordered_map<char, string>& huffmanCode) {
+    string encodedStr;
+    for (char ch : text) {
+        encodedStr += huffmanCode[ch];
+    }
+    return encodedStr;
+}
+
+// 解码
+string decode(const string& encodedStr, HuffmanNode* root) {
+    string decodedStr;
+    HuffmanNode* current = root;
+    for (char bit : encodedStr) {
+        if (bit == '0') {
+            current = current->left;
+        } else {
+            current = current->right;
+        }
+
+        // 叶子节点
+        if (!current->left && !current->right) {
+            decodedStr += current->ch;
+            current = root;
+        }
+    }
+
+    return decodedStr;
+}
+
+int main() {
+    string text = "Life can not go on without death.";
+
+    // 构建霍夫曼树并生成编码表
+    unordered_map<char, string> huffmanCode;
+    HuffmanNode* root = buildHuffmanTree(text, huffmanCode);
+
+    // 输出霍夫曼编码表
+    cout << "Huffman Codes:\n";
+    for (auto pair : huffmanCode) {
+        cout << pair.first << " " << pair.second << "\n";
+    }
+
+    // 编码
+    string encodedStr = encode(text, huffmanCode);
+    cout << "\nEncoded string:\n" << encodedStr << "\n";
+
+    // 解码
+    string decodedStr = decode(encodedStr, root);
+    cout << "\nDecoded string:\n" << decodedStr << "\n";
+
+    return 0;
+}
+```
+
+输出结果：
+
+/// collapse-code
+```shell linenums="1"
+Huffman Codes:
+e 1100
+n 000
+a 1010
+t 001
+g 01000
+u 01001
+d 01100
+f 01101
+i 1101
+L 01110
+c 01111
+o 100
+h 0101
+. 10111
+  111
+w 10110
+
+Encoded string:
+011101101011011100111011111010000111000100001111010001001111000001111011011010010101100010010011110110011001010001010110111
+
+Decoded string:
+Life can not go on without death.
+```
+///
+
 哈夫曼树的应用：压缩、传输、加密、解码
+
+>[!example] C++ 中的 `zlib` 库.
+
+>[!example] JPEG 图像压缩
+>在 JPEG 图像压缩中，霍夫曼编码用于将量化后的图像数据进行熵编码. 具体步骤如下：
+>1. 图像分块：将图像分成 8x8 像素的小块。
+>2. 离散余弦变换（DCT）：对每个 8x8 块进行 DCT 转换，将空间域的数据转换到频率域。
+>3. 量化：将 DCT 系数进行量化，以减少数据的精度，从而实现压缩。
+>4. 熵编码：对量化后的 DCT 系数使用霍夫曼编码进行熵编码，从而进一步减少数据量。
+>   
+>通过这些步骤，JPEG 图像可以在保持较好视觉质量的情况下，大幅减少文件大小。
 
 哈夫曼解码：借助哈夫曼树完成；
 
@@ -1270,124 +1603,353 @@ int main() {
 
 **哈希表**（hash table）建立**键**（key）与**值**（value）之间的一个映射，以实现高效查询 $\mathcal{O}(1)$ ，在哈希表中进行增删查的时间复杂度均为 $\mathcal{O}(1)$ .
 
+哈希表的核心概念是：将值通过**哈希函数**（hash function）映射到存储值数组的索引，从而直接访问元素，而不需要进行线性搜索. 因此，哈希函数应当将键映射对应的值分散开，否则数据可能出现在同一个位置，称为**哈希碰撞**（hash collision），需要处理这类问题.
+
 ## 哈希表的数组实现
 
-利用一个数组存储哈希表，数组中的每一个空位称为**桶**（bucket），用于存储键值对. 为实现这点，定义一个哈希函数，将键映射为数组索引. 假设数组长度为 `capability` ，经过哈希算法 `hash()` 之后对 `capability` 取模.
+利用一个数组存储哈希表，数组中的每一个空位称为**桶**（bucket），用于存储键值对. 为实现这点，定义一个哈希函数，将键映射为数组原始索引. 假设数组长度为 `capability` ，经过哈希算法 `hash()` 之后对 `capability` 取模.
 
+```C++ linenums="1" title="哈希表数组实现"
+#include <iostream>
+#include <vector>
+using namespace std;
+
+struct Pair {
+    int key;
+    string val;
+    Pair(int key, string val) {
+        this -> key = key;
+        this -> val = val;
+    } 
+};
+
+class ArrayHashTable {
+private:
+    vector<Pair *> buckets;
+public:
+    ArrayHashTable() {
+        buckets = vector<Pair *>(100);
+    };
+    ~ArrayHashTable() {
+        for (const auto &bucket : buckets) {
+            delete bucket;
+        }
+        buckets.clear();
+    };
+    int hushFunc(int key) {
+        int index = key % 100;
+        return index;
+    };
+};
 ```
-index = hash(key) % capability
+
+[[2424Fr144528]]
+
+可以借助 C++ 中的 `unordered_map` 实现 Hash 表.
+
+```C++ linenums="1" title="Hash 表"
+#include <iostream>
+#include <string>
+#include <unordered_map>
+using namespace std;
+
+unordered_map<string, int> umap;
+int main() {
+    umap["apple"] = 1;
+    umap["orange"] = 3;
+    umap["banana"] = 2;
+    // 增
+    umap.insert({"grape", 4});
+    cout << "Apple count: " << umap["apple"] << endl;
+    cout << "Check banana: " << endl;
+    // 查
+    auto it = umap.find("banana");
+    if (it != umap.end()) {
+        // first: key, second: value
+        cout << "Banana count: " << it -> second << endl;
+    } else {
+        cout << "No banana, sorry" << endl;
+    }
+    // 遍历
+    for (const auto& pair : umap) {
+        cout << pair.first << ": " << pair.second << endl;
+    }
+    for (auto iter = umap.begin(); iter != umap.end(); iter++) {
+        cout << iter -> first << ": " << iter -> second << endl; 
+    }
+    // 删
+    umap.erase("orange");
+    for (const auto& pair : umap) {
+        cout << pair.first << ": " << pair.second << endl;
+    }
+    return 0;
+}
 ```
 
-# 排列
+## 哈希冲突
 
-## 排列的表示方式
+最简单的方法是对于哈希表进行扩容.
 
-用 $S$ 表示一个 $n$ 元集合，通常记为 $S=\{1,2,\ldots,n\}$ . $S$ 的一个**排列**是将 $1,2,\cdots,n$ 排成一列，记为 $\pi=\pi_1\pi_2\cdots\pi_n$ . 用 $S_n$ 表示 $S$ 的排列的集合，此为一**对称群**（symmetric group），并且 $\lvert S_n\rvert\overset{def}{=}\#S_n=n!$ .
+定义**负载因子**（load factor）为哈希表中的元素数量除以桶的元素数量，用于评估哈希冲突的程度.
 
->[!note]- 用程序生成 $S_n$ . #imcomplete-whatever 
->思路可以考虑抽象代数中生成 $S_n$ 的方法. [stack](https://math.stackexchange.com/questions/903225/generators-of-the-symmetric-group-s-3)
+但扩容的时间效率很低：需要重新计算索引，并将键值对复制到该索引对应的桶.
 
-对于排列 $\pi$ 可以从下面几个角度理解：
+可以通过改变哈希表的数据结构以应对哈希冲突.
 
-**行表示**（one-line notation），即 $\pi=\pi_1\pi_2\cdots\pi_n$ 的写法；
+**链式地址**（seperating chain）将所有发生冲突的元素存储在一个链表中，该链表的首地址存储在桶中.
 
-**二行表示**， $\pi$ 可以看作是一个双射： 
+**开放寻址**：设置增量序列 $\{d_i\}_{1\leq i\leq k}$ ，当发生哈希冲突时  `H_i=(H(key) + d_i) mod m`；根据增量序列的选取有线性探测、平方探测、伪随机数探测等.
 
-$$\begin{aligned}\pi:&S\rightarrow S_n \\&i\mapsto \pi(i)\overset{def}{=}\pi_i\end{aligned}$$ 
-或可写作： 
+>[!warning] 采取开放寻址的方法会发生“二次聚集”：之后的本不会发生哈戏冲突的关键字的位置被占用.
 
-$$\pi=\begin{bmatrix}1&2&\cdots&n \\  \pi_1&\pi_2&\cdots&\pi_n\end{bmatrix}$$
+**多次探测**：设置多个哈希函数.
 
-**矩阵表示**，可以采用类似于独热编码的方式. 例如对于 $\pi=1324$ 可以写作： 
+## 哈希算法
 
-$$\pi=\begin{bmatrix}1&0&0&0\\ 0&0&1&0\\ 0&1&0&0\\ 0&0&0&1\end{bmatrix}$$ 
+为了减少哈希冲突，对于哈希函数的设计是核心. 设哈希表长为 $m$ .
 
-并且可以验证在此标记下对于两个排列的复合（称之为**乘积**） $\pi\circ \sigma$ 等同于对应的矩阵乘法. （注意运算是 $\pi(\sigma(i))$ ）.
+哈希函数的构造方法有：
 
-上面的矩阵表示是一个**双随机矩阵**，其满足： $$\begin{aligned}
-&M=(a_{ij})_{n\times n}\\
-&1.a_{ij}\geq0,\forall i,j\\
-&2.\Sigma_{k=1}^na_{ik}=1,\forall i\\
-&3.\Sigma_{k=1}^na_{kj}=1,\forall j
-\end{aligned}$$ 如果将双随机矩阵 $M=(a_{ij})_{n\times n}$ 看作 $\mathbb{R}^{n\times n}$ 中的一个点，可以证明 $\mathbb{R}^{n\times n}$ 上的所有双随机矩阵组成的集合是一个以所有 $M_{\pi}$ 为顶点的**凸包** #issue ，其中 $M_\pi$ 即为排列 $\pi\in S_n$ 的矩阵表示.
+1. 直接定址法： `H(key) = key` 或者 `H(key) = a * key + b` ；
+2. 除留余数： `H(key) = key mod p` 其中 $p<m$ .
 
-4) 排列的圈表示（cycle decomposition / representation），可以将排列分解为排列的乘积，例如： $$\pi=(42135)=(143)(2)(5)$$
+# 查找算法
 
-除此之外还有**重集**（multiset）上的排列，重集如： $\{1^{m_1},2^{m_2},\cdots,n^{m_n}\}$ ，表示 $m_1$ 个 $1$ ， $m_2$ 个 $2$ ，... ， $m_n$ 个 $n$ 组成的集合. 其排列个数为： $$\frac{(m_1+m_2+\cdots+m_n)}{m_1!m_2!\cdots m_n!}$$
+**查找表**（search table）：同一类型的数据组成的集合；对于查找表进行的操作有：
 
->[!example]- 计算 $\{0^2,1^2,2^2\}$ 能够生成的所有 $6$ 位数个数.
->$\frac{6!}{2!2+2!2+2!2}-\frac{5!}{1!2!2!}=60$ .
+1. 查询元素是否在表中，如果存在则返回数据或者位置 `search()`；
+2. 访问表中的数据 `visit()`；
+3. 插入数据 `insert`；
+4. 删去数据 `delete`；
+5. 遍历 `traverse(visit())`；
 
-定义**第一类Stirling数**： $S_n$ 中圈表示的圈数为 $k$ 的排列的个数.（圈中只有单个数字的也算一个圈）记作 $s(n,k)$ . ^StirlingOne
+其中，只进行 1, 2 操作的查找表称为**静态查找表**（static search table），进行 1, 2, 3, 4 操作的查找表称为**动态查找表**（dynamic search table）.
 
-可以证明其**生成函数**（generative function）：
+查找表中的数据类型通常是复合数据类型，一个数据元素由多个数据项组成，其中有的数据项作为**关键字**（key），能够唯一决定数据的关键字称为**主关键字**（primary key），否则称为**次关键字**（secondary key）.
 
-$$\sum\limits_{k=1}^{n}s(n,k)x^k=x(x+1)\cdots(x+n-1)$$ 
+查找算法的选取依赖于具体的数据结构，下面分别讨论线性数据结构和非线性数据结构的查找算法.
 
->[!note]+ 生成函数的证明
->首先证明引理：
->>[!note]+ $s(n,k)=c(n-1,k-1)+(n-1)s(n-1,k)$
->>证明：在 $S_{n-1}$ 的基础上，1) 对于圈数为 $k-1$ 的排列 $\pi\in S_{n-1}$ 添加一个新的元素 $n$ 则 $n$ 作为一个单独的圈，可以获得一个圈数为 $k$ 的排列； 2) 对于圈数为 $k$ 的排列 $\pi\in S_{n-1}$ 添加一个新的元素（插入到已有的圈中），共有 $n-1$ 种插入方法.
+查找算法所使用的操作主要是比较，因此评估查找算法的时间复杂度时采取**平均查找次数**：对于一个含有 $n$ 个数据的<u>数据结构</u>，对于所有数据进行编号，设查找第 $i$ 个数据的概率 / 相对频率为 $P_i$ ，平均查找次数定义为：
+
+$$ASL=\sum\limits_{i=1}^{n}L_iP_i$$
+
+此外考虑查找不成功的情况. 对于线性数据结构，也称平均查找次数.
+
+## 线性数据结构查找
+
+均使用数组实现.
+
+称一个线性数据结构是**有序**的，如果索引与关键字的序相同.
+
+**线性查找**： 假设每一个记录被查找的概率均为 $P_i,i=1,\cdots,n$ ，第 $i$ 个记录的偏移为 $L_i-1$ ，定义平均查找长度为 $\sum\limits_{i=1}^{n}P_iL_i$ . 当 $P_i=\frac{1}{n}$ 时，平均查找长度为： $\frac{1}{n}\sum\limits_{i=1}^{n}i=\frac{n+1}{2}$ .
+
+>[!hint] 线性查找实现时的改进方案.
+>取存储长度为 $n+1$ ，令 `elem[0]=key` ，可以避免额外检查是否遍历完.
+
+**有序查找**：
+
+这方面有一些比较常见的算法：二分查找（binary search）； [[linearSearch.cpp]]；
+
+二分查找的终止条件为 `high < low` .
+
+```C++ linenums="1" title="折半查找"
+#include <vector>
+using namespace std;
+
+int binSearch(vector<int> vec, int target) {
+    int head = 0, end = vec.size();
+    while (head <= end) {
+        int mid = (head + end) / 2;
+        if (vec[mid] == target)
+            return mid;
+        else if (vec[mid] > target)
+            end = mid - 1;
+        else end = mid + 1;
+    }
+    return -1;
+}
+```
+
+假设每一个数据的查找概率 $P_i=\frac{1}{n}$ ，则平均查找长度为 $AVL=\frac{1}{n}\sum\limits_{i=1}^{n}i\log i=\log \prod_{i=1}^{n}i^{\frac{i}{n}}\leq n\log n$ ，事实上，每个数据最多查找 $\lfloor \log_2 n\rfloor+1$ 次. 此外二分查找的空间复杂度为 $\mathcal{O}(1)$ ：只用到两个索引 / 指针.
+
+$$ASL=\frac{1}{n}\sum\limits_{j=1}^{h}j\cdot 2^{j-1}=\frac{n+1}{n}\log_2(n+1)-1$$
+
+>[!hint] 小数据量的情况下，使用线性查找的效率更佳.
+>线性查找的单元操作只有 $1$ 个判断；二分查找的单元操作可能包含加法、除法和赋值；
+
+>[!hint] 二分法用于插入元素.
+
+从二分法的思想出发还有一些查找算法，区别在于如何选取分割点.
+
+**Fibonacci 查找**：假设 `n=F[m]-1` ，其中 `F[m]` 是第 $m$ 个 Fibonacci 数，如果 ` key < elem[F[m]-1].key` ，则取 `F[m-1]` 作为新的分点进行查找. 该算法的平均性能优于二分查找，但最坏情况劣于.
+
+**插值查找**：
+
+$$i=\frac{\text{key}-\text{elem}[l].\text{key}}{\text{elem}[h].\text{key}-\text{elem}[l].\text{key}}$$
+
+其中 $h,l$ 分别表示尾、首索引.
+
+**分块查找 / 索引顺序查找**：类似于之后提到的归并排序算法，首先将整个线性数据结构划分为多个连续的块，并保证第 $i$ 块中的最小关键字大于第 $i-1$ 块中的最大关键字，小于第 $i+1$ 块中的最小关键字. 排序即可. $ASL=\log_2\left(\frac{n}{s}+1\right)+\frac{s}{2}$ .
+
+## 非线性数据结构查找
+
+下面讨论 $\exists i,j(P_i\neq P_j)$ 的情况，类似于建堆，可构造**树**，但目标是使得 $\sum\limits_{i=1}^{n}P_ih_i$ 最小，其中 $h_i$ 表示编号为 $i$ 的数据的深度，这种情况构造的树称为**最优查找树**，但多数情况下构造的是**次优查找树**.
+
+1. 取根结点： $i=\arg\min\left\lvert \sum\limits_{j=i+1}^{h}P_j-\sum\limits_{j=1}^{i-1}P_j\right\rvert$ ；
+2. 对于 $\{D_1,\cdots,D_{i-1}\}$ 和 $\{D_{i+1},\cdots,D_n\}$ 递归地进行操作.
+
+实现中为了简化计算，引入 $W_i=\sum\limits_{j=1}^{i}P_j,W_0=0$ . 令 $\Delta P_i=\left\lvert W_h-W_i-W_{i-1}+W_0\right\rvert$ ，求 $i=\arg\min\left\lvert \Delta P_i\right\rvert$ 即可.
+
+构造完成后按照二叉排序树的算法进行即可.
+
+## 动态查找
+
+在查找过程中动态生成数据结构的算法称为动态查找.
+
+之前提到的[[#二叉排序树]]，以及上面的次优查找树即为动态查找方法.
+
+## B 树
+
+定义 **m 阶 B 树**：或者为空树，或者满足以下性质：
+
+1. 树的<u>根结点</u>如果非叶结点，则<u>至少</u>有 $2$ 个子树；
+2. 树中的每个结点<u>至多</u>有 $m$ 个子树；
+3. 除根结点外的内结点<u>至少</u>有 $\lceil m/2\rceil$ 个子树；<u>注意这里的取整都是上取整</u>.
+4. 所有的内结点都包含如下信息： $(n,A_0,K_1,A_1,K_2,A_2,\cdots,K_n,A_n)$ ，其中 1) $n$ 表示关键字的个数，2) 关键字有序： $K_i<K_{i+1},i=1,\cdots,n-1$  ；3) $A_i,i=0,\cdots,n$ 指向子树的根结点；4) $A_{i-1}$ 的子树中的关键字均小于 $K_i$ ， $A_i$ 的子树中的关键字均大于 $K_i$ .
+5. 关键字的数量： $\lceil m/2\rceil-1\leq n\leq m-1$ ；
+6. $B$ 树中的所有叶结点不包含任何信息，到达叶结点表示查找失败；叶结点的个数等于关键字个数 $+1$ .
+
+>[!example] $3$ 阶 B 树
+>每个结点至少有 $2$ 个子树，至多有 $3$ 个子树，因此又称为 $2-3$ 树；并且关键字的个数： $\lceil m/2\rceil-1=1\leq n\leq 2$ .
 >
->下面利用归纳法进行证明：
->>[!note]- 不妨设 $x(x+1)\cdots(x+n-1)=\sum\limits_{k=1}^{n}c(n,k)x^k$ .
->>原式： $$\begin{aligned} &=x(x+1)\cdots(x+n-2)(n-1)+x(x+1)\cdots(x+n-2)x \\\\ &=\sum\limits_{k=1}^{n-1}c(n-1,k)x^k+\sum\limits_{k=1}^{n-1}c(n-1,k)x^{k+1} \end{aligned}$$
->>进而根据系数比可以得出 $a(n,k)=(n-1)c(n-1,k)+c(n-1,k-1)$ 与引理进行对比，即可得到 $a(n,k)=c(n,k)$ . 证毕.
-
-## 逆序数和主指标
-
-对于排列 $\pi=\pi_1\pi_2\cdots\pi_n$ ，首先定义**逆序**： $1\leq i<j\leq n,\pi_i>\pi_j$ ，则称 $\pi_i,\pi_j$ 成逆序. 不存在逆序的排列 $\pi=12\cdots n$ 称为**单位排列**.
-
-定义逆序数： $\text{inv}(\pi)=\#\{(i,j):1\leq i<j\leq n,\pi_i>\pi_j\}$ .
-
-有下面关于逆序数的生成函数的定理：
-
->[!note]- $1(1+x)(1+x+x^2)\cdots(1+x+\cdots+x^{n-1})=\sum\limits_{\pi\in S_n}^{}x^{\text{inv}(\pi)}$ ，记 $[k]=1+x+\cdots+x^{k-1}$ ，则上式可以写作 $\sum\limits_{\pi\in S_n}^{}x^{\text{inv}(\pi)}=[n][n-1]\cdots[1]\overset{def}{=}[n]!$ .
->证明：从 $\text{inv}(\pi)$ 的具体形式入手，引入 **lehmer code**： $c_i=\#\{j>i:\pi_j<\pi_i\},1\leq i\leq n$ ，从而有 $\text{inv}(\pi)=c_1+c_2+\cdots+c_{n-1}$ ，进而有 $$\sum\limits_{\pi\in S_n}^{}x^{\text{inv}(\pi)}=\sum\limits_{c_1,c_2,\cdots,c_{n-1},c_n}^{0\leq c_n\leq n-i}x^{c_1+c_2+\cdots+c_n}$$ （注意其中的 $n-i$ ）从而可以写作： $$=\left(\sum\limits_{0\leq c_1\leq n-1}^{}x^{c_1}\right)\left(\sum\limits_{0\leq c_2\leq n-2}^{}x^{c_2}\right)\cdots\left(\sum\limits_{0\leq c_n\leq 0}^{}x^{c_n}\right)=[n]!$$ 证毕.
-
-下面引入另一种与排列相关的量：排列的逆序所在的索引的累加**主指标**（major index）： $$\text{maj}(\pi)=\sum\limits_{1\leq i<j\leq n,\pi_i>\pi_j}^{}i$$ 例如： $\text{maj}(3142)=1+3=4$ .
-
-并且可以证明：
-
->[!note]- $\sum\limits_{\pi\in S_n}^{}x^{\text{maj}(\pi)}=\sum\limits_{\pi\in S_n}^{}x^{\text{inv}(\pi)}$ . #imcomplete-whatever 
-
-## 交错排列
-
-**交错排列**（alternating permutation, a.p）为排列 $a_1\cdots a_n$ 对于任意的 $a_{i-1}a_ia_{i+1}$ 有 $a_{i-1}<a_i>a_{i+1}$ .
-
->[!hint] 记忆：对堆进行后序遍历可以得到交错排列，因此序是 $a_{i-1}<a_i>a_{i+1}$ .
-
-**反交错排列**（o.a.p）则为排列 $a_1\cdots a_n$ ，对于任意的 $a_{i-1}a_ia_{i+1}$ 有 $a_{i-1}>a_i<a_{i+1}$ .
-
->[!note]- 交错排列的个数等于反交错排列的个数.
->考虑映射 $\varphi:i\rightarrow n+1-i$ .
-
-记 $n$ 长的交错排列的个数为 $E_n$ . $E_{2n+1}$ 也被称为 **Euler 数**.
-
->[!note]- $E_n$ 的递推公式： $2E_{n+1}=\sum\limits_{k=0}^{n}E_kE_{n-k}\binom{n}{k}$ .
->考虑 $E_{n+1}$ 中交错排列和非交错排列全体中的元素：
+>进一步分析可以得到关键字的个数与深度之间的关系，注意：叶子结点不包含任何关键字.
 >
->$$\cdots >u_1<n+1>v_1<\cdots$$ 
->去掉 $n+1$ 之后得到了两个排列，并不关心其是交错还是反交错，因为两者个数都是一样的. 因此可以得到：
->
->$$E_{n+1}+E_{n+1}=\sum\limits_{k=0}^{n}\binom{n}{k}E_kE_{n-k}$$
+>- $n\leq 2$ 时，层数 $L=2$ ；
+>- $n\leq 6$ 时，层数 $L\leq3$ ；
+>- $L=4$ 时， $n\ge7$ .
 
->[!note]- $E_n$ 的生成函数： $\sum\limits_{n\geq0}^{}E_n\frac{x^n}{n!}=\sec x+\tan x$ . 并由奇偶性有推论： $\sum\limits_{n\geq0}^{}E_{2n}\frac{x^{2n}}{(2n)!}=\sec x$ ， $\sum\limits_{n\geq0}^{}E_{2n+1}\frac{x^{2n+1}}{(2n+1)!}=\tan x$ . 或称 $E_{2n}$ 为第 $n$ 个正割数， $E_{2n+1}$ 为第 $n$ 个正切数.
->证明：令 $y=\sum\limits_{n\geq0}^{}E_n\frac{x^n}{n!}$ .
->
->$$\begin{aligned}
->2\sum\limits_{n\geq1}^{}E_{n+1}\frac{x^n}{n!}&=2(y'-1)\\
->&=\sum\limits_{n\geq1}^{}\sum\limits_{k=0}^{n}E_kE_{n-k}\binom{n}{k}\frac{x^n}{n!}\\
->&=\sum\limits_{n\geq0}^{}\sum\limits_{k=0}^{n}E_kE_{n-k}\frac{x^k}{k!}\frac{x^{n-k}}{(n-k)!}-1\\
->&=y^2-1
->\end{aligned}$$
->
->从而：
->
->$$2\frac{dy}{dx}=y^2+1$$ 
->得到： $\arctan y=\frac{1}{2}x+c$ ， $y=\tan(x+c)$ 并且 $y(0)=1$ ，所以 $c=\frac{\pi}{4}$ . 从而可得结论.
+一般地，第 $l+1$ 层的结点个数至少为 $n=2(\lceil m/2\rceil)^{l-1}$ ，当 $l=1$ 时 $n=1$ . 假设整个 $B$ 树有 $N$ 个关键字，那么查找不成功时，由叶子结点的个数 $(N+1)$ 大于 $l+1$ 层的结点个数可知： $N+1\geq 2\lceil m/2\rceil^{l-1}$ ，从而： $l\leq \log_{\lceil m/2\rceil}\left(\frac{N+1}{2}\right)+1$ .
 
-# 排序算法
+$B$ 树通常用于文件索引，找结点的过程对应于在磁盘上查找，在结点中顺序查找关键字的过程对应于将记录读入到内存中进行的查找.
+
+$B$ 树用于查找算法和二叉排序树类似，对于给定的数据，从根结点开始逐个与关键字进行比较，如果没有匹配，则根据关键字的给定的划分进入到子树中递归地进行查找.
+
+下面考虑 $B$ 树的插入和删除.
+
+$B$ 树每一次插入关键字并不是添加到叶结点中，而是在最深层的某个内结点（非根结点）中添加一个关键字. 按照 $B$ 树的构造规则，如果该结点在插入之后的关键字的数量小于 $m-1$ ，其中 $m$ 为阶数，则完成插入；否则需要对于该结点进行分裂，将会产生一个新的
+
+## B+ 树
+
+**B+ 树**与 B 树的区别是：
+
+1. 有 $n$ 棵子树的结点含有 $n$ 个关键字（ B 树是 $n-1$ 个关键字）；
+2. 所有的叶子结点包含了全部关键字的信息，以及指向这些关键字的指针，并按照关键字大小顺序排列；
+3. 所有的内点都被视为索引，每一个内结点中只含有其子树的根结点对应的最大（最小）关键字.
+
+# 离散数据结构的计数
+
+>[!question] 为什么我们要数数？
+
+对于离散数据结构的计数有以下方法：
+
+- 直接用初等函数的计数公式；
+- 将该数据结构双射到另一数据结构，计数；
+- 根据递推公式求解；
+- 利用生成函数求解；
+
+# 内部排序算法
+
+**内部排序算法**（internal sorting）指的是所有的记录均加载到内存中进行排序，与之相对应的是同时使用内外存的[[#外部排序算法]]，本章中简称内部排序算法为排序算法. 
+
+设待排序的记录序列为 $[R_1,R_2,\cdots,R_n]$ ，对应的关键字为 $[K_1,K_2,\cdots,Kn]$ ，排序算法的目标即为找到 $[n]$ 的一个排列 $[p_1,p_2,\cdots,p_n]$ 使得 $K_{p_1}\leq K_{p_2}\leq \cdots\leq K_{p_n}$ .
+
+之前在[[#查找算法]]中提到了主关键字和次关键字的概念，在排序算法中如果采取主关键字进行排序，那么这种情况下得到的序列是唯一的；但如果采取次关键字进行排序，则可能会出现 $K_i=K_j$ 的情况，这时如果排序之后 $R_i'<R_j'$ ，则称该排序算法是**稳定**的；否则如果<u>可能</u>会出现 $R_i'>R_j'$ ，则称该排序算法**不稳定**.
+
+本章介绍的几类代表性排序算法如下：
+
+| 排序算法 | 说明           | 平均时间复杂度                 | 空间复杂度                 | 是否稳定 |
+| ---- | ------------ | ----------------------- | --------------------- | ---- |
+| 简单排序 | 基于插入排序思想     | $\mathcal{O}(n^2)$      | $\mathcal{O}(1)$      | 稳定   |
+| 快速排序 | 冒泡排序改进方案     | $\mathcal{O}(n\log n)$  | $\mathcal{O}(\log n$) |      |
+| 堆排序  | 基于选择排序思想     | $\mathcal{O}(n\log n)$  | $\mathcal{O}(1)$      |      |
+| 归并排序 |              |                         |                       |      |
+| 基数排序 | 其中 $d$ 为基数个数 | $\mathcal{O}(d (n+rd))$ | $\mathcal{rd}$        | 稳定   |
+
+补充：快速排序、堆排序、希尔排序不稳定.
+
+排序算法的实现通常有如下三个方案：
+
+1. 顺序存储；
+2. 链表存储；
+3. 地址排序；
+
+## 插入排序
+
+**直接插入**：
+
+直接插入排序的时间复杂度为 $\mathcal{O}(n^2)$ ，其进行了很多比较操作，并且如果借助顺序存储，那么每一次插入需要移动当前位置之后的数据.
+
+**折半插入**：与二分查找的思路类似，
+
+考虑顺序存储，折半插入的时间复杂度为 $\mathcal{O}(n^2)$ .
+
+**2 - 路插入**：创建大小为 $n$ 的序列 $d$ ，采取两个指针（first, end），first (end) 指针始终指向当前序列中最小（大）的记录；同时进行首和尾的排序. 
+
+```linenums="1" title="2 - 路排序伪代码"
+输入：记录序列 R = [R_1, R_2, ..., R_n];
+输出：有序记录序列 d
+
+1. 将 R_1 加入到 d 中; first, end 指针指向 R_1;
+2. if R_2 > R_1: first 指向 R_1, end 指向 R_2; 否则交换;
+3. 获取新的元素，将其插入到 first 段或者 end 段中.
+```
+
+需要 $n$ 个记录的辅助空间，空间复杂度为 $\mathcal{O}(n)$ .
+
+**表插入**：
+
+时间复杂度为 $\mathcal{O}(n^2)$ .
+
+**希尔排序**（缩小增量排序）. 首先确定一个递减的序列 $d_1,\cdots,d_{k-1},1$ ，每一次按照 $d_1$ 作为增量将记录序列划分为多个子列，对每个子列进行排序.
+
+## 交换排序
+
+一种经典的交换算法是**冒泡排序法**，
+
+**快速排序**：
+
+```linenums="1" title="快速排序伪代码"
+输入: 序列 R_1, ..., R_n;
+输出: 有序序列;
+
+1. 选取 R_1 作为支点 pivot;
+2. 将关键字小于该支点的记录置于其左边, 关键字大于该支点的记录置于其右边: 具体操作为:
+   2.1 设置 high 和 low 两个指针;
+   2.2 --high; 获取小于 pivot
+```
+
+## 选择排序
+
+选择排序算法从记录序列中逐个选出最小的记录.
+
+**简单选择**：
+
+**树形选择** / 锦标赛选择
+
+最大的缺点是需要很多存储空间.
+
+**堆排序**：[[#堆排序算法]]
+
+
+
+## 归并排序
+
+**归并排序**（merge sort）将两个或者两个以上的有序表组合为一个新的有序表，包含两个过程：
+
+1. 归：将待排记录序列均分为更小的记录序列；
+2. 并：将较短的记录序列进行合并，同时排序；
+
+## 基数排序
 
 ## 堆栈排序
 
@@ -1587,6 +2149,139 @@ R.S 算法与耐心排序相比可以同时计算最长递增和递减子列的<
 $$\begin{bmatrix}4 \\ 2\end{bmatrix}=1+q+2q^2+q^3+q^4$$
 
 并且观察到系数呈先递增后递降顺序（单峰），该结论可以推广到所有 $n\geq1$ 的情形.
+
+# 外部排序算法
+
+之前讨论的[[#内部排序算法]]默认数据都被加载到了内存中从而进行排序，然而当数据量极大时，数据可能不能一次性全部加载到内存中，这种情况称为**外部排序**（external sorting）.
+
+外部排序算法：待排序的文件首先存储在外存中，排序经过如下两个阶段：
+
+1. 根据内存的大小，将外存上含有 $n$ 个记录的文件分成若干个长度为 $l$ 的**段**（segment），依次读入到内存中，对于每个段进行<u>内部排序算法</u>；
+2. 将排序得到的有序段（归并段 / 顺串）重新写入到外存中，进行<u>逐趟归并</u>，最终得到整个有序文件.
+
+外部排序所需要的总时间由三个部分组成，假设采取 k - 路平衡排序：
+
+1) 对于划分的所有初始归并段（还未归并的段）进行内部排序所需要的时间： $m\times t_{IS}$ ，其中 $m$ 表示初始归并段的个数， $t_{IS}$ 表示对一个初始归并段进行内部排序所需要的时间；
+2) 将外存读入到内存（上的物理块）所需要的时间 $d\times t_{IO}$ ，其中 $d$ 为总的<u>读</u>次数加上<u>写</u>次数； 
+3) 对于段进行内部归并需要的时间 $s\times ut_{mg}$ ，其中 $s=\lfloor \log_km\rfloor$  表示归并的趟数， $u$ 为记录的总数量.
+
+>[!example] 外部排序所需要的时间：假设每个物理块可以容纳 $200$ 条记录，总共有 $10000$ 条记录待排序，采取 2 - 路归并，初始段的个数为 $10$ .
+>$m=10$ ，从而可得归并趟数 $s=\lfloor \log_210\rfloor=4$ ，下面计算读写次数：对于一趟归并，以物理块为单位，需要读写 $2\times\frac{10000}{200}=100$ 次，则 $4$ 次归并需要读写 $400$ 次，同时还有一次用于内部排序的读写 $+100$ ，因此共 $500$ 次.
+>
+>所以消耗的时间为：
+>
+>$$10t_{IS}+500t_{IO}+4\times10000t_{mg}$$
+
+## 置换 - 选择排序
+
+# 排列
+
+## 排列的表示方式
+
+用 $S$ 表示一个 $n$ 元集合，通常记为 $S=\{1,2,\ldots,n\}$ . $S$ 的一个**排列**是将 $1,2,\cdots,n$ 排成一列，记为 $\pi=\pi_1\pi_2\cdots\pi_n$ . 用 $S_n$ 表示 $S$ 的排列的集合，此为一**对称群**（symmetric group），并且 $\lvert S_n\rvert\overset{def}{=}\#S_n=n!$ .
+
+>[!note]- 用程序生成 $S_n$ . #imcomplete-whatever 
+>思路可以考虑抽象代数中生成 $S_n$ 的方法. [stack](https://math.stackexchange.com/questions/903225/generators-of-the-symmetric-group-s-3)
+
+对于排列 $\pi$ 可以从下面几个角度理解：
+
+**行表示**（one-line notation），即 $\pi=\pi_1\pi_2\cdots\pi_n$ 的写法；
+
+**二行表示**， $\pi$ 可以看作是一个双射： 
+
+$$\begin{aligned}\pi:&S\rightarrow S_n \\&i\mapsto \pi(i)\overset{def}{=}\pi_i\end{aligned}$$ 
+或可写作： 
+
+$$\pi=\begin{bmatrix}1&2&\cdots&n \\  \pi_1&\pi_2&\cdots&\pi_n\end{bmatrix}$$
+
+**矩阵表示**，可以采用类似于独热编码的方式. 例如对于 $\pi=1324$ 可以写作： 
+
+$$\pi=\begin{bmatrix}1&0&0&0\\ 0&0&1&0\\ 0&1&0&0\\ 0&0&0&1\end{bmatrix}$$ 
+
+并且可以验证在此标记下对于两个排列的复合（称之为**乘积**） $\pi\circ \sigma$ 等同于对应的矩阵乘法. （注意运算是 $\pi(\sigma(i))$ ）.
+
+上面的矩阵表示是一个**双随机矩阵**，其满足： $$\begin{aligned}
+&M=(a_{ij})_{n\times n}\\
+&1.a_{ij}\geq0,\forall i,j\\
+&2.\Sigma_{k=1}^na_{ik}=1,\forall i\\
+&3.\Sigma_{k=1}^na_{kj}=1,\forall j
+\end{aligned}$$ 如果将双随机矩阵 $M=(a_{ij})_{n\times n}$ 看作 $\mathbb{R}^{n\times n}$ 中的一个点，可以证明 $\mathbb{R}^{n\times n}$ 上的所有双随机矩阵组成的集合是一个以所有 $M_{\pi}$ 为顶点的**凸包** #issue ，其中 $M_\pi$ 即为排列 $\pi\in S_n$ 的矩阵表示.
+
+4) 排列的圈表示（cycle decomposition / representation），可以将排列分解为排列的乘积，例如： $$\pi=(42135)=(143)(2)(5)$$
+
+除此之外还有**重集**（multiset）上的排列，重集如： $\{1^{m_1},2^{m_2},\cdots,n^{m_n}\}$ ，表示 $m_1$ 个 $1$ ， $m_2$ 个 $2$ ，... ， $m_n$ 个 $n$ 组成的集合. 其排列个数为： $$\frac{(m_1+m_2+\cdots+m_n)}{m_1!m_2!\cdots m_n!}$$
+
+>[!example]- 计算 $\{0^2,1^2,2^2\}$ 能够生成的所有 $6$ 位数个数.
+>$\frac{6!}{2!2+2!2+2!2}-\frac{5!}{1!2!2!}=60$ .
+
+定义**第一类Stirling数**： $S_n$ 中圈表示的圈数为 $k$ 的排列的个数.（圈中只有单个数字的也算一个圈）记作 $s(n,k)$ . ^StirlingOne
+
+可以证明其**生成函数**（generative function）：
+
+$$\sum\limits_{k=1}^{n}s(n,k)x^k=x(x+1)\cdots(x+n-1)$$ 
+
+>[!note]+ 生成函数的证明
+>首先证明引理：
+>>[!note]+ $s(n,k)=c(n-1,k-1)+(n-1)s(n-1,k)$
+>>证明：在 $S_{n-1}$ 的基础上，1) 对于圈数为 $k-1$ 的排列 $\pi\in S_{n-1}$ 添加一个新的元素 $n$ 则 $n$ 作为一个单独的圈，可以获得一个圈数为 $k$ 的排列； 2) 对于圈数为 $k$ 的排列 $\pi\in S_{n-1}$ 添加一个新的元素（插入到已有的圈中），共有 $n-1$ 种插入方法.
+>
+>下面利用归纳法进行证明：
+>>[!note]- 不妨设 $x(x+1)\cdots(x+n-1)=\sum\limits_{k=1}^{n}c(n,k)x^k$ .
+>>原式： $$\begin{aligned} &=x(x+1)\cdots(x+n-2)(n-1)+x(x+1)\cdots(x+n-2)x \\\\ &=\sum\limits_{k=1}^{n-1}c(n-1,k)x^k+\sum\limits_{k=1}^{n-1}c(n-1,k)x^{k+1} \end{aligned}$$
+>>进而根据系数比可以得出 $a(n,k)=(n-1)c(n-1,k)+c(n-1,k-1)$ 与引理进行对比，即可得到 $a(n,k)=c(n,k)$ . 证毕.
+
+## 逆序数和主指标
+
+对于排列 $\pi=\pi_1\pi_2\cdots\pi_n$ ，首先定义**逆序**： $1\leq i<j\leq n,\pi_i>\pi_j$ ，则称 $\pi_i,\pi_j$ 成逆序. 不存在逆序的排列 $\pi=12\cdots n$ 称为**单位排列**.
+
+定义逆序数： $\text{inv}(\pi)=\#\{(i,j):1\leq i<j\leq n,\pi_i>\pi_j\}$ .
+
+有下面关于逆序数的生成函数的定理：
+
+>[!note]- $1(1+x)(1+x+x^2)\cdots(1+x+\cdots+x^{n-1})=\sum\limits_{\pi\in S_n}^{}x^{\text{inv}(\pi)}$ ，记 $[k]=1+x+\cdots+x^{k-1}$ ，则上式可以写作 $\sum\limits_{\pi\in S_n}^{}x^{\text{inv}(\pi)}=[n][n-1]\cdots[1]\overset{def}{=}[n]!$ .
+>证明：从 $\text{inv}(\pi)$ 的具体形式入手，引入 **lehmer code**： $c_i=\#\{j>i:\pi_j<\pi_i\},1\leq i\leq n$ ，从而有 $\text{inv}(\pi)=c_1+c_2+\cdots+c_{n-1}$ ，进而有 $$\sum\limits_{\pi\in S_n}^{}x^{\text{inv}(\pi)}=\sum\limits_{c_1,c_2,\cdots,c_{n-1},c_n}^{0\leq c_n\leq n-i}x^{c_1+c_2+\cdots+c_n}$$ （注意其中的 $n-i$ ）从而可以写作： $$=\left(\sum\limits_{0\leq c_1\leq n-1}^{}x^{c_1}\right)\left(\sum\limits_{0\leq c_2\leq n-2}^{}x^{c_2}\right)\cdots\left(\sum\limits_{0\leq c_n\leq 0}^{}x^{c_n}\right)=[n]!$$ 证毕.
+
+下面引入另一种与排列相关的量：排列的逆序所在的索引的累加**主指标**（major index）： $$\text{maj}(\pi)=\sum\limits_{1\leq i<j\leq n,\pi_i>\pi_j}^{}i$$ 例如： $\text{maj}(3142)=1+3=4$ .
+
+并且可以证明：
+
+>[!note]- $\sum\limits_{\pi\in S_n}^{}x^{\text{maj}(\pi)}=\sum\limits_{\pi\in S_n}^{}x^{\text{inv}(\pi)}$ . #imcomplete-whatever 
+
+## 交错排列
+
+**交错排列**（alternating permutation, a.p）为排列 $a_1\cdots a_n$ 对于任意的 $a_{i-1}a_ia_{i+1}$ 有 $a_{i-1}<a_i>a_{i+1}$ .
+
+>[!hint] 记忆：对堆进行后序遍历可以得到交错排列，因此序是 $a_{i-1}<a_i>a_{i+1}$ .
+
+**反交错排列**（o.a.p）则为排列 $a_1\cdots a_n$ ，对于任意的 $a_{i-1}a_ia_{i+1}$ 有 $a_{i-1}>a_i<a_{i+1}$ .
+
+>[!note]- 交错排列的个数等于反交错排列的个数.
+>考虑映射 $\varphi:i\rightarrow n+1-i$ .
+
+记 $n$ 长的交错排列的个数为 $E_n$ . $E_{2n+1}$ 也被称为 **Euler 数**.
+
+>[!note]- $E_n$ 的递推公式： $2E_{n+1}=\sum\limits_{k=0}^{n}E_kE_{n-k}\binom{n}{k}$ .
+>考虑 $E_{n+1}$ 中交错排列和非交错排列全体中的元素：
+>
+>$$\cdots >u_1<n+1>v_1<\cdots$$ 
+>去掉 $n+1$ 之后得到了两个排列，并不关心其是交错还是反交错，因为两者个数都是一样的. 因此可以得到：
+>
+>$$E_{n+1}+E_{n+1}=\sum\limits_{k=0}^{n}\binom{n}{k}E_kE_{n-k}$$
+
+>[!note]- $E_n$ 的生成函数： $\sum\limits_{n\geq0}^{}E_n\frac{x^n}{n!}=\sec x+\tan x$ . 并由奇偶性有推论： $\sum\limits_{n\geq0}^{}E_{2n}\frac{x^{2n}}{(2n)!}=\sec x$ ， $\sum\limits_{n\geq0}^{}E_{2n+1}\frac{x^{2n+1}}{(2n+1)!}=\tan x$ . 或称 $E_{2n}$ 为第 $n$ 个正割数， $E_{2n+1}$ 为第 $n$ 个正切数.
+>证明：令 $y=\sum\limits_{n\geq0}^{}E_n\frac{x^n}{n!}$ .
+>
+>$$\begin{aligned}
+>2\sum\limits_{n\geq1}^{}E_{n+1}\frac{x^n}{n!}&=2(y'-1)\\
+>&=\sum\limits_{n\geq1}^{}\sum\limits_{k=0}^{n}E_kE_{n-k}\binom{n}{k}\frac{x^n}{n!}\\
+>&=\sum\limits_{n\geq0}^{}\sum\limits_{k=0}^{n}E_kE_{n-k}\frac{x^k}{k!}\frac{x^{n-k}}{(n-k)!}-1\\
+>&=y^2-1
+>\end{aligned}$$
+>
+>从而：
+>
+>$$2\frac{dy}{dx}=y^2+1$$ 
+>得到： $\arctan y=\frac{1}{2}x+c$ ， $y=\tan(x+c)$ 并且 $y(0)=1$ ，所以 $c=\frac{\pi}{4}$ . 从而可得结论.
 
 # 整数分拆
 
@@ -1856,15 +2551,6 @@ S(n,k)&=\sum\limits_{p=0}^{n}\frac{1}{k}\binom{k}{p}\binom{k}{p-1}\binom{n-p}{2k
 
 $(1)$ 取等用到 [[#^RiordanIdentity]]  .
 
-# 离散数据结构的计数
-
-对于离散数据结构的计数有以下方法：
-
-- 直接用初等函数的计数公式；
-- 将该数据结构双射到另一数据结构，计数；
-- 根据递推公式求解；
-- 利用生成函数求解；
-
 # 递归
 
 也成为**分而治之策略**（divide-and-conquer strategy）.
@@ -1941,7 +2627,9 @@ $$\left |  \begin{matrix}
 
 $h\in \text{Dis}(f,g)$ 当且仅当 $h$ 为 $R(f,g)$ 的非负整数根.
 
-```sage title="求解结式" linenums="1"
+SageMath 计算结式：
+
+```python title="求解结式" linenums="1"
 %display latex
 
 f = n^2 + n
