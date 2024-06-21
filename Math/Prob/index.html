@@ -1090,6 +1090,15 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#_48" class="md-nav__link">
+    <span class="md-ellipsis">
+      中心极限定理
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2354,6 +2363,15 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#_48" class="md-nav__link">
+    <span class="md-ellipsis">
+      中心极限定理
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2397,8 +2415,8 @@
 <p>概率论中对于数字特征的计算、概率收敛的计算需要<a href="../MA/#级数">MA#级数</a>、<a href="../MA/#积分">MA#积分</a>中的一些技巧，以及一些实数理论 <a href="../zoeminus/docs/Math/R|R.md">zoeminus/docs/Math/R|R</a> . 在求解或证明简单概率模型（古典、几何）时需要一些组合数方面的知识，见<a href="../DSA/#附录组合恒等式">DSA#附录：组合恒等式</a>.</p>
 <p>首先刻画 <a href="#概率论讨论对象">#概率论讨论对象</a>：样本空间、事件、概率函数（<a href="#概率公理">#概率公理</a>），随后就事件和概率函数的角度讨论<a href="#古典概率模型">#古典概率模型</a>、<a href="#几何概率模型">#几何概率模型</a>，谈论这些看起来很基础的概率模型的意义是——所谓的事件大多数都可以被抽象为随机变量限制在 <span class="arithmatex">\(\mathbb{R}\)</span> 的某个子集上对应的原像，于是研究事件发生的概率也就转换为研究随机变量.</p>
 <p>不过为什么？讨论随机变量限制在 <span class="arithmatex">\(\mathbb{R}\)</span> 的某个子集上对应的原像有什么好处？</p>
-<p>就实际而言，通常我们不关心单个事件的概率. 比如考虑随机变量 <span class="arithmatex">\(\eta,\xi\)</span> ，今天的 <span class="arithmatex">\(22:10\)</span> 的温度是 <span class="arithmatex">\(19.19^\circ\)</span> 的概率是多少，e.g. <span class="arithmatex">\(\mathcal{P}(\xi=22:10,\eta=19.19^\circ)\)</span>  ？我们相对而言更关心的问题是：今天 <span class="arithmatex">\(22:00-24:00\)</span> 的温度为 <span class="arithmatex">\(&gt;30^\circ\)</span> 的概率 <span class="arithmatex">\(\mathcal{P}(22:00&lt;\xi&lt;24:00,\eta&gt;30^\circ)\)</span> ？，这样可能就该开空调了（津六月晚上 <span class="arithmatex">\(22:00\)</span> 温度 <span class="arithmatex">\(32^\circ\)</span> 👍）.</p>
-<p>于是就会定义分布函数、密度函数，并依据实际情况将随机变量分为离散型和连续型；随后讨论随机变量之间的关系：条件概率、独立性；然后就会进入到概括性强的数字特征：期望、方差、母函数、特征函数.</p>
+<p>就实际而言，通常我们不关心单个事件的概率. 比如考虑随机变量 <span class="arithmatex">\(\eta,\xi\)</span> ，今天的 <span class="arithmatex">\(22:10\)</span> 的温度是 <span class="arithmatex">\(19.19^\circ\)</span> 的概率是多少，e.g. <span class="arithmatex">\(\mathcal{P}(\xi=22:10,\eta=19.19^\circ)\)</span>  ？我们相对而言更关心的问题是：今天 <span class="arithmatex">\(22:00-24:00\)</span> 的温度为 <span class="arithmatex">\(&gt;30^\circ\)</span> 的概率 <span class="arithmatex">\(\mathcal{P}(22:00&lt;\xi&lt;24:00,\eta&gt;30^\circ)\)</span> ？，这样可能就该开空调了.</p>
+<p>进而定义分布函数、密度函数，并依据实际情况将随机变量分为离散型和连续型；随后讨论随机变量之间的关系：条件概率、独立性；然后就会进入到概括性强的数字特征：期望、方差、母函数、特征函数.</p>
 <p>最后，讨论一些更优雅的结论，因为实际上在上述对于随机变量的讨论中几乎未染指如何计算概率. 在<a href="#概率收敛">#概率收敛</a>中，将给出一些定理，说明如何估计随机变量分布函数.</p>
 <h2 id="_2">概率论讨论对象<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <p>概率论中的三个要素： <span class="arithmatex">\((\Omega,\mathcal{F},P)\)</span> . 其中 <span class="arithmatex">\(\Omega\)</span> 称为<strong>样本空间</strong>（sample space）由（一个随机过程中出现的）所有可能结果构成， <span class="arithmatex">\(\mathcal{F}\)</span> 为 <span class="arithmatex">\(\Omega\)</span> 的<u>一些</u>子集组成的一个集合，称为<strong>事件集</strong>（set of events）， <span class="arithmatex">\(P:\mathcal{F}\rightarrow[0,1]\)</span> 称为<strong>概率函数</strong>或者<strong>概率测度</strong>.</p>
@@ -3006,14 +3024,7 @@ F(x)-F(x_0)&amp;=\mathcal{P}(x_0\leq \xi&lt;x)\\
 \end{aligned}\right.\]</div>
 <p>因为 <span class="arithmatex">\(F\)</span> 是连续的所以取等位置任意，这里仍写作 <span class="arithmatex">\(\leq\)</span> 是习惯，和离散随机变量的分布函数保持一致. 另外也可以根据 <span class="arithmatex">\(F\)</span> 是否连续判断是否不是连续型随机变量的分布函数.</p>
 <h4 id="_26">正态分布<a class="headerlink" href="#_26" title="Permanent link">&para;</a></h4>
-<details class="abstract" open="open">
-<summary>自查表</summary>
-<ul>
-<li>正态分布的密度函数是什么？</li>
-<li>回顾：如何证明 <span class="arithmatex">\(\int_{-\infty}^\infty f(x)dx=1\)</span> ，其中 <span class="arithmatex">\(f(x)\)</span> 是正态分布的密度函数；</li>
-<li>标准正态分布的函数表如何查询？对于非标准正态分布如何分析？</li>
-</ul>
-</details>
+<div class="arithmatex">\[\int_{-\infty}^\infty e^{-\frac{x^2}{2}}dx=\sqrt{2 \pi}\]</div>
 <p>随机变量 <span class="arithmatex">\(\xi\)</span> 的密度函数为： <span class="arithmatex">\(f(x)=\frac{1}{\sqrt{2\pi \sigma}}e^{-\frac{(x-\mu)^2}{2\sigma^2}},x\in \mathbb{R}\)</span> ，称 <span class="arithmatex">\(\xi\)</span> 服从参数为 <span class="arithmatex">\(\mu,\sigma\)</span> 的<strong>正态分布</strong>， <span class="arithmatex">\(\xi\sim \mathcal{N}(\mu,\sigma^2)\)</span> . 或称 <span class="arithmatex">\(\xi\)</span> 为正态变量. </p>
 <p>正态分布的分布函数：</p>
 <div class="arithmatex">\[F(x)=\int_{-\infty}^x \frac{1}{\sqrt{2\pi \sigma}}e^{-\frac{(y-\mu)^2}{2\sigma^2}}dy\]</div>
@@ -3366,6 +3377,7 @@ F_\eta(y)&amp;=\mathcal{P}(\xi^2&lt;y)=\mathcal{P}(-\sqrt{y}&lt;\xi&lt;\sqrt{y})
 <p>证明：取 <span class="arithmatex">\(\Omega=[0,1]\)</span> ， <span class="arithmatex">\(\mathcal{F}\)</span> 为 <span class="arithmatex">\(\text{Borel}-\sigma\)</span> 集， <span class="arithmatex">\(\mathcal{P}\)</span> 为 Lebeague 测度. 令 <span class="arithmatex">\(\theta(w)=w\)</span> ，则 <span class="arithmatex">\(\theta(w)\)</span> 服从 <span class="arithmatex">\([0,1]\)</span> 上的均匀分布.</p>
 <p>进而定义 <span class="arithmatex">\(\xi=F^{-1}(\theta)\)</span> ， <span class="arithmatex">\(F^{-1}\)</span> 单调因而是 Borel 函数，从而 <span class="arithmatex">\(\xi\)</span> 是随机变量，并且同上证明可知 <span class="arithmatex">\(\xi\)</span> 的分布函数为 <span class="arithmatex">\(F(x)\)</span> .</p>
 <h2 id="_36">特征函数与数学期望<a class="headerlink" href="#_36" title="Permanent link">&para;</a></h2>
+<p>本章的几乎所有问题，都是求数学期望. 这方面需要用到数学分析中的级数和广义积分计算.</p>
 <h3 id="_37">数学期望<a class="headerlink" href="#_37" title="Permanent link">&para;</a></h3>
 <p>对于离散型随机变量 <span class="arithmatex">\(\xi\)</span> ，如果 <span class="arithmatex">\(\sum\limits_{n=-\infty}^{\infty}\mathcal{P}(\xi=n)n\)</span> 收敛，则定义随机变量 <span class="arithmatex">\(\xi\)</span> 的期望为 <span class="arithmatex">\(E\xi\)</span> .</p>
 <div class="admonition example">
@@ -3375,9 +3387,8 @@ F_\eta(y)&amp;=\mathcal{P}(\xi^2&lt;y)=\mathcal{P}(-\sqrt{y}&lt;\xi&lt;\sqrt{y})
 <p>并且由规范化：</p>
 <div class="arithmatex">\[\sum\limits_{n\geq0}^{}p_n=Ae^B=1\]</div>
 <p>从而可得 <span class="arithmatex">\(B=a,A=e^{-a}\)</span> .</p>
-<div class="admonition example">
-<p class="admonition-title">一袋中含有 <span class="arithmatex">\(a\)</span> 只白球， <span class="arithmatex">\(b\)</span> 只黑球，从中取出 <span class="arithmatex">\(c\)</span> 只（ <span class="arithmatex">\(c\leq a+b\)</span> ），求摸出白球 <span class="arithmatex">\(\mu\)</span> 的期望.</p>
-</div>
+<details class="example">
+<summary>一袋中含有 <span class="arithmatex">\(a\)</span> 只白球， <span class="arithmatex">\(b\)</span> 只黑球，从中取出 <span class="arithmatex">\(c\)</span> 只（ <span class="arithmatex">\(c\leq a+b\)</span> ），求摸出白球 <span class="arithmatex">\(\mu\)</span> 的期望.</summary>
 <p><span class="arithmatex">\(\mu\)</span> 可取 <span class="arithmatex">\(1,\cdots,a\)</span> ； <span class="arithmatex">\(\mathcal{P}(\mu=n)=\frac{C_a^{n}C_b^{c-a}}{C_{a+b}^c}\)</span> ，从而：</p>
 <div class="arithmatex">\[\begin{aligned}
 E \mu &amp;=\sum\limits_{1\leq n\leq a}^{}\mathcal{P}_\mu(\mu=n)n\\
@@ -3390,9 +3401,9 @@ E \mu &amp;=\sum\limits_{1\leq n\leq a}^{}\mathcal{P}_\mu(\mu=n)n\\
 <p><a href="#^PolyaUrn">抽签问题</a>（首步分析法）</p>
 <p>从而由随机变量的可加性的：</p>
 <div class="arithmatex">\[E\xi=\sum\limits_{1\leq i\leq c}^{}E \xi_i=\frac{ac}{a+b}\]</div>
-<div class="admonition note">
-<p class="admonition-title">证明：若取非负整数值的随机变量 <span class="arithmatex">\(\xi\)</span> 的数学期望存在，则 <span class="arithmatex">\(E \xi=\sum\limits_{k=1}^{\infty}\mathcal{P}(\xi\geq k)\)</span> .</p>
-</div>
+</details>
+<details class="example">
+<summary>证明：若取非负整数值的随机变量 <span class="arithmatex">\(\xi\)</span> 的数学期望存在，则 <span class="arithmatex">\(E \xi=\sum\limits_{k=1}^{\infty}\mathcal{P}(\xi\geq k)\)</span> .</summary>
 <div class="arithmatex">\[\begin{aligned}
 E\xi &amp;=\sum\limits_{k=1}^{\infty}\mathcal{P}(\xi=k)k\\
 &amp;=\mathcal{P}(\xi\geq1)+\sum\limits_{k=2}^{\infty}\mathcal{P}(\xi\geq 2)(k-1)\\
@@ -3402,6 +3413,46 @@ E\xi &amp;=\sum\limits_{k=1}^{\infty}\mathcal{P}(\xi=k)k\\
 \end{aligned}\]</div>
 <p>以上，或写作：</p>
 <div class="arithmatex">\[E \xi=\sum\limits_{k=1}^{\infty}\mathcal{P}(\xi=k)k=\sum\limits_{k=1}^{\infty}\sum\limits_{j=k}^{\infty}\mathcal{P}(\xi=j)\]</div>
+<p>注：实际上就是按列求和：</p>
+<div class="arithmatex">\[\begin{aligned}
+&amp;\mathcal{P}(\xi=1)\\
+&amp;\mathcal{P}(\xi=2)+\mathcal{P}(\xi=2)\\
+&amp;\mathcal{P}(\xi=3)+\mathcal{P}(\xi=3)+\mathcal{P}(\xi=3)\\
+&amp;\cdots
+\end{aligned}\]</div>
+</details>
+<details class="example">
+<summary>设取非负整数值的随机变量 <span class="arithmatex">\(\xi\)</span> ，有 <span class="arithmatex">\(\mathcal{P}(\xi=k)=\frac{a^k}{(1+a)^{k+1}},a&gt;0\)</span> ，计算 <span class="arithmatex">\(E\xi,D\xi\)</span> .</summary>
+<p>这个例子主要是利用到了求导和求和在一致收敛条件下可以换序.</p>
+<div class="arithmatex">\[\begin{aligned}
+E\xi &amp;=\sum\limits_{k=0}^{\infty}k\frac{a^k}{(1+a)^{k+1}}\\
+&amp;=\frac{a}{(1+a)^2}\sum\limits_{k=0}^{\infty}f_k\left(\frac{a}{1+a}\right)
+\end{aligned}\]</div>
+<p>其中 <span class="arithmatex">\(f_k(x)=k\cdot x^{k-1}\)</span> 则：</p>
+<div class="arithmatex">\[\sum\limits_{k=0}^{\infty}f_k(x)=\left(\sum\limits_{k=0}^{\infty}x^{k}\right)'=\frac{1}{(1-x)^2}\]</div>
+<p>从而可得 <span class="arithmatex">\(E\xi=a\)</span> （此处 <span class="arithmatex">\(\left\lvert \frac{a}{1+a}\right\rvert&lt;1\)</span> 因此一致收敛）.</p>
+<p>对于 <span class="arithmatex">\(D\xi\)</span> ，计算：</p>
+<div class="arithmatex">\[\begin{aligned}
+E\xi^2&amp;=\frac{a}{(1+a)^2}\sum\limits_{k=0}^{\infty}k(k+1)\left(\frac{a}{1+a}\right)^{k-1}-\sum\limits_{k=0}^{\infty}k\frac{a^k}{(1+a)^{k+1}}
+\end{aligned}\]</div>
+<p>同上方法，从略，最后得到 <span class="arithmatex">\(D\xi=a^2+a\)</span> .</p>
+</details>
+<details class="example">
+<summary>证明 <span class="arithmatex">\(E\xi=\int_0^\infty[1-F(x)]dx-\int_{-\infty}^0F(x)dx\)</span> .</summary>
+<p>证明：事实上注意到：</p>
+<div class="arithmatex">\[\begin{aligned}
+E\xi &amp;=\int_0^\infty -xd[1-F(x)]+\int_{-\infty}^0xdF(x)\\
+&amp;=-x[1-F(x)]\bigg|_{0}^{\infty}+\int_0^\infty[1-F(x)]dx\\
+&amp;+xF(x)\bigg|_{-\infty}^0-\int_{-\infty}^0F(x)dx
+\end{aligned}\]</div>
+<p>因此接下来关心的问题是：</p>
+<div class="arithmatex">\[\lim_{A\rightarrow \infty}A[1-F(A)],\quad \lim_{A\rightarrow \infty}AF(A)\]</div>
+<p>分别利用：</p>
+<div class="arithmatex">\[0\leftarrow \int_{A}^\infty \lvert x\rvert dF(x)\ge A[1-F(A)]\]</div>
+<p>和：</p>
+<div class="arithmatex">\[AF(A)\leq\int_{-\infty}^{-A}\lvert x\rvert dF(x)\rightarrow0(A\rightarrow \infty)\]</div>
+<p>得到结论.</p>
+</details>
 <h3 id="_38">方差<a class="headerlink" href="#_38" title="Permanent link">&para;</a></h3>
 <p>设 <span class="arithmatex">\(\xi\)</span> 为随机变量，如果 <span class="arithmatex">\(E(\xi-E \xi)^2\)</span> 存在，则定义 <span class="arithmatex">\(\xi\)</span> 的<strong>方差</strong>为 <span class="arithmatex">\(D\xi=E(\xi-E \xi)^2\)</span> . 称 <span class="arithmatex">\(\sqrt{D \xi}\)</span> 为 <span class="arithmatex">\(\xi\)</span> 的根方差 / 均方差 / <strong>标准差</strong>.</p>
 <div class="admonition note">
@@ -3429,7 +3480,7 @@ D\xi &amp;=\int_{-\infty}^c(x-E\xi)^2dF(x)+\int_{c}^\infty(x-E\xi)^2dF(x)+\int_{
 <p>有如下推论：</p>
 <div class="admonition note">
 <p class="admonition-title"><span class="arithmatex">\(E\xi^2=0\Rightarrow \mathcal{P}(\xi=0)=1\)</span> .</p>
-<p>证明： <span class="arithmatex">\(E\xi^2=-\Rightarrow D\xi=0,E\xi=0\Rightarrow \mathcal{P}(\xi=0)=1\)</span> .</p>
+<p>证明： <span class="arithmatex">\(E\xi^2=0\Rightarrow D\xi=0,E\xi=0\Rightarrow \mathcal{P}(\xi=0)=1\)</span> .</p>
 </div>
 <details class="note">
 <summary><span class="arithmatex">\(E(\xi-E\xi)^2\leq E(\xi-c)^2\)</span> 或 <span class="arithmatex">\(D\xi=\min_{c\in \mathbb{R}}(\xi-c)^2\)</span> .</summary>
@@ -3439,6 +3490,7 @@ E(\xi-E\xi)^2&amp;=E(\xi-c+c-E\xi)^2\\
 &amp;=E(\xi-c)^2+2(c-E\xi)E(\xi-c)+E(c-E\xi)^2\\
 &amp;=E(\xi-c)^2-(E\xi -c)^2\leq E(\xi-c)^2
 \end{aligned}\]</div>
+<p>当且仅当 <span class="arithmatex">\(C=E\xi\)</span> 时取等.</p>
 </details>
 <details class="example">
 <summary>如果 <span class="arithmatex">\(\xi\in[a,b]\)</span> ，证明： <span class="arithmatex">\(D\xi\leq \frac{(b-a)^2}{4}\)</span> ，取等条件？</summary>
@@ -3515,9 +3567,9 @@ E\xi^2 &amp;=\sum\limits_{k\geq0}^{}k^2\frac{\lambda^k}{k!}e^{-\lambda}\\
 <p class="admonition-title"><span class="arithmatex">\(\xi\)</span> 服从 Laplace 分布（密度函数为 <span class="arithmatex">\(p(x)=\frac{1}{2\lambda}e^{-\lvert x-\mu\rvert/\lambda},-\infty&lt;x&lt;\infty,\lambda&gt;0\)</span> ）， <span class="arithmatex">\(D\xi=2\lambda^2\)</span> .</p>
 </div>
 <h3 id="_39">切比雪夫不等式<a class="headerlink" href="#_39" title="Permanent link">&para;</a></h3>
-<p>[[2420Fr133317]]</p>
-<p>对于任意方差有限的随机变量 <span class="arithmatex">\(\xi\)</span> 有：</p>
-<div class="arithmatex">\[\mathcal{P}(\lvert \xi-E \xi\rvert\geq \epsilon)\leq \frac{D\xi}{\epsilon^2}\]</div>
+<div class="admonition note">
+<p class="admonition-title">切比雪夫不等式：对于任意方差有限的随机变量 <span class="arithmatex">\(\xi\)</span> 有： <span class="arithmatex">\(\mathcal{P}(\lvert \xi-E \xi\rvert\geq \epsilon)\leq \frac{D\xi}{\epsilon^2}\)</span></p>
+</div>
 <p>证明：</p>
 <div class="arithmatex">\[D\xi \geq\int_{\lvert \xi-E\xi\rvert\geq \epsilon}(x-E\xi)^2dF(x)\geq \epsilon^2\mathcal{P}(\lvert \xi-E\xi\rvert\geq \epsilon)\]</div>
 <p>注意，当 <span class="arithmatex">\(\epsilon\)</span> 接近于 <span class="arithmatex">\(0\)</span> 时，该式是平凡的，因为 <span class="arithmatex">\(\mathcal{P}(\lvert \xi-E \xi\rvert\ge 0)\leq 1\leq \frac{D\xi}{\epsilon^2}\)</span> ，当 <span class="arithmatex">\(\epsilon\)</span> 充分大时.</p>
@@ -3577,9 +3629,21 @@ E\xi^2 &amp;=\sum\limits_{k\geq0}^{}k^2\frac{\lambda^k}{k!}e^{-\lambda}\\
 <p>之前提到方差的概念，对于一列随机变量 <span class="arithmatex">\(\{\xi_i\}_{1\leq i\leq n}\)</span> ：</p>
 <div class="arithmatex">\[\begin{aligned}
 D\left(\sum\limits_{i=1}^{n}\xi_i\right)&amp;=E\left(\sum\limits_{i=1}^{n}\xi_i-\sum\limits_{i=1}^{n}E\xi_i\right)^2\\
-&amp;=\sum\limits_{i=1}^{n}D(\xi_i)+\sum\limits_{1\leq i&lt;j\leq n}^{}\text{cov}(\xi_i,\xi_j)
+&amp;=\sum\limits_{i=1}^{n}D(\xi_i)+2\sum\limits_{1\leq i&lt;j\leq n}^{}\text{cov}(\xi_i,\xi_j)
 \end{aligned}\]</div>
-<p>因此当随机变量不相关时 <span class="arithmatex">\(D\)</span> 可加.</p>
+<p>特别地，当随机变量不相关时 <span class="arithmatex">\(D\)</span> 可加.</p>
+<details class="example">
+<summary>将 <span class="arithmatex">\(n\)</span> 封信随机放入到 <span class="arithmatex">\(n\)</span> 个信封中，放对信封数 <span class="arithmatex">\(\mu\)</span> 的数学期望和方差为？</summary>
+<p>设随机变量 <span class="arithmatex">\(\xi_i\)</span> ， <span class="arithmatex">\(\xi_i=1\)</span> 表示第 <span class="arithmatex">\(i\)</span> 封信放对信封， <span class="arithmatex">\(\xi_i=0\)</span> 表示第 <span class="arithmatex">\(i\)</span> 封信放错信封，则有 <span class="arithmatex">\(\mu=\sum\limits_{i=1}^{n}\xi_i\)</span> .</p>
+<p>利用<u>古典概率模型</u>计算： <span class="arithmatex">\(\mathcal{P}(\xi_i=1)=\frac{(n-1)!}{n!}=\frac{1}{n}\)</span> ，从而可得 <span class="arithmatex">\(E\xi_i=\frac{1}{n}\)</span> ，所以 <span class="arithmatex">\(E\mu=\sum\limits_{i=1}^{n}E\xi_i=1\)</span> . </p>
+<div class="arithmatex">\[\begin{aligned}
+\text{cov}(\xi_i,\xi_j)&amp;=E(\xi_i\xi_j)-E\xi_iE\xi_j\\
+&amp;=\mathcal{P}(\xi_i=\xi_j=1)-\frac{1}{n^2}\\
+&amp;=\frac{(n-2)!}{n!}-\frac{1}{n^2}=\frac{1}{n^2(n-1)}\\
+\end{aligned}\]</div>
+<p><span class="arithmatex">\(D\xi_i=E\xi_i^2-(E\xi_i)^2=\frac{1}{n}\left(1-\frac{1}{n}\right)\)</span> .</p>
+<p>所以 <span class="arithmatex">\(D\mu=1-\frac{1}{n}+\binom{n}{2}2\frac{1}{n^2(n-1)}=1\)</span> .</p>
+</details>
 <h3 id="_41">母函数（生成函数）<a class="headerlink" href="#_41" title="Permanent link">&para;</a></h3>
 <p>类似于 <a href="../DSA/">DSA</a> 中的计数问题中的生成函数，概率论中采取母函数辅助获取随机变量的数字特征.</p>
 <p>对于非负整数值离散型随机变量 <span class="arithmatex">\(\xi\)</span> ，定义其<strong>母函数</strong>（generating function）为：</p>
@@ -3681,6 +3745,11 @@ f(-t)&amp;=\int_{-\infty}^\infty e^{-it x}dF(x)\\
 <p>证明：设 <span class="arithmatex">\(\xi,\eta\)</span> ：</p>
 <div class="arithmatex">\[\int_{\xi+\eta}\]</div>
 <p>[[2421Th215544]]</p>
+<p>然而反过来并不成立，考虑 Cauchy 分布 <span class="arithmatex">\(p(x)=\frac{1}{\pi}\frac{\lambda}{\lambda^2+(x-\mu)^2}\)</span> .</p>
+<p>[[2425Fr214546]]</p>
+<div class="admonition example">
+<p class="admonition-title"><span class="arithmatex">\(\xi\)</span> 服从 <span class="arithmatex">\(\mu=0,\lambda=1\)</span> 的 Cauchy 分布， <span class="arithmatex">\(\eta=\xi\)</span> ，则有 <span class="arithmatex">\(f_{\xi+\eta}(t)=f_\xi(t)f_\eta(t)\)</span> ，但 <span class="arithmatex">\(\xi,\eta\)</span> 不独立.</p>
+</div>
 <p>类似母函数，可以根据特征函数获取随机变量的数字特征：</p>
 <div class="admonition note">
 <p class="admonition-title">如果随机变量 <span class="arithmatex">\(\xi\)</span> 的 <span class="arithmatex">\(1\)</span> 到 <span class="arithmatex">\(n\)</span> 阶矩都存在，则 <span class="arithmatex">\(E\xi^k=\frac{f^{(k)}(0)}{i^k}\)</span> ，进而有：</p>
@@ -3701,6 +3770,28 @@ f(-t)&amp;=\int_{-\infty}^\infty e^{-it x}dF(x)\\
 <p>设随机变量列 <span class="arithmatex">\(\{\xi_n\}_{n\ge1}\)</span> ，随机变量 <span class="arithmatex">\(\xi\)</span> ，分布函数分别为 <span class="arithmatex">\(F_n(x),F(x)\)</span> .</p>
 <p>定义 <span class="arithmatex">\(\{\xi_n\}_{n\ge1}\)</span> <strong>依分布收敛</strong> 到 <span class="arithmatex">\(\xi\)</span> ：对于 <span class="arithmatex">\(F\)</span> 的任意一个连续点都有 <span class="arithmatex">\(F_n(x)\rightarrow F(x)\)</span> (弱收敛). 记为 <span class="arithmatex">\(\xi_n\overset{l}{\rightarrow} \xi\)</span> . </p>
 <p>定义 <span class="arithmatex">\(\{\xi_n\}_{n\ge1}\)</span> <strong>依概率收敛</strong>到 <span class="arithmatex">\(\xi\)</span> ： <span class="arithmatex">\(\forall \epsilon&gt;0\)</span> 有 <span class="arithmatex">\(\lim_{n\rightarrow \infty}\mathcal{P}(\lvert \xi_n-\xi\rvert \ge \epsilon)=0\)</span> . 记为 <span class="arithmatex">\(\xi_n\overset{p}{\rightarrow}\xi\)</span> .</p>
+<div class="admonition warning">
+<p class="admonition-title">注意是 <span class="arithmatex">\(\lvert \xi_n-\xi\rvert\ge \epsilon\)</span> .</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">依概率收敛相当于实变函数中的依测度收敛.</p>
+</div>
+<details class="example">
+<summary>斯卢茨基：设随机变量函数列 <span class="arithmatex">\(\{\xi_n\}_{n\ge1}\)</span> ，其对应的分布函数列为 <span class="arithmatex">\(\{F_n\}_{n\ge1}\)</span> ，随机变量函数列 <span class="arithmatex">\(\{\eta_n\}_{n\ge1}\)</span> 依概率收敛到常数 <span class="arithmatex">\(C&gt;0\)</span> . 证明：1) <span class="arithmatex">\(\zeta_n=\xi_n+\eta_n\)</span> 的分布函数收敛到 <span class="arithmatex">\(F(x-C)\)</span> ；2) <span class="arithmatex">\(\zeta=\frac{\xi_n}{\eta_n}\)</span> 的分布函数收敛到 <span class="arithmatex">\(F(Cx)\)</span> .</summary>
+<p>证明： </p>
+<div class="arithmatex">\[\begin{aligned}
+F_{\zeta_n}(x)&amp;=\mathcal{P}(\xi_n+\eta_n&lt;x)\\
+&amp;=\mathcal{P}\{\xi_n+\eta_n&lt;x,\lvert \eta_n-C\rvert\ge \epsilon\}\\
+&amp;+\mathcal{P}\{\xi_n+\eta_n&lt;x,\lvert \eta_n-C\rvert&lt;\epsilon\}\\
+&amp;\leq \mathcal{P}(\cdots)+\mathcal{P}(\xi_n&lt;x-C+\zeta)
+\end{aligned}\]</div>
+<p>从而由 <span class="arithmatex">\(\{\eta_n\}_{n\ge1}\)</span> 概率收敛可得：</p>
+<div class="arithmatex">\[\varlimsup_{n\rightarrow \infty}F_{\zeta_n}(x)\leq \varlimsup_{n\rightarrow \infty}F_{\xi_n}(x-C+\epsilon)\]</div>
+<p>同理可以证明有：</p>
+<div class="arithmatex">\[\varliminf_{n\rightarrow \infty}F_{\zeta_n}(x)\ge \varliminf_{n\rightarrow \infty}F_{\xi_n}(x-C-\epsilon)\]</div>
+<p>\2) 同理 </p>
+</details>
+<p>进而取 <span class="arithmatex">\(n\rightarrow \infty\)</span> ，以及 <span class="arithmatex">\(\epsilon\rightarrow 0^+\)</span> 可以得到结论，注意这里要求 <span class="arithmatex">\(x-C,x-C\pm \epsilon\)</span> 都是连续点.</p>
 <p>定义 <span class="arithmatex">\(\{\xi_n\}_{n\ge1}\)</span> <strong>r 收敛</strong>到 <span class="arithmatex">\(\xi\)</span> ： <span class="arithmatex">\(r&gt;0,E \lvert \xi_n\rvert^r&lt;\infty,E\lvert \xi\rvert^r&lt;\infty\)</span> ，并且 <span class="arithmatex">\(E\lvert \xi_n-\xi\rvert^r\rightarrow0(n\rightarrow \infty)\)</span> . 记为 <span class="arithmatex">\(\xi_n\overset{r}{\rightarrow}\xi\)</span> .</p>
 <p>定义 <span class="arithmatex">\(\{\xi_n\}_{n\ge1}\)</span> <strong>以概率 1 收敛</strong>到 <span class="arithmatex">\(\xi\)</span> （几乎处处收敛）： <span class="arithmatex">\(\mathcal{P}(\lim_{n\rightarrow \infty}\xi_n=\xi)=1\)</span> . 记为 <span class="arithmatex">\(\xi_n\overset{a.s.}{\rightarrow}\xi\)</span> .</p>
 <details class="note">
@@ -3822,6 +3913,8 @@ J_3&amp;\leq M(F_n(+\infty)-F_n(b))+M(F(+\infty)-F(b))\\
 \end{aligned}\]</div>
 <p>记 <span class="arithmatex">\(\delta_{n_k}=F_{n_k}(X)-F_{n_k}(-X)\)</span> ，因为 <span class="arithmatex">\(F_{n_k}\)</span> 弱收敛于 <span class="arithmatex">\(F\)</span> ，所以存在 <span class="arithmatex">\(X,k\)</span> 使得：</p>
 <p><span class="arithmatex">\(\delta_k\leq \delta+\frac{\epsilon}{4}\)</span> .</p>
+<h3 id="_48">中心极限定理<a class="headerlink" href="#_48" title="Permanent link">&para;</a></h3>
+<p>设 <span class="arithmatex">\(\{\xi_i\}_{1\leq i\leq n}\)</span> ，令 <span class="arithmatex">\(S_n=\sum\limits_{i=1}^{n}\xi_i,\overline{X_n}=\frac{1}{n}\sum\limits_{i=1}^{n}\xi_i\)</span> ，如果 <span class="arithmatex">\(ES_n,DS_n\)</span> 均存在，则 <span class="arithmatex">\(\frac{S_n-ES_n}{\sqrt{DS_n}}\overset{d}{\rightarrow}\mathcal{N}(0,1)\)</span> ，或者写作 <span class="arithmatex">\(\frac{\overline{X_n}-E\overline{X_n}}{\sqrt{D\overline{X_n}}}\overset{d}{\rightarrow}\mathcal{N}(0,1)\)</span> ，则称 <span class="arithmatex">\(\{\xi_i\}_{1\leq i\leq n}\)</span> 满足<strong>中心极限定理</strong>.</p>
 <h2 id="i">附录 I 常见变量的数字特征<a class="headerlink" href="#i" title="Permanent link">&para;</a></h2>
 
 
@@ -3845,7 +3938,7 @@ J_3&amp;\leq M(F_n(+\infty)-F_n(b))+M(F(+\infty)-F(b))\\
     <span class="md-icon" title="最后更新">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2024年6月20日</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2024年6月21日</span>
   </span>
 
     
