@@ -20,6 +20,8 @@
 | $\varphi_k(\alpha)$ | $\varphi_k(\alpha)=f(x_k+\alpha d_k)$ |
 | $\rho,c$            | 两种符号都使用，用于表示一些超参数                     |
 | $c_i(x)$            | 第 $i$ 个约束条件                           |
+| $P$                 | 表示原问题                                 |
+| $D$                 | 表示对偶问题（dual）                          |
 
 连续优化的形式为： 
 
@@ -46,9 +48,6 @@ $$\mathcal{A}(x)=\{1,2,\cdots ,n\}\backslash \{k:c_k(x)>0\}=\{1,\cdots,m\}\cup\{
 按照可行集可以将优化问题划分为**凸优化**和**非凸优化**，多数情况下凸优化简单，因为凸优化情形下局部最优即为整体最优.
 
 # 凸集和凸函数
-
->[!summary] 自查表
->- 凸集、凸组合、凸包定义；
 
 ## 凸集
 
@@ -217,6 +216,32 @@ $$\begin{aligned}
 >综上 1. 2. 有且只有一个有解.
 >^Farkas
 
+>[!example]- 设 $A\in \mathbb{R}^{m\times n},c\in \mathbb{R}^n$ 则以下两个不等式系统 $\left\{\begin{aligned}&Ax\leq 0\\&Bx=0\\&c^Tx>0\end{aligned}\right.$ 和 $\left\{\begin{aligned}&A^Ty+B^Tz=c\\&y\ge0\end{aligned}\right.$ 有且只有一个有解.
+>证明：第一个不等式系统可以写作：
+>
+>$$\left\{\begin{aligned}
+>&\begin{bmatrix}A\\ B  \\ -B\end{bmatrix}x\leq 0\\
+>&c^Tx>0
+>\end{aligned}\right.$$
+>
+>则由 Farka 引理可得，其与：
+>
+>$$\left\{\begin{aligned}
+>&\begin{bmatrix}A^T & B^T & -B^T\end{bmatrix}\begin{bmatrix}y_1 \\ y_2 \\ y_3\end{bmatrix}=b\\
+>&y_1,y_2,y_3\ge0
+>\end{aligned}\right.$$
+>
+>有且只有一个有解，而第二个不等式系统即可写作：
+>
+>$$\left\{\begin{aligned}
+>&A^Ty_1+B^T(y_2-y_3)=b\\
+>&y_i\ge0,i=1,2,3
+>\end{aligned}\right.$$
+>
+>取 $y=y_1,z=y_2-y_3$ 即可得到结论.
+
+>[!note] Gordan 引理：设 $A\in \mathbb{R}^{m\times n}$ ，则 1) $Ax<0$ ， 2) $A^Ty=0,y\ge0,y\neq0$ 有且只有一个有解.
+
 下面定义**支撑**的概念：设 $D$ 为非空集合， $\bar{x}\in \partial{D}$ ，若存在 $\alpha\neq0$ 使得 $$D\subset H_{\bar{x}}^+=\{x:\alpha^T(x-\bar{x})\geq0\}$$ 或者 $$D\subset H_{\bar{x}}^-=\{x:\alpha(x-\bar{x})\leq0\}$$ 则称超平面 $H_{\bar{x}}=\{x:\alpha(x-\bar{x})=0\}$ 为 $D$ 在 $\bar{x}$ 处的**支撑超平面**.
 
 下面这个定理说明了凸集的边界上的点的特殊性质：存在一个包含该点的超平面，使得凸集的闭包上的所有点均位于该超平面的一侧（可以位于该超平面上）
@@ -284,6 +309,26 @@ $$\begin{aligned}
 
 下面讨论凸函数的哪些运算仍然是凸函数.
 
+>[!example]- 设 $f:\mathbb{R}^n\rightarrow \mathbb{R}$ 连续， $f$ 是凸函数当且仅当 $\forall x,y\in \mathbb{R}^n$ 有 $\int_0^1f(x+\lambda(y-x))dx\leq \frac{f(x)+f(y)}{2}$ .
+>证明： $\Rightarrow$ 显然；
+>
+>$\Leftarrow$ ：主要利用 $f$ 的连续性获取区间，进而对于区间进行线性变换得到证明. 
+>
+>假设存在 $\lambda_0\in(0,1)$ 使得 $f(\lambda_0x+(1-\lambda_0)y)>\lambda_0f(x)+(1-\lambda_0)f(y)$ . 则由 $f$ 的连续性可知，存在 $\lambda_1,\lambda_2$ 使得 $\lambda_0\in [\lambda_1,\lambda_2]\subset[0,1]$ 并且：
+>
+>$$\begin{aligned}
+>&(1)\ \forall \lambda\in(\lambda_1,\lambda_2)\quad f(\lambda x+(1-\lambda)y)>\lambda f(x)+(1-\lambda)f(y)\\
+>&(2)\ f(\lambda_ix+(1-\lambda)y_i)=\lambda_if(x)+(1-\lambda_i)f(y),i=1,2
+>\end{aligned}$$
+>
+>对于 (1) 可以得到：
+>
+>$$\int_{\lambda_1}^{\lambda_2}f(\lambda x+(1-\lambda)y)d\lambda >\frac{1}{2}(\lambda_2^2-\lambda_1^2)f(x)+\left[(\lambda_2-\lambda_1)-\frac{1}{2}(\lambda_2^2-\lambda_1^2)\right]f(y)$$
+>
+>取 $\theta=\frac{\lambda-\lambda_1}{\lambda_2-\lambda_1}$ ，并取 $z_1=\lambda_2x+(1-\lambda_2)y,z_2=\lambda_1x+(1-\lambda_1)y$ ，可以得到：
+>
+>$$\int_0^1f(\theta z_1+(1-\theta)z_2)\geq \frac{f(z_1)+f(z_2)}{2}$$
+
 # 线性规划
 
 **线性规划**（linear programming ，LP）的标准形式为：
@@ -344,6 +389,8 @@ $$\begin{aligned}
 
 ## 单纯形算法
 
+>Losen one (inequality), and tighten another, until we reach the optimum. The tightened ones being called basic, loosened one being called non-basic.
+
 $$\begin{aligned}
 &\min\ c^Tx\\
 &s.t.\ Ax=b\\
@@ -383,7 +430,7 @@ $$\begin{aligned}
 
 原始单纯形算法的缺点在于 $B^{-1}$ 需要从头计算. 而实际上每一次只修改了 $B$ 的一列.
 
-### 修正单纯形算法：
+### 修正单纯形算法
 
 单纯形表如下：
 
@@ -527,6 +574,8 @@ $$(M)\quad \begin{aligned}
 
 ### 对偶单纯性法
 
+![[Pasted image 20240614113209.png]]
+
 标准线性规划问题 $(P)$ 及其**对偶问题** $(D)$ ：
 
 $$\begin{aligned}
@@ -560,7 +609,8 @@ $$\begin{aligned}
 5. 求 $k=\arg\max\left\{\frac{c_j-c_B^TB^{-1}a_j}{e_{i_r}^TB^{-1}a_j}:e^{T}_{i_r}B^{-1}a_j<0\right\}$ 
 6. 以 $e^T_{i_r}B^{-1}a_k$ 为主元素（即 $(B^{-1}N)_{i_r,k}$ ）对单纯形表进行 Gauss-Jordan 消元，并以 $k$ 替换 $I_B$ 中的 $i_r$ ，转到步骤 2.
 
-就算法而言，与单纯形算法的区别在于确定 $i_r$ 之后确定 $k$ 时的计算.
+>[!hint] 助记.
+>就算法而言，与[[#修正单纯形算法]]的区别是首先借助 $B^{-1}b$ ，然后借助 $C_N^T-C_B^TB^{-1}N$ ，停止条件为 $B^{-1}b\ge0$ . 而修正单纯形算法首先借助 $C_N^{T}-C_B^TB^{-1}N$ 然后借助 $B^{-1}b$ ，停止条件为 $C_N^T-C_B^TB^{-1}N\ge0$ .
 
 # 整数线性规划
 
@@ -766,9 +816,11 @@ $$\begin{aligned}
 
 ### 黄金分割法
 
+黄金分割法的优点在于利用黄金分割减少割点的选择.
+
 设 $\varphi(\alpha)$ 定义在 $[a,b]$ 上，如果存在唯一的 $\alpha^*\in(a,b)$ 使得 $\varphi$ 在 $[a,\alpha^*]$ 上严格单调递减，在 $[\alpha^*,b]$ 上严格单调增加，则称 $\varphi$ 为单峰函数. 
 
-任取 $\lambda,\mu\in(a,b)$ ：
+任取 $\lambda,\mu\in(a,b),\lambda<\mu$ ：
 
 1. 如果 $\varphi(\lambda)\leq \varphi(\mu)$ 则 $\alpha^*\in[a,\mu]$ ；
 2. 如果 $\varphi(\lambda)>\varphi(\mu)$ 则 $\alpha^*\in[\lambda,b]$ .
@@ -1171,6 +1223,17 @@ $$x^1=x^0-(\nabla^2f)^{-1}\nabla f(x^0)= \begin{bmatrix}x_1 \\ x_2\end{bmatrix}-
 收敛性分析：
 
 $$\lvert \frac{\partial^3{f}}{\partial{x_i}\partial{x_j}\partial{x_l}}\rvert\leq M$$
+
+### 阻尼 Newton 法
+
+或者称带步长因子的 Newton 算法，算法步骤如下：
+
+1. 确定初始点 $x_0,k=0$ ； $g_k=\nabla f(x_k)$ ；
+2. 当 $g_k\neq 0$ 时：
+   解 $\nabla^2 f(x_k)d_k=g_k$ 得到 $d_k$ ；
+   精确一维搜索得到 $\alpha_k$ ；
+   $x_{k+1}=x_k+\alpha_kd_k,g_{k+1}=\nabla f(x_{k+1})$ ；
+   $k=k+1$ .
 
 ### 共轭梯度法
 
@@ -1776,135 +1839,6 @@ plt.scatter(x_list)
 
 [[2422Mo194928]]
 
-# 无约束问题测试函数
-
-## Rosenbrock
-
-$$f(x)=100(x_2-x_1^2)^2+(1-x_1)^2$$
-
-## 立方体函数
-
-$$f(x)=100(x_2-x_1^3)^2+(1-x_1)^2$$
-
-## 三角函数
-
-$$f(x)=\sum\limits_{i=1}^{n}\left[n+i(1-\cos x_i)-\sin x_i-\sum\limits_{j=1}^{n}\cos x_j\right]$$
-
-### 求解 Rosenbrock, 立方体函数, 三角函数（ $n=2$ 情形）
-
-选择了 P 121 的 1, 5, 6 三个函数进行计算.
-
-采用了信赖域算法和拟 Newton 算法，实践中发现前者收敛很快，后者跑的时间较长（全部输出结果可见 HTML）
-
-```python linenums="1"
-_ = var("x_1, x_2, s_1, s_2")
-
-rb_expr = 100 * (x_2 - x_1^2)^2 + (1 - x_1)^2
-cube_expr = 100 * (x_2 - x_1^3)^2 + (1 - x_1)^2
-tri_expr = (2 + (1 - cos(x_1)) - sin(x_1) - (cos(x_1) + cos(x_2)))^2 + (2 + 2 * (1 - cos(x_2)) - sin(x_2) - (cos(x_1) + cos(x_2)))^2
-
-def get_g_h(expr):
-    """计算梯度、Hessian 矩阵"""
-    return expr.gradient(), expr.hessian()
-```
-
-## 信赖域算法求解
-
-重构了之前的函数以适用于一般的二元情形.
-
-/// collapse-code
-```python linenums="1"
-# 信赖域方法
-x_1_val, x_2_val = 1.2, 1.5 # 初始值
-# x = matrix([[x_1, x_2]]).transpose()
-epsilon = 1e-5 # 精确度
-delta_max = 2
-delta = 1
-eta_1, eta_2 = 0.25, 0.75
-gamma_1, gamma_2 = 0.5, 1.5
-
-s = matrix([[s_1, s_2]]).transpose()
-
-def trust_region(f_expr, x_1_val, x_2_val, delta = delta):
-    # 首先用符号运算处理后续进行计算得到后续运算用到的函数
-    f(x_1, x_2) = f_expr
-    f_grad_expr, f_hess_expr = get_g_h(f_expr)
-    f_grad(x_1, x_2) = matrix(f_grad_expr).transpose()
-    f_hess(x_1, x_2) = matrix(f_hess_expr)
-    q(x_1, x_2, s_1, s_2) = (f_expr + matrix(f_grad_expr) * s + 1 / 2 * s.transpose() * f_hess_expr * s)[0][0]
-    f_grad_val = f_grad(x_1_val, x_2_val)
-    while not (LA.norm(np.array(f_grad_val)) < epsilon):
-        # 求解优化步， 以 Hess 近似二阶正定矩阵
-        f_grad_val = f_grad(x_1_val, x_2_val)
-        f_hess_val = f_hess(x_1_val, x_2_val)
-        s_val = solve_sub(f_grad_val, f_hess_val, delta)
-        s_1_val, s_2_val = s_val[0][0], s_val[1][0]
-        
-        q_(s_1, s_2) = q(x_1_val, x_2_val)
-        r = (f(x_1_val, x_2_val) - f(x_1_val + s_1_val, x_2_val + s_2_val)) / (q_(0, 0) - q_(s_1_val, s_2_val))
-        
-        # 更新
-        if (r >= eta_1):
-            x_1_val, x_2_val = x_1_val + s_1_val, x_2_val + s_2_val
-        
-        # 更新信赖域半径
-        if (r < eta_1):
-            delta = gamma_1 * delta
-        elif (r >= eta_2):
-            delta = min(gamma_2 * delta, delta_max)
-        print(x_1_val, x_2_val)
-    return x_1_val, x_2_val
-```
-///
-
-求解立方体函数：
-
-```python linenums="1"
-trust_region(cube_expr, x_1_val, x_2_val)
-```
-
-求解 Rosenbrock
-
-```python linenums="1"
-trust_region(rb_expr, x_1_val, x_2_val)
-```
-
-求解三角函数：
-
-```python linenums="1"
-trust_region(tri_expr, x_1_val, x_2_val)
-```
-
-## 拟 Newton 法
-
-重构了之前的函数以适用于一般情形：
-
-/// collapse-code
-```python linenums="1"
-# 拟 Newton 法
-def DFR(f_expr, x_1_val, x_2_val, alpha=1e-2):
-    f(x_1, x_2) = f_expr
-    f_grad_expr, f_hess_expr = get_g_h(f_expr)
-    f_grad(x_1, x_2) = matrix(f_grad_expr).transpose()
-    f_hess(x_1, x_2) = matrix(f_hess_expr)
-    H = matrix.identity(2)
-    d = - H * f_grad(x_1_val, x_2_val)
-    d_1, d_2 = d_1, d_2 = d[0][0], d[1][0]
-    
-    while not LA.norm(np.array(f_grad(x_1_val, x_2_val))) < epsilon:
-        s = alpha * d
-        y = matrix(f_grad(x_1_val + alpha * d_1, x_2_val + alpha * d_2) - f_grad(x_1_val, x_2_val))
-        x_1_val, x_2_val = x_1_val + alpha * d_1, x_2_val + alpha * d_2
-        H = H + s * s.transpose() / (s.transpose() * y)[0][0] - (H * y * y.transpose() * H) / (y.transpose() * H * y)[0][0]
-        d = - H * f_grad(x_1_val, x_2_val)
-        d_1, d_2 = d_1, d_2 = d[0][0], d[1][0]
-        print(x_1_val, x_2_val)
-    return x_1_val, x_2_val
-```
-///
-
-三种函数计算如下，结果和信赖域算法基本一样，输出结果很长故略去，具体计算迭代步的输出见 HTML 文件.
-
 # 约束优化
 
 讨论无约束优化问题：
@@ -1961,14 +1895,35 @@ $$\begin{aligned}
 
 $$L(x,\lambda,\mu)=f(x)-\sum\limits_{i=1}^{m}\mu_ic_i(x)-\sum\limits_{i=m+1}^{p}\lambda_ic_i(x)$$
 
+其中 $\lambda_i$ 控制不等式， $\mu_i$ 控制等式.
 
+进而定义 **Lagrange 对偶函数**：
 
->[!example] 线性规划的对偶问题.
+$$g(\lambda,\mu)=\inf_{x}\left\{L(x,\lambda,\mu)\right\}$$
+
+>[!example]- 求 $\min\ x^Tx\quad s.t.\ Ax=b$ 的 Lagrange 对偶函数.
+>$$L(x,\mu)=x^Tx-\mu^T(Ax-b)$$
+>
+>注意到 $\nabla_xL(x,\mu)=2x-A^T\mu$ ， $\nabla^2_xL(x,\mu)=2\ge0=2>0$ ，则 $L$ 是凸函数，令 $\nabla_xL=0$ 得到 $x=\frac{A^T\mu}{2}$ ，从而可得：
+>
+>$$g(\mu)=-\frac{\mu^TAA^T\mu}{4}+\mu^Tb$$
+
+>[!example]- 线性规划的对偶问题.
 >$$(D)\quad \begin{aligned}
 >&\max\quad b^Ty\\
 >&s.t.\quad\ A^Ty\leq c
 >\end{aligned}$$
-
+>对于：
+>
+>$$\begin{aligned}
+>&\min\quad c^Tx\\
+>&s.t.\quad\ Ax=b\\
+>&\qquad\quad x\ge0
+>\end{aligned}$$
+>
+>$$L(x,\lambda,\mu)=b^T\lambda+(c-A^T\lambda -\mu)^Tx$$
+>
+>则取 $c-A^T\lambda-\mu=0$ ，可得对偶问题.
 
 ## KT 算法
 
@@ -2069,3 +2024,133 @@ $$\left\{\begin{aligned}
 \end{aligned}\right.\Leftrightarrow \begin{bmatrix}G & -A \\ -A^T & 0\end{bmatrix}\begin{bmatrix}x \\ \lambda\end{bmatrix}=-\begin{bmatrix}g \\ b\end{bmatrix}$$
 
 >[!note] 设 $A$ 为列满秩的， $Z$ 为 $A^T$ 的零空间 $\{p:A^Tp=0\}$ 的一组基，如果 $Z^TGZ$ 正定，则上述 KT 条件的解 $x,\lambda$ 唯一，并且 $x$ 是原问题的解.
+
+# 测试函数
+
+## Rosenbrock
+
+$$f(x)=100(x_2-x_1^2)^2+(1-x_1)^2$$
+
+## 立方体函数
+
+$$f(x)=100(x_2-x_1^3)^2+(1-x_1)^2$$
+
+## 三角函数
+
+$$f(x)=\sum\limits_{i=1}^{n}\left[n+i(1-\cos x_i)-\sin x_i-\sum\limits_{j=1}^{n}\cos x_j\right]$$
+
+### 求解 Rosenbrock, 立方体函数, 三角函数（ $n=2$ 情形）
+
+选择了 P 121 的 1, 5, 6 三个函数进行计算.
+
+采用了信赖域算法和拟 Newton 算法，实践中发现前者收敛很快，后者跑的时间较长（全部输出结果可见 HTML）
+
+```python linenums="1"
+_ = var("x_1, x_2, s_1, s_2")
+
+rb_expr = 100 * (x_2 - x_1^2)^2 + (1 - x_1)^2
+cube_expr = 100 * (x_2 - x_1^3)^2 + (1 - x_1)^2
+tri_expr = (2 + (1 - cos(x_1)) - sin(x_1) - (cos(x_1) + cos(x_2)))^2 + (2 + 2 * (1 - cos(x_2)) - sin(x_2) - (cos(x_1) + cos(x_2)))^2
+
+def get_g_h(expr):
+    """计算梯度、Hessian 矩阵"""
+    return expr.gradient(), expr.hessian()
+```
+
+信赖域算法求解
+
+重构了之前的函数以适用于一般的二元情形.
+
+/// collapse-code
+```python linenums="1"
+# 信赖域方法
+x_1_val, x_2_val = 1.2, 1.5 # 初始值
+# x = matrix([[x_1, x_2]]).transpose()
+epsilon = 1e-5 # 精确度
+delta_max = 2
+delta = 1
+eta_1, eta_2 = 0.25, 0.75
+gamma_1, gamma_2 = 0.5, 1.5
+
+s = matrix([[s_1, s_2]]).transpose()
+
+def trust_region(f_expr, x_1_val, x_2_val, delta = delta):
+    # 首先用符号运算处理后续进行计算得到后续运算用到的函数
+    f(x_1, x_2) = f_expr
+    f_grad_expr, f_hess_expr = get_g_h(f_expr)
+    f_grad(x_1, x_2) = matrix(f_grad_expr).transpose()
+    f_hess(x_1, x_2) = matrix(f_hess_expr)
+    q(x_1, x_2, s_1, s_2) = (f_expr + matrix(f_grad_expr) * s + 1 / 2 * s.transpose() * f_hess_expr * s)[0][0]
+    f_grad_val = f_grad(x_1_val, x_2_val)
+    while not (LA.norm(np.array(f_grad_val)) < epsilon):
+        # 求解优化步， 以 Hess 近似二阶正定矩阵
+        f_grad_val = f_grad(x_1_val, x_2_val)
+        f_hess_val = f_hess(x_1_val, x_2_val)
+        s_val = solve_sub(f_grad_val, f_hess_val, delta)
+        s_1_val, s_2_val = s_val[0][0], s_val[1][0]
+        
+        q_(s_1, s_2) = q(x_1_val, x_2_val)
+        r = (f(x_1_val, x_2_val) - f(x_1_val + s_1_val, x_2_val + s_2_val)) / (q_(0, 0) - q_(s_1_val, s_2_val))
+        
+        # 更新
+        if (r >= eta_1):
+            x_1_val, x_2_val = x_1_val + s_1_val, x_2_val + s_2_val
+        
+        # 更新信赖域半径
+        if (r < eta_1):
+            delta = gamma_1 * delta
+        elif (r >= eta_2):
+            delta = min(gamma_2 * delta, delta_max)
+        print(x_1_val, x_2_val)
+    return x_1_val, x_2_val
+```
+///
+
+求解立方体函数：
+
+```python linenums="1"
+trust_region(cube_expr, x_1_val, x_2_val)
+```
+
+求解 Rosenbrock
+
+```python linenums="1"
+trust_region(rb_expr, x_1_val, x_2_val)
+```
+
+求解三角函数：
+
+```python linenums="1"
+trust_region(tri_expr, x_1_val, x_2_val)
+```
+
+拟 Newton 法
+
+重构了之前的函数以适用于一般情形：
+
+/// collapse-code
+```python linenums="1"
+# 拟 Newton 法
+def DFR(f_expr, x_1_val, x_2_val, alpha=1e-2):
+    f(x_1, x_2) = f_expr
+    f_grad_expr, f_hess_expr = get_g_h(f_expr)
+    f_grad(x_1, x_2) = matrix(f_grad_expr).transpose()
+    f_hess(x_1, x_2) = matrix(f_hess_expr)
+    H = matrix.identity(2)
+    d = - H * f_grad(x_1_val, x_2_val)
+    d_1, d_2 = d_1, d_2 = d[0][0], d[1][0]
+    
+    while not LA.norm(np.array(f_grad(x_1_val, x_2_val))) < epsilon:
+        s = alpha * d
+        y = matrix(f_grad(x_1_val + alpha * d_1, x_2_val + alpha * d_2) - f_grad(x_1_val, x_2_val))
+        x_1_val, x_2_val = x_1_val + alpha * d_1, x_2_val + alpha * d_2
+        H = H + s * s.transpose() / (s.transpose() * y)[0][0] - (H * y * y.transpose() * H) / (y.transpose() * H * y)[0][0]
+        d = - H * f_grad(x_1_val, x_2_val)
+        d_1, d_2 = d_1, d_2 = d[0][0], d[1][0]
+        print(x_1_val, x_2_val)
+    return x_1_val, x_2_val
+```
+///
+
+三种函数计算如下，结果和信赖域算法基本一样，输出结果很长故略去，具体计算迭代步的输出见 HTML 文件.
+
