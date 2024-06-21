@@ -6,9 +6,9 @@
 
 不过为什么？讨论随机变量限制在 $\mathbb{R}$ 的某个子集上对应的原像有什么好处？
 
-就实际而言，通常我们不关心单个事件的概率. 比如考虑随机变量 $\eta,\xi$ ，今天的 $22:10$ 的温度是 $19.19^\circ$ 的概率是多少，e.g. $\mathcal{P}(\xi=22:10,\eta=19.19^\circ)$  ？我们相对而言更关心的问题是：今天 $22:00-24:00$ 的温度为 $>30^\circ$ 的概率 $\mathcal{P}(22:00<\xi<24:00,\eta>30^\circ)$ ？，这样可能就该开空调了（津六月晚上 $22:00$ 温度 $32^\circ$ 👍）.
+就实际而言，通常我们不关心单个事件的概率. 比如考虑随机变量 $\eta,\xi$ ，今天的 $22:10$ 的温度是 $19.19^\circ$ 的概率是多少，e.g. $\mathcal{P}(\xi=22:10,\eta=19.19^\circ)$  ？我们相对而言更关心的问题是：今天 $22:00-24:00$ 的温度为 $>30^\circ$ 的概率 $\mathcal{P}(22:00<\xi<24:00,\eta>30^\circ)$ ？，这样可能就该开空调了.
 
-于是就会定义分布函数、密度函数，并依据实际情况将随机变量分为离散型和连续型；随后讨论随机变量之间的关系：条件概率、独立性；然后就会进入到概括性强的数字特征：期望、方差、母函数、特征函数.
+进而定义分布函数、密度函数，并依据实际情况将随机变量分为离散型和连续型；随后讨论随机变量之间的关系：条件概率、独立性；然后就会进入到概括性强的数字特征：期望、方差、母函数、特征函数.
 
 最后，讨论一些更优雅的结论，因为实际上在上述对于随机变量的讨论中几乎未染指如何计算概率. 在[[#概率收敛]]中，将给出一些定理，说明如何估计随机变量分布函数.
 
@@ -728,10 +728,7 @@ $$F(x)=\left\{\begin{aligned}
 
 ### 正态分布
 
->[!summary]+ 自查表
->- 正态分布的密度函数是什么？
->- 回顾：如何证明 $\int_{-\infty}^\infty f(x)dx=1$ ，其中 $f(x)$ 是正态分布的密度函数；
->- 标准正态分布的函数表如何查询？对于非标准正态分布如何分析？
+$$\int_{-\infty}^\infty e^{-\frac{x^2}{2}}dx=\sqrt{2 \pi}$$
 
 随机变量 $\xi$ 的密度函数为： $f(x)=\frac{1}{\sqrt{2\pi \sigma}}e^{-\frac{(x-\mu)^2}{2\sigma^2}},x\in \mathbb{R}$ ，称 $\xi$ 服从参数为 $\mu,\sigma$ 的**正态分布**， $\xi\sim \mathcal{N}(\mu,\sigma^2)$ . 或称 $\xi$ 为正态变量. 
 
@@ -1168,6 +1165,8 @@ $$\begin{aligned}
 
 # 特征函数与数学期望
 
+本章的几乎所有问题，都是求数学期望. 这方面需要用到数学分析中的级数和广义积分计算.
+
 ## 数学期望
 
 对于离散型随机变量 $\xi$ ，如果 $\sum\limits_{n=-\infty}^{\infty}\mathcal{P}(\xi=n)n$ 收敛，则定义随机变量 $\xi$ 的期望为 $E\xi$ .
@@ -1182,41 +1181,94 @@ $$\sum\limits_{n\geq0}^{}p_n=Ae^B=1$$
 
 从而可得 $B=a,A=e^{-a}$ .
 
->[!example] 一袋中含有 $a$ 只白球， $b$ 只黑球，从中取出 $c$ 只（ $c\leq a+b$ ），求摸出白球 $\mu$ 的期望.
+>[!example]- 一袋中含有 $a$ 只白球， $b$ 只黑球，从中取出 $c$ 只（ $c\leq a+b$ ），求摸出白球 $\mu$ 的期望.
+>$\mu$ 可取 $1,\cdots,a$ ； $\mathcal{P}(\mu=n)=\frac{C_a^{n}C_b^{c-a}}{C_{a+b}^c}$ ，从而：
+>
+>$$\begin{aligned}
+>E \mu &=\sum\limits_{1\leq n\leq a}^{}\mathcal{P}_\mu(\mu=n)n\\
+>&=\sum\limits_{1\leq n\leq a}^{}\frac{\binom{a}{n}\binom{b}{c-n}}{\binom{a+b}{c}}n\\
+>&=\ ?
+>\end{aligned}$$
+>
+>| #issue %%上述这个组合恒等式不会求；%%
+>
+>记 $\xi_i$ 为第 $i$ 次摸到白球的期望，则：
+>
+>$$E \xi_i=\mathcal{P}(\xi_i=1)=\frac{a}{a+b}$$
+>
+>[抽签问题](#^PolyaUrn)（首步分析法）
+>
+>从而由随机变量的可加性的：
+>
+>$$E\xi=\sum\limits_{1\leq i\leq c}^{}E \xi_i=\frac{ac}{a+b}$$
 
-$\mu$ 可取 $1,\cdots,a$ ； $\mathcal{P}(\mu=n)=\frac{C_a^{n}C_b^{c-a}}{C_{a+b}^c}$ ，从而：
+>[!example]- 证明：若取非负整数值的随机变量 $\xi$ 的数学期望存在，则 $E \xi=\sum\limits_{k=1}^{\infty}\mathcal{P}(\xi\geq k)$ .
+>$$\begin{aligned}
+>E\xi &=\sum\limits_{k=1}^{\infty}\mathcal{P}(\xi=k)k\\
+>&=\mathcal{P}(\xi\geq1)+\sum\limits_{k=2}^{\infty}\mathcal{P}(\xi\geq 2)(k-1)\\
+>&=\mathcal{P}(\xi\geq1)+\mathcal{P}(\xi\geq2)+\sum\limits_{k=3}^{\infty}\mathcal{P}(\xi\geq3)(k-2)\\
+>&=\cdots\\
+>&=\sum\limits_{k=1}^{\infty}\mathcal{P}(\xi\geq k)
+>\end{aligned}$$
+>
+>以上，或写作：
+>
+>$$E \xi=\sum\limits_{k=1}^{\infty}\mathcal{P}(\xi=k)k=\sum\limits_{k=1}^{\infty}\sum\limits_{j=k}^{\infty}\mathcal{P}(\xi=j)$$
+>
+>注：实际上就是按列求和：
+>
+>$$\begin{aligned}
+>&\mathcal{P}(\xi=1)\\
+>&\mathcal{P}(\xi=2)+\mathcal{P}(\xi=2)\\
+>&\mathcal{P}(\xi=3)+\mathcal{P}(\xi=3)+\mathcal{P}(\xi=3)\\
+>&\cdots
+>\end{aligned}$$
 
-$$\begin{aligned}
-E \mu &=\sum\limits_{1\leq n\leq a}^{}\mathcal{P}_\mu(\mu=n)n\\
-&=\sum\limits_{1\leq n\leq a}^{}\frac{\binom{a}{n}\binom{b}{c-n}}{\binom{a+b}{c}}n\\
-&=\ ?
-\end{aligned}$$
+>[!example]- 设取非负整数值的随机变量 $\xi$ ，有 $\mathcal{P}(\xi=k)=\frac{a^k}{(1+a)^{k+1}},a>0$ ，计算 $E\xi,D\xi$ .
+>这个例子主要是利用到了求导和求和在一致收敛条件下可以换序.
+>
+>$$\begin{aligned}
+>E\xi &=\sum\limits_{k=0}^{\infty}k\frac{a^k}{(1+a)^{k+1}}\\
+>&=\frac{a}{(1+a)^2}\sum\limits_{k=0}^{\infty}f_k\left(\frac{a}{1+a}\right)
+>\end{aligned}$$
+>
+>其中 $f_k(x)=k\cdot x^{k-1}$ 则：
+>
+>$$\sum\limits_{k=0}^{\infty}f_k(x)=\left(\sum\limits_{k=0}^{\infty}x^{k}\right)'=\frac{1}{(1-x)^2}$$
+>
+>
+>从而可得 $E\xi=a$ （此处 $\left\lvert \frac{a}{1+a}\right\rvert<1$ 因此一致收敛）.
+>
+>对于 $D\xi$ ，计算：
+>
+>$$\begin{aligned}
+>E\xi^2&=\frac{a}{(1+a)^2}\sum\limits_{k=0}^{\infty}k(k+1)\left(\frac{a}{1+a}\right)^{k-1}-\sum\limits_{k=0}^{\infty}k\frac{a^k}{(1+a)^{k+1}}
+>\end{aligned}$$
+>
+>同上方法，从略，最后得到 $D\xi=a^2+a$ .
 
-| #issue %%上述这个组合恒等式不会求；%%
-
-记 $\xi_i$ 为第 $i$ 次摸到白球的期望，则：
-
-$$E \xi_i=\mathcal{P}(\xi_i=1)=\frac{a}{a+b}$$
-
-[抽签问题](#^PolyaUrn)（首步分析法）
-
-从而由随机变量的可加性的：
-
-$$E\xi=\sum\limits_{1\leq i\leq c}^{}E \xi_i=\frac{ac}{a+b}$$
-
->[!note] 证明：若取非负整数值的随机变量 $\xi$ 的数学期望存在，则 $E \xi=\sum\limits_{k=1}^{\infty}\mathcal{P}(\xi\geq k)$ .
-
-$$\begin{aligned}
-E\xi &=\sum\limits_{k=1}^{\infty}\mathcal{P}(\xi=k)k\\
-&=\mathcal{P}(\xi\geq1)+\sum\limits_{k=2}^{\infty}\mathcal{P}(\xi\geq 2)(k-1)\\
-&=\mathcal{P}(\xi\geq1)+\mathcal{P}(\xi\geq2)+\sum\limits_{k=3}^{\infty}\mathcal{P}(\xi\geq3)(k-2)\\
-&=\cdots\\
-&=\sum\limits_{k=1}^{\infty}\mathcal{P}(\xi\geq k)
-\end{aligned}$$
-
-以上，或写作：
-
-$$E \xi=\sum\limits_{k=1}^{\infty}\mathcal{P}(\xi=k)k=\sum\limits_{k=1}^{\infty}\sum\limits_{j=k}^{\infty}\mathcal{P}(\xi=j)$$
+>[!example]- 证明 $E\xi=\int_0^\infty[1-F(x)]dx-\int_{-\infty}^0F(x)dx$ .
+>证明：事实上注意到：
+>
+>$$\begin{aligned}
+>E\xi &=\int_0^\infty -xd[1-F(x)]+\int_{-\infty}^0xdF(x)\\
+>&=-x[1-F(x)]\bigg|_{0}^{\infty}+\int_0^\infty[1-F(x)]dx\\
+>&+xF(x)\bigg|_{-\infty}^0-\int_{-\infty}^0F(x)dx
+>\end{aligned}$$
+>
+>因此接下来关心的问题是：
+>
+>$$\lim_{A\rightarrow \infty}A[1-F(A)],\quad \lim_{A\rightarrow \infty}AF(A)$$
+>
+>分别利用：
+>
+>$$0\leftarrow \int_{A}^\infty \lvert x\rvert dF(x)\ge A[1-F(A)]$$
+>
+>和：
+>
+>$$AF(A)\leq\int_{-\infty}^{-A}\lvert x\rvert dF(x)\rightarrow0(A\rightarrow \infty)$$
+>
+>得到结论.
 
 ## 方差
 
@@ -1248,7 +1300,7 @@ $$E \xi=\sum\limits_{k=1}^{\infty}\mathcal{P}(\xi=k)k=\sum\limits_{k=1}^{\infty}
 有如下推论：
 
 >[!note] $E\xi^2=0\Rightarrow \mathcal{P}(\xi=0)=1$ .
->证明： $E\xi^2=-\Rightarrow D\xi=0,E\xi=0\Rightarrow \mathcal{P}(\xi=0)=1$ .
+>证明： $E\xi^2=0\Rightarrow D\xi=0,E\xi=0\Rightarrow \mathcal{P}(\xi=0)=1$ .
 
 >[!note]- $E(\xi-E\xi)^2\leq E(\xi-c)^2$ 或 $D\xi=\min_{c\in \mathbb{R}}(\xi-c)^2$ .
 >证明：
@@ -1258,6 +1310,8 @@ $$E \xi=\sum\limits_{k=1}^{\infty}\mathcal{P}(\xi=k)k=\sum\limits_{k=1}^{\infty}
 >&=E(\xi-c)^2+2(c-E\xi)E(\xi-c)+E(c-E\xi)^2\\
 >&=E(\xi-c)^2-(E\xi -c)^2\leq E(\xi-c)^2
 >\end{aligned}$$
+>
+>当且仅当 $C=E\xi$ 时取等.
 
 >[!example]- 如果 $\xi\in[a,b]$ ，证明： $D\xi\leq \frac{(b-a)^2}{4}$ ，取等条件？
 >证明：
@@ -1340,11 +1394,7 @@ E\xi^2&=\sum\limits_{k\geq1}^{}q^{k-1}pk^2\\
 
 ## 切比雪夫不等式
 
-[[2420Fr133317]]
-
-对于任意方差有限的随机变量 $\xi$ 有：
-
-$$\mathcal{P}(\lvert \xi-E \xi\rvert\geq \epsilon)\leq \frac{D\xi}{\epsilon^2}$$
+>[!note] 切比雪夫不等式：对于任意方差有限的随机变量 $\xi$ 有： $\mathcal{P}(\lvert \xi-E \xi\rvert\geq \epsilon)\leq \frac{D\xi}{\epsilon^2}$
 
 证明：
 
@@ -1413,10 +1463,25 @@ $$E(f(t))=E(\xi^2)t^2+2E(\xi \eta)t+E(\eta^2)$$
 
 $$\begin{aligned}
 D\left(\sum\limits_{i=1}^{n}\xi_i\right)&=E\left(\sum\limits_{i=1}^{n}\xi_i-\sum\limits_{i=1}^{n}E\xi_i\right)^2\\
-&=\sum\limits_{i=1}^{n}D(\xi_i)+\sum\limits_{1\leq i<j\leq n}^{}\text{cov}(\xi_i,\xi_j)
+&=\sum\limits_{i=1}^{n}D(\xi_i)+2\sum\limits_{1\leq i<j\leq n}^{}\text{cov}(\xi_i,\xi_j)
 \end{aligned}$$
 
-因此当随机变量不相关时 $D$ 可加.
+特别地，当随机变量不相关时 $D$ 可加.
+
+>[!example]- 将 $n$ 封信随机放入到 $n$ 个信封中，放对信封数 $\mu$ 的数学期望和方差为？
+>设随机变量 $\xi_i$ ， $\xi_i=1$ 表示第 $i$ 封信放对信封， $\xi_i=0$ 表示第 $i$ 封信放错信封，则有 $\mu=\sum\limits_{i=1}^{n}\xi_i$ .
+>
+>利用<u>古典概率模型</u>计算： $\mathcal{P}(\xi_i=1)=\frac{(n-1)!}{n!}=\frac{1}{n}$ ，从而可得 $E\xi_i=\frac{1}{n}$ ，所以 $E\mu=\sum\limits_{i=1}^{n}E\xi_i=1$ . 
+>
+>$$\begin{aligned}
+>\text{cov}(\xi_i,\xi_j)&=E(\xi_i\xi_j)-E\xi_iE\xi_j\\
+>&=\mathcal{P}(\xi_i=\xi_j=1)-\frac{1}{n^2}\\
+>&=\frac{(n-2)!}{n!}-\frac{1}{n^2}=\frac{1}{n^2(n-1)}\\
+>\end{aligned}$$
+>
+>$D\xi_i=E\xi_i^2-(E\xi_i)^2=\frac{1}{n}\left(1-\frac{1}{n}\right)$ .
+>
+>所以 $D\mu=1-\frac{1}{n}+\binom{n}{2}2\frac{1}{n^2(n-1)}=1$ .
 
 ## 母函数（生成函数）
 
@@ -1531,6 +1596,12 @@ $$\int_{\xi+\eta}$$
 
 [[2421Th215544]]
 
+然而反过来并不成立，考虑 Cauchy 分布 $p(x)=\frac{1}{\pi}\frac{\lambda}{\lambda^2+(x-\mu)^2}$ .
+
+[[2425Fr214546]]
+
+>[!example] $\xi$ 服从 $\mu=0,\lambda=1$ 的 Cauchy 分布， $\eta=\xi$ ，则有 $f_{\xi+\eta}(t)=f_\xi(t)f_\eta(t)$ ，但 $\xi,\eta$ 不独立.
+
 类似母函数，可以根据特征函数获取随机变量的数字特征：
 
 >[!note] 如果随机变量 $\xi$ 的 $1$ 到 $n$ 阶矩都存在，则 $E\xi^k=\frac{f^{(k)}(0)}{i^k}$ ，进而有：
@@ -1558,6 +1629,32 @@ $f(t)=$
 定义 $\{\xi_n\}_{n\ge1}$ **依分布收敛** 到 $\xi$ ：对于 $F$ 的任意一个连续点都有 $F_n(x)\rightarrow F(x)$ (弱收敛). 记为 $\xi_n\overset{l}{\rightarrow} \xi$ . 
 
 定义 $\{\xi_n\}_{n\ge1}$ **依概率收敛**到 $\xi$ ： $\forall \epsilon>0$ 有 $\lim_{n\rightarrow \infty}\mathcal{P}(\lvert \xi_n-\xi\rvert \ge \epsilon)=0$ . 记为 $\xi_n\overset{p}{\rightarrow}\xi$ .
+
+>[!warning] 注意是 $\lvert \xi_n-\xi\rvert\ge \epsilon$ .
+
+>[!hint] 依概率收敛相当于实变函数中的依测度收敛.
+
+>[!example]- 斯卢茨基：设随机变量函数列 $\{\xi_n\}_{n\ge1}$ ，其对应的分布函数列为 $\{F_n\}_{n\ge1}$ ，随机变量函数列 $\{\eta_n\}_{n\ge1}$ 依概率收敛到常数 $C>0$ . 证明：1) $\zeta_n=\xi_n+\eta_n$ 的分布函数收敛到 $F(x-C)$ ；2) $\zeta=\frac{\xi_n}{\eta_n}$ 的分布函数收敛到 $F(Cx)$ .
+>证明： 
+>
+>$$\begin{aligned}
+>F_{\zeta_n}(x)&=\mathcal{P}(\xi_n+\eta_n<x)\\
+>&=\mathcal{P}\{\xi_n+\eta_n<x,\lvert \eta_n-C\rvert\ge \epsilon\}\\
+>&+\mathcal{P}\{\xi_n+\eta_n<x,\lvert \eta_n-C\rvert<\epsilon\}\\
+>&\leq \mathcal{P}(\cdots)+\mathcal{P}(\xi_n<x-C+\zeta)
+>\end{aligned}$$
+>
+>从而由 $\{\eta_n\}_{n\ge1}$ 概率收敛可得：
+>
+>$$\varlimsup_{n\rightarrow \infty}F_{\zeta_n}(x)\leq \varlimsup_{n\rightarrow \infty}F_{\xi_n}(x-C+\epsilon)$$
+>
+>同理可以证明有：
+>
+>$$\varliminf_{n\rightarrow \infty}F_{\zeta_n}(x)\ge \varliminf_{n\rightarrow \infty}F_{\xi_n}(x-C-\epsilon)$$
+>
+>\2) 同理 
+
+进而取 $n\rightarrow \infty$ ，以及 $\epsilon\rightarrow 0^+$ 可以得到结论，注意这里要求 $x-C,x-C\pm \epsilon$ 都是连续点.
 
 定义 $\{\xi_n\}_{n\ge1}$ **r 收敛**到 $\xi$ ： $r>0,E \lvert \xi_n\rvert^r<\infty,E\lvert \xi\rvert^r<\infty$ ，并且 $E\lvert \xi_n-\xi\rvert^r\rightarrow0(n\rightarrow \infty)$ . 记为 $\xi_n\overset{r}{\rightarrow}\xi$ .
 
@@ -1733,6 +1830,10 @@ $$\begin{aligned}
 记 $\delta_{n_k}=F_{n_k}(X)-F_{n_k}(-X)$ ，因为 $F_{n_k}$ 弱收敛于 $F$ ，所以存在 $X,k$ 使得：
 
 $\delta_k\leq \delta+\frac{\epsilon}{4}$ .
+
+## 中心极限定理
+
+设 $\{\xi_i\}_{1\leq i\leq n}$ ，令 $S_n=\sum\limits_{i=1}^{n}\xi_i,\overline{X_n}=\frac{1}{n}\sum\limits_{i=1}^{n}\xi_i$ ，如果 $ES_n,DS_n$ 均存在，则 $\frac{S_n-ES_n}{\sqrt{DS_n}}\overset{d}{\rightarrow}\mathcal{N}(0,1)$ ，或者写作 $\frac{\overline{X_n}-E\overline{X_n}}{\sqrt{D\overline{X_n}}}\overset{d}{\rightarrow}\mathcal{N}(0,1)$ ，则称 $\{\xi_i\}_{1\leq i\leq n}$ 满足**中心极限定理**.
 
 # 附录 I 常见变量的数字特征
 
