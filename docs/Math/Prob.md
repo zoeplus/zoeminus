@@ -10,7 +10,7 @@
 
 进而定义分布函数、密度函数，并依据实际情况将随机变量分为离散型和连续型；随后讨论随机变量之间的关系：条件概率、独立性；然后就会进入到概括性强的数字特征：期望、方差、母函数、特征函数.
 
-最后，讨论一些更优雅的结论，因为实际上在上述对于随机变量的讨论中几乎未染指如何计算概率. 在[[#概率收敛]]中，将给出一些定理，说明如何估计随机变量分布函数.
+最后，讨论一些与随机变量函数列相关的收敛的结论，因为实际上在上述对于随机变量的讨论中几乎未染指如何计算概率. 在[[#概率收敛]]中，将给出一些定理，说明如何估计随机变量分布函数.
 
 # 概率论讨论对象
 
@@ -174,7 +174,7 @@ $\mathcal{F}$ 必须是 $\sigma-$ 域（**sigma-field**，或者称 $\sigma-$ �
 
 ## 古典概率模型
 
->[!summary]+ 自查表
+>[!summary] 自查表
 >- 古典概率模型的定义；举出一个不是古典概率模型的例子；
 
 - $\lvert \Omega\rvert$ 有限；
@@ -386,7 +386,7 @@ $$\mathcal{P}(B_j|A)=\frac{\mathcal{P}(A|B_j)\mathcal{P}(B_j)}{\sum_{k=1}^{n}\ma
 
 >[!note]- 巴拿赫火柴盒：左右口袋各放有一个装有 $N$ 个火柴的火柴盒，每次任取一根，在发现一盒用光时，另一盒中有 $r$ 根的概率为？并证明恒等式 $\sum\limits_{k=0}^{N}\binom{N+k}{k}\frac{1}{2^k}=2^N$ .
 
-## 伯努利随机试验AA
+## 伯努利随机试验
 
 >[!summary]+ 自查表
 >- 什么是 Bernoulli 随机试验？其事件域 $\mathcal{F}$ 是什么样的？
@@ -568,6 +568,17 @@ $$\forall x\in \mathbb{R},\{\omega\in \Omega:\xi(\omega)<x\}\overset{def}{=}\{\x
 2. 标准性： $\lim_{a\rightarrow -\infty}F(a)\overset{def}{=}F(-\infty)=0,\lim_{b\rightarrow +\infty}F(b)\overset{def}{=}F(+\infty)=1$ ；
 3. 左连续性： $\lim_{x_n\rightarrow x^-}F(x_n)\overset{def}{=}F(x-0)=F(x)$ . （如果在对 $\xi$ 的定义中改为 $\leq$ 时，这里的性质是右连续性） ^DistributionFunctionProperty
 
+对于标准性的证明：
+
+$$\begin{aligned}
+1=\{-\infty<\xi<\infty\}&=\sum\limits_{n=-\infty}^{\infty}\mathcal{P}(n\leq \xi<n+1)\\
+&=\sum\limits_{n=-\infty}^{\infty}F(n+1)-F(n)\\
+&=\lim_{n\rightarrow \infty}F(n)-\lim_{n\rightarrow \infty}F(-n)\\
+&\overset{F\ \text{单调}}{=}F(+\infty)-F(-\infty)
+\end{aligned}$$
+
+并且由 $F(+\infty)\leq 1,F(-\infty)\ge 0$ 可得结论.
+
 其中对于左连续性的证明，考虑 $x_0<x_1<\cdots<x_k<\cdots,\forall n\geq1(x_n<x_0)$ ，
 
 $$\begin{aligned}
@@ -576,8 +587,9 @@ F(x)-F(x_0)&=\mathcal{P}(x_0\leq \xi<x)\\
 &=\sum\limits_{n\geq1}^{}\mathcal{P}(\{x_{n-1}\leq \xi<x_n\})\\
 &=\sum\limits_{n\geq1}^{}(F(x_n)-F(x_{n-1}))\\
 &=\lim_{n\rightarrow \infty}F(x_n)-F(x_0)
-\end{aligned}$$ 
-从而可得如下结论.
+\end{aligned}$$
+
+从而有单调性可以得到结论，类似可得如下结论.
 
 >[!note] $\mathcal{P}(\xi\leq a)=F(a+0)$ 
 >和上面说明左连续性的思路类似，但要取一个补，首先不妨取单调列 $\{a+1/n\}_{n\geq1}$ ，因为：
@@ -609,6 +621,8 @@ F(x)-F(x_0)&=\mathcal{P}(x_0\leq \xi<x)\\
 >- $\mathcal{P}(a<\xi\leq b)=F(b+0)-F(a+0)$ ；
 >- $\mathcal{P}(a<\xi<b)=F(b)-F(a+0)$ ；
 >- $\mathcal{P}(\xi=x_0)=F(x_0+0)-F(x_0)$ ；
+
+>[!example] 如果分布函数定义： $F(x)=\mathcal{P}(\xi\leq x)$ ，则 $F(x)$ 满足 i) 非降；2) $F(-\infty)=0,F(+\infty)=0$ 3) 右连续.
 
 >[!example]- 假设 $\xi$ 只能取值 $-1,0,1$ ，并且 $\mathcal{P}(\xi=-1)=p,\mathcal{P}(\xi=0)=q,\mathcal{P}(\xi=1)=r$ ，$p+q+r=1$ ，则 $F(x)$ ？
 >$$F(x)=\left\{\begin{aligned}&p,x\leq -1\\&p+q,-1<x\leq 0\\&1,0<x\end{aligned}\right.$$
@@ -674,7 +688,6 @@ $$\mathcal{P}(\xi=k)=\frac{\binom{N-M}{n-k}\binom{M}{k}}{\binom{N}{n}}$$
 
 **泊松分布** $P(\xi=k)=\frac{\lambda^k}{k!}e^{-\lambda},\lambda>0$ ；记分布列为泊松分布的随机变量 $\xi\sim \mathcal{P}(\lambda)$ .
 
-
 ## 简单随机变量
 
 **简单随机变量**的形式可以写作 $X(w)=\sum\limits_{i=1}^{n}a_iI_{A_i}(w)$ 其中 $I_{A_i},1\leq i\leq n$ 为指示函数， $A_i,1\leq i\leq n$ 则组成了 $\Omega$ 的一个不相交划分. #issue [Check](https://www.oreilly.com/library/view/probability-random-variables/9781118393956/OEBPS/c05-sec1-0004.htm#:~:text=A%20simple%20random%20variable%20is%20a%20generalization%20of,of%20%CE%A9%20are%20mapped%20to%20N%20values%20in.)
@@ -726,6 +739,13 @@ $$F(x)=\left\{\begin{aligned}
 
 因为 $F$ 是连续的所以取等位置任意，这里仍写作 $\leq$ 是习惯，和离散随机变量的分布函数保持一致. 另外也可以根据 $F$ 是否连续判断是否不是连续型随机变量的分布函数.
 
+>[!example]- 随机变量 $\xi\in[0,1]$ ，并且 $\forall 0\leq x\leq y\leq 1,\mathcal{P}(x\leq \xi<y)$ 只与 $y-x$ 有关，证明 $\xi\sim U([0,1])$ .
+>证明：设 $f(y)=\mathcal{P}(0\leq \xi<y)$ ，不难得到 $f(y_1+y_2)=f(y_1)+f(y_2)$ ，进而有 $f$ 连续，由数分可得 $f(y)=Cy,y\in[0,1]$ .
+>
+>$$f(1)=\mathcal{P}(0\leq \xi<1)=C$$
+>
+>并且 $\mathcal{P}(\xi=1)=0$ [[2425Su222553]] . 所以 $C=1$ .
+
 ### 正态分布
 
 $$\int_{-\infty}^\infty e^{-\frac{x^2}{2}}dx=\sqrt{2 \pi}$$
@@ -734,7 +754,7 @@ $$\int_{-\infty}^\infty e^{-\frac{x^2}{2}}dx=\sqrt{2 \pi}$$
 
 正态分布的分布函数：
 
-$$F(x)=\int_{-\infty}^x \frac{1}{\sqrt{2\pi \sigma}}e^{-\frac{(y-\mu)^2}{2\sigma^2}}dy$$
+$$F(x)=\int_{-\infty}^x \frac{1}{\sqrt{2\pi }\sigma}e^{-\frac{(y-\mu)^2}{2\sigma^2}}dy$$
 
 一般记 $\mathcal{N}(0,1)$ 为**标准正态分布**，记 $\varphi(x)=\frac{1}{\sqrt{2\pi}}e^{-\frac{x^2}{2}}$ ， $\Phi(x)=\int_{-\infty}^x\frac{1}{\sqrt{2\pi}}e^{-\frac{y^2}{2}}dy$ . 不难得到  $\Phi(-x)=1-\Phi(x)$ ， $\Phi(0)=\frac{1}{2}$ 
 
@@ -811,11 +831,11 @@ $$f(x)=\left\{\begin{aligned}
 
 ### 随机变量的独立性
 
-## 随机向量
+## 随机向量（多元随机变量）
 
 >[!summary]+ 自查表 
->- 随机向量的定义？与随机变量定义的相似之处？
->- 联合分布函数的定义，性质？
+>- 随机向量的定义；与随机变量定义的相似之处；
+>- 联合分布函数的定义，性质；
 
 设 $\xi_1,\cdots,\xi_n$ 均为定义在概率空间 $(\Omega,\mathcal{F},\mathcal{P})$ 上的随机变量，称 $\xi=(\xi_1,\cdots,\xi_n)$ 为**随机向量**.
 
@@ -843,12 +863,17 @@ $$f(x)=\left\{\begin{aligned}
 2. $F(-\infty,y)=F(x,-\infty)=F(-\infty,-\infty)=0$ ， $F(+\infty,+\infty)=1$ ；
 3. $F$ 关于每个分量左连续；
 
-此外：
+此外还有第 4 条性质：
 
 $$\begin{aligned}
 &\mathcal{P}(\xi\in[a_1,b_1),\eta\in[a_2,b_2))\\
 &=F(b_1,b_2)-F(a_1,b_2)-F(b_1,a_2)+F(a_1,a_2)\geq0
 \end{aligned}$$
+
+由该性质可以得到 1) . 性质 2,3,4 即可确定一个多元随机变量.
+
+>[!example]- 由 1) 不能得出 4) / 满足 1,2,3 不能决定一个随机变量：设 $F(x,y)=\left\{\begin{aligned}&1,x+y>0\\&0,x+y\leq 0\end{aligned}\right.$ .
+>$F$ 满足 1,2,3 显然，取 $F(1,1)-F(0,1)-F(1,0)+F(0,0)$ 即可.
 
 >[!example]- 求 $\mathcal{P}(\xi\in(a_1,b_1),\eta\in [a_2,b_2])$ .
 >
@@ -900,13 +925,11 @@ $$\mathcal{P}(\xi_1=n_1,\cdots,\xi_m=n_m)=\frac{\binom{N_1}{n_1}\cdots \binom{N_
 >- 连续型随机向量的定义；
 >- 连续型随机向量的边际分布函数、边际（分布）密度函数的定义；
 
-称随机向量 $(\xi_1,\cdots,\xi_n)$ 是连续型随机向量，如果存在非负可积函数 $p(\mu_1,\cdots,\mu_n)$ ，使得其联合分布函数：
+称随机向量 $(\xi_1,\cdots,\xi_n)$ 是连续型随机向量，如果存在非负可积函数 $p(\mu_1,\cdots,\mu_n)$ ，使得其**联合分布函数**（分布密度函数）：
 
 $$F(x_1,\cdots,x_n)=\int_{-\infty}^{x_1}\cdots\int_{-\infty}^{x_n}p(\mu_1,\cdots,\mu_n)d \mu_1\cdots d\mu_n$$
 
 并且： $p=\frac{\partial^n{F}}{\partial{x_1}\cdots\partial{x_n}}$ .
-
-%%类似[[#连续型随机变量]]可以称 $p(\mu_1,\cdots,\mu_n)$ 为 $\xi=(\xi_1,\cdots,\xi_n)$ 的分布密度函数%%
 
 显然，若 $(\xi,\eta)$ 是二维连续随机向量， $\xi,\eta$ 也是连续随机变量. #issue %%反过来是否一定成立？%%
 
@@ -928,7 +951,7 @@ $$p(x,y)=\left\{\begin{aligned}
 &0
 \end{aligned}\right.$$
 
->[!example]+ 联合分布密度函数是均匀的其边际分布函数不一定均匀.
+>[!example]- 联合分布密度函数是均匀的其边际分布函数不一定均匀.
 >考虑单位圆上的均匀分布：
 >
 >$$p(x,y)=\left\{\begin{aligned}
@@ -936,11 +959,28 @@ $$p(x,y)=\left\{\begin{aligned}
 >&0,\text{otherwise}
 >\end{aligned}\right.$$
 
+>[!example]- 设 $(\xi,\eta)$ 的联合分布为 $p(x,y)=\frac{1}{\Gamma(k_1)\Gamma(k_2)}x^{k_1-1}(y-x)^{k_2-1}e^{-y}$ ，求 $p_\xi,p_\eta$ .
+>解：（注意定义域）本题用到一些数分中的定义和结论：
+>
+>$$\begin{aligned}
+>\Gamma(s)&=\int_{0}^{\infty}t^{s-1}e^{-t}dt\\
+>B(p,q)&=\int_0^1t^{p-1}(1-t)^{q-1}e^{-t}dt\\
+>B(p,q)&=\frac{\Gamma(p)\Gamma(q)}{\Gamma(p+q)}
+>\end{aligned}$$
+>
+>$$\begin{aligned}
+>p_\xi(x)&=\int_x^{\infty}\frac{1}{\Gamma(k_1)\Gamma(k_2)}x^{k_1-1}(y-x)^{k_2-1}e^{-(y-x)}e^{-x}dy\\
+>&=\int_0^{\infty}\frac{1}{\Gamma(k_1)\Gamma(k_2)}x^{k_1-1}t^{k_2-1}e^{-t}e^{-x}dy\\
+>&=\frac{1}{\Gamma(k_1)}x^{k_1-1}e^{-x}\\\\
+>p_\eta(x)&=\int_0^1\frac{1}{\Gamma(k_1)\Gamma(k_2)}t^{k_1-1}(1-t)^{k_2-1}e^{-y}y^{k_1+k_2-1}dt\\
+>&=\frac{B(k_1,k_2)}{\Gamma(k_1)\Gamma(k_2)}y^{k_1+k_2-1}e^{-y}
+>\end{aligned}$$
+
 #### 多元正态分布
 
->[!summary]+ 自查表
->- 二元正态分布的联合分布密度函数？分解式？
->- 多元正态分布的联合分布密度函数？
+>[!summary] 查表
+>- 二元正态分布的联合分布密度函数，分解式；
+>- 多元正态分布的联合分布密度函数；
 
 **二元正态分布**：
 
@@ -989,6 +1029,52 @@ $$\begin{bmatrix}\sigma_1^2 & \rho\sigma_1\sigma_2 \\ \rho\sigma_1\sigma_2 & \si
 **多元正态分布**：设 $\Sigma=(\sigma_{ij})_{n\times n}$ 为正定对称矩阵， $\mu=(\mu_1,\cdots,\mu_n)$ . 若随机向量 $\xi=(\xi_1,\cdots,\xi_n)$ 的联合分布密度函数：
 
 $$p(x_1,\cdots,x_n)=\frac{1}{(2\pi)^{\frac{n}{2}}(\det \Sigma)^{\frac{1}{2}}}\exp \left\{-\frac{1}{2}(x-\mu)^T \Sigma^{-1}(x-\mu)\right\}$$
+
+>[!warning] $\Sigma^{-1}$
+
+>[!note] $n$ 元正态分布 $\mathcal{N}(\mu,\Sigma)$ 的特征函数为 $f(t)=\exp\left\{i\mu^Tt-\frac{1}{n}t^T\Sigma t\right\}$ .
+
+证明：
+
+$$\begin{aligned}
+f(t)&=\int_{\mathbb{R}^n}e^{it^Tx}p(x)dx\\
+&=\frac{1}{(2\pi)^{n/2}(\det\Sigma)^{1/2}}\int_{\mathbb{R}^n} e^{it^Tx}\exp\left\{-\frac{1}{2}(x-\mu)^T\Sigma^{-1}(x-\mu)\right\}
+\end{aligned}$$
+
+[[2425Su215531]]
+
+借助特征函数可以证明正态分布的线性组合具有如下非常强的性质：
+
+>[!note] $\xi=(\xi_1,\cdots,\xi_n)$ 服从 $\mathcal{N}(\mu,\Sigma)$ 的充要条件为任意 $\zeta=\sum\limits_{j=1}^{n}l_j\xi_j$ 服从 $\mathcal{N}(\sum\limits_{j=1}^{n}l_j\mu_j,\sum\limits_{j,k=1}^{n}l_jl_k\sigma_{jk})$ (或简写为 $l^T\mu,l^T\Sigma l$ ) .
+
+以上说的是线性组合，最后得到的一个随机变量仍然服从正态分布，下面这一定理说明了多元正态分布的线性变换仍然为多元正态分布.
+
+>[!note] 设 $\xi=(\xi_1,\cdots,\xi_n)\sim \mathcal{N}(\mu,\Sigma)$ ，设 $C\in \mathbb{R}^{m\rightarrow n}$ ，则 $\eta=C\xi$ 服从 $\mathcal{N}(C\mu,C\Sigma C^T)$ .
+
+>[!example]- 设 $(\xi,\eta)\sim \mathcal{N}(\mu_1,\mu_2,\sigma_1^2,\sigma_2^2,\rho)$ ，取 $U=a\xi+b\eta,V=c\xi+d\eta$ . 则 $(U,V)$ 的分布为？在何种情况下 $(U,V)$ 退化为一维分布；什么情况下 $(U,V)$ 独立.
+>计算：
+>
+>$$\begin{aligned}
+>&EU=a\mu_1+b\mu_2\\
+>&EV=c\mu_1+d\mu_2\\
+>&DU=\begin{bmatrix}a &b\end{bmatrix}\begin{bmatrix}\sigma_1^2 & \rho\sigma_1\sigma_2 \\ \rho\sigma_1\sigma_2 & \sigma_2^2\end{bmatrix} \begin{bmatrix}a \\ b\end{bmatrix}\\
+>&\qquad = a^2\sigma_1^2+b^2\sigma^2_2+2\rho ab\sigma_1\sigma_2\\
+>&DV = c^2\sigma_1^2+d^2\sigma_2^2+2\rho cd\sigma_1\sigma_2\\
+>&\text{Cov}(U,V)=EUV-EUEV\\
+>&\qquad\qquad\ \ = ac\sigma_1^2+bd\sigma_2^2+\rho(ad+bc)\sigma_1\sigma_2
+>\end{aligned}$$
+>
+>因为线性变换保持正态分布，所以 $(U,V)$ 的分布即为：
+>
+>$$\mathcal{N}(EU,EV,DU,DV,\frac{\text{Cov}(U,V)}{DUDV})$$
+>
+>当协方差矩阵奇异时 $(U,V)$ 退化为一维正态分布. 即为：
+>
+>$$\left |  \begin{matrix}DU & \text{Cov}(U,V) \\ \text{Cov}(U,V) & DV\end{matrix}\right |=(ad-bc)\sigma_1^2\sigma_2^2(1-\rho^2)$$
+>
+>则 $\rho=\pm 1$ 或者 $ad=bc$ .
+>
+>正态分布独立等同于不相关，因此 $\text{Cov}=0$ （注意区分原先的 $\rho$ ）时独立.
 
 ## 随机向量的函数
 
@@ -1626,13 +1712,21 @@ $f(t)=$
 
 设随机变量列 $\{\xi_n\}_{n\ge1}$ ，随机变量 $\xi$ ，分布函数分别为 $F_n(x),F(x)$ .
 
-定义 $\{\xi_n\}_{n\ge1}$ **依分布收敛** 到 $\xi$ ：对于 $F$ 的任意一个连续点都有 $F_n(x)\rightarrow F(x)$ (弱收敛). 记为 $\xi_n\overset{l}{\rightarrow} \xi$ . 
+定义 $\{\xi_n\}_{n\ge1}$ **依分布收敛** 到 $\xi$ ：对于 $F$ 的任意一个连续点都有 $F_n(x)\rightarrow F(x)$ (弱收敛). 记为 $\xi_n\overset{L}{\rightarrow} \xi$ . 
 
-定义 $\{\xi_n\}_{n\ge1}$ **依概率收敛**到 $\xi$ ： $\forall \epsilon>0$ 有 $\lim_{n\rightarrow \infty}\mathcal{P}(\lvert \xi_n-\xi\rvert \ge \epsilon)=0$ . 记为 $\xi_n\overset{p}{\rightarrow}\xi$ .
+>[!example]- 分布函数列收敛得到的不一定是分布函数.
+>$$F_n=\left\{\begin{aligned}
+>&0,x\leq n\\
+>&1,x>n
+>\end{aligned}\right.$$
+>
+>则 $F=\lim_{n\rightarrow \infty}F_n=0$ .
+
+定义 $\{\xi_n\}_{n\ge1}$ **依概率收敛**到 $\xi$ ： $\forall \epsilon>0$ 有 $\lim_{n\rightarrow \infty}\mathcal{P}(\lvert \xi_n-\xi\rvert \ge \epsilon)=0$ . 记为 $\xi_n\overset{P}{\rightarrow}\xi$ .
 
 >[!warning] 注意是 $\lvert \xi_n-\xi\rvert\ge \epsilon$ .
 
->[!hint] 依概率收敛相当于实变函数中的依测度收敛.
+>[!hint] 依概率收敛相当于实变函数中的依测度收敛 $\overset{m}{\rightarrow}$ .
 
 >[!example]- 斯卢茨基：设随机变量函数列 $\{\xi_n\}_{n\ge1}$ ，其对应的分布函数列为 $\{F_n\}_{n\ge1}$ ，随机变量函数列 $\{\eta_n\}_{n\ge1}$ 依概率收敛到常数 $C>0$ . 证明：1) $\zeta_n=\xi_n+\eta_n$ 的分布函数收敛到 $F(x-C)$ ；2) $\zeta=\frac{\xi_n}{\eta_n}$ 的分布函数收敛到 $F(Cx)$ .
 >证明： 
@@ -1652,15 +1746,15 @@ $f(t)=$
 >
 >$$\varliminf_{n\rightarrow \infty}F_{\zeta_n}(x)\ge \varliminf_{n\rightarrow \infty}F_{\xi_n}(x-C-\epsilon)$$
 >
->\2) 同理 
-
-进而取 $n\rightarrow \infty$ ，以及 $\epsilon\rightarrow 0^+$ 可以得到结论，注意这里要求 $x-C,x-C\pm \epsilon$ 都是连续点.
+>进而取 $n\rightarrow \infty$ ，以及 $\epsilon\rightarrow 0^+$ 可以得到结论，注意这里要求 $x-C,x-C\pm \epsilon$ 都是连续点. 2) 同理 
 
 定义 $\{\xi_n\}_{n\ge1}$ **r 收敛**到 $\xi$ ： $r>0,E \lvert \xi_n\rvert^r<\infty,E\lvert \xi\rvert^r<\infty$ ，并且 $E\lvert \xi_n-\xi\rvert^r\rightarrow0(n\rightarrow \infty)$ . 记为 $\xi_n\overset{r}{\rightarrow}\xi$ .
 
+>[!example] 均方收敛： $r=2$ 情形.
+
 定义 $\{\xi_n\}_{n\ge1}$ **以概率 1 收敛**到 $\xi$ （几乎处处收敛）： $\mathcal{P}(\lim_{n\rightarrow \infty}\xi_n=\xi)=1$ . 记为 $\xi_n\overset{a.s.}{\rightarrow}\xi$ .
 
->[!note]- $\xi_n\overset{r}{\rightarrow}\xi \Rightarrow \xi_n\overset{p}{\rightarrow}\xi\Rightarrow \xi_n\overset{l}{\rightarrow}\xi$ .
+>[!note]- $\xi_n\overset{r}{\rightarrow}\xi \Rightarrow \xi_n\overset{P}{\rightarrow}\xi\Rightarrow \xi_n\overset{L}{\rightarrow}\xi$ .
 >证明：
 >
 >$$\begin{aligned}
@@ -1699,8 +1793,32 @@ $f(t)=$
 >注意：还未确定 $F_n$ 是否有极限，因此取下极限.
 >
 >同理可以得到： $\varlimsup_{n\rightarrow \infty}F_n(x)\leq F(x_2)$ ，从而得证.
+>
+>此处的同理并不显然，但为了证明反方向应该作此放缩：
+>
+>$$\begin{aligned}
+>\mathcal{P}(\xi\ge x_2)&=\mathcal{P}(\xi\ge x_2,\xi_n\ge x)+\mathcal{P}(\xi\ge x_2,\xi_n<x)\\
+>&\leq \mathcal{P}(\xi_n\ge x)+\mathcal{P}(\lvert \xi-\xi_n\rvert\ge x_2-x)\\
+>\end{aligned}$$
+>
+>取 $x_2\rightarrow x$ ，然后再取上极限可得：
+>
+>$$1-F(x)\leq 1-\varlimsup_{n\rightarrow \infty}F_n(x)$$
+>
+>从而可得结论.
 
->[!note] $\xi_n\overset{a.s.}{\rightarrow}\xi\Rightarrow \xi_n\overset{p}{\rightarrow}\xi\Rightarrow\xi_n\overset{l}{\rightarrow}\xi$ .
+>[!note] $\xi_n\overset{a.s.}{\rightarrow}\xi\Rightarrow \xi_n\overset{P}{\rightarrow}\xi\Rightarrow\xi_n\overset{L}{\rightarrow}\xi$ .
+>由 Rieze 定理可得. $a.s.\Rightarrow P$ 的情况.
+
+>[!note]- 当 $\xi_n\overset{l}{\rightarrow}C$ ，其中 $C$ 为常数时， $\xi_n\overset{P}{\rightarrow}C$ .
+>证明：
+>
+>$$\begin{aligned}
+>\mathcal{P}(|\xi_n-\xi|\ge \epsilon)&=\mathcal{P}(\xi_n\ge C+\epsilon)+\mathcal{P}(\xi_n\leq C-\epsilon)\\
+>&=1-F_n(C+\epsilon)+F_n(C-\epsilon+0)
+>\end{aligned}$$
+>
+>注意是 $\ge$ . 并由 $F(x)=\left\{\begin{aligned}&1,x>C\\&0,x\leq C\end{aligned}\right.$ 可得上式 $=1-1+0=0(n\rightarrow \infty)$ .
 
 ## 大数定律
 
@@ -1831,9 +1949,15 @@ $$\begin{aligned}
 
 $\delta_k\leq \delta+\frac{\epsilon}{4}$ .
 
+接下来由正极限定理：可知 $f(t)$ 是 $F(x)$ 的特征函数，下面利用特征函数的唯一性来说明序列 $\{F_n\}_{n\ge1}$ 弱收敛于 $F$ .
+
+假设存在 $F$ 的连续点 $x_0:F_n(x_0)\not\rightarrow F(x_0)$ ，因为 $\{F_n(x_0)\}_{n\ge1}$ 为有界序列，所以存在收敛子列 $\{F_{n_k'}(x_0)\}\rightarrow y_0$ ，由 Helly 第一定理，存在子序列 $\{F_{n'_{k_l}}\}^{l\ge1}$ 收敛于 $F^*:F^*(x_0)=y_0$ ，且由之前论证可知 $F^*$ 也为分布函数，对应的特征函数为 $f(t)$ ，与特征函数的唯一性矛盾！
+
 ## 中心极限定理
 
 设 $\{\xi_i\}_{1\leq i\leq n}$ ，令 $S_n=\sum\limits_{i=1}^{n}\xi_i,\overline{X_n}=\frac{1}{n}\sum\limits_{i=1}^{n}\xi_i$ ，如果 $ES_n,DS_n$ 均存在，则 $\frac{S_n-ES_n}{\sqrt{DS_n}}\overset{d}{\rightarrow}\mathcal{N}(0,1)$ ，或者写作 $\frac{\overline{X_n}-E\overline{X_n}}{\sqrt{D\overline{X_n}}}\overset{d}{\rightarrow}\mathcal{N}(0,1)$ ，则称 $\{\xi_i\}_{1\leq i\leq n}$ 满足**中心极限定理**.
+
+>[!note] De Movie - Laplace 定理：设 $\mu_n$ 为 $n$ 次 Bernoulli 试验中事件 $A$ 出现的次数，每一次试验 $A$ 出现的概率为 $p\in(0,1)$ ，对于任意的有限区间 $[a,b]$ ，有 1) 当 $x_k=\frac{k-np}{\sqrt{npq}}\in[a,b]$ 时 $\mathcal{P}\left\{a\leq \frac{\mu_n-np}{\sqrt{npq}}<b\right\}\rightarrow \int_a^b \varphi(x)dx$ ；2) $\frac{\mathcal{P}(\mu_n=k)}{\frac{1}{\sqrt{npq}}\frac{1}{\sqrt{2\pi}}e^{-\frac{1}{2}x_k^2}}\rightarrow1$
 
 # 附录 I 常见变量的数字特征
 
