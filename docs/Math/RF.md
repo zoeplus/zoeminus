@@ -1,6 +1,6 @@
 # 依赖与简介
 
-[实数理论](R.md) ，[集合论](Set.md)中关于集合运算、极限、势以及特殊集合（如 Cantor 集）.
+[实数理论](R.md) ，[集合论](Set.md)中关于集合运算、极限、势以及特殊集合（如 Cantor 集）. 以及数分中的一些结论： [[MA#上下极限]] .
 
 ## Riemann 积分的局限性
 
@@ -325,7 +325,7 @@ Lebesgue 测度具有可数可加性 $m3)$ .
 
 以下三个命题等价：
 
->[!note]- 等价命题： 1) $E$ 是可测集；2) 对于任意的 $\epsilon>0$ 存在开集 $G\supset E$ 使得 $m(G\backslash E)<\epsilon$ ；3) 对于任意的 $\epsilon>0$ ，存在闭集 $F\subset E$ 使得 $m(E\backslash F)<\epsilon$ .
+>[!note] （等测包）等价命题： 1) $E$ 是可测集；2) 对于任意的 $\epsilon>0$ 存在开集 $G\supset E$ 使得 $m(G\backslash E)<\epsilon$ ；3) 对于任意的 $\epsilon>0$ ，存在闭集 $F\subset E$ 使得 $m(E\backslash F)<\epsilon$ .
 
 证明： $1)\Rightarrow 2)$ 因为 $E$ 是可测集， <u>i)</u> 若 $m(E)<\infty$ 则对于任意的 $\epsilon>0$ 由定义可知存在 $\{I_n\}_{n\geq1},G=\bigcup_{n\geq1}I_n\supset E$ 满足 $m(G)\leq \sum\limits_{n\geq1}^{}m(I_n)<m(E)+\epsilon$ ，所以 $m(G\backslash E)\leq m(G)-m(E)<\epsilon$ <u>ii)</u> 若 $m(E)=\infty$ ，则取 $E=\bigcup_{n\in \mathbb{Z}}E\cap [n,n+1)\overset{def}{=}\bigcup_{n\geq1}E_n$ ，其中 $E_n$ 均为可测集，所以存在开集 $G_n\supset E_n,m(G_n\backslash E_n)<\frac{\epsilon}{2^{\lvert n\rvert+2}}$ 从而可得 $m(\bigcup_{n\in \mathbb{Z}}G_n\backslash E)=m\left(\bigcup_{n\in \mathbb{Z}}(G_n\backslash E_n)\right)\leq \sum\limits_{n\in \mathbb{Z}}^{}m(G_n\backslash E_n)\leq2\frac{\epsilon}{4}/\frac{1}{2}=\epsilon$ ，从而可得到结论；
 
@@ -334,6 +334,8 @@ Lebesgue 测度具有可数可加性 $m3)$ .
 $3)\Rightarrow1)$ 对于任意的 $n\geq1$ ，存在闭集 $F_n\subset E$ 使得 $m(E\backslash F_n)<\frac{1}{n}$ ，令 $F=\bigcup_{n\geq1}F_n$ ，可得 $m(E\backslash F)\leq m(E\backslash F_n)<\frac{1}{n},\forall n\geq1$ ，所以 $m(E\backslash F)=0$ ， $E\backslash F$ 可测，所以 $E=E\backslash F\cup F$ 可测.
 
 这个命题相当有用，除了逼近之外，可以通过闭集和开集进行论证. 下面就用该命题证明一个重要结论，在上面用其说明任何一个可测集都存在一个不可测子集. [check-mse](https://math.stackexchange.com/questions/84491/does-the-set-of-differences-of-a-lebesgue-measurable-set-contains-elements-of-at/104126#104126)
+
+>[!example] $E\subset \mathbb{R}^n$ 证明： $E$ 可测的充分必要条件为 $\forall \epsilon>0$ 存在开集 $G_1\subset E,G_2\subset E$ 使得 $m(G_1\cap G_2)<\epsilon$ .
 
 >[!note]- 若 $E\subset \mathbb{R}^n$ 可测并且 $m(E)>0$ ，则存在 $\delta>0$ ， $B(0,\delta)\subset E-E$ .
 >证明：首先证明若 $F\subset \mathbb{R}^n$ ， $F$ 可测并且 $F$ 是紧集，则存在 $\delta>0,B(0,\delta)\subset F-F$ ，因为 $F$ 可测所以存在开集 $G\supset F$ 使得 $m(G)<2m(F)$ ，并且 $G^c\cap F=\emptyset$ ，令 $\delta=d(G^c,F)>0$ （这里 $\delta$ 严格大于 $0$ ，因为两者都是闭集，否则可以构造 $G^c$ 和 $F$ 中的一个子列 $\{g_n\}_{n\geq1},\{f_n\}_{n\geq1},\lim_{n\rightarrow \infty}d(g_n,f_n)=0$ ，并且 $F$ （因为是 $\mathbb{R}$ 上的紧集，所以序列紧. 见 [[GTopo#紧]] ）存在收敛子列 $\{f_{n_i}\}_{i\geq1},f_{n_i}\rightarrow f\in F(i\rightarrow \infty)$ 从而可得 $\{g_{n_i}\}_{i\geq1}$ 收敛到 $f$ ，再由闭集的定义可知 $f\in G^c$ 矛盾！）.
@@ -344,10 +346,9 @@ $3)\Rightarrow1)$ 对于任意的 $n\geq1$ ，存在闭集 $F_n\subset E$ 使得
 >
 >下面讨论一般的集合 $E:m(E)>0$ ，截断： $E=\bigcup_{n\geq1}B(0,n)\cap E$ ，则存在 $G=B(0,m)\cap E$ ， $m(G)>0$ ，存在闭集 $F\subset G$ 使得 $0<m(G)/2< m(F)$ （ $m(G\backslash F)<m(F)\rightarrow 0<m(G)<2m(F)$），注意到 $F$ 为有界闭集，所以有上面的结论可知，存在 $\delta>0$ ， $B(0,\delta)\subset F-F\subset G-G\subset E-E$ .
 
-定义 $G_\delta$ 集： $E\in G_\delta\Leftrightarrow$ $E$ 能表示为可数个开集的交；定义 $F_\delta$ 集： $E\in F_\delta\Leftrightarrow$ $E$ 能表示为可数个闭集的并；
+定义 $G_\delta$ 集： $E\in G_\delta\Leftrightarrow$ $E$ 能表示为可数个开集的交；定义 $F_\delta$ 集： $E\in F_\delta\Leftrightarrow$ $E$ 能表示为可数个闭集的并；有如下推论：
 
-## 等测包
-
+>[!note] $E$ 可测等价于：1) $\exists E$ 的 $G_\sigma$ 集 $G$ 使得 $m^*(G-E)=0$ ；2) $\exists E$ 的 $F_\sigma$ 集 $F$ 使得 $m^*(E-F)=0$ .
 
 ## Borel $\sigma-$ 代数
 
@@ -644,6 +645,16 @@ m(D-F)&=m(D)-m(F)=m(D_1)-m(F)\\
 
 从而可得结论.
 
+>[!example]- 用 Egoroff 定理证明： $\{f_n\}_{n\ge1}$ 为 $[a,b]\rightarrow \mathbb{R}$ 上一列可测函数，逐点收敛于 $f$ ，如果存在 $C\in \mathbb{R}^+$ 使得 $\lvert f_k\rvert\leq C$ ，证明： $\lim_{k\rightarrow \infty}\int_{[a,b]}f_kdx=\int_{[a,b]}fdx$ .
+>由题可知 $f=\lim_{n\rightarrow \infty}f_n$ 可测，则对于任意的 $\epsilon>0$ 存在 $[a,b]$ 上的的闭子集 $E$ 使得： $m([a,b]\backslash E)<\epsilon/A$ ， $A$ 待定. $f_n$ 在 $E$ 上一致收敛于 $f$ ，从而：
+>
+> $$\begin{aligned}
+>\left\lvert \int_{[a,b]}f_kdx-\int_{[a,b]}fdx\right\rvert &\leq \left\lvert \int_Ef_k-fdx\right\rvert+\left\lvert \int_{[a,b]\backslash E}f_k-fdx\right\rvert\\
+>&\leq m(E)\sup_E|f_k-f|+\epsilon/A\cdot 2C
+>\end{aligned}$$
+>
+>取 $A=4C$ ，再由 $m(E)<\infty$ 可得结论.
+
 >[!note]- Egoroff 定理的逆命题也成立.
 >证明：对于任意的 $k\geq1$ ，存在 $D$ 的闭子集 $F_k$ 使得 $m(D-F_k)\leq \frac{1}{k}$ 并且 $f_n$ 在 $F$ 上一致收敛于 $f$ . 令 $F=\bigcup_{k\geq1}F_k$ ，则 $m(D-F)=m\left(\bigcap_{k\geq1}D-F_k\right)\leq \frac{1}{k}$ ，所以 $m(D-F)=0$ . 并且对于任意的 $x\in F$ ，存在 $F_{k_0}\ni x$ ， $f_n$ 在 $F_{k_0}$ 上一致收敛于 $f$ ，从而 $\{f_n(x)\}_{n\geq1}$ 收敛到 $f(x)$ .
 
@@ -677,8 +688,6 @@ $D$ 为有界可测集：
 $D$ 为一般可测集：
 
 >[!note] Lusin 定理推论：设 $f$ 为 $[a,b]$ 上的几乎处处有限的可测函数，则 $\forall \epsilon>0$ ，存在 $[a,b]$ 上的连续函数 $f^*$ 使得 $m(\{f\neq f^*\})<\epsilon$ 且 $\max\{|f^*|\}\leq \sup\{|f|\}$ .
-
-
 
 ## 依测度收敛
 
@@ -718,6 +727,12 @@ $D$ 为一般可测集：
 下面这个定理说明了测度收敛和处处收敛之间的关系.
 
 >[!note]- Riesz：设 $f,f_n(n\geq1)$ 均为可测集 $D$ 上几乎处处有限的可测函数，则： 1) 若 $f_n$ 依测度收敛于 $f$ ， $\{f_n\}_{n\geq1}$ 中必然有子列几乎处处收敛于 $f$ ；2) 若 $m(D)<\infty$ 并且 $f_n$ 几乎处处收敛于 $f$ ，则 $f_n$ 依测度收敛于 $f$ .
+
+>[!example]- 在可测集 $D$ 上有 $f_k\Rightarrow f,g_k\Rightarrow g$ 证明： $m(D)<\infty$ 时有 $f_kg_k\Rightarrow fg$ .
+>证明：假设存在 $\delta>0$ ，存在 $\epsilon>0$ 使得对于任意的 $k\ge 1$ 存在 $n_k>k$ 使得 $m(\{\lvert f_{n_k}g_{n_k}-fg\rvert>\delta\})>\epsilon$ ，对于 $\{f_{n_k}\}_{k\ge1},\{g_{n_k}\}_{k\ge1}$ ，由 $f_k\Rightarrow f,g_k\Rightarrow g$ ，存在子列 $\{f_{n_{k_l}}\}_{l\ge1},\{g_{n_{k_l}}\}_{l\ge1}$  几乎处处收敛于 $f,g$ ，由 $m(D)<\infty$ 可知该子列 $\Rightarrow f,\Rightarrow g$ 矛盾！
+
+>[!example]- 对上例， $m(D)=\infty$ 下 $f_kg_k\Rightarrow fg$ 不一定成立.
+> $f_k=g_k=x+\frac{1}{n}$
 
 >[!example] 设在 $[a,b]$ 上 $f_k$ 依测度收敛于 $f$ ， $g\in C(\mathbb{R})$ ，证明 $g\circ f_k\Rightarrow g\circ f$ .
 >证明：假设 $g\circ f_k\not\Rightarrow g\circ f$ ，则存在子列 $\{f_{k_l}\},\epsilon_{0},\delta_0$ 使得 $m(\lvert g\circ f_{k_l}-g\circ f\rvert>\delta_0)\geq \epsilon_0$ ，由 Riesz 定理不妨设子列 $\{f_{k_l}\}$ 收敛于 $f$ . 因为 $g\in C(\mathbb{R})$ ，所以 $g\circ f_{l_k}$ 几乎处处收敛于 $g\circ f$ ，并且 $m([a,b])<\infty$ ，所以又由 Riesz 定理可知 $g\circ f_{k_l}$ 依测度收敛于 $g\circ f$ ，矛盾！
@@ -774,6 +789,10 @@ $D$ 为一般可测集：
 >$$m\left(\varlimsup_{k\rightarrow \infty}\{|a_kf_k|>\epsilon\}\right)=0,\forall \epsilon>0$$
 >
 >由 Borel - Contelli 引理，充分条件为 $\sum\limits_{k\ge 1}^{}m(|a_kf_k|>\epsilon)<\infty$ 而这并不难做到，因为 $m(\lvert f_k\rvert=\infty)=0$ ，所以对于 $k\ge 1$ ，存在 $a_k$ 使得 $|f_k|>\frac{\epsilon}{|a_k|}$ 足够大，从而 $m(|a_kf_k|>\epsilon)<\frac{\epsilon'}{2^{k+1}}$ ，进而可以满足要求.
+>
+><u>另一种证明思路</u>：
+>
+>注意到 $\lim_{n\rightarrow \infty}m(|f_k|\ge n)=0,\forall k\ge 1$ （? [[2426Mo104727]]），所以存在 $n_k$ 使得 $m(|f_k|\ge n_k)<\frac{1}{2^{k+1}}$ 构造零测集： $E=\bigcap_{m\ge 1}\bigcup_{k\ge m}\left\{\lvert f_k\rvert>n_k\right\}$ ，从而 $[a,b]\backslash E=\bigcup_{m\ge 1}\bigcap_{k\ge m}\left\{\lvert f_k\rvert\leq n_k\right\}$ ，所以存在 $m_0,\forall k\ge m$ 有 $\lvert f_k\rvert<n_k$ 则取 $a_k=\frac{1}{n_k k}$ 即可.
 
 在数学分析中，实数完备性指出： $\mathbb{R}$ 中的 Cauchy 列（也称基本列）和收敛列是等价的 #imcomplete .
 
@@ -911,24 +930,7 @@ Lebesgue 积分区别与 Riemann 积分的一个方面：绝对可积和可积�
 
 证明：采取之前证明任意非负可测函数都存在收敛的简单函数列的方法. [[2420Sa142234]]
 
->[!example]- 设 $f\in L(E)$ ，求证： $k\cdot m(\{\lvert f\rvert>k\})\rightarrow0(k\rightarrow \infty)$ . [[2420Sa140922]]
->证明：由 $f\in L(E)$ 可知 $\lvert f\rvert\in L(E)$ ， $\lvert f\rvert\geq0$ ，所以存在单调收敛到 $\lvert f\rvert$ 的函数列 $\{f_n\}_{n\geq1}$ 并且 $\lim_{n\rightarrow \infty}\int_Ef_ndx<\infty$ ，所以当 $n$ 充分大时 $\int_Ef_ndx<\infty$ . 注意到对于给定的 $k$ ， $\{f_m>k\}_{m\geq1}$ 单调递增.
->
->注意到：
->
->$$\begin{aligned}
->m(\{\lvert f\rvert>k\})&=m\left(\left\{\lim_{n\rightarrow \infty}f_n>k\right\}\right)\\
->&=m \left(\lim_{n\rightarrow \infty}\left\{f_m>k\right\}\right)\\
->&=\lim_{n\rightarrow \infty}m(\{f_n>k\})
->\end{aligned}$$
->
->注意到：
->
->$$k \cdot m(\{f_n\geq k\})\leq \int_{[k,\infty)}\lvert f_n\rvert dx=\sum\limits_{i\in I}^{}a_i m(E_i)$$
->
->其中 $a_i>k$ ，而 $I$ 为有限集，并且 $f$ 几乎处处有限，所以当 $k$ 充分大时 $f_n$ 也处处有限，所以若 $a_{i_0}=\infty$ 那么 $m(E_{i_0})=0$ ，因此可得 $\sum\limits_{i\in I}^{}a_im(E_i)\rightarrow 0(k\rightarrow \infty)$ .
->
->证明：因为 $f\in L(E)$ ，所以对单调收敛到
+
 
 >[!example] 设在可测集- $E$ 上非负可测函数 $f_k\Rightarrow f$ ，求证： $\int_Ef(x)dx\leq \varliminf_{k\rightarrow \infty}\int_Ef_k(x)dx$ . [mse](https://math.stackexchange.com/questions/276138/if-f-n-geq-0-and-f-n-to-f-in-measure-then-int-f-leq-liminf-int-f-n)
 >证明：由下极限的性质，存在 $\{f_k\}_{k}$ 的子列 $\{f_{k_n}\}_{n\geq1}$ ，使得 $\lim_{n\rightarrow \infty}\int_Ef_{k_n}dx=\varliminf_{k\rightarrow \infty}\int_Ef_k(x)dx$ ，并且由 $f_k\Rightarrow f$ 可知 $f_{k_n}\Rightarrow f$ ，由 Riesz 定理可知，存在 $f_{k_n}$ 的收敛到 $f$ 的子列 $\{f_{k_{n_j}}\}_{j\geq1}$ ，再由 $f\geq0$ ，根据 Fatou 定理：
@@ -1000,6 +1002,9 @@ $$\int_Ef(ax+b)dx=\int_E\sum\limits_{k=1}^{n}a_k \chi_{E_k}(ax+b)dx$$
 
 >[!example] 设 $f,f_k\in L(\mathbb{R})$ 并且 $\lvert f_k(x)\rvert\leq f(x)$ ，求证：  $\begin{aligned}\int_D \varliminf_{k\rightarrow \infty}f_k(x)dx &\leq \varliminf_{k\rightarrow \infty}\int_{\mathbb{R}}f_(x)dx\\&\leq \varlimsup_{k\rightarrow \infty}\int_\mathbb{R}f_k(x)dx\leq \int_\mathbb{R}\varlimsup_{k\rightarrow \infty}f_k(x)dx\end{aligned}$ #imcomplete-lack-proofs 
 
+>[!example]- 设 $\forall x\in \mathbb{R},f(x,y)$ 对 $y$ 在 $[a,b]$ 上可积； $\forall y\in [a,b],f(x,y)$ 对 $x$ 可微，并且 $\exists g\in L([a,b])$ 使得 $\forall x\in \mathbb{R},y\in[a,b]$  有 $\left\lvert \frac{d}{dx}f(x,y)\right\rvert\leq g(y)$ . 证明： $\forall x\in \mathbb{R}$ $\frac{d}{dx}\int_a^bf(x,y)dy=\int_a^b\frac{d}{dx}f(x,y)dy$ .
+>证明：设 $f_n(x,y)=n\left[f\left(x+\frac{1}{n},y\right)-f(x,y)\right]$ ，则对于给定的 $x$ ，由微分中值定理可得 $\exists \xi_n\in(x,x+1/n),f_n(x,y)=\frac{d}{dx}f(\xi_n,y)$ 从而 $\lvert f_n(x,y)\rvert\leq g(y)$ ，这里 $f_n(x,y)$ 是关于 $y$ 的函数，并且 $\frac{d}{dx}f=\lim_{n\rightarrow \infty}f_n(x,y)$ ，由控制收敛定理可得结论.
+
 >[!example]- 设 $f\in L(\mathbb{R}),a>0$ ，求证： $n^{-a}f(nx)\rightarrow 0,a.e.$
 >证明：
 >
@@ -1040,9 +1045,27 @@ $$\int_Ef(ax+b)dx=\int_E\sum\limits_{k=1}^{n}a_k \chi_{E_k}(ax+b)dx$$
 
 >[!example] 设 $f\in L([0,1])$ ，则极限 $\lim_{n\rightarrow \infty}\frac{1}{n}\int_0^1\ln(1+e^{nf(x)})dx$ 是否存在？若存在时求极限.
 
-类似 Levi 定理得到的逐项积分有如下结论：
+类似 Levi 定理得到的逐项积分，根据控制收敛定理可得如下结论：
 
->[!note] 设 $f_n\in L(E),\forall n\ge1$ ，
+>[!note] 设 $f_n\in L(E),\forall n\ge1$ ，若 $\{E_n\}_{n\ge1}$ 是 $D$ 的一个分划，则 $\int_Dfdx=\sum\limits_{k=1}^{\infty}\int_{E_k}fdx$ .
+
+下面这个结论说明当积分域测度接近于 $0$ 时积分趋 $0$ .
+
+>[!note] （积分绝对连续性） $f\in L(D)$ ，则对任意的 $\epsilon>0$ 存在 $\delta>0$ 使得对任意可测子集 $A:m(A)<\delta$ 有： $\left\lvert \int_Afdx\right\rvert<\epsilon$ .
+
+>[!example]- 设 $f\in L(E)$ ，求证： $k\cdot m(\{\lvert f\rvert>k\})\rightarrow0(k\rightarrow \infty)$ . 
+>证明：类似于概率论中切比雪夫不等式的证明. 注意到 $f\in L(E)$ ，所以 $m\{f=\infty\}=0$ ，则对于任意的 $\epsilon>0$ 存在 $\delta>0$ ，使得 $m(A)<\delta$  时 $\int_A|f|dx<\epsilon$ ，对于 $\delta>0$ ，存在 $K,k>K$ 时 $m(\{\lvert f\rvert>k\})<\delta$ ，从而：
+>
+> $$\epsilon>\int_{\{\lvert f\rvert>k\}}\lvert f\rvert dx\ge km(\{\lvert f\rvert>k\})$$
+>
+>由 $\epsilon$ 的任意性可得结论.
+
+由积分的连续性可以得到如下结论：
+
+>[!note] （不定积分的连续性） $f\in L((a,b))$ ，则 $F(x)=\int_a^xf(t)dt$ 在 $(a,b)$ 上一致连续.
+
+
+
 
 ## 函数在 $L$ 积分下的稠密性 / $L_1$ 收敛
 
