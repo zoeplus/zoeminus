@@ -86,7 +86,7 @@ markdown_extensions:
       expand_text: ''
       collapse_text: ''
   - toc:
-      title: 本文组织：
+      title: -----目录-----
       permalink: true
       baselevel: 2
 
@@ -101,10 +101,12 @@ theme:
   features:
     - revision.date
     - navigation.path
-    - navigation.top
+    # - navigation.top
     - navigation.footer
+    - navigation.instant
+    - navigation.instant.progress # loading progress
     # - toc.integrate 
-    - toc.follow
+    # - toc.follow
     - content.action.edit
     # - content.action.view
     - content.code.copy
